@@ -479,3 +479,75 @@ a:hover { text-decoration: underline; }
   .skill-row { flex-direction: column; }
   .row-side { flex-direction: row; align-items: center; }
 }
+
+/* ═══ 响应式补充 ═══ */
+
+/* 页脚分组 */
+.site-footer { justify-content: space-between; align-items: center; }
+.foot-links { display: flex; gap: 14px; flex-wrap: wrap; }
+.foot-links a { white-space: nowrap; }
+
+@media (max-width: 700px) {
+  /* 顶部导航：隐藏 meta、压缩间距 */
+  .site-header { padding: 12px 16px; gap: 14px; }
+  .header-meta { display: none; }
+  .site-nav { gap: 12px; font-size: .85rem; }
+  .logo { font-size: .98rem; }
+
+  /* Hero */
+  .hero { padding: 40px 16px 28px; }
+  .hero-out { font-size: .72rem; }
+
+  /* Browse 区 */
+  .browse { padding: 20px 16px 6px; }
+  .browse-h { font-size: 1.25rem; }
+  .browse-sub { font-size: .78rem; }
+
+  /* 分类 pills：横向滚动代替换行 */
+  .pill-row { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 10px; }
+  .pill { flex-shrink: 0; }
+
+  /* 维度 tab：横向滚动 */
+  .dim-row { overflow-x: auto; flex-wrap: nowrap; }
+  .dim-tab { padding: 8px 10px; font-size: .8rem; white-space: nowrap; flex-shrink: 0; }
+  .dim-tab.adv { margin-left: 0; }
+
+  /* 排序 */
+  .sort-row { gap: 4px; }
+  .sort-opt { padding: 3px 8px; font-size: .75rem; }
+
+  /* Top 精选 */
+  .top-grid { grid-template-columns: 1fr; }
+  .list-main, .top-zone, .directory { padding-left: 16px; padding-right: 16px; }
+
+  /* 列表卡片 */
+  .skill-row { padding: 12px 14px; gap: 10px; }
+  .row-title .score { font-size: .95rem; }
+  .row-desc { -webkit-line-clamp: 3; }
+
+  /* 底部分类目录 */
+  .dir-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+
+  /* 详情页 */
+  .detail { padding: 14px 16px 40px; }
+  .kv-grid { grid-template-columns: 100px 1fr; font-size: .82rem; }
+  .badge-row { gap: 6px; }
+  .file-content { padding: 12px 14px; }
+  .file-tree-header { padding: 4px 10px 8px; }
+  .tree-item { padding: 3px 10px; font-size: .78rem; }
+
+  /* 高级筛选抽屉 */
+  .adv-panel { width: 100%; max-width: 100%; }
+
+  /* 学习中心 */
+  .article { padding: 16px 16px 60px; }
+  .article h1 { font-size: 1.25rem; }
+  .article table { font-size: .78rem; }
+  .article th, .article td { padding: 4px 8px; }
+  .learn-item { padding: 12px 14px; gap: 10px; }
+  .learn-item .num { font-size: 1rem; }
+  .learn-item .lt { font-size: .9rem; }
+
+  /* 页脚 */
+  .site-footer { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+}

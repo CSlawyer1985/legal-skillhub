@@ -105,7 +105,7 @@
           <dt>人工复核</dt><dd>法律类 Skill 输出均需人工复核后方可用于正式用途</dd>
           <dt>授权</dt><dd>${riskLbl}（${lbl("lic", d.lic)}）</dd>
         </dl>
-        ${d.lrisk === "undeclared" ? `<p style="color:var(--red);font-size:.82rem;margin-top:10px">⚠ 该 Skill 原作者未声明授权条款。商业使用前请自行评估或联系原作者。权利人可通过<a href="./about.html#takedown">下架通道</a>联系我们。</p>` : ""}
+        ${d.lrisk === "undeclared" ? `<p style="color:var(--red);font-size:.82rem;margin-top:10px">⚠ 该 Skill 原作者未声明授权条款。商业使用前请自行评估或联系原作者。权利相关事宜见<a href="./about.html">授权与免责</a>。</p>` : ""}
         ${d.lrisk === "restrictive-nc" ? `<p style="color:var(--orange);font-size:.82rem;margin-top:10px">⚠ 该 Skill 采用非商业限制许可（${lbl("lic", d.lic)}），禁止商业用途。</p>` : ""}
       </section>
 
