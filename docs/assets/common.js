@@ -187,7 +187,7 @@ function renderFooter() {
   return `<footer class="site-footer">
     <div class="foot-brand">© 2026 Legal SkillHub · 法律 Skill 目录、说明书与部署入口</div>
     <div class="foot-links">
-      <a href="https://chenshi.ai" target="_blank" rel="noopener">陈石 法律｜AI</a>
+      <a href="https://chenshi.ai" target="_blank" rel="noopener">陈石 · 法与AI</a>
       <a href="https://legalagi.cn" target="_blank" rel="noopener">四明山法社 AI 夜校</a>
       <a href="https://github.com/CSlawyer1985/legal-skillhub" target="_blank" rel="noopener">GitHub 仓库</a>
       <a href="./about.html">授权与免责</a>
