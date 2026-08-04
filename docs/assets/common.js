@@ -198,7 +198,7 @@ function renderHeader(active) {
       <a href="./learn/index.html" ${active === "learn" ? 'class="active"' : ""}>学习中心</a>
       <a href="./about.html" ${active === "about" ? 'class="active"' : ""}>关于</a>
     </nav>
-    <div class="header-meta">2049 legal skills · v0.1</div>
+    <div class="header-meta">2049 legal skills</div>
   </header>`;
 }
 function renderFooter() {
