@@ -32,6 +32,12 @@
   ];
 
   let DATA = [];
+  /* 编辑推荐（人工精选）：8 个，其中 6 个中国大陆类 + 2 个其他法域 */
+  const CURATED = [
+    "legal-research", "construction-contract-review", "fadawang-qa-plus",
+    "patent-invalidation", "litigation-hub", "civil-litigation-thinking",
+    "30b6-deposition", "analyse-dpa-fournisseur-hugo-salard",
+  ];
   const state = {
     q: "", dim: "jur", pills: new Set(), adv: {}, sort: "q", page: 1, perPage: 24,
   };
@@ -261,11 +267,13 @@
     // Top 精选区（仅首页且无搜索/筛选时显示）
     const showTop = !state.q && !state.pills.size && advCount() === 0 && state.page === 1;
     $("#top-zone").style.display = showTop ? "block" : "none";
-    if (showTop) $("#top-zone").innerHTML = `<div class="top-label">▍ 编辑精选 · TOP PERFORMING</div><div class="top-grid">${
-      (DATA.filter(d => d.cur).length ? DATA.filter(d => d.cur) : DATA.slice().sort((a,b)=>b.q-a.q).slice(0,8)).slice(0,4)
-      .map(d => `<a class="top-card" href="./skill.html?f=${encodeURIComponent(d.id)}">
-        <div class="tc-score">${d.q}/5</div><div class="tc-name">&gt; ${escHtml(d.name)}</div>
-        <div class="tc-desc">${escHtml((d.summary||"").slice(0,70))}</div></a>`).join("")}</div>`;
+    if (showTop) {
+      const curated = CURATED.map(id => DATA.find(d => d.id === id)).filter(Boolean);
+      $("#top-zone").innerHTML = `<div class="top-label">▍ 编辑精选 · TOP PERFORMING</div><div class="top-grid">${
+        curated.map(d => `<a class="top-card" href="./skill.html?f=${encodeURIComponent(d.id)}">
+          <div class="tc-score">${d.q}/5</div><div class="tc-name">&gt; ${escHtml(d.name)}</div>
+          <div class="tc-desc">${escHtml((d.summary||"").slice(0,70))}</div></a>`).join("")}</div>`;
+    }
 
     $("#list").innerHTML = slice.map(cardHtml).join("");
     renderPager(all.length, totalPages);
