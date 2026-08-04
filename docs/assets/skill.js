@@ -8,13 +8,36 @@
   const id = params.get("f");
   const RISK_LBL = { open: ["宽松许可", "lic-open"], copyleft: ["传染性许可", "lic-copyleft"], "restrictive-nc": ["非商业限制", "lic-restrictive-nc"], undeclared: ["未声明授权", "lic-undeclared"] };
 
-  let DATA = null, FILES = null, rec = null, files = [];
+  let DATA = null, FILES = null, ALIASES = null, rec = null, files = [];
 
   async function load() {
     if (!id) { $("#detail").innerHTML = "<p>缺少参数 ?f=<skill-id></p>"; return; }
     DATA = await fetch("data/skills.json").then(r => r.json());
     rec = DATA.find(d => d.id === id);
-    if (!rec) { $("#detail").innerHTML = `<p>未找到技能：${escHtml(id)}</p>`; return; }
+    if (!rec) {
+      // 旧 id 兼容：查别名映射（改名时生成的），命中则自动跳转新 id
+      try { ALIASES = await fetch("data/aliases.json").then(r => r.json()); } catch (e) { ALIASES = {}; }
+      const target = ALIASES[id];
+      if (target && target !== id) {
+        location.replace(`./skill.html?f=${encodeURIComponent(target)}`);
+        return;
+      }
+      // 模糊提示：包含关系近似匹配
+      const fuzzy = DATA.filter(d => id.length > 5 && (d.id.includes(id) || id.includes(d.id))).slice(0, 5);
+      $("#detail").innerHTML = `
+        <a class="back-link" href="./index.html">← 返回技能库</a>
+        <div class="detail-head">
+          <h1>未找到该技能</h1>
+          <p class="detail-summary">「${escHtml(id)}」不在当前技能库中，可能已被重命名或移除。</p>
+        </div>
+        ${fuzzy.length ? `<section class="section"><h2>你可能在找</h2><div class="rel-grid">` +
+          fuzzy.map(d => `<a class="rel-card" href="./skill.html?f=${encodeURIComponent(d.id)}">
+            <div class="rel-title">${escHtml(d.name)}</div>
+            <div class="rel-desc">${escHtml((d.summary||"").slice(0,70))}</div></a>`).join("") +
+          `</div></section>` : ""}
+        <p style="margin-top:20px"><a class="case-link" href="./index.html">浏览全部 2049 个技能 →</a></p>`;
+      return;
+    }
     FILES = await fetch("data/files.json").then(r => r.json());
     files = FILES[id] || [];
     document.title = `${rec.name} · Legal SkillHub`;
