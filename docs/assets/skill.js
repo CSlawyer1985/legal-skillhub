@@ -49,6 +49,19 @@
     return files.find(f => /skill\.md$/i.test(f)) || files[0];
   }
 
+  /* 结构完整度五项明细（与 build_index.py 的 structure_score_of 一致） */
+  function structureDetail(d) {
+    const items = [
+      ["参考库 references", d.has.references],
+      ["脚本 scripts", d.has.scripts],
+      ["授权 LICENSE", d.has.license],
+      ["描述 ≥100 字", (d.summary || "").length >= 100],
+      ["文件 ≥4 个", d.files >= 4],
+    ];
+    return items.map(([label, ok]) =>
+      `<span class="metric-item ${ok ? "ok" : "no"}">${ok ? "✓" : "✗"} ${label}</span>`).join("");
+  }
+
   /* ═══ 页面骨架 ═══ */
   function render() {
     const d = rec;
@@ -133,10 +146,21 @@
       </section>
 
       <section class="section" id="sec-src">
-        <h2>许可与验证</h2>
-        <dl class="kv-grid">
+        <h2>质量与验证</h2>
+        <div class="metric-row">
+          <div class="metric">
+            <div class="metric-head">
+              <span class="metric-name">结构完整度</span>
+              <span class="metric-val">${d.q}/5</span>
+            </div>
+            <div class="metric-bar"><span class="metric-fill" style="width:${d.q * 20}%"></span></div>
+            <div class="metric-detail">${structureDetail(d)}</div>
+          </div>
+        </div>
+        <dl class="kv-grid" style="margin-top:12px">
           <dt>验证状态</dt><dd>${lbl("verif", d.verif)}</dd>
         </dl>
+        <p style="color:var(--text-dim);font-size:.78rem;margin-top:10px">// 结构完整度仅反映包结构（是否含参考库/脚本/授权/描述/文件数量），不代表任务质量或法律准确性；法律准确性、任务成功率等维度待逐项评测后独立上线。</p>
       </section>
 
       <section class="section" id="sec-rel" style="border-bottom:none">

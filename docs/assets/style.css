@@ -551,3 +551,16 @@ a:hover { text-decoration: underline; }
   /* 页脚 */
   .site-footer { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
 }
+
+/* ═══ 详情页质量指标 ═══ */
+.metric-row { display: flex; flex-direction: column; gap: 14px; }
+.metric { border: 1px solid var(--border); border-radius: 4px; padding: 12px 16px; background: var(--bg-panel); }
+.metric-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.metric-name { color: var(--text-bright); font-size: .9rem; }
+.metric-val { color: var(--accent); font-size: 1.05rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.metric-bar { height: 4px; background: var(--bg-hover); border-radius: 2px; overflow: hidden; margin-bottom: 10px; }
+.metric-fill { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+.metric-detail { display: flex; gap: 8px; flex-wrap: wrap; }
+.metric-item { font-size: .72rem; padding: 1px 8px; border-radius: 3px; border: 1px solid var(--border); }
+.metric-item.ok { color: var(--accent); border-color: var(--border-bright); }
+.metric-item.no { color: var(--text-dim); border-color: var(--border); }
