@@ -229,7 +229,7 @@
     const riskCls = d.lrisk;
     return `<a class="skill-row" href="./skill.html?f=${encodeURIComponent(d.id)}">
       <div class="row-main">
-        <div class="row-title"><span class="prompt">&gt;</span> <span class="sname">${escHtml(d.name)}</span> <span class="score" title="结构完整度：仅反映包结构（references/scripts/LICENSE/描述/文件数），不代表任务质量或法律准确性">结构 ${d.q}/5</span></div>
+        <div class="row-title"><span class="prompt">&gt;</span> <span class="sname">${escHtml(d.name)}</span> <span class="score" title="结构完整度：仅反映包结构（references/scripts/LICENSE/描述/文件数），不代表任务质量或法律准确性">${d.q}/5</span></div>
         <div class="row-desc">${escHtml(d.summary || "（暂无简介）")}</div>
         <div class="row-meta">
           <span class="badge-st ${riskCls}">${riskWord}</span>
