@@ -180,10 +180,14 @@ a:hover { text-decoration: underline; }
 .badge.dom { color: var(--accent); border-color: var(--border-bright); }
 .badge.task { color: var(--purple); border-color: #4a3560; }
 .badge.verif { color: var(--amber); border-color: #4a3a1a; }
-.badge.lic-open { color: var(--accent); }
-.badge.lic-copyleft { color: var(--amber); }
-.badge.lic-restrictive-nc { color: var(--orange); }
-.badge.lic-undeclared { color: var(--red); }
+/* 授权徽章：文字统一白色保证可读性，边框色保留状态标识 */
+.badge.lic-open, .badge.lic-copyleft, .badge.lic-restrictive-nc, .badge.lic-undeclared {
+  color: var(--text-bright);
+}
+.badge.lic-open { border-color: var(--accent); }
+.badge.lic-copyleft { border-color: var(--amber); }
+.badge.lic-restrictive-nc { border-color: var(--orange); }
+.badge.lic-undeclared { border-color: var(--red); }
 .section { padding: 22px 0; border-bottom: 1px solid var(--border); }
 .section h2 { color: var(--accent); font-size: 1rem; margin-bottom: 14px; }
 .section h2::before { content: "## "; color: var(--text-dim); }
@@ -425,10 +429,13 @@ a:hover { text-decoration: underline; }
   font-size: .68rem; padding: 1px 8px; border-radius: 2px; letter-spacing: .06em;
   border: 1px solid; font-weight: 600;
 }
-.badge-st.open, .badge-st.SAFE { color: var(--accent); border-color: var(--accent); }
-.badge-st.copyleft { color: var(--amber); border-color: var(--amber); }
-.badge-st.restrictive-nc { color: var(--orange); border-color: var(--orange); }
-.badge-st.undeclared { color: var(--red); border-color: var(--red); }
+.badge-st.open, .badge-st.SAFE, .badge-st.copyleft, .badge-st.restrictive-nc, .badge-st.undeclared {
+  color: var(--text-bright);
+}
+.badge-st.open, .badge-st.SAFE { border-color: var(--accent); }
+.badge-st.copyleft { border-color: var(--amber); }
+.badge-st.restrictive-nc { border-color: var(--orange); }
+.badge-st.undeclared { border-color: var(--red); }
 .impact { color: var(--text-dim); }
 .hash { color: var(--accent-dim); font-size: .72rem; }
 .hash.star { color: var(--amber); }
