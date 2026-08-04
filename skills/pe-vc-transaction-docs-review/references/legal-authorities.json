@@ -1,0 +1,547 @@
+{
+  "schema_version": 2,
+  "last_verified": "2026-07-13",
+  "freshness_rule": "Re-check official sources before a high-stakes legal conclusion if this file is older than 90 days or the matter suggests a later amendment, interpretation, or case rule.",
+  "official_domain_allowlist": [
+    "npc.gov.cn",
+    "flk.npc.gov.cn",
+    "gov.cn",
+    "moj.gov.cn",
+    "court.gov.cn",
+    "ndrc.gov.cn",
+    "safe.gov.cn",
+    "mofcom.gov.cn",
+    "sasac.gov.cn",
+    "nfra.gov.cn",
+    "samr.gov.cn",
+    "cac.gov.cn"
+  ],
+  "coverage_topics": [
+    "company law and registered capital",
+    "contract validity and interpretation",
+    "valuation adjustment and redemption",
+    "arbitration",
+    "foreign investment access and security review",
+    "round-trip investment and foreign exchange registration",
+    "outbound investment and cross-border funding",
+    "state-owned asset transaction constraints",
+    "regulated insurance investor",
+    "merger control",
+    "personal information, data security and cross-border data",
+    "network security"
+  ],
+  "coverage_matrix": {
+    "company law and registered capital": [
+      "prc-company-law-2023",
+      "registered-capital-regulation-2024",
+      "company-law-temporal-effect-2024",
+      "company-law-article-88-nonretroactivity-2024",
+      "company-law-interpretation-draft-2025"
+    ],
+    "contract validity and interpretation": [
+      "prc-civil-code-2020",
+      "civil-code-contract-general-interpretation-2023"
+    ],
+    "valuation adjustment and redemption": [
+      "prc-company-law-2023",
+      "ninth-minutes-2019",
+      "spc-fada-redemption-exercise-period-2024"
+    ],
+    "arbitration": [
+      "prc-arbitration-law-2025"
+    ],
+    "foreign investment access and security review": [
+      "prc-foreign-investment-law-2019",
+      "foreign-investment-law-implementation-regulation-2019",
+      "foreign-investment-negative-list-2024",
+      "foreign-investment-security-review-measures-2020"
+    ],
+    "round-trip investment and foreign exchange registration": [
+      "safe-circular-37-2014",
+      "safe-cross-border-investment-reform-2025"
+    ],
+    "outbound investment and cross-border funding": [
+      "outbound-investment-regulation-2026",
+      "safe-cross-border-investment-reform-2025"
+    ],
+    "state-owned asset transaction constraints": [
+      "state-owned-asset-transaction-rules-2025"
+    ],
+    "regulated insurance investor": [
+      "insurance-major-equity-investment-2025"
+    ],
+    "merger control": [
+      "prc-anti-monopoly-law-2022",
+      "merger-filing-threshold-regulation-2024"
+    ],
+    "personal information, data security and cross-border data": [
+      "prc-personal-information-protection-law-2021",
+      "prc-data-security-law-2021",
+      "network-data-security-regulation-2024",
+      "cross-border-data-flow-provisions-2024"
+    ],
+    "network security": [
+      "prc-cybersecurity-law-2025",
+      "network-data-security-regulation-2024"
+    ]
+  },
+  "authorities": [
+    {
+      "id": "prc-company-law-2023",
+      "title": "中华人民共和国公司法（2023年修订）",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2023-12-29",
+      "effective_date": "2024-07-01",
+      "official_url": "https://cicc.court.gov.cn/html/1/218/62/83/12910.html",
+      "aliases": ["公司法", "新公司法", "Company Law", "出资", "失权", "减资", "优先认购", "优先购买"],
+      "topics": ["registered capital", "capital contribution", "shareholder forfeiture", "equity transfer", "capital reduction", "preemptive right"],
+      "provisions": [
+        {"article": "47", "proposition": "有限责任公司股东原则上应按章程自公司成立之日起五年内缴足认缴出资。"},
+        {"article": "51", "proposition": "董事会应核查出资情况；发现逾期出资时，公司应发出书面催缴书。"},
+        {"article": "52", "proposition": "催缴宽限期不得少于六十日；届满仍不出资时，经董事会决议可发出书面失权通知，并应处理失权股权。"},
+        {"article": "54", "proposition": "公司不能清偿到期债务时，公司或到期债权人可要求未届期股东提前缴纳出资。"},
+        {"article": "84", "proposition": "有限责任公司对外转股应书面通知其他股东交易条件，其他股东在同等条件下享有法定优先购买权，章程另有规定的从其规定。"},
+        {"article": "88", "proposition": "未届期股权转让与逾期/瑕疵出资股权转让适用不同的受让人、转让人责任规则。"},
+        {"article": "224", "proposition": "公司减资需编制资产负债表及财产清单，并履行股东会决议、债权人通知和公告程序；非同比减资需满足法定或约定例外。"},
+        {"article": "226", "proposition": "违法减资可能触发返还资金、恢复出资及相关责任人员赔偿责任。"},
+        {"article": "227", "proposition": "有限责任公司增资时，股东原则上按实缴出资比例享有优先认缴权，全体股东另有约定的除外。"}
+      ],
+      "review_use": "用于境内人民币项目的出资期限、催缴失权、未缴出资股权转让、增资优先权、公司回购/定向减资实施路径和章程一致性审查。",
+      "caveat": "具体适用仍需结合公司设立时间、事实发生时间、公司类型、章程和配套规定。"
+    },
+    {
+      "id": "registered-capital-regulation-2024",
+      "title": "国务院关于实施《中华人民共和国公司法》注册资本登记管理制度的规定",
+      "authority_level": "administrative regulation",
+      "status": "effective",
+      "promulgated_date": "2024-07-01",
+      "effective_date": "2024-07-01",
+      "official_url": "https://xzfg.moj.gov.cn/mobile/law/detail?LawID=1727",
+      "aliases": ["注册资本过渡期", "出资过渡期", "国务院令第784号", "存量公司出资期限"],
+      "topics": ["registered capital transition", "pre-existing companies", "public disclosure"],
+      "provisions": [
+        {"article": "2", "proposition": "2024年6月30日前设立的有限责任公司，剩余认缴期限自2027年7月1日起超过五年的，原则上应在2027年6月30日前调整至五年内并写入章程。"},
+        {"article": "4", "proposition": "调整认缴/实缴出资额、方式和期限等信息后，应在法定期限内通过国家企业信用信息公示系统公示。"}
+      ],
+      "review_use": "用于存量境内公司的出资期限、章程修订、交割后整改和信息公示条件审查。",
+      "caveat": "核对公司设立日期、剩余认缴期限及是否存在国家利益或重大公共利益例外。"
+    },
+    {
+      "id": "company-law-temporal-effect-2024",
+      "title": "最高人民法院关于适用《中华人民共和国公司法》时间效力的若干规定",
+      "authority_level": "judicial interpretation",
+      "status": "effective",
+      "promulgated_date": "2024-06-29",
+      "effective_date": "2024-07-01",
+      "official_url": "https://gongbao.court.gov.cn/Details/868bf0fa625bd6082ab7595fe06fcc.html",
+      "aliases": ["公司法时间效力", "溯及力", "法释2024 7号"],
+      "topics": ["temporal effect", "retroactivity", "equity transfer"],
+      "provisions": [
+        {"article": "1-4", "proposition": "不同发生时间的公司法律事实适用不同的新旧法衔接规则，不能仅因当前争议发生在新法施行后就当然适用全部新规则。"}
+      ],
+      "review_use": "涉及历史出资、历史转股、旧协议履行或回购争议时，先判断法律事实发生时间。",
+      "caveat": "第八十八条第一款的溯及问题还应结合后续法释〔2024〕15号批复。"
+    },
+    {
+      "id": "company-law-article-88-nonretroactivity-2024",
+      "title": "最高人民法院关于《中华人民共和国公司法》第八十八条第一款不溯及适用的批复",
+      "authority_level": "judicial interpretation",
+      "status": "effective",
+      "promulgated_date": "2024-12-24",
+      "effective_date": "2024-12-24",
+      "official_url": "https://gongbao.court.gov.cn/Details/152baf720b035b778662af0e0a8bd0.html",
+      "aliases": ["第八十八条不溯及", "未届期股权转让", "法释2024 15号", "前手股东责任"],
+      "topics": ["unpaid capital equity transfer", "non-retroactivity", "transferor liability"],
+      "provisions": [
+        {"article": "批复正文", "proposition": "公司法第八十八条第一款仅适用于2024年7月1日以后发生的未届出资期限股权转让。"}
+      ],
+      "review_use": "审查创始人老股转让、历史股权转让和前手股东出资责任时核对转让日期。",
+      "caveat": "2024年7月1日前的转让应按原公司法及相关规则处理，不能直接套用第八十八条第一款。"
+    },
+    {
+      "id": "prc-arbitration-law-2025",
+      "title": "中华人民共和国仲裁法（2025年修订）",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2025-09-12",
+      "effective_date": "2026-03-01",
+      "official_url": "https://www.npc.gov.cn/npc/c2/c30834/202509/t20250912_447762.html",
+      "aliases": ["仲裁法", "新仲裁法", "arbitration law", "仲裁地", "保全", "在线仲裁"],
+      "topics": ["arbitration agreement", "seat of arbitration", "interim measures", "online arbitration", "foreign-related arbitration"],
+      "provisions": [
+        {"article": "27", "proposition": "仲裁协议原则上应包含请求仲裁的意思表示、仲裁事项和选定的仲裁机构。"},
+        {"article": "29", "proposition": "仲裁事项或仲裁机构约定不明且无法达成补充协议时，仲裁协议无效。"},
+        {"article": "39", "proposition": "当事人可申请财产保全及行为保全，仲裁机构应依法将申请提交有管辖权法院。"},
+        {"article": "58", "proposition": "证据可能灭失或以后难以取得时可申请证据保全，紧急情况下可在申请仲裁前向法院申请。"},
+        {"article": "72", "proposition": "申请撤销仲裁裁决的期限为收到裁决书之日起三个月。"},
+        {"article": "81", "proposition": "涉外仲裁当事人可书面约定仲裁地；仲裁地影响程序法和司法管辖法院，裁决视为在仲裁地作出。"},
+        {"article": "82", "proposition": "特定涉外海事或自贸区等纠纷可在法定条件下选择特别仲裁，并可申请财产、证据或行为保全。"},
+        {"article": "96", "proposition": "修订后的仲裁法自2026年3月1日起施行。"}
+      ],
+      "review_use": "审查2026年3月1日以后适用中国仲裁法的仲裁机构、仲裁事项、仲裁地、保全、送达和涉外争议解决条款。",
+      "caveat": "境外仲裁及非中国法文件仍需结合仲裁规则和仲裁地法核验。涉及中国法律相关事项，请咨询执业中国律师；涉及非中国法管辖事项，请咨询相应法域的执业律师。"
+    },
+    {
+      "id": "ninth-minutes-2019",
+      "title": "全国法院民商事审判工作会议纪要",
+      "authority_level": "judicial policy document",
+      "status": "effective guidance",
+      "promulgated_date": "2019-11-14",
+      "effective_date": "2019-11-14",
+      "official_url": "https://www.court.gov.cn/zixun/xiangqing/199691.html",
+      "aliases": ["九民纪要", "对赌协议", "目标公司回购", "valuation adjustment"],
+      "topics": ["valuation adjustment", "company redemption", "capital reduction", "cash compensation"],
+      "provisions": [
+        {"article": "第5项", "proposition": "与目标公司对赌的合同效力与实际履行应区分审查，实际履行需符合资本维持、股份回购或利润分配等强制性规则。"}
+      ],
+      "review_use": "用于解释公司回购/现金补偿条款的效力与履行分离风险，并设计可执行替代路径。",
+      "caveat": "属于司法政策文件，不应误称为法律或司法解释；应同时核对现行公司法、司法解释和最新裁判规则。"
+    },
+    {
+      "id": "spc-fada-redemption-exercise-period-2024",
+      "title": "法答网精选答问（第九批）：对赌协议中股权回购权性质及其行权期限",
+      "authority_level": "Supreme People's Court official reference publication",
+      "status": "effective guidance",
+      "promulgated_date": "2024-08-29",
+      "effective_date": "2024-08-29",
+      "official_url": "https://www.court.gov.cn/zixun/xiangqing/441371.html",
+      "aliases": ["法答网第九批", "股权回购权行权期限", "六个月", "合理期限", "对赌行权"],
+      "topics": ["redemption exercise period", "contract interpretation", "notice", "limitation period"],
+      "provisions": [
+        {"article": "问题2", "proposition": "当事人明确约定投资方请求回购的期间时，答疑意见主张原则上尊重约定，并将逾期请求视为可能放弃回购选择。"},
+        {"article": "问题2", "proposition": "未约定请求回购期间时，答疑意见提出应在合理期间内行使，并以不超过六个月为宜；提出请求后再计算诉讼时效。"}
+      ],
+      "review_use": "用于发现回购条款是否缺少触发确认、行权窗口、通知送达、权利保留和诉讼时效衔接，但不得把六个月表述为成文法硬性期限。",
+      "caveat": "官方页面明确答疑意见仅供学习、研究和参考使用，不是法律或司法解释；具体案件仍取决于合同文本、事实和裁判。"
+    },
+    {
+      "id": "company-law-interpretation-draft-2025",
+      "title": "最高人民法院关于适用《中华人民共和国公司法》若干问题的解释（征求意见稿）",
+      "authority_level": "draft judicial interpretation",
+      "status": "draft - nonbinding",
+      "promulgated_date": "2025-09-30",
+      "effective_date": null,
+      "official_url": "https://www.court.gov.cn/zixun/xiangqing/477881.html",
+      "aliases": ["公司法司法解释征求意见稿", "公司法解释草案", "对赌条款征求意见稿"],
+      "topics": ["company law interpretation", "valuation adjustment", "corporate disputes"],
+      "provisions": [],
+      "review_use": "仅可作为可能裁判方向和谈判风险背景，不可作为现行有效规则输出。",
+      "caveat": "截至2026-07-13，官方公开页面仍标示为征求意见稿；使用前必须再次核验是否已正式发布。"
+    },
+    {
+      "id": "prc-civil-code-2020",
+      "title": "中华人民共和国民法典",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2020-05-28",
+      "effective_date": "2021-01-01",
+      "official_url": "https://flk.npc.gov.cn/detail?id=ff808081729d1efe01729d50b5c500bf&title=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E6%B0%91%E6%B3%95%E5%85%B8",
+      "aliases": ["民法典", "合同效力", "违约责任", "违约金", "格式条款"],
+      "topics": ["contract validity", "contract performance", "liquidated damages", "authority", "public policy"],
+      "provisions": [
+        {"article": "143", "proposition": "民事法律行为有效通常要求行为能力、真实意思表示，且不违反法律、行政法规的强制性规定及公序良俗。"},
+        {"article": "153", "proposition": "违反法律、行政法规的强制性规定原则上导致无效，但该强制性规定不导致无效的除外；违背公序良俗的民事法律行为无效。"},
+        {"article": "465, 509", "proposition": "依法成立的合同受法律保护，当事人应依约全面履行并遵循诚信原则。"},
+        {"article": "585", "proposition": "约定违约金过低或过分高于损失时，人民法院或仲裁机构可依法调整。"}
+      ],
+      "review_use": "用于交易文件的成立生效、授权、强制性规定、解释履行、违约责任、违约金和损害赔偿基础审查。",
+      "caveat": "公司法、证券、外汇、数据等特别法有具体规则时应优先结合特别法；不得只凭一般合同规则判断公司资本性义务可履行。"
+    },
+    {
+      "id": "civil-code-contract-general-interpretation-2023",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "authority_level": "judicial interpretation",
+      "status": "effective",
+      "promulgated_date": "2023-12-04",
+      "effective_date": "2023-12-05",
+      "official_url": "https://gongbao.court.gov.cn/Details/f4722cf61c92a585f04b2ecd334f5b.html",
+      "aliases": ["合同编通则司法解释", "法释2023 13号", "合同解释", "强制性规定"],
+      "topics": ["contract interpretation", "contract formation", "mandatory provisions", "authority", "damages"],
+      "provisions": [
+        {"article": "1", "proposition": "解释合同条款应结合通常含义、相关条款、合同性质目的、习惯、诚信原则、磋商及履行行为等因素。"},
+        {"article": "18", "proposition": "判断违反含有应当、必须或不得表述的规则是否影响合同效力，应结合该规则设定的民事法律后果，不能机械认定无效。"}
+      ],
+      "review_use": "用于解释交易文件冲突、完整协议条款、监管性规则对合同效力的影响及违约损失问题。",
+      "caveat": "应结合具体争议事实、民法典时间效力及公司法等特别规则，不替代交易实施所需审批、登记或资本程序。"
+    },
+    {
+      "id": "prc-foreign-investment-law-2019",
+      "title": "中华人民共和国外商投资法",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2019-03-15",
+      "effective_date": "2020-01-01",
+      "official_url": "https://www.npc.gov.cn/zgrdw/pc/13_2/2019-03/15/content_2083830.htm",
+      "aliases": ["外商投资法", "外资准入", "负面清单", "外商投资信息报告"],
+      "topics": ["foreign investment", "negative list", "national treatment", "security review"],
+      "provisions": [
+        {"article": "2", "proposition": "外商投资包括外国投资者在境内直接或间接开展的新设、并购、项目投资等投资活动。"},
+        {"article": "4", "proposition": "国家对外商投资实行准入前国民待遇加负面清单管理制度。"},
+        {"article": "31", "proposition": "外商投资企业的组织形式、组织机构及其活动准则适用公司法、合伙企业法等法律。"},
+        {"article": "35", "proposition": "国家建立外商投资安全审查制度，对影响或者可能影响国家安全的外商投资进行安全审查。"}
+      ],
+      "review_use": "用于人民币 FIE、境外投资人直接或间接投资、准入条件、信息报告、安全审查及公司治理路径审查。",
+      "caveat": "必须同时核对当前负面清单、行业许可、安全审查办法及地方/行业实施要求。"
+    },
+    {
+      "id": "foreign-investment-law-implementation-regulation-2019",
+      "title": "中华人民共和国外商投资法实施条例",
+      "authority_level": "administrative regulation",
+      "status": "effective",
+      "promulgated_date": "2019-12-26",
+      "effective_date": "2020-01-01",
+      "official_url": "https://xzfg.moj.gov.cn/front/law/detail?LawID=448",
+      "aliases": ["外商投资法实施条例", "国令第723号", "中国自然人", "负面清单"],
+      "topics": ["foreign investment implementation", "Chinese natural person", "negative list", "project filing"],
+      "provisions": [
+        {"article": "3", "proposition": "外商投资法第二条所称其他投资者包括中国自然人在内。"},
+        {"article": "4", "proposition": "负面清单由法定主管部门提出并按规定发布或批准后发布，国家可适时调整。"},
+        {"article": "36", "proposition": "外商投资需要办理投资项目核准、备案的，按照国家有关规定执行。"}
+      ],
+      "review_use": "用于外商投资企业股东组合、境内自然人与外国投资者共同投资、项目核准备案及过渡安排审查。",
+      "caveat": "中国自然人直接成为新设 FIE 股东的登记实践仍应结合企业登记、行业许可和当地执行口径核验。"
+    },
+    {
+      "id": "foreign-investment-negative-list-2024",
+      "title": "外商投资准入特别管理措施（负面清单）（2024年版）",
+      "authority_level": "departmental rule",
+      "status": "effective",
+      "promulgated_date": "2024-09-06",
+      "effective_date": "2024-11-01",
+      "official_url": "https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202409/t20240907_1392875_ext.html",
+      "aliases": ["外资负面清单", "2024负面清单", "外商投资准入", "股比限制"],
+      "topics": ["foreign investment access", "restricted sectors", "equity caps", "management requirements"],
+      "provisions": [
+        {"article": "说明及清单", "proposition": "清单统一列明外商投资准入的股权、高管等特别管理措施；清单外领域原则上按内外资一致管理。"}
+      ],
+      "review_use": "用于核查融资主体和集团业务是否存在外资禁止、限制、股比、高管或许可条件，以及 VIE/控制安排的监管风险。",
+      "caveat": "还应核对自贸区清单、市场准入负面清单和行业主管规则；使用前确认是否已有后续版本。"
+    },
+    {
+      "id": "foreign-investment-security-review-measures-2020",
+      "title": "外商投资安全审查办法",
+      "authority_level": "departmental rule",
+      "status": "effective",
+      "promulgated_date": "2020-12-19",
+      "effective_date": "2021-01-18",
+      "official_url": "https://www.ndrc.gov.cn/xxgk/zcfb/fzggwl/202012/t20201219_1255025.html",
+      "aliases": ["外商投资安全审查办法", "外资安审", "第37号令", "国家安全审查"],
+      "topics": ["foreign investment security review", "control", "sensitive sectors", "filing"],
+      "provisions": [
+        {"article": "办法正文", "proposition": "涉及国防安全或关系国家安全的重要领域并取得实际控制权等法定情形，应按办法向工作机制办公室申报或接受审查。"}
+      ],
+      "review_use": "用于外资融资、控制权安排、敏感业务、交割先决条件、申报义务、长期停止日和风险分配条款审查。",
+      "caveat": "是否触发取决于投资方式、业务领域、实际控制和国家安全影响；应进行事实专项核验。"
+    },
+    {
+      "id": "safe-circular-37-2014",
+      "title": "国家外汇管理局关于境内居民通过特殊目的公司境外投融资及返程投资外汇管理有关问题的通知",
+      "authority_level": "departmental normative document",
+      "status": "effective",
+      "promulgated_date": "2014-07-04",
+      "effective_date": "2014-07-04",
+      "official_url": "https://www.safe.gov.cn/safe/2014/0714/5546.html",
+      "aliases": ["37号文", "汇发2014 37号", "SPV登记", "返程投资", "境内居民外汇登记"],
+      "topics": ["round-trip investment", "special purpose vehicle", "SAFE registration", "offshore financing"],
+      "provisions": [
+        {"article": "1", "proposition": "通知定义特殊目的公司、返程投资、境内机构和境内居民个人等概念。"},
+        {"article": "3", "proposition": "境内居民以境内外合法资产或权益向特殊目的公司出资前，应按规定办理境外投资外汇登记。"}
+      ],
+      "review_use": "用于红筹搭建、境内居民持股、SPV 融资、交割前登记、变更登记、承诺和违约后果审查。",
+      "caveat": "应同时核对现行资本项目外汇业务指引、银行办理口径、补登记可行性和具体持股链条。"
+    },
+    {
+      "id": "safe-cross-border-investment-reform-2025",
+      "title": "国家外汇管理局关于深化跨境投融资外汇管理改革有关事宜的通知",
+      "authority_level": "departmental normative document",
+      "status": "effective",
+      "promulgated_date": "2025-09-12",
+      "effective_date": "2025-09-15",
+      "official_url": "https://www.safe.gov.cn/safe/2025/0915/26538.html",
+      "aliases": ["汇发2025 43号", "跨境投融资外汇改革", "境内再投资登记", "资本项目收入"],
+      "topics": ["foreign direct investment", "domestic reinvestment", "cross-border financing", "capital-account proceeds"],
+      "provisions": [
+        {"article": "第1项", "proposition": "取消境内直接投资前期费用基本信息登记，符合条件的境外投资者可直接在银行开立账户并汇入前期费用。"},
+        {"article": "第2-3项", "proposition": "在真实、合规且符合外资准入条件下，取消外商投资企业境内再投资登记，并允许合法外汇利润按规定用于境内再投资。"},
+        {"article": "第7项", "proposition": "资本金、外债等资本项目收入及结汇所得人民币仍应遵守真实、自用和负面清单限制。"}
+      ],
+      "review_use": "用于更新外汇登记、资金路径、账户、用途、交割条件和交割后协助义务，避免沿用已取消的程序或误解便利化边界。",
+      "caveat": "银行展业审核、真实性、行业准入及资本项目操作指引仍需逐案核验；本通知不取代37号文等适用于红筹返程投资的规则。"
+    },
+    {
+      "id": "outbound-investment-regulation-2026",
+      "title": "国务院关于对外投资的规定",
+      "authority_level": "administrative regulation",
+      "status": "effective",
+      "promulgated_date": "2026-05-05",
+      "effective_date": "2026-07-01",
+      "official_url": "https://er.mofcom.gov.cn/zcfg/art/2026/art_d40e7473d4ec4bb8b917e97cab4e2591.html",
+      "aliases": ["国务院关于对外投资的规定", "国务院令第837号", "境外投资", "ODI", "境外投资安全审查"],
+      "topics": ["outbound investment", "ODI procedures", "outbound investment security review", "cross-border funding"],
+      "provisions": [
+        {"article": "12", "proposition": "依法需要履行核准备案、信息报告、跨境资金登记等手续的，投资者应按规定办理并如实提交材料。"},
+        {"article": "14", "proposition": "对外投资涉及资金汇兑、技术和数据出口、经营者集中、出口管制、网络安全、税收及国资监管的，分别适用相关规则。"},
+        {"article": "15", "proposition": "国家建立境外投资安全审查制度，对影响或可能影响国家安全的境外投资及相关资产权益转让处分进行审查。"},
+        {"article": "27-28", "proposition": "禁止类投资、未履行核准备案或不配合安全审查等行为可能触发停止投资、处分资产、罚款或一定期限内禁止对外投资等后果。"}
+      ],
+      "review_use": "用于境外股权投资或并购的审批/备案、信息报告、资金登记、安全审查、长期停止日、努力义务、终止及风险分配条款。",
+      "caveat": "本规定建立统领框架，不替代发改、商务、外汇、国资、出口管制、数据和行业专项程序；居民个人具体管理办法仍需核验。"
+    },
+    {
+      "id": "state-owned-asset-transaction-rules-2025",
+      "title": "企业国有资产交易操作规则",
+      "authority_level": "departmental normative document",
+      "status": "effective",
+      "promulgated_date": "2025-02-18",
+      "effective_date": "2025-02-18",
+      "official_url": "https://wap.sasac.gov.cn/n2588030/n2588944/c32955553/content.html",
+      "aliases": ["国资发产权规2025 17号", "企业国有资产交易操作规则", "国企增资", "国资产权转让", "回购禁止"],
+      "topics": ["state-owned asset transaction", "capital increase", "property exchange", "buyback prohibition", "appraisal"],
+      "provisions": [
+        {"article": "2", "proposition": "规则适用于在依法设立的产权交易机构公开进行的企业国有资产交易。"},
+        {"article": "29-30", "proposition": "公开产权转让合同应覆盖法定核心事项，且不得约定股权回购、利益补偿或以经营性损益调整既定交易条件和价格。"},
+        {"article": "41-46", "proposition": "企业增资需履行可研、方案、内部决策、批准、审计评估等程序，并明确增资后股权及治理安排。"},
+        {"article": "68-69", "proposition": "公开增资协议应载明实缴金额、股权结构、治理、登记、生效、违约等核心事项，且不得约定股权回购、代持、名股实债或经营损益调价。"}
+      ],
+      "review_use": "用于识别公开进场国资产权转让或增资的文件边界，核对公告/遴选结果/协议一致性、审批评估、实缴、治理及禁止条款。",
+      "caveat": "不得把规则对公开进场交易的限制机械扩张至所有国资参与交易；非公开协议交易和有限合伙份额等应另行核验适用规则与审批口径。"
+    },
+    {
+      "id": "insurance-major-equity-investment-2025",
+      "title": "国家金融监督管理总局关于保险资金未上市企业重大股权投资有关事项的通知",
+      "authority_level": "departmental normative document",
+      "status": "effective",
+      "promulgated_date": "2025-04-02",
+      "effective_date": "2025-04-02",
+      "official_url": "https://www.nfra.gov.cn/cn/view/pages/ItemDetail.html?docId=1203570&generaltype=1&itemId=861",
+      "aliases": ["金规2025 10号", "保险资金重大股权投资", "保险机构股权投资", "未上市企业重大股权投资"],
+      "topics": ["insurance capital", "major equity investment", "regulatory approval", "control layers", "look-through"],
+      "provisions": [
+        {"article": "1", "proposition": "重大股权投资指保险机构及其关联方对未上市企业构成控制或共同控制的直接股权投资。"},
+        {"article": "3-6", "proposition": "规则约束投资资质、自有资金、可投资行业、被投企业结构及贷款担保、交叉持股、利益输送等禁止行为。"},
+        {"article": "7", "proposition": "保险机构开展重大股权投资应按监管要求向金融监管总局申请核准。"},
+        {"article": "12-13", "proposition": "规则限制金融与非金融子公司的控制层级，并对平台、基金、信托等间接路径实行穿透及合并计算以防规避。"}
+      ],
+      "review_use": "用于保险投资人身份、控制/共同控制、核准先决条件、资金来源、行业范围、治理权、融资支持、层级和穿透结构审查。",
+      "caveat": "仅在达到重大股权投资定义或相关穿透标准时适用；财务性股权投资及其他保险资金规则仍需一并核验。"
+    },
+    {
+      "id": "prc-anti-monopoly-law-2022",
+      "title": "中华人民共和国反垄断法（2022年修正）",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2022-06-24",
+      "effective_date": "2022-08-01",
+      "official_url": "https://flk.npc.gov.cn/detail?id=ff8081818234ccb501829f46c6ac2a5a&title=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%8F%8D%E5%9E%84%E6%96%AD%E6%B3%95",
+      "aliases": ["反垄断法", "经营者集中", "抢跑", "控制权"],
+      "topics": ["merger control", "control", "gun jumping", "competition"],
+      "provisions": [
+        {"article": "第四章", "proposition": "经营者集中达到申报标准的，应事先申报，未申报的不得实施集中；未达标准但可能排除限制竞争的也可能被要求申报。"}
+      ],
+      "review_use": "用于股权融资或并购是否构成取得控制/决定性影响、申报先决条件、交割前行为限制和长期停止日审查。",
+      "caveat": "应结合控制权分析、营业额计算、特殊行业规则、申报标准和反垄断执法机构最新指南。"
+    },
+    {
+      "id": "merger-filing-threshold-regulation-2024",
+      "title": "国务院关于经营者集中申报标准的规定（2024年修订）",
+      "authority_level": "administrative regulation",
+      "status": "effective",
+      "promulgated_date": "2024-01-22",
+      "effective_date": "2024-01-22",
+      "official_url": "https://www.gov.cn/zhengce/content/202401/content_6928387.htm",
+      "aliases": ["经营者集中申报标准", "国令第773号", "120亿元", "40亿元", "8亿元"],
+      "topics": ["merger filing thresholds", "turnover", "control", "pre-closing filing"],
+      "provisions": [
+        {"article": "3", "proposition": "达到全球营业额合计超过120亿元且至少两个经营者中国境内营业额各超过8亿元，或中国境内营业额合计超过40亿元且至少两个经营者境内营业额各超过8亿元的标准之一时，应事先申报。"},
+        {"article": "4", "proposition": "未达营业额标准但有证据证明可能排除、限制竞争的，执法机构可以要求申报。"}
+      ],
+      "review_use": "用于交易各方营业额信息收集、经营者集中条件、交割先决条件和不得提前实施安排。",
+      "caveat": "营业额、参与集中经营者及控制权认定具有技术性，金融等行业另有计算规则。"
+    },
+    {
+      "id": "prc-personal-information-protection-law-2021",
+      "title": "中华人民共和国个人信息保护法",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2021-08-20",
+      "effective_date": "2021-11-01",
+      "official_url": "https://flk.npc.gov.cn/detail?fileId=&id=ff8081817b6472a3017b656cc2040044&title=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E4%BF%9D%E6%8A%A4%E6%B3%95&type=",
+      "aliases": ["个人信息保护法", "PIPL", "敏感个人信息", "个人信息出境"],
+      "topics": ["personal information", "sensitive personal information", "cross-border transfer", "due diligence data room"],
+      "provisions": [
+        {"article": "13", "proposition": "处理个人信息应具有法定处理基础，并遵守目的明确、最小必要等要求。"},
+        {"article": "38-39", "proposition": "向境外提供个人信息应满足法定路径，并履行告知和取得单独同意等要求。"},
+        {"article": "55", "proposition": "处理敏感个人信息、向境外提供个人信息等情形应事前开展个人信息保护影响评估。"}
+      ],
+      "review_use": "用于数据室、员工/客户数据披露、投资人信息权、跨境尽调、数据处理承诺和赔偿条款审查。",
+      "caveat": "还应核对行业规则、网络数据条例、数据出境规则、重要数据和关键信息基础设施状态。"
+    },
+    {
+      "id": "prc-data-security-law-2021",
+      "title": "中华人民共和国数据安全法",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2021-06-10",
+      "effective_date": "2021-09-01",
+      "official_url": "https://www.npc.gov.cn/npc/c2/c30834/202106/t20210610_311888.html",
+      "aliases": ["数据安全法", "重要数据", "数据分类分级", "数据出境"],
+      "topics": ["data security", "important data", "data classification", "cross-border data"],
+      "provisions": [
+        {"article": "21", "proposition": "国家建立数据分类分级保护制度，对重要数据实行重点保护。"},
+        {"article": "31", "proposition": "重要数据出境适用关键信息基础设施及其他数据处理者的相应法定管理规则。"}
+      ],
+      "review_use": "用于业务数据、重要数据识别、数据室访问、跨境披露、数据安全陈述保证及交割整改义务审查。",
+      "caveat": "重要数据识别依赖行业、地区目录和主管部门告知，不能仅凭合同自行定性。"
+    },
+    {
+      "id": "network-data-security-regulation-2024",
+      "title": "网络数据安全管理条例",
+      "authority_level": "administrative regulation",
+      "status": "effective",
+      "promulgated_date": "2024-09-24",
+      "effective_date": "2025-01-01",
+      "official_url": "https://app.www.gov.cn/govdata/gov/202409/30/520076/article.html",
+      "aliases": ["网络数据安全管理条例", "国令第790号", "网络数据", "重要数据"],
+      "topics": ["network data", "personal information", "important data", "processor obligations"],
+      "provisions": [
+        {"article": "2", "proposition": "条例适用于境内网络数据处理及符合条件的境外处理境内自然人个人信息活动。"},
+        {"article": "29-30", "proposition": "重要数据处理者应按规定识别申报重要数据，并设置负责人和管理机构、履行风险管理等义务。"}
+      ],
+      "review_use": "用于数据类目标公司的合规陈述、重要数据、委托处理、数据安全事件、投资人访问和交割后整改审查。",
+      "caveat": "需结合网络安全法、数据安全法、个人信息保护法及行业数据规则综合判断。"
+    },
+    {
+      "id": "cross-border-data-flow-provisions-2024",
+      "title": "促进和规范数据跨境流动规定",
+      "authority_level": "departmental rule",
+      "status": "effective",
+      "promulgated_date": "2024-03-22",
+      "effective_date": "2024-03-22",
+      "official_url": "https://www.cac.gov.cn/2024-03/22/c_1712776612187994.htm",
+      "aliases": ["促进和规范数据跨境流动规定", "数据出境", "标准合同", "安全评估", "豁免"],
+      "topics": ["cross-border data", "security assessment", "standard contract", "certification", "exemptions"],
+      "provisions": [
+        {"article": "5-8", "proposition": "规定数据出境豁免、安全评估、标准合同或认证的适用情形及相应数量门槛。"}
+      ],
+      "review_use": "用于境外投资人数据室、跨境集团共享、境外顾问访问、交割前后数据迁移及条件先决审查。",
+      "caveat": "应先判断是否含个人信息或重要数据、是否为关基运营者、年度累计人数及行业特殊规则。"
+    },
+    {
+      "id": "prc-cybersecurity-law-2025",
+      "title": "中华人民共和国网络安全法（2025年修改）",
+      "authority_level": "law",
+      "status": "effective",
+      "promulgated_date": "2025-10-28",
+      "effective_date": "2026-01-01",
+      "official_url": "https://flk.npc.gov.cn/detail?fileId=&id=021e7d7684474107b8f3febbb1c4f8b5&title=%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95&type=",
+      "aliases": ["网络安全法", "2025网络安全法", "关键信息基础设施", "网络运营者"],
+      "topics": ["network security", "critical information infrastructure", "personal information", "AI security"],
+      "provisions": [
+        {"article": "2025修改决定", "proposition": "修改后的网络安全法自2026年1月1日起施行，强化法律责任并与个人信息保护法、数据安全法等衔接。"}
+      ],
+      "review_use": "用于网络业务目标公司的基础网络安全义务、关基状态、数据出境和合规陈述保证审查。",
+      "caveat": "应使用2026年起施行的现行文本，不得继续仅引用2016年原始条文编号；具体义务需结合配套法规。"
+    }
+  ]
+}

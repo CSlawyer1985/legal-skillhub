@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/atomic-knowledge-record.schema.json",
+  "title": "Lawyer Atomic Knowledge Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source_type",
+    "source_locator",
+    "source_hash",
+    "cutoff",
+    "claim",
+    "conditions",
+    "steps",
+    "evidence",
+    "legal_authority",
+    "confidence",
+    "privacy_class",
+    "rights_status",
+    "failure_modes",
+    "status",
+    "public_projection"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^akr-[a-z0-9][a-z0-9-]{2,63}$"
+    },
+    "source_type": {
+      "enum": [
+        "case",
+        "statute",
+        "regulation",
+        "judicial-interpretation",
+        "decision",
+        "book",
+        "paper",
+        "course",
+        "interview",
+        "practice-note"
+      ]
+    },
+    "source_locator": {
+      "type": "string",
+      "minLength": 3,
+      "not": {
+        "pattern": "^(?:/|[A-Za-z]:\\\\)"
+      }
+    },
+    "source_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "cutoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_cutoff",
+        "law_checked_at"
+      ],
+      "properties": {
+        "evidence_cutoff": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "law_checked_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      }
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 8
+    },
+    "conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applies_when",
+        "does_not_apply_when"
+      ],
+      "properties": {
+        "applies_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "does_not_apply_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ref",
+          "supports"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "supports": {
+            "type": "string"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "legal_authority": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "jurisdiction",
+          "authority_ref",
+          "hierarchy",
+          "validity",
+          "checked_at"
+        ],
+        "properties": {
+          "jurisdiction": {
+            "type": "string"
+          },
+          "authority_ref": {
+            "type": "string"
+          },
+          "hierarchy": {
+            "type": "string"
+          },
+          "validity": {
+            "enum": [
+              "current",
+              "amended",
+              "repealed",
+              "historical",
+              "disputed",
+              "unknown"
+            ]
+          },
+          "checked_at": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "level",
+        "reason"
+      ],
+      "properties": {
+        "level": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "privacy_class": {
+      "enum": [
+        "private",
+        "restricted",
+        "internal",
+        "public"
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "private-authorized",
+        "licensed-internal",
+        "public-source",
+        "cleared",
+        "unknown"
+      ]
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "verified",
+        "rejected",
+        "human_review_required",
+        "hold"
+      ]
+    },
+    "public_projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowed",
+        "fields"
+      ],
+      "properties": {
+        "allowed": {
+          "type": "boolean"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approval_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relation",
+          "target"
+        ],
+        "properties": {
+          "relation": {
+            "enum": [
+              "supports",
+              "contradicts",
+              "requires",
+              "precedes",
+              "exception_to",
+              "conflicts_with",
+              "supersedes",
+              "public_projection_of"
+            ]
+          },
+          "target": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "public_projection": {
+            "properties": {
+              "allowed": {
+                "const": true
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "privacy_class": {
+            "const": "public"
+          },
+          "rights_status": {
+            "const": "cleared"
+          },
+          "status": {
+            "const": "verified"
+          }
+        }
+      }
+    }
+  ]
+}
+

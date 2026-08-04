@@ -1,0 +1,11 @@
+{
+  "_说明": "复制本文件为 config.json 后填入真实值；config.json 不会被提交或随 skill 分发。llm 段全部字段可选，留空（或删除整个 llm 段）则不调用大模型改写，仅做规则审查。已默认按国内模型（DeepSeek）配置，若要换其他国内模型，可改用 --preset <名称>（如 deepseek/qwen/zhipu/hunyuan/doubao/kimi/siliconflow）或在下方改 api_base 与 chat_model；api_key 也可不写在此文件，而用环境变量 AD_REVIEW_API_KEY 提供（密钥不落盘）。",
+  "llm": {
+    "api_key": "YOUR_API_KEY_HERE",
+    "api_base": "https://api.deepseek.com/v1",
+    "chat_model": "deepseek-chat",
+    "temperature": 0.2,
+    "max_retries": 3,
+    "retry_delay": 1.5
+  }
+}

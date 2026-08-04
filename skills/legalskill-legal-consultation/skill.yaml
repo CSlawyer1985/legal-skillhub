@@ -1,0 +1,90 @@
+name: legalskill-legal-consultation
+version: "2.0.0"
+author: 律锥·legalskill https://www.legalskill.cn
+license: CC BY-SA 4.0
+category: legal
+tags: [legalskill-legal-consultation, contract-review, legal-tech, risk-assessment, dispute-resolution, rag-enhanced, tiered-reading, structured-citations, anti-hallucination, configurable, ima]
+
+triggers:
+  - "怎么办"
+  - "能不能告"
+  - "会不会坐牢"
+  - "合同审查"
+  - "侵权赔偿"
+  - "劳动仲裁"
+  - "离婚财产"
+  - "刑事风险"
+  - "欠钱不还"
+  - "借钱不还"
+  - "被起诉"
+  - "打官司"
+  - "维权"
+  - "赔偿"
+  - "欠薪"
+  - "拖欠工资"
+  - "工伤"
+  - "交通事故"
+  - "租房纠纷"
+  - "遗产纠纷"
+  - "继承"
+  - "离婚"
+  - "合同纠纷"
+  - "被骗"
+  - "法律咨询"
+  - "律师咨询"
+  - "法律问题"
+  - "违法解除"
+  - "公司开除"
+  - "调岗降薪"
+  - "不交社保"
+  - "竞业限制"
+  - "定金不退"
+  - "买到假货"
+  - "消费者权益"
+  - "房屋买卖"
+  - "股权纠纷"
+  - "合伙纠纷"
+  - "债务纠纷"
+  - "拆迁补偿"
+  - "行政罚款"
+
+not_for:
+  - "正式法律意见书"
+  - "代写文书"
+  - "替代律师出庭"
+
+references:
+  - file: kb-profiles.md
+    desc: 法律知识库档案与检索策略矩阵
+  - file: colloquial-mapping.md
+    desc: 口语→法言法语搜索词映射表
+  - file: legal-scenarios.md
+    desc: 法律场景分类体系与8大场景关键事实挖掘框架（含追问示例）
+  - file: output-templates.md
+    desc: 完整/简要双输出模板、填写规范、反幻觉标记规范与延伸引导规则
+  - file: anti-hallucination-checklist.md
+    desc: 反幻觉操作清单完整版（13项法条核查+28项六类幻觉专项排查）
+
+knowledge_bases:
+  - name: "法律库"
+    required: false
+    role: "精简校对库，快速校对法条有效性"
+  - name: "法律知识库"
+    required: false
+    role: "一站式综合库，法条与案例一站式满足"
+  - name: "国家法律知识库"
+    required: false
+    role: "全量法规库，需核实现行有效性"
+  - name: "律锥·法律官方信源知识库"
+    required: false
+    role: "官方案例库，案例补充查询首选"
+  - name: "律锥·法律案例知识库"
+    required: false
+    role: "海量案例库，案例穷尽式查询"
+
+compatibility:
+  - IMA
+  - Claude.ai
+  - Claude Code
+  - API
+  - WorkBuddy

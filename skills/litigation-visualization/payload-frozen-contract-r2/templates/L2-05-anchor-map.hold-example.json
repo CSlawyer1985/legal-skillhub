@@ -1,0 +1,55 @@
+{
+  "schema_version": "l2-anchor-map/1.0",
+  "document_id": "L2-05",
+  "document_sha256": "c5362596f23851bf268e87534c6e8e97d95b91dca512dd1f112bfed70e54148d",
+  "locator_profile": "l2-markdown-paragraph-table-v1",
+  "workflow_status": "hold",
+  "hold_reason": "The accepted template predates the stable-anchor contract and contains no case facts. This synthetic map demonstrates fail-closed behavior only.",
+  "anchors": [
+    {
+      "anchor_id": "parties_roles",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "contract_chain",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "performance_delivery_acceptance",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "payment_balance",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "notices_objections_termination_limitation",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "claim_element_fact_evidence_matrix",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "evidence_index",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "litigation_stage_plan",
+      "locators": [],
+      "status": "empty_hold"
+    },
+    {
+      "anchor_id": "risk_hold_register",
+      "locators": [],
+      "status": "empty_hold"
+    }
+  ]
+}

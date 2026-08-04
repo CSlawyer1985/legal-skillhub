@@ -1,0 +1,97 @@
+{
+  "case_id": "EXAMPLE-HOLD-R2-20260723",
+  "audience": "内部案件团队",
+  "purpose": "验证皋陶 L2 到案件办理流程与诉请证据矩阵的本地契约，当前禁止渲染",
+  "source_cutoff": "2026-07-23",
+  "workflow_status": "hold",
+  "hold_control": {
+    "scope": "all rendering and release",
+    "reason": "L2 stable anchors, privacy authorization, semantic review, and legal review are incomplete.",
+    "owner": "candidate-review-team",
+    "recovery_conditions": [
+      "Generate and freeze a real L2-05 using all nine stable anchors.",
+      "Complete privacy, semantic, and legal review gates."
+    ]
+  },
+  "spatial_review": null,
+  "source_ledger": [
+    {
+      "source_id": "L2-PLAN",
+      "source_kind": "derived",
+      "source_hash_or_version": "sha256:c5362596f23851bf268e87534c6e8e97d95b91dca512dd1f112bfed70e54148d",
+      "custody_or_processing_location": "local_only",
+      "ingested_at": "2026-07-23",
+      "source_cutoff": "2026-07-23",
+      "authorized_use": [
+        "local candidate contract validation",
+        "synthetic HOLD demonstration"
+      ],
+      "locator_prefix": "L2-PLAN#",
+      "page_or_unit_locator_scheme": "SOURCE_ID#pN | SOURCE_ID#para-N | SOURCE_ID#cell-A1 | SOURCE_ID#ts-HH:MM:SS",
+      "ocr_or_derivation_note": "Synthetic HOLD example binds the accepted L2 template hash. It does not authorize real-case rendering.",
+      "description": "Synthetic L2 source for Gaotao handoff contract testing."
+    }
+  ],
+  "privacy_authorization": {
+    "processing_location": "local_only",
+    "allowed_processors": [
+      "internal:codex",
+      "internal:claude-code"
+    ],
+    "allowed_recipients": [
+      "internal:root"
+    ],
+    "allowed_channel": "local_only",
+    "field_allowlist": [
+      "case_id",
+      "labels",
+      "facts",
+      "legal_rules",
+      "source_ids",
+      "dates",
+      "amounts",
+      "relationships",
+      "procedures",
+      "notes"
+    ],
+    "redaction_status": "pending",
+    "retention_policy": "Retain candidate evidence locally until root disposition.",
+    "human_release_approved": false,
+    "human_release_by": null,
+    "human_release_at": null,
+    "authorization_basis": "Synthetic contract validation only; no real-case release authorization is represented."
+  },
+  "legal_review": {
+    "required": true,
+    "jurisdiction": "PRC mainland",
+    "legal_rule_refs": [],
+    "effective_at": "pending-review",
+    "law_checked_at": null,
+    "law_check_status": "pending",
+    "reviewer": "pending-reviewer"
+  },
+  "nodes": [
+    {
+      "id": "N-HOLD-001",
+      "label": "L2 稳定锚点尚未生成",
+      "fact_status": "unknown",
+      "record_type": "fact",
+      "lifecycle": "current",
+      "asserted_by": "candidate contract validator",
+      "verification_basis": "当前只核对已接受模板及其哈希，未载入真实案件事实",
+      "adjudication_status": "not_adjudicated",
+      "adjudication_refs": [],
+      "support_refs": [],
+      "conflict_refs": [],
+      "context_refs": [],
+      "gap_reason": "缺少按新锚点契约生成并冻结的真实 L2"
+    }
+  ],
+  "edges": [],
+  "claims": [],
+  "legend": {
+    "confirmed": "当前登记材料支持，不等于法院确认",
+    "disputed": "登记材料或当事人口径存在冲突",
+    "unknown": "材料不足，不得补全"
+  }
+}

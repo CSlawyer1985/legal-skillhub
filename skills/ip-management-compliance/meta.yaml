@@ -1,0 +1,190 @@
+apiVersion: workbuddy/v1
+kind: Skill
+metadata:
+  name: ip-management-compliance
+  version: "3.0.0"
+  displayName: "ISO 56005 IP管理（母技能）"
+  type: parent-skill
+  description: >
+    ISO 56005知识产权全流程管控母技能（v3.0.0）。
+    本技能为8个独立业务技能+1个共享检索模块的统一入口，负责需求分析、智能路由与跨模块协调。
+    各技能已独立部署为用户技能（位于 skills/ip-mgmt-*/），可单独使用。
+author: 佛山辉宁知识产权服务有限公司
+tags: [iso-56005, ip-management, parent-skill, router]
+isoMapping:
+  chapter4: ip-mgmt-framework
+  chapter5: ip-mgmt-strategy
+  chapter6: ip-mgmt-innovation
+  appendixA: ip-mgmt-innovation
+  appendixB: ip-mgmt-examination
+  appendixC: ip-mgmt-search
+  appendixD: ip-mgmt-audit
+  appendixE: ip-mgmt-risk
+  appendixF: ip-mgmt-exploitation
+spec:
+  type: parent-skill
+  architecture: lightweight-router
+  version: "3.0.0"
+  subSkills:
+    - name: ip-mgmt-framework
+      type: independent
+      standalone: true
+      description: IP管理框架搭建（ISO 56005第4章）
+      isoClause: "4. IP management Framework"
+      priority: P0
+    - name: ip-mgmt-strategy
+      type: independent
+      standalone: true
+      description: IP战略制定（ISO 56005第5章）
+      isoClause: "5. IP strategy"
+      priority: P1
+    - name: ip-mgmt-innovation
+      type: independent
+      standalone: true
+      description: 创新全流程IP管理（ISO 56005第6.2-6.6章, 附录A发明记录和披露）
+      isoClause: "6. IP management in the innovation process (6.2-6.6), Annex A. Tools and methods for invention record and disclosure"
+      priority: P1
+    - name: ip-mgmt-tools
+      type: independent
+      standalone: true
+      description: IP工具与专利信息分析方法
+      isoClause: "Tools and methods for patent information analysis"
+      priority: P2
+    - name: ip-mgmt-examination
+      type: independent
+      standalone: true
+      description: 专利审查合规适配（ISO 56005附录B）
+      isoClause: "Annex B. Tools and methods for IP generation, acquisition and maintenance"
+      priority: P0
+    - name: ip-mgmt-risk
+      type: independent
+      standalone: true
+      description: IP风险管理（ISO 56005附录E）
+      isoClause: "Annex E. Tools and methods for IP risk management"
+      priority: P0
+    - name: ip-mgmt-exploitation
+      type: independent
+      standalone: true
+      description: IP商业化与利用（ISO 56005附录F）
+      isoClause: "Annex F. Tools and methods for IP exploitation"
+      priority: P2
+    - name: ip-mgmt-audit
+      type: independent
+      standalone: true
+      description: IP审计与价值评估（ISO 56005附录D）
+      isoClause: "Annex D. Tools and methods for IPR evaluation"
+      priority: P1
+    - name: ip-mgmt-search
+      type: shared-module
+      standalone: true
+      isoClause: "Annex C. Tools and methods for IP search"
+      priority: P0
+      externalLink:
+        mcp: patseek
+        capability: patseek
+  routing:
+    type: keyword-matching
+    rules:
+      - pattern: "IP框架|组织环境|成熟度"
+        target: ip-mgmt-framework
+      - pattern: "IP战略|目标设定|职责分配"
+        target: ip-mgmt-strategy
+      - pattern: "创新流程|发明披露|研发IP"
+        target: ip-mgmt-innovation
+      - pattern: "IP工具|检索方法|文档管理"
+        target: ip-mgmt-tools
+      - pattern: "审查合规|OA答复|申请文件"
+        target: ip-mgmt-examination
+      - pattern: "IP风险|FTO|侵权风险"
+        target: ip-mgmt-risk
+      - pattern: "IP商业化|许可转让|价值实现"
+        target: ip-mgmt-exploitation
+      - pattern: "IP审计|价值评估|绩效评价"
+        target: ip-mgmt-audit
+      - pattern: "专利检索|查新|FTO检索|无效检索|竞争对手监控|三性检索|新颖性检索|创造性检索|实用性检索"
+        target: ip-mgmt-search
+        note: "含'检索'后缀的三性关键词优先匹配本规则"
+      - pattern: "新颖性(?!检索)|创造性(?!检索)|实用性(?!检索)|可专利性评估|三性评估|三性判断|三性分析"
+        target: ip-mgmt-examination
+        note: "不含'检索'后缀的三性关键词匹配本规则（评估/判断/分析场景）"
+      - pattern: "检索.*专利|搜索专利|patent search"
+        target: ip-mgmt-search
+  externalLinks:
+    patent-infringement-guide:
+      type: external-skill
+      linkageType: bidirectional
+      sharedData:
+        - infringement-analysis
+        - fto-report
+        - avoidance-design
+    patent-navigation:
+      type: external-skill
+      linkageType: routing  # 单向路由+决策输入衔接，非程序化数据共享
+      sharedData:
+        - navigation-conclusion  # 导航结论：strategy/innovation 的决策输入、audit/exploitation 的上游输入
+  inputs:
+    - name: user-request
+      type: text
+      required: true
+      description: 用户请求内容
+  outputs:
+    - name: routed-response
+      type: markdown
+      description: 路由后的响应内容
+    - name: coordination-result
+      type: markdown
+      description: 跨模块协调结果
+  triggerPatterns:
+    - "ISO 56005"
+    - "知识产权管理"
+    - "IP管理体系"
+    - "IP管理合规"
+    - "知识产权全流程"
+  changelog:
+  - version: "2.7.0"
+    date: "2026-05-06"
+    changes:
+      - "集成 tavily-search 实时网络检索：ip-mgmt-search 新增 tavily-search 补充检索引擎"
+      - "RAG 核心能力新增实时网络检索补充"
+      - "ip-mgmt-risk FTO 分析步骤嵌入 tavily-search 非专利文献检索"
+      - "新增 Tavily Search 集成专章（含 5 大场景 + 调用规范）"
+  - version: "2.6.0"
+    date: "2026-05-02"
+    changes:
+      - "修复专利检索路由断裂：将检索任务从 ip-mgmt-tools 重新路由至 ip-mgmt-search 核心引擎"
+      - "补齐 ip-mgmt-risk/ip-mgmt-examination 对 ip-mgmt-search 的调用指引"
+      - "同步更新与 patent-examination-guide（V1.8.0）的版本联动信息"
+      - "补充双方社区命名体系对应关系说明"
+  - version: "2.5.0"
+    date: "2026-04-22"
+    changes:
+      - "版本号统一升级至 v2.5.0（SKILL.md + meta.yaml）"
+  - version: "2.3.0"
+    date: "2026-04-04"
+    changes:
+      - "版本号与SKILL.md统一为2.3.0"
+      - "isoMapping fixed: Clause 4=IP management Framework, Clause 5=IP strategy, Clause 6=IP management in the innovation process"
+      - "subSkills路由配置与SKILL.md保持一致"
+  - version: "2.2.1"
+    date: "2026-04-04"
+    changes:
+      - "search_executor.py V1.2：新增 novelty/inventiveness/practicality/patentability_full 四种检索类型支持"
+      - "P0测试通过：三路并行检索成功（patseek 20+30篇 + patseek_scholar 10篇）"
+  - version: "2.1.1"
+    date: "2026-04-04"
+    changes:
+      - "新增 FTO检索联动规则（ELNK-002a）：ip-mgmt-risk → ip-mgmt-search"
+      - "新增 无效检索联动规则（ELNK-002b）：ip-mgmt-risk → ip-mgmt-search"
+  - version: "2.1.0"
+    date: "2026-04-04"
+    changes:
+      - "新增 ip-mgmt-search 检索模块"
+      - "支持语义扩展（关键词+IPC+向量）"
+      - "更新路由规则，ip-mgmt-search 可被8个子技能调用"
+  - version: "2.0.0"
+    date: "2026-04-02"
+    changes:
+      - "重构为轻量化母技能"
+      - "8个子技能独立为用户技能"
+      - "精简SKILL.md，保留路由逻辑"
+      - "更新MCP联动配置"

@@ -1,0 +1,39 @@
+code: ny-2024
+jurisdiction: "New York (NYSBA / NYCBA)"
+opinion: "New York State Bar Association — Report and Recommendations of the Task Force on Artificial Intelligence (April 2024); New York City Bar Association Formal Opinion 2024-5"
+date: "2024-04-06"
+source_url: "https://nysba.org/app/uploads/2022/03/2024-April-Report-and-Recommendations-of-the-Task-Force-on-Artificial-Intelligence.pdf"
+verified: false
+verified_by: ~
+canonical_disclosure_text: |
+  Generative artificial intelligence tools were used in the preparation of
+  certain work product on this matter, under the supervision of the
+  attorney of record. Consistent with the New York Rules of Professional
+  Conduct (including Rules 1.1, 1.3, 1.4, 1.5, 1.6, 3.3, 5.1, and 5.3),
+  the attorney verified the AI-assisted output, exercised independent
+  professional judgment, and adopted the final work product as the
+  attorney's own. The time billed reflects actual attorney time. No markup
+  has been applied for AI-assisted efficiency.
+notes: |
+  New York's AI guidance is layered:
+
+  - The New York State Bar Association (NYSBA) Task Force on Artificial
+    Intelligence published a Report and Recommendations in April 2024
+    covering competence, confidentiality, supervision, communication, and
+    fees in the context of GAI use.
+  - The New York City Bar Association Committee on Professional Ethics
+    issued Formal Opinion 2024-5, addressing GAI use in legal practice.
+  - The Second Circuit has, as of 2025, issued local guidance on GAI use
+    in court filings via standing orders by individual judges. Always
+    check the rules of the specific court before filing AI-assisted
+    work product.
+
+  These are advisory documents, not binding rules, but New York lawyers
+  should treat the NYSBA Task Force report as the closest thing to a
+  consensus position. Pull citations to specific sections before relying.
+billing_rules_summary: |
+  The NYSBA Task Force recommends billing only for actual time spent, with
+  AI-assisted efficiency benefiting the client rather than inflating the
+  bill. If the client engagement letter authorizes GAI use, a per-bill
+  disclosure may be redundant; if it does not, include the disclosure on
+  the bill and confirm informed consent.

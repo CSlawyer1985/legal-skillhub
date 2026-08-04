@@ -1,0 +1,350 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "进出口贸易合同",
+  "contract_type_en": "import-export",
+  "description": "货物进出口、国际贸易、FOB/CIF/CFR等贸易合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《联合国国际货物销售合同公约》（CISG）",
+    "《国际贸易术语解释通则》（Incoterms 2020）"
+  ],
+  "keywords_for_detection": [
+    "进出口", "国际贸易", "FOB", "CIF", "CFR", "EXW", "DDP",
+    "信用证", "L/C", "提单", "装运", "报关", "关税"
+  ],
+  "key_clauses": [
+    {
+      "name": "货物描述",
+      "required": true,
+      "keywords": ["货物", "商品", "品名", "规格", "数量", "质量"],
+      "check_points": [
+        {
+          "item": "品名明确",
+          "description": "货物品名、规格、型号是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "数量明确",
+          "description": "货物数量及计量单位",
+          "risk_level": "致命"
+        },
+        {
+          "item": "质量标准",
+          "description": "货物质量标准（国际标准/国家标准/企业标准）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "溢短装",
+          "description": "溢短装条款（通常±5%）",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确货物品名、规格、数量、质量标准，约定溢短装条款"
+    },
+    {
+      "name": "价格条款",
+      "required": true,
+      "keywords": ["价格", "单价", "总价", "贸易术语", "FOB", "CIF"],
+      "check_points": [
+        {
+          "item": "价格明确",
+          "description": "单价和总价是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "贸易术语",
+          "description": "贸易术语（FOB/CIF/CFR等）是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "货币",
+          "description": "计价货币",
+          "risk_level": "重大"
+        },
+        {
+          "item": "价格调整",
+          "description": "价格调整机制",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确价格、贸易术语（参照Incoterms 2020）、计价货币"
+    },
+    {
+      "name": "支付条款",
+      "required": true,
+      "keywords": ["支付", "付款", "信用证", "L/C", "电汇", "T/T"],
+      "check_points": [
+        {
+          "item": "支付方式",
+          "description": "信用证/电汇/托收等支付方式",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付时间",
+          "description": "支付时间（装运前/装运后/见单）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "信用证条款",
+          "description": "信用证类型、有效期、单据要求",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确支付方式、时间，信用证需明确类型、有效期、单据要求"
+    },
+    {
+      "name": "装运条款",
+      "required": true,
+      "keywords": ["装运", "发货", "装运期", "装运港", "目的港"],
+      "check_points": [
+        {
+          "item": "装运期",
+          "description": "装运期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "装运港",
+          "description": "装运港/目的港",
+          "risk_level": "重大"
+        },
+        {
+          "item": "分批装运",
+          "description": "是否允许分批装运",
+          "risk_level": "一般"
+        },
+        {
+          "item": "转运",
+          "description": "是否允许转运",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确装运期、装运港/目的港、分批装运和转运条款"
+    },
+    {
+      "name": "单据条款",
+      "required": true,
+      "keywords": ["单据", "提单", "发票", "装箱单", "原产地证"],
+      "check_points": [
+        {
+          "item": "单据清单",
+          "description": "所需单据清单",
+          "risk_level": "重大"
+        },
+        {
+          "item": "提单要求",
+          "description": "提单类型（全套清洁提单）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "原产地证",
+          "description": "原产地证要求",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确所需单据清单，提单要求全套清洁提单"
+    },
+    {
+      "name": "保险条款",
+      "required": false,
+      "keywords": ["保险", "投保", "险别", "保险金额"],
+      "check_points": [
+        {
+          "item": "投保义务",
+          "description": "由谁投保（CIF由卖方，FOB由买方）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "险别",
+          "description": "保险险别（一切险/水渍险/平安险）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保险金额",
+          "description": "保险金额（通常为发票金额的110%）",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确投保义务、险别、保险金额"
+    },
+    {
+      "name": "检验条款",
+      "required": true,
+      "keywords": ["检验", "检疫", "质量检验", "数量检验", "索赔"],
+      "check_points": [
+        {
+          "item": "检验机构",
+          "description": "检验机构（SGS/CIQ等）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "检验时间",
+          "description": "检验时间（装运前/到货后）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "索赔期限",
+          "description": "索赔期限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确检验机构、检验时间、索赔期限"
+    },
+    {
+      "name": "不可抗力",
+      "required": true,
+      "keywords": ["不可抗力", "Force Majeure", "免责", "延迟"],
+      "check_points": [
+        {
+          "item": "不可抗力定义",
+          "description": "不可抗力事件的定义",
+          "risk_level": "重大"
+        },
+        {
+          "item": "通知义务",
+          "description": "不可抗力发生后的通知义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "合同终止",
+          "description": "不可抗力持续一定期限后的合同终止权",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确不可抗力定义、通知义务、合同终止条件"
+    },
+    {
+      "name": "争议解决",
+      "required": true,
+      "keywords": ["争议解决", "仲裁", "诉讼", "适用法律"],
+      "check_points": [
+        {
+          "item": "适用法律",
+          "description": "合同适用法律",
+          "risk_level": "重大"
+        },
+        {
+          "item": "争议解决方式",
+          "description": "仲裁/诉讼",
+          "risk_level": "重大"
+        },
+        {
+          "item": "仲裁机构",
+          "description": "仲裁机构（CIETAC/ICC/SIAC等）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确适用法律、争议解决方式、仲裁机构"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "IMP001",
+      "name": "贸易术语不明",
+      "description": "贸易术语不明确，风险转移时间和费用承担产生争议",
+      "severity": "高风险",
+      "suggestion": "明确贸易术语（参照Incoterms 2020），注明版本年份"
+    },
+    {
+      "id": "IMP002",
+      "name": "信用证不符",
+      "description": "单据与信用证条款不符，银行拒付",
+      "severity": "高风险",
+      "suggestion": "严格按信用证要求制作单据，注意单证一致"
+    },
+    {
+      "id": "IMP003",
+      "name": "汇率风险",
+      "description": "计价货币汇率波动，造成损失",
+      "severity": "中风险",
+      "suggestion": "约定汇率风险分担机制，或使用外汇远期锁定汇率"
+    },
+    {
+      "id": "IMP004",
+      "name": "货物质量争议",
+      "description": "货物质量不符合合同约定，索赔困难",
+      "severity": "高风险",
+      "suggestion": "明确质量标准，约定装运前检验，保留检验报告"
+    },
+    {
+      "id": "IMP005",
+      "name": "关税和进口限制",
+      "description": "进口货物面临关税、配额、许可证等限制",
+      "severity": "中风险",
+      "suggestion": "了解目的国进口限制，约定关税承担方"
+    },
+    {
+      "id": "IMP006",
+      "name": "制裁风险",
+      "description": "交易方或货物涉及国际制裁",
+      "severity": "高风险",
+      "suggestion": "进行制裁合规审查，约定制裁条款"
+    }
+  ],
+  "position_guidance": {
+    "exporter": {
+      "name": "出口方/卖方",
+      "priority_checks": [
+        "贸易术语",
+        "支付方式",
+        "装运期",
+        "检验条款"
+      ],
+      "key_concerns": [
+        "选择有利的贸易术语（EXW/FOB）",
+        "争取预付款或信用证",
+        "合理的装运期",
+        "明确检验标准"
+      ],
+      "avoid": [
+        "DDP（承担全部费用和风险）",
+        "赊销（O/A）",
+        "装运期过短",
+        "质量标准过严"
+      ]
+    },
+    "importer": {
+      "name": "进口方/买方",
+      "priority_checks": [
+        "货物质量",
+        "贸易术语",
+        "支付条件",
+        "检验索赔"
+      ],
+      "key_concerns": [
+        "明确货物质量标准",
+        "选择有利的贸易术语（DDP/CIF）",
+        "争取货到付款",
+        "明确检验和索赔权利"
+      ],
+      "avoid": [
+        "EXW（承担全部运输风险）",
+        "预付全款",
+        "检验期限过短",
+        "索赔期限过短"
+      ]
+    }
+  },
+  "legal_notes": {
+    "incoterms": {
+      "description": "贸易术语（Incoterms 2020）",
+      "exw": "EXW（工厂交货）：卖方责任最小，买方承担全部运输风险",
+      "fob": "FOB（船上交货）：货物越过船舷后风险转移给买方",
+      "cif": "CIF（成本加保险费加运费）：卖方负责运费和保险，风险在装运港转移",
+      "ddp": "DDP（完税后交货）：卖方责任最大，承担全部费用和风险"
+    },
+    "payment": {
+      "description": "支付方式",
+      "lc": "信用证（L/C）：银行信用，安全性高",
+      "tt": "电汇（T/T）：简便快捷，风险较高",
+      "dp": "付款交单（D/P）：银行托收，安全性中等",
+      "da": "承兑交单（D/A）：风险较高",
+      "oa": "赊销（O/A）：风险最高"
+    },
+    "cisg": {
+      "description": "联合国国际货物销售合同公约",
+      "applicability": "适用于营业地在不同缔约国的当事人之间的货物销售合同",
+      "exclusion": "可在合同中明确排除CISG的适用"
+    }
+  }
+}

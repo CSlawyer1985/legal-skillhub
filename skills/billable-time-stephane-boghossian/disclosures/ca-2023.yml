@@ -1,0 +1,42 @@
+code: ca-2023
+jurisdiction: "California (State Bar)"
+opinion: "Practical Guidance for the Use of Generative Artificial Intelligence in the Practice of Law"
+date: "2023-11-16"
+source_url: "https://www.calbar.ca.gov/Portals/0/documents/ethics/Generative-AI-Practical-Guidance.pdf"
+verified: false
+verified_by: ~
+canonical_disclosure_text: |
+  Generative artificial intelligence tools were used in connection with
+  preparing certain work product on this matter. Consistent with California
+  Rules of Professional Conduct 1.1 (competence), 1.3 (diligence), 1.5
+  (fees), and 1.6 (confidentiality), the attorney of record verified the
+  AI-assisted output, exercised independent professional judgment, and
+  adopted the final work product as the attorney's own. The time billed
+  reflects actual attorney time. No markup has been applied for AI-assisted
+  efficiency.
+notes: |
+  The State Bar of California's Committee on Professional Responsibility
+  and Conduct (COPRAC) issued "Practical Guidance for the Use of
+  Generative Artificial Intelligence in the Practice of Law" on November
+  16, 2023. It is non-binding practice guidance — not a formal opinion or
+  rule — but California lawyers should treat it as the closest thing to
+  the State Bar's official position pending formal rulemaking.
+
+  Key points:
+  - Confidentiality (CRPC 1.6): inputting client information into a
+    third-party GAI service may waive privilege or violate confidentiality
+    duties unless the service's terms protect that information.
+  - Competence (CRPC 1.1): lawyers should understand GAI's capabilities
+    and limitations to the level needed for the matter.
+  - Communication (CRPC 1.4): clients may need to be informed if GAI is
+    used in a way that materially affects representation.
+  - Fees (CRPC 1.5): bill actual time. AI efficiency does not justify a
+    markup. Fixed-fee arrangements should not exploit the gap between
+    time and fee.
+  - Supervision (CRPC 5.1, 5.3): supervise GAI output as you would a
+    non-lawyer assistant's work.
+billing_rules_summary: |
+  Bill actual time spent. AI efficiency does not justify billing more time
+  than actually spent. For fixed-fee matters, the guidance discourages
+  changing the time entry to inflate apparent hours. The lawyer remains
+  responsible for the accuracy of the bill regardless of AI use.

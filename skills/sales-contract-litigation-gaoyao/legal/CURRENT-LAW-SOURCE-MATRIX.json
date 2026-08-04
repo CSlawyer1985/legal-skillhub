@@ -1,0 +1,396 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-18T18:33:24.619Z",
+  "current_as_of": "2026-07-18",
+  "scope": "买卖合同纠纷起诉与诉讼准备",
+  "layer": "current_law_layer",
+  "status": "PASS-SOURCE-DISCOVERY-AND-VERSION-STATUS-ONLY",
+  "status_boundary": "本矩阵只确认现行法源、版本和通用议题；个案适用、事实认定、金额计算、法院管辖及请求权基础仍须逐案核验。",
+  "official_sources": [
+    {
+      "source_id": "LAW-001",
+      "title": "中华人民共和国民法典",
+      "authority": "全国人民代表大会",
+      "document_no": null,
+      "promulgated_on": "2020-05-28",
+      "effective_on": "2021-01-01",
+      "version_status": "现行有效",
+      "primary_url": "https://wb.flk.npc.gov.cn/flfg/PDF/bd53dd912c1048f2aecbaa229238334b.pdf",
+      "official_mirror_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-001",
+        "primary_url_remote_verified": true,
+        "official_mirror_text_verified": true
+      },
+      "key_provisions": [
+        "第188、189、192、195条：诉讼时效",
+        "第469条：合同形式",
+        "第577、584、585条：违约责任、损失与违约金",
+        "第595、598、601至604、617、621、626至628条：买卖、交付、风险、质量检验与付款",
+        "第634、641至643条：分期付款与所有权保留",
+        "第681、686、688、692、693条：保证方式与保证期间"
+      ],
+      "use_boundary": "作为现行实体法主干；法律事实跨越2021年1月1日时必须先经过 LAW-008 的时间效力路由。"
+    },
+    {
+      "source_id": "LAW-002",
+      "title": "最高人民法院关于审理买卖合同纠纷案件适用法律问题的解释（2020年修正）",
+      "authority": "最高人民法院",
+      "document_no": null,
+      "promulgated_on": "2020-12-29",
+      "effective_on": "2021-01-01",
+      "version_status": "现行有效",
+      "primary_url": "https://wb.flk.npc.gov.cn/sfjs/texthtml/154c7dd8b2334b6c8100766949074674.html",
+      "official_mirror_url": "https://cicc.court.gov.cn/html/1/218/62/84/12840.html",
+      "official_gazette_url": "https://gongbao.court.gov.cn/Details/ba1b35d94fe5430b29f99395323878.html",
+      "verification": {
+        "local_snapshot_id": null,
+        "remote_text_verified_on_two_official_sources": true,
+        "local_snapshot_status": "NOT-CAPTURED-OFFICIAL-SITES-REJECTED-CURL",
+        "failure_not_treated_as_content_failure": true
+      },
+      "key_provisions": [
+        "第1条：无书面合同下的成立证据链",
+        "第5条：发票与交付、付款证明边界",
+        "第8至11条：运输交付与风险",
+        "第12至14条：检验、异议和二年最长合理期限",
+        "第18条：逾期付款违约金及无约定时的LPR基准规则",
+        "第25至28条：所有权保留、分期付款",
+        "第31条：抗辩与反诉区分"
+      ],
+      "use_boundary": "须与民法典及个案约定共同适用；不得仅凭发票证明交付，不得在未核验违约发生日时套用统一利率。"
+    },
+    {
+      "source_id": "LAW-003",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "authority": "最高人民法院",
+      "document_no": "法释〔2023〕13号",
+      "promulgated_on": "2023-12-04",
+      "effective_on": "2023-12-05",
+      "version_status": "现行有效",
+      "primary_url": "https://www.court.gov.cn/zixun/xiangqing/419382.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-002",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "第1条：合同解释因素",
+        "第2条：交易习惯及举证责任",
+        "第3条：名称、标的和数量通常足以认定合同成立",
+        "第15条：按内容和履行认定实际法律关系，不拘泥合同名称",
+        "第69条：施行与衔接"
+      ],
+      "use_boundary": "production-intake 作为现行解释规则；retrospective-benchmark 不得将其倒灌到2023年12月5日前的盲态起草。"
+    },
+    {
+      "source_id": "LAW-004",
+      "title": "中华人民共和国民事诉讼法（2023年修正）",
+      "authority": "全国人民代表大会常务委员会",
+      "document_no": "中华人民共和国主席令第十一号",
+      "promulgated_on": "2023-09-01",
+      "effective_on": "2024-01-01",
+      "version_status": "现行有效",
+      "primary_url": "https://gongbao.court.gov.cn/Details/886331ece0f6611a370642e89f08c6.html",
+      "effective_status_url": "https://www.court.gov.cn/xinshidai/xiangqing/410562.html",
+      "official_government_reproduction_url": "https://fgw.sh.gov.cn/cmsres/2f/2f008e6cf40e44afadb05f4e8a09357d/bf0ed6e54b9153c78d2cebabcdac207c.pdf",
+      "verification": {
+        "local_snapshot_id": "SNAP-003",
+        "snapshot_scope": "主席令与生效状态",
+        "articles_24_and_35_cross_checked_on_official_government_reproduction": true
+      },
+      "key_provisions": [
+        "第24条：合同纠纷由被告住所地或合同履行地法院管辖",
+        "第35条：书面协议管辖及实际联系要求",
+        "起诉条件、证据与程序期限须按个案起诉时版本复核"
+      ],
+      "use_boundary": "程序法通常按程序发生时适用；历史案件不得以2024年版本重写首次起诉时的程序判断。"
+    },
+    {
+      "source_id": "LAW-005",
+      "title": "最高人民法院关于适用《中华人民共和国民事诉讼法》的解释（2022修正）",
+      "authority": "最高人民法院",
+      "document_no": null,
+      "promulgated_on": "2022-04-01",
+      "effective_on": "2022-04-10",
+      "version_status": "现行有效",
+      "primary_url": "https://cicc.court.gov.cn/html/1/380/385/12829.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-004",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "第18条：合同履行地",
+        "第20条：信息网络买卖合同履行地",
+        "第29至34条：协议管辖的形式、确定性、消费者提示及转让等规则"
+      ],
+      "use_boundary": "管辖结论必须绑定合同条款、履行事实及主体住所证据；无法确定时 P0-HOLD-JURISDICTION。"
+    },
+    {
+      "source_id": "LAW-006",
+      "title": "最高人民法院关于民事诉讼证据的若干规定（2019修正）",
+      "authority": "最高人民法院",
+      "document_no": "法释〔2019〕19号",
+      "promulgated_on": "2019-12-25",
+      "effective_on": "2020-05-01",
+      "version_status": "现行有效",
+      "primary_url": "https://www.court.gov.cn/zixun/xiangqing/212721.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-005",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "第11条：原件、原物与核对无异的复制件",
+        "第14、15条：电子数据范围、原件与输出介质",
+        "第93、94条：电子数据真实性判断与推定"
+      ],
+      "use_boundary": "聊天、邮件、平台记录、电子签章和导出表格均须保留原始载体、生成链、提取方法与完整性说明。"
+    },
+    {
+      "source_id": "LAW-007",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》有关担保制度的解释",
+      "authority": "最高人民法院",
+      "document_no": "法释〔2020〕28号",
+      "promulgated_on": "2020-12-31",
+      "effective_on": "2021-01-01",
+      "version_status": "现行有效",
+      "primary_url": "https://cicc.court.gov.cn/html/1/380/385/12834.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-006",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "第1、64、67条：所有权保留买卖的担保功能、取回与登记对抗",
+        "第7至12条：公司及分支机构担保权限",
+        "第25至33条：保证方式、起诉与保证期间",
+        "第56、57条：正常经营买受人与价款优先权"
+      ],
+      "use_boundary": "出现保证人、所有权保留或价款担保时触发；必须核验主体权限、保证方式、期间、登记和善意第三人。"
+    },
+    {
+      "source_id": "LAW-008",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》时间效力的若干规定",
+      "authority": "最高人民法院",
+      "document_no": "法释〔2020〕15号",
+      "promulgated_on": "2020-12-29",
+      "effective_on": "2021-01-01",
+      "version_status": "现行有效",
+      "primary_url": "https://www.court.gov.cn/fabu/xiangqing/282051.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-007",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "第1条：施行前、施行后及持续性法律事实的一般规则",
+        "第2至4条：有旧法、无旧法及原则性旧法的衔接",
+        "第5条：施行前已终审案件再审不适用民法典"
+      ],
+      "use_boundary": "每案必须先记录法律事实日期、首次起诉日期和 retrospective cutoff，之后才能选择实体法版本。"
+    },
+    {
+      "source_id": "LAW-009",
+      "title": "最高人民法院关于修改《民事案件案由规定》的决定及修改后的《民事案件案由规定》",
+      "authority": "最高人民法院",
+      "document_no": "法〔2025〕226号、法〔2025〕227号",
+      "promulgated_on": "2025-12-17",
+      "effective_on": "2026-01-01",
+      "version_status": "现行有效",
+      "primary_url": "https://www.court.gov.cn/zixun/xiangqing/484231.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-008",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "以诉争法律关系性质为案由主要标准",
+        "优先选择低级案由并允许依查明的实际法律关系变更",
+        "第88项买卖合同纠纷及分期付款、所有权保留、信息网络买卖等下位案由"
+      ],
+      "use_boundary": "production-intake 在2026年1月1日后按本版路由；历史盲测只在 cutoff 当时版本层内判断，不得倒灌。"
+    },
+    {
+      "source_id": "LAW-010",
+      "title": "最高人民法院、司法部、中华全国律师协会关于印发部分案件起诉状答辩状示范文本的通知",
+      "authority": "最高人民法院、司法部、中华全国律师协会",
+      "document_no": "法〔2025〕82号",
+      "promulgated_on": "2025-05-28",
+      "effective_on": "2025-07-14",
+      "version_status": "全国法院全面推广使用",
+      "primary_url": "https://gongbao.court.gov.cn/Details/58f1a4cb9bbdcc45faa565a6e0db5b.html",
+      "official_news_url": "https://www.court.gov.cn/zixun/xiangqing/468671.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-009",
+        "snapshot_scope": "官方发布说明与推广日期",
+        "notice_full_text_remote_verified": true
+      },
+      "key_provisions": [
+        "67类常见纠纷示范文本",
+        "积极引导、尊重选择",
+        "要素式结构用于立案与争点归纳"
+      ],
+      "use_boundary": "作为 court-profile 和要素完整性来源，不得机械复制实例事实，不得取代个案事实、证据及法院具体格式要求。"
+    },
+    {
+      "source_id": "LAW-011",
+      "title": "民事答辩状（买卖合同纠纷）示范文本实例",
+      "authority": "人民法院在线服务",
+      "document_no": null,
+      "promulgated_on": null,
+      "effective_on": null,
+      "version_status": "官方在线示范文本",
+      "primary_url": "https://zxfw.court.gov.cn/zxfw-statics/dbz/mmhtjf.pdf",
+      "verification": {
+        "local_snapshot_id": "SNAP-010",
+        "pdf_readability": "PASS-7-PAGES",
+        "first_two_pages_text_extraction": "PASS"
+      },
+      "key_provisions": [
+        "主体与代理信息",
+        "价款、逾期付款、履行或解除、损失、瑕疵、担保、费用与总额等答辩要素",
+        "合同订立、交付、结算与争议焦点的结构化陈述"
+      ],
+      "use_boundary": "仅借鉴结构与要素；实例中的主体、金额、事实、利率和意见不得进入 Skill 模板或合成样例。"
+    },
+    {
+      "source_id": "LAW-012",
+      "title": "最高法发布示范文本应用典型案例（2026年7月9日发布页）",
+      "authority": "最高人民法院",
+      "document_no": null,
+      "promulgated_on": "2026-07-09",
+      "effective_on": null,
+      "version_status": "当前实践说明",
+      "primary_url": "https://www.court.gov.cn/zixun/xiangqing/505361.html",
+      "verification": {
+        "local_snapshot_id": "SNAP-011",
+        "official_text_verified": true
+      },
+      "key_provisions": [
+        "买卖合同货款纠纷可将零散事实结构化为要素信息",
+        "通过对账、争点归纳与核心要素固定提升处理效率"
+      ],
+      "use_boundary": "属于 court-profile 与流程参考，不是裁判规则，不得替代法律依据或个案证明。"
+    }
+  ],
+  "topic_matrix": [
+    {
+      "topic_id": "TOPIC-01",
+      "topic": "合同成立、形式与解释",
+      "source_ids": ["LAW-001", "LAW-002", "LAW-003"],
+      "provisions": ["民法典第469条", "买卖解释第1条", "合同编通则解释第1至3条"],
+      "required_evidence": ["合同及附件", "订单", "送货或收货记录", "对账或债权确认", "发票及付款链", "磋商与履行记录"],
+      "hold": "主体、标的或数量无法从证据链确定时 HOLD-CONTRACT-FORMATION"
+    },
+    {
+      "topic_id": "TOPIC-02",
+      "topic": "名为买卖、实为其他法律关系",
+      "source_ids": ["LAW-003", "LAW-009"],
+      "provisions": ["合同编通则解释第15条", "2026案由规定适用说明"],
+      "required_evidence": ["交易目的", "资金与货物流", "标的真实性", "定价结构", "履行行为", "回购或担保安排"],
+      "hold": "实际法律关系未查清时 HOLD-ROUTE，不以合同标题强行路由"
+    },
+    {
+      "topic_id": "TOPIC-03",
+      "topic": "交付、所有权转移与单证",
+      "source_ids": ["LAW-001", "LAW-002"],
+      "provisions": ["民法典第598至603条", "买卖解释第2至7条"],
+      "required_evidence": ["交付约定", "物流或签收", "收货授权", "验收", "单证和发票", "登记记录"],
+      "hold": "仅有发票且对方否认交付时 HOLD-DELIVERY-EVIDENCE"
+    },
+    {
+      "topic_id": "TOPIC-04",
+      "topic": "风险负担",
+      "source_ids": ["LAW-001", "LAW-002"],
+      "provisions": ["民法典第604至611条", "买卖解释第8至11条"],
+      "required_evidence": ["交付地点", "托运安排", "承运人身份", "标的特定化", "损毁时间", "风险特别约定"],
+      "hold": "交付与损毁时点不能定位时 HOLD-RISK-TRANSFER"
+    },
+    {
+      "topic_id": "TOPIC-05",
+      "topic": "质量、检验与异议",
+      "source_ids": ["LAW-001", "LAW-002"],
+      "provisions": ["民法典第615至623条", "买卖解释第12至17条"],
+      "required_evidence": ["质量标准", "检验期限", "验收记录", "异议通知与送达", "维修或鉴定", "使用状态"],
+      "hold": "异议日期、送达、瑕疵性质或鉴定缺失时，不得作确定性质量结论"
+    },
+    {
+      "topic_id": "TOPIC-06",
+      "topic": "价款、结算与逾期付款",
+      "source_ids": ["LAW-001", "LAW-002"],
+      "provisions": ["民法典第626至628条", "买卖解释第18条"],
+      "required_evidence": ["价款与税费约定", "付款节点", "发票", "银行流水", "对账", "违约日期", "LPR日期版本"],
+      "hold": "本金、已付款、到期日或计算基准未核对时 HOLD-AMOUNT"
+    },
+    {
+      "topic_id": "TOPIC-07",
+      "topic": "违约责任、损失与违约金调整",
+      "source_ids": ["LAW-001", "LAW-002", "LAW-003"],
+      "provisions": ["民法典第577、584、585条", "买卖解释第18至24条", "合同编通则解释第60至65条"],
+      "required_evidence": ["违约条款", "实际损失", "可得利益基础", "减损措施", "因果关系", "可预见性"],
+      "hold": "无计算链、无损失基础或仅主张固定比例时 HOLD-DAMAGES-CALC"
+    },
+    {
+      "topic_id": "TOPIC-08",
+      "topic": "分期付款与所有权保留",
+      "source_ids": ["LAW-001", "LAW-002", "LAW-007", "LAW-009"],
+      "provisions": ["民法典第634、641至643条", "买卖解释第25至28条", "担保解释第1、56、57、64、67条"],
+      "required_evidence": ["分期表", "催告", "未付款比例", "取回或回赎条款", "动产登记", "第三人交易"],
+      "hold": "分期次数、未付比例、催告或登记状态不明时 HOLD-INSTALLMENT-TITLE-RETENTION"
+    },
+    {
+      "topic_id": "TOPIC-09",
+      "topic": "保证与公司担保",
+      "source_ids": ["LAW-001", "LAW-007"],
+      "provisions": ["民法典第681至702条", "担保解释第7至12、21、25至33条"],
+      "required_evidence": ["保证合同", "保证方式", "保证期间", "债权人行权", "公司决议或授权", "主合同效力"],
+      "hold": "保证方式、期间、行权或公司权限任一不明时 HOLD-GUARANTEE"
+    },
+    {
+      "topic_id": "TOPIC-10",
+      "topic": "诉讼时效",
+      "source_ids": ["LAW-001", "LAW-008"],
+      "provisions": ["民法典第188、189、192、195条", "时间效力解释第1至4条"],
+      "required_evidence": ["到期日", "分期最终到期日", "催收送达", "承认债务", "起诉或仲裁", "中断链"],
+      "hold": "到期日或中断证据缺失时 HOLD-LIMITATION"
+    },
+    {
+      "topic_id": "TOPIC-11",
+      "topic": "地域与协议管辖",
+      "source_ids": ["LAW-004", "LAW-005"],
+      "provisions": ["民事诉讼法第24、35条", "民诉解释第18、20、29至34条"],
+      "required_evidence": ["被告住所", "协议管辖条款", "合同履行地", "交付方式", "收货地", "网络交付事实"],
+      "hold": "管辖连接点或条款效力未核验时 P0-HOLD-JURISDICTION"
+    },
+    {
+      "topic_id": "TOPIC-12",
+      "topic": "电子证据与原件",
+      "source_ids": ["LAW-006"],
+      "provisions": ["证据规定第11、14、15、61、93、94条"],
+      "required_evidence": ["原始载体", "导出方法", "哈希", "平台或设备信息", "完整上下文", "第三方确认"],
+      "hold": "仅有截图、缺上下文或无法说明来源完整性时 HOLD-ELECTRONIC-EVIDENCE"
+    },
+    {
+      "topic_id": "TOPIC-13",
+      "topic": "案由与路由",
+      "source_ids": ["LAW-003", "LAW-009"],
+      "provisions": ["合同编通则解释第15条", "2026案由规定第88项及适用说明"],
+      "required_evidence": ["诉讼请求", "实际法律关系", "交易结构", "标的与履行"],
+      "hold": "混合关系、回购、代融资或借贷特征未排除时 HOLD-ROUTE"
+    },
+    {
+      "topic_id": "TOPIC-14",
+      "topic": "法院提交口径与要素式表达",
+      "source_ids": ["LAW-010", "LAW-011", "LAW-012"],
+      "provisions": ["法〔2025〕82号", "买卖合同纠纷示范文本", "2026年7月9日最高法实践说明"],
+      "required_evidence": ["请求与金额", "合同成立", "交付验收", "付款结算", "违约", "质量异议", "担保", "证据编号"],
+      "hold": "示范文本只作结构来源；未完成SSOT和证据定位不得生成法院定稿"
+    }
+  ],
+  "global_holds": [
+    "HOLD-CASE-APPLICABILITY：个案法律事实日期、争议结构或法源版本未核验",
+    "HOLD-LEGAL-CITATION：无法定位到官方法源、条文或有效版本",
+    "HOLD-AMOUNT：本金、付款、利息或违约金计算链不闭合",
+    "HOLD-JURISDICTION：管辖条款或连接点未核验",
+    "HOLD-FORMAL-CROSS：未收到对方证据时不得生成正式质证意见",
+    "HOLD-DOCX：本阶段未生成或验收DOCX",
+    "HOLD-CLAUDE：尚未发布RELEASE-HANDOFF",
+    "HOLD-EXTERNAL-PUBLISH：未经权利人另行授权不得外部发布"
+  ]
+}

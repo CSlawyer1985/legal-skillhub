@@ -1,0 +1,71 @@
+name: yunlv-compliance-check
+version: 1.1.0
+license: MIT-0
+type: openclaw-skill
+description: Use when user needs to check import/export compliance requirements for
+  specific products and countries. Use when verifying product certifications, tariffs,
+  sanctions, or regulatory requirements. Use when screening business partners against
+  trade sanctions or embargo lists. Use when user mentions "合规检查", "进出口合规", "产品认证",
+  "关税", "制裁名单", "禁运", "清关", "认证要求", "compliance", "import regulations".
+emoji: 🤖
+homepage: https://yunlvai.com
+publisher:
+  name: 云旅AI团队
+  website: https://yunlvai.com
+required_env:
+- TRADEGPT_API_KEY
+primary_env: TRADEGPT_API_KEY
+apis:
+- name: 云旅AI TradeGPT API
+  url: https://api.yunlvai.com
+  purpose: 合规要求查询和风险评估
+  auth: Bearer Token (TRADEGPT_API_KEY)
+category: compliance-risk
+tags:
+- 进出口合规
+- 产品认证
+- 关税
+- 制裁名单
+- 禁运
+- 清关
+- 认证要求
+- 合规检查
+- 出口管制
+- 进口许可
+triggers:
+- 合规检查
+- 进出口合规
+- 产品认证
+- 关税查询
+- 制裁名单
+- 清关
+- 认证要求
+- 出口管制
+- 进口许可
+- compliance
+- 禁运
+- HS编码
+pricing:
+  free:
+    features:
+    - 每次3项合规检查
+    - 基础认证清单
+    - 通用关税查询
+  basic:
+    price: 399
+    currency: CNY
+    period: month
+    features:
+    - 无限合规检查
+    - 完整认证要求
+    - 制裁名单筛查
+    - 合规报告生成
+  pro:
+    price: 999
+    currency: CNY
+    period: month
+    features:
+    - 实时法规更新
+    - 客户背调筛查
+    - 合同合规审核
+    - 专家咨询通道

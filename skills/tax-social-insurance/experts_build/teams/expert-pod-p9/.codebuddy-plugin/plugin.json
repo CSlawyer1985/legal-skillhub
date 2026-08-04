@@ -1,0 +1,109 @@
+{
+  "name": "expert-pod-p9",
+  "version": "1.0.0",
+  "description": "P9: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p9-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p9-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p9-lead",
+    "memberAgents": [
+      "social-security-advisor-expert",
+      "tax-social-insurance-expert"
+    ]
+  },
+  "displayName": {
+    "en": "社保与人力资本团",
+    "zh": "社保与人力资本团"
+  },
+  "profession": {
+    "en": "社保与人力资本团",
+    "zh": "社保与人力资本团"
+  },
+  "displayDescription": {
+    "en": "P9: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「社保与人力资本团」：由主理人协调 2 名专题专家，覆盖社保费/个税扣缴合规，提供跨域财税合规结论与"
+  },
+  "avatar": "avatars/pod-p9-lead.svg",
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "我是「社保与人力资本团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 社保与人力资本团."
+  },
+  "plugin": "expert-pod-p9",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T3",
+      "zh": "T3优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p9-lead",
+      "displayName": {
+        "en": "社保合规总监",
+        "zh": "社保合规总监"
+      },
+      "profession": {
+        "en": "社保合规总监",
+        "zh": "社保合规总监"
+      },
+      "avatar": "avatars/pod-p9-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "social-security-advisor-expert",
+      "displayName": {
+        "en": "social-security-advisor",
+        "zh": "social-security-advisor"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/social-security-advisor-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-social-insurance-expert",
+      "displayName": {
+        "en": "tax-social-insurance",
+        "zh": "tax-social-insurance"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-social-insurance-expert.svg",
+      "role": "member"
+    }
+  ]
+}

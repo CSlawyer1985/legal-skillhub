@@ -1,0 +1,249 @@
+# 合同条款与信息披露合规审查规则
+# 覆盖审查表"第十、十一类事项"，共11条规则
+# 规则ID命名规范：CC_ 前缀 + 大写下划线，对应审查表编号
+
+rules:
+  # ===== 十、合同主要条款合规性（10.1-10.6） =====
+  - rule_id: CC_CONTRACT_COMPLETE
+    title: 合同主要条款完整性
+    severity: medium
+    description: 合同是否包含价款支付、工期、质量标准、验收方式、违约责任、争议解决等必备条款
+    keywords:
+      - "合同条款"
+      - "价款支付"
+      - "工期"
+      - "质量标准"
+      - "验收方式"
+      - "违约责任"
+      - "争议解决"
+    patterns:
+      - "合同.*缺少.*条款"
+      - "未约定.*违约责任"
+      - "未约定.*争议解决"
+      - "未约定.*验收方式"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "合同应包含价款支付、工期/交付、质量标准、验收方式、违约责任、争议解决等必备条款"
+    legal_basis: "《招标投标法》第十九条：招标文件应当包括拟签订合同的主要条款；《民法典》第四百七十条"
+    check_item: "10.1"
+
+  - rule_id: CC_PAYMENT_TERMS
+    title: 合同价款与支付
+    severity: high
+    description: 计价方式是否明确，支付比例/节点是否合理，不得以审计结论作为支付前提
+    keywords:
+      - "计价方式"
+      - "支付比例"
+      - "付款节点"
+      - "审计结论"
+      - "以审计为准"
+      - "进度款"
+    patterns:
+      - "以审计结论.*作为.*支付依据"
+      - "最终结算.*以审计为准"
+      - "以审计结果.*结算"
+      - "须待审计.*后支付"
+      - "审计确认后.*付款"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "不得以审计结论作为工程款支付前提，应按合同约定支付；计价方式和支付节点应明确合理"
+    legal_basis: "《关于完善建设工程价款结算有关办法的通知》：不得以审计结论作为工程款支付依据；《建设工程价款结算暂行办法》"
+    check_item: "10.2"
+
+  - rule_id: CC_NO_SUBSTANTIAL_CHANGE
+    title: 禁止实质性变更
+    severity: high
+    description: 合同条款是否与招标文件和中标人投标文件实质性内容一致，不得另行订立背离实质性内容的其他协议
+    keywords:
+      - "实质性变更"
+      - "背离"
+      - "另行协议"
+      - "补充协议"
+      - "合同变更"
+    patterns:
+      - "合同.*另行约定"
+      - "补充协议.*修改.*实质性"
+      - "实际履行.*与合同.*不一致"
+      - "背离.*招标文件"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "合同条款应与招标文件和中标人投标文件的实质性内容一致，不得另行订立背离实质性内容的协议"
+    legal_basis: "《招标投标法》第四十六条：招标人和中标人应当自中标通知书发出之日起三十日内，按照招标文件和中标人的投标文件订立书面合同，不得再行订立背离合同实质性内容的其他协议"
+    check_item: "10.3"
+
+  - rule_id: CC_CHANGE_MANAGEMENT
+    title: 合同变更管理规定
+    severity: medium
+    description: 是否规定合同变更的条件、程序和限制，防止随意变更
+    keywords:
+      - "合同变更"
+      - "变更程序"
+      - "变更条件"
+      - "变更限制"
+      - "签证"
+    patterns:
+      - "合同.*变更.*须.*审批"
+      - "变更.*须经.*确认"
+      - "签证.*程序"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "应明确合同变更的条件、程序、审批权限和金额限制，防止随意变更导致合同实质内容变更"
+    legal_basis: "《招标投标法》第四十六条；《建设工程施工合同（示范文本）》变更条款"
+    check_item: "10.4"
+
+  - rule_id: CC_SUBCONTRACT
+    title: 分包管理条款
+    severity: medium
+    description: 是否明确分包范围、程序和禁止性规定，防止违法分包和转包
+    keywords:
+      - "分包"
+      - "转包"
+      - "违法分包"
+      - "专业分包"
+      - "劳务分包"
+    patterns:
+      - "分包.*须经.*同意"
+      - "不得转包"
+      - "不得违法分包"
+      - "主体结构.*不得分包"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "应明确分包范围、程序和禁止性规定，禁止转包和违法分包，主体结构不得分包"
+    legal_basis: "《招标投标法》第四十八条：中标人不得向他人转让中标项目，也不得将中标项目肢解后分别向他人转让；《建筑法》第二十八条、第二十九条"
+    check_item: "10.5"
+
+  - rule_id: CC_IP_CONFIDENTIAL
+    title: 知识产权与保密条款
+    severity: medium
+    description: 知识产权归属是否明确，保密范围是否合理，不应对投标人设置过重的保密义务
+    keywords:
+      - "知识产权"
+      - "著作权"
+      - "专利"
+      - "保密"
+      - "商业秘密"
+      - "保密期"
+    patterns:
+      - "知识产权.*归.*所有"
+      - "全部知识产权.*归属"
+      - "保密期.*永久"
+      - "保密范围.*包括.*所有"
+    exclusion_patterns:
+      - "双方共有"
+      - "另有约定"
+    category: contract_compliance
+    suggestion: "知识产权归属应合理区分背景知识产权和项目产出知识产权，保密范围和期限应合理"
+    legal_basis: "《著作权法》第十九条；《专利法》第八条；《反不正当竞争法》第九条商业秘密保护条款"
+    check_item: "10.6"
+
+  # ===== 十一、信息披露与程序合规性（11.1-11.5） =====
+  - rule_id: CC_BID_TIME_SUFFICIENCY
+    title: 招标时间充分性
+    severity: high
+    description: 投标文件提交截止时间距招标文件发出之日起不少于20日
+    keywords:
+      - "投标准备期"
+      - "投标截止"
+      - "招标文件发出"
+      - "不少于20日"
+      - "编制时间"
+    patterns:
+      - "自招标文件发出之日起.*天"
+      - "招标公告.*投标截止.*天"
+      - "投标准备期.*天"
+    exclusion_patterns:
+      - "不少于20日"
+      - "不少于20天"
+    category: contract_compliance
+    suggestion: "依法必须招标的项目，投标准备期不得少于20日，确保潜在投标人有充足时间编制投标文件"
+    legal_basis: "《招标投标法》第二十四条：招标人应当确定投标人编制投标文件所需要的合理时间；依法必须进行招标的项目，自招标文件开始发出之日起至投标人提交投标文件截止之日止，最短不得少于二十日"
+    check_item: "11.1"
+
+  - rule_id: CC_CLARIFICATION_RULE
+    title: 澄清与修改规则
+    severity: medium
+    description: 招标文件澄清或修改须在投标截止15日前以书面形式通知所有投标人
+    keywords:
+      - "澄清"
+      - "修改"
+      - "补充通知"
+      - "书面通知"
+      - "答疑"
+    patterns:
+      - "澄清.*在.*截止.*日前"
+      - "修改.*通知.*投标人"
+      - "答疑.*书面通知"
+      - "补充通知.*截止"
+    exclusion_patterns:
+      - "15日前"
+      - "十五日前"
+    category: contract_compliance
+    suggestion: "招标文件澄清或修改应在投标截止时间15日前以书面形式通知所有获取招标文件的潜在投标人"
+    legal_basis: "《招标投标法》第二十三条：招标人对已发出的招标文件进行必要的澄清或者修改的，应当在招标文件要求提交投标文件截止时间至少十五日前以书面形式通知所有招标文件收受人"
+    check_item: "11.2"
+
+  - rule_id: CC_OBJECTION_MECHANISM
+    title: 异议处理机制
+    severity: medium
+    description: 是否建立异议处理机制，受理时限3日内答复
+    keywords:
+      - "异议"
+      - "投诉"
+      - "答复"
+      - "受理"
+      - "质疑"
+    patterns:
+      - "异议.*答复.*日"
+      - "收到异议.*日内.*答复"
+      - "质疑.*答复"
+      - "投诉.*处理"
+    exclusion_patterns:
+      - "3日内答复"
+      - "三日内答复"
+    category: contract_compliance
+    suggestion: "应建立异议处理机制，自收到异议之日起3日内作出答复"
+    legal_basis: "《招标投标法实施条例》第二十二条：潜在投标人或者其他利害关系人对资格预审文件有异议的，应当在提交资格预审申请文件截止时间2日前提出；招标人应当自收到异议之日起3日内作出答复"
+    check_item: "11.3"
+
+  - rule_id: CC_GUARANTEE_VERIFY
+    title: 保函真实性核验
+    severity: medium
+    description: 是否规定投标保函、履约保函等担保文件的核验程序
+    keywords:
+      - "保函"
+      - "担保"
+      - "核验"
+      - "验证"
+      - "真伪"
+      - "查验"
+    patterns:
+      - "保函.*核验"
+      - "担保.*验证"
+      - "保函.*真伪.*查验"
+      - "银行保函.*核实"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "应规定保函真实性核验程序，可通过银行渠道或担保机构确认保函真实有效"
+    legal_basis: "《招标投标法实施条例》第二十六条；《工程建设项目施工招标投标办法》第三十七条"
+    check_item: "11.4"
+
+  - rule_id: CC_INFO_DISCLOSURE
+    title: 平台推送与信息公开
+    severity: medium
+    description: 评标标准、合同条款等是否全面公开，信息是否及时推送至公共资源交易平台
+    keywords:
+      - "信息公开"
+      - "公示"
+      - "平台推送"
+      - "公共资源交易"
+      - "公告"
+    patterns:
+      - "中标结果.*公示"
+      - "评标.*公开"
+      - "合同.*公告"
+      - "信息.*推送.*平台"
+    exclusion_patterns: []
+    category: contract_compliance
+    suggestion: "招标公告、评标标准、中标结果、合同主要条款等应依法公开，并及时推送至公共资源交易平台"
+    legal_basis: "《招标投标法》第十六条：招标人采用公开招标方式的，应当发布招标公告；《招标投标法实施条例》第五十四条：招标人应当自收到评标报告之日起3日内公示中标候选人"
+    check_item: "11.5"

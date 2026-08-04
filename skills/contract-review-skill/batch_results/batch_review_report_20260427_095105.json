@@ -1,0 +1,47 @@
+{
+  "batch_info": {
+    "total_contracts": 2,
+    "processed_contracts": 2,
+    "failed_contracts": 0,
+    "processing_time_seconds": 0.19,
+    "timestamp": "2026-04-27T09:51:05.149558",
+    "industry": "general",
+    "max_workers": 2
+  },
+  "results": [
+    {
+      "contract_file": "C:\\Users\\pc\\.laosi\\sample_contract.txt",
+      "contract_name": "sample_contract.txt",
+      "risk_score": 40,
+      "risk_level": "HIGH",
+      "findings_count": 5,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "low_risk_count": 0,
+      "critical_risk_count": 0
+    },
+    {
+      "contract_file": "C:\\Users\\pc\\.laosi\\sample_contract_2.txt",
+      "contract_name": "sample_contract_2.txt",
+      "risk_score": 48,
+      "risk_level": "HIGH",
+      "findings_count": 6,
+      "high_risk_count": 0,
+      "medium_risk_count": 0,
+      "low_risk_count": 0,
+      "critical_risk_count": 0
+    }
+  ],
+  "summary": {
+    "total_high_risk": 0,
+    "total_medium_risk": 0,
+    "total_low_risk": 0,
+    "average_risk_score": 44.0,
+    "risk_distribution": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    }
+  }
+}

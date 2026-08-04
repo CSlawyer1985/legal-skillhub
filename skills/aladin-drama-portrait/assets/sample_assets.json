@@ -1,0 +1,24 @@
+{
+  "林悦": {
+    "asset_types": ["real_actor"],
+    "resembles_public_figure": false,
+    "note": "签约真人演员出演，走肖像授权"
+  },
+  "顾北辰": {
+    "asset_types": ["digital_human"],
+    "resembles_public_figure": false,
+    "note": "采购第三方数字人形象驱动"
+  },
+  "陈曼": {
+    "asset_types": ["ai_original", "voice_clone"],
+    "resembles_public_figure": true,
+    "public_figure_ref": "某当红女星",
+    "note": "AI 生成形象疑似神似某明星；台词用了声音克隆"
+  },
+  "苏文": {
+    "asset_types": ["face_swap"],
+    "resembles_public_figure": true,
+    "public_figure_ref": "某影视男演员",
+    "note": "换脸素材，源肖像疑似公众人物"
+  }
+}

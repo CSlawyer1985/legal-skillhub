@@ -1,0 +1,323 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "租赁合同",
+  "contract_type_en": "lease",
+  "description": "房屋租赁、设备租赁、场地租赁等租赁合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《商品房屋租赁管理办法》",
+    "《城市房地产管理法》"
+  ],
+  "keywords_for_detection": [
+    "租赁", "出租", "承租", "租金", "押金", "租期", "房东", "租客",
+    "房屋出租", "设备租赁", "场地租赁"
+  ],
+  "key_clauses": [
+    {
+      "name": "租赁物信息",
+      "required": true,
+      "keywords": ["租赁物", "房屋", "地址", "面积", "设备型号"],
+      "check_points": [
+        {
+          "item": "租赁物描述",
+          "description": "租赁物地址、面积、规格是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属证明",
+          "description": "出租方是否有权出租（房产证/所有权证明）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "附属设施",
+          "description": "附属设施设备是否列明",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "必须明确租赁物地址、面积，核实出租方有权出租，列明附属设施清单"
+    },
+    {
+      "name": "租赁期限",
+      "required": true,
+      "keywords": ["租期", "租赁期限", "起租日", "到期日"],
+      "check_points": [
+        {
+          "item": "起止日期",
+          "description": "租赁起止日期是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "续租约定",
+          "description": "是否约定续租条件和程序",
+          "risk_level": "一般"
+        },
+        {
+          "item": "优先承租权",
+          "description": "是否约定优先承租权",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确起止日期，约定续租需提前通知期限（通常30日）"
+    },
+    {
+      "name": "租金与支付方式",
+      "required": true,
+      "keywords": ["租金", "支付方式", "月付", "季付", "年付"],
+      "check_points": [
+        {
+          "item": "租金标准",
+          "description": "租金金额是否明确（大小写）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付周期",
+          "description": "月付/季付/年付是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付时间",
+          "description": "每期租金支付截止日期",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付方式",
+          "description": "银行转账/现金等支付方式",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确租金金额、支付周期（建议月付或季付）、支付时间（如每月5日前）"
+    },
+    {
+      "name": "押金条款",
+      "required": true,
+      "keywords": ["押金", "保证金", "履约保证金"],
+      "check_points": [
+        {
+          "item": "押金金额",
+          "description": "押金金额是否合理（通常1-3个月租金）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "退还条件",
+          "description": "押金退还条件和时间是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "扣除情形",
+          "description": "何种情况下可扣除押金",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "押金通常1-2个月租金，明确退还时间（如退租后7-15日），列明扣除情形"
+    },
+    {
+      "name": "租赁物用途",
+      "required": true,
+      "keywords": ["用途", "居住", "办公", "商用", "经营"],
+      "check_points": [
+        {
+          "item": "用途约定",
+          "description": "租赁用途是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "用途限制",
+          "description": "是否禁止改变用途",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确约定用途（居住/办公/商业），禁止擅自改变用途"
+    },
+    {
+      "name": "维修责任",
+      "required": true,
+      "keywords": ["维修", "修缮", "维护", "保养"],
+      "check_points": [
+        {
+          "item": "维修责任划分",
+          "description": "自然损坏/人为损坏责任划分",
+          "risk_level": "重大"
+        },
+        {
+          "item": "维修时限",
+          "description": "维修响应时间是否约定",
+          "risk_level": "一般"
+        },
+        {
+          "item": "大修责任",
+          "description": "房屋主体结构大修责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确：自然损坏由出租方维修，人为损坏由承租方承担；大修由出租方负责"
+    },
+    {
+      "name": "转租与分租",
+      "required": false,
+      "keywords": ["转租", "分租", "转借", "转让"],
+      "check_points": [
+        {
+          "item": "转租限制",
+          "description": "是否允许转租/分租",
+          "risk_level": "重大"
+        },
+        {
+          "item": "转租程序",
+          "description": "转租是否需要出租方同意",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "建议约定：未经出租方书面同意不得转租"
+    },
+    {
+      "name": "合同解除",
+      "required": true,
+      "keywords": ["解除", "终止", "退租", "提前解约"],
+      "check_points": [
+        {
+          "item": "解除条件",
+          "description": "何种情况下可解除合同",
+          "risk_level": "重大"
+        },
+        {
+          "item": "提前通知",
+          "description": "提前解约需提前多久通知",
+          "risk_level": "重大"
+        },
+        {
+          "item": "违约责任",
+          "description": "提前解约的违约责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "约定提前解约需提前30日通知，明确违约金（通常1-2个月租金）"
+    },
+    {
+      "name": "房屋交接",
+      "required": true,
+      "keywords": ["交接", "交付", "返还", "验收"],
+      "check_points": [
+        {
+          "item": "交接清单",
+          "description": "是否附房屋交接清单",
+          "risk_level": "一般"
+        },
+        {
+          "item": "返还标准",
+          "description": "退租时房屋返还标准",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "建议制作《房屋交接清单》，列明家具家电数量和状况"
+    },
+    {
+      "name": "费用承担",
+      "required": true,
+      "keywords": ["物业费", "水电费", "燃气费", "暖气费"],
+      "check_points": [
+        {
+          "item": "费用划分",
+          "description": "物业费、水电费等由谁承担",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用结算",
+          "description": "退租时费用结算方式",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确：物业费通常出租方承担，水电燃气费由承租方承担"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "E001",
+      "name": "出租方无权出租",
+      "description": "出租方非产权人，且无合法授权（如转租未经原房东同意）",
+      "severity": "高风险",
+      "suggestion": "核实房产证和出租方身份，如为转租需原房东书面同意"
+    },
+    {
+      "id": "E002",
+      "name": "租赁期限超过20年",
+      "description": "《民法典》规定租赁期限不得超过20年，超过部分无效",
+      "severity": "高风险",
+      "suggestion": "租赁期限约定为20年以内，到期后可续签"
+    },
+    {
+      "id": "E003",
+      "name": "押金退还条件不清",
+      "description": "押金退还时间、条件不明确，易产生纠纷",
+      "severity": "高风险",
+      "suggestion": "明确押金退还时间（如退租后7-15日）和扣除情形"
+    },
+    {
+      "id": "E004",
+      "name": "维修责任不明",
+      "description": "未明确自然损坏和人为损坏的责任划分",
+      "severity": "中风险",
+      "suggestion": "明确：自然损坏出租方修，人为损坏承租方修"
+    },
+    {
+      "id": "E005",
+      "name": "允许擅自转租",
+      "description": "未限制转租，可能导致出租方失去对租赁物的控制",
+      "severity": "中风险",
+      "suggestion": "约定：未经出租方书面同意不得转租"
+    },
+    {
+      "id": "E006",
+      "name": "费用承担不清",
+      "description": "物业费、水电费等未明确由谁承担",
+      "severity": "中风险",
+      "suggestion": "列明各项费用的承担方"
+    }
+  ],
+  "position_guidance": {
+    "lessor": {
+      "name": "出租方（甲方）",
+      "priority_checks": [
+        "押金条款",
+        "转租限制",
+        "合同解除",
+        "维修责任"
+      ],
+      "key_concerns": [
+        "确保押金足以覆盖潜在损失",
+        "限制擅自转租",
+        "明确提前解约的违约金",
+        "保留检查租赁物的权利",
+        "退租时房屋恢复原状的要求"
+      ],
+      "avoid": [
+        "过长的维修响应期限",
+        "过低的违约金",
+        "允许自由转租",
+        "押金退还条件过松"
+      ]
+    },
+    "lessee": {
+      "name": "承租方（乙方）",
+      "priority_checks": [
+        "出租方权属",
+        "维修责任",
+        "押金退还",
+        "合同解除"
+      ],
+      "key_concerns": [
+        "核实出租方有权出租",
+        "明确出租方维修责任",
+        "押金退还时间和条件",
+        "提前解约的通知期限",
+        "优先承租权"
+      ],
+      "avoid": [
+        "过高的押金（超过3个月）",
+        "过长的提前通知期（超过60日）",
+        "过高的违约金",
+        "模糊的维修责任"
+      ]
+    }
+  }
+}

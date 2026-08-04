@@ -1,0 +1,4 @@
+interface:
+  display_name: "股权激励会计处理"
+  short_description: "用自然语言或上传文件完成股权激励会计处理，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-hr-plus-0980 请帮我完成股权激励会计处理：股份支付的会计准则适用+费用确认+摊销计算+披露要求。"

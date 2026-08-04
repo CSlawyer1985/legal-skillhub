@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金昌恒基伟业电力发展有限公司建设工程施工合同纠纷案 - 诉讼时间轴图谱</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 1.2cm;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 1.2cm;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 0 auto 20px;
+            page-break-after: always;
+            position: relative;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        h1 {
+            font-size: 18pt;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #333;
+            margin: 20px 0 15px 0;
+            padding-left: 10px;
+            border-left: 4px solid #4A90E2;
+        }
+
+        h3 {
+            font-size: 12pt;
+            color: #555;
+            margin: 15px 0 10px 0;
+        }
+
+        .case-info {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 9pt;
+        }
+
+        .case-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .case-info td {
+            padding: 5px 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .case-info td:first-child {
+            font-weight: bold;
+            width: 25%;
+            color: #555;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: #fafafa;
+            border-radius: 5px;
+            font-size: 9pt;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-icon {
+            font-size: 12pt;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+
+        /* 阶段颜色 */
+        .stage-contract { background-color: #87CEEB; }
+        .stage-dispute { background-color: #FF7F50; }
+        .stage-lawsuit { background-color: #DDA0DD; }
+        .stage-appeal { background-color: #FFD700; }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4A90E2, #DDA0DD);
+        }
+
+        .timeline-section {
+            margin-bottom: 30px;
+        }
+
+        .timeline-section-title {
+            text-align: center;
+            font-size: 11pt;
+            font-weight: bold;
+            margin: 20px 0 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+            color: #fff;
+        }
+
+        .timeline-section-title.contract { background-color: #87CEEB; }
+        .timeline-section-title.dispute { background-color: #FF7F50; }
+        .timeline-section-title.lawsuit { background-color: #DDA0DD; }
+        .timeline-section-title.appeal { background-color: #FFD700; }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            width: 48%;
+        }
+
+        .timeline-item.upper {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .timeline-item.lower {
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4A90E2;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #4A90E2;
+            top: 5px;
+        }
+
+        .timeline-item.upper .timeline-dot {
+            right: -53px;
+        }
+
+        .timeline-item.lower .timeline-dot {
+            left: -53px;
+        }
+
+        .timeline-item.upper .timeline-dot.dispute {
+            right: -53px;
+            background: #FF7F50;
+            box-shadow: 0 0 0 2px #FF7F50;
+        }
+
+        .timeline-content {
+            padding: 10px 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border-left: 3px solid #4A90E2;
+        }
+
+        .timeline-item.upper .timeline-content {
+            border-left: 3px solid #4A90E2;
+        }
+
+        .timeline-item.lower .timeline-content {
+            border-right: 3px solid #4A90E2;
+            border-left: none;
+        }
+
+        .timeline-item.dispute .timeline-content {
+            border-left-color: #FF7F50 !important;
+            border-right-color: #FF7F50 !important;
+            background: #fff5f0;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #4A90E2;
+            font-size: 9pt;
+            margin-bottom: 5px;
+        }
+
+        .timeline-event {
+            font-size: 10pt;
+            color: #333;
+        }
+
+        .timeline-event-icon {
+            margin-right: 5px;
+        }
+
+        .timeline-evidence {
+            font-size: 8pt;
+            color: #888;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .focus-mark {
+            color: #FF4500;
+            font-weight: bold;
+        }
+
+        .table-container {
+            margin: 15px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+        }
+
+        th {
+            background: #4A90E2;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #3d7ab5;
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .page-number {
+            text-align: center;
+            font-size: 9pt;
+            color: #999;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .focus-card {
+            background: #fff5f0;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 4px solid #FF7F50;
+            margin: 10px 0;
+        }
+
+        .focus-title {
+            font-weight: bold;
+            color: #FF4500;
+            margin-bottom: 8px;
+        }
+
+        .focus-content {
+            font-size: 9pt;
+        }
+
+        .summary-box {
+            background: #f0f7ff;
+            padding: 12px;
+            border-radius: 5px;
+            border-left: 4px solid #4A90E2;
+            margin: 15px 0;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+
+            .page:last-child {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 第1页：时间轴图谱 -->
+    <div class="page">
+        <h1>金昌恒基伟业电力发展有限公司建设工程施工合同纠纷案<br>时间轴图谱</h1>
+
+        <div class="case-info">
+            <table>
+                <tr>
+                    <td>案号</td>
+                    <td>(2021)苏民终1541号</td>
+                    <td>案由</td>
+                    <td>建设工程施工合同纠纷</td>
+                </tr>
+                <tr>
+                    <td>终审法院</td>
+                    <td>江苏省高级人民法院</td>
+                    <td>审理法官</td>
+                    <td>审判长刘悦梅，审判员李丽、张晓阳</td>
+                </tr>
+                <tr>
+                    <td>合同价款</td>
+                    <td>固定总价109,800,000元</td>
+                    <td>项目名称</td>
+                    <td>金昌农副水产交易中心项目</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><span class="legend-icon">📄</span> 合同签署</div>
+            <div class="legend-item"><span class="legend-icon">✍️</span> 签名盖章</div>
+            <div class="legend-item"><span class="legend-icon">💰</span> 付款收款</div>
+            <div class="legend-item"><span class="legend-icon">📦</span> 交货服务</div>
+            <div class="legend-item"><span class="legend-icon">⚠️</span> 违约事实</div>
+            <div class="legend-item"><span class="legend-icon">📢</span> 催告通知</div>
+            <div class="legend-item"><span class="legend-icon">⚖️</span> 起诉应诉</div>
+            <div class="legend-item"><span class="legend-icon">📋</span> 判决裁决</div>
+            <div class="legend-item"><span class="legend-icon">🔄</span> 上诉再审</div>
+            <div class="legend-item"><span class="legend-icon">🔴</span> 争议焦点</div>
+            <div class="legend-item"><span class="legend-icon">⭐</span> 关键节点</div>
+            <div class="legend-item"><span class="legend-color stage-contract"></span> 履约期</div>
+            <div class="legend-item"><span class="legend-color stage-dispute"></span> 争议期</div>
+            <div class="legend-item"><span class="legend-color stage-lawsuit"></span> 诉讼期</div>
+            <div class="legend-item"><span class="legend-color stage-appeal"></span> 复审期</div>
+        </div>
+
+        <div class="timeline">
+            <!-- 履约期 -->
+            <div class="timeline-section">
+                <div class="timeline-section-title contract">履约期（2016.7 - 2018.9）</div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016年7月18日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">📄</span>金昌公司与中环公司签订《建设工程施工合同》</div>
+                        <div class="timeline-evidence">证据：合同原件（一审判决书第2页）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item lower">
+                    <div class="timeline-dot dispute"></div>
+                    <div class="timeline-content dispute">
+                        <div class="timeline-date">2016年11月11日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">🔴</span>中环公司与南通建工签订《内部承包经营合同》，工程全部转包</div>
+                        <div class="timeline-evidence">证据：内部承包经营合同（一审判决书第3页）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017年1月18日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">⭐</span>金昌公司取得施工许可证</div>
+                        <div class="timeline-evidence">证据：施工许可证（一审判决书第4页）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2017年4月6日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">⭐</span>案涉工程取得建设工程规划许可证</div>
+                        <div class="timeline-evidence">证据：建设工程规划许可证（一审判决书第5页）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018年4月27日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">⭐</span>金昌公司取得项目不动产权证</div>
+                        <div class="timeline-evidence">证据：不动产权证（一审判决书第6页）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018年9月28日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">📦</span>案涉工程通过竣工验收</div>
+                        <div class="timeline-evidence">证据：竣工验收报告（一审判决书第8页）</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 争议期 -->
+            <div class="timeline-section">
+                <div class="timeline-section-title dispute">争议期（2019.1 - 2020.12）</div>
+
+                <div class="timeline-item lower dispute">
+                    <div class="timeline-dot dispute"></div>
+                    <div class="timeline-content dispute">
+                        <div class="timeline-date">2019年1月28日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">⚖️</span>南通建工向一审法院起诉金昌公司、中环公司，要求支付工程款</div>
+                        <div class="timeline-evidence">证据：起诉状（一审判决书第1页）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020年12月4日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">📋</span>一审法院作出判决</div>
+                        <div class="timeline-evidence">证据：一审判决书</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 诉讼期 -->
+            <div class="timeline-section">
+                <div class="timeline-section-title lawsuit">诉讼期（2021 - 2022）</div>
+
+                <div class="timeline-item lower dispute">
+                    <div class="timeline-dot dispute"></div>
+                    <div class="timeline-content dispute">
+                        <div class="timeline-date">2021年</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">🔄</span>南通建工不服一审判决提起上诉</div>
+                        <div class="timeline-evidence">证据：上诉状（二审卷宗）</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item upper">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022年9月29日</div>
+                        <div class="timeline-event"><span class="timeline-event-icon">📋</span>江苏省高级人民法院作出终审判决，驳回上诉，维持原判</div>
+                        <div class="timeline-evidence">证据：终审判决书（二审）</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">第 1 页 / 共 3 页</div>
+    </div>
+
+    <!-- 第2页：事件明细表 -->
+    <div class="page">
+        <h1>金昌恒基伟业电力发展有限公司建设工程施工合同纠纷案<br>事件明细表</h1>
+
+        <div class="case-info">
+            <table>
+                <tr>
+                    <td>案号</td>
+                    <td>(2021)苏民终1541号</td>
+                    <td>合同编号</td>
+                    <td>江苏金昌农副水产交易中心项目</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>法律阶段划分</h2>
+        <table class="table-container">
+            <tr>
+                <th>阶段</th>
+                <th>时间区间</th>
+                <th>状态</th>
+                <th>时长</th>
+            </tr>
+            <tr>
+                <td>履约期</td>
+                <td>2016年7月18日 - 2018年9月28日</td>
+                <td>已完成</td>
+                <td>约2年2个月</td>
+            </tr>
+            <tr>
+                <td>争议期</td>
+                <td>2019年1月28日 - 2020年12月4日</td>
+                <td>已完成</td>
+                <td>约1年10个月</td>
+            </tr>
+            <tr>
+                <td>诉讼期</td>
+                <td>2021年 - 2022年9月29日</td>
+                <td>已完成</td>
+                <td>约1年9个月</td>
+            </tr>
+        </table>
+
+        <h2>案件总时长统计</h2>
+        <table class="table-container">
+            <tr>
+                <th>统计维度</th>
+                <th>起止时间</th>
+                <th>时长</th>
+            </tr>
+            <tr>
+                <td>合同签订到竣工验收</td>
+                <td>2016.7.18 - 2018.9.28</td>
+                <td>约2年2个月</td>
+            </tr>
+            <tr>
+                <td>起诉到一审判决</td>
+                <td>2019.1.28 - 2020.12.4</td>
+                <td>约1年10个月</td>
+            </tr>
+            <tr>
+                <td>上诉到终审判决</td>
+                <td>2021 - 2022.9.29</td>
+                <td>约1年9个月</td>
+            </tr>
+            <tr>
+                <td>起诉到终审</td>
+                <td>2019.1.28 - 2022.9.29</td>
+                <td>约3年8个月</td>
+            </tr>
+        </table>
+
+        <h2>完整事件明细表</h2>
+        <table class="table-container">
+            <tr>
+                <th>序号</th>
+                <th>时间</th>
+                <th>事件</th>
+                <th>证据</th>
+                <th>法律意义</th>
+                <th>主体</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2016.7.18</td>
+                <td>金昌公司与中环公司签订《建设工程施工合同》，约定固定总价109,800,000元</td>
+                <td>合同原件</td>
+                <td>确立合同关系，明确权利义务</td>
+                <td>金昌公司、中环公司</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2016.11.11</td>
+                <td>中环公司与南通建工签订《内部承包经营合同》，将案涉工程全部转包给南通建工</td>
+                <td>内部承包合同</td>
+                <td>🔴 违法转包，为合同无效的关键事实</td>
+                <td>中环公司、南通建工</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2017.1.18</td>
+                <td>金昌公司取得施工许可证</td>
+                <td>施工许可证</td>
+                <td>施工合法性的重要凭证</td>
+                <td>金昌公司</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>2017.4.6</td>
+                <td>案涉工程取得建设工程规划许可证</td>
+                <td>建设工程规划许可证</td>
+                <td>工程建设合法性的重要凭证</td>
+                <td>金昌公司</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>2018.4.27</td>
+                <td>金昌公司取得项目不动产权证</td>
+                <td>不动产权证</td>
+                <td>项目完成的重要标志</td>
+                <td>金昌公司</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>2018.9.28</td>
+                <td>案涉工程通过竣工验收</td>
+                <td>竣工验收报告</td>
+                <td>工程合格的重要证明</td>
+                <td>金昌公司、中环公司</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>2019.1.28</td>
+                <td>南通建工向一审法院起诉金昌公司、中环公司，请求支付工程款、利息及违约金</td>
+                <td>起诉状</td>
+                <td>启动一审程序</td>
+                <td>南通建工</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>2020.12.4</td>
+                <td>一审法院作出判决，认定合同无效，支持部分工程款请求</td>
+                <td>一审判决书</td>
+                <td>一审判决结果</td>
+                <td>一审法院</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>2021年</td>
+                <td>南通建工不服一审判决，提起上诉</td>
+                <td>上诉状</td>
+                <td>启动二审程序</td>
+                <td>南通建工</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>2022.9.29</td>
+                <td>江苏省高级人民法院作出终审判决，驳回上诉，维持原判</td>
+                <td>终审判决书</td>
+                <td>终审判决结果，案件终结</td>
+                <td>江苏省高院</td>
+            </tr>
+        </table>
+
+        <div class="page-number">第 2 页 / 共 3 页</div>
+    </div>
+
+    <!-- 第3页：综合分析 -->
+    <div class="page">
+        <h1>金昌恒基伟业电力发展有限公司建设工程施工合同纠纷案<br>综合分析</h1>
+
+        <div class="case-info">
+            <table>
+                <tr>
+                    <td>终审判决日期</td>
+                    <td>2022年9月29日</td>
+                    <td>案由</td>
+                    <td>建设工程施工合同纠纷</td>
+                </tr>
+                <tr>
+                    <td>终审法院</td>
+                    <td>江苏省高级人民法院</td>
+                    <td>案件结果</td>
+                    <td>驳回上诉，维持原判</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>争议焦点提炼</h2>
+
+        <div class="focus-card">
+            <div class="focus-title">🔴 争议焦点一：建设工程施工合同是否有效</div>
+            <div class="focus-content">
+                <strong>我方主张（金昌公司）：</strong>中环公司违法转包导致合同无效<br>
+                <strong>对方主张（南通建工）：</strong>合同有效<br>
+                <strong>法院认定：</strong>合同无效。中环公司将工程全部转包给南通建工的行为违反法律强制性规定
+            </div>
+        </div>
+
+        <div class="focus-card">
+            <div class="focus-title">🔴 争议焦点二：工程价款的结算标准</div>
+            <div class="focus-content">
+                <strong>我方主张（金昌公司）：</strong>合同约定固定总价，应按约定执行<br>
+                <strong>对方主张（南通建工）：</strong>主张按实际施工量结算<br>
+                <strong>法院认定：</strong>鉴于合同无效，参照合同约定结算工程款
+            </div>
+        </div>
+
+        <div class="focus-card">
+            <div class="focus-title">⭐ 争议焦点三：金昌公司是否应承担付款责任</div>
+            <div class="focus-content">
+                <strong>我方主张（金昌公司）：</strong>已向中环公司支付款项，不应再向南通建工支付<br>
+                <strong>对方主张（南通建工）：</strong>金昌公司作为发包人应承担付款责任<br>
+                <strong>法院认定：</strong>金昌公司在欠付工程款范围内承担付款责任
+            </div>
+        </div>
+
+        <h2>证据链完整性</h2>
+        <table class="table-container">
+            <tr>
+                <th>序号</th>
+                <th>证据名称</th>
+                <th>状态</th>
+                <th>证明内容</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>《建设工程施工合同》</td>
+                <td>有效</td>
+                <td>合同关系及价款约定</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>《内部承包经营合同》</td>
+                <td>有效</td>
+                <td>违法转包事实</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>施工许可证</td>
+                <td>有效</td>
+                <td>施工合法性证明</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>建设工程规划许可证</td>
+                <td>有效</td>
+                <td>规划合法性证明</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>不动产权证</td>
+                <td>有效</td>
+                <td>项目产权证明</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>竣工验收报告</td>
+                <td>有效</td>
+                <td>工程合格证明</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>付款凭证</td>
+                <td>有效</td>
+                <td>已付款事实</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>起诉状</td>
+                <td>有效</td>
+                <td>诉讼请求</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>一审判决书</td>
+                <td>有效</td>
+                <td>一审判决结果</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>上诉状</td>
+                <td>有效</td>
+                <td>上诉请求</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>终审判决书</td>
+                <td>有效</td>
+                <td>终审判决结果</td>
+            </tr>
+        </table>
+
+        <h2>案件结果分析</h2>
+        <table class="table-container">
+            <tr>
+                <th>程序</th>
+                <th>时间</th>
+                <th>结果</th>
+            </tr>
+            <tr>
+                <td>一审</td>
+                <td>2020年12月4日</td>
+                <td>认定合同无效，支持部分工程款请求</td>
+            </tr>
+            <tr>
+                <td>二审</td>
+                <td>2022年9月29日</td>
+                <td>驳回上诉，维持原判</td>
+            </tr>
+        </table>
+
+        <div class="analysis-grid">
+            <div>
+                <h3>案件基本信息</h3>
+                <table class="table-container">
+                    <tr>
+                        <td>案号</td>
+                        <td>(2021)苏民终1541号</td>
+                    </tr>
+                    <tr>
+                        <td>案由</td>
+                        <td>建设工程施工合同纠纷</td>
+                    </tr>
+                    <tr>
+                        <td>合同价款</td>
+                        <td>109,800,000元</td>
+                    </tr>
+                    <tr>
+                        <td>项目名称</td>
+                        <td>金昌农副水产交易中心</td>
+                    </tr>
+                    <tr>
+                        <td>终审法院</td>
+                        <td>江苏省高级人民法院</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>程序信息</h3>
+                <table class="table-container">
+                    <tr>
+                        <td>起诉时间</td>
+                        <td>2019年1月28日</td>
+                    </tr>
+                    <tr>
+                        <td>一审判决</td>
+                        <td>2020年12月4日</td>
+                    </tr>
+                    <tr>
+                        <td>上诉时间</td>
+                        <td>2021年</td>
+                    </tr>
+                    <tr>
+                        <td>终审判决</td>
+                        <td>2022年9月29日</td>
+                    </tr>
+                    <tr>
+                        <td>案件总时长</td>
+                        <td>约3年8个月</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>案件总结</h2>
+        <div class="summary-box">
+            <p>本案是一起典型的建设工程施工合同纠纷案件。2016年7月18日，金昌公司与中环公司签订《建设工程施工合同》，约定由中环公司承包施工金昌农副水产交易中心项目，合同价款为固定总价109,800,000元。2016年11月11日，中环公司违法将工程全部转包给南通建工。工程于2018年9月28日通过竣工验收。</p>
+            <p>2019年1月28日，南通建工向法院起诉金昌公司和中环公司，要求支付工程款。一审法院于2020年12月4日作出判决，认定合同无效。南通建工不服提起上诉，江苏省高级人民法院于2022年9月29日作出终审判决，驳回上诉，维持原判。</p>
+            <p>本案的核心争议在于：1）合同是否因违法转包而无效；2）工程价款的结算标准；3）金昌公司的付款责任范围。终审法院确认合同无效，参照合同约定结算工程款，金昌公司在欠付工程款范围内承担付款责任。</p>
+        </div>
+
+        <div class="page-number">第 3 页 / 共 3 页</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "name": "litigation-visualization-cn",
+  "version": "0.1.0",
+  "language": "zh-CN",
+  "release_status": "candidate-local-only",
+  "capabilities": [
+    "audience-and-purpose-routing",
+    "source-linked-fact-model",
+    "timeline",
+    "relationship-map",
+    "asset-or-data-flow",
+    "data-comparison",
+    "procedure-flow",
+    "issue-fact-evidence-matrix",
+    "spatial-diagram",
+    "visual-integrity-review",
+    "existing-visual-omission-and-misleading-review"
+  ],
+  "method_source": {
+    "type": "book",
+    "id": "lv-jy-2017",
+    "title": "诉讼可视化",
+    "editor_in_chief": "蒋勇",
+    "publication_year": 2017,
+    "source_hash": "e3ce839ba4983bae25dc8936a03cf2fb57d81dd505df6c9ae90b321e1792ee87",
+    "source_pdf_or_full_ocr_included": false,
+    "original_book_figures_included": false
+  },
+  "governance": {
+    "current_law_embedded": false,
+    "case_material_embedded": false,
+    "requires_authorized_input": true,
+    "requires_source_traceability": true,
+    "legal_review_sentinel_always_present": true,
+    "untriggered_legal_review_state": {
+      "required": false,
+      "law_check_status": "not_required"
+    },
+    "triggered_human_legal_review_required": true,
+    "legal_review_triggers": [
+      "legal_rule",
+      "law_or_statute",
+      "jurisdiction",
+      "procedure_or_flowchart",
+      "deadline_or_limitation",
+      "remedy_or_appeal"
+    ],
+    "legal_rule_support_refs_must_be_fully_covered": true,
+    "external_publish_authorized": false
+  },
+  "spec_contract": {
+    "record_model": "3_record_dimensions_plus_independent_adjudication_plus_1_spec_workflow_gate",
+    "source_ledger_required_fields": [
+      "source_id",
+      "source_kind",
+      "source_hash_or_version",
+      "custody_or_processing_location",
+      "ingested_at",
+      "source_cutoff",
+      "authorized_use",
+      "locator_prefix",
+      "page_or_unit_locator_scheme",
+      "ocr_or_derivation_note",
+      "description"
+    ],
+    "hold_control_required_when_workflow_status_hold": true,
+    "spatial_review_required_for_spatial_visuals": true,
+    "privacy_release_fields": [
+      "human_release_approved",
+      "human_release_by",
+      "human_release_at",
+      "authorization_basis"
+    ],
+    "render_manifest_required_fields": [
+      "spec_sha256",
+      "released_fields",
+      "artifacts",
+      "elements"
+    ],
+    "output_locator_id_checks": [
+      "line",
+      "cell",
+      "node",
+      "shape",
+      "table",
+      "slide"
+    ],
+    "unsupported_output_locator": "page",
+    "office_artifacts_unpacked_and_scanned": true,
+    "manual_review_still_required_for": [
+      "visual_semantics",
+      "unmodeled_assertions",
+      "substantive_correctness",
+      "actual_release_authorization"
+    ]
+  },
+  "templates": {
+    "original_neutral_templates": 6,
+    "source_book_layouts_copied": 0
+  }
+}

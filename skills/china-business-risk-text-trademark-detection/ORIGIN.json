@@ -1,0 +1,22 @@
+{
+  "schema": "jianshi-skill-origin/v1",
+  "sourceRepo": "linkfox-ai/linkfox-skills",
+  "sourcePath": "skills/linkfox-ruiguan-text-trademark-detection/SKILL.md",
+  "sourceCommit": "b222e5f4e88586a36b0f3799a8840dc4918c61a5",
+  "sourceUrl": "https://github.com/linkfox-ai/linkfox-skills/blob/b222e5f4e88586a36b0f3799a8840dc4918c61a5/skills/linkfox-ruiguan-text-trademark-detection/SKILL.md",
+  "license": "MIT",
+  "licenseFile": "LICENSE.md",
+  "sourceBodySha256": "9a4a913a239ccf3b7ae4173b5dd042e76b7ec945c90501f7da47111c6430d751",
+  "modifications": [
+    "使用新的语义化英文 slug 形成独立发布对象",
+    "增加中国业务场景中文展示名与摘要",
+    "增加 agents/openai.yaml",
+    "增加每次回复帮助标准块",
+    "保留原能力边界、许可证和来源记录",
+    "由原发布对象 linkfox-ruiguan-text-trademark-detection 派生为新场景 china-business-risk-text-trademark-detection",
+    "重新编写中国业务场景、输入、工作流、交付物、质量门槛和使用边界",
+    "保留许可证、来源记录和标准品牌帮助信息"
+  ],
+  "parentProductSlug": "linkfox-ruiguan-text-trademark-detection",
+  "derivedProductSlug": "china-business-risk-text-trademark-detection"
+}

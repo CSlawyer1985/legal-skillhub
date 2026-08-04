@@ -1,0 +1,340 @@
+# 风险规则库
+# 定义合同审查中使用的所有硬规则
+
+# 规则分类
+rule_categories:
+  - id: subject_risk
+    name: 主体风险
+    description: 签约主体相关的风险
+  - id: clause_risk
+    name: 条款风险
+    description: 合同条款本身的风险
+  - id: amount_risk
+    name: 金额风险
+    description: 金额相关的风险
+  - id: performance_risk
+    name: 履行风险
+    description: 合同履行相关的风险
+  - id: dispute_risk
+    name: 争议解决风险
+    description: 争议解决条款相关的风险
+  - id: compliance_risk
+    name: 合规风险
+    description: 违反法律法规强制性规定的风险
+
+# 具体规则列表
+rules:
+  # ========== 主体风险 ==========
+  - id: R001
+    category: subject_risk
+    name: 签约主体不存在
+    description: 签约方可能是不存在的实体
+    severity: critical
+    check_type: prompt_check
+    check_rule: 提示用户通过国家企业信用信息公示系统查询主体是否存在
+    legal_basis: 《民法典》第 143 条
+    suggestion: 核实签约主体的真实存在性，要求对方提供营业执照复印件
+    enabled: true
+
+  - id: R002
+    category: subject_risk
+    name: 签约主体经营异常
+    description: 签约方处于经营异常状态
+    severity: medium
+    check_type: prompt_check
+    check_rule: 提示用户查询经营状态是否为"存续"
+    legal_basis: 《公司法》第 180 条
+    suggestion: 要求对方说明经营异常原因，或要求提供担保
+    enabled: true
+
+  - id: R003
+    category: subject_risk
+    name: 签约主体涉及诉讼
+    description: 签约方涉及重大诉讼或仲裁
+    severity: medium
+    check_type: prompt_check
+    check_rule: 提示用户查询裁判文书/开庭公告
+    legal_basis: 《民法典》第 527 条（不安抗辩权）
+    suggestion: 关注诉讼标的和进展，评估对合同履行的影响
+    enabled: true
+
+  - id: R004
+    category: subject_risk
+    name: 个人签约但应为公司
+    description: 签约方为个人但业务应属公司行为
+    severity: medium
+    check_type: semantic_check
+    check_rule: 判断合同性质是否属于公司经营行为
+    legal_basis: 《民法典》第 162 条（代理）
+    suggestion: 核实签约人是否有公司授权，或要求与公司直接签约
+    enabled: true
+
+  - id: R005
+    category: subject_risk
+    name: 授权代表无授权书
+    description: 签约代表可能缺乏有效授权
+    severity: low
+    check_type: prompt_check
+    check_rule: 提示用户检查授权委托书
+    legal_basis: 《民法典》第 170 条（职务代理）
+    suggestion: 要求签约代表提供授权委托书原件
+    enabled: true
+
+  # ========== 条款风险 ==========
+  - id: R006
+    category: clause_risk
+    name: 格式条款未显著标识
+    description: 格式条款未采取合理方式提示对方注意
+    severity: medium
+    check_type: pattern_match
+    check_rule: 检测格式条款是否加粗/下划线/特殊字体
+    legal_basis: 《民法典》第 496 条
+    suggestion: 对格式条款（特别是免除或减轻责任的条款）采用加粗、下划线等方式显著标识
+    enabled: true
+
+  - id: R007
+    category: clause_risk
+    name: 显失公平条款
+    description: 合同权利义务严重不对等
+    severity: critical
+    check_type: llm_check
+    check_rule: LLM 分析权利义务对等性
+    legal_basis: 《民法典》第 151 条
+    suggestion: 调整条款使权利义务对等，删除明显不公平的约定
+    enabled: true
+
+  - id: R008
+    category: clause_risk
+    name: 违反法律强制性规定
+    description: 合同条款违反法律、行政法规的强制性规定
+    severity: critical
+    check_type: llm_check
+    check_rule: LLM 对照法律法规检查
+    legal_basis: 《民法典》第 153 条
+    suggestion: 删除或修改违反强制性规定的条款
+    enabled: true
+
+  - id: R009
+    category: clause_risk
+    name: 条款前后矛盾
+    description: 合同不同条款之间存在矛盾表述
+    severity: medium
+    check_type: llm_check
+    check_rule: LLM 检测条款间逻辑一致性
+    legal_basis: 《民法典》第 466 条（合同解释）
+    suggestion: 统一矛盾条款，明确以哪个条款为准
+    enabled: true
+
+  - id: R010
+    category: clause_risk
+    name: 模糊表述
+    description: 合同条款使用模糊不清的表述
+    severity: low
+    check_type: pattern_match
+    check_rule: 检测"合理期限"、"尽快"、"适当"等模糊词
+    legal_basis: 《民法典》第 510 条（合同补充）
+    suggestion: 将模糊表述替换为具体、可量化的标准
+    enabled: true
+
+  - id: R011
+    category: clause_risk
+    name: 关键条款缺失
+    description: 合同缺少法律规定的必备条款
+    severity: medium
+    check_type: checklist
+    check_rule: 对照合同必备条款清单检查
+    legal_basis: 《民法典》第 470 条
+    suggestion: 补充缺失的必备条款
+    enabled: true
+
+  # ========== 金额风险 ==========
+  - id: R012
+    category: amount_risk
+    name: 金额大小写不一致
+    description: 合同金额的大小写不一致
+    severity: medium
+    check_type: regex_match
+    check_rule: 正则匹配所有金额，对比大小写
+    legal_basis: 《民法典》第 469 条
+    suggestion: 统一金额大小写，明确以大写或小写为准
+    enabled: true
+
+  - id: R013
+    category: amount_risk
+    name: 付款节点与交付不匹配
+    description: 付款条件与交付义务不匹配
+    severity: critical
+    check_type: llm_check
+    check_rule: LLM 分析付款与交付的逻辑关系
+    legal_basis: 《民法典》第 525 条（同时履行抗辩权）
+    suggestion: 调整付款节点使其与交付进度匹配
+    enabled: true
+
+  - id: R014
+    category: amount_risk
+    name: 质保金比例过高
+    description: 质保金比例超过法定上限
+    severity: medium
+    check_type: threshold
+    check_rule: 质保金 > 结算总额 3%（建设工程）或 > 10%（其他）
+    legal_basis: 《建设工程质量保证金管理办法》第 7 条
+    suggestion: 将质保金比例调整至法定上限以内
+    enabled: true
+
+  - id: R015
+    category: amount_risk
+    name: 违约金过高
+    description: 约定的违约金超过法定上限
+    severity: medium
+    check_type: threshold
+    check_rule: 违约金 > 实际损失 30% 或 > LPR 四倍
+    legal_basis: 《民法典》第 585 条
+    suggestion: 调整为不超过 LPR 四倍（当前约 14.8%）
+    enabled: true
+
+  # ========== 履行风险 ==========
+  - id: R016
+    category: performance_risk
+    name: 交付标准不明确
+    description: 合同未明确约定交付验收标准
+    severity: medium
+    check_type: llm_check
+    check_rule: LLM 分析交付条款的明确性
+    legal_basis: 《民法典》第 510 条
+    suggestion: 明确交付验收的具体标准、测试用例和通过条件
+    enabled: true
+
+  - id: R017
+    category: performance_risk
+    name: 验收流程缺失
+    description: 合同缺少验收流程约定
+    severity: critical
+    check_type: checklist
+    check_rule: 检查是否有验收条款
+    legal_basis: 《民法典》第 620 条（买受人的检验义务）
+    suggestion: 增加验收流程条款，包括验收期限、验收方式、异议处理
+    enabled: true
+
+  - id: R018
+    category: performance_risk
+    name: 保修期短于法定最低
+    description: 合同约定的保修期短于法定最低标准
+    severity: critical
+    check_type: threshold
+    check_rule: 保修期 < 法定最低（如建设工程 2 年/5 年）
+    legal_basis: 《建设工程质量管理条例》第 40 条
+    suggestion: 将保修期调整至法定最低标准以上
+    enabled: true
+
+  - id: R019
+    category: performance_risk
+    name: 付款条件过于苛刻
+    description: 付款条件对一方过于苛刻
+    severity: medium
+    check_type: llm_check
+    check_rule: LLM 分析付款条件的合理性
+    legal_basis: 《民法典》第 6 条（公平原则）
+    suggestion: 调整付款条件，使其更加公平合理
+    enabled: true
+
+  # ========== 争议解决风险 ==========
+  - id: R020
+    category: dispute_risk
+    name: 约定管辖不利于己方
+    description: 约定的管辖法院/仲裁机构对己方不利
+    severity: medium
+    check_type: llm_check
+    check_rule: LLM 分析管辖约定的便利性
+    legal_basis: 《民事诉讼法》第 35 条
+    suggestion: 争取约定在己方所在地法院管辖
+    enabled: true
+
+  - id: R021
+    category: dispute_risk
+    name: 仲裁机构不存在
+    description: 约定的仲裁机构不存在
+    severity: critical
+    check_type: list_check
+    check_rule: 验证仲裁机构是否在已知列表中
+    legal_basis: 《仲裁法》第 10 条
+    suggestion: 修改为真实存在的仲裁机构
+    enabled: true
+
+  - id: R022
+    category: dispute_risk
+    name: 争议解决方式矛盾
+    description: 同时约定仲裁和诉讼
+    severity: critical
+    check_type: pattern_match
+    check_rule: 检测是否同时出现"仲裁"和"诉讼"
+    legal_basis: 《仲裁法》第 4 条
+    suggestion: 选择仲裁或诉讼其中一种方式
+    enabled: true
+
+  # ========== 合规风险 ==========
+  - id: R023
+    category: compliance_risk
+    name: 试用期超过法定上限
+    description: 劳动合同试用期超过法定最长期限
+    severity: critical
+    check_type: threshold
+    check_rule: 试用期 > 法定上限（1/2/6 个月）
+    legal_basis: 《劳动合同法》第 19 条
+    suggestion: 将试用期调整至法定上限以内
+    enabled: true
+
+  - id: R024
+    category: compliance_risk
+    name: 竞业限制无经济补偿
+    description: 竞业限制条款未约定经济补偿
+    severity: critical
+    check_type: pattern_match
+    check_rule: 检测竞业限制条款是否包含补偿约定
+    legal_basis: 《劳动合同法》第 23 条
+    suggestion: 增加经济补偿条款，明确补偿标准和支付方式
+    enabled: true
+
+  - id: R025
+    category: compliance_risk
+    name: 社保公积金约定违法
+    description: 合同约定不缴或少缴社保公积金
+    severity: critical
+    check_type: pattern_match
+    check_rule: 检测是否有"不缴纳社保"、"放弃社保"等表述
+    legal_basis: 《社会保险法》第 58 条、《住房公积金管理条例》第 20 条
+    suggestion: 删除违法约定，依法为劳动者缴纳社保和公积金
+    enabled: true
+
+  - id: R026
+    category: compliance_risk
+    name: 低于最低工资标准
+    description: 合同约定的工资低于当地最低工资标准
+    severity: critical
+    check_type: threshold
+    check_rule: 工资 < 当地最低工资标准
+    legal_basis: 《劳动法》第 48 条
+    suggestion: 将工资调整至最低工资标准以上
+    enabled: true
+
+# 严重等级定义
+severity_levels:
+  critical:
+    label: 严重
+    emoji: 🔴
+    description: 可能导致合同无效或重大财产损失
+    score_impact: -15
+  medium:
+    label: 中等
+    emoji: 🟡
+    description: 可能造成履行困难或权益受损
+    score_impact: -8
+  low:
+    label: 一般
+    emoji: 🟢
+    description: 条款表述不清，建议优化
+    score_impact: -3
+  info:
+    label: 提示
+    emoji: ℹ️
+    description: 供参考的注意事项
+    score_impact: 0

@@ -1,0 +1,288 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "仓储合同",
+  "contract_type_en": "warehousing",
+  "description": "货物仓储、保管、仓储物流等仓储合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "仓储", "保管", "仓库", "仓储费", "存货人", "保管人",
+    "仓储物", "入库", "出库", "仓单"
+  ],
+  "key_clauses": [
+    {
+      "name": "仓储物",
+      "required": true,
+      "keywords": ["仓储物", "货物", "品名", "数量", "规格"],
+      "check_points": [
+        {
+          "item": "货物信息",
+          "description": "仓储物的品名、品种、规格、数量是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "货物性质",
+          "description": "货物性质（危险品、易腐品等）是否注明",
+          "risk_level": "重大"
+        },
+        {
+          "item": "包装要求",
+          "description": "货物包装要求是否明确",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确仓储物品名、规格、数量、性质，危险品需特别注明"
+    },
+    {
+      "name": "仓储期间",
+      "required": true,
+      "keywords": ["仓储期间", "保管期限", "入库", "出库"],
+      "check_points": [
+        {
+          "item": "期间明确",
+          "description": "仓储期间起止时间是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "续存",
+          "description": "逾期续存的条件和费用",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确仓储期间，约定逾期续存的处理"
+    },
+    {
+      "name": "仓储费",
+      "required": true,
+      "keywords": ["仓储费", "保管费", "费用", "计费标准"],
+      "check_points": [
+        {
+          "item": "费用标准",
+          "description": "仓储费计算标准是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付方式",
+          "description": "预付/月结/出库时支付等",
+          "risk_level": "重大"
+        },
+        {
+          "item": "其他费用",
+          "description": "装卸费、保险费等由谁承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确仓储费标准（按面积/体积/件数/重量）、支付方式、其他费用"
+    },
+    {
+      "name": "货物验收",
+      "required": true,
+      "keywords": ["验收", "入库验收", "检验", "质量"],
+      "check_points": [
+        {
+          "item": "验收程序",
+          "description": "入库验收程序和标准",
+          "risk_level": "重大"
+        },
+        {
+          "item": "异议时限",
+          "description": "验收异议提出时限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确入库验收程序、验收标准、异议提出时限"
+    },
+    {
+      "name": "货物保管",
+      "required": true,
+      "keywords": ["保管", "储存条件", "温湿度", "特殊要求"],
+      "check_points": [
+        {
+          "item": "保管条件",
+          "description": "储存条件（温湿度、通风等）是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "特殊要求",
+          "description": "特殊货物的保管要求",
+          "risk_level": "重大"
+        },
+        {
+          "item": "检查义务",
+          "description": "保管人检查货物状态的义务",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确储存条件、特殊保管要求、保管人检查义务"
+    },
+    {
+      "name": "货物提取",
+      "required": true,
+      "keywords": ["提货", "出库", "提取", "凭单"],
+      "check_points": [
+        {
+          "item": "提货方式",
+          "description": "凭仓单/入库单/通知提货",
+          "risk_level": "重大"
+        },
+        {
+          "item": "提前提取",
+          "description": "提前提取仓储费是否退还",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确提货凭证、提货程序、提前提取的费用处理"
+    },
+    {
+      "name": "货物损毁责任",
+      "required": true,
+      "keywords": ["损毁", "灭失", "短少", "变质", "赔偿"],
+      "check_points": [
+        {
+          "item": "赔偿责任",
+          "description": "货物损毁、灭失、短少的赔偿责任",
+          "risk_level": "致命"
+        },
+        {
+          "item": "赔偿标准",
+          "description": "赔偿计算标准",
+          "risk_level": "重大"
+        },
+        {
+          "item": "免责情形",
+          "description": "保管人免责情形",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确赔偿责任、赔偿标准（建议按入库时价值）、免责情形"
+    },
+    {
+      "name": "仓单",
+      "required": false,
+      "keywords": ["仓单", "提货凭证", "背书", "转让"],
+      "check_points": [
+        {
+          "item": "仓单签发",
+          "description": "是否签发仓单",
+          "risk_level": "一般"
+        },
+        {
+          "item": "仓单内容",
+          "description": "仓单记载事项是否完整",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "建议签发仓单，仓单应记载货物信息、仓储期间、仓储费等"
+    },
+    {
+      "name": "留置权",
+      "required": false,
+      "keywords": ["留置", "留置权", "费用未付"],
+      "check_points": [
+        {
+          "item": "留置约定",
+          "description": "保管人留置权是否约定",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "约定存货人未支付仓储费时，保管人对仓储物享有留置权"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "WH001",
+      "name": "货物信息不清",
+      "description": "仓储物品名、数量、性质不明确，影响仓储安排和责任认定",
+      "severity": "高风险",
+      "suggestion": "详细列明仓储物品名、规格、数量、性质，危险品需特别注明"
+    },
+    {
+      "id": "WH002",
+      "name": "保管条件不明",
+      "description": "储存条件（温湿度等）不明确，易腐货物易变质",
+      "severity": "高风险",
+      "suggestion": "明确储存条件，特殊货物（冷藏、危险品等）需特别约定"
+    },
+    {
+      "id": "WH003",
+      "name": "赔偿标准过低",
+      "description": "货物损毁赔偿标准过低，不足以弥补损失",
+      "severity": "高风险",
+      "suggestion": "约定按入库时货物价值赔偿，或约定保价仓储"
+    },
+    {
+      "id": "WH004",
+      "name": "免责条款过于宽泛",
+      "description": "保管人免责情形约定过于宽泛，免除法定责任",
+      "severity": "高风险",
+      "suggestion": "免责条款不得违反法律强制性规定，不得免除故意或重大过失责任"
+    },
+    {
+      "id": "WH005",
+      "name": "验收程序不清",
+      "description": "入库验收和异议程序不明确，货物损毁责任难以认定",
+      "severity": "中风险",
+      "suggestion": "明确入库验收程序、验收标准、异议提出时限"
+    }
+  ],
+  "position_guidance": {
+    "depositor": {
+      "name": "存货人",
+      "priority_checks": [
+        "保管条件",
+        "货物保险",
+        "赔偿标准",
+        "验收程序"
+      ],
+      "key_concerns": [
+        "明确储存条件，特别是特殊货物",
+        "贵重货物应保价仓储",
+        "争取按入库时价值赔偿",
+        "明确入库验收程序"
+      ],
+      "avoid": [
+        "隐瞒货物性质（特别是危险品）",
+        "未保价仓储贵重货物",
+        "赔偿标准过低",
+        "验收程序不清"
+      ]
+    },
+    "warehouse": {
+      "name": "保管人",
+      "priority_checks": [
+        "货物信息",
+        "仓储费",
+        "免责条款",
+        "留置权"
+      ],
+      "key_concerns": [
+        "核实货物信息，防止危险品瞒报",
+        "明确仓储费标准和支付时间",
+        "合理约定免责情形",
+        "约定留置权保障费用收取"
+      ],
+      "avoid": [
+        "接受危险品瞒报",
+        "赔偿标准过高",
+        "免责条款违反法律规定",
+        "储存条件无法满足"
+      ]
+    }
+  },
+  "legal_notes": {
+    "liability": {
+      "description": "保管人责任",
+      "rule": "保管期间因保管人保管不善造成仓储物毁损、灭失的，保管人应承担赔偿责任",
+      "exceptions": "因仓储物性质、包装不符合约定或超过有效储存期造成的，保管人不承担责任",
+      "legal_basis": "《民法典》第917条"
+    },
+    "warehouse_receipt": {
+      "description": "仓单",
+      "rule": "仓单是提取仓储物的凭证，可以背书转让",
+      "content": "应包括仓储物品名、数量、质量、包装、件数、标记，仓储费，填发人等信息",
+      "legal_basis": "《民法典》第909条"
+    }
+  }
+}

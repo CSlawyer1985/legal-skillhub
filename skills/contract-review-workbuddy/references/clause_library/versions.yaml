@@ -1,0 +1,81 @@
+# 条款库版本信息（versions.yaml）
+
+version: "1.0"
+updated: "2026-07-29"
+maintainer: "contract-review skill"
+description: "合同审查标准条款库（范本库），收录十大风险类别的建议条款、问题版本对照、法律依据与适用说明"
+total_clauses: 275
+id_range: "CL001-CL275"
+
+categories:
+  subject: 23  # 主体风险
+  clause: 33  # 条款风险
+  amount: 44  # 金额风险
+  performance: 42  # 履行风险
+  dispute: 32  # 争议解决风险
+  compliance: 22  # 合规风险
+  ip: 16  # 知识产权
+  confidentiality: 16  # 保密
+  termination: 21  # 终止/解除
+  liability: 26  # 违约责任
+
+risk_level_distribution:
+  "高": 71
+  "中等": 159
+  "低": 45
+
+applicable_scope_distribution:
+  "通用": 174
+  "买卖合同": 71
+  "服务合同": 62
+  "建设工程合同": 52
+  "技术开发合同": 50
+  "融资协议": 27
+  "劳动合同": 18
+  "借款合同": 10
+  "租赁合同": 8
+  "委托合同": 4
+  "运输合同": 3
+
+legal_basis_version:
+  note: "法律依据基于 2026 年现行有效版本，法规修订后需同步更新条款"
+  primary_laws:
+    - 《中华人民共和国民法典》（2021.1.1 施行）
+    - 《中华人民共和国劳动合同法》（2012 年修正）
+    - 《中华人民共和国公司法》（2023 年修订）
+    - 《中华人民共和国个人信息保护法》（2021.11.1 施行）
+    - 《中华人民共和国数据安全法》（2021.9.1 施行）
+    - 《中华人民共和国民事诉讼法》（2023 年修正）
+    - 《中华人民共和国仲裁法》
+    - 《中华人民共和国反不正当竞争法》
+    - 《中华人民共和国招标投标法》
+    - 《保障中小企业款项支付条例》（2025 年修订）
+    - 《建设工程质量管理条例》
+    - 《生成式人工智能服务管理暂行办法》（2023.8.15 施行）
+
+schema:
+  clause_fields:
+    - id: 条款唯一编号（CL+三位数字）
+    - name: 条款名称
+    - category: 所属风险类别（对应 clause_index.yaml 的顶层键）
+    - applicable_scope: 适用合同类型列表
+    - risk_level: 风险等级（高/中等/低）
+    - problem_version: 实务中常见的问题表述
+    - recommended_text: 建议采用的规范表述
+    - legal_basis: 法律依据
+    - notes: 审查要点与使用说明
+
+changelog:
+  - version: "1.0"
+    date: "2026-07-29"
+    changes:
+      - 初始版本发布，收录 275 条标准条款
+      - 覆盖主体、条款、金额、履行、争议、合规、知识产权、保密、终止、违约责任十大类别
+      - 建立 clause_index.yaml 关键词检索索引
+
+update_policy:
+  review_cycle: "每半年复核一次"
+  trigger_events:
+    - 相关法律法规修订或新司法解释出台
+    - 最高人民法院发布指导性案例改变裁判口径
+    - LPR、最低工资等参考标准调整

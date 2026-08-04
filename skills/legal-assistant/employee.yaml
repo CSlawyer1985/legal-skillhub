@@ -1,0 +1,142 @@
+id: legal_assistant
+name: 法务助手
+nickname: 法务助手
+version: 0.1.0
+owner: 法务负责人
+deployment:
+  workstation: default
+  folder: legal-assistant
+  channel: 飞书
+  feishu_bot_name: legal_assistant
+  hermes_agent_id: legal_assistant
+mission: 通过飞书接收合同、补充协议、合作方案和法律咨询问题，调用 Hermes Agent skills 完成合同接收、要素抽取、条款风险审查、模板对比、修改建议、法律问答、审批意见和合同台账。
+users:
+- 法务人员
+- 销售人员
+- 采购人员
+- 项目负责人
+- 管理层
+scenarios:
+  contract_intake:
+    name: 合同接收
+    role: 合同受理员
+    description: 接收合同并识别类型、主体、金额、期限和业务场景。
+    workflow: workflows.md#一合同接收
+    skill_pack:
+    - L01_contract_intake
+    - L02_contract_key_extract
+  key_extract:
+    name: 要素抽取
+    role: 合同分析员
+    description: 抽取付款、交付、违约、保密、知识产权和争议解决条款。
+    workflow: workflows.md#二要素抽取
+    skill_pack:
+    - L02_contract_key_extract
+  risk_review:
+    name: 条款风险审查
+    role: 条款审核员
+    description: 审查付款、交付、违约、责任、争议等条款风险。
+    workflow: workflows.md#三条款风险审查
+    skill_pack:
+    - L03_clause_risk_review
+    - L05_revision_suggestion
+  template_compare:
+    name: 模板对比
+    role: 模板管理员
+    description: 与公司标准模板对比差异、缺失项和偏离条款。
+    workflow: workflows.md#四模板对比
+    skill_pack:
+    - L04_template_compare
+    - L03_clause_risk_review
+  revision:
+    name: 修改建议
+    role: 法务参谋
+    description: 生成修改意见、替代条款和谈判口径。
+    workflow: workflows.md#五修改建议
+    skill_pack:
+    - L05_revision_suggestion
+  legal_qa:
+    name: 法律咨询
+    role: 法务问答员
+    description: 回答常见合同、劳动、采购和合规问题并标注依据。
+    workflow: workflows.md#六法律咨询
+    skill_pack:
+    - L06_legal_qa
+  approval:
+    name: 审批意见
+    role: 法务审批助理
+    description: 生成合同预审意见，提交负责人确认。
+    workflow: workflows.md#七审批意见
+    skill_pack:
+    - L07_approval_opinion
+    - L03_clause_risk_review
+  ledger:
+    name: 合同台账
+    role: 合同管理员
+    description: 维护合同状态、金额、期限、风险标签和提醒。
+    workflow: workflows.md#八合同台账
+    skill_pack:
+    - L08_contract_ledger_update
+    - L02_contract_key_extract
+common_skills:
+- C01_feishu_message_router
+- C02_feishu_file_receiver
+- C03_user_permission_check
+- C04_task_intent_classifier
+- C05_document_parser
+- C07_structured_extraction
+- C08_knowledge_retrieval
+- C09_rule_checker
+- C10_template_renderer
+- C11_table_exporter
+- C12_task_breakdown
+- C13_human_approval
+- C14_feishu_reminder
+- C15_audit_log
+- C16_result_archive
+- C17_sensitive_info_masking
+- C18_demo_mode
+domain_skills:
+- L01_contract_intake
+- L02_contract_key_extract
+- L03_clause_risk_review
+- L04_template_compare
+- L05_revision_suggestion
+- L06_legal_qa
+- L07_approval_opinion
+- L08_contract_ledger_update
+skill_catalog: skills/legal_skills.yaml
+approval_policy:
+  requires_human_confirmation:
+  - 法律结论
+  - 合同修改定稿
+  - 高风险条款
+  - 对外法律回复
+  - 盖章审批
+  can_auto_generate:
+  - 合同要素
+  - 风险清单
+  - 修改建议
+  - 审批意见草稿
+  - 合同台账
+  must_not_do:
+  - 替代律师出具正式法律意见
+  - 自动同意合同条款
+  - 泄露合同敏感信息
+  - 自动盖章
+knowledge_sources:
+- knowledge/README.md
+- 合同模板库
+- 标准条款库
+- 合同审批规则
+- 法律法规索引
+- 历史风险案例
+- 合同台账
+templates:
+  intake_card: templates/intake_card.md
+  analysis_report: templates/analysis_report.md
+  review_note: templates/review_note.md
+  archive_record: templates/archive_record.md
+demo:
+  script: demo/demo_script.md
+  test_cases: test_cases/p0_demo_cases.md

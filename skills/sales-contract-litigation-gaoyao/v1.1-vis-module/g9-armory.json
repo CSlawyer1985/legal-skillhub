@@ -1,0 +1,38 @@
+{
+ "schema": "gaotao.v11.g9-armory.v1",
+ "armory": [
+  {
+   "id": "RA-L-container",
+   "source_message": "1785165071735-codex",
+   "layer": "layout",
+   "red_fixture": {
+    "path": "armory/fixtures/RA-L-red",
+    "sha256": "93592dbb102d94069a38a396d19e9b31f3c7fa210268133644c78af414d133a0",
+    "entity_type": "directory",
+    "algorithm": "sha256-tree/relpath-NUL-sha256-NUL-size-LF/sorted-posix/v1"
+   },
+   "green_fixture": {
+    "path": "armory/fixtures/RA-L-green",
+    "sha256": "9ce9708d96249a661726a68cfe3ed5b2c027324c21b07869da4e4c08682261ee",
+    "entity_type": "directory",
+    "algorithm": "sha256-tree/relpath-NUL-sha256-NUL-size-LF/sorted-posix/v1"
+   },
+   "validator": {
+    "path": "tools/validate_layout.py",
+    "sha256": "60a33643233fe31f059c5803ff2d7b1ae037a264de32955881af5ccc7746f5d5",
+    "entity_type": "file",
+    "algorithm": "sha256-file/v1"
+   },
+   "run_record": {
+    "path": "armory/records/RA-L-container.run.json",
+    "sha256": "6eda51f4991c6e3ebe772d6cc7aaf29c660245095a16308dc96016da807000a5",
+    "entity_type": "file",
+    "algorithm": "sha256-file/v1"
+   },
+   "expected_exit": 3,
+   "actual_exit": 3,
+   "wired_into_package_validator": true,
+   "first_closed_version": "1.0.0"
+  }
+ ]
+}

@@ -1,0 +1,685 @@
+rules:
+  # ==================== 医疗器械采购合同 ====================
+  - id: MED001
+    category: medical_device
+    name: "医疗器械注册证缺失"
+    description: "采购的医疗器械未取得医疗器械注册证或备案凭证"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查供应商是否提供有效期内的医疗器械注册证或备案凭证，确认产品分类管理类别"
+    legal_basis: "《医疗器械监督管理条例》第13条、第41条、第81条"
+    suggestion: "要求供应商提供医疗器械注册证或备案凭证原件扫描件，核实产品名称、规格型号、适用范围、有效期等信息，并在国家药监局官网查询验证"
+    enabled: true
+
+  - id: MED002
+    category: medical_device
+    name: "医疗器械注册证过期"
+    description: "供应商提供的医疗器械注册证已超过有效期未延续"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查医疗器械注册证有效期及注册人是否按时申请延续注册"
+    legal_basis: "《医疗器械监督管理条例》第14条、第81条"
+    suggestion: "核实注册证有效期届满时间，要求供应商提供延续注册受理通知书或新注册证，必要时暂停采购直至完成延续"
+    enabled: true
+
+  - id: MED003
+    category: medical_device
+    name: "采购范围超出注册证适用范围"
+    description: "合同约定采购的医疗器械超出注册证批准的适用范围"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同约定的产品适用范围是否超出注册证批准的适用范围"
+    legal_basis: "《医疗器械监督管理条例》第41条、第86条"
+    suggestion: "要求供应商出具注册证副本及附件（注册产品标准/产品技术要求），核实适用范围是否覆盖合同约定的使用场景"
+    enabled: true
+
+  - id: MED004
+    category: medical_device
+    name: "供应商经营资质缺失"
+    description: "医疗器械经营企业未取得相应经营许可证或备案凭证"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查供应商的医疗器械经营许可证或备案凭证是否有效，经营范围是否覆盖所供产品"
+    legal_basis: "《医疗器械监督管理条例》第40条、第42条、第82条"
+    suggestion: "要求供应商提供医疗器械经营许可证/备案凭证，核实经营范围、有效期，并在省级药监局官网查询核实"
+    enabled: true
+
+  - id: MED005
+    category: medical_device
+    name: "进口医疗器械缺少进口注册证"
+    description: "进口医疗器械未取得进口医疗器械注册证或备案凭证"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查进口医疗器械是否取得国家药监局核发的进口医疗器械注册证"
+    legal_basis: "《医疗器械监督管理条例》第13条、第57条、第81条"
+    suggestion: "要求供应商提供进口医疗器械注册证、代理委托书、原产地证明、报关单等全套进口资质文件"
+    enabled: true
+
+  - id: MED006
+    category: medical_device
+    name: "冷链运输条款缺失"
+    description: "需冷链运输的医疗器械合同未约定运输条件和温控要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否需要冷链运输的医疗器械是否约定运输温度、时限、交接验收标准"
+    legal_basis: "《医疗器械监督管理条例》第45条、《医疗器械经营质量管理规范》"
+    suggestion: "在合同中明确冷链运输的温度范围、运输时限、温控设备要求、交接验收标准和温度记录要求"
+    enabled: true
+
+  - id: MED007
+    category: medical_device
+    name: "产品验收标准不明确"
+    description: "合同未明确医疗器械的验收标准和验收流程"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定产品验收标准、验收流程、不合格品处理方式"
+    legal_basis: "《医疗器械监督管理条例》第45条、《民法典》第621条"
+    suggestion: "明确约定验收依据（注册证产品技术要求、国家标准/行业标准）、验收程序、抽样比例、不合格品退换货条款"
+    enabled: true
+
+  - id: MED008
+    category: medical_device
+    name: "不良事件监测义务约定缺失"
+    description: "合同未约定医疗器械不良事件监测和报告义务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定不良事件监测、报告及配合召回义务"
+    legal_basis: "《医疗器械不良事件监测和再评价管理办法》第6条、第15条"
+    suggestion: "在合同中约定不良事件发现后的报告时限、配合调查义务、召回配合责任及信息通报机制"
+    enabled: true
+
+  - id: MED009
+    category: medical_device
+    name: "召回责任约定缺失"
+    description: "合同未约定医疗器械召回时的责任承担和处理流程"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确召回情形、责任主体、费用承担、时限要求"
+    legal_basis: "《医疗器械召回管理办法》第5条、第16条、第20条"
+    suggestion: "明确约定召回分级（一级/二级/三级）、各方责任、费用分担、时限要求、库存处理和患者补偿机制"
+    enabled: true
+
+  - id: MED010
+    category: medical_device
+    name: "售后服务条款缺失"
+    description: "合同未约定医疗器械的安装调试、技术培训、维修保养等售后服务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定安装调试、技术培训、维修保养、零配件供应等售后服务条款"
+    legal_basis: "《医疗器械使用质量监督管理办法》第5条、第10条"
+    suggestion: "明确约定售后响应时间、维修时限、培训内容、保修期、保修期后服务费用标准、零配件供应保证期"
+    enabled: true
+
+  - id: MED011
+    category: medical_device
+    name: "植入类医疗器械追溯条款缺失"
+    description: "植入类医疗器械合同未约定唯一性标识追溯义务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定植入类医疗器械的唯一性标识、追溯信息和记录保存义务"
+    legal_basis: "《医疗器械监督管理条例》第37条、《医疗器械唯一标识系统规则》"
+    suggestion: "明确植入类医疗器械UDI编码记录、追溯信息保存期限（不少于产品使用期限后5年）、信息可追溯性要求"
+    enabled: true
+
+  - id: MED012
+    category: medical_device
+    name: "设备类医疗器械验收条款缺失"
+    description: "大型医疗器械合同未约定安装调试、性能验收和临床验证条款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定大型医疗器械的安装调试、性能验收标准和临床验证要求"
+    legal_basis: "《医疗器械使用质量监督管理办法》第6条"
+    suggestion: "明确约定安装环境要求、调试周期、验收测试项目（含临床验证）、验收不合格的处理方式"
+    enabled: true
+
+  - id: MED013
+    category: medical_device
+    name: "体外诊断试剂批签发证明缺失"
+    description: "体外诊断试剂未取得批签发合格证明即供货"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查体外诊断试剂是否经批签发合格，供应商是否提供批签发报告"
+    legal_basis: "《医疗器械监督管理条例》第13条、《生物制品批签发管理办法》"
+    suggestion: "要求供应商提供每批次批签发合格报告，在合同中约定仅接收批签发合格产品"
+    enabled: true
+
+  - id: MED014
+    category: medical_device
+    name: "医疗器械标签说明书不符合规定"
+    description: "合同未约定医疗器械标签、说明书应符合法规要求"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定标签说明书内容应符合医疗器械标签说明书管理规定"
+    legal_basis: "《医疗器械说明书和标签管理规定》第4条、第6条"
+    suggestion: "在合同中明确标签说明书应包含的法定内容、语言文字要求、禁止性内容等"
+    enabled: true
+
+  - id: MED015
+    category: medical_device
+    name: "软件类医疗器械版本管理缺失"
+    description: "含软件的医疗器械合同未约定软件版本更新和网络安全责任"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定含软件版本管理、网络安全事件报告义务"
+    legal_basis: "《医疗器械网络安全注册技术审查指导原则》、《医疗器械软件注册技术审查指导原则》"
+    suggestion: "明确软件版本号、更新频率、重大版本变更通知义务、网络安全漏洞报告和应急处置要求"
+    enabled: true
+
+  - id: MED016
+    category: medical_device
+    name: "二手医疗器械采购合规性缺失"
+    description: "二手医疗器械交易未核实转让方是否具有合法资质"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查二手医疗器械转让方是否具有医疗器械经营资质，设备是否经检验合格"
+    legal_basis: "《医疗器械监督管理条例》第40条、《医疗器械使用质量监督管理办法》第17条"
+    suggestion: "核实转让方经营资质，要求提供设备维修记录、性能检验报告，明确二手设备质量保证期限和责任"
+    enabled: true
+
+  - id: MED017
+    category: medical_device
+    name: "临床试验用医疗器械条款混同"
+    description: "合同将临床试验用医疗器械与常规采购医疗器械混同约定"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否区分临床试验用器械与常规采购器械的管理要求"
+    legal_basis: "《医疗器械监督管理条例》第27条、《医疗器械临床试验质量管理规范》"
+    suggestion: "临床试验用器械应单独约定管理条款，明确免费提供、知情同意、不良事件报告等特殊要求"
+    enabled: true
+
+  - id: MED018
+    category: medical_device
+    name: "医疗器械广告审查条款缺失"
+    description: "合同涉及医疗器械推广时未取得广告审查批准文件"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同中涉及医疗器械广告推广是否约定广告审查批准文件要求"
+    legal_basis: "《医疗器械监督管理条例》第43条、《医疗器械广告审查办法》"
+    suggestion: "推广内容应事先取得医疗器械广告审查批准文件，合同应明确广告内容真实合法性责任"
+    enabled: true
+
+  # ==================== 临床试验协议 ====================
+  - id: MED019
+    category: clinical_trial
+    name: "伦理审查缺失"
+    description: "临床试验方案未经伦理委员会审查批准即签署协议"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查临床试验方案是否经牵头单位伦理委员会审查批准，伦理批件是否有效"
+    legal_basis: "《医疗器械临床试验质量管理规范》第12条、第14条；《药物临床试验质量管理规范》第12条"
+    suggestion: "在签署临床试验协议前取得伦理委员会批件，核实批件批准日期、有效期、批准的研究范围"
+    enabled: true
+
+  - id: MED020
+    category: clinical_trial
+    name: "知情同意条款不完整"
+    description: "知情同意书内容不符合法规要求"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查知情同意书是否包含法规要求的全部要素"
+    legal_basis: "《医疗器械临床试验质量管理规范》第23条、第24条；《药物临床试验质量管理规范》第23条"
+    suggestion: "知情同意书应包含研究目的、程序、预期风险与获益、替代治疗、隐私保护、补偿与赔偿、自愿退出权利等法定要素"
+    enabled: true
+
+  - id: MED021
+    category: clinical_trial
+    name: "受试者保险/补偿条款缺失"
+    description: "临床试验协议未约定受试者损害的保险保障或补偿方案"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查协议是否约定受试者因参与试验发生损害时的保险、补偿或赔偿方案"
+    legal_basis: "《医疗器械临床试验质量管理规范》第37条；《药物临床试验质量管理规范》第39条"
+    suggestion: "应购买临床试验责任保险或与受试者签订补偿/赔偿协议，明确保险金额、理赔流程、先行赔付机制"
+    enabled: true
+
+  - id: MED022
+    category: clinical_trial
+    name: "临床试验机构资质不符"
+    description: "临床试验机构不具备相应资质或备案状态异常"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查临床试验机构是否在药监部门备案，是否具备相应专业能力"
+    legal_basis: "《医疗器械临床试验质量管理规范》第8条；《药物临床试验机构管理规定》第6条"
+    suggestion: "核实临床试验机构在国家药监局临床试验机构备案系统中的备案状态和备案专业范围"
+    enabled: true
+
+  - id: MED023
+    category: clinical_trial
+    name: "主要研究者资质不符"
+    description: "主要研究者不具备相应的专业技术职称和执业资格"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查主要研究者是否具备高级职称、执业资格和相关临床试验经验"
+    legal_basis: "《医疗器械临床试验质量管理规范》第11条；《药物临床试验质量管理规范》第11条"
+    suggestion: "核实主要研究者的医师执业证书、专业技术职称证书、GCP培训证书，确认其在机构执业"
+    enabled: true
+
+  - id: MED024
+    category: clinical_trial
+    name: "试验用医疗器械管理条款缺失"
+    description: "协议未明确试验用医疗器械的运输、接收、使用、回收、销毁管理要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否约定试验用医疗器械的全生命周期管理要求"
+    legal_basis: "《医疗器械临床试验质量管理规范》第42-47条；《药物临床试验质量管理规范》第35-41条"
+    suggestion: "明确约定试验用器械的运输条件、接收记录、存储管理、使用记录、剩余器械回收、销毁记录等全流程管理"
+    enabled: true
+
+  - id: MED025
+    category: clinical_trial
+    name: "数据安全监测委员会缺失"
+    description: "高风险临床试验未设立数据安全监测委员会（DSMB）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查高风险临床试验是否设立数据安全监测委员会，是否明确其职责和工作程序"
+    legal_basis: "《医疗器械临床试验质量管理规范》第17条；ICH E6(R2) 5.5"
+    suggestion: "对植入类、高风险医疗器械临床试验，应设立DSMB，明确其组成、职责、会议频次和提前终止标准"
+    enabled: true
+
+  - id: MED026
+    category: clinical_trial
+    name: "不良事件/严重不良事件报告条款不明确"
+    description: "协议未明确不良事件和严重不良事件的报告时限、方式和内容要求"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查协议是否明确SAE报告时限（24小时内）、报告内容和后续随访要求"
+    legal_basis: "《医疗器械临床试验质量管理规范》第32条、第33条；《药物临床试验质量管理规范》第26条"
+    suggestion: "明确SAE首次报告24小时内、随访报告时限，报告内容应包含受试者信息、事件描述、因果关系判断等"
+    enabled: true
+
+  - id: MED027
+    category: clinical_trial
+    name: "受试者隐私保护条款不足"
+    description: "协议未充分约定受试者个人信息和隐私数据的保护措施"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否明确受试者数据采集范围、存储安全、使用限制和隐私保护措施"
+    legal_basis: "《医疗器械临床试验质量管理规范》第40条；《个人信息保护法》第28条、第29条；《人类遗传资源管理条例》"
+    suggestion: "明确数据脱敏要求、存储安全等级、跨境传输限制、人类遗传资源审批要求、数据保留期限"
+    enabled: true
+
+  - id: MED028
+    category: clinical_trial
+    name: "人类遗传资源审批缺失"
+    description: "涉及人类遗传资源的临床试验未取得科技部审批"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查涉及人类遗传资源采集、保藏、利用、对外提供的临床试验是否取得科技部审批"
+    legal_basis: "《人类遗传资源管理条例》第7条、第10条、第11条、第22条"
+    suggestion: "涉及人类遗传资源的临床试验，在签署协议前应取得科技部中国人类遗传资源管理办公室审批"
+    enabled: true
+
+  - id: MED029
+    category: clinical_trial
+    name: "临床试验注册条款缺失"
+    description: "协议未约定临床试验需在公共平台注册"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否约定临床试验在中国临床试验注册中心或ClinicalTrials.gov注册"
+    legal_basis: "《医疗器械临床试验质量管理规范》第13条；《赫尔辛基宣言》第35条"
+    suggestion: "明确临床试验首次入组前应在公共注册平台注册，约定注册时限和公开信息范围"
+    enabled: true
+
+  - id: MED030
+    category: clinical_trial
+    name: "统计分析计划缺失"
+    description: "协议未约定统计分析计划（SAP）的制定要求和审批流程"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确统计分析计划的制定时间、内容和审批要求"
+    legal_basis: "《医疗器械临床试验质量管理规范》第16条；ICH E9"
+    suggestion: "明确SAP应于数据库锁定前完成并经申办方和主要研究者共同批准，防止事后修改导致偏倚"
+    enabled: true
+
+  - id: MED031
+    category: clinical_trial
+    name: "数据安全存储期限未约定"
+    description: "协议未明确临床试验数据的保存期限和保存责任"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确试验数据的保存期限（通常不少于临床试验结束后5-10年）"
+    legal_basis: "《医疗器械临床试验质量管理规范》第55条；《药物临床试验质量管理规范》第52条"
+    suggestion: "明确原始数据、CRF表、统计分析数据等各类资料的保存期限、存储方式和保管责任"
+    enabled: true
+
+  - id: MED032
+    category: clinical_trial
+    name: "CRO/SMO委托合规性缺失"
+    description: "委托CRO/SMO执行临床试验相关任务未明确资质要求和委托范围"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确CRO/SMO的资质、委托范围、监督机制和责任划分"
+    legal_basis: "《医疗器械临床试验质量管理规范》第10条；《药物临床试验质量管理规范》第31条"
+    suggestion: "明确CRO资质要求、委托的具体任务、申办方监督义务、CRO独立性要求、数据所有权归属"
+    enabled: true
+
+  - id: MED033
+    category: clinical_trial
+    name: "受试者招募广告合规性缺失"
+    description: "受试者招募广告未经伦理审查，内容可能构成不当利诱"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查受试者招募广告是否经伦理委员会审批，是否存在不当利诱或不实宣传"
+    legal_basis: "《医疗器械临床试验质量管理规范》第22条；《药物临床试验质量管理规范》第9条"
+    suggestion: "招募广告应经伦理委员会批准，不得夸大获益或隐瞒风险，补偿金额应合理，避免构成不当引诱"
+    enabled: true
+
+  - id: MED034
+    category: clinical_trial
+    name: "紧急情况下知情同意豁免条款缺失"
+    description: "协议未约定紧急情况下无法获得知情同意时的豁免条件和程序"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确紧急情况下知情同意豁免的条件、伦理委员会预先批准要求和后续告知程序"
+    legal_basis: "《医疗器械临床试验质量管理规范》第25条；《药物临床试验质量管理规范》第24条"
+    suggestion: "明确紧急豁免条件、伦理预先批准要求、法定代理人后续同意要求、社区公示程序"
+    enabled: true
+
+  - id: MED035
+    category: clinical_trial
+    name: "儿童/孕妇等特殊受试者保护条款缺失"
+    description: "涉及儿童、孕妇等特殊人群的临床试验未约定特殊保护措施"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查涉及特殊受试者的试验是否约定额外的保护措施和审批要求"
+    legal_basis: "《医疗器械临床试验质量管理规范》第26条；《药物临床试验质量管理规范》第15条"
+    suggestion: "明确特殊人群纳入标准、额外知情同意要求（法定代理人同意）、风险获益评估标准"
+    enabled: true
+
+  - id: MED036
+    category: clinical_trial
+    name: "试验提前终止条款不完整"
+    description: "协议未明确临床试验提前终止的条件、程序和处理方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否约定试验提前终止条件、通知时限、受试者后续处理和数据处理方式"
+    legal_basis: "《医疗器械临床试验质量管理规范》第38条；《药物临床试验质量管理规范》第12条"
+    suggestion: "明确提前终止条件（安全性问题、无效分析、申办方决定等）、通知时限、受试者随访安排、数据提交要求"
+    enabled: true
+
+  # ==================== 医生多点执业协议 ====================
+  - id: MED037
+    category: multi_site_practice
+    name: "主执业机构同意缺失"
+    description: "医生多点执业未取得主执业机构（第一执业点）书面同意"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查医生是否取得主执业机构同意其多点执业的书面证明文件"
+    legal_basis: "《医师法》第15条第2款；《医师执业注册管理办法》第10条"
+    suggestion: "要求医生提供主执业机构出具的书面同意书，明确同意多点执业的科室范围和执业时间安排"
+    enabled: true
+
+  - id: MED038
+    category: multi_site_practice
+    name: "医师执业证书执业范围不符"
+    description: "多点执业医疗机构诊疗科目超出医师执业证书核准的执业范围"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查医疗机构的诊疗科目是否与医师执业证书上的执业范围一致"
+    legal_basis: "《医师法》第14条；《医疗机构管理条例》第27条"
+    suggestion: "核实医师执业证书上的执业类别和执业范围，确认多点执业医疗机构相应诊疗科目在执业范围内"
+    enabled: true
+
+  - id: MED039
+    category: multi_site_practice
+    name: "医师定期考核不合格"
+    description: "医师最近一次定期考核不合格或未完成考核"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查医师是否按规定完成定期考核，考核结果是否为合格"
+    legal_basis: "《医师法》第31条；《医师定期考核管理办法》第17条、第26条"
+    suggestion: "要求医师提供最近一个考核周期的定期考核合格证明，未通过考核的不得签署多点执业协议"
+    enabled: true
+
+  - id: MED040
+    category: multi_site_practice
+    name: "执业注册未变更"
+    description: "医生多点执业协议签署后未完成多点执业备案"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查医生是否向卫生行政部门申请多点执业备案，取得备案凭证"
+    legal_basis: "《医师法》第15条；《医师执业注册管理办法》第10条、第11条"
+    suggestion: "协议签署后应在30日内向省级卫生健康行政部门备案，多点执业协议应附备案回执作为协议附件"
+    enabled: true
+
+  - id: MED041
+    category: multi_site_practice
+    name: "执业时间冲突条款缺失"
+    description: "协议未明确多点执业医生的执业时间安排，可能与主执业点工作时间冲突"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否明确多点执业的时间安排，是否与主执业点工作时间冲突"
+    legal_basis: "《医师法》第15条；《医师执业注册管理办法》第10条"
+    suggestion: "明确约定多点执业的频次（每周/每月出诊次数）、具体时间段、排班方式和紧急到岗要求"
+    enabled: true
+
+  - id: MED042
+    category: multi_site_practice
+    name: "医疗责任划分不清"
+    description: "协议未明确多点执业期间发生医疗事故时的责任承担主体"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查协议是否明确多点执业期间医疗纠纷和事故的责任划分、保险保障和赔偿机制"
+    legal_basis: "《医师法》第15条；《民法典》第1218条；《医疗纠纷预防和处理条例》"
+    suggestion: "明确多点执业医疗机构为责任主体，约定医疗责任保险购买义务、先行赔付机制、医生个人追偿条件"
+    enabled: true
+
+  - id: MED043
+    category: multi_site_practice
+    name: "竞业限制条款不合理"
+    description: "多点执业协议中的竞业限制范围过广、期限过长或补偿不合理"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议中的竞业限制条款是否符合法律规定，是否影响医师执业自由"
+    legal_basis: "《医师法》第15条；《劳动合同法》第23条、第24条"
+    suggestion: "竞业限制应限于同级别同类医疗机构，期限不超过2年，竞业补偿不低于离职前12个月平均工资的30%"
+    enabled: true
+
+  - id: MED044
+    category: multi_site_practice
+    name: "利益冲突未披露"
+    description: "协议未要求医生披露与多点执业相关的利益冲突"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否要求医生披露多点执业相关利益关系，包括药品器械推荐利益"
+    legal_basis: "《医师法》第27条；《医疗机构工作人员廉洁从业九项准则》"
+    suggestion: "要求医生书面披露多点执业中涉及的利益关系，包括药品、器械、耗材推荐利益，明确禁止商业提成行为"
+    enabled: true
+
+  - id: MED045
+    category: multi_site_practice
+    name: "多点执业机构诊疗科目审批不全"
+    description: "多点执业医疗机构不具备医师执业范围相应的诊疗科目"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查多点执业医疗机构的执业许可证是否包含医师执业范围相应的诊疗科目"
+    legal_basis: "《医疗机构管理条例》第26条、第27条"
+    suggestion: "核实多点执业医疗机构的《医疗机构执业许可证》诊疗科目，确认与医师执业范围匹配"
+    enabled: true
+
+  - id: MED046
+    category: multi_site_practice
+    name: "医师执业许可证过期或吊销"
+    description: "医师执业许可证已超过有效期或被吊销/注销"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查医师执业证书是否在有效期内，是否存在被吊销、注销等异常状态"
+    legal_basis: "《医师法》第17条；《医师执业注册管理办法》第18条"
+    suggestion: "通过国家卫健委医师执业注册联网管理系统核实医师执业证书状态和有效期"
+    enabled: true
+
+  - id: MED047
+    category: multi_site_practice
+    name: "医疗文书书写规范未约定"
+    description: "协议未明确多点执业期间医疗文书的书写规范和责任归属"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否约定医疗文书书写规范、签名要求和病历管理责任"
+    legal_basis: "《病历书写基本规范》第3条；《电子病历应用管理规范》第7条"
+    suggestion: "明确约定医疗文书书写规范、医师签名要求、电子病历使用权限、病历归档和保管责任"
+    enabled: true
+
+  - id: MED048
+    category: multi_site_practice
+    name: "会诊费用分配约定不明"
+    description: "协议未明确会诊、手术等医疗服务的费用分配方式和结算流程"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确会诊费、手术费、诊疗费的分配比例和结算方式"
+    legal_basis: "《医师法》第27条；《医疗机构工作人员廉洁从业九项准则》"
+    suggestion: "明确费用分配比例、结算周期、发票开具方式，禁止按检查检验收入提成，费用应合规入账"
+    enabled: true
+
+  - id: MED049
+    category: multi_site_practice
+    name: "药品处方权管理条款缺失"
+    description: "协议未明确多点执业医生的处方权范围和特殊药品处方权限"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否明确多点执业医生的处方权范围、抗菌药物和麻醉精神药品处方权限"
+    legal_basis: "《处方管理办法》第8条、第11条；《医师法》第25条"
+    suggestion: "明确处方权范围、抗菌药物处方级别限制、麻醉药品和第一类精神药品处方资格要求"
+    enabled: true
+
+  - id: MED050
+    category: multi_site_practice
+    name: "医师GCP培训证书缺失"
+    description: "多点执业医生未持有有效的GCP培训证书"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查医生是否持有有效的药物/医疗器械临床试验质量管理规范（GCP）培训证书"
+    legal_basis: "《医疗器械临床试验质量管理规范》第11条；《药物临床试验质量管理规范》第6条"
+    suggestion: "要求医生提供GCP培训证书，证书应在有效期内（通常3年），未持有的不得参与临床试验相关诊疗"
+    enabled: true
+
+  - id: MED051
+    category: multi_site_practice
+    name: "远程医疗服务合规性缺失"
+    description: "多点执业涉及远程医疗服务未满足法规要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否约定远程医疗服务的合规要求，包括机构资质和医师执业注册"
+    legal_basis: "《互联网诊疗管理办法（试行）》第9条、第16条；《医师法》第14条"
+    suggestion: "远程医疗服务机构应具备互联网医院或互联网诊疗资质，医师应在该机构执业注册"
+    enabled: true
+
+  - id: MED052
+    category: multi_site_practice
+    name: "多点执业机构资质虚假"
+    description: "多点执业医疗机构执业许可证存在出借、转让等违规情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查医疗机构执业许可证是否存在出借、转让、挂靠等违规情形"
+    legal_basis: "《医疗机构管理条例》第23条；《基本医疗卫生与健康促进法》第39条"
+    suggestion: "通过卫健委官网核实医疗机构执业许可证真实状态，核查是否存在许可证出借、超范围执业等违规情形"
+    enabled: true
+
+  - id: MED053
+    category: multi_site_practice
+    name: "医疗废物处理责任未约定"
+    description: "协议未明确多点执业期间医疗废物的处理责任和流程"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确多点执业产生的医疗废物由哪方机构负责处置"
+    legal_basis: "《医疗废物管理条例》第9条、第12条"
+    suggestion: "明确约定多点执业机构为医疗废物处置责任主体，包括分类、暂存、转运和集中处置义务"
+    enabled: true
+
+  - id: MED054
+    category: multi_site_practice
+    name: "医师多点执业数量超限"
+    description: "医生在超过规定数量的医疗机构多点执业"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查医生是否在规定数量以内（原则上不超过3家）的医疗机构执业"
+    legal_basis: "《医师执业注册管理办法》第10条"
+    suggestion: "核实医生当前执业机构总数，确认不超过省级卫生行政部门规定的数量限制（通常3家以内）"
+    enabled: true
+
+  - id: MED055
+    category: multi_site_practice
+    name: "医保违规风险条款缺失"
+    description: "协议未约定多点执业中的医保合规使用要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否明确多点执业中的医保基金使用合规要求和违规责任"
+    legal_basis: "《医疗保障基金使用监督管理条例》第15条、第38条；《医师法》第27条"
+    suggestion: "明确禁止冒名执业、虚记费用、过度诊疗等医保违规情形，约定违规责任和违约金条款"
+    enabled: true
+
+  - id: MED056
+    category: clinical_trial
+    name: "临床试验补偿方案不合理"
+    description: "受试者补偿标准过低或不涵盖全部相关费用"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否约定合理的受试者补偿方案，涵盖交通、误工、营养等费用"
+    legal_basis: "《医疗器械临床试验质量管理规范》第23条；《药物临床试验质量管理规范》第23条"
+    suggestion: "补偿方案应涵盖交通费、误工费、营养费等，金额应合理，不得影响受试者正常收入水平"
+    enabled: true
+
+  - id: MED057
+    category: medical_device
+    name: "高值耗材追溯管理缺失"
+    description: "高值医用耗材采购合同未约定全程追溯管理要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定高值耗材从采购到使用全流程追溯管理要求"
+    legal_basis: "《医疗器械监督管理条例》第37条；《医疗机构医用耗材管理办法（试行）》第20条"
+    suggestion: "明确高值耗材UDI编码管理、全程可追溯、使用记录保存期限（不少于5年）、患者病历记录要求"
+    enabled: true
+
+  - id: MED058
+    category: medical_device
+    name: "医疗器械临床试验备案缺失"
+    description: "合同涉及第三类医疗器械临床试验但未完成备案"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查涉及第三类医疗器械临床试验是否已完成临床试验备案"
+    legal_basis: "《医疗器械监督管理条例》第27条、第80条"
+    suggestion: "第三类医疗器械临床试验前应向国家药监局备案，取得临床试验备案通知书后方可启动"
+    enabled: true
+
+  - id: MED059
+    category: clinical_trial
+    name: "试验方案偏离管理条款缺失"
+    description: "协议未明确临床试验方案偏离的报告、评估和记录要求"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确方案偏离的定义、分类、报告时限和评估流程"
+    legal_basis: "《医疗器械临床试验质量管理规范》第28条、第29条；《药物临床试验质量管理规范》第48条"
+    suggestion: "明确方案偏离定义、严重/一般偏离分类、报告时限、伦理委员会报告要求和记录保存规范"
+    enabled: true
+
+  - id: MED060
+    category: multi_site_practice
+    name: "医疗广告代言禁止条款缺失"
+    description: "协议未明确医生不得为多点执业机构进行医疗广告代言"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确禁止医生以自身名义为机构进行医疗广告宣传"
+    legal_basis: "《医师法》第27条；《广告法》第16条第4项；《医疗广告管理办法》第7条"
+    suggestion: "明确禁止医生以医师名义为医疗机构进行医疗广告代言，约定违规的违约责任"
+    enabled: true
+
+  - id: MED061
+    category: multi_site_practice
+    name: "医疗质量安全核心制度遵守条款缺失"
+    description: "协议未约定多点执业医生应遵守医疗质量安全核心制度"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查协议是否明确医生应遵守多点执业机构的医疗质量安全核心制度"
+    legal_basis: "《医疗质量管理办法》第10条；《医疗纠纷预防和处理条例》第9条"
+    suggestion: "明确医生应遵守查对制度、会诊制度、病历管理制度、疑难病例讨论制度等核心医疗制度"
+    enabled: true
+
+  - id: MED062
+    category: clinical_trial
+    name: "临床试验数据安全监控缺失"
+    description: "协议未约定数据安全监控计划（DSMP）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查协议是否包含数据安全监控计划，明确数据收集、传输、存储的安全措施"
+    legal_basis: "《医疗器械临床试验质量管理规范》第40条；《个人信息保护法》第51条"
+    suggestion: "制定DSMP，明确数据采集范围、去标识化方法、存储安全措施、访问权限管理、数据泄露应急方案"
+    enabled: true

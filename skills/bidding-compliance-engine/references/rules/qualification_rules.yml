@@ -1,0 +1,156 @@
+# 资格条件审查规则
+# 覆盖审查表相关资格条件事项，共8条规则
+
+rules:
+  - rule_id: QUALIFICATION_EXCEED
+    title: 资质等级要求超出项目需要
+    severity: high
+    description: 要求的资质等级明显高于项目实际需要的资质等级
+    keywords:
+      - "资质等级"
+      - "甲级"
+      - "一级"
+      - "特级"
+    patterns:
+      - "须具备.*甲级资质"
+      - "须具备.*一级.*资质"
+      - "须具备.*特级资质"
+    exclusion_patterns: []
+    category: qualification
+    suggestion: "根据项目实际规模和复杂程度，确定合理的资质等级要求"
+    legal_basis: "《招标投标法实施条例》第三十二条第（二）项：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "3.1"
+
+  - rule_id: EXPERIENCE_EXCEED
+    title: 业绩要求超出项目规模
+    severity: high
+    description: 业绩金额/数量要求明显超出项目预算
+    keywords:
+      - "业绩"
+      - "同类项目"
+      - "合同金额"
+    patterns:
+      - "单项合同.*不低于"
+      - "近.*年.*完成.*个"
+    exclusion_patterns: []
+    category: qualification
+    suggestion: "业绩要求一般不超过项目预算金额的1.5倍，数量要求不超过3个"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "3.2"
+
+  - rule_id: PERSONNEL_OVERREQUIRE
+    title: 人员要求不合理
+    severity: medium
+    description: 对项目团队人员的资质/数量/经验要求超出项目实际需要
+    keywords:
+      - "项目负责人"
+      - "项目经理"
+      - "技术负责人"
+      - "注册"
+    patterns:
+      - "须具备.*注册.*证书"
+      - "须有.*年以上经验"
+      - "不少于.*人"
+    exclusion_patterns: []
+    category: qualification
+    suggestion: "人员要求应与项目规模和难度匹配，避免过度要求"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "3.4"
+
+  - rule_id: FINANCIAL_BARRIER
+    title: 财务门槛设置不合理
+    severity: medium
+    description: 财务指标设置不合理门槛，可能排除合格的中小企业
+    keywords:
+      - "注册资本"
+      - "营业收入"
+      - "资产总额"
+      - "银行授信"
+    patterns:
+      - "注册资本不低于.*万元"
+      - "年营业收入不低于"
+      - "银行授信额度不低于"
+    exclusion_patterns: []
+    category: qualification
+    suggestion: "财务指标应与项目金额匹配，不应设置过高的财务门槛排除中小企业"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《中小企业促进法》"
+    check_item: "3.1"
+
+  - rule_id: CERTIFICATE_RESTRICTIVE
+    title: 认证证书要求指向特定机构
+    severity: medium
+    description: 要求特定的认证体系或证书，排除其他等效认证
+    keywords:
+      - "ISO"
+      - "认证体系"
+      - "质量体系"
+    patterns:
+      - "须通过.*认证"
+      - "须获得.*体系认证"
+    exclusion_patterns:
+      - "或同等"
+    category: qualification
+    suggestion: "允许等效认证体系参与，不限定特定认证机构"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《认证认可条例》"
+    check_item: "4.3"
+
+  - rule_id: JOINT_VENTURE_BAN
+    title: 不合理限制联合体投标
+    severity: medium
+    description: 招标文件不允许联合体投标，或对联合体设置不合理限制
+    keywords:
+      - "联合体"
+      - "不接受联合体"
+    patterns:
+      - "不接受联合体投标"
+      - "不允许联合体"
+    exclusion_patterns: []
+    category: qualification
+    suggestion: "除非有特殊理由，一般应允许联合体投标，以促进中小企业参与"
+    legal_basis: "《招标投标法》第三十一条：两个以上法人或者其他组织可以组成一个联合体，以一个投标人的身份共同投标"
+    check_item: "3.1"
+
+  - rule_id: Q_AWARD_SETTING
+    title: 奖项设置不合理
+    severity: medium
+    description: 以特定行业奖项作为加分条件，排除其他经营者，违反公平竞争原则
+    keywords:
+      - "获奖"
+      - "奖项"
+      - "优良工程"
+      - "鲁班奖"
+      - "省部奖"
+    patterns:
+      - "须获得.*奖"
+      - "获得.*奖项.*加分"
+      - "鲁班奖.*加分"
+      - "省级以上.*奖.*加分"
+    exclusion_patterns:
+      - "同等荣誉"
+      - "或同级"
+    category: qualification
+    suggestion: "不得将特定行业奖项作为资格条件或加分条件，确需设置的应采用'国家级或省级同等荣誉'"
+    legal_basis: "《招标投标法实施条例》第三十二条第（四）项：招标人不得以特定行政区域或者特定行业的奖项作为加分条件或者中标条件"
+    check_item: "3.3"
+
+  - rule_id: Q_PREQUAL_RESULT
+    title: 资格预审后投标人不足3家
+    severity: high
+    description: 资格预审后合格投标人不足3家，应重新招标而非继续评标
+    keywords:
+      - "资格预审"
+      - "投标人数量"
+      - "不足3家"
+      - "有效投标人"
+      - "重新招标"
+    patterns:
+      - "通过资格预审.*不足.*家"
+      - "有效投标人.*不足.*家"
+      - "投标人少于.*家"
+      - "不足3家.*继续评标"
+    exclusion_patterns:
+      - "重新招标"
+    category: qualification
+    suggestion: "资格预审后合格投标人不足3家的，应依法重新招标"
+    legal_basis: "《招标投标法》第二十八条：投标人少于三个的，招标人应当依照本法重新招标；《招标投标法实施条例》第十九条"
+    check_item: "8.8"

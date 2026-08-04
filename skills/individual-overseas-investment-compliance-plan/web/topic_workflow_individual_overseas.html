@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个人境外投资合规计划 · 合规工作流</title>
+<style>
+:root {
+    --ok:#16a34a; --bad:#dc2626; --warn:#d97706; --info:#2563eb;
+    --bg:#f6f8fb; --card:#fff; --bd:#e5e9f0; --txt:#1f2937; --sub:#6b7280; --brand:#2563eb;
+    --step-bg:#f0f4ff; --step-active:#2563eb;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--txt); line-height:1.6; }
+.wrap { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
+h1 { font-size:20px; margin:8px 0 4px; }
+.sub { color:var(--sub); font-size:13px; margin-bottom:14px; }
+.card { background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:16px 18px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+.card h2 { font-size:16px; margin:0 0 10px; }
+.badge { font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:var(--brand); }
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px; }
+@media (max-width:680px){ .grid{grid-template-columns:1fr;} }
+label { display:block; font-size:12.5px; color:var(--sub); margin-bottom:3px; }
+label b { color:var(--txt); font-weight:600; }
+input,select { width:100%; padding:8px 10px; border:1px solid var(--bd); border-radius:8px; font-size:14px; background:#fff; }
+input:focus,select:focus { outline:none; border-color:var(--brand); }
+.hint { font-size:11px; color:var(--sub); margin-top:2px; }
+button { background:var(--brand); color:#fff; border:none; border-radius:9px; padding:11px 22px; font-size:15px; cursor:pointer; }
+button:hover { opacity:.92; }
+.btn.secondary { background:var(--bd); color:var(--txt); }
+.btn.primary { background:linear-gradient(135deg,#2563eb,#7c3aed); }
+.btn-row { display:flex; gap:10px; justify-content:space-between; margin-top:14px; flex-wrap:wrap; }
+.progress { display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+.step { flex:1; min-width:80px; text-align:center; font-size:11px; padding:8px 4px; border-radius:8px; background:var(--step-bg); color:var(--sub); cursor:pointer; }
+.step.active { background:var(--step-active); color:#fff; font-weight:600; }
+.step.done { background:#dcfce7; color:var(--ok); }
+.step-panel { display:none; }
+.step-panel.active { display:block; }
+.ind-input { margin-bottom:12px; }
+.ind-section { margin-bottom:14px; }
+.op-tag { color:var(--brand); font-size:11px; font-weight:600; }
+.checkbox-wrap { display:flex; align-items:center; gap:8px; cursor:pointer; font-size:14px; }
+.checkbox-wrap input { width:18px; height:18px; }
+.check-label { color:var(--txt); }
+.rk-item { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:#fff5f5; margin-bottom:6px; font-size:13px; }
+.rk-name { font-weight:600; flex:1; }
+.rk-extra { margin:-4px 0 10px 0; padding-left:2px; }
+.risk-trigger { font-size:12px; color:var(--sub); }
+.risk-sugg { font-size:12px; color:#b45309; background:#fffbeb; border-radius:6px; padding:6px 8px; margin-top:4px; }
+.pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600; flex-shrink:0; }
+.pill.ok { background:#dcfce7; color:var(--ok); }
+.pill.bad { background:#fee2e2; color:var(--bad); }
+.pill.warn { background:#fef3c7; color:var(--warn); }
+.summary-box { padding:14px; border-radius:10px; margin-top:10px; }
+.summary-box.pass { background:#f0fdf4; border:1px solid #bbf7d0; }
+.summary-box.fail { background:#fef2f2; border:1px solid #fecaca; }
+.summary-box.warn { background:#fffbeb; border:1px solid #fde68a; }
+.summary-title { font-size:16px; font-weight:700; margin-bottom:6px; }
+.summary-detail { font-size:13px; color:var(--sub); }
+.ind-result { padding:10px 12px; border:1px solid var(--bd); border-radius:10px; margin-bottom:8px; }
+.ind-result .ind-key { font-weight:600; }
+.ind-result .ind-meta { font-size:12px; color:var(--sub); }
+.biz-item { display:flex; align-items:center; gap:8px; padding:10px 12px; border-radius:8px; background:#f8fafc; margin-bottom:6px; font-size:13px; cursor:pointer; border:1px solid transparent; }
+.biz-item:hover { border-color:var(--brand); background:#f0f4ff; }
+.biz-key { background:var(--brand); color:#fff; font-size:10px; padding:2px 6px; border-radius:4px; flex-shrink:0; }
+.biz-name { font-weight:600; flex:1; }
+.biz-toggle { color:var(--sub); font-weight:700; }
+.biz-detail { flex-basis:100%; margin-top:8px; padding-top:8px; border-top:1px dashed var(--bd); }
+.biz-rules { font-size:12px; color:var(--sub); margin-bottom:8px; }
+.biz-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.biz-actions .btn { padding:7px 14px; font-size:13px; }
+.qa-card { background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:16px 18px; margin-bottom:16px; }
+.tab-nav { display:flex; gap:0; margin-bottom:12px; border-bottom:2px solid var(--bd); flex-wrap:wrap; }
+.tab-item { flex:1; min-width:90px; text-align:center; padding:9px 6px; font-size:13px; color:var(--sub); cursor:pointer; border-bottom:2px solid transparent; }
+.tab-item.active { color:var(--brand); font-weight:700; border-bottom-color:var(--brand); }
+.prompt-row { display:flex; align-items:center; gap:10px; padding:9px 12px; margin-bottom:6px; border-radius:8px; background:#fff; border:1px solid var(--bd); cursor:pointer; }
+.prompt-row:hover { background:#f0f4ff; border-color:var(--brand); }
+.prompt-text { font-size:13px; flex:1; line-height:1.55; }
+.copy-btn { flex-shrink:0; padding:5px 14px; font-size:12px; border:1px solid var(--bd); border-radius:6px; background:#f8fafc; color:var(--sub); cursor:pointer; }
+.copy-btn:hover { border-color:var(--brand); color:var(--brand); background:#eef2ff; }
+.qa-example { border:1px solid var(--bd); border-radius:10px; margin-bottom:10px; overflow:hidden; }
+.qa-q { background:#f8fafc; padding:10px 12px; font-weight:600; font-size:13.5px; }
+.qa-a { padding:10px 12px; font-size:13px; }
+.foot { font-size:11px; color:var(--sub); margin-top:10px; }
+.toast { position:fixed; top:20px; right:20px; background:#1e293b; color:#fff; padding:12px 20px; border-radius:10px; font-size:13px; z-index:9999; transform:translateX(120%); transition:transform .25s; }
+.toast.show { transform:translateX(0); }
+.consent-mask { position:fixed; inset:0; background:rgba(15,23,42,.55); display:none; align-items:center; justify-content:center; z-index:999; padding:16px; }
+.consent-box { background:#fff; border-radius:14px; max-width:540px; width:100%; padding:22px 24px; box-shadow:0 20px 60px rgba(0,0,0,.25); }
+.consent-box h3 { margin:0 0 10px; font-size:17px; color:var(--txt); }
+.consent-box p { font-size:13px; color:var(--sub); line-height:1.6; margin:0 0 10px; }
+.consent-box ul { margin:0 0 14px; padding-left:18px; font-size:12.5px; color:var(--sub); line-height:1.75; }
+.consent-box .consent-btns { display:flex; flex-wrap:wrap; gap:10px; }
+.consent-box .consent-btns .btn { flex:1; min-width:150px; }
+.consent-check { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--sub); margin:0 0 14px; cursor:pointer; }
+.consent-check input { width:16px; height:16px; cursor:pointer; }
+.tier-hint { font-size:11px; color:var(--brand); margin-top:3px; }
+.kb-banner { background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 100%); border:1px solid #c7d2fe; border-radius:10px; padding:10px 16px; margin:12px 0 20px; font-size:12px; line-height:1.6; }
+.kb-banner .kb-title { font-weight:700; color:var(--brand); }
+.kb-banner .kb-link { color:var(--brand); text-decoration:underline; cursor:pointer; font-weight:600; }
+.kb-banner .kb-link:hover { color:#1d4ed8; }
+.kb-banner .kb-cta { color:#6b7280; margin-top:2px; }
+.kb-banner .kb-cta b { color:var(--brand); font-weight:700; }
+.deep-card { border:1px solid #c7d2fe; background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 100%); }
+.deep-card h2 { color:var(--brand); }
+.deep-note { font-size:12.5px; color:#374151; line-height:1.7; margin-bottom:10px; }
+.deep-note b { color:var(--brand); }
+.deep-prompt { width:100%; min-height:200px; padding:12px 14px; border:1px solid var(--bd); border-radius:10px; font-size:13px; line-height:1.65; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--txt); background:#fff; resize:vertical; }
+.deep-prompt:focus { outline:none; border-color:var(--brand); }
+.deep-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+.deep-actions .btn { padding:10px 18px; font-size:14px; }
+.deep-hint { font-size:11.5px; color:var(--sub); margin-top:8px; }
+.loop-title-bar { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.loop-title-bar .lt-badge { font-size:10.5px; padding:3px 10px; border-radius:999px; background:var(--brand); color:#fff; font-weight:700; letter-spacing:.5px; }
+.loop-title-bar .lt-title { font-size:14.5px; font-weight:700; color:var(--txt); }
+.loop-pipeline { display:flex; align-items:stretch; gap:0; flex-wrap:wrap; }
+.loop-step { flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 4px; position:relative; }
+.loop-step:not(:last-child)::after { content:""; position:absolute; top:18px; right:-6px; width:10px; height:2px; background:var(--brand); opacity:.35; z-index:0; }
+.loop-step .ls-icon { width:32px; height:32px; border-radius:50%; background:#fff; border:2px solid var(--brand); display:flex; align-items:center; justify-content:center; font-size:14px; margin-bottom:5px; z-index:1; box-shadow:0 2px 6px rgba(37,99,235,.15); }
+.loop-step .ls-num { font-size:9px; color:var(--brand); font-weight:700; margin-bottom:1px; }
+.loop-step .ls-name { font-size:11px; font-weight:700; color:var(--txt); line-height:1.3; }
+.loop-step .ls-desc { font-size:9.5px; color:var(--sub); line-height:1.3; margin-top:2px; max-width:90px; }
+@media (max-width:680px){
+    .loop-pipeline { flex-direction:column; gap:6px; }
+    .loop-step:not(:last-child)::after { content:""; position:absolute; right:16px; top:-4px; width:2px; height:10px; background:var(--brand); opacity:.35; }
+    .loop-step { flex-direction:row; gap:8px; text-align:left; align-items:center; padding:6px 8px; background:#fff; border-radius:8px; border:1px solid #e2e8f0; }
+    .loop-step .ls-icon { margin-bottom:0; }
+}
+/* 特色工具 widget */
+.widget-wrap { display:flex; flex-direction:column; gap:14px; }
+.widget-card { border:1px solid var(--bd); border-radius:12px; padding:14px 16px; background:#fff; }
+.wc-head { display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; }
+.wc-icon { font-size:22px; }
+.wc-title { font-weight:700; font-size:15px; }
+.wc-intro { font-size:12px; color:var(--sub); margin-top:2px; }
+.wc-fields { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px; margin-bottom:12px; }
+@media (max-width:680px){ .wc-fields{grid-template-columns:1fr;} }
+.wc-field label { font-size:12px; color:var(--sub); display:block; margin-bottom:3px; }
+.wc-field .unit { color:var(--brand); font-size:11px; }
+.wc-result { margin-top:12px; padding:12px; border-radius:10px; background:#f0fdf4; border:1px solid #bbf7d0; }
+.wc-result.warn { background:#fffbeb; border-color:#fde68a; }
+.wc-result .wc-out { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dashed var(--bd); font-size:13.5px; }
+.wc-result .wc-out:last-child { border-bottom:none; }
+.wc-result .wc-out b { color:var(--brand); }
+.wc-result .wc-concl { margin-top:8px; font-weight:700; font-size:14px; }
+.wc-table { overflow-x:auto; }
+.wc-table table { width:100%; border-collapse:collapse; font-size:12.5px; }
+.wc-table th, .wc-table td { border:1px solid var(--bd); padding:7px 9px; text-align:left; vertical-align:top; }
+.wc-table th { background:#f1f5f9; font-weight:700; }
+.wc-table td.dim { background:#f8fafc; font-weight:600; color:var(--txt); white-space:nowrap; }
+.wc-table.highlight th { background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; }
+.wc-textarea { width:100%; min-height:120px; margin:10px 0; padding:10px; border:1px solid var(--bd); border-radius:8px; font-size:13px; font-family:Consolas,Menlo,monospace; resize:vertical; box-sizing:border-box; }
+.wc-hint-block { margin:6px 0 2px; font-size:12px; color:var(--sub); }
+.wc-fmt { background:#f8fafc; border:1px dashed var(--bd); border-radius:8px; padding:7px 10px; margin-bottom:6px; }
+.wc-warn { margin-top:10px; padding:8px 10px; border-radius:8px; background:#fffbeb; border:1px solid #fde68a; color:#92400e; font-size:12.5px; }
+.wc-project .wc-fields { grid-template-columns:repeat(2,1fr); }
+.wc-project details { margin-top:10px; font-size:12.5px; color:var(--sub); }
+.wc-project summary { cursor:pointer; color:var(--brand); }
+.wc-project ul { margin:6px 0 0; padding-left:18px; }
+.wc-project textarea.wc-textarea { background:#fff; }
+.wc-diff { margin-top:8px; font-size:12px; color:var(--sub); background:#f8fafc; border-radius:8px; padding:8px 10px; }
+.wc-checklist { display:flex; flex-direction:column; gap:8px; }
+.wc-check { display:flex; align-items:flex-start; gap:8px; padding:9px 11px; border:1px solid var(--bd); border-radius:9px; cursor:pointer; font-size:13px; }
+.wc-check:hover { background:#f0f4ff; border-color:var(--brand); }
+.wc-check input { width:18px; height:18px; margin-top:2px; }
+.wc-ck-label { font-weight:600; flex:1; }
+.wc-hint { display:block; font-size:11px; color:var(--sub); font-weight:400; margin-top:2px; }
+.wc-ledger table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:10px; }
+.wc-ledger th, .wc-ledger td { border:1px solid var(--bd); padding:6px 8px; }
+.wc-ledger th { background:#f1f5f9; font-weight:700; }
+.wc-ledger td[contenteditable="true"] { background:#fffef0; min-width:70px; }
+.wc-list { margin:0; padding-left:18px; font-size:13px; }
+.wc-list li { margin-bottom:6px; }
+.wc-text { font-size:13px; color:var(--txt); }
+/* 全流程链路 process */
+.wc-process { display:flex; flex-direction:column; gap:16px; }
+.pc-group { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fcfdff; }
+.pc-group-h { font-weight:700; color:var(--brand); margin-bottom:8px; font-size:14px; }
+.pc-stage { border-left:3px solid #cbd5e1; padding:6px 0 6px 12px; margin-bottom:8px; }
+.pc-stage-h { font-weight:600; margin-bottom:4px; }
+.pc-acts { margin:0 0 4px 0; padding-left:16px; font-size:12.5px; }
+.pc-delivs { font-size:12px; color:var(--sub); }
+.pc-deliv { display:inline-block; background:#eef2ff; border-radius:6px; padding:2px 7px; margin:2px 4px 0 0; }
+/* 案例 cases */
+.wc-cases { display:flex; flex-direction:column; gap:10px; }
+.case-card { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fff; }
+.case-h { font-weight:700; margin-bottom:6px; }
+.case-tag { font-size:11px; background:#e0f2fe; color:#0369a1; border-radius:6px; padding:2px 7px; margin-left:6px; }
+.case-f { font-size:12.5px; margin-bottom:4px; line-height:1.5; }
+/* 协同 cross / 监管 reg2026 */
+.wc-cross, .wc-reg { display:flex; flex-direction:column; gap:12px; }
+.cross-sec { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fcfdff; }
+.cross-h { font-weight:700; color:var(--brand); margin-bottom:6px; font-size:13.5px; }
+.cross-ex { border:1px dashed #93c5fd; border-radius:10px; padding:10px 12px; background:#f0f9ff; }
+.cross-ex-h { font-weight:700; color:#0369a1; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kb-banner">
+        <div class="kb-title">根据 tax-policy-knowledge 财税知识库与技能矩阵生成</div>
+        <span class="kb-link" onclick="copyKbLink()">🔗 点击查看并复制链接</span>
+        <div class="kb-cta">觉得好用请点 ★ 收藏 | 有需求建议可加企鹅号 <b>1817694478</b> 或在评论区留言 | 有你的关注与支持是我们功能升级持续更新的最大动力！</div>
+    </div>
+
+    <h1>📋 个人境外投资合规计划</h1>
+    <div class="sub">自然人（居民个人/境内个人）境外投资涉税合规：837号令监管框架、2020年3号境外所得申报与分国分项抵免、港股通/QDII/跨境理财通通道税负对比、37号文SPV登记与6年规则、便利化购汇境外购房限制、CRS口径一致性。 <span class="badge">v3.14.39</span></div>
+
+    <div class="progress" id="progressBar">
+        <div class="step active" data-step="0">① 基础信息</div><div class="step" data-step="1">② 合规指标自检</div><div class="step" data-step="2">③ 涉税风险扫描</div><div class="step" data-step="3">④ 专题特色工具</div><div class="step" data-step="4">⑤ 政策问答</div>
+    </div>
+
+    <div class="step-panel active" id="step0">
+<div class="card"><h2>① 基础信息</h2><div class="sub">填写企业基本数据（本地保存，不上传，仅用于本次自检）</div><div class="grid"><div><label>企业名称</label><input id="q_company" placeholder="如 北京XX有限公司"/></div><div><label>统一社会信用代码</label><input id="q_credit_code" placeholder="如 91110108MA0XXXXXXX"/></div><div><label>注册地址</label><input id="q_address" placeholder="如 北京市XX区"/></div><div><label>成立时间</label><input id="q_reg_date" type="date"/></div></div><div class="btn-row"><button class="btn primary" onclick="loadSampleData()">📂 加载示例数据（自动体验全流程）</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div></div>
+</div>
+
+<div class="step-panel" id="step1">
+<div class="card"><h2>② 合规指标自检</h2><div class="sub">填写企业实际情况，系统将自动对照判定标准给出是否达标</div><div class="ind-section"><div class="ind-input" data-key="overseas_income_declared"><label><b>全部境外所得已在汇算申报</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_overseas_income_declared"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局公告2020年第3号</div></div><div class="ind-input" data-key="refund_cert_complete"><label><b>境外完税凭证齐全可抵免</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_refund_cert_complete"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局公告2020年第3号</div></div><div class="ind-input" data-key="hkconnect_window_tracked"><label><b>港股通免税窗口（至2027-12-31）已跟踪</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_hkconnect_window_tracked"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局 证监会公告2023年第23号</div></div><div class="ind-input" data-key="spv_fx_registered"><label><b>37号文SPV外汇登记已办理或确认无需</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_spv_fx_registered"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：外汇局汇发〔2014〕37号</div></div><div class="ind-input" data-key="fx_purchase_compliant"><label><b>便利化购汇未用于境外购房/证券投资</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_fx_purchase_compliant"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：《个人外汇管理办法》及实施细则</div></div><div class="ind-input" data-key="mw06_indiv_resident"><label><b>个人税务居民身份</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_mw06_indiv_resident"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：个人所得税法及条例</div></div><div class="ind-input" data-key="crs_account_listed"><label><b>境外金融账户清单已完整盘点</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_crs_account_listed"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局公告2020年第3号；六部委公告2017年第14号</div></div><div class="ind-input" data-key="crs_resident_status_clear"><label><b>税务居民身份判定并与自我声明一致</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_crs_resident_status_clear"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：个人所得税法第一条；财政部 税务总局公告2019年第35号</div></div><div class="ind-input" data-key="crs_income_classified"><label><b>境外所得已按综合/经营/分类归集</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_crs_income_classified"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局公告2020年第3号第二条</div></div><div class="ind-input" data-key="crs_tax_credit_doc"><label><b>境外已纳税完税凭证齐全</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_crs_tax_credit_doc"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局公告2020年第3号第四条</div></div><div class="ind-input" data-key="crs_filed_on_time"><label><b>次年3.1–6.30已完成境外所得申报</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_crs_filed_on_time"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部 税务总局公告2020年第3号第七条；税收征管法第32条</div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn" onclick="runIndicatorCheck()">🔍 立即自检</button></div></div><div id="indicatorResult" style="display:none"></div>
+</div>
+
+<div class="step-panel" id="step2">
+<div class="card"><h2>③ 涉税风险扫描</h2><div class="sub">基于指标检验结果，自动识别高风险项并给出整改建议</div><div id="riskReportResult"><p style="color:var(--sub)">请先完成指标自检后查看风险报告（也可直接点击下方「常见风险清单」预览）</p></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div>
+</div>
+
+<div class="step-panel" id="step3">
+<div class="card"><h2>④ 专题特色工具</h2><div class="sub">本专题独有可交互工具：测算 / 比对 / 判定 / 模板生成，结果可直接纳入合规报告</div><div class="widget-wrap"><div class="widget-card" data-kind="calc" data-mod="crs_toolkit"><div class="wc-head"><span class="wc-icon">🧮</span><div><div class="wc-title">CRS境外金融资产自查与税款测算器</div><div class="wc-intro">按年度填写境外所得与已纳税额，自动测算综合/分类应纳税额、分别限额抵免、应补税额与滞纳金（单一国别简化模型；依据个人所得税法+公告2020年第3号，适用2019年度及以后）</div></div></div><div class="wc-fields"><div class="wc-field"><label>自查所属年度</label><select data-f="year"><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option></select></div><div class="wc-field"><label>境外工资薪金等综合所得收入额（年） <span class="unit">(元)</span></label><input type="number" data-f="wage" value="0" step="any"/></div><div class="wc-field"><label>境外已纳综合所得税额 <span class="unit">(元)</span></label><input type="number" data-f="wage_tax" value="0" step="any"/></div><div class="wc-field"><label>境外利息所得 <span class="unit">(元)</span></label><input type="number" data-f="interest" value="0" step="any"/></div><div class="wc-field"><label>境外股息红利所得 <span class="unit">(元)</span></label><input type="number" data-f="dividend" value="0" step="any"/></div><div class="wc-field"><label>境外金融资产转让所得（盈利） <span class="unit">(元)</span></label><input type="number" data-f="gain" value="0" step="any"/></div><div class="wc-field"><label>境外不动产租金所得 <span class="unit">(元)</span></label><input type="number" data-f="rent" value="0" step="any"/></div><div class="wc-field"><label>境外不动产转让所得 <span class="unit">(元)</span></label><input type="number" data-f="prop_gain" value="0" step="any"/></div><div class="wc-field"><label>境外偶然/其他所得 <span class="unit">(元)</span></label><input type="number" data-f="other" value="0" step="any"/></div><div class="wc-field"><label>分类所得境外已纳税额合计 <span class="unit">(元)</span></label><input type="number" data-f="class_tax" value="0" step="any"/></div></div><button class="btn" onclick="runCalc('crs_toolkit')">🔢 开始测算</button><div class="wc-result" id="wc_crs_toolkit" style="display:none"></div></div><div class="widget-card" data-kind="display" data-mod="major_shareholder"><div class="wc-head"><span class="wc-icon">📌</span><div><div class="wc-title">major_shareholder</div><div class="wc-intro"></div></div></div><ul class='wc-list'><li><b>name</b>：补税潮下上市公司大股东合规专项</li><li><b>basis</b>：财税〔2015〕116号、国家税务总局公告2014年第67号、2020年3号公告、财税〔2016〕101号</li><li><b>scope</b>：上市公司自然人股东/实控人：减持、分红、股权激励、境外架构减持回流的个税合规与稽查争议</li><li><b>scenes</b>：[{&#x27;scene&#x27;: &#x27;限售股/股票减持&#x27;, &#x27;point&#x27;: &#x27;财产转让所得20%个税；低价转让无正当理由易被核定&#x27;}, {&#x27;scene&#x27;: &#x27;分红穿透自然人&#x27;, &#x27;point&#x27;: &#x27;股东借款年度终了未还且用于经营视同分红缴20%&#x27;}, {&#x27;scene&#x27;: &#x27;股权激励行权&#x27;, &#x27;point&#x27;: &#x27;符合条件可递延纳税(财税〔2016〕101号)，须及时备案&#x27;}, {&#x27;scene&#x27;: &#x27;境外架构减持回流&#x27;, &#x27;point&#x27;: &#x27;837号令全链条穿透下居民全球所得申报不可规避&#x27;}]</li><li><b>notes</b>：稽查阶段主动补缴税款及滞纳金可显著降低行政处罚与刑事移送风险；滞纳金日万分之五，准予不加收情形须主动举证。</li></ul></div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div>
+</div>
+
+<div class="step-panel" id="step4">
+<div class="qa-card"><h2>⑤ 政策问答（结果示例 + 常用提示词）</h2><div class="sub">常用咨询提示词推荐 · 一键复制返回 Agent 对话框粘贴问答</div><div class="tab-nav" id="qaTabNav"><div class="tab-item active" data-tab="examples">📌 结果示例</div><div class="tab-item active" data-tab="cat0">📋 申报与抵免</div><div class="tab-item" data-tab="cat1">🛣️ 合规通道</div><div class="tab-item" data-tab="cat2">🪪 身份与架构</div></div><div id="qaTabContent"><div class="tab-content" data-tab="examples" style="display:block"><div class="qa-example"><div class="qa-q">❓ 我在美股赚了钱但一直留在境外账户没汇回来，要不要在国内申报？</div><div class="qa-a">要。居民个人就全球所得负纳税义务，申报不以资金汇回为前提；应在次年3.1–6.30汇算，凭境外完税凭证做分国分项抵免。</div></div><div class="qa-example"><div class="qa-q">❓ 通过港股通买股票，转让差价和分红要交个税吗？</div><div class="qa-a">转让差价暂免至2027-12-31（2023年第23号）；分红按20%由券商代扣，个人层面一般不再补税。注意截止日以官方2027-12-31为准。</div></div><div class="qa-example"><div class="qa-q">❓ 买QDII基金的分红真的是只交10%吗？</div><div class="qa-a">不是。财税〔2002〕128号明确个人从基金分配（含QDII分红）取得的收入暂免个税；10%是基金资产层代扣的协定预提税，非个人税负。</div></div></div><div class="tab-content" data-tab="cat0" style="display:block"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">个人境外投资怎么合规</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">港美股赚了要怎么申报纳税</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">居民个人境外所得怎么抵免</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat1" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">港股通买卖差价免税到什么时候</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">QDII基金分红要交个税吗</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">837号令对个人境外投资有什么影响</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat2" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">37号文返程投资外汇登记怎么办理</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">无住所个人6年规则是什么意思</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">个人购汇能用于境外买房吗</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">个人境外账户CRS信息怎么保持一致</div><div class="copy-btn">复制</div></div></div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn" onclick="generateReport()">📋 生成合规自查报告</button></div>
+</div>
+
+
+
+    <div class="card" style="margin-top:10px">
+        <h2>⚠️ 常见风险清单（预设预览）</h2>
+        <div class="sub">以下为本专题典型风险项及整改建议，完整风险评估需完成指标自检后生成</div>
+        <div id="staticRisks">
+            <div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">居民个人境外所得零申报</span></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">无抵免凭证被调增补税</span></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">37号文应登记未登记</span></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">便利化购汇用于境外购房</span></div><div class="rk-item"><span class="pill warn" data-level="中">中</span><span class="rk-name">QDII分红税负口径错配</span></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">CRS境外账户收益零申报</span></div><div class="rk-item"><span class="pill warn" data-level="中">中</span><span class="rk-name">税务居民身份错配（自我声明与实际不符）</span></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">抵免混算或凭证缺失被调增补税</span></div>
+        </div>
+    </div>
+
+    <div class="card loop-card">
+  <h2>🔄 专题闭环示例</h2>
+  <div class="loop-title-bar">
+    <span class="lt-badge">CLOSED-LOOP</span>
+    <span class="lt-title">专题闭环示例</span>
+  </div>
+  <div class="loop-pipeline"></div>
+</div>
+
+
+    <div class="card"><h2>🔗 业务类型工作流入口</h2><div class="sub">点击展开各业务类型，跳转专属自检或复制专属提示词</div><div class="biz-grid"><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">selfcheck</span><span class="biz-name">个人境外投资合规自检</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：indicators</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">risk_scan</span><span class="biz-name">个人境外投资合规风险扫描</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：risks</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div></div></div>
+
+    <div class="card deep-card"><h2>💬 复制提示词 · 获取 AI 深度分析与报告</h2><div class="deep-note">本页自检为<b>轻量体验版</b>，结果仅供初步筛查。复制下方提示词粘贴到 Agent 对话框，即可由 AI 结合最新政策，为您生成<b>更有针对性、更详细</b>的合规分析报告、分优先级整改方案与落地模板。<br>👉 在 Agent 对话框说出「打开本专题自检页」，也会自动弹出本页可点击链接。</div><textarea id="deepPrompt" class="deep-prompt" readonly></textarea><div class="deep-actions"><button class="btn" onclick="copyDeepPrompt()">📋 复制提示词去 AI 深度分析</button><button class="btn secondary" onclick="refreshDeepPrompt()">🔄 按当前结果刷新</button></div><div class="deep-hint">提示：先填写指标并运行自检，再点「按当前结果刷新」，提示词会自动带入你的真实不达标项与风险项，分析更精准。</div></div>
+
+    <div class="foot">本工作流默认在本地完成计算；如您勾选"同意"，本次填写的税务指标数值（不含任何企业身份信息）将加密发送至云端用于规则判定，服务端不留存。内容依据公开税收政策与判定标准，仅供参考；具体操作请以最新法规及主管税务机关要求为准。</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="consent-mask" id="consentMask">
+  <div class="consent-box">
+    <h3>数据发送知情同意</h3>
+    <p>在开始税务自检前，请确认以下数据发送说明：</p>
+    <ul>
+      <li><b>将发送的数据</b>：仅本次填写的税务指标数值（如研发费用占比、人员比例等），<b>不含</b>企业名称、统一社会信用代码、注册地址、成立时间等身份信息。</li>
+      <li><b>用途</b>：经 HTTPS 加密连接发送至云端无状态自评服务，用于规则判定并即时返回结果。</li>
+      <li><b>不留存</b>：该服务不留存您提交的数据，亦不与任何身份关联。</li>
+      <li><b>匿名访问</b>：本次访问不关联任何账号或身份；为调用云端服务自动签发的临时密钥仅存于本次浏览器会话（关闭标签页即失效），不跨会话留存，也不写入本地持久存储。</li>
+    </ul>
+    <label class="consent-check"><input type="checkbox" id="consentChk"/> 我已阅读并同意上述数据发送说明</label>
+    <div class="consent-btns">
+      <button class="btn secondary" onclick="closeConsent()">取消</button>
+      <button class="btn primary" onclick="agreeConsent()">同意并自检</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = "https://mcp.aitaxs.top/api/v1";
+// ===== 统一注册 + API Key 安全鉴权（与 Python 客户端一致） =====
+// 安全约束（防止匿名调用泄露信息）：
+//  1) 匿名访问：不关联任何账号/身份，仅用于调用无状态自评服务；
+//  2) 知情同意门控：未获用户显式同意(CONSENTED)前，绝不发卡、绝不调用，杜绝静默匿名访问；
+//  3) 密钥会话级：key 仅存于 sessionStorage（关闭标签页即失效），不跨会话持久化，缩小 XSS 窃取窗口。
+const AUTH_LS_KEY = "tax_policy_mcp_api_key";
+const AUTH_LS_CID = "tax_policy_mcp_client_id";
+function _consentOk(){ return (typeof CONSENTED !== "undefined") && !!CONSENTED; }
+function _webClientId(){
+  let cid = sessionStorage.getItem(AUTH_LS_CID);
+  if(!cid){ cid = "tax-web-" + Math.random().toString(36).slice(2,10) + Date.now().toString(36); sessionStorage.setItem(AUTH_LS_CID, cid); }
+  return cid;
+}
+async function _ensureApiKey(){
+  // 防御纵深：未获知情同意前绝不匿名发卡/调用
+  if(!_consentOk()) return null;
+  let key = sessionStorage.getItem(AUTH_LS_KEY);
+  if(key) return key;
+  try{
+    const res = await fetch(API + "/auth/register", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ name:"tax-policy-web-"+_webClientId().slice(0,8), user_id:"auto", device_id:_webClientId() })
+    });
+    if(res.ok){ const d = await res.json(); if(d && d.api_key){ sessionStorage.setItem(AUTH_LS_KEY, d.api_key); return d.api_key; } }
+  }catch(e){ console.warn("API Key 注册失败：", e); }
+  return null;
+}
+async function apiFetch(path, init){ init = init || {}; init.headers = init.headers || {};
+  const key = await _ensureApiKey();
+  if(key) init.headers["Authorization"] = "Bearer " + key;
+  init.headers["X-Client-Id"] = _webClientId();
+  if(init.body && typeof init.body === "string" && !init.headers["Content-Type"]) init.headers["Content-Type"] = "application/json";
+  return fetch(API + path, init);
+}
+const TOPIC = "individual_overseas";
+const RULES = {"topic": "individual_overseas", "title": "个人境外投资合规计划", "version": "3.14.39", "updated": "2026-07-27", "version_note": "新建专题包：个人直持境外证券/存款/房产的申报抵免、合规通道、身份架构与CRS一致性，纠正元宝两处硬伤（港股通免税截止日2027-12-31、QDII分红个人层面暂免）。", "desc": "自然人（居民个人/境内个人）境外投资涉税合规：837号令监管框架、2020年3号境外所得申报与分国分项抵免、港股通/QDII/跨境理财通通道税负对比、37号文SPV登记与6年规则、便利化购汇境外购房限制、CRS口径一致性。", "web_page": "topic_workflow_individual_overseas.html", "bizTypes": {"selfcheck": {"name": "个人境外投资合规自检", "rules": ["indicators"], "version": "1.0.0"}, "risk_scan": {"name": "个人境外投资合规风险扫描", "rules": ["risks"], "version": "1.0.0"}}, "indicators": [{"key": "overseas_income_declared", "name": "全部境外所得已在汇算申报", "threshold": true, "desc": "居民个人就全球所得负纳税义务，须于次年3.1–6.30申报境外所得。", "policy": "财政部 税务总局公告2020年第3号"}, {"key": "refund_cert_complete", "name": "境外完税凭证齐全可抵免", "threshold": true, "desc": "分国分项抵免须凭境外完税凭证，无凭证不予抵免。", "policy": "财政部 税务总局公告2020年第3号"}, {"key": "hkconnect_window_tracked", "name": "港股通免税窗口（至2027-12-31）已跟踪", "threshold": true, "desc": "港股通转让差价暂免执行至2027-12-31，临近到期须关注是否延续。", "policy": "财政部 税务总局 证监会公告2023年第23号"}, {"key": "spv_fx_registered", "name": "37号文SPV外汇登记已办理或确认无需", "threshold": true, "desc": "红筹/返程架构出资前须办理境内居民个人境外投资外汇登记。", "policy": "外汇局汇发〔2014〕37号"}, {"key": "fx_purchase_compliant", "name": "便利化购汇未用于境外购房/证券投资", "threshold": true, "desc": "5万美元便利化额度不得用于境外购房、证券投资等资本项目业务。", "policy": "《个人外汇管理办法》及实施细则"}, {"key": "mw06_indiv_resident", "name": "个人税务居民身份", "type": "bool_pass", "threshold": true, "policy": "个人所得税法及条例", "desc": "183天/6年规则判定居民身份决定境外所得申报"}, {"key": "crs_account_listed", "name": "境外金融账户清单已完整盘点", "threshold": true, "desc": "存款/证券/基金/现金价值保险/信托/养老金账户逐一登记：开户国别、机构、账号、年末余额、年度收益。", "policy": "财政部 税务总局公告2020年第3号；六部委公告2017年第14号"}, {"key": "crs_resident_status_clear", "name": "税务居民身份判定并与自我声明一致", "threshold": true, "desc": "有住所/183天/6年规则判定结论与境外金融机构CRS自我声明填写一致，避免身份错配。", "policy": "个人所得税法第一条；财政部 税务总局公告2019年第35号"}, {"key": "crs_income_classified", "name": "境外所得已按综合/经营/分类归集", "threshold": true, "desc": "工资薪金等入综合所得，利息股息/财产转让/租金/偶然所得按20%分类归集，分别计算不得混算。", "policy": "财政部 税务总局公告2020年第3号第二条"}, {"key": "crs_tax_credit_doc", "name": "境外已纳税完税凭证齐全", "threshold": true, "desc": "抵免须凭境外完税凭证或具有完税性质的证明；综合所得与分类所得分别计算抵免限额。", "policy": "财政部 税务总局公告2020年第3号第四条"}, {"key": "crs_filed_on_time", "name": "次年3.1–6.30已完成境外所得申报", "threshold": true, "desc": "逾期未申报自7月1日起按日万分之五加收滞纳金，并可能触发CRS数据比对问询。", "policy": "财政部 税务总局公告2020年第3号第七条；税收征管法第32条"}], "risks": [{"code": "IO-R01", "name": "居民个人境外所得零申报", "level": "高", "desc": "港美股/境外存款有收益但未在次年汇算申报，违反居民个人全球所得纳税申报义务。", "action": "盘点境外收益，于3.1–6.30补报并归集凭证。"}, {"code": "IO-R02", "name": "无抵免凭证被调增补税", "level": "高", "desc": "申报境外已纳税抵免但无境外完税证明，税务机关不予抵免并补税。", "action": "向境外券商/税务机关索取完税凭证，按分国分项计算限额。"}, {"code": "IO-R03", "name": "37号文应登记未登记", "level": "高", "desc": "红筹/返程SPV出资前未办理境内居民个人境外投资外汇登记，涉嫌违反外汇管理规定。", "action": "向注册地/户籍地外汇局补办登记，说明未登记理由。"}, {"code": "IO-R04", "name": "便利化购汇用于境外购房", "level": "高", "desc": "借5万美元便利化额度分拆出境购房，违反个人购汇不得用于资本项目业务的规定。", "action": "改用境外合法留存收入或ODI备案境外项目公司路径。"}, {"code": "IO-R05", "name": "QDII分红税负口径错配", "level": "中", "desc": "误将基金资产层代扣的10%协定预提税当作个人税负，导致直持股息漏报。", "action": "区分个人直持(20%申报+抵免)与基金分配(个人暂免)。"}, {"code": "IO-R06", "name": "CRS境外账户收益零申报", "level": "高", "desc": "境外券商/银行账户已有利息股息或转让收益，CRS已向税务机关交换数据，但汇算未申报境外所得。", "action": "用CRS自查测算器盘点各账户年度收益，于3.1–6.30补报；已逾期的按日万分之五测算滞纳金并尽快补缴。"}, {"code": "IO-R07", "name": "税务居民身份错配（自我声明与实际不符）", "level": "中", "desc": "在境外金融机构自我声明为非中国税务居民，但按有住所/183天规则实为中国居民，引发信息交换冲突与双重征税。", "action": "重新判定居民身份，更新金融机构自我声明，保持CRS口径与国内申报一致。"}, {"code": "IO-R08", "name": "抵免混算或凭证缺失被调增补税", "level": "高", "desc": "综合所得与分类所得境外已纳税混算抵免（不得互抵），或无境外完税凭证，税务机关不予抵免并补税加收滞纳金。", "action": "按综合/分类分别计算抵免限额取小抵扣；向境外机构索取完税凭证或具有完税性质的证明。"}], "crs_toolkit": {"name": "CRS境外金融资产自查与税款测算器", "basis": ["《个人所得税法》第一条（居民个人全球所得纳税）", "财政部 税务总局公告2020年第3号（境外所得申报与分国分项抵免）", "国家税务总局等六部委公告2017年第14号（CRS尽职调查）", "《税收征管法》第32条（滞纳金按日万分之五）"], "scope": "适用2019年度及以后境外所得自查（公告2020年第3号）；申报期为次年3月1日至6月30日", "account_types": ["银行存款账户", "证券账户", "基金/资管产品", "具有现金价值的保险/年金", "信托账户", "养老金账户"], "notes": ["单一国别简化模型，多国持仓须按国（地区）分别计算抵免限额", "综合所得与分类所得分别计算抵免限额，不得互抵；超限额部分可在以后5个纳税年度结转", "未涵盖税收协定优惠、无住所个人6年规则、受控外国企业、专项附加扣除、汇率折算", "滞纳金自申报期满次日（次年7月1日）起按日加收万分之五", "测算结果仅供自查参考，正式申报以个人所得税APP或主管税务机关为准"]}, "qa_prompts": {"申报与抵免": {"icon": "📋", "prompts": ["个人境外投资怎么合规", "港美股赚了要怎么申报纳税", "居民个人境外所得怎么抵免"]}, "合规通道": {"icon": "🛣️", "prompts": ["港股通买卖差价免税到什么时候", "QDII基金分红要交个税吗", "837号令对个人境外投资有什么影响"]}, "身份与架构": {"icon": "🪪", "prompts": ["37号文返程投资外汇登记怎么办理", "无住所个人6年规则是什么意思", "个人购汇能用于境外买房吗", "个人境外账户CRS信息怎么保持一致"]}}, "qa_examples": [{"q": "我在美股赚了钱但一直留在境外账户没汇回来，要不要在国内申报？", "a": "要。居民个人就全球所得负纳税义务，申报不以资金汇回为前提；应在次年3.1–6.30汇算，凭境外完税凭证做分国分项抵免。"}, {"q": "通过港股通买股票，转让差价和分红要交个税吗？", "a": "转让差价暂免至2027-12-31（2023年第23号）；分红按20%由券商代扣，个人层面一般不再补税。注意截止日以官方2027-12-31为准。"}, {"q": "买QDII基金的分红真的是只交10%吗？", "a": "不是。财税〔2002〕128号明确个人从基金分配（含QDII分红）取得的收入暂免个税；10%是基金资产层代扣的协定预提税，非个人税负。"}], "loop_example": {"name": "个人境外投资合规自检闭环", "steps": ["资产盘点：列出全部境外证券/存款/房产及年度收益", "居民身份判定：有住所或183天/6年规则", "所得境内外界定：含50%不动产穿透", "分国分项抵免测算：凭境外完税凭证", "合规通道选择：港股通/QDII/理财通优先", "CRS一致性核对：居民身份与所得信息一致", "生成整改清单并衔接专业机构落地"]}, "sample_data": {"channels": [{"name": "港股通", "fund_outbound": false, "gain_tax": "暂免至2027-12-31", "dividend_tax": "20%(券商代扣)", "registration": "无"}, {"name": "QDII/公募基金", "fund_outbound": false, "gain_tax": "暂免(公募)", "dividend_tax": "暂免(财税128号)", "registration": "无"}, {"name": "跨境理财通南向", "fund_outbound": "闭环", "gain_tax": "依产品", "dividend_tax": "依产品", "registration": "无"}, {"name": "个人直持境外券商", "fund_outbound": true, "gain_tax": "20%申报", "dividend_tax": "20%申报+抵免", "registration": "视情外汇登记"}]}, "major_shareholder": {"name": "补税潮下上市公司大股东合规专项", "basis": "财税〔2015〕116号、国家税务总局公告2014年第67号、2020年3号公告、财税〔2016〕101号", "scope": "上市公司自然人股东/实控人：减持、分红、股权激励、境外架构减持回流的个税合规与稽查争议", "scenes": [{"scene": "限售股/股票减持", "point": "财产转让所得20%个税；低价转让无正当理由易被核定"}, {"scene": "分红穿透自然人", "point": "股东借款年度终了未还且用于经营视同分红缴20%"}, {"scene": "股权激励行权", "point": "符合条件可递延纳税(财税〔2016〕101号)，须及时备案"}, {"scene": "境外架构减持回流", "point": "837号令全链条穿透下居民全球所得申报不可规避"}], "notes": "稽查阶段主动补缴税款及滞纳金可显著降低行政处罚与刑事移送风险；滞纳金日万分之五，准予不加收情形须主动举证。"}};
+const WIDGETS = {"individual_overseas": {"crs_toolkit": {"kind": "calc", "title": "CRS境外金融资产自查与税款测算器", "intro": "按年度填写境外所得与已纳税额，自动测算综合/分类应纳税额、分别限额抵免、应补税额与滞纳金（单一国别简化模型；依据个人所得税法+公告2020年第3号，适用2019年度及以后）", "fields": [{"key": "year", "label": "自查所属年度", "default": "2025", "type": "select", "options": ["2025", "2024", "2023", "2022", "2021", "2020", "2019"]}, {"key": "wage", "label": "境外工资薪金等综合所得收入额（年）", "default": 0, "unit": "元", "type": "num"}, {"key": "wage_tax", "label": "境外已纳综合所得税额", "default": 0, "unit": "元", "type": "num"}, {"key": "interest", "label": "境外利息所得", "default": 0, "unit": "元", "type": "num"}, {"key": "dividend", "label": "境外股息红利所得", "default": 0, "unit": "元", "type": "num"}, {"key": "gain", "label": "境外金融资产转让所得（盈利）", "default": 0, "unit": "元", "type": "num"}, {"key": "rent", "label": "境外不动产租金所得", "default": 0, "unit": "元", "type": "num"}, {"key": "prop_gain", "label": "境外不动产转让所得", "default": 0, "unit": "元", "type": "num"}, {"key": "other", "label": "境外偶然/其他所得", "default": 0, "unit": "元", "type": "num"}, {"key": "class_tax", "label": "分类所得境外已纳税额合计", "default": 0, "unit": "元", "type": "num"}], "compute": "var W=Number(wage)||0,WT=Number(wage_tax)||0;var I=Number(interest)||0,D=Number(dividend)||0,G=Number(gain)||0;var R=Number(rent)||0,P=Number(prop_gain)||0,O=Number(other)||0;var CT=Number(class_tax)||0;var taxable=Math.max(0,W-60000);var t=0;if(taxable<=36000)t=taxable*0.03;else if(taxable<=144000)t=taxable*0.10-2520;else if(taxable<=300000)t=taxable*0.20-16920;else if(taxable<=420000)t=taxable*0.25-31920;else if(taxable<=660000)t=taxable*0.30-52920;else if(taxable<=960000)t=taxable*0.35-85920;else t=taxable*0.45-181920;var comp=Math.max(0,t);var cls=(I+D+G+R+P+O)*0.20;var compCredit=Math.min(WT,comp);var classCredit=Math.min(CT,cls);var china=comp+cls;var credit=compCredit+classCredit;var payable=Math.max(0,china-credit);var y=parseInt(year,10);var due=new Date(y+1,6,1);var today=new Date();var days=today>=due?Math.floor((today-due)/86400000)+1:0;var lateFee=payable*0.0005*days;var excessComp=Math.max(0,WT-comp);var excessCls=Math.max(0,CT-cls);var carry=(excessComp+excessCls)>0?('境外已纳税超限额部分 ¥'+Math.round(excessComp+excessCls)+'，可在以后5个纳税年度内结转抵免（分别限额：综合与分类不得互抵）'):'境外已纳税均在抵免限额内，无需结转';var daysTxt=days>0?(days+' 天（自'+(y+1)+'年7月1日起按日万分之五）'):'未逾期（申报期为'+(y+1)+'年3月1日至6月30日）';return {comp:comp,cls:cls,china:china,compCredit:compCredit,classCredit:classCredit,payable:payable,daysTxt:daysTxt,lateFee:lateFee,carry:carry};", "outs": [{"key": "comp", "label": "综合所得应纳税额（3%-45%）", "fmt": "money"}, {"key": "cls", "label": "分类所得应纳税额（20%）", "fmt": "money"}, {"key": "china", "label": "按中国税法应纳税合计", "fmt": "money"}, {"key": "compCredit", "label": "综合所得抵免额（分别限额）", "fmt": "money"}, {"key": "classCredit", "label": "分类所得抵免额（分别限额）", "fmt": "money"}, {"key": "payable", "label": "应补缴税额", "fmt": "money"}, {"key": "daysTxt", "label": "滞纳天数", "fmt": "text"}, {"key": "lateFee", "label": "滞纳金（日万分之五）", "fmt": "money"}, {"key": "carry", "label": "超限额结转提示", "fmt": "text"}], "_mod": "crs_toolkit"}, "major_shareholder": {"kind": "display", "title": "major_shareholder", "source": "kv", "intro": "", "_mod": "major_shareholder"}}};
+const TOTAL_STEPS = 5;
+const HAS_IND = true;
+let STEP = 0;
+const WIDGET_RESULTS = {};
+
+function toastMsg(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 3000);
+}
+
+function updateProgress() {
+    document.querySelectorAll("#progressBar .step").forEach((el, i) => {
+        el.classList.toggle("active", i === STEP);
+        el.classList.toggle("done", i < STEP);
+    });
+    document.querySelectorAll(".step-panel").forEach((el, i) => {
+        el.classList.toggle("active", i === STEP);
+    });
+}
+
+function nextStep() { if (STEP < TOTAL_STEPS - 1) { STEP++; updateProgress(); } }
+function prevStep() { if (STEP > 0) { STEP--; updateProgress(); } }
+function goToStep(i) { STEP = i; updateProgress(); }
+document.querySelectorAll("#progressBar .step").forEach(el => {
+    el.addEventListener("click", () => goToStep(parseInt(el.dataset.step)));
+});
+
+let CONSENTED = false;  // 是否已完成知情同意
+
+function showConsentModal() { const m = document.getElementById("consentMask"); if (m) m.style.display = "flex"; }
+function closeConsent() { const m = document.getElementById("consentMask"); if (m) m.style.display = "none"; }
+function agreeConsent() {
+    const chk = document.getElementById("consentChk");
+    if (chk && !chk.checked) { toastMsg("请先勾选同意数据发送说明"); return; }
+    CONSENTED = true; closeConsent(); runIndicatorCheck();
+}
+
+// 仅采集指标数值（RULES.indicators），绝不携带 q_* 身份字段
+function collectMetrics() {
+    const m = {};
+    (RULES.indicators || []).forEach(ind => {
+        const input = document.getElementById("i_" + ind.key);
+        if (!input) return;
+        if (ind.type === "bool_pass") m[ind.key] = input.checked;
+        else { const v = parseFloat(input.value); m[ind.key] = isNaN(v) ? null : v; }
+    });
+    return m;
+}
+
+
+async function runIndicatorCheck() {
+    if (!HAS_IND) { toastMsg("本专题无逐指标自检，已为你展开风险清单"); goToStep(riskStepIndex()); return; }
+    if (!CONSENTED) { showConsentModal(); return; }
+    const metrics = collectMetrics();
+    try {
+        const r = await apiFetch("/topic_selfcheck", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic: TOPIC, metrics })
+        });
+        if (!r.ok) throw new Error("自检失败：" + (await r.json()).error);
+        const data = await r.json();
+        LAST_SELFCHECK = data;
+        renderIndicatorResult(data);
+        const riskEl = document.getElementById("riskReportResult");
+        if (riskEl) renderRiskResult(data, riskEl);
+        toastMsg("✅ 自检完成");
+    } catch(e) { toastMsg("⚠️ " + e.message); console.error(e); }
+}
+
+function riskStepIndex() {
+    const panels = Array.from(document.querySelectorAll(".step-panel"));
+    const risk = panels.find(p => p.querySelector("#riskReportResult"));
+    return panels.indexOf(risk);
+}
+
+function renderIndicatorResult(data) {
+    const container = document.getElementById("indicatorResult");
+    if (!container) return;
+    const summary = data.summary || {};
+    const indicators = data.indicators || [];
+    const sc = summary.overall === "达标" ? "pass" : (summary.overall === "部分达标" ? "warn" : "fail");
+    let h = '<div class="summary-box ' + sc + '">';
+    h += '<div class="summary-title">' + (summary.overall || "未知") + '</div>';
+    h += '<div class="summary-detail">共 ' + (summary.total_indicators||0) + ' 项指标，不达标 ' + (summary.failed||0) + ' 项，提示 ' + (summary.warned||0) + ' 项</div>';
+    h += '</div>';
+    indicators.forEach(ind => {
+        const pass = ind.pass;
+        const pillClass = pass === true ? "ok" : (pass === false ? "bad" : "warn");
+        const passText = pass === true ? "✅ 达标" : (pass === false ? "❌ 不达标" : "⚠️ 待确认");
+        h += '<div class="ind-result">';
+        h += '<span class="ind-key">' + ind.name + '</span> <span class="pill ' + pillClass + '">' + passText + '</span>';
+        h += '<div class="ind-meta">' + (ind.policy||"") + (ind.note ? " | " + ind.note : "") + '</div>';
+        h += '</div>';
+    });
+    container.innerHTML = h;
+    container.style.display = "block";
+}
+
+function findRiskSuggestion(name) {
+    const list = RULES.risks || [];
+    for (const r of list) {
+        if (r.name === name) return { trigger: r.trigger || "", suggestion: r.suggestion || "" };
+    }
+    return { trigger: "", suggestion: "" };
+}
+
+function renderRiskResult(data, container) {
+    const risks = data.risks || [];
+    const suggestions = data.suggestions || [];
+    let h = "";
+    if (risks.length === 0 && suggestions.length === 0) {
+        h = '<p style="color:var(--ok);font-weight:600">✅ 当前输入数据未发现明显风险项</p>';
+    } else {
+        risks.forEach(r => {
+            const lv = r.level || "中";
+            const extra = findRiskSuggestion(r.name || "");
+            h += '<div class="rk-item" style="border-left:3px solid ' + (lv==="高"?"var(--bad)":"var(--warn)") + '">';
+            h += '<span class="pill ' + (lv==="高"?"bad":"warn") + '">' + lv + '</span>';
+            h += '<span class="rk-name">' + (r.name||"") + '</span></div>';
+            if (extra.trigger) h += '<div class="rk-extra"><div class="risk-trigger">⚠️ 触发：' + extra.trigger + '</div></div>';
+            if (extra.suggestion) h += '<div class="rk-extra"><div class="risk-sugg">💡 整改建议：' + extra.suggestion + '</div></div>';
+        });
+        suggestions.forEach(s => {
+            h += '<div style="padding:8px 12px;background:#f0f9ff;border-radius:8px;margin-bottom:6px;font-size:13px">💡 ' + s + '</div>';
+        });
+    }
+    container.innerHTML = h;
+}
+
+function switchQATab(tabName) {
+    document.querySelectorAll("#qaTabNav .tab-item").forEach(t => t.classList.toggle("active", t.dataset.tab === tabName));
+    document.querySelectorAll("#qaTabContent .tab-content").forEach(t => t.style.display = t.dataset.tab === tabName ? "block" : "none");
+}
+document.querySelectorAll("#qaTabNav .tab-item").forEach(t => {
+    t.addEventListener("click", () => switchQATab(t.dataset.tab));
+});
+
+function copyPrompt(row) {
+    const text = row.querySelector(".prompt-text").textContent;
+    navigator.clipboard.writeText(text).then(() => toastMsg("✅ 提示词已复制"));
+}
+
+function resetWorkflow() {
+    STEP = 0;
+    document.querySelectorAll("input[type='text'],input[type='number'],input[type='date'],select").forEach(el => el.value = "");
+    document.querySelectorAll("input[type='checkbox']").forEach(el => el.checked = false);
+    updateProgress();
+    const res = document.getElementById("indicatorResult");
+    if (res) res.style.display = "none";
+    const risk = document.getElementById("riskReportResult");
+    if (risk) risk.innerHTML = '<p style="color:var(--sub)">请先完成指标自检后查看风险报告</p>';
+}
+
+/* ---------- 专题特色工具：测算/判定/比对/生成 ---------- */
+function fmtVal(v, fmt) {
+    if (fmt === "money") {
+        const n = parseFloat(v); if (isNaN(n)) return "—";
+        return "¥" + n.toLocaleString("zh-CN", {minimumFractionDigits:2, maximumFractionDigits:2});
+    }
+    if (fmt === "pct") {
+        const n = parseFloat(v); if (isNaN(n)) return "—";
+        return (n*100).toFixed(2) + "%";
+    }
+    return (v === undefined || v === null) ? "—" : String(v);
+}
+
+function runCalc(modKey) {
+    const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][modKey]) || {};
+    if (!spec.compute) return;
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const f = {};
+    card.querySelectorAll("[data-f]").forEach(el => {
+        const raw = el.value;
+        if (el.tagName === "SELECT") { f[el.dataset.f] = raw; return; }
+        const num = (raw === "" || raw === null) ? 0 : Number(raw);
+        f[el.dataset.f] = isNaN(num) ? raw : num;
+    });
+    const m = (RULES[TOPIC] && RULES[TOPIC][modKey]) || {};
+    let res;
+    try {
+        const fkeys = Object.keys(f);
+        const fn = new Function(...fkeys, "m", spec.compute);
+        res = fn(...fkeys.map(k => f[k]), m);
+    } catch(e) { toastMsg("⚠️ 计算异常：" + e.message); return; }
+    WIDGET_RESULTS[modKey] = res;
+    let h = "";
+    (spec.outs || []).forEach(o => {
+        const v = res[o.key];
+        const show = (o.fmt === "text") ? String(v) : fmtVal(v, o.fmt);
+        h += '<div class="wc-out"><span>' + o.label + '</span><b>' + show + '</b></div>';
+    });
+    const box = document.getElementById("wc_" + modKey);
+    box.innerHTML = h;
+    box.className = "wc-result";
+    box.style.display = "block";
+    toastMsg("✅ " + spec.title + " 已测算");
+}
+
+function runChecklist(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const boxes = card.querySelectorAll('input[type="checkbox"]');
+    let checked = 0;
+    boxes.forEach(b => { if (b.checked) checked++; });
+    const box = document.getElementById("wc_" + modKey);
+    const ok = (checked === boxes.length);
+    box.innerHTML = '<div class="wc-concl">' + (ok ? box.dataset.ok : box.dataset.no) + '</div>'
+        + '<div class="wc-out"><span>已确认项</span><b>' + checked + ' / ' + boxes.length + '</b></div>';
+    box.className = "wc-result" + (ok ? "" : " warn");
+    box.style.display = "block";
+    WIDGET_RESULTS[modKey] = { ok: ok, checked: checked, total: boxes.length };
+    toastMsg(ok ? "✅ 判定通过" : "⚠️ 尚有未确认项");
+}
+
+function escHtml(s){ var d=document.createElement('div'); d.textContent=(s==null?'':s); return d.innerHTML; }
+
+function runHours(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const ta = document.getElementById("hc_" + modKey);
+    const raw = (ta ? ta.value : "").trim();
+    if (!raw) { toastMsg("⚠️ 请先粘贴工时打卡记录"); return; }
+    const lines = raw.split(/\r?\n/).filter(x => x.trim());
+    const rows = [];
+    let skipped = 0;
+    for (const ln of lines) {
+        const cols = ln.split(/[,，\t]/).map(s => s.trim());
+        if (cols.length < 3) { skipped++; continue; }
+        if (/^(日期|人员|设备|项目|工时)/.test(cols[0]) && /工时|项目/.test(ln)) { skipped++; continue; }
+        const date = cols[0], who = cols[1], proj = cols[2];
+        const hrs = parseFloat(cols[3]);
+        if (isNaN(hrs)) { skipped++; continue; }
+        rows.push({date, who, proj, hrs});
+    }
+    if (!rows.length) { toastMsg("⚠️ 未解析到有效记录（需含 日期,人员/设备,项目,工时）"); return; }
+    const byProj = {}, byWho = {};
+    let totalH = 0;
+    const anomalies = [];
+    for (const r of rows) {
+        byProj[r.proj] = (byProj[r.proj] || 0) + r.hrs;
+        byWho[r.who] = (byWho[r.who] || 0) + r.hrs;
+        totalH += r.hrs;
+        if (r.hrs > 24 || r.hrs < 0) anomalies.push("异常工时：" + r.date + " " + r.who + "=" + r.hrs);
+        if (!r.proj || r.proj === "-") anomalies.push("缺项目编号：" + r.date + " " + r.who);
+    }
+    let ph = "<div class='wc-out'><span>总工时</span><b>" + totalH.toFixed(1) + " 小时</b></div>";
+    ph += "<div class='wc-table'><table><tr><th>项目</th><th>总工时</th><th>占比</th></tr>";
+    Object.keys(byProj).sort((a,b)=>byProj[b]-byProj[a]).forEach(p => {
+        ph += "<tr><td>" + escHtml(p) + "</td><td>" + byProj[p].toFixed(1) + "</td><td>" + (byProj[p]/totalH*100).toFixed(1) + "%</td></tr>";
+    });
+    ph += "</table></div>";
+    let wh = "<div class='wc-table'><table><tr><th>人员/设备</th><th>总工时</th></tr>";
+    Object.keys(byWho).sort((a,b)=>byWho[b]-byWho[a]).forEach(w => {
+        wh += "<tr><td>" + escHtml(w) + "</td><td>" + byWho[w].toFixed(1) + "</td></tr>";
+    });
+    wh += "</table></div>";
+    let anHtml = anomalies.length ? "<div class='wc-warn'>⚠️ 异常 " + anomalies.length + " 条：" + anomalies.slice(0,8).map(escHtml).join("；") + (anomalies.length>8?"…":"") + "</div>" : "<div class='wc-out'><span>异常检查</span><b>未发现问题</b></div>";
+    const box = document.getElementById("wc_" + modKey);
+    box.innerHTML = ph + wh + anHtml + "<button class='btn secondary' onclick=\"exportHours('" + modKey + "')\">⬇️ 导出工时汇总 CSV</button>";
+    box.className = "wc-result";
+    box.style.display = "block";
+    WIDGET_RESULTS[modKey] = {totalH: totalH, byProj: byProj, byWho: byWho, anomalies: anomalies};
+    toastMsg("✅ 已读取 " + rows.length + " 条记录，跳过 " + skipped + " 行");
+}
+
+function exportHours(modKey) {
+    const r = WIDGET_RESULTS[modKey];
+    if (!r) { toastMsg("⚠️ 请先分析"); return; }
+    let csv = "项目,总工时,占比\n";
+    Object.keys(r.byProj).forEach(p => { csv += '"' + p + '",' + r.byProj[p].toFixed(1) + ',"' + (r.byProj[p]/r.totalH*100).toFixed(1) + '%"\n'; });
+    csv += "\n人员或设备,总工时\n";
+    Object.keys(r.byWho).forEach(w => { csv += '"' + w + '",' + r.byWho[w].toFixed(1) + '\n'; });
+    const blob = new Blob(["﻿"+csv], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "研发工时汇总_" + modKey + ".csv";
+    a.click();
+    toastMsg("⬇️ 工时汇总 CSV 已导出");
+}
+
+function genProject(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const vals = {};
+    card.querySelectorAll("[data-pf]").forEach(el => { vals[el.dataset.pf] = el.value.trim(); });
+    const get = k => vals[k] || "（待填）";
+    const txt =
+        "【研发项目立项书】\n"
+        + "项目名称：" + get("项目名称") + "\n"
+        + "项目编号：" + get("项目编号") + "\n"
+        + "所属领域：" + get("所属领域") + "\n"
+        + "立项日期：" + get("立项日期") + "    负责人：" + get("负责人") + "\n"
+        + "研发周期：" + get("研发周期") + "\n"
+        + "参与人员：" + get("参与人员") + "\n"
+        + "主要设备：" + get("主要设备") + "\n"
+        + "预算总额：" + get("预算总额(元)") + " 元\n"
+        + "—— 创新目标 ——\n" + get("创新目标") + "\n"
+        + "—— 技术路线 ——\n" + get("技术路线") + "\n"
+        + "—— 阶段里程碑 ——\n" + get("阶段里程碑") + "\n"
+        + "—— 预期成果 ——\n" + get("预期成果") + "\n"
+        + "（本立项书由财税合规技能自动生成，须加盖企业公章与有权部门签批后归档）\n";
+    const ta = document.getElementById("proj_" + modKey);
+    ta.value = txt;
+    WIDGET_RESULTS[modKey] = {project: txt};
+    toastMsg("📝 立项书已生成，可复制归档");
+}
+
+function copyProj(modKey) {
+    const ta = document.getElementById("proj_" + modKey);
+    if (!ta || !ta.value) { toastMsg("⚠️ 请先生成立项书"); return; }
+    navigator.clipboard.writeText(ta.value).then(() => toastMsg("📋 立项书已复制"));
+}
+
+function toggleBiz(el) {
+    const detail = el.querySelector(".biz-detail");
+    if (detail.style.display === "none") detail.style.display = "block";
+    else detail.style.display = "none";
+}
+
+function copyBizPrompt(el) {
+    const name = el.closest(".biz-item").querySelector(".biz-name").textContent;
+    const text = "请按【" + name + "】业务类型，结合本专题指标与风险，给出合规操作指引与风险提示。";
+    navigator.clipboard.writeText(text).then(() => toastMsg("✅ 专属提示词已复制"));
+}
+
+function exportLedger(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const table = card.querySelector("table");
+    let csv = "";
+    table.querySelectorAll("tr").forEach(tr => {
+        const cells = Array.from(tr.querySelectorAll("th,td")).map(c => '"' + c.textContent.replace(/"/g,'""') + '"');
+        csv += cells.join(",") + "\n";
+    });
+    const blob = new Blob(["\ufeff" + csv], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "研发辅助账_" + modKey + ".csv";
+    a.click();
+    toastMsg("⬇️ 辅助账 CSV 已导出");
+}
+
+function copySteps(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    let text = "【ESOP 落地步骤清单】\n";
+    card.querySelectorAll(".wc-check").forEach((c, i) => {
+        const done = c.querySelector("input").checked ? "[x]" : "[ ]";
+        text += (i+1) + ". " + done + " " + c.querySelector(".wc-ck-label").textContent.trim() + "\n";
+    });
+    navigator.clipboard.writeText(text).then(() => toastMsg("📋 落地清单已复制"));
+}
+
+function loadSampleData() {
+    const sample = RULES.sample_data || {};
+    if (!HAS_IND || Object.keys(sample).length === 0) {
+        toastMsg("本专题以案例测算与政策对比为主，已为你展开风险清单与闭环示例");
+        goToStep(riskStepIndex());
+        return;
+    }
+    let filled = 0;
+    (RULES.indicators || []).forEach(ind => {
+        const input = document.getElementById("i_" + ind.key);
+        if (!input) return;
+        const v = sample[ind.key];
+        if (v === undefined) return;
+        if (ind.type === "bool_pass") input.checked = !!v;
+        else input.value = v;
+        filled++;
+    });
+    toastMsg("📂 已加载示例数据（" + filled + " 项），正在自动自检…");
+    goToStep(STEP + 1 < TOTAL_STEPS ? stepIndexOf("ind") : STEP);
+    setTimeout(() => { runIndicatorCheck(); }, 400);
+}
+
+function stepIndexOf(kind) {
+    const panels = Array.from(document.querySelectorAll(".step-panel"));
+    if (kind === "ind") {
+        const idx = panels.findIndex(p => p.querySelector(".ind-section"));
+        return idx >= 0 ? idx : STEP;
+    }
+    return STEP;
+}
+
+// ===== 深度分析提示词：将本页自检结果固化为可复制提示词，供用户粘贴到 Agent 对话框获取更有针对性报告 =====
+let LAST_SELFCHECK = null;
+
+function buildDeepPrompt() {
+    const title = (RULES.title || TOPIC) || "本专题";
+    const companyEl = document.getElementById("q_company");
+    const company = (companyEl && companyEl.value) ? companyEl.value : "（企业名称）";
+    let s = "我是「" + company + "」的财税/合规负责人。我刚在《" + title + "》合规自检交互页完成轻量自检，请基于以下结果，结合最新财税政策与监管口径，为我生成一份【有针对性的深度合规分析报告】：\n\n";
+    const d = LAST_SELFCHECK;
+    if (d && d.summary) {
+        const sum = d.summary;
+        s += "【自检结果摘要】\n";
+        s += "· 整体判定：" + (sum.overall || "未知") + "；共 " + (sum.total_indicators || 0) + " 项指标，不达标 " + (sum.failed || 0) + " 项，提示 " + (sum.warned || 0) + " 项。\n";
+        const inds = (d.indicators || []).filter(function (i) { return i.pass !== true; });
+        if (inds.length) {
+            s += "· 不达标 / 待确认指标：\n";
+            inds.forEach(function (i) { s += "  - " + i.name + (i.note ? "（" + i.note + "）" : "") + "\n"; });
+        }
+        const risks = d.risks || [];
+        if (risks.length) {
+            s += "· 风险项：\n";
+            risks.forEach(function (r) { s += "  - " + (r.name || "") + "（等级：" + (r.level || "中") + "）\n"; });
+        }
+        const sugg = d.suggestions || [];
+        if (sugg.length) { s += "· 系统补充建议：" + sugg.join("；") + "\n"; }
+    } else {
+        s += "（我尚未在页内运行自检。请先结合本专题常见风险与我方业务实际给出分析框架；\n  本专题特征：" + ((RULES.desc || "").slice(0, 80)) + "）\n";
+    }
+    const wk = Object.keys(WIDGET_RESULTS);
+    if (wk.length) {
+        s += "\n【专题特色工具测算结果】\n";
+        wk.forEach(function (k) {
+            const r = WIDGET_RESULTS[k];
+            const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][k]) || {};
+            s += "· " + (spec.title || k) + "：";
+            if (spec.outs) { s += (spec.outs).map(function (o) { return o.label + "=" + fmtVal(r[o.key], o.fmt); }).join("；") + "\n"; }
+            else if (r && typeof r === "object" && ("ok" in r)) { s += (r.ok ? "判定通过" : "判定未通过(" + r.checked + "/" + r.total + ")") + "\n"; }
+            else { s += "已测算\n"; }
+        });
+    }
+    s += "\n【请输出】\n";
+    s += "① 逐条问题定性与政策依据（注明文件名称与适用条款）；\n";
+    s += "② 按风险等级（高/中/低）输出分优先级整改方案、责任部门与时间表；\n";
+    s += "③ 涉税风险敞口评估与潜在稽查 / 补税后果提示；\n";
+    s += "④ 可落地操作模板、合同 / 凭证要点与对外沟通话术；\n";
+    s += "⑤ 标注需由执业税务师 / 律师进一步确认的事项。\n";
+    return s;
+}
+
+function refreshDeepPrompt() {
+    const ta = document.getElementById("deepPrompt");
+    if (ta) { ta.value = buildDeepPrompt(); }
+}
+
+function copyDeepPrompt() {
+    const ta = document.getElementById("deepPrompt");
+    if (!ta) return;
+    if (!ta.value) { ta.value = buildDeepPrompt(); }
+    navigator.clipboard.writeText(ta.value).then(function () {
+        toastMsg("✅ 深度分析提示词已复制，粘贴到 Agent 对话框即可生成针对性报告");
+    });
+}
+
+function generateReport() {
+    const company = document.getElementById("q_company") ? document.getElementById("q_company").value : "";
+    const resEl = document.getElementById("indicatorResult");
+    const riskEl = document.getElementById("riskReportResult");
+    let report = "【" + (RULES.title||TOPIC) + " 合规自查报告】\n";
+    if (company) report += "企业：" + company + "\n";
+    report += "生成时间：" + new Date().toLocaleString() + "\n\n";
+    if (resEl && resEl.style.display !== "none") {
+        report += "一、指标自检\n" + resEl.innerText.replace(/\n+/g,"\n").trim() + "\n\n";
+    }
+    if (riskEl && riskEl.innerText.trim()) {
+        report += "二、风险与整改建议\n" + riskEl.innerText.trim() + "\n\n";
+    }
+    // 纳入特色工具结果
+    const wk = Object.keys(WIDGET_RESULTS);
+    if (wk.length) {
+        report += "三、专题特色工具结果\n";
+        wk.forEach(k => {
+            const r = WIDGET_RESULTS[k];
+            const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][k]) || {};
+            report += "· " + (spec.title || k) + "：";
+            if (spec.outs) {
+                report += (spec.outs).map(o => o.label + "=" + fmtVal(r[o.key], o.fmt)).join("；") + "\n";
+            } else if (r && typeof r === "object" && "ok" in r) {
+                report += (r.ok ? "判定通过" : "判定未通过(" + r.checked + "/" + r.total + ")") + "\n";
+            } else {
+                report += "已测算\n";
+            }
+        });
+        report += "\n";
+    }
+    // 四、主要政策文件依据
+    if (RULES.policy_lib && RULES.policy_lib.length) {
+        report += "四、主要政策文件依据\n";
+        RULES.policy_lib.slice(1).forEach(function(r){ report += "· " + r[0] + "：" + r[1] + "（" + r[2] + "）\n"; });
+        report += "\n";
+    }
+    // 五、企业落地路线图
+    if (RULES.landing_roadmap && RULES.landing_roadmap.length) {
+        report += "五、企业落地路线图\n";
+        RULES.landing_roadmap.slice(1).forEach(function(r){ report += "· " + r[0] + "（" + r[1] + "）：" + r[2] + "\n"; });
+        report += "\n";
+    }
+    report += "---\n根据 tax-policy-knowledge 财税知识库与技能矩阵生成\n企鹅号 1817694478（欢迎留言与关注）\n";
+    navigator.clipboard.writeText(report).then(() => toastMsg("📋 报告已复制，可粘贴保存"));
+}
+
+function copyKbLink() {
+    const link = "https://skillhub.cn/skills/tax-policy-knowledge";
+    navigator.clipboard.writeText(link).then(() => {
+        toastMsg("🔗 链接已复制");
+        window.open(link, "_blank");
+    });
+}
+
+updateProgress();
+refreshDeepPrompt();
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+ "schema": "gaotao.six-package.desensitize-scan/v1",
+ "scope": "全包文本层(md/json/txt/csv/svg/mmd/py)含payload+evidence+交付元数据；签名库(length,sha256)滑窗；不回显命中原文",
+ "signature_library": "${HOME}/Desktop/实验/gaotao-mother-validator-remediation-1.0.0-r4-node6L-2026-07-28/scaffold/adapters/financial-lease/tools/desensitize_sigs.json（基线a97b1d6e同源）",
+ "hit_files": [],
+ "total_hits": 0,
+ "verdict": "PASS"
+}

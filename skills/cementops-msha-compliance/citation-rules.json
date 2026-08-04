@@ -1,0 +1,338 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-30",
+  "author": "Josh Larkin, CementOps AI",
+  "notes": "Top 20 most-cited MSHA standards for cement manufacturing (SIC 3241) under 30 CFR Part 56. Ordered roughly by citation frequency. Penalty ranges are typical — actual penalties depend on negligence, gravity, S&S finding, history, and operator size.",
+  "citations": [
+    {
+      "cfr_section": "30 CFR 56.14107(a)",
+      "title": "Moving machine parts — Guards",
+      "description": "Moving machine parts shall be guarded to protect persons from contacting gears, sprockets, chains, drive, head, tail, and takeup pulleys, flywheels, couplings, shafts, fan blades, and similar moving parts that can cause injury.",
+      "typical_penalty_range": "$5,000 - $25,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 1,
+      "common_locations": ["conveyor head/tail pulleys", "ball mill drive", "kiln drive and girth gear", "ID fans", "process pumps", "crushers", "bucket elevators", "screw conveyors"],
+      "inspector_focus": "Inspectors walk conveyor galleries first. They look for any rotating part within 7 feet of a walking/working surface. Head pulleys, tail pulleys, and return idlers are the most common hits.",
+      "defense_strategies": [
+        "Guard was temporarily removed for active maintenance with LOTO properly applied and area barricaded",
+        "Area was inaccessible to personnel during normal operations — no walking/working surface within reach",
+        "Moving part was not within the 7-foot reach zone from any walking/working surface",
+        "Condition was identified during the operator's own inspection and corrective action was in progress at time of MSHA inspection",
+        "Guard was in place but inspector determined it was inadequate — contest the adequacy determination with manufacturer specifications"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.14112",
+      "title": "Construction and maintenance of guards",
+      "description": "Guards shall be constructed and maintained to withstand the vibration, shock, and wear to which they will be subjected during normal operations.",
+      "typical_penalty_range": "$2,000 - $15,000",
+      "ss_likelihood": "medium",
+      "common_in_cement": true,
+      "frequency_rank": 2,
+      "common_locations": ["any guarded equipment", "conveyors", "drive systems", "fans", "crushers"],
+      "inspector_focus": "Guards that are bent, cracked, have holes worn through, or are secured with wire/zip ties instead of proper fasteners. Vibration damage is extremely common on cement plant equipment.",
+      "defense_strategies": [
+        "Guard met or exceeded manufacturer specifications at time of installation",
+        "Damage was recent (current shift) and had not yet been discovered through the normal inspection cycle",
+        "Guard was functionally adequate for its intended purpose despite cosmetic damage — no access to moving parts was possible",
+        "Replacement guard was on order and temporary barricading was in place"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.20003",
+      "title": "Housekeeping",
+      "description": "At all mining operations, workplaces, passageways, storerooms, and service rooms shall be kept clean and orderly.",
+      "typical_penalty_range": "$1,000 - $8,000",
+      "ss_likelihood": "low",
+      "common_in_cement": true,
+      "frequency_rank": 3,
+      "common_locations": ["everywhere — this is the #1 most frequently cited standard across all MSHA inspections", "conveyor galleries", "process floors", "stairways", "around mills and kilns", "clinker storage areas"],
+      "inspector_focus": "Material accumulation on walkways, spilled material not cleaned up, tools and hoses on walking surfaces, poor general cleanliness. Cement plants generate dust and spillage constantly — inspectors know this and still cite it.",
+      "defense_strategies": [
+        "Active cleanup was in progress at time of inspection — show cleanup schedule and crew assignment",
+        "Accumulation was from current shift operations and within the normal cleanup schedule window",
+        "Area was barricaded or coned off pending scheduled cleanup",
+        "Show documented housekeeping program with assigned responsibilities and frequencies"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.14100(b)",
+      "title": "Safety defects — equipment, machinery, and tools shall be maintained in safe operating condition",
+      "description": "Equipment defects affecting safety shall be corrected before the equipment is used.",
+      "typical_penalty_range": "$3,000 - $20,000",
+      "ss_likelihood": "medium-high",
+      "common_in_cement": true,
+      "frequency_rank": 4,
+      "common_locations": ["mobile equipment", "conveyors", "any process equipment", "ladders", "platforms", "handrails"],
+      "inspector_focus": "Broken handrails, damaged ladders, leaking hydraulic lines, worn belts, damaged tires on mobile equipment, inoperable lights, broken mirrors. Anything that should be on a PM checklist but was missed.",
+      "defense_strategies": [
+        "Defect was identified in the pre-shift inspection and a work order was generated — equipment was not being operated",
+        "Defect did not affect the safe operation of the equipment (cosmetic only)",
+        "Equipment was locked out/tagged out pending repair at time of inspection",
+        "Show PM records demonstrating the defect was not present at last inspection"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.15005",
+      "title": "Safety belts and lines",
+      "description": "Safety belts and lines shall be worn when persons work where there is a danger of falling.",
+      "typical_penalty_range": "$3,000 - $20,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 5,
+      "common_locations": ["preheater tower", "silo tops", "kiln hood area", "elevated platforms without guardrails", "roof work", "clinker cooler roof", "elevated conveyor maintenance"],
+      "inspector_focus": "Anyone working above 6 feet without fall protection — guardrails OR personal fall arrest. Preheater tower work is the most common hit in cement plants. Also watch for incomplete guardrail systems where one section is removed for access.",
+      "defense_strategies": [
+        "Adequate guardrails were in place making personal fall arrest unnecessary",
+        "Work was performed from a properly rated man-lift or aerial platform with built-in fall restraint",
+        "Personnel were tied off but the anchor point was not visible from the inspector's vantage point",
+        "Person was transiting the area (not working) and guardrails were present along the travel path"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.11001",
+      "title": "Safe access",
+      "description": "Safe means of access shall be provided and maintained to all working places.",
+      "typical_penalty_range": "$2,000 - $12,000",
+      "ss_likelihood": "medium",
+      "common_in_cement": true,
+      "frequency_rank": 6,
+      "common_locations": ["preheater tower stairways", "conveyor crossovers", "mill access platforms", "kiln access areas", "clinker cooler access", "silo top access"],
+      "inspector_focus": "Missing or damaged stair treads, ladder rungs, platforms with holes, access routes blocked by material or equipment, climbing on equipment instead of using provided access.",
+      "defense_strategies": [
+        "Alternative safe access route was available and designated",
+        "Damage was recent and repair was scheduled/in progress",
+        "Area was barricaded to prevent use pending repair",
+        "Show that access was adequate for the task being performed"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.12016",
+      "title": "Electrically powered equipment — Deenergization and lockout/tagout",
+      "description": "Electrically powered equipment shall be deenergized before mechanical work is done on such equipment. Power switches shall be locked out or other measures taken to prevent the equipment from being energized without the knowledge of the persons working on it.",
+      "typical_penalty_range": "$10,000 - $70,000",
+      "ss_likelihood": "very_high",
+      "common_in_cement": true,
+      "frequency_rank": 7,
+      "common_locations": ["MCC rooms", "any motor-driven equipment", "switchgear", "substations", "VFD panels", "control panels"],
+      "inspector_focus": "LOTO is an automatic S&S in most cases. Inspectors check: are locks physically on the disconnect? Is there one lock per worker? Are tags filled out correctly? Has zero-energy verification been performed? Are all energy sources (electrical, hydraulic, pneumatic, gravity, thermal) addressed?",
+      "defense_strategies": [
+        "LOTO was properly applied but lock/tag was not visible from the inspector's position",
+        "Work being performed was diagnostic/testing that required the equipment to be energized per manufacturer procedure",
+        "Equipment was deenergized through an alternative verified method (remote disconnect with verification)",
+        "Show LOTO program documentation, training records, and audit history"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.12025",
+      "title": "Electrical work — qualified person",
+      "description": "Only qualified persons shall install, maintain, or modify electrical equipment.",
+      "typical_penalty_range": "$5,000 - $30,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 8,
+      "common_locations": ["MCC rooms", "junction boxes", "motor connections", "lighting circuits", "control wiring", "power distribution"],
+      "inspector_focus": "Unqualified persons performing electrical work, improper wiring practices, open junction boxes, exposed wiring, improper grounding. Also cited when someone who is not a qualified electrician is found working inside an electrical panel.",
+      "defense_strategies": [
+        "Person was qualified — show training records, certifications, and experience documentation",
+        "Work was being supervised by a qualified person who was present",
+        "The task being performed did not constitute electrical work (e.g., operating a disconnect switch)"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.14130(a)",
+      "title": "Roll-over protective structures (ROPS)",
+      "description": "Equipment included in the ROPS requirements shall be provided with ROPS.",
+      "typical_penalty_range": "$5,000 - $25,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 9,
+      "common_locations": ["front-end loaders", "dozers", "haul trucks", "skid steers", "quarry equipment"],
+      "inspector_focus": "Missing or modified ROPS, damaged ROPS that hasn't been recertified, ROPS with cracks or welds that aren't manufacturer-approved.",
+      "defense_strategies": [
+        "ROPS met manufacturer specifications and was not modified",
+        "Equipment was only operated on level surfaces in controlled conditions (limited defense)",
+        "Show maintenance records and inspection history for ROPS integrity"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.14131",
+      "title": "Seat belts",
+      "description": "Seat belts shall be provided and worn on mobile equipment that is equipped with ROPS.",
+      "typical_penalty_range": "$3,000 - $15,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 10,
+      "common_locations": ["loaders", "haul trucks", "dozers", "forklifts with ROPS", "any mobile equipment with ROPS"],
+      "inspector_focus": "Driver not wearing seatbelt, seatbelt damaged/inoperable, seatbelt retractor not working. Inspectors watch from a distance — if they see a driver exit without unbuckling, they cite it.",
+      "defense_strategies": [
+        "Seatbelt was worn but was momentarily unbuckled for a specific task (very limited defense)",
+        "Show documented seatbelt policy, training records, and disciplinary history for violations",
+        "Equipment was stationary and not in operation at time of observation"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.14132(a)",
+      "title": "Horns and backup alarms on mobile equipment",
+      "description": "Mobile equipment shall be equipped with a horn or other audible warning device.",
+      "typical_penalty_range": "$3,000 - $18,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 11,
+      "common_locations": ["loaders", "haul trucks", "forklifts", "any self-propelled mobile equipment"],
+      "inspector_focus": "Non-functioning backup alarms (most common), horn not working, alarm not audible above ambient plant noise. Inspectors often test alarms by asking the operator to demonstrate.",
+      "defense_strategies": [
+        "Alarm was functional — demonstrate that ambient noise conditions require a different audible level",
+        "Defect was identified on the pre-shift inspection and equipment was being taken out of service",
+        "Spotter system was in use as an equivalent safety measure (limited acceptance)"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.5002",
+      "title": "Confined spaces — entry procedures",
+      "description": "Before any person enters a confined space, the atmosphere shall be tested for adequate oxygen and the absence of harmful gases.",
+      "typical_penalty_range": "$10,000 - $50,000",
+      "ss_likelihood": "very_high",
+      "common_in_cement": true,
+      "frequency_rank": 12,
+      "common_locations": ["silos", "bins", "hoppers", "preheater cyclones", "kiln interior (during shutdown)", "clinker cooler (during shutdown)", "tanks", "baghouse hoppers", "mill interiors"],
+      "inspector_focus": "Entry without atmospheric testing, entry without a permit, no attendant posted outside, no rescue plan, expired or uncalibrated gas monitors. Confined space violations in cement plants frequently involve silo and bin entry.",
+      "defense_strategies": [
+        "Atmospheric testing was performed but documentation was not immediately available to the inspector — produce the records",
+        "Space did not meet the MSHA definition of a confined space (contest the classification)",
+        "Show comprehensive confined space program including permits, training records, rescue plan, and calibration logs for gas monitors"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.17001",
+      "title": "Illumination",
+      "description": "Illumination sufficient to provide safe working conditions shall be provided in and on all surface structures, paths, walkways, stairways, switch panels, loading and dumping sites, and work areas.",
+      "typical_penalty_range": "$1,500 - $8,000",
+      "ss_likelihood": "low-medium",
+      "common_in_cement": true,
+      "frequency_rank": 13,
+      "common_locations": ["conveyor galleries", "stairways", "process floors", "storage areas", "crusher buildings", "around kilns at night"],
+      "inspector_focus": "Burned-out lights not replaced, dark stairways, inadequate lighting in work areas. Very common on night shift inspections. Inspectors carry light meters.",
+      "defense_strategies": [
+        "Lights were operable — demonstrate that illumination meets the standard with a light meter reading",
+        "Bulb failure was recent (current shift) and replacement was scheduled",
+        "Portable/temporary lighting was available and in use in the work area"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.4201",
+      "title": "Fire extinguishers — availability",
+      "description": "Fire extinguishers shall be available at locations where fire hazards exist.",
+      "typical_penalty_range": "$2,000 - $10,000",
+      "ss_likelihood": "medium",
+      "common_in_cement": true,
+      "frequency_rank": 14,
+      "common_locations": ["fueling stations", "welding areas", "electrical rooms", "coal mills", "control rooms", "mobile equipment", "shops"],
+      "inspector_focus": "Missing extinguishers, expired inspection tags, blocked access to extinguishers, wrong type for the hazard (e.g., water extinguisher near electrical), discharged extinguishers not replaced.",
+      "defense_strategies": [
+        "Extinguisher was present but the inspector did not see it due to the location",
+        "Inspection was current but the tag was damaged/illegible — produce the inspection log",
+        "Extinguisher was temporarily removed for annual servicing with a replacement staged nearby"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.3130",
+      "title": "Wall, bank, and slope stability",
+      "description": "Overhanging walls and banks shall be taken down or supported before other work is performed in the area.",
+      "typical_penalty_range": "$5,000 - $25,000",
+      "ss_likelihood": "high",
+      "common_in_cement": true,
+      "frequency_rank": 15,
+      "common_locations": ["quarry faces", "raw material stockpiles", "clinker piles", "any highwall or bank area"],
+      "inspector_focus": "Overhanging quarry walls, unsupported banks, personnel working at the base of unstable slopes, stockpile undermining.",
+      "defense_strategies": [
+        "Ground control plan was in effect and the condition was within acceptable parameters",
+        "Area was barricaded and no personnel were exposed",
+        "Condition was identified and corrective scaling/benching was in progress"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.5050",
+      "title": "Respiratory protection — respirable dust (silica)",
+      "description": "Respiratory protection shall be provided when exposure exceeds permissible limits.",
+      "typical_penalty_range": "$4,000 - $25,000",
+      "ss_likelihood": "medium-high",
+      "common_in_cement": true,
+      "frequency_rank": 16,
+      "common_locations": ["raw mill area", "finish mill area", "packing plant", "kiln feed area", "crusher", "any area with airborne cement or silica dust"],
+      "inspector_focus": "MSHA conducts personal dust sampling. If results exceed the PEL for respirable dust or silica, citations follow. Also cited: no respiratory protection program, fit testing not current, wrong cartridge type, damaged respirators.",
+      "defense_strategies": [
+        "Engineering controls were in place and functioning (dust collection, wet suppression) — contest the sample methodology",
+        "Personal sampling data from the operator's own monitoring program shows compliance",
+        "Respiratory protection was available and in use — contest the exposure duration calculation",
+        "Show comprehensive respiratory protection program including medical evaluations, fit testing, and training"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.15003",
+      "title": "Protective equipment — hard hats, eye protection, etc.",
+      "description": "All persons shall wear suitable hard hats when in or around a mine where falling objects may create a hazard.",
+      "typical_penalty_range": "$1,000 - $6,000",
+      "ss_likelihood": "low",
+      "common_in_cement": true,
+      "frequency_rank": 17,
+      "common_locations": ["entire plant — hard hat areas", "grinding areas (eye protection)", "welding areas (face shield)"],
+      "inspector_focus": "Person not wearing required PPE in designated areas — hard hat, safety glasses, high-vis, hearing protection. Easy citation, often written alongside more serious violations.",
+      "defense_strategies": [
+        "PPE was momentarily removed for a specific reason (very limited defense)",
+        "Person was in a designated PPE-exempt area",
+        "Show PPE policy, signage, training records, and disciplinary enforcement history"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.12032",
+      "title": "Electrical conductors — insulation and protection",
+      "description": "Electrical conductors shall be properly insulated and protected from mechanical damage.",
+      "typical_penalty_range": "$3,000 - $20,000",
+      "ss_likelihood": "medium-high",
+      "common_in_cement": true,
+      "frequency_rank": 18,
+      "common_locations": ["trailing cables", "extension cords", "junction boxes", "motor leads", "control wiring", "lighting circuits"],
+      "inspector_focus": "Damaged insulation on cables, exposed copper, cables run through doorways or across walkways without protection, improper splices, missing cable covers on junction boxes.",
+      "defense_strategies": [
+        "Damage was recent and not yet identified through the normal inspection process",
+        "Cable was de-energized and tagged for repair",
+        "Show electrical inspection program and maintenance records"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.14100(a)",
+      "title": "Equipment defects affecting safety — correction required",
+      "description": "Equipment defects affecting safety shall be corrected in a timely manner to prevent hazards to persons.",
+      "typical_penalty_range": "$3,000 - $18,000",
+      "ss_likelihood": "medium",
+      "common_in_cement": true,
+      "frequency_rank": 19,
+      "common_locations": ["any equipment — this is a catch-all standard", "mobile equipment", "process equipment", "safety systems"],
+      "inspector_focus": "This is MSHA's most versatile citation. Any defect that could affect safety — cracked welds, leaking hydraulics, worn brake pads, broken mirrors, malfunctioning safety interlocks. If it's broken and could hurt someone, this standard applies.",
+      "defense_strategies": [
+        "Defect was identified and repair was in progress — show work order with timestamp",
+        "Equipment was locked out and not in service pending repair",
+        "Defect did not affect the safe operation under the conditions of use",
+        "Show preventive maintenance program and inspection records"
+      ]
+    },
+    {
+      "cfr_section": "30 CFR 56.18002(a)",
+      "title": "Examination of working places",
+      "description": "A competent person designated by the operator shall examine each working place at least once each shift for conditions which may adversely affect safety or health.",
+      "typical_penalty_range": "$4,000 - $20,000",
+      "ss_likelihood": "medium",
+      "common_in_cement": true,
+      "frequency_rank": 20,
+      "common_locations": ["plant-wide — this applies to every working area"],
+      "inspector_focus": "No documented workplace examination, examinations not conducted each shift, obvious hazards that should have been caught by the examination (proves it wasn't done or wasn't adequate). Often cited alongside other violations — 'if you'd done your exam, you would have found this.'",
+      "defense_strategies": [
+        "Examination was conducted — produce documentation with date, time, examiner name, and findings",
+        "Condition developed after the examination was completed (show timeline)",
+        "Show examination program including training, checklists, and corrective action tracking"
+      ]
+    }
+  ]
+}

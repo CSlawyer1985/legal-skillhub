@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-18T18:33:24.619Z",
+  "current_as_of": "2026-07-18",
+  "status": "PASS-11-VALID-LOCAL-SNAPSHOTS-PLUS-REMOTE-OFFICIAL-VERIFICATION",
+  "snapshot_policy": "快照仅用于法源标题、版本、生效日和条文定位校验；不纳入Skill运行包，不包含案件材料。",
+  "local_snapshot_count": 11,
+  "local_snapshots": [
+    {
+      "snapshot_id": "SNAP-001",
+      "source_id": "LAW-001",
+      "snapshot_name": "sales-law-civil-code.html",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "size_bytes": 375644,
+      "sha256": "16fb30a132114600f32059367dae0d6dd274519aa154126eae0ef9600cf4074e",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "中华人民共和国民法典"
+    },
+    {
+      "snapshot_id": "SNAP-002",
+      "source_id": "LAW-003",
+      "snapshot_name": "sales-law-contract-general.html",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/419382.html",
+      "size_bytes": 64503,
+      "sha256": "60dd9e30c5eb6e9079cf113efd414fd6cd08827ca175bf62fa2e51f86d80155b",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "合同编通则若干问题的解释"
+    },
+    {
+      "snapshot_id": "SNAP-003",
+      "source_id": "LAW-004",
+      "snapshot_name": "sales-law-civil-procedure.html",
+      "source_url": "https://www.court.gov.cn/xinshidai/xiangqing/410562.html",
+      "size_bytes": 11691,
+      "sha256": "6fb4b739aa7aeb2a9c5df2c7c5ae1099b839684b6b1b9a73e3f2d0105673cee3",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "自2024年1月1日起施行",
+      "scope": "主席令与生效状态"
+    },
+    {
+      "snapshot_id": "SNAP-004",
+      "source_id": "LAW-005",
+      "snapshot_name": "sales-law-civil-procedure-interpretation.html",
+      "source_url": "https://cicc.court.gov.cn/html/1/380/385/12829.html",
+      "size_bytes": 237882,
+      "sha256": "06459bf2025e821a1fbe143805a5266eeaf2e2dea96e1ecee50f3b674fce1f33",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "民事诉讼法》的解释（2022修正）"
+    },
+    {
+      "snapshot_id": "SNAP-005",
+      "source_id": "LAW-006",
+      "snapshot_name": "sales-law-evidence.html",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/212721.html",
+      "size_bytes": 53389,
+      "sha256": "15bb756cd88f51ccb63cb0ea3dab3aad43671ad6c36a46e3d0eda60569708e78",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "民事诉讼证据的若干规定"
+    },
+    {
+      "snapshot_id": "SNAP-006",
+      "source_id": "LAW-007",
+      "snapshot_name": "sales-law-guarantee.html",
+      "source_url": "https://cicc.court.gov.cn/html/1/380/385/12834.html",
+      "size_bytes": 83657,
+      "sha256": "5b0b793382952b69a468610ec913d7fe870e24c8800c72dc74840f6261602ac6",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "民法典》有关担保制度的解释"
+    },
+    {
+      "snapshot_id": "SNAP-007",
+      "source_id": "LAW-008",
+      "snapshot_name": "sales-law-temporal-effect.html",
+      "source_url": "https://www.court.gov.cn/fabu/xiangqing/282051.html",
+      "size_bytes": 19820,
+      "sha256": "04438ce4f63060abfa5c2bb61dd34b6be7a965f761981aa5da4e2849c93f14bc",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "时间效力的若干规定"
+    },
+    {
+      "snapshot_id": "SNAP-008",
+      "source_id": "LAW-009",
+      "snapshot_name": "sales-law-cause-2026.html",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/484231.html",
+      "size_bytes": 111409,
+      "sha256": "d64e52300df3a23a4166128adb46d005538099f9f159528f9cc9f842b0cad426",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "法〔2025〕227号"
+    },
+    {
+      "snapshot_id": "SNAP-009",
+      "source_id": "LAW-010",
+      "snapshot_name": "sales-law-pleading-template-notice.html",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/468671.html",
+      "size_bytes": 12725,
+      "sha256": "acc2ee7b0dafd37050ca002a092a1bb87ec56a2a3af5e15f32f77cf916e1caa7",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "部分案件起诉状答辩状示范文本"
+    },
+    {
+      "snapshot_id": "SNAP-010",
+      "source_id": "LAW-011",
+      "snapshot_name": "sales-law-buy-sale-template.pdf",
+      "source_url": "https://zxfw.court.gov.cn/zxfw-statics/dbz/mmhtjf.pdf",
+      "size_bytes": 304138,
+      "sha256": "1bb02cd6fdb9dfd52dd8461575c70c7bc1af580eae7ea3e0ff0857b57c2c7b78",
+      "format": "PDF-1.7",
+      "readability": "PASS-7-PAGES",
+      "required_marker": "民事答辩状"
+    },
+    {
+      "snapshot_id": "SNAP-011",
+      "source_id": "LAW-012",
+      "snapshot_name": "sales-law-court-profile-2026.html",
+      "source_url": "https://www.court.gov.cn/zixun/xiangqing/505361.html",
+      "size_bytes": 18036,
+      "sha256": "fad2fe52e9c300ff05674888062d7abb9460e7b8f643499c01d0da1a3e35f805",
+      "format": "HTML-UTF8",
+      "readability": "PASS",
+      "required_marker": "买卖合同关系中零散、琐碎的事实转化为结构化、规范化的要素信息"
+    }
+  ],
+  "remote_only_official_verifications": [
+    {
+      "source_id": "LAW-001",
+      "url": "https://wb.flk.npc.gov.cn/flfg/PDF/bd53dd912c1048f2aecbaa229238334b.pdf",
+      "status": "REMOTE-VERIFIED-NO-LOCAL-SNAPSHOT",
+      "reason": "国家法律法规数据库证书链被本机curl判定过期；未使用不安全TLS绕过。"
+    },
+    {
+      "source_id": "LAW-002",
+      "url": "https://wb.flk.npc.gov.cn/sfjs/texthtml/154c7dd8b2334b6c8100766949074674.html",
+      "status": "REMOTE-TEXT-VERIFIED"
+    },
+    {
+      "source_id": "LAW-002",
+      "url": "https://cicc.court.gov.cn/html/1/218/62/84/12840.html",
+      "status": "REMOTE-TEXT-VERIFIED-NO-LOCAL-SNAPSHOT",
+      "reason": "官方站对curl形成重定向循环；浏览器正文与国家法律法规数据库正文一致。"
+    },
+    {
+      "source_id": "LAW-004",
+      "url": "https://gongbao.court.gov.cn/Details/886331ece0f6611a370642e89f08c6.html",
+      "status": "REMOTE-METADATA-VERIFIED-NO-LOCAL-FULL-TEXT-SNAPSHOT",
+      "reason": "最高人民法院公报页面间歇返回502；本地快照仅保存主席令和生效状态。",
+      "article_cross_check_url": "https://fgw.sh.gov.cn/cmsres/2f/2f008e6cf40e44afadb05f4e8a09357d/bf0ed6e54b9153c78d2cebabcdac207c.pdf",
+      "article_cross_check_status": "PASS-ARTICLES-24-AND-35"
+    },
+    {
+      "source_id": "LAW-010",
+      "url": "https://gongbao.court.gov.cn/Details/58f1a4cb9bbdcc45faa565a6e0db5b.html",
+      "status": "REMOTE-FULL-TEXT-VERIFIED-NO-LOCAL-SNAPSHOT",
+      "reason": "最高人民法院公报页面间歇返回502；本地快照保存官方发布说明。"
+    }
+  ],
+  "transport_safety": {
+    "tls_verification_bypassed": false,
+    "insecure_download_used": false,
+    "error_pages_accepted_as_sources": false
+  },
+  "case_payload_in_snapshots": false,
+  "answer_key_in_snapshots": false,
+  "credentials_or_tokens_in_snapshots": false,
+  "absolute_local_paths_in_manifest": false
+}

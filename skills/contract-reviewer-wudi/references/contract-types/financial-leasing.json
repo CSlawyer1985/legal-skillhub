@@ -1,0 +1,320 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "融资租赁合同",
+  "contract_type_en": "financial-leasing",
+  "description": "融资租赁、售后回租等融资租赁合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "融资租赁", "出租人", "承租人", "出卖人", "租赁物",
+    "售后回租", "租金", "留购", "所有权"
+  ],
+  "key_clauses": [
+    {
+      "name": "租赁物",
+      "required": true,
+      "keywords": ["租赁物", "设备", "标的物", "规格", "型号"],
+      "check_points": [
+        {
+          "item": "租赁物明确",
+          "description": "租赁物名称、规格、型号、数量是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "所有权",
+          "description": "租赁物所有权归属（出租人）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "适格性",
+          "description": "租赁物是否为固定资产，能否作为融资租赁标的",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确租赁物信息，确保租赁物为固定资产，所有权归出租人"
+    },
+    {
+      "name": "租赁物购买",
+      "required": true,
+      "keywords": ["购买", "买卖合同", "出卖人", "购买价款"],
+      "check_points": [
+        {
+          "item": "购买安排",
+          "description": "出租人购买租赁物的安排",
+          "risk_level": "致命"
+        },
+        {
+          "item": "购买价款",
+          "description": "租赁物购买价款",
+          "risk_level": "致命"
+        },
+        {
+          "item": "交付",
+          "description": "出卖人向承租人交付租赁物",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确租赁物购买价款、出卖人直接向承租人交付"
+    },
+    {
+      "name": "租金",
+      "required": true,
+      "keywords": ["租金", "租赁成本", "利息", "手续费"],
+      "check_points": [
+        {
+          "item": "租金构成",
+          "description": "租金构成（租赁成本+利息+手续费）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "租金总额",
+          "description": "租金总额或计算方式",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付方式",
+          "description": "租金支付方式（等额本息/等额本金/期末一次性）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付时间",
+          "description": "租金支付时间和周期",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确租金构成、总额、支付方式、支付时间"
+    },
+    {
+      "name": "租赁期限",
+      "required": true,
+      "keywords": ["租赁期限", "租期", "起租日", "租赁期间"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "租赁期限是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "起租日",
+          "description": "起租日确定方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确租赁期限、起租日（通常为交付日）"
+    },
+    {
+      "name": "租赁物交付与验收",
+      "required": true,
+      "keywords": ["交付", "验收", "接收", "检验"],
+      "check_points": [
+        {
+          "item": "交付方式",
+          "description": "出卖人向承租人交付",
+          "risk_level": "重大"
+        },
+        {
+          "item": "验收程序",
+          "description": "承租人验收程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质量索赔",
+          "description": "租赁物质量瑕疵索赔权",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交付验收程序，承租人直接向出卖人行使索赔权"
+    },
+    {
+      "name": "租赁物所有权",
+      "required": true,
+      "keywords": ["所有权", "登记", "权属", "所有权归属"],
+      "check_points": [
+        {
+          "item": "所有权保留",
+          "description": "租赁期间所有权归出租人",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属登记",
+          "description": "租赁物权属登记（动产融资统一登记公示系统）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "所有权标志",
+          "description": "租赁物所有权标志",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确所有权归出租人，办理权属登记，设置所有权标志"
+    },
+    {
+      "name": "租赁物使用与维护",
+      "required": true,
+      "keywords": ["使用", "保管", "维修", "保养"],
+      "check_points": [
+        {
+          "item": "使用限制",
+          "description": "租赁物使用范围和限制",
+          "risk_level": "一般"
+        },
+        {
+          "item": "维修义务",
+          "description": "承租人维修义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保险",
+          "description": "租赁物保险（通常由承租人投保）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确使用限制、承租人维修义务、保险投保义务"
+    },
+    {
+      "name": "期满处理",
+      "required": true,
+      "keywords": ["期满", "留购", "续租", "返还", "名义价款"],
+      "check_points": [
+        {
+          "item": "处理方式",
+          "description": "留购/续租/返还的选择",
+          "risk_level": "重大"
+        },
+        {
+          "item": "留购价款",
+          "description": "留购价款（通常为名义价款）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确期满处理方式，留购价款通常为名义价款（如100元）"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "逾期", "加速到期", "解除合同"],
+      "check_points": [
+        {
+          "item": "逾期责任",
+          "description": "逾期支付租金的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "加速到期",
+          "description": "未按期支付租金时租金加速到期",
+          "risk_level": "重大"
+        },
+        {
+          "item": "解除权",
+          "description": "出租人解除合同的条件",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确逾期违约金、加速到期条件、合同解除条件"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "FL001",
+      "name": "租赁物不适格",
+      "description": "租赁物为消耗品或不动产（售后回租除外），不构成融资租赁",
+      "severity": "高风险",
+      "suggestion": "确保租赁物为固定资产，具有可返还性",
+      "legal_basis": "《融资租赁司法解释》第1条"
+    },
+    {
+      "id": "FL002",
+      "name": "虚构租赁物",
+      "description": "租赁物不存在，实为借贷关系",
+      "severity": "高风险",
+      "suggestion": "核实租赁物真实存在，保留购买凭证",
+      "legal_basis": "《融资租赁司法解释》第1条"
+    },
+    {
+      "id": "FL003",
+      "name": "权属登记缺失",
+      "description": "未办理租赁物权属登记，不能对抗善意第三人",
+      "severity": "高风险",
+      "suggestion": "在动产融资统一登记公示系统办理权属登记",
+      "legal_basis": "《民法典》第745条"
+    },
+    {
+      "id": "FL004",
+      "name": "租金构成不明",
+      "description": "租金构成不明确，利率不透明",
+      "severity": "中风险",
+      "suggestion": "明确租金构成（成本+利息+费用），折算实际年利率"
+    },
+    {
+      "id": "FL005",
+      "name": "留购价款过高",
+      "description": "留购价款过高，实质为分期买卖",
+      "severity": "中风险",
+      "suggestion": "留购价款应为名义价款（如100元），体现融资租赁特征"
+    }
+  ],
+  "position_guidance": {
+    "lessor": {
+      "name": "出租人",
+      "priority_checks": [
+        "租赁物适格性",
+        "权属登记",
+        "租金回收",
+        "违约责任"
+      ],
+      "key_concerns": [
+        "确保租赁物适格、真实存在",
+        "办理权属登记，保护所有权",
+        "设计合理的租金回收保障",
+        "明确加速到期和解除条件"
+      ],
+      "avoid": [
+        "租赁物不适格或虚构",
+        "未办理权属登记",
+        "租金回收无保障",
+        "解除权约定不明"
+      ]
+    },
+    "lessee": {
+      "name": "承租人",
+      "priority_checks": [
+        "租金构成",
+        "实际利率",
+        "维修义务",
+        "期满处理"
+      ],
+      "key_concerns": [
+        "了解租金构成和实际利率",
+        "明确维修和保险义务",
+        "争取合理的留购价款",
+        "限制出租人解除权"
+      ],
+      "avoid": [
+        "实际利率过高",
+        "承担过重的维修义务",
+        "留购价款过高",
+        "解除条件过于宽松"
+      ]
+    }
+  },
+  "legal_notes": {
+    "leasing_nature": {
+      "description": "融资租赁性质",
+      "rule": "承租人将其自有物出卖给出租人，再通过融资租赁合同将租赁物从出租人处租回的，不影响融资租赁合同性质（售后回租）",
+      "legal_basis": "《融资租赁司法解释》第2条"
+    },
+    "registration": {
+      "description": "权属登记",
+      "rule": "出租人对租赁物享有的所有权，未经登记，不得对抗善意第三人",
+      "system": "动产融资统一登记公示系统（中国人民银行征信中心）",
+      "legal_basis": "《民法典》第745条"
+    },
+    "claim_right": {
+      "description": "索赔权",
+      "rule": "承租人对出卖人行使索赔权利，不影响其履行支付租金的义务",
+      "legal_basis": "《民法典》第741条"
+    }
+  }
+}

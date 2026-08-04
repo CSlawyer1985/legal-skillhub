@@ -1,0 +1,1 @@
+@QCLAW_CLOUD_AGENT#91276916c5234af376cd64f3475f#@meta#op-cced8f55-7730-4f2b-80a2-6c6c0ded7eba#v0.1#skills/enterprise-legal-counsel-cn/references/knowledge-base/laws/labor-contract-law/labor-contract-law-full-text.md#

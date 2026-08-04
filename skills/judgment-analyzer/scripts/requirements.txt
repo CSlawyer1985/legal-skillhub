@@ -1,0 +1,11 @@
+# 判决书分析 Skill - Python 依赖
+# 安装方法: pip install -r requirements.txt
+
+# PDF 解析
+pdfplumber>=0.10.0
+
+# Word 文档读写
+python-docx>=0.8.11
+
+# 可选：更好的 PDF OCR 支持（如果 PDF 是扫描件）
+# PyMuPDF>=1.23.0

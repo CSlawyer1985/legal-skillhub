@@ -1,0 +1,341 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "合伙协议",
+  "contract_type_en": "partnership",
+  "description": "普通合伙、有限合伙、个人合伙等合伙协议",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国合伙企业法》"
+  ],
+  "keywords_for_detection": [
+    "合伙", "合伙人", "合伙企业", "普通合伙", "有限合伙", "GP", "LP",
+    "出资", "利润分配", "亏损分担", "入伙", "退伙"
+  ],
+  "key_clauses": [
+    {
+      "name": "合伙基本信息",
+      "required": true,
+      "keywords": ["合伙企业名称", "经营范围", "经营场所", "合伙目的"],
+      "check_points": [
+        {
+          "item": "企业信息",
+          "description": "合伙企业名称、经营范围、场所是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "合伙目的",
+          "description": "合伙目的和经营范围是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确合伙企业名称、经营范围、经营场所、合伙目的"
+    },
+    {
+      "name": "合伙人信息",
+      "required": true,
+      "keywords": ["合伙人", "姓名", "身份证号", "出资额"],
+      "check_points": [
+        {
+          "item": "合伙人身份",
+          "description": "各合伙人姓名/名称、身份证号/统一社会信用代码",
+          "risk_level": "致命"
+        },
+        {
+          "item": "合伙人类型",
+          "description": "普通合伙人(GP)/有限合伙人(LP)是否明确",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确各合伙人身份信息、合伙人类型（GP/LP）"
+    },
+    {
+      "name": "出资方式与数额",
+      "required": true,
+      "keywords": ["出资", "出资额", "出资方式", "认缴", "实缴"],
+      "check_points": [
+        {
+          "item": "出资数额",
+          "description": "各合伙人出资数额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "出资方式",
+          "description": "货币/实物/知识产权/土地使用权等出资方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "出资期限",
+          "description": "出资缴付期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "非货币出资评估",
+          "description": "非货币出资是否需评估作价",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确各合伙人出资额、方式、期限，非货币出资需评估"
+    },
+    {
+      "name": "利润分配与亏损分担",
+      "required": true,
+      "keywords": ["利润分配", "亏损分担", "分红", "比例"],
+      "check_points": [
+        {
+          "item": "分配比例",
+          "description": "利润分配比例是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "亏损分担",
+          "description": "亏损分担比例是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "分配方式",
+          "description": "分配时间和方式是否明确",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确利润分配和亏损分担比例（可按出资比例或另行约定），有限合伙中LP不参与执行事务但可参与利润分配"
+    },
+    {
+      "name": "合伙事务执行",
+      "required": true,
+      "keywords": ["合伙事务", "执行", "管理", "决策", "表决"],
+      "check_points": [
+        {
+          "item": "执行方式",
+          "description": "全体合伙人执行/委托执行/GP执行是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "决策机制",
+          "description": "重大事项决策机制（一致同意/多数决）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "执行报酬",
+          "description": "执行事务合伙人是否可领取报酬",
+          "risk_level": "一般"
+        },
+        {
+          "item": "LP限制",
+          "description": "有限合伙人不得执行合伙事务",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确事务执行方式、决策机制（重大事项建议一致同意）、执行报酬"
+    },
+    {
+      "name": "入伙与退伙",
+      "required": true,
+      "keywords": ["入伙", "退伙", "新合伙人", "退伙结算"],
+      "check_points": [
+        {
+          "item": "入伙条件",
+          "description": "新合伙人入伙条件和程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "退伙条件",
+          "description": "自愿退伙/当然退伙/除名退伙条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "退伙结算",
+          "description": "退伙时财产结算方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确入伙需全体同意，退伙条件和结算方式，退伙人对退伙前债务承担无限连带责任"
+    },
+    {
+      "name": "竞业禁止",
+      "required": true,
+      "keywords": ["竞业", "竞争", "同业", "自营"],
+      "check_points": [
+        {
+          "item": "竞业限制",
+          "description": "合伙人是否不得自营或与他人合作经营竞争业务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "限制范围",
+          "description": "竞业限制的范围和期限",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "普通合伙人应承担竞业禁止义务，有限合伙人可不受此限"
+    },
+    {
+      "name": "合伙财产",
+      "required": true,
+      "keywords": ["合伙财产", "份额转让", "出质", "财产份额"],
+      "check_points": [
+        {
+          "item": "份额转让",
+          "description": "财产份额转让条件和程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "份额出质",
+          "description": "财产份额出质限制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "份额转让需其他合伙人一致同意，其他合伙人有优先购买权；份额出质需一致同意"
+    },
+    {
+      "name": "解散与清算",
+      "required": true,
+      "keywords": ["解散", "清算", "注销", "终止"],
+      "check_points": [
+        {
+          "item": "解散事由",
+          "description": "合伙解散事由是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "清算程序",
+          "description": "清算人确定和清算程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "清偿顺序",
+          "description": "债务清偿顺序是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确解散事由、清算程序、清偿顺序（清算费用→职工工资→税款→债务→返还出资→分配剩余）"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "出资违约"],
+      "check_points": [
+        {
+          "item": "出资违约",
+          "description": "未按期足额出资的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "竞业违约",
+          "description": "违反竞业禁止的违约责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确未按期出资的违约责任（如支付违约金、丧失部分权利），竞业违约金"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "P001",
+      "name": "GP/LP责任不清",
+      "description": "普通合伙人与有限合伙人责任划分不清，LP可能承担连带责任",
+      "severity": "高风险",
+      "suggestion": "明确GP承担无限连带责任，LP以出资为限承担责任；LP不得参与执行事务",
+      "legal_basis": "《合伙企业法》第2条、第68条"
+    },
+    {
+      "id": "P002",
+      "name": "利润分配约定不明",
+      "description": "未约定利润分配比例，按实缴出资比例分配，可能不符合预期",
+      "severity": "高风险",
+      "suggestion": "明确约定利润分配比例，可与出资比例不同",
+      "legal_basis": "《合伙企业法》第33条"
+    },
+    {
+      "id": "P003",
+      "name": "亏损分担与利润分配不对等",
+      "description": "约定利润分配比例与亏损分担比例不一致，可能被认定为无效",
+      "severity": "中风险",
+      "suggestion": "亏损分担比例应与利润分配比例一致，除非全体合伙人另有约定",
+      "legal_basis": "《合伙企业法》第33条"
+    },
+    {
+      "id": "P004",
+      "name": "份额转让限制不足",
+      "description": "未约定财产份额转让限制，可能导致合伙人进入不受控",
+      "severity": "中风险",
+      "suggestion": "约定份额转让需全体合伙人一致同意，其他合伙人有优先购买权"
+    },
+    {
+      "id": "P005",
+      "name": "竞业禁止缺失",
+      "description": "未约定竞业禁止，合伙人可自营竞争业务",
+      "severity": "中风险",
+      "suggestion": "约定普通合伙人不得自营或与他人合作经营与本合伙企业相竞争的业务"
+    },
+    {
+      "id": "P006",
+      "name": "退伙结算不清",
+      "description": "未约定退伙结算方式，退伙时易产生纠纷",
+      "severity": "中风险",
+      "suggestion": "明确退伙结算方式（按退伙时合伙企业财产状况结算），退还份额办法"
+    }
+  ],
+  "position_guidance": {
+    "general_partner": {
+      "name": "普通合伙人(GP)",
+      "priority_checks": [
+        "合伙事务执行权",
+        "竞业禁止",
+        "出资责任",
+        "入伙退伙"
+      ],
+      "key_concerns": [
+        "争取合伙事务执行权和管理权",
+        "可领取执行事务报酬",
+        "注意承担无限连带责任的风险",
+        "控制入伙退伙程序"
+      ],
+      "avoid": [
+        "放弃执行事务权",
+        "承担过重的出资责任",
+        "无竞业限制的约束",
+        "过短的退伙结算期"
+      ]
+    },
+    "limited_partner": {
+      "name": "有限合伙人(LP)",
+      "priority_checks": [
+        "有限责任",
+        "不参与执行事务",
+        "利润分配",
+        "退出机制"
+      ],
+      "key_concerns": [
+        "确保以出资为限承担责任",
+        "不参与执行事务以免丧失有限责任保护",
+        "争取合理的利润分配比例",
+        "明确的退出机制（转让份额或退伙）"
+      ],
+      "avoid": [
+        "参与执行事务（可能丧失有限责任保护）",
+        "份额转让限制过严",
+        "亏损分担比例过高",
+        "无退出机制"
+      ]
+    }
+  },
+  "legal_limits": {
+    "gp_liability": {
+      "description": "普通合伙人责任",
+      "liability": "无限连带责任",
+      "legal_basis": "《合伙企业法》第2条"
+    },
+    "lp_liability": {
+      "description": "有限合伙人责任",
+      "liability": "以认缴出资额为限承担责任",
+      "restrictions": "不得执行合伙事务，不得对外代表合伙企业",
+      "legal_basis": "《合伙企业法》第2条、第68条"
+    },
+    "profit_distribution": {
+      "description": "利润分配",
+      "rule": "按合伙协议约定办理；未约定或约定不明的，由合伙人协商；协商不成的，按实缴出资比例分配",
+      "legal_basis": "《合伙企业法》第33条"
+    }
+  }
+}

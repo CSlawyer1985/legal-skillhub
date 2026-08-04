@@ -1,0 +1,242 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "和解协议",
+  "contract_type_en": "settlement",
+  "description": "诉讼和解、执行和解、债务和解等和解协议",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国民事诉讼法》"
+  ],
+  "keywords_for_detection": [
+    "和解", "和解协议", "调解", "债务和解", "执行和解",
+    "纠纷解决", "争议解决", "一次性了结"
+  ],
+  "key_clauses": [
+    {
+      "name": "原债权债务",
+      "required": true,
+      "keywords": ["原债权", "债务", "纠纷", "争议", "基础关系"],
+      "check_points": [
+        {
+          "item": "原债权明确",
+          "description": "原债权债务关系是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "争议内容",
+          "description": "争议或纠纷的内容是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确原债权债务关系、争议内容和金额"
+    },
+    {
+      "name": "和解方案",
+      "required": true,
+      "keywords": ["和解方案", "解决方案", "还款方案", "履行方案"],
+      "check_points": [
+        {
+          "item": "方案明确",
+          "description": "和解的具体方案是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "金额确定",
+          "description": "和解金额或履行内容是否确定",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确和解方案、和解金额或履行内容"
+    },
+    {
+      "name": "履行期限和方式",
+      "required": true,
+      "keywords": ["履行", "支付", "还款", "期限", "方式"],
+      "check_points": [
+        {
+          "item": "履行期限",
+          "description": "履行期限是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "履行方式",
+          "description": "一次性履行/分期履行",
+          "risk_level": "重大"
+        },
+        {
+          "item": "履行账户",
+          "description": "履行款项的收款账户",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确履行期限、方式、收款账户"
+    },
+    {
+      "name": "一次性了结",
+      "required": true,
+      "keywords": ["一次性了结", "彻底了结", "终结", "不再追究"],
+      "check_points": [
+        {
+          "item": "了结条款",
+          "description": "是否明确约定一次性彻底了结",
+          "risk_level": "重大"
+        },
+        {
+          "item": "放弃权利",
+          "description": "债权人放弃剩余债权的范围",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确约定一次性彻底了结，债权人放弃剩余债权"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "恢复", "原债务", "违约金"],
+      "check_points": [
+        {
+          "item": "违约后果",
+          "description": "不履行和解协议的后果",
+          "risk_level": "致命"
+        },
+        {
+          "item": "恢复原债务",
+          "description": "是否恢复按原债权债务执行",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确不履行和解协议的后果，通常恢复按原债务执行"
+    },
+    {
+      "name": "担保条款",
+      "required": false,
+      "keywords": ["担保", "保证", "抵押", "质押"],
+      "check_points": [
+        {
+          "item": "担保安排",
+          "description": "是否提供履行担保",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "可要求债务人提供履行担保"
+    },
+    {
+      "name": "诉讼/执行程序",
+      "required": false,
+      "keywords": ["撤诉", "执行终结", "调解书", "司法确认"],
+      "check_points": [
+        {
+          "item": "程序处理",
+          "description": "诉讼或执行程序如何处理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "司法确认",
+          "description": "是否申请司法确认（赋予强制执行力）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确诉讼/执行程序处理，建议申请司法确认或制作调解书"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "SET001",
+      "name": "原债权债务不明",
+      "description": "原债权债务关系不明确，和解基础不清",
+      "severity": "高风险",
+      "suggestion": "明确原债权债务金额、产生原因、争议焦点"
+    },
+    {
+      "id": "SET002",
+      "name": "无一次性了结条款",
+      "description": "未明确约定一次性彻底了结，债权人可能再次主张",
+      "severity": "高风险",
+      "suggestion": "明确约定'一次性彻底了结，债权人放弃剩余债权'"
+    },
+    {
+      "id": "SET003",
+      "name": "违约责任不明",
+      "description": "不履行和解协议的后果不明确",
+      "severity": "高风险",
+      "suggestion": "明确约定不履行时恢复按原债务执行"
+    },
+    {
+      "id": "SET004",
+      "name": "无强制执行力",
+      "description": "和解协议未经司法确认，不具有强制执行力",
+      "severity": "中风险",
+      "suggestion": "申请司法确认或请求法院制作调解书，赋予强制执行力"
+    },
+    {
+      "id": "SET005",
+      "name": "履行期限过长",
+      "description": "履行期限过长，增加履行风险",
+      "severity": "中风险",
+      "suggestion": "合理确定履行期限，分期履行的应设定加速到期条款"
+    }
+  ],
+  "position_guidance": {
+    "creditor": {
+      "name": "债权人",
+      "priority_checks": [
+        "和解金额",
+        "履行期限",
+        "违约责任",
+        "担保"
+      ],
+      "key_concerns": [
+        "争取较高的和解金额",
+        "缩短履行期限",
+        "明确违约恢复原债务",
+        "要求提供担保"
+      ],
+      "avoid": [
+        "和解金额过低",
+        "履行期限过长",
+        "无违约责任",
+        "无担保"
+      ]
+    },
+    "debtor": {
+      "name": "债务人",
+      "priority_checks": [
+        "一次性了结",
+        "履行期限",
+        "履行能力",
+        "违约责任"
+      ],
+      "key_concerns": [
+        "确保一次性了结，债权人放弃剩余债权",
+        "争取合理的履行期限",
+        "确保有履行能力",
+        "限制违约责任（如只承担违约金不恢复原债务）"
+      ],
+      "avoid": [
+        "未明确放弃剩余债权",
+        "履行期限过短",
+        "违约后果过重"
+      ]
+    }
+  },
+  "legal_notes": {
+    "nature": {
+      "description": "和解协议性质",
+      "rule": "和解协议是当事人就争议事项达成的一致意见，具有合同效力",
+      "effect": "和解协议履行完毕后，原债权债务关系消灭"
+    },
+    "enforcement": {
+      "description": "强制执行力",
+      "judicial_confirmation": "经人民调解委员会调解达成的协议，可申请司法确认，具有强制执行力",
+      "mediation_statement": "法院制作的调解书具有强制执行力",
+      "execution_settlement": "执行和解协议，一方不履行，对方可申请恢复执行原生效法律文书",
+      "legal_basis": "《民事诉讼法》第201条、第237条"
+    },
+    "breach": {
+      "description": "不履行和解协议",
+      "rule": "当事人不履行和解协议的，对方可以要求履行和解协议，也可以要求恢复按原债权债务执行（视约定而定）",
+      "suggestion": "明确约定不履行时的法律后果"
+    }
+  }
+}

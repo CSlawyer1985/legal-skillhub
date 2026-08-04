@@ -1,0 +1,8 @@
+{
+  "smtp_host": "smtp.example.com",
+  "smtp_port": 465,
+  "smtp_user": "noreply@yourcompany.com",
+  "smtp_pass": "YOUR_SMTP_PASSWORD",
+  "from": "noreply@yourcompany.com",
+  "notify_to": "sales@yourcompany.com"
+}

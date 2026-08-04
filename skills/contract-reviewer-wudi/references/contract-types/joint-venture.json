@@ -1,0 +1,336 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "合资合同",
+  "contract_type_en": "joint-venture",
+  "description": "中外合资、中外合作、内资合资等合资经营合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国公司法》",
+    "《中华人民共和国中外合资经营企业法》",
+    "《中华人民共和国中外合作经营企业法》"
+  ],
+  "keywords_for_detection": [
+    "合资", "合营", "合资经营", "中外合资", "合作经营",
+    "合资企业", "合营各方", "出资比例", "股权比例"
+  ],
+  "key_clauses": [
+    {
+      "name": "合资主体",
+      "required": true,
+      "keywords": ["合资方", "合营各方", "投资者", "股东"],
+      "check_points": [
+        {
+          "item": "主体明确",
+          "description": "合资各方主体信息是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "主体资格",
+          "description": "各方是否具有签约和投资资格",
+          "risk_level": "致命"
+        },
+        {
+          "item": "外资审查",
+          "description": "涉及外资是否需经外资审查",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确合资各方主体信息，核实投资资格，外资需审查"
+    },
+    {
+      "name": "合资企业信息",
+      "required": true,
+      "keywords": ["合资企业", "合营公司", "公司名称", "注册资本"],
+      "check_points": [
+        {
+          "item": "企业名称",
+          "description": "合资企业名称",
+          "risk_level": "一般"
+        },
+        {
+          "item": "注册资本",
+          "description": "注册资本金额",
+          "risk_level": "致命"
+        },
+        {
+          "item": "经营范围",
+          "description": "合资企业经营范围",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确合资企业注册资本、经营范围（涉及许可经营需取得资质）"
+    },
+    {
+      "name": "出资安排",
+      "required": true,
+      "keywords": ["出资", "注册资本", "出资额", "出资方式"],
+      "check_points": [
+        {
+          "item": "出资比例",
+          "description": "各方出资比例",
+          "risk_level": "致命"
+        },
+        {
+          "item": "出资方式",
+          "description": "货币/实物/知识产权/土地使用权出资",
+          "risk_level": "重大"
+        },
+        {
+          "item": "出资期限",
+          "description": "各方出资期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "出资评估",
+          "description": "非货币财产出资是否评估",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确各方出资比例、出资方式、出资期限，非货币出资需评估"
+    },
+    {
+      "name": "利润分配",
+      "required": true,
+      "keywords": ["利润分配", "分红", "亏损承担", "分配比例"],
+      "check_points": [
+        {
+          "item": "分配比例",
+          "description": "利润分配比例",
+          "risk_level": "致命"
+        },
+        {
+          "item": "分配条件",
+          "description": "利润分配条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "亏损承担",
+          "description": "亏损承担方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确利润分配比例、条件、亏损承担，通常按出资比例"
+    },
+    {
+      "name": "公司治理",
+      "required": true,
+      "keywords": ["董事会", "股东会", "监事会", "经营管理", "公司治理"],
+      "check_points": [
+        {
+          "item": "组织机构",
+          "description": "董事会/股东会/监事会设置",
+          "risk_level": "重大"
+        },
+        {
+          "item": "董事席位",
+          "description": "各方董事名额分配",
+          "risk_level": "重大"
+        },
+        {
+          "item": "表决机制",
+          "description": "重大事项表决机制",
+          "risk_level": "重大"
+        },
+        {
+          "item": "法定代表人",
+          "description": "法定代表人产生方式",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确公司治理结构、董事席位分配、表决机制"
+    },
+    {
+      "name": "经营管理",
+      "required": true,
+      "keywords": ["经营管理", "总经理", "管理层", "日常管理"],
+      "check_points": [
+        {
+          "item": "管理方式",
+          "description": "由哪一方负责日常经营管理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "管理层任命",
+          "description": "管理层（总经理、副总经理）任命方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确经营管理方式和管理层任命"
+    },
+    {
+      "name": "股权转让",
+      "required": true,
+      "keywords": ["股权转让", "转让限制", "优先购买权", "退出"],
+      "check_points": [
+        {
+          "item": "转让限制",
+          "description": "股权转让是否受限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "优先购买权",
+          "description": "其他方的优先购买权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "转让价格",
+          "description": "转让价格的确定方式",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确股权转让限制、优先购买权、转让价格"
+    },
+    {
+      "name": "竞业禁止",
+      "required": false,
+      "keywords": ["竞业禁止", "同业竞争", "不竞争", "限制"],
+      "check_points": [
+        {
+          "item": "竞业范围",
+          "description": "各方竞业禁止范围",
+          "risk_level": "重大"
+        },
+        {
+          "item": "竞业期限",
+          "description": "竞业禁止期限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确竞业禁止范围、期限、地域"
+    },
+    {
+      "name": "解散与清算",
+      "required": true,
+      "keywords": ["解散", "清算", "终止", "期限"],
+      "check_points": [
+        {
+          "item": "合资期限",
+          "description": "合资企业经营期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "解散事由",
+          "description": "解散事由和清算程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "剩余财产分配",
+          "description": "合资终止时剩余财产分配",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确合资期限、解散事由、清算程序、剩余财产分配"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "JV001",
+      "name": "出资瑕疵",
+      "description": "一方未按期足额出资，或出资评估不实",
+      "severity": "高风险",
+      "suggestion": "约定逾期出资的违约责任，实物/知识产权出资需评估"
+    },
+    {
+      "id": "JV002",
+      "name": "外资审批缺失",
+      "description": "涉及外资的合资项目未取得外资审批",
+      "severity": "高风险",
+      "suggestion": "涉及外资需在合同中约定以取得审批为生效条件"
+    },
+    {
+      "id": "JV003",
+      "name": "控制权争议",
+      "description": "各方在公司治理、经营管理上产生争议",
+      "severity": "高风险",
+      "suggestion": "明确董事会构成、表决机制、管理权分配"
+    },
+    {
+      "id": "JV004",
+      "name": "股权转让限制不明",
+      "description": "股权转让限制不明确，产生争议",
+      "severity": "中风险",
+      "suggestion": "明确股权转让须经其他方同意，设置优先购买权"
+    },
+    {
+      "id": "JV005",
+      "name": "竞业禁止过宽",
+      "description": "竞业禁止范围过宽、期限过长，可能无效或产生争议",
+      "severity": "中风险",
+      "suggestion": "竞业范围、期限、地域应合理设置"
+    },
+    {
+      "id": "JV006",
+      "name": "退出机制不清",
+      "description": "合资期限届满或出现僵局时的退出机制不明确",
+      "severity": "中风险",
+      "suggestion": "明确退出机制（收购股权、减资退出、僵局解决机制）"
+    }
+  ],
+  "position_guidance": {
+    "majority": {
+      "name": "控股方",
+      "priority_checks": [
+        "出资安排",
+        "公司治理",
+        "经营管理权",
+        "股权转让"
+      ],
+      "key_concerns": [
+        "确保控股地位",
+        "控制经营管理权",
+        "限制小股东退出",
+        "竞业禁止约束对方"
+      ],
+      "avoid": [
+        "让出经营管理权",
+        "给予对方一票否决权",
+        "竞业限制过宽",
+        "退出机制过于宽松"
+      ]
+    },
+    "minority": {
+      "name": "参股方",
+      "priority_checks": [
+        "出资比例",
+        "利润分配",
+        "董事会席位",
+        "退出机制"
+      ],
+      "key_concerns": [
+        "确保合理的董事会席位",
+        "约定利润分配条件",
+        "争取重大事项否决权",
+        "明确退出机制"
+      ],
+      "avoid": [
+        "无董事会席位",
+        "利润分配无保障",
+        "退出机制受限",
+        "承担无限连带责任"
+      ]
+    }
+  },
+  "legal_notes": {
+    "approval": {
+      "description": "审批要求",
+      "foreign_equity": "中外合资：需商务部门批准，领取批准证书",
+      "foreign_cooperation": "中外合作：需商务部门批准",
+      "domestic": "内资合资：无需特别审批，按公司法设立"
+    },
+    "capital_contribution": {
+      "description": "出资要求",
+      "currency": "货币出资：实缴注册资本的货币出资不低于30%",
+      "non_monetary": "非货币出资：需评估作价，核实权属",
+      "deadline": "出资期限：按章程约定，通常不超过2年",
+      "legal_basis": "《公司法》第27-30条"
+    },
+    "transfer": {
+      "description": "股权转让",
+      "general": "股东之间可自由转让",
+      "external": "向股东以外的人转让股权，应当经其他股东过半数同意",
+      "right_first": "其他股东有优先购买权",
+      "legal_basis": "《公司法》第71条"
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "skill_id": "law-consult-complaint-v1",
+  "skill_name": "法律咨询 + 要素式/通用起诉状",
+  "skill_desc": "一站式法律服务：专业法律咨询（民法典/劳动合同法/公司法等）+ 国家法律法规数据库法条查询 + 11个案由要素式起诉状+通用民事起诉状智能生成。非标准案由自动切换通用模板，内置Logic Doctor逻辑自检、诉讼时效追踪及9类异常容错处理。含FAQ常见问题解答和异常场景处理指引。基于中华人民共和国现行有效法律，提供专业、规范、可落地的法律支持。",
+  "version": "6.0",
+  "author": "马常成律师（V：malvshi1156）— 民商法执业律师",
+  "license": "MIT",
+  "categories": [
+    "legal",
+    "productivity"
+  ],
+  "tags": [
+    "法律咨询",
+    "起诉状",
+    "要素式起诉状",
+    "通用起诉状",
+    "民法典",
+    "劳动合同法",
+    "公司法",
+    "民间借贷",
+    "离婚纠纷",
+    "劳动争议",
+    "买卖合同",
+    "法律援助",
+    "诉讼文书",
+    "FAQ",
+    "异常处理",
+    "非标准案由"
+  ],
+  "dependencies": {
+    "python": ">=3.7",
+    "pip_packages": [
+      "python-docx"
+    ]
+  },
+  "trigger_keywords": [
+    "法律咨询",
+    "法律问题",
+    "合同纠纷",
+    "借贷纠纷",
+    "离婚",
+    "继承",
+    "劳动纠纷",
+    "欠钱不还",
+    "违约",
+    "侵权",
+    "股权",
+    "担保",
+    "赔偿",
+    "起诉",
+    "起诉状",
+    "打官司",
+    "告状",
+    "怎么写诉状",
+    "立案",
+    "租赁纠纷",
+    "建房纠纷",
+    "租房",
+    "装修纠纷",
+    "股权转让",
+    "名誉权",
+    "合伙"
+  ],
+  "system_prompt": {
+    "role": "专业民商事律师助手",
+    "core_principle": "只依据中华人民共和国现行有效法律解答，不编造法条，不提供违法建议，不做胜诉承诺",
+    "scope": "民商法领域：民法典、公司法、劳动合同法、民间借贷、婚姻家庭、继承、侵权责任、合同、物权、劳动争议等",
+    "out_of_scope": "刑法、行政法、刑事诉讼、行政诉讼、境外法律、非法意图问题（仅作基础指引）",
+    "workflow": [
+      "law_consult: 事实梳理→法律定性→法条检索→分析论证→实务建议",
+      "complaint_draft: 案由识别→是否标准案由→是：要素式模板/否：通用模板→追问信息→填充→输出"
+    ],
+    "faq_available": true,
+    "exception_handling_available": true,
+    "generic_complaint_available": true,
+    "reply_structure": [],
+    "forbidden_actions": [
+      "不编造法条序号与内容",
+      "不指导伪造证据、恶意诉讼、规避法律",
+      "不给出绝对化胜诉/败诉结论",
+      "不评价法官、不煽动对抗",
+      "不越界解答刑法/行政法专业问题"
+    ],
+    "legal_basis_source": "中华人民共和国现行有效法律：民法典、劳动合同法、公司法、民间借贷司法解释、婚姻家庭编解释、劳动争议调解仲裁法等，法律修订后持续同步更新",
+    "legal_basis_date": "持续更新"
+  },
+  "intent_config": [
+    {
+      "intent_name": "general_legal_consultation",
+      "trigger_words": [
+        "咨询法律",
+        "法律问题",
+        "怎么办",
+        "合法吗",
+        "违法吗",
+        "能起诉吗",
+        "怎么处理"
+      ],
+      "reply_strategy": "direct_answer_with_law"
+    },
+    {
+      "intent_name": "civil_code_consult",
+      "trigger_words": [
+        "合同",
+        "违约",
+        "解除合同",
+        "无效",
+        "退款",
+        "定金",
+        "保证金",
+        "租赁",
+        "装修"
+      ],
+      "reply_strategy": "quote_civil_code"
+    },
+    {
+      "intent_name": "loan_dispute",
+      "trigger_words": [
+        "借钱",
+        "欠钱",
+        "借条",
+        "高利贷",
+        "利息",
+        "借款",
+        "网贷"
+      ],
+      "reply_strategy": "quote_loan_judicial"
+    },
+    {
+      "intent_name": "marriage_family_inherit",
+      "trigger_words": [
+        "离婚",
+        "财产分割",
+        "抚养权",
+        "继承",
+        "遗产",
+        "遗嘱",
+        "彩礼"
+      ],
+      "reply_strategy": "quote_marriage_family_law"
+    },
+    {
+      "intent_name": "labor_dispute",
+      "trigger_words": [
+        "辞退",
+        "开除",
+        "工资",
+        "加班费",
+        "没签合同",
+        "经济补偿",
+        "劳动仲裁",
+        "社保"
+      ],
+      "reply_strategy": "quote_labor_law"
+    },
+    {
+      "intent_name": "tort_dispute",
+      "trigger_words": [
+        "车祸",
+        "受伤",
+        "侵权",
+        "赔偿",
+        "医疗费",
+        "误工费",
+        "伤残",
+        "交通事故"
+      ],
+      "reply_strategy": "quote_tort_law"
+    },
+    {
+      "intent_name": "complaint_drafting",
+      "trigger_words": [
+        "起诉状",
+        "写诉状",
+        "写起诉状",
+        "告状",
+        "立案",
+        "要素式",
+        "起诉",
+        "打官司",
+        "诉状"
+      ],
+      "reply_strategy": "complaint_draft_workflow"
+    },
+    {
+      "intent_name": "faq_query",
+      "trigger_words": [
+        "常见问题",
+        "FAQ",
+        "能不能起诉",
+        "多少钱",
+        "多久",
+        "时效",
+        "材料"
+      ],
+      "reply_strategy": "answer_from_faq"
+    }
+  ],
+  "reply_example": {
+    "user_question": "朋友借了我5万块，写了借条说一年还，现在过了一年半了还没还，怎么办",
+    "bot_reply": "【法律咨询意见】\n1. 事实梳理：您向朋友出借5万元，有书面借条，约定借款期限一年，现已逾期半年。\n2. 法律依据：《中华人民共和国民法典》第667条（借款合同定义）、第675条（借款返还期限）、第676条（逾期利息）。\n3. 法律分析：对方已逾期半年未还，构成违约。您可主张返还本金5万元，并按约定或法定利率主张逾期利息。注意诉讼时效——还款期限届满后3年内需主张权利。\n4. 实务建议：\n   · 证据层面：保存借条原件、转账凭证、催收记录（微信聊天记录/短信）\n   · 程序层面：可向被告住所地或合同履行地法院起诉\n   · 策略建议：先发正式催收函，协商不成再起诉\n   · 风险提示：注意3年诉讼时效，必要时及时起诉\n【重要声明】本回复仅为法律咨询参考意见，具体案件建议委托执业律师。",
+    "complaint_example": {
+      "element_case": "您描述的是民间借贷纠纷，属于11个标准案由之一，我将使用要素式起诉状模板。",
+      "generic_case": "您描述的是房屋租赁合同纠纷，不属于标准案由，我将使用通用民事起诉状模板。"
+    },
+    "output_format": "法律咨询用自然段落+加粗关键词+emoji点缀；起诉状以docx格式输出文件+摘要说明"
+  },
+  "faq_count": 12,
+  "exception_scenarios": 7,
+  "disclaimer": "本Skill内容仅供法律咨询参考，不代表律师事务所正式意见，不构成对案件结果的承诺。AI法律咨询不能代替专业律师，具体案件的定制化法律服务或代理需求，建议咨询执业律师（V：malvshi1156）。",
+  "skill_hub_id": "law-skills",
+  "name": "law-skills"
+}

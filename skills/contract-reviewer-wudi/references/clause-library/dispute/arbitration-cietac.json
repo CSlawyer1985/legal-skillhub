@@ -1,0 +1,13 @@
+{
+  "$schema": "clause-schema",
+  "category": "dispute",
+  "name": "CIETAC仲裁条款",
+  "applicable_types": [
+    "all"
+  ],
+  "clause_text": "因本合同引起的或与本合同有关的任何争议，均应提交中国国际经济贸易仲裁委员会（CIETAC），按照其届时有效的仲裁规则进行仲裁。仲裁地点为【北京/上海/深圳】。仲裁裁决是终局的，对双方均有约束力。",
+  "position_tips": {
+    "both": "CIETAC适合涉外商事纠纷；国内纠纷优先考虑法院管辖；仲裁费用高于诉讼"
+  },
+  "legal_reference": "《仲裁法》第16条"
+}

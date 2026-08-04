@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "privacy_class": "internal-anonymous-hash-only",
+  "benchmark_id": "BLIND-REGRESSION-001",
+  "mode": "retrospective-benchmark",
+  "fact_payload_in_package": false,
+  "identity_mapping_in_package": false,
+  "answer_key_payload_in_package": false,
+  "answer_key_status": "CLOSED-ISOLATED",
+  "answer_key_semantic_read_count": 0,
+  "blind_output_frozen": true,
+  "primary_cutoff_verified": true,
+  "upstream_blind_output_freeze_sha256": "25492d0741aabb070a5f9eee94109a4ba03571bf144a8e46b1bc5a061c0cbb66",
+  "upstream_primary_cutoff_freeze_sha256": "48ac8c9f95709b3a6197be65906a47763c15da26469a30dbfacbba28f579a1bd",
+  "sanitized_result": {
+    "route": "installment-title-retention",
+    "p0_1": "PASS",
+    "p0_2": "PASS-PRIMARY-CUTOFF-ANSWER-KEY-CLOSED",
+    "p0_3": "HOLD-UNRESOLVED-EVIDENCE-AND-CONSISTENCY",
+    "p0_4": "PENDING",
+    "l1_gate": "HOLD",
+    "formal_cross": "DISABLED-NO-OPPONENT-EVIDENCE"
+  },
+  "comparison_status": "PENDING-POST-INDEPENDENT-FREEZE",
+  "mutation_rule": "Post-unseal comparison must not rewrite the frozen blind output or this package."
+}

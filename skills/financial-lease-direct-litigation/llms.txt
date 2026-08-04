@@ -1,0 +1,24 @@
+# 融资租赁普通直租实务
+
+> 李时瑀律师整理的普通直租型融资租赁纠纷公开方法库。只提供方法结构，不构成个案法律意见。
+
+## 核心入口
+
+- [Agent Skill 入口](SKILL.md): 普通直租诉讼实务工作流与硬边界
+- [知识库首页](knowledge/index.md): 普通直租工作流总览
+- [材料接收与可读性](knowledge/playbooks/material-intake-and-readability.md): PDF、扫描件、OCR、关键页和读取 HOLD
+- [普通直租识别](knowledge/types/ordinary-direct-lease.md): 主体链、合同链、物权流、资金流和停止信号
+- [合同审查](knowledge/playbooks/contract-review.md): 八个审查模块和标准输出表
+- [起诉材料](knowledge/playbooks/litigation-materials-drafting.md): 诉请、合同、证据和法源四列映射
+- [证据目录](knowledge/playbooks/evidence-catalog.md): 要件事实分组和质证预判字段
+- [缺失材料清单](knowledge/playbooks/missing-material-checklist.md): 十二类用户补件范围和三件套勾稽
+- [DOCX 质量门禁](knowledge/playbooks/docx-quality-gate.md): A4、真实表格、OOXML 和逐页渲染
+- [代理词](knowledge/playbooks/agency-statement.md): 争点驱动的代理意见结构
+- [法律意见书](knowledge/playbooks/legal-opinion.md): 问题、规则、事实、风险和行动方案
+
+## 治理
+
+- [法律依据门禁](knowledge/authorities/legal-authority-boundary.md): 现行文本核验状态
+- [已核验法源锚点](knowledge/authorities/verified-financing-lease-anchors.md): 普通直租识别、诉请路径选择、解除和时效
+- [公私边界](knowledge/governance/public-private-boundary.md): 普通直租公共层与付费模块隔离
+- [署名与发布](knowledge/governance/attribution-and-release.md): 唯一署名和隐私门禁

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RetrieverResult",
+  "type": "object",
+  "required": ["task_id", "query", "output_file", "patents", "errors"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "query": {"type": "string"},
+    "country": {"type": ["string", "null"]},
+    "limit": {"type": "integer", "minimum": 20},
+    "command": {"type": "string"},
+    "output_file": {"type": "string"},
+    "patents": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["publication_number", "title"],
+        "properties": {
+          "publication_number": {"type": "string"},
+          "title": {"type": "string"},
+          "abstract": {"type": "string"},
+          "publication_date": {"type": ["string", "integer", "null"]},
+          "assignees": {"type": "array", "items": {"type": "string"}},
+          "ipc_codes": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "errors": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

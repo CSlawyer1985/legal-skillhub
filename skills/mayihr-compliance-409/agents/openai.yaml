@@ -1,0 +1,4 @@
+interface:
+  display_name: "保密协议与知识产权归属指引"
+  short_description: "用自然语言或上传文件完成保密协议与知识产权归属指引，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-compliance-409 请帮我完成保密协议与知识产权归属指引：保密协议分级+职务发明归属+竞业与保密的区别+违约取证+赔偿标准。"

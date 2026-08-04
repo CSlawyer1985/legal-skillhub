@@ -1,0 +1,37 @@
+{
+  "slug": "compliance-evidence-assembler",
+  "title": "合规证据组装器",
+  "category": "security",
+  "categoryLabel": "安全与治理",
+  "mode": "directory_audit",
+  "summary": "把审计所需证据整理成目录、清单和缺失项，便于后续评审。",
+  "inputHint": "证据目录、控制项列表或说明",
+  "sections": [
+    "证据概览",
+    "控制映射",
+    "缺失证据",
+    "命名建议",
+    "补齐优先级",
+    "交付建议"
+  ],
+  "useCases": [
+    "审计准备",
+    "证据归档",
+    "控制证明"
+  ],
+  "positiveExamples": [
+    "整理这次审计需要的证据包",
+    "指出还缺什么"
+  ],
+  "negativeExamples": [
+    "不要伪造证据",
+    "不要替代正式审计结论"
+  ],
+  "risk": "只做证据编排和缺口提示。",
+  "tags": [
+    "compliance",
+    "evidence",
+    "audit",
+    "governance"
+  ]
+}

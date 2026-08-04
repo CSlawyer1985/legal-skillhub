@@ -1,0 +1,4 @@
+interface:
+  display_name: "蚂蚁社保｜非上市公司股权奖励税务路径"
+  short_description: "非上市公司股权奖励税务路径，按当前有效官方口径给出结论与行动步骤"
+  default_prompt: "请使用 @check-ant-ss-547 帮我处理“非上市公司股权奖励税务路径”，先核验地区、身份、年月和官方依据。"

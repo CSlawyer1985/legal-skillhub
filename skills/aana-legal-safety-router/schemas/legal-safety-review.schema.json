@@ -1,0 +1,137 @@
+{
+  "title": "AANA Legal Safety Review",
+  "type": "object",
+  "required": [
+    "task_summary",
+    "legal_context",
+    "risk_level",
+    "jurisdiction_status",
+    "legal_advice_boundary_status",
+    "unsupported_claim_status",
+    "recommended_action"
+  ],
+  "properties": {
+    "task_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_context": {
+      "type": "string",
+      "enum": [
+        "general_information",
+        "contract",
+        "employment",
+        "housing",
+        "family",
+        "criminal",
+        "immigration",
+        "business",
+        "ip",
+        "privacy",
+        "compliance",
+        "tax",
+        "benefits",
+        "debt",
+        "court",
+        "dispute",
+        "document_drafting",
+        "unknown"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "deadline_sensitive",
+        "rights_affecting",
+        "unknown"
+      ]
+    },
+    "jurisdiction_status": {
+      "type": "string",
+      "enum": [
+        "provided",
+        "missing",
+        "choice_of_law_unclear",
+        "not_needed",
+        "not_checked",
+        "unknown"
+      ]
+    },
+    "legal_advice_boundary_status": {
+      "type": "string",
+      "enum": [
+        "general_information_only",
+        "legal_advice_overclaim",
+        "attorney_client_risk",
+        "professional_referral_needed",
+        "not_checked",
+        "unknown"
+      ]
+    },
+    "unsupported_claim_status": {
+      "type": "string",
+      "enum": [
+        "none",
+        "unsupported_law_claim",
+        "unsupported_deadline_claim",
+        "unsupported_rights_claim",
+        "unsupported_outcome_claim",
+        "unsupported_enforceability_claim",
+        "mixed",
+        "not_checked",
+        "unknown"
+      ]
+    },
+    "professional_referral_status": {
+      "type": "string",
+      "enum": [
+        "not_needed",
+        "lawyer_needed",
+        "legal_aid_needed",
+        "court_or_agency_needed",
+        "human_review_needed",
+        "unknown"
+      ]
+    },
+    "privacy_status": {
+      "type": "string",
+      "enum": [
+        "minimal",
+        "needs_redaction",
+        "private_legal_data_exposed",
+        "not_checked",
+        "unknown"
+      ]
+    },
+    "unsupported_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safeguards_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_action": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "revise",
+        "ask",
+        "retrieve",
+        "defer",
+        "refuse"
+      ]
+    },
+    "human_review_required": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,50 @@
+{
+  "package": "lawyer-legal-knowledge-distillation-geo",
+  "version": "1.0.0-rc.3",
+  "validated_at": "2026-07-21",
+  "static_validator": {
+    "status": "PASS",
+    "error_count": 0
+  },
+  "unit_tests": {
+    "status": "PASS",
+    "passed": 20,
+    "failed": 0
+  },
+  "privacy_static_scan": {
+    "status": "PASS",
+    "scope": "candidate-package-text-paths-secrets-symlinks-caches"
+  },
+  "checksum_manifest": {
+    "status": "PASS",
+    "algorithm": "SHA-256"
+  },
+  "case_payload_files": 0,
+  "answer_key_included": false,
+  "deployment_observation": {
+    "physical_install_observed": true,
+    "observed_installed_version": "1.0.0-rc.1",
+    "install_authorization_receipt": "missing",
+    "candidate_version_installed": false,
+    "production_promotion_authorized": false
+  },
+  "promotion_gates": {
+    "domain_baseline_contract": "PASS-static-template",
+    "output_contract": "PASS-static-template",
+    "court_visible_text": "pending-real-child-e2e",
+    "fixed_font_double_render": "pending-real-child-e2e",
+    "complete_nine_document_case": "pending-independent-replay",
+    "hold_case": "pending-independent-replay"
+  },
+  "formal_skill_install_authorized": false,
+  "external_publish_authorized": false,
+  "privacy_review": "pending-independent-review",
+  "legal_review": "pending-independent-review",
+  "human_final_acceptance": false,
+  "limitations": [
+    "No private case material is included in this candidate package.",
+    "Static validation does not replace independent privacy or legal review.",
+    "The rc.3 complete-nine-document and HOLD-case gates remain pending.",
+    "No new artifact class is introduced in rc.3."
+  ]
+}

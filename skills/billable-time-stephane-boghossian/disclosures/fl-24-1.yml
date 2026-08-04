@@ -1,0 +1,42 @@
+code: fl-24-1
+jurisdiction: "Florida (The Florida Bar)"
+opinion: "Florida Bar Ethics Opinion 24-1"
+date: "2024-01-19"
+source_url: "https://www.floridabar.org/etopinions/etopinion-24-1/"
+verified: false
+verified_by: ~
+canonical_disclosure_text: |
+  Generative artificial intelligence tools were used in the preparation of
+  certain work product on this matter, under the supervision of the
+  attorney of record. Consistent with Florida Rules Regulating The Florida
+  Bar 4-1.1, 4-1.5, 4-1.6, 4-5.1, and 4-5.3, the attorney verified the
+  AI-assisted output, exercised independent professional judgment, and
+  adopted the final work product as the attorney's own. The time billed
+  reflects actual attorney time spent on the matter. No markup has been
+  applied for AI-assisted efficiency.
+notes: |
+  Florida Bar Ethics Opinion 24-1 (January 19, 2024) was the first formal
+  ethics opinion in the United States dedicated to generative AI. It
+  addresses:
+
+  - Confidentiality (Rule 4-1.6): a lawyer must obtain "affirmative
+    informed consent" from the client before sharing confidential
+    information with a third-party GAI service that lacks adequate
+    safeguards.
+  - Oversight (Rules 4-5.1, 4-5.3): supervise GAI output the way you would
+    supervise a non-lawyer assistant's work.
+  - Fees (Rule 4-1.5): the lawyer may bill only for time actually spent.
+    AI-assisted efficiency does not entitle a lawyer to bill for time not
+    expended.
+  - Advertising: AI-generated content must comply with the lawyer
+    advertising rules.
+
+  This opinion is binding on Florida-licensed lawyers. If your matter
+  jurisdiction is Florida or your bar admission is Florida, this is the
+  controlling authority — not the ABA Model opinion.
+billing_rules_summary: |
+  Florida is explicit: bill actual time only. AI-assisted efficiency is not
+  a basis for additional time entries. Confirm with the client (in the
+  engagement letter, ideally) whether GAI use is authorized — Florida
+  treats client information shared with a third-party GAI service the
+  same as shared with a non-lawyer.

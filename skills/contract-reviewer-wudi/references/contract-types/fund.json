@@ -1,0 +1,315 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "基金合同",
+  "contract_type_en": "fund",
+  "description": "私募基金、公募基金、有限合伙基金等基金合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国证券投资基金法》",
+    "《私募投资基金监督管理暂行办法》",
+    "《私募投资基金合同指引》"
+  ],
+  "keywords_for_detection": [
+    "基金", "基金合同", "基金管理人", "基金托管人", "基金份额",
+    "私募基金", "公募基金", "有限合伙", "LP", "GP", "基金投资"
+  ],
+  "key_clauses": [
+    {
+      "name": "基金基本信息",
+      "required": true,
+      "keywords": ["基金名称", "基金类型", "基金规模", "基金期限"],
+      "check_points": [
+        {
+          "item": "基金名称",
+          "description": "基金名称是否明确",
+          "risk_level": "一般"
+        },
+        {
+          "item": "基金类型",
+          "description": "股权/债权/混合/证券等类型",
+          "risk_level": "重大"
+        },
+        {
+          "item": "基金规模",
+          "description": "基金规模（目标规模/上限规模）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "基金期限",
+          "description": "基金存续期限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确基金名称、类型、规模、期限"
+    },
+    {
+      "name": "基金管理人",
+      "required": true,
+      "keywords": ["基金管理人", "管理人", "GP", "普通合伙人"],
+      "check_points": [
+        {
+          "item": "管理人资质",
+          "description": "基金管理人是否在中基协登记",
+          "risk_level": "致命"
+        },
+        {
+          "item": "管理人义务",
+          "description": "基金管理人的管理义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "管理人责任",
+          "description": "基金管理人的责任限制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "确认基金管理人在中基协登记，明确管理义务和责任"
+    },
+    {
+      "name": "投资策略",
+      "required": true,
+      "keywords": ["投资策略", "投资方向", "投资范围", "投资限制"],
+      "check_points": [
+        {
+          "item": "投资方向",
+          "description": "基金投资方向是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "投资限制",
+          "description": "投资集中度限制",
+          "risk_level": "重大"
+        },
+        {
+          "item": "禁止投资",
+          "description": "禁止投资的领域",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确投资方向、投资限制、禁止投资领域"
+    },
+    {
+      "name": "认购与申购",
+      "required": true,
+      "keywords": ["认购", "申购", "认购金额", "最低认购", "认购期"],
+      "check_points": [
+        {
+          "item": "最低认购",
+          "description": "最低认购金额（私募基金不低于100万元）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "认购期",
+          "description": "认购期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "认购条件",
+          "description": "认购条件（合格投资者）",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "确认最低认购金额不低于100万元，投资者为合格投资者"
+    },
+    {
+      "name": "基金费用",
+      "required": true,
+      "keywords": ["管理费", "托管费", "业绩报酬", "认购费", "赎回费"],
+      "check_points": [
+        {
+          "item": "管理费",
+          "description": "管理费率和计算方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "业绩报酬",
+          "description": "业绩报酬（Carry）计算方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "优先回报",
+          "description": "优先回报率（Hurdle Rate）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确管理费、业绩报酬、优先回报率"
+    },
+    {
+      "name": "收益分配",
+      "required": true,
+      "keywords": ["收益分配", "分配顺序", "分配比例", "分配时间"],
+      "check_points": [
+        {
+          "item": "分配顺序",
+          "description": "收益分配顺序（优先LP→GP）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "分配比例",
+          "description": "LP/GP收益分配比例",
+          "risk_level": "重大"
+        },
+        {
+          "item": "回拨机制",
+          "description": "GP超额收益回拨机制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确收益分配顺序、比例，约定GP回拨机制"
+    },
+    {
+      "name": "退出机制",
+      "required": true,
+      "keywords": ["退出", "赎回", "转让", "清算"],
+      "check_points": [
+        {
+          "item": "退出方式",
+          "description": "基金份额退出方式（赎回/转让/清算）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "锁定期",
+          "description": "基金份额锁定期",
+          "risk_level": "重大"
+        },
+        {
+          "item": "转让限制",
+          "description": "基金份额转让限制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确退出方式、锁定期、转让限制"
+    },
+    {
+      "name": "信息披露",
+      "required": true,
+      "keywords": ["信息披露", "报告", "净值", "定期报告"],
+      "check_points": [
+        {
+          "item": "披露频率",
+          "description": "净值披露频率",
+          "risk_level": "重大"
+        },
+        {
+          "item": "定期报告",
+          "description": "季报/年报等定期报告",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确信息披露频率和内容"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "FND001",
+      "name": "管理人未登记",
+      "description": "基金管理人未在中基协登记，基金为非法私募",
+      "severity": "高风险",
+      "suggestion": "核实基金管理人在中基协登记备案",
+      "legal_basis": "《私募基金监管办法》第7条"
+    },
+    {
+      "id": "FND002",
+      "name": "投资者不合格",
+      "description": "投资者不符合合格投资者标准",
+      "severity": "高风险",
+      "suggestion": "核实投资者符合合格投资者标准（金融资产≥300万或年收入≥50万）",
+      "legal_basis": "《私募基金监管办法》第12条"
+    },
+    {
+      "id": "FND003",
+      "name": "最低认购不足",
+      "description": "单个投资者认购金额低于100万元",
+      "severity": "高风险",
+      "suggestion": "确保单个投资者认购金额不低于100万元",
+      "legal_basis": "《私募基金监管办法》第12条"
+    },
+    {
+      "id": "FND004",
+      "name": "公开募集",
+      "description": "私募基金通过公开方式募集，违反监管规定",
+      "severity": "高风险",
+      "suggestion": "私募基金不得公开募集，不得向不特定对象宣传推介",
+      "legal_basis": "《私募基金监管办法》第14条"
+    },
+    {
+      "id": "FND005",
+      "name": "业绩报酬不合理",
+      "description": "业绩报酬计算方式不合理，损害投资者利益",
+      "severity": "中风险",
+      "suggestion": "业绩报酬应设置合理的优先回报率，约定回拨机制"
+    },
+    {
+      "id": "FND006",
+      "name": "信息披露不足",
+      "description": "基金净值披露不及时，信息不透明",
+      "severity": "中风险",
+      "suggestion": "明确净值披露频率（至少每季度一次），约定重大事项及时披露"
+    }
+  ],
+  "position_guidance": {
+    "lp": {
+      "name": "有限合伙人/投资者",
+      "priority_checks": [
+        "管理人资质",
+        "投资策略",
+        "费用结构",
+        "退出机制"
+      ],
+      "key_concerns": [
+        "核实管理人资质",
+        "了解投资策略和风险",
+        "明确费用结构",
+        "了解退出机制"
+      ],
+      "avoid": [
+        "接受刚性兑付承诺",
+        "管理人无资质",
+        "费用过高",
+        "退出机制不明"
+      ]
+    },
+    "gp": {
+      "name": "普通合伙人/管理人",
+      "priority_checks": [
+        "管理费",
+        "业绩报酬",
+        "责任限制",
+        "信息披露"
+      ],
+      "key_concerns": [
+        "合理的管理费和业绩报酬",
+        "明确责任限制",
+        "合规信息披露",
+        "投资决策权"
+      ],
+      "avoid": [
+        "承诺保本保收益",
+        "责任无限制",
+        "信息披露不足",
+        "投资决策权受限"
+      ]
+    }
+  },
+  "legal_notes": {
+    "registration": {
+      "description": "登记备案",
+      "manager": "私募基金管理人须在中国证券投资基金业协会登记",
+      "fund": "私募基金须在中基协备案",
+      "legal_basis": "《私募基金监管办法》第7-8条"
+    },
+    "qualified_investor": {
+      "description": "合格投资者",
+      "individual": "个人：金融资产不低于300万元，或最近3年年均收入不低于50万元",
+      "institution": "机构：净资产不低于1000万元",
+      "minimum": "单个投资者认购金额不低于100万元",
+      "legal_basis": "《私募基金监管办法》第12条"
+    },
+    "carry": {
+      "description": "业绩报酬（Carry）",
+      "typical": "通常为超额收益的20%",
+      "hurdle": "优先回报率（Hurdle Rate）通常为8%",
+      "clawback": "GP回拨机制：基金清算时GP超额收益需回拨"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "data-compliance-lookup",
+  "displayName": "个保法/网安法条款速查",
+  "version": "1.0.0",
+  "description": "为产品、运营、开发整理个人信息保护、隐私协议、数据出境、第三方 SDK 等合规 checklist。",
+  "author": "ikun",
+  "license": "MIT",
+  "category": "knowledge",
+  "tags": [
+    "合规",
+    "个保法",
+    "网安法",
+    "数据安全"
+  ],
+  "keywords": [
+    "个人信息保护法",
+    "数据安全法",
+    "网络安全法",
+    "隐私协议",
+    "合规清单"
+  ],
+  "platforms": [
+    "openclaw",
+    "skillhub",
+    "claude-code",
+    "cursor"
+  ],
+  "language": "zh-CN",
+  "minAgentVersion": "0.1.0"
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>模板03 - 员工入职登记表</title>
+<style>
+  body { font-family: "SimSun", "宋体", serif; font-size: 14px; line-height: 1.8; margin: 0; padding: 20px; }
+  .page { width: 210mm; margin: 0 auto; padding: 20mm; background: white; }
+  h1 { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+  h2 { font-size: 15px; font-weight: bold; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #333; padding-bottom: 4px; }
+  p { text-indent: 2em; margin: 6px 0; }
+  .tip { background: #e3f2fd; border: 1px solid #2196f3; padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 13px; }
+  .tip strong { color: #1565c0; }
+  .warn { background: #fff3e0; border: 1px solid #ff9800; padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 13px; }
+  .warn strong { color: #e65100; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+  td, th { border: 1px solid #333; padding: 5px 8px; font-size: 13px; vertical-align: top; }
+  th { background: #f5f5f5; font-weight: bold; text-align: center; }
+  .photo-box { width: 120px; height: 150px; border: 1px solid #333; text-align: center; line-height: 150px; font-size: 12px; color: #999; }
+  .section-title { background: #f0f0f0; font-weight: bold; text-align: center; }
+  .footer { text-align: center; font-size: 12px; color: #666; margin-top: 30px; }
+  @media print { body { padding: 0; } .page { margin: 0; padding: 15mm; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>员 工 入 职 登 记 表</h1>
+
+  <div class="tip">
+    <strong>⚖️ 法律提示：</strong>根据《个人信息保护法》第13条，公司收集员工个人信息须以"人力资源管理所必需"为限。标有「※」的字段为入职办理必需信息；其他字段如非必需，员工有权拒绝提供。
+  </div>
+
+  <!-- 照片框 -->
+  <div style="text-align:right; margin-bottom:-30px;">
+    <div class="photo-box" style="display:inline-block;">贴照片处<br>（一寸证件照）</div>
+  </div>
+
+  <h2>一、个人基本信息</h2>
+  <table>
+    <tr><td class="section-title" colspan="4">个人基本信息（※为必填项）</td></tr>
+    <tr>
+      <td style="width:100px; text-align:right;"><strong>姓名※</strong></td><td style="width:180px;">________________</td>
+      <td style="width:120px; text-align:right;"><strong>性别※</strong></td><td>□男　□女</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>出生日期※</strong></td><td>____年____月____日</td>
+      <td style="text-align:right;"><strong>民族</strong></td><td>________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>身份证号※</strong></td><td colspan="3">________________________________________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>手机号码※</strong></td><td>________________</td>
+      <td style="text-align:right;"><strong>电子邮箱</strong></td><td>________________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>现住址※</strong></td><td colspan="3">________________________________________（用于送达法律文书）</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>户籍地址</strong></td><td colspan="3">________________________________________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>婚姻状况</strong></td><td>□未婚　□已婚　□离异　□丧偶</td>
+      <td style="text-align:right;"><strong>生育状况</strong></td><td>□未育　□已育____孩</td>
+    </tr>
+  </table>
+
+  <div class="warn">
+    <strong>⚠️ 合规提示：</strong>「婚姻状况」「生育状况」属于员工个人隐私，公司不得强制要求提供，亦不得因婚育状况拒绝录用或区别对待。《妇女权益保障法》第43条明确禁止在招聘中询问或调查女性求职者的婚育情况。
+  </div>
+
+  <h2>二、教育背景</h2>
+  <table>
+    <tr><th>起止时间</th><th>院校名称</th><th>专业</th><th>学历/学位</th><th>是否统招</th></tr>
+    <tr><td>____至____</td><td>____________</td><td>________</td><td>________</td><td>□是 □否</td></tr>
+    <tr><td>____至____</td><td>____________</td><td>________</td><td>________</td><td>□是 □否</td></tr>
+    <tr><td>____至____</td><td>____________</td><td>________</td><td>________</td><td>□是 □否</td></tr>
+  </table>
+
+  <h2>三、工作经历（从最近一份工作填起）</h2>
+  <table>
+    <tr><th>起止时间</th><th>单位名称</th><th>岗位/职务</th><th>离职原因</th><th>证明人/电话</th></tr>
+    <tr><td>____至____</td><td>____________</td><td>________</td><td>________</td><td>________</td></tr>
+    <tr><td>____至____</td><td>____________</td><td>________</td><td>________</td><td>________</td></tr>
+    <tr><td>____至____</td><td>____________</td><td>________</td><td>________</td><td>________</td></tr>
+  </table>
+
+  <h2>四、紧急联系人</h2>
+  <table>
+    <tr>
+      <td style="width:100px; text-align:right;">姓名※</td><td style="width:150px;">____________</td>
+      <td style="width:100px; text-align:right;">关系※</td><td>____________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">手机号码※</td><td colspan="3">________________________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">住址</td><td colspan="3">________________________________</td>
+    </tr>
+  </table>
+
+  <h2>五、入职信息确认</h2>
+  <table>
+    <tr>
+      <td style="width:130px; text-align:right;"><strong>录用岗位※</strong></td><td>________________</td>
+      <td style="width:100px; text-align:right;"><strong>所属部门※</strong></td><td>________________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>劳动合同期限※</strong></td><td>____年（自____年____月____日起）</td>
+      <td style="text-align:right;"><strong>试用期※</strong></td><td>____个月</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>工作地点※</strong></td><td colspan="3">________________________________</td>
+    </tr>
+    <tr>
+      <td style="text-align:right;"><strong>月薪资标准※</strong></td><td colspan="3">人民币________元（税前），其中：基本工资____元，岗位工资____元，绩效工资____元</td>
+    </tr>
+  </table>
+
+  <h2>六、声明与授权</h2>
+  <div style="border: 1px solid #333; padding: 10px; margin: 10px 0; font-size: 13px; line-height: 1.8;">
+    <p style="text-indent:0; margin:4px 0;"><strong>本人郑重声明：</strong></p>
+    <p>1. 本人填写的上述信息及提供的全部证明材料（身份证、学历证书、离职证明等）均真实、准确、完整，不存在任何虚假记载、误导性陈述或重大遗漏。</p>
+    <p>2. 本人与前用人单位已依法解除/终止劳动关系，不存在尚未履行完毕的竞业限制义务或其他法律争议。</p>
+    <p>3. 本人授权公司对本人在本表中填写的信息进行核实（包括但不限于向原用人单位、教育机构核实），并授权公司依法收集、使用本人个人信息用于人力资源管理目的。</p>
+    <p>4. 如本人提供的信息不实或存在重大遗漏，公司有权依法解除劳动关系，且无需支付经济补偿。</p>
+    <p style="margin-top:15px;">签署人（签名）：________________　　日期：____年____月____日</p>
+  </div>
+
+  <p style="margin-top:20px;">公司经办人：________________　　日期：____年____月____日</p>
+
+  <div class="footer">—— 模板03 结束 ——</div>
+</div>
+</body>
+</html>

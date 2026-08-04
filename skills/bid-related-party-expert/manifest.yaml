@@ -1,0 +1,96 @@
+name: bid-related-party-expert
+version: 1.1.0
+display_name: 投标企业关联关系识别专家（工商信息版）
+description: 投标企业关联关系识别专家（基于公开工商信息版）。当用户需要识别多个投标主体之间是否存在法定禁止的关联投标——单位负责人为同一人、控股或直接管理关系（依据《招标投标法实施条例》第34条、《政府采购法实施条例》第18条），或需开展关联网络分析、否定性规则核查时触发。专注工商登记层面信息（法定代表人/负责人、股东及持股、股权穿透、董监高、注册/经营地址、联系电话/邮箱等），不分析投标行为痕迹与串标行为（第39/40条不在本技能范围）。可在争议点调用 IMA 知识库复核口径与类案。区别于 bid-compliance-due-diligence（查企业黑历史/行政处罚）、bid-dup-check（查标书文本雷同），本技能专注工商层面的关联认定与投标无效判定，仅输出评审参考、不替代法定认定。
+author: "一线评标专家&ChesaraM"
+emoji: 🔗
+license: MIT-0
+feedback:
+  channel: GitHub Issues
+  account: chesaram/my-skill-hub
+  note: 使用问题、误报反馈、实务建议，欢迎通过项目仓库提交 Issue 反馈。
+tags:
+  - 关联关系
+  - 投标无效
+  - 工商信息
+  - 股权穿透
+  - 围标风险
+metadata:
+  openclaw:
+    homepage: https://github.com/chesaram/my-skill-hub
+    triggers:
+      - pattern: 关联关系识别
+        description: 用户要识别多个投标主体之间是否存在法定禁止的关联关系
+      - pattern: 投标企业关联
+        description: 用户问几家公司投标是否构成关联、会不会导致投标无效
+      - pattern: 关联投标核查
+        description: 用户要求核对投标主体间的控股/管理/负责人同一关系
+      - pattern: 单位负责人同一人
+        description: 用户问不同单位负责人为同一人能否投同一标段
+      - pattern: 股权穿透
+        description: 用户要求穿透股权查最终受益人或实际控制人是否同一
+      - pattern: 围标关联网络
+        description: 用户怀疑多个投标主体存在关联网络（围标风险）
+      - pattern: 关联企业投标无效
+        description: 用户问哪些关联关系会导致投标无效
+      - pattern: 投标主体关系核查
+        description: 用户上传多家企业工商信息要求筛查关联信号
+platforms:
+  clawhub:
+    name: bid-related-party-expert
+    displayName: Bid Related-Party Expert (工商信息版)
+    slug: bid-related-party-expert
+    version: 1.1.0
+    description: Identify prohibited related-party bidding among tenderers using public business-registration data (same legal representative, controlling or managing relationships per Article 34 / Article 18). Spans equity penetration, affiliation-network analysis, and negative-rule checks; stays within the business-registry boundary and calls IMA KB for dispute review.
+    triggers:
+      - Related-party identification
+      - Related bidding check
+      - Same legal representative
+      - Equity penetration
+      - Affiliation network
+    emoji: 🔗
+    tags:
+      - related-party
+      - bid-rejection
+      - equity-penetration
+  skillhub:
+    name: bid-related-party-expert
+    displayName: 投标企业关联关系识别专家（工商信息版）
+    description: 投标企业关联关系识别专家（基于公开工商信息版）——识别投标主体间单位负责人同一人、控股或管理关系等法定禁止关联，做股权穿透、关联网络分析与否定性规则核查，专注工商层面、不越界串标行为。
+    version: 1.1.0
+    emoji: 🔗
+    tags:
+      - 关联关系
+      - 投标无效
+      - 工商信息
+  cocoloop:
+    name: bid-related-party-expert
+    displayName: 投标企业关联关系识别专家（工商信息版）
+    description: 投标企业关联关系识别专家（基于公开工商信息版）——识别投标主体间单位负责人同一人、控股或管理关系等法定禁止关联，做股权穿透、关联网络分析与否定性规则核查，专注工商层面、不越界串标行为。
+    version: 1.1.0
+    emoji: 🔗
+    tags:
+      - 关联关系
+      - 投标无效
+      - 工商信息
+  coze:
+    name: bid-related-party-expert
+    displayName: 投标企业关联关系识别专家（工商信息版）
+    description: 投标企业关联关系识别专家（基于公开工商信息版）。识别多个投标主体之间单位负责人为同一人、控股或直接管理关系等法定禁止关联（依据《招标投标法实施条例》第34条、《政府采购法实施条例》第18条），做股权穿透、关联网络分析与否定性规则核查。专注工商登记层面信息，不分析投标行为痕迹与串标行为，可在争议点调用 IMA 知识库复核口径，仅输出评审参考、不替代法定认定。
+    version: 1.1.0
+    emoji: 🔗
+    triggers:
+      - 关联关系识别
+      - 投标企业关联
+      - 关联投标核查
+      - 单位负责人同一人
+      - 股权穿透
+      - 围标关联网络
+      - 关联企业投标无效
+      - 投标主体关系核查
+    tags:
+      - 关联关系
+      - 投标无效
+      - 工商信息
+      - 股权穿透
+      - 围标风险

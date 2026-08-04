@@ -1,0 +1,253 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "娱乐演艺合同",
+  "contract_type_en": "entertainment",
+  "description": "演艺经纪、演出合同、唱片合同、版权许可等娱乐演艺合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《营业性演出管理条例》",
+    "《演出经纪人员管理办法》"
+  ],
+  "keywords_for_detection": [
+    "演艺", "经纪", "演出", "艺人", "唱片", "版权许可",
+    "演艺经纪", "演出合同", "唱片合同", "授权", "分成"
+  ],
+  "key_clauses": [
+    {
+      "name": "经纪范围",
+      "required": true,
+      "keywords": ["经纪范围", "代理范围", "服务范围", "演艺范围"],
+      "check_points": [
+        {
+          "item": "范围明确",
+          "description": "经纪代理范围是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "独家性",
+          "description": "是否为独家经纪",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确经纪代理范围和独家性"
+    },
+    {
+      "name": "服务内容",
+      "required": true,
+      "keywords": ["服务内容", "经纪服务", "演艺服务"],
+      "check_points": [
+        {
+          "item": "服务内容",
+          "description": "经纪公司提供的服务内容",
+          "risk_level": "重大"
+        },
+        {
+          "item": "义务明确",
+          "description": "经纪公司义务是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确经纪公司服务内容和义务"
+    },
+    {
+      "name": "收益分成",
+      "required": true,
+      "keywords": ["收益分成", "报酬分配", "版税", "演出费分成"],
+      "check_points": [
+        {
+          "item": "分成比例",
+          "description": "经纪公司与艺人收益分成比例",
+          "risk_level": "致命"
+        },
+        {
+          "item": "分成基数",
+          "description": "分成基数（总收入/净收入）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "版税",
+          "description": "版权使用费/版税分配",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确分成比例和分成基数，约定版税分配"
+    },
+    {
+      "name": "经纪期限",
+      "required": true,
+      "keywords": ["经纪期限", "合同期限", "独家期限"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "经纪期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "续约条件",
+          "description": "续约条件和优先续约权",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确经纪期限和续约条件"
+    },
+    {
+      "name": "演出安排",
+      "required": true,
+      "keywords": ["演出安排", "演出计划", "拒绝演出", "最低演出"],
+      "check_points": [
+        {
+          "item": "最低演出",
+          "description": "每年最低演出场次",
+          "risk_level": "重大"
+        },
+        {
+          "item": "拒绝权",
+          "description": "艺人拒绝特定演出的权利",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用承担",
+          "description": "演出费用（差旅、服装等）承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确最低演出场次、拒绝权、费用承担"
+    },
+    {
+      "name": "IP归属",
+      "required": true,
+      "keywords": ["知识产权", "版权", "肖像权", "作品归属"],
+      "check_points": [
+        {
+          "item": "版权归属",
+          "description": "演艺作品的版权归属",
+          "risk_level": "致命"
+        },
+        {
+          "item": "肖像权",
+          "description": "肖像权使用范围和报酬",
+          "risk_level": "重大"
+        },
+        {
+          "item": "艺名归属",
+          "description": "艺名/艺档归属",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确演艺作品版权、肖像权、艺名归属"
+    },
+    {
+      "name": "违约与解约",
+      "required": true,
+      "keywords": ["违约", "解约", "违约金", "终止"],
+      "check_points": [
+        {
+          "item": "解约条件",
+          "description": "艺人单方解约条件",
+          "risk_level": "致命"
+        },
+        {
+          "item": "违约金",
+          "description": "违约金的合理性",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确解约条件，违约金应合理（不宜过高）"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "ENT001",
+      "name": "独家经纪过于苛刻",
+      "description": "独家经纪范围过宽、期限过长，限制艺人发展",
+      "severity": "高风险",
+      "suggestion": "限制独家经纪范围和期限，明确退出机制"
+    },
+    {
+      "id": "ENT002",
+      "name": "收益分成不透明",
+      "description": "收益分成基数不明确（总收入 vs 净收入），艺人收益受损",
+      "severity": "高风险",
+      "suggestion": "明确分成基数，约定审计权"
+    },
+    {
+      "id": "ENT003",
+      "name": "版权归属不明",
+      "description": "演艺作品版权归属不明，产生争议",
+      "severity": "高风险",
+      "suggestion": "明确版权归属，建议版权归艺人所有，经纪公司获使用权"
+    },
+    {
+      "id": "ENT004",
+      "name": "违约金过高",
+      "description": "艺人解约违约金过高，难以退出不合理的经纪关系",
+      "severity": "高风险",
+      "suggestion": "违约金应与实际损失相当，不宜约定过高"
+    },
+    {
+      "id": "ENT005",
+      "name": "经纪公司义务不清",
+      "description": "经纪公司服务义务不明确，艺人无法获得足够服务",
+      "severity": "中风险",
+      "suggestion": "明确经纪公司服务义务（最低演出、推广投入等）"
+    }
+  ],
+  "position_guidance": {
+    "artist": {
+      "name": "艺人",
+      "priority_checks": [
+        "经纪范围",
+        "收益分成",
+        "IP归属",
+        "解约条件"
+      ],
+      "key_concerns": [
+        "限制独家范围",
+        "争取合理分成（通常三七开）",
+        "版权归自己",
+        "保留合理解约权"
+      ],
+      "avoid": [
+        "独家范围过宽",
+        "分成比例过低",
+        "版权全归经纪公司",
+        "违约金过高"
+      ]
+    },
+    "agency": {
+      "name": "经纪公司",
+      "priority_checks": [
+        "经纪范围",
+        "独家期限",
+        "IP使用权",
+        "违约金"
+      ],
+      "key_concerns": [
+        "争取独家经纪",
+        "合理的经纪期限",
+        "获得作品使用权",
+        "合理的违约金"
+      ],
+      "avoid": [
+        "独家范围过窄",
+        "期限过短",
+        "无IP使用权",
+        "无违约金保护"
+      ]
+    }
+  },
+  "legal_notes": {
+    "performance_regulation": {
+      "description": "营业性演出规定",
+      "performer": "演员须年满18周岁（未成年人需监护人同意）",
+      "agency": "演出经纪机构须取得营业性演出许可证",
+      "legal_basis": "《营业性演出管理条例》第10条"
+    },
+    "exclusive_agency": {
+      "description": "独家经纪",
+      "typical": "经纪期限通常3-5年",
+      "scope": "独家经纪范围应明确（音乐/影视/广告等分项）"
+    }
+  }
+}

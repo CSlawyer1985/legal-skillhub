@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "candidate_path": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/candidates/gaotao-litigation-visualization-extension/20260723-contract-r2-codex",
+  "auditor_status": "passed",
+  "strict": true,
+  "checks": [
+    {
+      "name": "candidate_exists",
+      "passed": true,
+      "severity": "required",
+      "detail": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/candidates/gaotao-litigation-visualization-extension/20260723-contract-r2-codex"
+    },
+    {
+      "name": "skill_frontmatter",
+      "passed": true,
+      "severity": "required",
+      "detail": "SKILL.md has YAML frontmatter"
+    },
+    {
+      "name": "manifest_valid_json",
+      "passed": true,
+      "severity": "required",
+      "detail": "manifest.json parses"
+    },
+    {
+      "name": "manifest_schema_version",
+      "passed": true,
+      "severity": "required",
+      "detail": "schema_version is 2 or 3"
+    },
+    {
+      "name": "candidate_not_formal_path",
+      "passed": true,
+      "severity": "required",
+      "detail": "candidate lives in a candidate root, not an active formal skill path"
+    },
+    {
+      "name": "rationale_present",
+      "passed": true,
+      "severity": "recommended",
+      "detail": "RATIONALE.md exists"
+    },
+    {
+      "name": "evidence_present",
+      "passed": true,
+      "severity": "recommended",
+      "detail": "EVIDENCE.md exists"
+    },
+    {
+      "name": "patch_present",
+      "passed": true,
+      "severity": "recommended",
+      "detail": "PATCH.diff exists"
+    },
+    {
+      "name": "no_bytecode_artifacts",
+      "passed": true,
+      "severity": "required",
+      "detail": "0 bytecode artifacts found"
+    },
+    {
+      "name": "promotion_record_complete",
+      "passed": true,
+      "severity": "required",
+      "detail": "promoted candidates record promoted_by/promoted_at"
+    },
+    {
+      "name": "strict_no_residual_candidate_labels",
+      "passed": true,
+      "severity": "required",
+      "detail": "0 paths"
+    },
+    {
+      "name": "strict_patch_diff_format",
+      "passed": true,
+      "severity": "required",
+      "detail": "0 paths"
+    },
+    {
+      "name": "strict_patch_apply_check",
+      "passed": true,
+      "severity": "required",
+      "detail": "0 paths"
+    },
+    {
+      "name": "strict_spec_patch_scope",
+      "passed": true,
+      "severity": "required",
+      "detail": "0 paths"
+    },
+    {
+      "name": "strict_source_baseline_current",
+      "passed": true,
+      "severity": "required",
+      "detail": "0 paths"
+    },
+    {
+      "name": "strict_formal_post_promotion_current",
+      "passed": true,
+      "severity": "required",
+      "detail": "not promoted"
+    },
+    {
+      "name": "strict_manifest_consistency",
+      "passed": true,
+      "severity": "required",
+      "detail": "manifest validation fields are self-consistent"
+    },
+    {
+      "name": "strict_relationships_consistency",
+      "passed": true,
+      "severity": "required",
+      "detail": "relationships metadata is self-consistent or absent"
+    },
+    {
+      "name": "strict_external_evaluations",
+      "passed": true,
+      "severity": "required",
+      "detail": "external evaluator metadata is self-consistent or absent"
+    },
+    {
+      "name": "strict_rights_provenance",
+      "passed": true,
+      "severity": "required",
+      "detail": "rights/provenance metadata is present when required"
+    },
+    {
+      "name": "strict_rights_provenance_legacy",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no legacy rights/provenance gaps"
+    },
+    {
+      "name": "strict_post_promotion_safety",
+      "passed": true,
+      "severity": "required",
+      "detail": "post-promotion safety metadata is self-consistent or absent"
+    },
+    {
+      "name": "strict_post_promotion_safety_legacy",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no post-promotion safety warnings"
+    },
+    {
+      "name": "strict_empirical_scorecard",
+      "passed": true,
+      "severity": "required",
+      "detail": "empirical scorecard metadata is self-consistent or absent"
+    },
+    {
+      "name": "strict_empirical_scorecard_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no empirical scorecard review warnings"
+    },
+    {
+      "name": "strict_value_delta_gate",
+      "passed": true,
+      "severity": "required",
+      "detail": "value-delta metadata is self-consistent or not required for this candidate"
+    },
+    {
+      "name": "strict_value_delta_gate_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no value-delta review warnings"
+    },
+    {
+      "name": "strict_pre_promotion_reports",
+      "passed": true,
+      "severity": "required",
+      "detail": "pre-promotion report metadata is self-consistent or not required"
+    },
+    {
+      "name": "strict_pre_promotion_reports_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no pre-promotion report warnings"
+    },
+    {
+      "name": "strict_decision_history",
+      "passed": true,
+      "severity": "required",
+      "detail": "decision-history metadata is self-consistent or not required"
+    },
+    {
+      "name": "strict_decision_history_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no decision-history review warnings"
+    },
+    {
+      "name": "strict_independent_reproduction",
+      "passed": true,
+      "severity": "required",
+      "detail": "independent reproduction metadata is self-consistent or not required"
+    },
+    {
+      "name": "strict_independent_reproduction_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no independent reproduction review warnings"
+    },
+    {
+      "name": "strict_rejected_alternatives",
+      "passed": true,
+      "severity": "required",
+      "detail": "rejected alternatives metadata is self-consistent or absent"
+    },
+    {
+      "name": "strict_rejected_alternatives_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no rejected alternatives review warnings"
+    },
+    {
+      "name": "strict_redacted_reporting",
+      "passed": true,
+      "severity": "required",
+      "detail": "redacted reporting metadata is self-consistent or absent"
+    },
+    {
+      "name": "strict_redacted_reporting_review",
+      "passed": true,
+      "severity": "warning",
+      "detail": "no redacted reporting review warnings"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "memo",
+  "label": "法律备忘录",
+  "description": "内部备忘录，无封面，使用 memo 抬头表，适合团队内部沟通",
+  "doc_type": "memo",
+  "default_preset": "executive",
+  "default_color_scheme": "A",
+  "default_font_provider": "noto",
+  "cover_fields": {}
+}

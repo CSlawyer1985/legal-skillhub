@@ -1,0 +1,14 @@
+{
+  "$schema": "clause-schema",
+  "category": "penalty",
+  "name": "逾期劳动报酬每日3%滞纳金（劳动合同）",
+  "applicable_types": [
+    "labor-contract"
+  ],
+  "clause_text": "用人单位拖欠劳动者工资报酬的，应当按照拖欠工资数额的【每日3%】向劳动者加付赔偿金；经劳动行政部门责令支付仍不支付的，应当按照应付金额的【50%以上100%以下】加付赔偿金。",
+  "position_tips": {
+    "employer": "严格按照约定日期发薪，避免触发滞纳金；争取在合同中约定合理的发薪日期",
+    "employee": "法定滞纳金为每日3%；注意保留工资条和考勤记录作为维权证据"
+  },
+  "legal_reference": "《劳动合同法》第85条"
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>05 · 什么是好的法律 Skill · 学习中心</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>05 · 什么是好的法律 Skill</h1>
+  <p class="lead">通用 Skill 的评判标准是"好不好用"；法律 Skill 还要再加一把尺——<strong>敢不敢用</strong>。法律工作的特殊性（后果严肃、依据必须可溯、口径必须诚实）决定了法律 Skill 有一组专属的质量要求。</p>
+
+  <h2>一、九条硬要求</h2>
+  <h3>1. 法域识别</h3>
+  <p>法律 Skill 必须知道自己属于哪个法域，并在不适用时主动退出："本 Skill 基于中国大陆法律，您的问题涉及香港法域，建议另行核查。"没有法域意识的 Skill 是最危险的——它会用美国法的逻辑答中国法的问题，而且说得头头是道。本站每个 Skill 的法域标签就是为此存在（尽管是自动判定的，仍需你结合原文核实）。</p>
+  <h3>2. 法律时效</h3>
+  <p>法律在变。好的法律 Skill 要么写明"本内容基于 X 年 X 月现行有效法律"，要么内置时效核验动作（"引用法条前必须检索确认现行有效"）。站内 <a class="case-link" href="../skill.html?f=construction-project-dispute-q-a-plus">construction-project-dispute-q-a-plus</a> 是正面典型：内置 2026 年建工解释（二）并强制"解释二优先、矛盾以解释二为准"。</p>
+  <h3>3. 来源核验</h3>
+  <p>引用必须可回溯：法条要到"第几条第几款"，案例要到案号，数据要到来源。写 Skill 时应把"输出必须附来源"写进输出契约，而不是指望模型自觉。</p>
+  <h3>4. 事实与法律分离</h3>
+  <p>好的法律 Skill 会强制区分三层：<strong>材料里写了什么（事实）→ 法律规则是什么（规范）→ 我的分析是什么（评价）</strong>。混着写的输出没法用——你没法向客户解释哪句是材料说的、哪句是 AI 说的。</p>
+  <h3>5. 不确定性表达</h3>
+  <p>"初步判断""倾向认为""需结合进一步材料确认"——这些不是套话，是法律意见的一部分。Skill 应明确要求模型对不确定事项进行标注，禁止把推测写成结论。</p>
+  <h3>6. 禁止虚构</h3>
+  <p>这是法律 AI 的第一铁律。Skill 里应明确："不得虚构法条、案例、证据、案号；无法确认时输出'未检索到'而非推测。"配合验证动作更佳（"引用法条前必须检索原文"）。</p>
+  <h3>7. 结论可追溯</h3>
+  <p>每一个法律结论，都应该能回答"你怎么得出这个的"：程序主张 ← 法律要件 ← 待证事实 ← 原始材料。Skill 的输出结构应支持这条追溯链。</p>
+  <h3>8. 保密与利益冲突</h3>
+  <p><strong>客户数据不进 Skill</strong>。当事人的姓名、案情细节、商业信息，绝不应该写进 Skill 的正文或示例里（示例一律用虚构案例）。给团队用的 Skill 还要提示："使用外部模型处理客户信息前，确认符合所在机构的保密与数据合规要求。"</p>
+  <h3>9. 人工复核节点</h3>
+  <p>好的法律 Skill 会主动设置"必须人来拍板"的节点：立案与否、报价多少、让步底线、正式提交。<em>AI 给选项和依据，人做决策。</em>站内 <a class="case-link" href="../skill.html?f=billable-time-stephane-boghossian">billable-time</a> 把这个原则推到了极致："绝不在律师阅读意见前翻转 verified 标志、绝不自动计费"——五条硬性拒绝，是法律 AI 克己复礼的范本。</p>
+
+  <h2>二、正反案例对照</h2>
+  <table>
+    <tr><th>维度</th><th>反面（站内真实存在的写法）</th><th>正面</th></tr>
+    <tr><td>判断标准</td><td>"注意条款的合理性"</td><td>"违约金超过 LPR 4 倍 → 标高风险，依据《民法典》第 585 条"</td></tr>
+    <tr><td>时效处理</td><td>正文直接固化"根据 XX 法第 X 条"，不验证</td><td>"引用前必须检索确认现行有效；检索失败则标注'未验证'"</td></tr>
+    <tr><td>输出契约</td><td>"输出一份审查报告"</td><td>"每个风险点：条款定位+风险定性+依据+修改建议+风险等级（高/中/低）"</td></tr>
+    <tr><td>边界</td><td>什么合同都接，问什么都答</td><td>"不适用于商品房买卖合同；超出范围时说明并停止"</td></tr>
+    <tr><td>证据意识</td><td>把当事人陈述当事实写进分析</td><td>区分"材料记载/当事人陈述/已核实事实"，逐层标注</td></tr>
+  </table>
+
+  <h2>三、好的法律 Skill 检查清单</h2>
+  <p>评价（或自查）一个法律 Skill，问十个问题：</p>
+  <ol>
+    <li>它声明了法域吗？跨法域时会退出吗？</li>
+    <li>它有法律时效的核验动作吗？</li>
+    <li>引用要求精确到条款/案号吗？</li>
+    <li>事实、规范、评价三层分得开吗？</li>
+    <li>不确定的地方允许说"不确定"吗？</li>
+    <li>有明确的"禁止虚构"条款吗？</li>
+    <li>结论能往回追溯到材料吗？</li>
+    <li>示例用的是虚构案例吗？会泄露真实客户信息吗？</li>
+    <li>哪些节点明确要求人来决策？</li>
+    <li>它说清了自己"不做什么"吗？</li>
+  </ol>
+  <p>十问全过的 Skill，本站里不到一成——这也正是你写 Skill 时的机会：<strong>大部分人写的是"能用的" Skill，你可以写"敢用的"</strong>。</p>
+
+  <h2>下一讲</h2>
+  <p>满足了九条硬要求，怎么证明它真的好？——靠评测，不靠感觉。→ <a class="case-link" href="./06-evaluation.html">06 · 评测和迭代</a></p>
+</article>
+<div id="footer"></div>
+<script src="../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
+</script>
+</body>
+</html>

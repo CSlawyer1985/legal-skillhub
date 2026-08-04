@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- 背景圆 -->
+  <circle cx="60" cy="60" r="56" fill="#E8F0FE" stroke="#1A73E8" stroke-width="2.5"/>
+  <!-- 专利文档图标 -->
+  <rect x="30" y="28" width="42" height="54" rx="3" fill="#FFFFFF" stroke="#1A73E8" stroke-width="2"/>
+  <line x1="37" y1="40" x2="58" y2="40" stroke="#5F6368" stroke-width="1.5"/>
+  <line x1="37" y1="48" x2="62" y2="48" stroke="#5F6368" stroke-width="1.5"/>
+  <line x1="37" y1="56" x2="55" y2="56" stroke="#5F6368" stroke-width="1.5"/>
+  <line x1="37" y1="64" x2="62" y2="64" stroke="#5F6368" stroke-width="1.5"/>
+  <line x1="37" y1="72" x2="50" y2="72" stroke="#5F6368" stroke-width="1.5"/>
+  <!-- 标签图标 -->
+  <path d="M 68 62 L 92 62 L 100 70 L 92 78 L 68 78 Z" fill="#1A73E8" stroke="#1557B0" stroke-width="1.5"/>
+  <circle cx="88" cy="70" r="2.5" fill="#FFFFFF"/>
+  <!-- 连接线（表示映射关系） -->
+  <path d="M 60 50 Q 64 56 68 62" fill="none" stroke="#34A853" stroke-width="2" stroke-dasharray="3,2"/>
+</svg>

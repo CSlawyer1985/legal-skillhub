@@ -1,0 +1,6 @@
+# ai-contract-review requirements
+# Core — zero external dependencies by default
+# Install below for full file format support:
+# python-docx>=1.0.0    (for .docx parsing)
+# PyPDF2>=3.0.0          (for .pdf parsing)
+# pdfplumber>=0.10.0     (for advanced .pdf table extraction)

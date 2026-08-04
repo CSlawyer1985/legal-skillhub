@@ -1,0 +1,50 @@
+{
+  "id": "akr-method-example-001",
+  "source_type": "practice-note",
+  "source_locator": "source-001#section-01",
+  "source_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "cutoff": {
+    "evidence_cutoff": "2026-07-18",
+    "law_checked_at": "2026-07-18"
+  },
+  "claim": "关键材料或法源状态不完整时，应停止确定性输出并转入对应 HOLD。",
+  "conditions": {
+    "applies_when": [
+      "输入缺少决定结论的关键材料",
+      "法源有效性尚未被权威来源核验"
+    ],
+    "does_not_apply_when": [
+      "任务仅要求列出明确标注的不确定研究问题"
+    ]
+  },
+  "steps": [
+    "识别缺失项及其影响",
+    "选择对应 HOLD 状态",
+    "列出恢复条件和人工升级点"
+  ],
+  "evidence": [
+    {
+      "ref": "source-001#section-01",
+      "supports": "材料和法源门禁的内部方法记录"
+    }
+  ],
+  "legal_authority": [],
+  "confidence": {
+    "level": "high",
+    "reason": "这是工作流控制规则，不主张实体法律结论。"
+  },
+  "privacy_class": "internal",
+  "rights_status": "private-authorized",
+  "failure_modes": [
+    "把低置信度标签当作继续输出的许可",
+    "未记录恢复条件导致任务永久悬置"
+  ],
+  "status": "verified",
+  "public_projection": {
+    "allowed": false,
+    "fields": [],
+    "approval_ref": null
+  },
+  "links": []
+}
+

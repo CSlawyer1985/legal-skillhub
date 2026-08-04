@@ -1,0 +1,7 @@
+interface:
+  display_name: "Outside Counsel Billing Reviewer"
+  short_description: "Review legal bills, rates, staffing, and spend"
+  default_prompt: "Use $outside-counsel-billing-performance-reviewer to review outside counsel invoices, benchmark firm performance against internal comparators, or draft a dispute log, scorecard, or MBR/QBR."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,330 @@
+rules:
+  - id: ET001
+    category: 转让方主体资格
+    name: "股权转让方不存在或无合法主体资格"
+    description: "股权转让方可能是不存在的实体，或无合法主体资格，导致合同无效"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询转让方企业信用信息、营业执照状态及是否存在经营异常"
+    legal_basis: "《公司法》第3条、《民法典》第143条、《公司法解释(三)》第1条"
+    suggestion: "核实转让方主体资格，要求提供营业执照、信用信息报告及工商登记档案"
+    enabled: true
+
+  - id: ET002
+    category: 转让方主体资格
+    name: "转让方为隐名股东或股权代持"
+    description: "转让方可能为名义股东，实际出资人未同意转让，存在权属争议"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否存在股权代持情形，实际出资人是否签署同意转让文件"
+    legal_basis: "《公司法解释(三)》第24条、第25条"
+    suggestion: "确认股权是否存在代持，要求提供代持协议或实际出资人同意转让的书面文件"
+    enabled: true
+
+  - id: ET003
+    category: 股权比例与估值
+    name: "转让股权比例与公司控制权不匹配"
+    description: "转让后可能导致公司控制权变更，但未约定控制权过渡条款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "分析转让股权比例是否达到控股比例（如67%、51%、34%等关键比例）"
+    legal_basis: "《公司法》第43条、第71条"
+    suggestion: "明确转让比例对应的公司权利，约定控制权过渡安排及交割后的股东会表决机制"
+    enabled: true
+
+  - id: ET004
+    category: 股权比例与估值
+    name: "出资未完成即转让股权"
+    description: "转让方尚未履行或未全面履行出资义务即转让股权"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查转让方实缴出资情况，是否存在出资期限届满仍未缴纳的情形"
+    legal_basis: "《公司法》第28条、《公司法解释(三)》第13条、第18条"
+    suggestion: "核实出资完成情况，约定出资瑕疵责任承担及补缴义务归属"
+    enabled: true
+
+  - id: ET005
+    category: 股权比例与估值
+    name: "标的公司股权存在质押或冻结"
+    description: "转让的股权可能已被设定质押、冻结或其他权利限制"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "查询标的公司股权是否设定质押登记、司法冻结或其他权利限制"
+    legal_basis: "《民法典》第443条、《公司法》第32条"
+    suggestion: "核查工商登记及股权质押/冻结情况，涤除权利限制后方可转让"
+    enabled: true
+
+  - id: ET006
+    category: 转让价格与支付
+    name: "转让价格显失公平或未约定确定方法"
+    description: "转让价格可能明显低于市场公允价值，或价格确定机制模糊"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查转让价格是否经过评估，价格确定公式是否明确"
+    legal_basis: "《民法典》第151条、《企业所得税法》第47条"
+    suggestion: "约定以评估报告为基础确定转让价格，明确价格调整机制及支付方式"
+    enabled: true
+
+  - id: ET007
+    category: 转让价格与支付
+    name: "支付条款与交割条件脱节"
+    description: "付款进度与股权交割、工商变更未挂钩，存在先付款后违约或先过户后未收款风险"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查付款条件是否与股权交割、工商变更登记等关键节点挂钩"
+    legal_basis: "《民法典》第509条、第525条"
+    suggestion: "设置分期付款与交割进度挂钩的条款，约定共管账户或托管支付"
+    enabled: true
+
+  - id: ET008
+    category: 转让价格与支付
+    name: "税务承担约定不明"
+    description: "股权转让涉及的所得税、印花税等税费承担主体未明确"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确约定转让方应缴所得税及印花税的承担"
+    legal_basis: "《个人所得税法》第2条、《印花税法》第1条"
+    suggestion: "明确税费承担主体，约定代扣代缴义务及税务申报配合义务"
+    enabled: true
+
+  - id: ET009
+    category: 交割条件
+    name: "交割条件未设置或过于模糊"
+    description: "未约定交割的前提条件，导致无法确保交割前标的公司状态"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定交割条件清单（如审计报告、法律意见书、股东会决议等）"
+    legal_basis: "《民法典》第158条"
+    suggestion: "明确交割条件清单，设定交割前承诺与保证事项"
+    enabled: true
+
+  - id: ET010
+    category: 交割条件
+    name: "交割前损益归属约定不明"
+    description: "股权交割基准日与完成日之间的损益归属未约定"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否明确约定过渡期损益归属及利润分配方案"
+    legal_basis: "《公司法》第34条、股东协议惯例"
+    suggestion: "明确交割基准日，约定过渡期损益归属及未分配利润的处理"
+    enabled: true
+
+  - id: ET011
+    category: 竞业限制
+    name: "转让方竞业限制义务缺失"
+    description: "股权转让后转让方可能利用原有资源开展竞争业务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定转让方的竞业限制义务、范围及期限"
+    legal_basis: "《民法典》第501条、股东协议惯例"
+    suggestion: "约定转让方在约定期限和地域范围内不得从事与标的公司竞争的业务"
+    enabled: true
+
+  - id: ET012
+    category: 竞业限制
+    name: "竞业限制补偿金未约定"
+    description: "约定竞业限制但未约定合理补偿金，可能导致条款无效"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查竞业限制条款是否约定合理补偿金或补偿金计算方式"
+    legal_basis: "《劳动合同法》第23条（类推适用）、股东协议惯例"
+    suggestion: "约定竞业限制补偿金标准，明确支付时间和方式"
+    enabled: true
+
+  - id: ET013
+    category: 优先购买权
+    name: "未通知其他股东行使优先购买权"
+    description: "未履行通知义务即转让股权，侵犯其他股东优先购买权"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否已通知其他股东并确认放弃优先购买权"
+    legal_basis: "《公司法》第71条、《公司法解释(四)》第17-22条"
+    suggestion: "取得其他股东放弃优先购买权的书面声明，保留通知送达证据"
+    enabled: true
+
+  - id: ET014
+    category: 优先购买权
+    name: "优先购买权行使条件约定不明"
+    description: "合同未明确约定优先购买权的行使期限、方式及同等条件"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查优先购买权的行使期限、通知方式及同等条件是否明确"
+    legal_basis: "《公司法》第71条、《公司法解释(四)》第18条"
+    suggestion: "明确优先购买权的行使期限（不少于30日）、通知方式及同等条件认定标准"
+    enabled: true
+
+  - id: ET015
+    category: 股东会决议
+    name: "缺少有效的股东会决议"
+    description: "股权转让未经标的公司股东会决议通过"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否取得标的公司同意转让的股东会决议"
+    legal_basis: "《公司法》第71条"
+    suggestion: "取得标的公司股东会过半数同意转让的决议，章程另有规定的从其规定"
+    enabled: true
+
+  - id: ET016
+    category: 股东会决议
+    name: "决议程序违反章程或法律规定"
+    description: "股东会决议的通知、表决程序不符合章程或法定要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查股东会决议的通知时间、表决方式是否符合章程及法定要求"
+    legal_basis: "《公司法》第22条、第41条"
+    suggestion: "核查决议程序合法性，确保通知期限、表决比例符合章程及法定要求"
+    enabled: true
+
+  - id: ET017
+    category: 工商变更登记
+    name: "工商变更登记义务及期限未约定"
+    description: "未约定办理工商变更登记的义务主体及期限"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定工商变更登记的办理义务、期限及配合义务"
+    legal_basis: "《公司法》第32条、《公司登记管理条例》第34条"
+    suggestion: "明确工商变更登记的办理期限（如交割后30日内），约定配合义务及违约责任"
+    enabled: true
+
+  - id: ET018
+    category: 工商变更登记
+    name: "工商变更登记前风险承担未约定"
+    description: "工商变更登记完成前标的公司产生的风险及责任承担未约定"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定工商变更登记完成前的风险承担及责任归属"
+    legal_basis: "《民法典》第502条、《公司法》第32条"
+    suggestion: "明确工商变更登记完成前的风险承担，约定过渡期损益及责任归属"
+    enabled: true
+
+  - id: ET019
+    category: 债权债务承担
+    name: "标的公司债权债务披露不充分"
+    description: "转让方未充分披露标的公司债务，导致受让方承担意外债务"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否提供完整的资产负债表、债务清单及或有负债披露"
+    legal_basis: "《民法典》第500条、第148条"
+    suggestion: "要求转让方提供完整债务清单及承诺函，约定未披露债务的赔偿责任"
+    enabled: true
+
+  - id: ET020
+    category: 债权债务承担
+    name: "或有负债责任承担约定不明"
+    description: "未约定或有负债（如担保、诉讼、税务风险）的责任承担"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定或有负债的责任承担及赔偿机制"
+    legal_basis: "《民法典》第500条、股东协议惯例"
+    suggestion: "明确或有负债范围，约定转让方对未披露或有负债的赔偿责任"
+    enabled: true
+
+  - id: ET021
+    category: 债权债务承担
+    name: "转让方个人债务与公司混同"
+    description: "转让方个人债务与公司债务混同，可能影响标的公司资产安全"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查转让方是否存在以公司资产为个人债务提供担保的情形"
+    legal_basis: "《公司法》第20条、第63条"
+    suggestion: "核查公司担保情况，要求转让方承诺不存在资产混同及违规担保"
+    enabled: true
+
+  - id: ET022
+    category: 违约责任
+    name: "违约责任约定不明确"
+    description: "未明确约定违约情形、违约金计算方式及赔偿范围"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定违约情形、违约金比例及赔偿范围"
+    legal_basis: "《民法典》第577条、第585条"
+    suggestion: "明确违约情形（如逾期付款、逾期交割、虚假陈述等），约定违约金及赔偿范围"
+    enabled: true
+
+  - id: ET023
+    category: 违约责任
+    name: "违约金过高或过低"
+    description: "约定的违约金可能过分高于或低于实际损失"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查违约金比例是否合理，是否过分高于实际损失"
+    legal_basis: "《民法典》第585条、《民法典合同编解释》第65条"
+    suggestion: "约定合理违约金比例（如转让价款的20%-30%），可约定违约金调整机制"
+    enabled: true
+
+  - id: ET024
+    category: 违约责任
+    name: "合同解除权约定缺失"
+    description: "未约定合同解除条件及解除后的处理方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定合同解除条件、解除程序及解除后的财产返还"
+    legal_basis: "《民法典》第562条、第563条、第566条"
+    suggestion: "明确约定解除条件（如根本违约、不可抗力等），约定解除后的恢复原状及赔偿"
+    enabled: true
+
+  - id: ET025
+    category: 转让方主体资格
+    name: "转让方为国有企业未履行国资审批"
+    description: "转让方为国有企业，未履行国资审批、评估备案等程序"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查转让方是否为国有企业，是否履行国资审批及评估备案程序"
+    legal_basis: "《企业国有资产法》第53条、《企业国有资产交易监督管理办法》第9条"
+    suggestion: "核实转让方性质，要求提供国资监管机构批准文件及评估报告备案证明"
+    enabled: true
+
+  - id: ET026
+    category: 转让方主体资格
+    name: "转让方为外资企业涉及外资准入限制"
+    description: "转让方为外资企业，标的公司属于外资准入限制或禁止类行业"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查标的公司是否属于外商投资准入负面清单限制或禁止类行业"
+    legal_basis: "《外商投资法》第28条、《外商投资准入特别管理措施》"
+    suggestion: "核查标的公司行业属性，确认是否涉及外资准入限制，取得商务部门批准"
+    enabled: true
+
+  - id: ET027
+    category: 股权比例与估值
+    name: "标的公司存在未披露的关联交易"
+    description: "标的公司与关联方之间存在未披露的关联交易，影响估值"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查标的公司是否存在未披露的关联交易及资金往来"
+    legal_basis: "《公司法》第21条、《企业会计准则第36号》"
+    suggestion: "要求转让方披露全部关联交易，承诺不存在未披露的关联关系及交易"
+    enabled: true
+
+  - id: ET028
+    category: 交割条件
+    name: "交割后整合义务未约定"
+    description: "未约定交割后转让方配合交接、客户资源过渡等义务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定交割后转让方的配合交接义务及过渡期安排"
+    legal_basis: "《民法典》第509条、股东协议惯例"
+    suggestion: "约定交割后转让方的配合义务（如客户介绍、技术交接、人员留任等）"
+    enabled: true
+
+  - id: ET029
+    category: 竞业限制
+    name: "核心技术人员竞业限制缺失"
+    description: "未约定标的公司核心技术人员的竞业限制义务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定核心技术人员的竞业限制义务及补偿"
+    legal_basis: "《劳动合同法》第23条、第24条"
+    suggestion: "约定核心技术人员在约定期限内的竞业限制义务及合理补偿"
+    enabled: true
+
+  - id: ET030
+    category: 违约责任
+    name: "争议解决条款约定不明"
+    description: "未明确约定争议解决方式（诉讼或仲裁）及管辖机构"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否明确约定争议解决方式及管辖法院或仲裁机构"
+    legal_basis: "《民事诉讼法》第35条、《仲裁法》第4条"
+    suggestion: "明确约定争议解决方式（诉讼或仲裁），指定管辖法院或仲裁机构"
+    enabled: true

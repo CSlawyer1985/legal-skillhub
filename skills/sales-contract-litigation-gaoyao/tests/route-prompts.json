@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "expected_behaviors": [
+        "ordinary-goods-sale",
+        "SSOT",
+        "production-intake"
+      ],
+      "id": "sales-should_trigger-01",
+      "prompt": "买卖合同、交付验收和付款计划均可核验。",
+      "type": "should_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "installment-title-retention",
+        "SSOT"
+      ],
+      "id": "sales-should_trigger-02",
+      "prompt": "分期付款并约定所有权保留。",
+      "type": "should_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "retrospective-benchmark",
+        "SSOT"
+      ],
+      "id": "sales-should_trigger-03",
+      "prompt": "对截止日前历史材料进行盲测复盘。",
+      "type": "should_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "do_not_trigger"
+      ],
+      "id": "sales-should_not_trigger-01",
+      "prompt": "申请执行生效判决。",
+      "type": "should_not_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "do_not_trigger"
+      ],
+      "id": "sales-should_not_trigger-02",
+      "prompt": "处理融资租赁合同纠纷。",
+      "type": "should_not_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "do_not_trigger"
+      ],
+      "id": "sales-should_not_trigger-03",
+      "prompt": "只做纯文字错别字校对。",
+      "type": "should_not_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "HOLD-ROUTE",
+        "SSOT"
+      ],
+      "id": "sales-edge_case-01",
+      "prompt": "买卖与融资租赁信号并存，关键原件缺失。",
+      "type": "edge_case"
+    },
+    {
+      "expected_behaviors": [
+        "HOLD-ROUTE",
+        "SSOT"
+      ],
+      "id": "sales-edge_case-02",
+      "prompt": "交付、验收和付款金额互相冲突。",
+      "type": "edge_case"
+    }
+  ],
+  "generated_date": "2026-07-30",
+  "schema": "gaotao.platform-lite.route-prompts/v1"
+}

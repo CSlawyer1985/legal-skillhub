@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  专利技术交底书 XML格式模板 (ISO 56005适配版)
+  版本: v1.0
+  更新日期: 2026-03-21
+  命名空间: http://www.example.com/patent-disclosure
+
+  使用说明:
+  1. 本模板严格匹配ISO 56005专利披露要求与国知局专利申请规范
+  2. 支持带命名空间和不带命名空间两种格式
+  3. 建议使用UTF-8编码保存
+  4. 技术交底书智能解析模块(parse_disclosure.py)可自动解析本格式
+-->
+<patent_disclosure xmlns="http://www.example.com/patent-disclosure">
+  <!-- 发明基本信息 -->
+  <basic_info>
+    <invention_name>一种XXX的方法/装置/系统</invention_name>
+    <tech_field>技术领域</tech_field>
+    <tech_field_ipc>
+      <code>A23F3/06</code>
+      <code>A23F3/08</code>
+      <!-- 更多IPC分类号 -->
+    </tech_field_ipc>
+    <cpc_code>
+      <code></code>
+      <!-- CPC分类号 -->
+    </cpc_code>
+  </basic_info>
+
+  <!-- 发明披露基础信息 -->
+  <disclosure_info>
+    <inventor>
+      <name>发明人姓名（按贡献排序）</name>
+      <department>所属部门/机构</department>
+    </inventor>
+    <completion_date>YYYY年MM月</completion_date>
+    <patent_type>发明专利|实用新型专利|外观设计专利</patent_type>
+    <application_region>中国|PCT|美国|欧洲|日本|韩国</application_region>
+    <job_invention>是|否</job_invention>
+    <shared_ownership>
+      <has_shared>false</has_shared>
+      <description></description>
+    </shared_ownership>
+    <external_cooperation>
+      <has_external>false</has_external>
+      <description></description>
+    </external_cooperation>
+  </disclosure_info>
+
+  <!-- 发明人已知现有技术 -->
+  <known_prior_art>
+    <closest_prior_art>
+      <patent_no></patent_no>
+      <patent_name></patent_name>
+      <difference>与本方案的主要区别</difference>
+    </closest_prior_art>
+    <other_patents>
+      <patent>
+        <patent_no></patent_no>
+        <patent_name></patent_name>
+      </patent>
+      <!-- 更多已知专利 -->
+    </other_patents>
+  </known_prior_art>
+
+  <!-- 现有技术背景与缺陷 -->
+  <prior_art_background>
+    <background>
+      <description>描述当前主流/最接近的现有专利技术方案</description>
+      <source>可检索的专利来源</source>
+    </background>
+    <defects>
+      <defect>
+        <index>1</index>
+        <description>技术缺陷1，对应本方案要解决的核心问题</description>
+      </defect>
+      <defect>
+        <index>2</index>
+        <description>技术缺陷2</description>
+      </defect>
+      <defect>
+        <index>3</index>
+        <description>技术缺陷3</description>
+      </defect>
+    </defects>
+  </prior_art_background>
+
+  <!-- 发明内容 -->
+  <invention_content>
+    <!-- 要解决的技术问题 -->
+    <tech_problem>
+      <description>精准对应背景技术的缺陷，明确技术边界</description>
+    </tech_problem>
+
+    <!-- 核心技术方案 -->
+    <tech_scheme>
+      <description>分点/分模块详细描述技术方案</description>
+      <features>
+        <feature>
+          <index>1</index>
+          <description>关键技术特征1</description>
+        </feature>
+        <feature>
+          <index>2</index>
+          <description>关键技术特征2</description>
+        </feature>
+        <!-- 更多技术特征 -->
+      </features>
+    </tech_scheme>
+
+    <!-- 有益效果 -->
+    <beneficial_effects>
+      <effect>
+        <index>1</index>
+        <description>效果1，对应解决的技术问题，可量化优先</description>
+        <verification>验证数据或方法</verification>
+        <associated_problem_index>1</associated_problem_index>
+      </effect>
+      <effect>
+        <index>2</index>
+        <description>效果2</description>
+        <verification></verification>
+        <associated_problem_index>2</associated_problem_index>
+      </effect>
+      <!-- 更多有益效果 -->
+    </beneficial_effects>
+  </invention_content>
+
+  <!-- 具体实施方式 -->
+  <detailed_implementation>
+    <!-- 核心实施例 -->
+    <example type="core">
+      <index>1</index>
+      <description>详细描述一个可落地的完整实施例</description>
+      <params>
+        <温度>45℃</温度>
+        <时间>2小时</时间>
+        <压力>常压</压力>
+        <粒径>0.5-1cm</粒径>
+        <!-- 更多参数 -->
+      </params>
+      <steps>
+        <step>
+          <index>1</index>
+          <description>步骤1描述</description>
+        </step>
+        <step>
+          <index>2</index>
+          <description>步骤2描述</description>
+        </step>
+        <!-- 更多步骤 -->
+      </steps>
+    </example>
+
+    <!-- 扩展实施例 -->
+    <example type="extended">
+      <index>2</index>
+      <description>替代方案/变形实施例</description>
+      <difference_from_core>与核心实施例的区别点</difference_from_core>
+      <params>
+        <!-- 参数变更 -->
+      </params>
+    </example>
+
+    <!-- 对比例实施例（可选） -->
+    <example type="comparative">
+      <index>3</index>
+      <description>与现有技术对比的实施例</description>
+      <comparison_result>量化证明技术效果的显著性</comparison_result>
+    </example>
+  </detailed_implementation>
+
+  <!-- 附图说明 -->
+  <drawings>
+    <drawing>
+      <figure>图1</figure>
+      <title>整体系统架构/方法流程图</title>
+    </drawing>
+    <drawing>
+      <figure>图2</figure>
+      <title>核心部件结构/关键步骤细节图</title>
+    </drawing>
+    <drawing>
+      <figure>图3</figure>
+      <title>扩展实施例/变形方案图</title>
+    </drawing>
+  </drawings>
+
+  <!-- 专利申请策略建议 -->
+  <application_strategy>
+    <claim_layout>
+      <independent_claim>
+        <description>独立权利要求建议：提炼必要技术特征，采用上位概念</description>
+      </independent_claim>
+      <dependent_claims>
+        <claim>
+          <index>1</index>
+          <description>从属权利要求1：设置多个保护层次</description>
+        </claim>
+        <claim>
+          <index>2</index>
+          <description>从属权利要求2：形成梯度保护</description>
+        </claim>
+      </dependent_claims>
+      <method_claim>
+        <description>方法权利要求建议：产品+方法+用途的组合保护</description>
+      </method_claim>
+    </claim_layout>
+    <strategy>
+      <type_recommendation>发明|实用新型|同时申请</type_recommendation>
+      <region_recommendation>基于技术市场布局的地域建议</region_recommendation>
+      <priority_utilization>是否需要优先权，时间规划建议</priority_utilization>
+    </strategy>
+  </application_strategy>
+
+  <!-- 专利权属合规声明 -->
+  <compliance_statement>
+    <ownership_statement>本技术方案为职务/非职务发明，专利申请权归单位/个人所有</ownership_statement>
+    <confidentiality_statement>技术方案未公开前，禁止公开发表、展会披露、产品上市等行为</confidentiality_statement>
+    <eligibility_statement>本技术方案不属于《专利法》第5条、第25条规定的不授予专利权的情形</confidentiality_statement>
+  </compliance_statement>
+
+  <!-- 附加信息（可选） -->
+  <attachments>
+    <reference_materials>
+      <!-- 参考资料编号 -->
+    </reference_materials>
+    <notes>
+      <!-- 备注信息 -->
+    </notes>
+  </attachments>
+</patent_disclosure>

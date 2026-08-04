@@ -1,0 +1,24 @@
+{
+  "name": "compliance-officer",
+  "version": "1.1.0",
+  "description": "AI Compliance Officer — reviews marketing content, emails, landing pages, and privacy policies against 208 regulations across FTC, HIPAA, GDPR, SEC, CCPA, COPPA, and CAN-SPAM. Cites actual laws with source URLs.",
+  "author": "qcme",
+  "license": "Apache-2.0",
+  "permissions": ["network"],
+  "entry": "README.md",
+  "tags": [
+    "compliance",
+    "regulatory",
+    "marketing",
+    "ftc",
+    "gdpr",
+    "hipaa",
+    "ccpa",
+    "coppa",
+    "can-spam",
+    "sec",
+    "legal",
+    "privacy"
+  ],
+  "models": ["claude-*"]
+}

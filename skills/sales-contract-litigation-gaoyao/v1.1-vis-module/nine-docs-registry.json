@@ -1,0 +1,67 @@
+{
+ "schema": "gaotao.v11.nine-docs-registry.v1",
+ "registry": [
+  {
+   "no": "01",
+   "name": "民事起诉状",
+   "layer": "court",
+   "audience": "法院"
+  },
+  {
+   "no": "02",
+   "name": "证据目录",
+   "layer": "court",
+   "audience": "法院"
+  },
+  {
+   "no": "03",
+   "name": "合同审查方案",
+   "layer": "internal",
+   "audience": "内部办案"
+  },
+  {
+   "no": "04",
+   "name": "材料缺失清单",
+   "layer": "internal",
+   "audience": "内部办案"
+  },
+  {
+   "no": "05",
+   "name": "代理词",
+   "layer": "court",
+   "audience": "法院"
+  },
+  {
+   "no": "06",
+   "name": "法律意见书",
+   "layer": "court",
+   "audience": "法院"
+  },
+  {
+   "no": "07",
+   "name": "诉讼案件办案方案工作底稿",
+   "layer": "internal",
+   "audience": "内部办案"
+  },
+  {
+   "no": "08",
+   "name": "质证预案",
+   "layer": "internal",
+   "audience": "内部办案"
+  },
+  {
+   "no": "09",
+   "name": "条件性正式质证意见生成门",
+   "layer": "internal",
+   "audience": "内部办案",
+   "conditional_gate": true,
+   "default_closed": true
+  }
+ ],
+ "court_layer": [
+  "01",
+  "02",
+  "05",
+  "06"
+ ]
+}

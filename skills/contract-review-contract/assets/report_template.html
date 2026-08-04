@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>合同审查报告 — AI Contract Review</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --accent: #3b82f6;
+  --accent-light: #eff6ff;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --danger-bg: #fef2f2;
+  --warning-bg: #fffbeb;
+  --success-bg: #ecfdf5;
+  --danger-border: #fecaca;
+  --warning-border: #fde68a;
+  --success-border: #a7f3d0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+/* Header */
+.header { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 40px 48px; border-radius: 16px; margin-bottom: 24px; position: relative; overflow: hidden; }
+.header::after { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; position: relative; z-index: 1; }
+.header .subtitle { font-size: 14px; opacity: 0.85; position: relative; z-index: 1; }
+.header .badge-row { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; position: relative; z-index: 1; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+.badge-blue { background: rgba(255,255,255,0.2); color: white; }
+.badge-score { background: rgba(255,255,255,0.25); color: white; font-size: 20px; font-weight: 800; padding: 8px 18px; }
+
+/* Grid */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.card { background: var(--card-bg); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+.card h2 { font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.card h2 .icon { font-size: 22px; }
+.full-width { grid-column: 1 / -1; }
+
+/* Overview cards */
+.overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: var(--card-bg); border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid var(--border); text-align: center; }
+.stat-card .stat-value { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.stat-card .stat-label { font-size: 13px; color: var(--text-secondary); }
+.stat-card .stat-sub { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+/* Radar */
+#radarChart { max-height: 360px; }
+
+/* Heatmap */
+.heatmap { display: flex; flex-direction: column; gap: 4px; }
+.heatmap-row { display: flex; align-items: center; gap: 12px; }
+.heatmap-label { width: 100px; font-size: 13px; text-align: right; color: var(--text-secondary); }
+.heatmap-bar-wrap { flex: 1; height: 28px; background: #f1f5f9; border-radius: 6px; overflow: hidden; display: flex; }
+.heatmap-segment { height: 100%; cursor: pointer; transition: opacity 0.2s; }
+.heatmap-segment:hover { opacity: 0.75; }
+.heatmap-legend { display: flex; gap: 16px; justify-content: center; margin-top: 12px; font-size: 12px; }
+.heatmap-legend span { display: flex; align-items: center; gap: 4px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+/* Score breakdown */
+.score-table { width: 100%; border-collapse: collapse; }
+.score-table th, .score-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+.score-table th { background: #f8fafc; font-weight: 600; color: var(--text-secondary); font-size: 13px; }
+.score-table .score-bar-cell { width: 200px; }
+.score-bar { height: 22px; border-radius: 6px; display: flex; align-items: center; padding: 0 8px; font-size: 12px; font-weight: 600; color: white; min-width: 30px; transition: width 0.6s ease; }
+.score-grade { font-weight: 700; font-size: 15px; }
+
+/* Risk items */
+.risk-filters { display: flex; gap: 8px; margin-bottom: 16px; }
+.risk-filter-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); background: white; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+.risk-filter-btn.active { color: white; }
+.risk-filter-btn.all.active { background: #64748b; border-color: #64748b; }
+.risk-filter-btn.critical.active { background: var(--danger); border-color: var(--danger); }
+.risk-filter-btn.major.active { background: var(--warning); border-color: var(--warning); }
+.risk-filter-btn.minor.active { background: var(--success); border-color: var(--success); }
+
+.risk-item { border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 4px solid; }
+.risk-item.critical { background: var(--danger-bg); border-color: var(--danger); }
+.risk-item.major { background: var(--warning-bg); border-color: var(--warning); }
+.risk-item.minor { background: var(--success-bg); border-color: var(--success); }
+.risk-item .risk-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.risk-item .risk-badge { padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+.risk-item.critical .risk-badge { background: var(--danger); color: white; }
+.risk-item.major .risk-badge { background: var(--warning); color: white; }
+.risk-item.minor .risk-badge { background: var(--success); color: white; }
+.risk-item .risk-title { font-weight: 600; font-size: 15px; }
+.risk-item .risk-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+.risk-item .law-ref { font-size: 12px; color: var(--accent); margin-top: 6px; font-style: italic; }
+
+/* Clause comparison */
+.comparison { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+.comparison-header { background: #f8fafc; padding: 12px 16px; font-weight: 600; font-size: 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+.comparison-body { display: grid; grid-template-columns: 1fr 1fr; }
+.comp-col { padding: 14px 16px; font-size: 13px; line-height: 1.7; }
+.comp-original { background: #fef2f2; }
+.comp-suggested { background: #ecfdf5; }
+.comp-label { font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.comp-original .comp-label { color: var(--danger); }
+.comp-suggested .comp-label { color: var(--success); }
+
+/* Strategy */
+.strategy-list { list-style: none; }
+.strategy-list li { padding: 12px 16px; border-radius: 8px; margin-bottom: 8px; background: #f8fafc; }
+.strategy-list li strong { display: block; margin-bottom: 4px; color: var(--accent); }
+.strategy-list li .strategy-priority { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
+.strategy-list li .priority-must { background: #fef2f2; color: var(--danger); }
+.strategy-list li .priority-should { background: #fffbeb; color: var(--warning); }
+.strategy-list li .priority-could { background: #ecfdf5; color: var(--success); }
+
+/* Footer */
+.footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border); margin-top: 24px; }
+.disclaimer { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 14px 18px; font-size: 13px; color: #92400e; margin-bottom: 24px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .comparison-body { grid-template-columns: 1fr; }
+  .header { padding: 24px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header" id="reportHeader">
+    <h1>📋 合同智能审查报告</h1>
+    <div class="subtitle" id="headerInfo">AI-Powered Contract Review Report</div>
+    <div class="badge-row">
+      <span class="badge badge-blue" id="contractType">合同类型</span>
+      <span class="badge badge-blue" id="reviewDate">审查日期</span>
+      <span class="badge badge-score" id="overallGrade">-</span>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    ⚠️ <strong>免责声明：</strong>本报告由AI辅助生成，仅供参考，不构成法律意见。重大合同建议由专业律师最终审核。法律条文引用可能不完整，重要决策请核实最新法律法规。
+  </div>
+
+  <!-- Overview Stats -->
+  <div class="overview-grid" id="overviewStats"></div>
+
+  <!-- Radar + Score Table -->
+  <div class="grid">
+    <div class="card">
+      <h2><span class="icon">🎯</span> 9维能力雷达图</h2>
+      <canvas id="radarChart" width="400" height="350"></canvas>
+    </div>
+    <div class="card">
+      <h2><span class="icon">📊</span> 分维度评分明细</h2>
+      <table class="score-table" id="scoreDetailTable">
+        <thead><tr><th>维度</th><th>得分</th><th>评级</th></tr></thead>
+        <tbody id="scoreDetailBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Risk Heatmap -->
+  <div class="card full-width" style="margin-bottom:20px;">
+    <h2><span class="icon">🔥</span> 风险热力图（按合同章节）</h2>
+    <div class="heatmap" id="heatmapContainer"></div>
+    <div class="heatmap-legend">
+      <span><span class="legend-dot" style="background:#ef4444;"></span> 致命风险</span>
+      <span><span class="legend-dot" style="background:#f59e0b;"></span> 重大风险</span>
+      <span><span class="legend-dot" style="background:#10b981;"></span> 一般风险</span>
+      <span><span class="legend-dot" style="background:#e2e8f0;"></span> 无风险</span>
+    </div>
+  </div>
+
+  <!-- Risk Items -->
+  <div class="card full-width" style="margin-bottom:20px;">
+    <h2><span class="icon">🚨</span> 风险清单</h2>
+    <div class="risk-filters">
+      <button class="risk-filter-btn all active" onclick="filterRisk('all')">全部 (<span id="countAll">0</span>)</button>
+      <button class="risk-filter-btn critical" onclick="filterRisk('critical')">致命 (<span id="countCritical">0</span>)</button>
+      <button class="risk-filter-btn major" onclick="filterRisk('major')">重大 (<span id="countMajor">0</span>)</button>
+      <button class="risk-filter-btn minor" onclick="filterRisk('minor')">一般 (<span id="countMinor">0</span>)</button>
+    </div>
+    <div id="riskItemsContainer"></div>
+  </div>
+
+  <!-- Clause Comparison -->
+  <div class="card full-width" style="margin-bottom:20px;" id="comparisonSection">
+    <h2><span class="icon">📝</span> 条款对比修改建议</h2>
+    <div id="comparisonContainer"></div>
+  </div>
+
+  <!-- Negotiation Strategy -->
+  <div class="card full-width" style="margin-bottom:20px;" id="strategySection">
+    <h2><span class="icon">🎯</span> 谈判策略建议</h2>
+    <div id="strategyContainer"></div>
+  </div>
+
+  <!-- Law References -->
+  <div class="card full-width" style="margin-bottom:20px;" id="lawSection">
+    <h2><span class="icon">⚖️</span> 引用法律依据</h2>
+    <div id="lawContainer"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Powered by WorkBuddy Contract Review Skill | 报告生成时间：<span id="reportTime"></span> | AI辅助审查，仅供参考
+  </div>
+</div>
+
+<script>
+// ===== DATA INJECTION =====
+const CONTRACT_INFO = {{CONTRACT_INFO}};
+const RADAR_DATA = {{RADAR_DATA}};
+const RISK_ITEMS = {{RISK_ITEMS}};
+const COMPARISON_ITEMS = {{COMPARISON_ITEMS}};
+const NEGOTIATION_STRATEGY = {{NEGOTIATION_STRATEGY}};
+const SCORE_CARD = {{SCORE_CARD}};
+const LAW_REFERENCES = {{LAW_REFERENCES}};
+const HEATMAP_DATA = {{HEATMAP_DATA}};
+
+// ===== RENDER FUNCTIONS =====
+
+// Header
+document.getElementById('contractType').textContent = '📄 ' + (CONTRACT_INFO.type || '通用合同');
+document.getElementById('reviewDate').textContent = '📅 ' + (CONTRACT_INFO.review_date || new Date().toLocaleDateString('zh-CN'));
+document.getElementById('headerInfo').textContent = '合同主体：' + (CONTRACT_INFO.parties || '待确认') + ' | 审查时间：' + (CONTRACT_INFO.review_date || '');
+const grade = SCORE_CARD.overall_grade || 'B';
+const gradeColors = { 'A+':'#10b981','A':'#10b981','B+':'#3b82f6','B':'#3b82f6','C+':'#f59e0b','C':'#f59e0b','D':'#ef4444','F':'#ef4444' };
+document.getElementById('overallGrade').textContent = grade;
+document.getElementById('overallGrade').style.background = gradeColors[grade] || '#64748b';
+
+// Overview Stats
+const stats = [
+  { value: grade, label: '综合评级', sub: SCORE_CARD.overall_score + '分' },
+  { value: CONTRACT_INFO.type || '-', label: '合同类型', sub: CONTRACT_INFO.parties || '' },
+  { value: (RISK_ITEMS || []).filter(r => r.level === 'critical').length, label: '致命风险', sub: '须立即修改', color: '#ef4444' },
+  { value: (RISK_ITEMS || []).filter(r => r.level === 'major').length, label: '重大风险', sub: '建议修改', color: '#f59e0b' }
+];
+const statsHtml = stats.map(s => `
+  <div class="stat-card">
+    <div class="stat-value" style="color:${s.color || 'inherit'}">${s.value}</div>
+    <div class="stat-label">${s.label}</div>
+    <div class="stat-sub">${s.sub}</div>
+  </div>`).join('');
+document.getElementById('overviewStats').innerHTML = statsHtml;
+
+// Radar Chart
+const radarCtx = document.getElementById('radarChart').getContext('2d');
+new Chart(radarCtx, {
+  type: 'radar',
+  data: {
+    labels: RADAR_DATA.labels || ['主体资格','条款完整','违约责任','争议解决','法律合规','权利对等','履约可行','知识产权','格式规范'],
+    datasets: [{
+      label: '合同评分',
+      data: RADAR_DATA.scores || [70,65,55,60,75,50,65,60,70],
+      backgroundColor: 'rgba(59, 130, 246, 0.15)',
+      borderColor: 'rgba(59, 130, 246, 0.8)',
+      borderWidth: 2,
+      pointBackgroundColor: '#3b82f6',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2,
+      pointRadius: 5,
+      pointHoverRadius: 7
+    }, {
+      label: '行业基准',
+      data: RADAR_DATA.benchmark || [75,70,65,70,80,65,70,65,75],
+      backgroundColor: 'rgba(148, 163, 184, 0.05)',
+      borderColor: 'rgba(148, 163, 184, 0.4)',
+      borderWidth: 1.5,
+      borderDash: [5, 5],
+      pointRadius: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20, font: { size: 10 } }, pointLabels: { font: { size: 12, weight: '600' } } } },
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 12 } } } }
+  }
+});
+
+// Score Table
+const scoreRows = (RADAR_DATA.labels || ['主体资格','条款完整','违约责任','争议解决','法律合规','权利对等','履约可行','知识产权','格式规范']).map((label, i) => {
+  const score = (RADAR_DATA.scores || [])[i] || 60;
+  const barColor = score >= 80 ? '#10b981' : score >= 60 ? '#3b82f6' : score >= 40 ? '#f59e0b' : '#ef4444';
+  const gradeLetter = score >= 85 ? 'A' : score >= 70 ? 'B' : score >= 55 ? 'C' : score >= 40 ? 'D' : 'F';
+  return `<tr>
+    <td>${label}</td>
+    <td><div class="score-bar" style="width:${score}%;background:${barColor}">${score}分</div></td>
+    <td><span class="score-grade" style="color:${barColor}">${gradeLetter}</span></td>
+  </tr>`;
+}).join('');
+document.getElementById('scoreDetailBody').innerHTML = scoreRows;
+
+// Heatmap
+const sections = HEATMAP_DATA.sections || ['主体条款','标的条款','价款条款','交付条款','违约责任','争议解决','保密条款','其他条款'];
+const heatData = HEATMAP_DATA.data || [
+  {critical:1, major:0, minor:1, none:3},
+  {critical:0, major:1, minor:2, none:2},
+  {critical:0, major:0, minor:1, none:4},
+  {critical:0, major:2, minor:1, none:2},
+  {critical:2, major:1, minor:0, none:2},
+  {critical:1, major:0, minor:1, none:3},
+  {critical:0, major:1, minor:0, none:4},
+  {critical:0, major:0, minor:3, none:2}
+];
+const heatmapHtml = sections.map((sec, i) => {
+  const d = heatData[i] || {critical:0, major:0, minor:0, none:5};
+  const total = d.critical + d.major + d.minor + d.none || 1;
+  const critPct = (d.critical/total*100).toFixed(0);
+  const majorPct = (d.major/total*100).toFixed(0);
+  const minorPct = (d.minor/total*100).toFixed(0);
+  const nonePct = (d.none/total*100).toFixed(0);
+  return `<div class="heatmap-row">
+    <div class="heatmap-label">${sec}</div>
+    <div class="heatmap-bar-wrap">
+      <div class="heatmap-segment" style="width:${critPct}%;background:#ef4444;" title="致命: ${d.critical}"></div>
+      <div class="heatmap-segment" style="width:${majorPct}%;background:#f59e0b;" title="重大: ${d.major}"></div>
+      <div class="heatmap-segment" style="width:${minorPct}%;background:#10b981;" title="一般: ${d.minor}"></div>
+      <div class="heatmap-segment" style="width:${nonePct}%;background:#e2e8f0;" title="无风险: ${d.none}"></div>
+    </div>
+  </div>`;
+}).join('');
+document.getElementById('heatmapContainer').innerHTML = heatmapHtml;
+
+// Risk Items
+function renderRiskItems(filter) {
+  const items = RISK_ITEMS || [];
+  const filtered = filter === 'all' ? items : items.filter(r => r.level === filter);
+  if (filtered.length === 0) {
+    document.getElementById('riskItemsContainer').innerHTML = '<p style="text-align:center;color:var(--text-secondary);padding:20px;">✅ 该类别没有发现风险项</p>';
+    return;
+  }
+  const levelNames = { critical: '🔴 致命', major: '🟡 重大', minor: '🟢 一般' };
+  const html = filtered.map(r => `
+    <div class="risk-item ${r.level || 'minor'}">
+      <div class="risk-header">
+        <span class="risk-badge">${levelNames[r.level] || r.level}</span>
+        <span class="risk-title">${r.title || '未命名风险'}</span>
+      </div>
+      <div class="risk-desc">${r.description || ''}</div>
+      ${r.original ? '<div style="font-size:13px;margin:6px 0;padding:8px;background:rgba(0,0,0,0.03);border-radius:6px;"><strong>📌 原文：</strong>' + r.original + '</div>' : ''}
+      ${r.suggestion ? '<div style="font-size:13px;margin:6px 0;padding:8px;background:rgba(16,185,129,0.08);border-radius:6px;"><strong>✅ 建议：</strong>' + r.suggestion + '</div>' : ''}
+      ${r.law_ref ? '<div class="law-ref">⚖️ ' + r.law_ref + '</div>' : ''}
+    </div>
+  `).join('');
+  document.getElementById('riskItemsContainer').innerHTML = html;
+}
+
+// Filter counts
+const allCount = (RISK_ITEMS || []).length;
+document.getElementById('countAll').textContent = allCount;
+document.getElementById('countCritical').textContent = (RISK_ITEMS || []).filter(r => r.level === 'critical').length;
+document.getElementById('countMajor').textContent = (RISK_ITEMS || []).filter(r => r.level === 'major').length;
+document.getElementById('countMinor').textContent = (RISK_ITEMS || []).filter(r => r.level === 'minor').length;
+renderRiskItems('all');
+
+function filterRisk(level) {
+  document.querySelectorAll('.risk-filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.risk-filter-btn.' + level).classList.add('active');
+  renderRiskItems(level);
+}
+
+// Clause Comparison
+const compItems = COMPARISON_ITEMS || [];
+if (compItems.length > 0) {
+  const compHtml = compItems.map(c => `
+    <div class="comparison">
+      <div class="comparison-header">
+        <span>${c.title || '条款对比'}</span>
+        <span style="font-size:12px;color:var(--text-secondary);">${c.clause_ref || ''}</span>
+      </div>
+      <div class="comparison-body">
+        <div class="comp-col comp-original">
+          <div class="comp-label">❌ 原文</div>
+          ${c.original || '（未提供原文）'}
+        </div>
+        <div class="comp-col comp-suggested">
+          <div class="comp-label">✅ 修改建议</div>
+          ${c.suggested || '（未提供建议）'}
+        </div>
+      </div>
+      ${c.reason ? '<div style="padding:10px 16px;font-size:13px;color:var(--text-secondary);border-top:1px solid var(--border);">💡 <strong>修改理由：</strong>' + c.reason + '</div>' : ''}
+    </div>
+  `).join('');
+  document.getElementById('comparisonContainer').innerHTML = compHtml;
+} else {
+  document.getElementById('comparisonSection').style.display = 'none';
+}
+
+// Negotiation Strategy
+const strategy = NEGOTIATION_STRATEGY || {};
+if (strategy.items && strategy.items.length > 0) {
+  const stratHtml = '<div style="margin-bottom:12px;font-size:14px;color:var(--text-secondary);">' + (strategy.overview || '') + '</div>' +
+    '<ul class="strategy-list">' + strategy.items.map(s => `
+    <li>
+      <strong>
+        ${s.tactic || ''}
+        <span class="strategy-priority priority-${s.priority || 'could'}">${s.priority === 'must' ? '必须争取' : s.priority === 'should' ? '重点争取' : '可让步'}</span>
+      </strong>
+      ${s.detail || ''}
+    </li>
+  `).join('') + '</ul>';
+  document.getElementById('strategyContainer').innerHTML = stratHtml;
+} else {
+  document.getElementById('strategySection').style.display = 'none';
+}
+
+// Law References
+const laws = LAW_REFERENCES || [];
+if (laws.length > 0) {
+  const lawHtml = laws.map(l => `
+    <div style="padding:10px 14px;border-left:3px solid var(--accent);margin-bottom:8px;background:#f8fafc;border-radius:0 6px 6px 0;">
+      <strong style="font-size:14px;">${l.law || ''}</strong>
+      <span style="color:var(--accent);font-weight:600;">${l.article || ''}</span>
+      <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">${l.content || ''}</div>
+    </div>
+  `).join('');
+  document.getElementById('lawContainer').innerHTML = lawHtml;
+} else {
+  document.getElementById('lawSection').style.display = 'none';
+}
+
+// Footer time
+document.getElementById('reportTime').textContent = new Date().toLocaleString('zh-CN');
+</script>
+</body>
+</html>

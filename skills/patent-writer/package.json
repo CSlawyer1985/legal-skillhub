@@ -1,0 +1,14 @@
+{
+  "name": "patent-writer",
+  "version": "1.0.0",
+  "description": "中文专利交底书撰写助手。支持方向模式和明确想法模式，自动检索现有技术、提炼创新点、生成结构化技能文件。",
+  "author": "your-name",
+  "repository": "https://github.com/your-repo/patent-writer",
+  "keywords": ["patent", "写作", "专利", "AI"],
+  "dependencies": {
+    "system": ["pandoc"]
+  },
+  "optionalDependencies": {
+    "skills": ["arxiv", "research-lit"]
+  }
+}

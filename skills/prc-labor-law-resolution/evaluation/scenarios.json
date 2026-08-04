@@ -1,0 +1,97 @@
+[
+  {
+    "id": "trigger-manual",
+    "input": "请使用 prc-labor-law-resolution 技能，分析公司辞退是否合法",
+    "expected": ["manual trigger", "facts", "official sources", "action plan"]
+  },
+  {
+    "id": "segment-2008",
+    "input": "2005年入职，2026年解除，2008年前后工龄怎么计算",
+    "expected": ["segmented-compensation", "segment form", "no automatic legal-rule guessing"]
+  },
+  {
+    "id": "overtime",
+    "input": "公司欠工资并安排周末和法定节假日加班",
+    "expected": ["separate wage and overtime claims", "overtime breakdown", "evidence matrix"]
+  },
+  {
+    "id": "sick-leave-local",
+    "input": "深圳病假工资怎么算",
+    "expected": ["ask dispute date", "verify local official rule", "sick-leave calculation"]
+  },
+  {
+    "id": "zero-input",
+    "input": "帮我维权",
+    "expected": ["zero-parameter intake", "copyable form", "why each field is needed", "immediate evidence actions"]
+  },
+  {
+    "id": "bad-date",
+    "input": "08-01-2026",
+    "expected": ["INVALID_ARGUMENT", "YYYY-MM-DD", "how_to_fix"]
+  },
+  {
+    "id": "missing-documents",
+    "input": "公司拿着考勤，我拿不到",
+    "expected": ["fallback plan", "who holds evidence", "alternative evidence", "no illegal access"]
+  },
+  {
+    "id": "plain-language-dismissal",
+    "input": "老板让我明天别来了，也不给书面通知",
+    "expected": ["oral dismissal", "attendance evidence", "written confirmation", "no voluntary resignation"]
+  },
+  {
+    "id": "multi-skill-optimization",
+    "input": "公司利润下降，要求一人多岗，做不了多能工就优化",
+    "expected": ["job instruction reasonableness", "training", "contract change", "incapability dismissal", "economic layoff"]
+  },
+  {
+    "id": "multi-issue-preservation",
+    "input": "公司辞退我，还欠两个月工资，周末加班也不给钱",
+    "expected": ["all detected issues", "separate claims", "parallel evidence", "separate limitation analysis"]
+  },
+  {
+    "id": "offline-local-rule",
+    "input": "深圳病假工资官网打不开，但我今天要决定是否签字",
+    "expected": ["three-level fallback", "immediate action", "local verification card", "12333 questions", "no guessed rate"]
+  },
+  {
+    "id": "exact-six-month-boundary",
+    "input": "工龄整1年6个月，N怎么折算",
+    "expected": ["2N-years model", "exact six months rounds to one", "transparent formula"]
+  },
+  {
+    "id": "pregnancy-transfer-paycut",
+    "input": "怀孕后被调岗降薪，公司说经营需要",
+    "expected": ["special protection", "reasonable transfer analysis", "pay evidence", "conditional remedies"]
+  },
+  {
+    "id": "dispatch-injury-wages",
+    "input": "我是派遣工，在用工单位受伤，派遣公司还欠工资，两边都不管",
+    "expected": ["work injury deadline first", "dispatch and host company matrix", "wage claim", "parallel routes", "no mutual blame delay"]
+  },
+  {
+    "id": "injury-no-contract-no-application",
+    "input": "我在仓库装卸时骨折，没有合同，单位说我是临时工所以不申报",
+    "expected": ["medical and accident preservation", "application deadline", "relationship evidence group", "application route despite employer refusal", "conditional result"]
+  },
+  {
+    "id": "injury-third-party-traffic",
+    "input": "下班路上发生交通事故，对方主要责任，单位说拿了交通赔偿就不能报工伤",
+    "expected": ["commuting injury elements", "deadline first", "traffic liability evidence", "work injury and tort separation", "no blanket double recovery claim"]
+  },
+  {
+    "id": "dispatch-return-dismissal",
+    "input": "用工单位把我退回，派遣公司当天就解除，也没有安排新岗位",
+    "expected": ["return is not dismissal", "two separate notices", "redeployment conditions", "waiting-period pay", "special protection check"]
+  },
+  {
+    "id": "false-outsourcing-equal-pay",
+    "input": "合同写外包，但我一直由客户公司主管打卡考核，同岗位正式员工工资更高",
+    "expected": ["substance over contract title", "management evidence", "outsourcing-dispatch-employment alternatives", "equal pay comparability", "no automatic employment conclusion"]
+  },
+  {
+    "id": "novel-ai-bonus-deduction",
+    "input": "公司用AI评分扣奖金，现有FAQ没写这种情况",
+    "expected": ["eight-dimension novel issue checklist", "bonus rule and evidence", "algorithm or data handoff", "no analogy-only conclusion", "conservative action"]
+  }
+]

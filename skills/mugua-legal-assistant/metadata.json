@@ -1,0 +1,48 @@
+{
+  "name": "木瓜法律助手",
+  "version": "1.0.4",
+  "description": "对接木瓜法律API，提供法律咨询、案件要素提取、案件完整分析能力",
+  "author": "开发者",
+  "triggers": ["法律咨询", "案件分析", "要素提取"],
+  "endpoint": "/skills/mugua-legal",
+  "auth_type": "api_key",
+  "required_configs": [
+    {
+      "name": "api_key",
+      "type": "string",
+      "description": "木瓜法律API鉴权Bearer Token，需用户自行配置并妥善保管，平台仅在运行时传递，不存储该密钥",
+      "required": true
+    },
+    {
+      "name": "base_url",
+      "type": "string",
+      "description": "木瓜法律 API 根地址（与 skill.py 中 _resolve_base_url 一致：OpenClaw 注入至 context.credentials / context.config / event.config 的 base_url；未注入时使用代码内默认）。默认 https://api.test.mugua.muguafabao.com/ ，实际请求路径见 SKILL.md（v1/legal-chat/completions 与 v1/case-analysis/generate）",
+      "required": true,
+      "default": "https://api.test.mugua.muguafabao.com/"
+    }
+  ],
+  "input_params": {
+    "legal_chat": {
+      "prompt": {"type": "string", "required": true, "description": "法律咨询问题"},
+      "stream": {"type": "boolean", "required": false, "default": false},
+      "enable_network": {"type": "boolean", "required": false, "default": false}
+    },
+    "case_analysis": {
+      "analysis_mode": {"type": "string", "required": true, "enum": ["element_extract", "full_analysis"]},
+      "stream": {"type": "boolean", "required": false, "default": false},
+      "input_text": {"type": "string", "required": false, "description": "要素提取模式文本输入"},
+      "files": {"type": "array", "required": false, "description": "文件列表"},
+      "parties": {"type": "array", "required": false, "description": "当事人信息（完整分析模式）"},
+      "case_reasons": {"type": "array", "required": false, "description": "案由（完整分析模式）"},
+      "facts": {"type": "array", "required": false, "description": "案件事实（完整分析模式）"},
+      "demands": {"type": "array", "required": false, "description": "诉求（完整分析模式）"}
+    }
+  },
+  "output_format": {
+    "code": "integer",
+    "message": "string",
+    "data": "object",
+    "request_id": "string",
+    "success": "boolean"
+  }
+}

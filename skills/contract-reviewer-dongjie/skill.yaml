@@ -1,0 +1,11 @@
+name: contract-reviewer-dongjie
+version: "0.1.0"
+description: "A structured contract analysis skill that extracts clauses, identifies risks, summarizes obligations, and provides negotiation recommendations for business and consulting workflows."
+entrypoint: main.js
+author: "Dongjie"
+tags:
+  - contract
+  - legal
+  - analysis
+  - risk
+  - compliance

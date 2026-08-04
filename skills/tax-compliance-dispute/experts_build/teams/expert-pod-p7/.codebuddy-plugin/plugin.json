@@ -1,0 +1,165 @@
+{
+  "name": "expert-pod-p7",
+  "version": "1.0.0",
+  "description": "P7: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p7-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p7-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p7-lead",
+    "memberAgents": [
+      "tax-tax-audit-expert",
+      "tax-compliance-dispute-expert",
+      "tax-tax-judicial-expert",
+      "tax-soe-audit-expert",
+      "tax-industry-tax-risk-expert",
+      "tax-legal-tax-review-expert"
+    ]
+  },
+  "displayName": {
+    "en": "稽查争议与司法团",
+    "zh": "稽查争议与司法团"
+  },
+  "profession": {
+    "en": "稽查争议与司法团",
+    "zh": "稽查争议与司法团"
+  },
+  "displayDescription": {
+    "en": "P7: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「稽查争议与司法团」：由主理人协调 6 名专题专家，覆盖稽查应对/复议诉讼/国企审计，提供跨域财税合"
+  },
+  "avatar": "avatars/pod-p7-lead.svg",
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "我是「稽查争议与司法团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 稽查争议与司法团."
+  },
+  "plugin": "expert-pod-p7",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T1",
+      "zh": "T1优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p7-lead",
+      "displayName": {
+        "en": "税务争议解决总监",
+        "zh": "税务争议解决总监"
+      },
+      "profession": {
+        "en": "税务争议解决总监",
+        "zh": "税务争议解决总监"
+      },
+      "avatar": "avatars/pod-p7-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "tax-tax-audit-expert",
+      "displayName": {
+        "en": "tax-tax-audit",
+        "zh": "tax-tax-audit"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-tax-audit-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-compliance-dispute-expert",
+      "displayName": {
+        "en": "tax-compliance-dispute",
+        "zh": "tax-compliance-dispute"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-compliance-dispute-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-tax-judicial-expert",
+      "displayName": {
+        "en": "tax-tax-judicial",
+        "zh": "tax-tax-judicial"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-tax-judicial-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-soe-audit-expert",
+      "displayName": {
+        "en": "tax-soe-audit",
+        "zh": "tax-soe-audit"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-soe-audit-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-industry-tax-risk-expert",
+      "displayName": {
+        "en": "tax-industry-tax-risk",
+        "zh": "tax-industry-tax-risk"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-industry-tax-risk-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-legal-tax-review-expert",
+      "displayName": {
+        "en": "tax-legal-tax-review",
+        "zh": "tax-legal-tax-review"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-legal-tax-review-expert.svg",
+      "role": "member"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gaoyao:sales-contract-litigation:ssot:0.1",
+  "title": "买卖合同纠纷 SSOT",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metadata", "route", "parties", "contracts", "performance", "payments", "claims", "evidence", "risks", "gates"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["matter_code", "mode", "calculation_base_date", "legal_verification_date", "court_profile_id"],
+      "properties": {
+        "matter_code": {"type": "string"},
+        "mode": {"enum": ["production-intake", "retrospective-benchmark"]},
+        "calculation_base_date": {"type": ["string", "null"]},
+        "legal_verification_date": {"type": ["string", "null"]},
+        "court_profile_id": {"type": ["string", "null"]}
+      }
+    },
+    "route": {
+      "type": "object",
+      "required": ["primary_route", "secondary_tags", "verified_signals", "conflicts", "missing_evidence", "hold_status"],
+      "properties": {
+        "primary_route": {"enum": ["ordinary-goods-sale", "installment-title-retention", "mixed-cause-boundary", "HOLD-ROUTE"]},
+        "secondary_tags": {"type": "array", "items": {"enum": ["reconciliation-confirmation", "quality-quantity-defense", "guarantee-security", "party-name-misroute-warning"]}, "uniqueItems": true},
+        "verified_signals": {"type": "array", "items": {"type": "string"}},
+        "conflicts": {"type": "array", "items": {"type": "string"}},
+        "missing_evidence": {"type": "array", "items": {"type": "string"}},
+        "hold_status": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "parties": {"type": "array", "items": {"$ref": "#/$defs/factRecord"}},
+    "contracts": {"type": "array", "items": {"$ref": "#/$defs/factRecord"}},
+    "performance": {"type": "array", "items": {"$ref": "#/$defs/factRecord"}},
+    "payments": {"type": "array", "items": {"$ref": "#/$defs/factRecord"}},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "type", "amount", "formula", "status", "evidence_ids", "legal_source_status"],
+        "properties": {
+          "claim_id": {"type": "string"},
+          "type": {"type": "string"},
+          "amount": {"type": ["string", "null"]},
+          "formula": {"type": ["string", "null"]},
+          "status": {"enum": ["verified", "hold", "rejected"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}},
+          "legal_source_status": {"enum": ["legal_text_verified", "legal_text_pending", "human_review_required"]}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "logical_locator", "sha256", "page_or_clause", "status", "proof_object"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "logical_locator": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "page_or_clause": {"type": "string"},
+          "status": {"$ref": "#/$defs/factStatus"},
+          "proof_object": {"type": "string"},
+          "counterproof_risk": {"type": "string"},
+          "next_action": {"type": "string"}
+        }
+      }
+    },
+    "risks": {"type": "array", "items": {"$ref": "risk.schema.json"}},
+    "gates": {
+      "type": "object",
+      "required": ["P0-1", "P0-2", "P0-3", "P0-4", "overall"],
+      "properties": {
+        "P0-1": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "P0-2": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "P0-3": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "P0-4": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "overall": {"enum": ["PASS", "HOLD", "FAIL"]}
+      }
+    }
+  },
+  "$defs": {
+    "factStatus": {"enum": ["verified", "single-source", "ocr-only", "conflict", "missing", "not-applicable"]},
+    "factRecord": {
+      "type": "object",
+      "required": ["fact_id", "value", "status", "evidence_ids", "source_locator", "page_or_clause", "used_by_claims", "used_by_documents"],
+      "properties": {
+        "fact_id": {"type": "string"},
+        "value": {},
+        "status": {"$ref": "#/$defs/factStatus"},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "source_locator": {"type": "string"},
+        "page_or_clause": {"type": "string"},
+        "updated_at": {"type": ["string", "null"]},
+        "used_by_claims": {"type": "array", "items": {"type": "string"}},
+        "used_by_documents": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

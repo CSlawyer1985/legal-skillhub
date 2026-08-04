@@ -1,0 +1,4 @@
+interface:
+  display_name: "蚂蚁社保｜现金与股权薪酬组合税负比较"
+  short_description: "现金与股权薪酬组合税负比较，按当前有效官方口径给出结论与行动步骤"
+  default_prompt: "请使用 @calculate-ant-ss-556 帮我处理“现金与股权薪酬组合税负比较”，先核验地区、身份、年月和官方依据。"

@@ -1,0 +1,142 @@
+<!-- TODO_DO_NOT_DELIVER：存在任何 TODO_DO_NOT_DELIVER 即不得交付。 -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 800"
+     role="img"
+     aria-labelledby="TODO_DO_NOT_DELIVER_SPATIAL_TITLE TODO_DO_NOT_DELIVER_SPATIAL_DESC"
+     data-diagram-kind="TODO_DO_NOT_DELIVER_DIAGRAM_KIND"
+     data-geometry-source="TODO_DO_NOT_DELIVER_GEOMETRY_SOURCE"
+     data-measurement-method="TODO_DO_NOT_DELIVER_MEASUREMENT_METHOD"
+     data-coordinate-system-or-scale="TODO_DO_NOT_DELIVER_COORDINATE_SYSTEM_OR_SCALE"
+     data-direction-basis="TODO_DO_NOT_DELIVER_DIRECTION_BASIS"
+     data-collected-at="TODO_DO_NOT_DELIVER_COLLECTED_AT"
+     data-data-version="TODO_DO_NOT_DELIVER_DATA_VERSION"
+     data-occlusion="TODO_DO_NOT_DELIVER_OCCLUSION"
+     data-measurement-error="TODO_DO_NOT_DELIVER_MEASUREMENT_ERROR"
+     data-projection-distortion="TODO_DO_NOT_DELIVER_PROJECTION_DISTORTION"
+     data-temporal-change="TODO_DO_NOT_DELIVER_TEMPORAL_CHANGE"
+     data-viewpoint-bias="TODO_DO_NOT_DELIVER_VIEWPOINT_BIAS"
+     data-modeling-assumptions="TODO_DO_NOT_DELIVER_MODELING_ASSUMPTIONS"
+     data-fact-status="TODO_DO_NOT_DELIVER_FACT_STATUS_confirmed_disputed_or_unknown_ROOT"
+     data-record-type="TODO_DO_NOT_DELIVER_RECORD_TYPE_fact_source_statement_inference_or_legal_rule_ROOT"
+     data-asserted-by="TODO_DO_NOT_DELIVER_ASSERTED_BY_RECORDER_OR_SOURCE_ROLE_ROOT"
+     data-lifecycle="TODO_DO_NOT_DELIVER_LIFECYCLE_current_or_superseded_ROOT"
+     data-verification-basis="TODO_DO_NOT_DELIVER_VERIFICATION_BASIS_ROOT"
+     data-adjudication-status="TODO_DO_NOT_DELIVER_ADJUDICATION_STATUS_ROOT"
+     data-adjudication-refs="TODO_DO_NOT_DELIVER_ADJUDICATION_REFS_OR_NONE_ROOT"
+     data-support-refs="TODO_DO_NOT_DELIVER_SUPPORT_REFS_OR_NONE_ROOT"
+     data-conflict-refs="TODO_DO_NOT_DELIVER_CONFLICT_REFS_OR_NONE_ROOT"
+     data-context-refs="TODO_DO_NOT_DELIVER_CONTEXT_REFS_OR_NONE_ROOT"
+     data-gap-reason="TODO_DO_NOT_DELIVER_GAP_REASON_OR_NONE_ROOT">
+  <title id="TODO_DO_NOT_DELIVER_SPATIAL_TITLE">TODO_DO_NOT_DELIVER_SPATIAL_DIAGRAM_TITLE</title>
+  <desc id="TODO_DO_NOT_DELIVER_SPATIAL_DESC">TODO_DO_NOT_DELIVER_EDITABLE_SCHEMATIC_ONLY_NOT_SURVEY_NOT_SITE_INSPECTION_NOT_EXPERT_APPRAISAL</desc>
+
+  <defs>
+    <pattern id="TODO_DO_NOT_DELIVER_EDITABLE_GRID" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d8dee9" stroke-width="1"/>
+    </pattern>
+    <marker id="TODO_DO_NOT_DELIVER_ROUTE_ARROW" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2457a6"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="20" width="1160" height="760" fill="#ffffff" stroke="#27364b" stroke-width="2"/>
+  <rect x="40" y="190" width="820" height="560" fill="url(#TODO_DO_NOT_DELIVER_EDITABLE_GRID)" stroke="#667085" stroke-width="1.5"/>
+
+  <g id="TODO_DO_NOT_DELIVER_METADATA_PANEL">
+    <rect x="40" y="40" width="1120" height="125" rx="8" fill="#f7f9fc" stroke="#667085"/>
+    <text x="60" y="67" font-family="sans-serif" font-size="15">diagram_kind=TODO_DO_NOT_DELIVER_DIAGRAM_KIND | geometry_source=TODO_DO_NOT_DELIVER_GEOMETRY_SOURCE | measurement_method=TODO_DO_NOT_DELIVER_MEASUREMENT_METHOD</text>
+    <text x="60" y="91" font-family="sans-serif" font-size="15">coordinate_system_or_scale=TODO_DO_NOT_DELIVER_COORDINATE_SYSTEM_OR_SCALE | direction_basis=TODO_DO_NOT_DELIVER_DIRECTION_BASIS | collected_at=TODO_DO_NOT_DELIVER_COLLECTED_AT | data_version=TODO_DO_NOT_DELIVER_DATA_VERSION</text>
+    <text x="60" y="115" font-family="sans-serif" font-size="15">occlusion=TODO_DO_NOT_DELIVER_OCCLUSION | measurement_error=TODO_DO_NOT_DELIVER_MEASUREMENT_ERROR | projection_distortion=TODO_DO_NOT_DELIVER_PROJECTION_DISTORTION</text>
+    <text x="60" y="139" font-family="sans-serif" font-size="15">temporal_change=TODO_DO_NOT_DELIVER_TEMPORAL_CHANGE | viewpoint_bias=TODO_DO_NOT_DELIVER_VIEWPOINT_BIAS | modeling_assumptions=TODO_DO_NOT_DELIVER_MODELING_ASSUMPTIONS</text>
+    <text x="900" y="157" font-family="sans-serif" font-size="13" fill="#b42318">TODO_DO_NOT_DELIVER：仅为示意；非测绘、非勘验、非鉴定</text>
+  </g>
+
+  <g id="TODO_DO_NOT_DELIVER_DIRECTION_AND_SCALE">
+    <line x1="920" y1="260" x2="920" y2="210" stroke="#27364b" stroke-width="3" marker-end="url(#TODO_DO_NOT_DELIVER_ROUTE_ARROW)"/>
+    <text x="908" y="285" font-family="sans-serif" font-size="15">TODO_DO_NOT_DELIVER_DIRECTION_LABEL</text>
+    <line x1="920" y1="325" x2="1090" y2="325" stroke="#27364b" stroke-width="5"/>
+    <line x1="920" y1="315" x2="920" y2="335" stroke="#27364b" stroke-width="3"/>
+    <line x1="1090" y1="315" x2="1090" y2="335" stroke="#27364b" stroke-width="3"/>
+    <text x="920" y="355" font-family="sans-serif" font-size="15">TODO_DO_NOT_DELIVER_SCALE_LABEL</text>
+  </g>
+
+  <g id="TODO_DO_NOT_DELIVER_SPATIAL_OBJECT_RECORD_01"
+     data-fact-status="TODO_DO_NOT_DELIVER_FACT_STATUS_confirmed_disputed_or_unknown_01"
+     data-record-type="TODO_DO_NOT_DELIVER_RECORD_TYPE_fact_source_statement_inference_or_legal_rule_01"
+     data-asserted-by="TODO_DO_NOT_DELIVER_ASSERTED_BY_RECORDER_OR_SOURCE_ROLE_01"
+     data-lifecycle="TODO_DO_NOT_DELIVER_LIFECYCLE_current_or_superseded_01"
+     data-verification-basis="TODO_DO_NOT_DELIVER_VERIFICATION_BASIS_01"
+     data-adjudication-status="TODO_DO_NOT_DELIVER_ADJUDICATION_STATUS_01"
+     data-adjudication-refs="TODO_DO_NOT_DELIVER_ADJUDICATION_REFS_OR_NONE_01"
+     data-support-refs="TODO_DO_NOT_DELIVER_SUPPORT_REFS_OR_NONE_01"
+     data-conflict-refs="TODO_DO_NOT_DELIVER_CONFLICT_REFS_OR_NONE_01"
+     data-context-refs="TODO_DO_NOT_DELIVER_CONTEXT_REFS_OR_NONE_01"
+     data-gap-reason="TODO_DO_NOT_DELIVER_GAP_REASON_OR_NONE_01">
+    <rect x="120" y="280" width="220" height="140" fill="#dbeafe" stroke="#2457a6" stroke-width="3"/>
+    <text x="145" y="350" font-family="sans-serif" font-size="16">TODO_DO_NOT_DELIVER_SPATIAL_OBJECT_LABEL_01</text>
+  </g>
+
+  <g id="TODO_DO_NOT_DELIVER_SPATIAL_OBJECT_RECORD_02"
+     data-fact-status="TODO_DO_NOT_DELIVER_FACT_STATUS_confirmed_disputed_or_unknown_02"
+     data-record-type="TODO_DO_NOT_DELIVER_RECORD_TYPE_fact_source_statement_inference_or_legal_rule_02"
+     data-asserted-by="TODO_DO_NOT_DELIVER_ASSERTED_BY_RECORDER_OR_SOURCE_ROLE_02"
+     data-lifecycle="TODO_DO_NOT_DELIVER_LIFECYCLE_current_or_superseded_02"
+     data-verification-basis="TODO_DO_NOT_DELIVER_VERIFICATION_BASIS_02"
+     data-adjudication-status="TODO_DO_NOT_DELIVER_ADJUDICATION_STATUS_02"
+     data-adjudication-refs="TODO_DO_NOT_DELIVER_ADJUDICATION_REFS_OR_NONE_02"
+     data-support-refs="TODO_DO_NOT_DELIVER_SUPPORT_REFS_OR_NONE_02"
+     data-conflict-refs="TODO_DO_NOT_DELIVER_CONFLICT_REFS_OR_NONE_02"
+     data-context-refs="TODO_DO_NOT_DELIVER_CONTEXT_REFS_OR_NONE_02"
+     data-gap-reason="TODO_DO_NOT_DELIVER_GAP_REASON_OR_NONE_02">
+    <circle cx="680" cy="360" r="75" fill="#dcfce7" stroke="#16803d" stroke-width="3"/>
+    <text x="610" y="365" font-family="sans-serif" font-size="16">TODO_DO_NOT_DELIVER_SPATIAL_OBJECT_LABEL_02</text>
+  </g>
+
+  <g id="TODO_DO_NOT_DELIVER_ROUTE_RECORD_01"
+     data-fact-status="TODO_DO_NOT_DELIVER_FACT_STATUS_confirmed_disputed_or_unknown_03"
+     data-record-type="TODO_DO_NOT_DELIVER_RECORD_TYPE_fact_source_statement_inference_or_legal_rule_03"
+     data-asserted-by="TODO_DO_NOT_DELIVER_ASSERTED_BY_RECORDER_OR_SOURCE_ROLE_03"
+     data-lifecycle="TODO_DO_NOT_DELIVER_LIFECYCLE_current_or_superseded_03"
+     data-verification-basis="TODO_DO_NOT_DELIVER_VERIFICATION_BASIS_03"
+     data-adjudication-status="TODO_DO_NOT_DELIVER_ADJUDICATION_STATUS_03"
+     data-adjudication-refs="TODO_DO_NOT_DELIVER_ADJUDICATION_REFS_OR_NONE_03"
+     data-support-refs="TODO_DO_NOT_DELIVER_SUPPORT_REFS_OR_NONE_03"
+     data-conflict-refs="TODO_DO_NOT_DELIVER_CONFLICT_REFS_OR_NONE_03"
+     data-context-refs="TODO_DO_NOT_DELIVER_CONTEXT_REFS_OR_NONE_03"
+     data-gap-reason="TODO_DO_NOT_DELIVER_GAP_REASON_OR_NONE_03">
+    <polyline points="340,350 460,350 520,430 605,390" fill="none" stroke="#2457a6" stroke-width="5" stroke-dasharray="10 7" marker-end="url(#TODO_DO_NOT_DELIVER_ROUTE_ARROW)"/>
+    <text x="405" y="332" font-family="sans-serif" font-size="16">TODO_DO_NOT_DELIVER_ROUTE_LABEL_01</text>
+  </g>
+
+  <g id="TODO_DO_NOT_DELIVER_BOUNDARY_RECORD_01"
+     data-fact-status="TODO_DO_NOT_DELIVER_FACT_STATUS_confirmed_disputed_or_unknown_04"
+     data-record-type="TODO_DO_NOT_DELIVER_RECORD_TYPE_fact_source_statement_inference_or_legal_rule_04"
+     data-asserted-by="TODO_DO_NOT_DELIVER_ASSERTED_BY_RECORDER_OR_SOURCE_ROLE_04"
+     data-lifecycle="TODO_DO_NOT_DELIVER_LIFECYCLE_current_or_superseded_04"
+     data-verification-basis="TODO_DO_NOT_DELIVER_VERIFICATION_BASIS_04"
+     data-adjudication-status="TODO_DO_NOT_DELIVER_ADJUDICATION_STATUS_04"
+     data-adjudication-refs="TODO_DO_NOT_DELIVER_ADJUDICATION_REFS_OR_NONE_04"
+     data-support-refs="TODO_DO_NOT_DELIVER_SUPPORT_REFS_OR_NONE_04"
+     data-conflict-refs="TODO_DO_NOT_DELIVER_CONFLICT_REFS_OR_NONE_04"
+     data-context-refs="TODO_DO_NOT_DELIVER_CONTEXT_REFS_OR_NONE_04"
+     data-gap-reason="TODO_DO_NOT_DELIVER_GAP_REASON_OR_NONE_04">
+    <polygon points="105,520 360,480 460,690 150,710" fill="#fef3c7" fill-opacity="0.45" stroke="#b7791f" stroke-width="4" stroke-dasharray="12 7"/>
+    <text x="190" y="610" font-family="sans-serif" font-size="16">TODO_DO_NOT_DELIVER_BOUNDARY_LABEL_01</text>
+  </g>
+
+  <g id="TODO_DO_NOT_DELIVER_RECORD_FIELD_LEGEND">
+    <rect x="890" y="405" width="250" height="325" rx="8" fill="#f7f9fc" stroke="#667085"/>
+    <text x="910" y="435" font-family="sans-serif" font-size="14">fact_status=TODO_DO_NOT_DELIVER_FACT_STATUS</text>
+    <text x="910" y="460" font-family="sans-serif" font-size="14">record_type=TODO_DO_NOT_DELIVER_RECORD_TYPE</text>
+    <text x="910" y="485" font-family="sans-serif" font-size="14">asserted_by=TODO_DO_NOT_DELIVER_ASSERTED_BY_ROLE</text>
+    <text x="910" y="510" font-family="sans-serif" font-size="14">lifecycle=TODO_DO_NOT_DELIVER_LIFECYCLE</text>
+    <text x="910" y="535" font-family="sans-serif" font-size="14">verification_basis=TODO_DO_NOT_DELIVER_VERIFICATION_BASIS</text>
+    <text x="910" y="560" font-family="sans-serif" font-size="14">adjudication_status=TODO_DO_NOT_DELIVER_ADJUDICATION_STATUS</text>
+    <text x="910" y="585" font-family="sans-serif" font-size="14">adjudication_refs=TODO_DO_NOT_DELIVER_ADJUDICATION_REFS</text>
+    <text x="910" y="610" font-family="sans-serif" font-size="14">support_refs=TODO_DO_NOT_DELIVER_SUPPORT_REFS</text>
+    <text x="910" y="635" font-family="sans-serif" font-size="14">conflict_refs=TODO_DO_NOT_DELIVER_CONFLICT_REFS</text>
+    <text x="910" y="660" font-family="sans-serif" font-size="14">context_refs=TODO_DO_NOT_DELIVER_CONTEXT_REFS</text>
+    <text x="910" y="685" font-family="sans-serif" font-size="14">gap_reason=TODO_DO_NOT_DELIVER_GAP_REASON</text>
+    <text x="910" y="715" font-family="sans-serif" font-size="13" fill="#b42318">TODO_DO_NOT_DELIVER_NOT_SURVEY_INSPECTION_OR_APPRAISAL</text>
+  </g>
+</svg>

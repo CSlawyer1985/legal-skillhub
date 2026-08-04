@@ -1,0 +1,330 @@
+rules:
+  - id: NDA001
+    category: subject_risk
+    name: "被披露方主体资格"
+    description: "保密协议各方应具备合法主体资格，签约主体应为依法设立并有效存续的法人或自然人"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询被披露方企业信用信息、营业执照状态及是否存在经营异常"
+    legal_basis: "《民法典》第143条、《反不正当竞争法》第10条"
+    suggestion: "核实被披露方主体资格，要求提供营业执照和信用信息"
+    enabled: true
+
+  - id: NDA002
+    category: subject_risk
+    name: "签约主体不适格"
+    description: "协议签约方与实际履行主体不一致，或签约方无独立签约资格"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查签约方是否为实际承担保密义务的主体，是否存在代理或代表情形"
+    legal_basis: "《民法典》第143条、第161条"
+    suggestion: "确保签约主体与实际履行主体一致，如需代理应提供授权委托书"
+    enabled: true
+
+  - id: NDA003
+    category: subject_risk
+    name: "自然人签约方民事行为能力"
+    description: "作为签约方的自然人应具备完全民事行为能力"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查自然人签约方是否年满18周岁且精神状态正常"
+    legal_basis: "《民法典》第18条、第143条"
+    suggestion: "核实自然人签约方的身份信息及民事行为能力"
+    enabled: true
+
+  - id: NDA004
+    category: confidential_scope
+    name: "保密信息定义范围过宽"
+    description: "保密信息的定义范围过于宽泛，包含公开信息或过于笼统的描述，导致保密义务无法履行"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查保密信息的定义是否明确、具体，是否包含排除情形"
+    legal_basis: "《反不正当竞争法》第9条、《民法典》第501条"
+    suggestion: "明确定义保密信息的具体范围和类型，排除公开信息和公知信息"
+    enabled: true
+
+  - id: NDA005
+    category: confidential_scope
+    name: "保密信息边界模糊"
+    description: "未明确列举保密信息的具体类型，边界不清导致争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否以列举方式明确保密信息类型（如技术信息、商业信息等）"
+    legal_basis: "《反不正当竞争法》第9条"
+    suggestion: "列举保密信息类型（技术信息、经营信息、客户名单、财务数据等），并明确标识方式"
+    enabled: true
+
+  - id: NDA006
+    category: confidential_scope
+    name: "未明确信息标识方式"
+    description: "未约定保密信息的标识方式，口头披露信息是否构成保密信息不明确"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定保密信息的标识要求（如标注'机密'或'保密'字样）"
+    legal_basis: "《反不正当竞争法》第9条"
+    suggestion: "约定保密信息的标识方式，口头披露应在X日内书面确认"
+    enabled: true
+
+  - id: NDA007
+    category: confidential_scope
+    name: "商业秘密要件缺失"
+    description: "保密信息未满足商业秘密的秘密性、价值性、保密性三要件的要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查保密信息是否包含具有商业价值且采取合理保密措施的信息"
+    legal_basis: "《反不正当竞争法》第9条、最高人民法院《关于审理侵犯商业秘密民事案件适用法律若干问题的规定》第1条"
+    suggestion: "确保被披露信息具有秘密性和商业价值，并要求披露方已采取合理保密措施"
+    enabled: true
+
+  - id: NDA008
+    category: confidential_scope
+    name: "保密范围未涵盖衍生信息"
+    description: "保密范围未涵盖基于保密信息形成的分析、摘要、研究报告等衍生信息"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定对保密信息进行分析、整理后形成的衍生成果也属于保密范围"
+    legal_basis: "《反不正当竞争法》第9条"
+    suggestion: "明确保密范围及于衍生信息、分析报告、汇总数据等基于保密信息产生的成果"
+    enabled: true
+
+  - id: NDA009
+    category: confidential_range
+    name: "保密义务主体范围模糊"
+    description: "未明确约定接收方可以披露保密信息的关联方或人员范围"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定接收方可以向哪些关联方披露保密信息"
+    legal_basis: "《反不正当竞争法》第9条、第10条"
+    suggestion: "明确限定接收方可以披露保密信息的关联方范围（如董事、高管、必要员工），并要求其承担同等保密义务"
+    enabled: true
+
+  - id: NDA010
+    category: confidential_range
+    name: "关联方披露后责任约定不明"
+    description: "接收方向关联方披露信息后，关联方违反保密义务的责任承担方式未约定"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定接收方对关联方违反保密义务承担连带责任"
+    legal_basis: "《民法典》第501条、《反不正当竞争法》第10条"
+    suggestion: "约定接收方对关联方的保密义务承担连带责任，关联方违反时视为接收方违反"
+    enabled: true
+
+  - id: NDA011
+    category: confidential_period
+    name: "保密期限约定缺失"
+    description: "未约定保密信息的保密期限，导致保密义务时间不确定"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定保密义务的期限"
+    legal_basis: "《民法典》第501条、《反不正当竞争法》第9条"
+    suggestion: "明确约定保密期限（如协议终止后X年），或约定信息进入公共领域时保密义务终止"
+    enabled: true
+
+  - id: NDA012
+    category: confidential_period
+    name: "保密期限不合理"
+    description: "保密期限过长（如永久保密）或过短，可能影响条款可执行性"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查保密期限是否合理，是否与信息的商业生命周期相匹配"
+    legal_basis: "《民法典》第501条"
+    suggestion: "根据信息类型和保密期限合理设定保密期限（如3-10年），区分不同信息类型设定不同期限"
+    enabled: true
+
+  - id: NDA013
+    category: confidential_period
+    name: "保密期限起算点不明确"
+    description: "保密期限的起算时点不明确（协议签署日或信息披露日）"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查保密期限的起算时点是否明确"
+    legal_basis: "《民法典》第501条"
+    suggestion: "明确保密期限的起算时点（如自信息披露之日起算或协议终止之日起算）"
+    enabled: true
+
+  - id: NDA014
+    category: confidential_period
+    name: "信息进入公共领域义务终止条件未约定"
+    description: "未约定信息进入公共领域等情形下保密义务终止的条件"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定保密义务终止的法定情形"
+    legal_basis: "《反不正当竞争法》第9条"
+    suggestion: "约定保密义务终止情形：信息公开、披露方书面解除、法律强制披露等"
+    enabled: true
+
+  - id: NDA015
+    category: breach_liability
+    name: "违约责任条款缺失"
+    description: "未约定接收方违反保密义务的违约责任"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定违反保密义务的违约责任"
+    legal_basis: "《民法典》第577条、第585条"
+    suggestion: "明确约定违反保密义务的违约责任，包括赔偿损失、支付违约金等"
+    enabled: true
+
+  - id: NDA016
+    category: breach_liability
+    name: "违约金金额约定不合理"
+    description: "违约金金额过高或过低，可能导致条款可执行性存疑"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查违约金金额或计算方式是否合理"
+    legal_basis: "《民法典》第585条"
+    suggestion: "合理设定违约金金额，可约定以实际损失为基础，兼顾违约情形、损失大小等因素"
+    enabled: true
+
+  - id: NDA017
+    category: breach_liability
+    name: "赔偿范围约定不明"
+    description: "未明确约定损失赔偿的范围（直接损失、间接损失）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定损失赔偿范围"
+    legal_basis: "《民法典》第584条"
+    suggestion: "明确赔偿范围包括直接损失、间接损失、维权费用（律师费、公证费等）"
+    enabled: true
+
+  - id: NDA018
+    category: breach_liability
+    name: "未约定继续履行责任"
+    description: "未约定接收方违反保密义务时披露方有权要求继续履行保密义务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定接收方在违反保密义务时仍应继续承担保密义务"
+    legal_basis: "《民法典》第577条、第580条"
+    suggestion: "约定接收方即使已违反保密义务，仍应继续承担保密义务（继续履行责任）"
+    enabled: true
+
+  - id: NDA019
+    category: breach_liability
+    name: "未约定禁令救济"
+    description: "未约定披露方有权申请行为保全或禁令救济以制止违约行为"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定禁令救济条款"
+    legal_basis: "《民事诉讼法》第103条、《民法典》第997条"
+    suggestion: "约定接收方承认披露方有权寻求禁令救济，且无需提供担保或证明实际损失"
+    enabled: true
+
+  - id: NDA020
+    category: exclusion_clause
+    name: "除外条款缺失"
+    description: "未约定保密义务的除外情形，可能导致接收方过度承担责任"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否约定保密义务的除外情形（如公开信息、独立开发信息等）"
+    legal_basis: "《反不正当竞争法》第9条、最高人民法院《关于审理侵犯商业秘密民事案件适用法律若干问题的规定》第14条"
+    suggestion: "明确约定保密义务的除外情形：公开信息、接收方已合法持有、独立开发取得、法律要求披露等"
+    enabled: true
+
+  - id: NDA021
+    category: exclusion_clause
+    name: "除外情形举证责任约定不明"
+    description: "未约定接收方主张除外情形时的举证责任分配"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定接收方主张除外情形时应承担举证责任"
+    legal_basis: "《民事诉讼法》第67条、最高人民法院《关于审理侵犯商业秘密民事案件适用法律若干问题的规定》第14条"
+    suggestion: "约定接收方主张除外情形时，应承担举证责任，证明信息属于除外情形"
+    enabled: true
+
+  - id: NDA022
+    category: exclusion_clause
+    name: "法律强制披露条款缺失"
+    description: "未约定因法律、法规、监管要求需披露保密信息时的处理程序"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定法律强制披露时的通知义务和限制条件"
+    legal_basis: "《反不正当竞争法》第9条、《民法典》第501条"
+    suggestion: "约定法律强制披露时应及时通知披露方，并仅披露法定要求范围内的信息"
+    enabled: true
+
+  - id: NDA023
+    category: exclusion_clause
+    name: "独立开发证明条款缺失"
+    description: "未约定接收方独立开发类似技术或信息时的免责条款"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定接收方独立开发的类似信息不构成违约"
+    legal_basis: "最高人民法院《关于审理侵犯商业秘密民事案件适用法律若干问题的规定》第14条"
+    suggestion: "约定接收方独立开发或反向工程取得的类似信息不构成违反保密义务，但应承担举证责任"
+    enabled: true
+
+  - id: NDA024
+    category: general_clause
+    name: "知识产权归属约定不明"
+    description: "未明确约定保密信息相关的知识产权归属"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确保密信息的知识产权仍归披露方所有"
+    legal_basis: "《民法典》第123条、第887条"
+    suggestion: "明确约定保密信息及相关知识产权归披露方所有，披露行为不构成任何知识产权的转让或许可"
+    enabled: true
+
+  - id: NDA025
+    category: general_clause
+    name: "信息返还或销毁条款缺失"
+    description: "未约定协议终止后保密信息的返还或销毁义务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定协议终止或披露方要求时接收方应返还或销毁保密信息"
+    legal_basis: "《民法典》第501条"
+    suggestion: "约定协议终止或披露方要求时，接收方应在X日内返还或销毁保密信息，并提供销毁证明"
+    enabled: true
+
+  - id: NDA026
+    category: general_clause
+    name: "争议解决条款缺失"
+    description: "未约定争议解决方式（诉讼或仲裁）及管辖机构"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定争议解决方式和管辖机构"
+    legal_basis: "《民事诉讼法》第35条、《仲裁法》第4条"
+    suggestion: "明确约定争议解决方式（诉讼或仲裁）及管辖机构（如披露方所在地法院）"
+    enabled: true
+
+  - id: NDA027
+    category: general_clause
+    name: "协议变更或解除条件未约定"
+    description: "未约定协议变更或解除的条件和程序"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定协议变更或解除的条件"
+    legal_basis: "《民法典》第543条、第562条"
+    suggestion: "约定协议变更需双方书面同意，约定单方解除权的情形（如对方严重违约）"
+    enabled: true
+
+  - id: NDA028
+    category: general_clause
+    name: "通知与送达条款缺失"
+    description: "未约定协议履行过程中的通知送达方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定通知送达方式及地址"
+    legal_basis: "《民法典》第502条"
+    suggestion: "约定通知送达方式（书面、邮件、快递等）、送达地址及生效时间"
+    enabled: true
+
+  - id: NDA029
+    category: general_clause
+    name: "适用法律条款缺失"
+    description: "未约定协议适用的法律（特别是涉外保密协议）"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定协议适用法律"
+    legal_basis: "《涉外民事关系法律适用法》第41条"
+    suggestion: "明确约定协议适用中华人民共和国法律，特别是涉及商业秘密保护时应适用中国法律"
+    enabled: true
+
+  - id: NDA030
+    category: general_clause
+    name: "不可转让条款缺失"
+    description: "未约定保密义务不得转让，可能导致保密义务被转移给不可控第三方"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定接收方不得将保密义务转让给第三方"
+    legal_basis: "《民法典》第545条"
+    suggestion: "约定接收方不得将保密义务转让给第三方，但披露方转让权利时需通知接收方"
+    enabled: true

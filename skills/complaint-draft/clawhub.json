@@ -1,0 +1,18 @@
+{
+  "name": "complaint-draft",
+  "version": "1.0.0",
+  "description": "Generate civil complaint document frameworks based on case facts. Use when the user asks about 起诉状、起诉书、怎么起诉、民事起诉、我要起诉、写诉状, or wants to draft a civil complaint.",
+  "author": "OpenClaw",
+  "license": "MIT",
+  "keywords": ["complaint", "lawsuit", "legal", "起诉状", "起诉"],
+  "category": "legal",
+  "homepage": "https://github.com/openclaw/skills/tree/main/complaint-draft",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/skills.git"
+  },
+  "openclaw": {
+    "skill": true,
+    "minVersion": "2026.3.0"
+  }
+}

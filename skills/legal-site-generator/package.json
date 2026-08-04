@@ -1,0 +1,7 @@
+{
+  "name": "legal-site-generator",
+  "version": "1.0.0",
+  "description": "Generate App Store compliant legal site",
+  "main": "skill.js",
+  "license": "MIT"
+}

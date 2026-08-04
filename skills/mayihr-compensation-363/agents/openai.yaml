@@ -1,0 +1,4 @@
+interface:
+  display_name: "股权激励方案设计器"
+  short_description: "用自然语言或上传文件完成股权激励方案设计器，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-compensation-363 请帮我完成股权激励方案设计器：期权/限制性股票/虚拟股→授予节奏/行权条件/退出机制/税务优化方案。"

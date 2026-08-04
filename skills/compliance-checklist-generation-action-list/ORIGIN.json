@@ -1,0 +1,22 @@
+{
+  "source_key": "seb1n__awesome-ai-agent-skills",
+  "repo_url": "https://github.com/seb1n/awesome-ai-agent-skills",
+  "commit": "a6c8c0ef3c240faefe1b0b5cabe1567beaea60fd",
+  "source_relative_path": "legal-and-compliance/compliance-checklist-generation/SKILL.md",
+  "source_skill_sha256": "1b66a27b8611b4748b26e4cc78f189bad0a6489f4d1fe83e2581017c9cdc4d7a",
+  "source_tree_sha256": "52f04c7e9a2c124d5ebc3ee2d8a487fd72ba174bcddb2fae00c8622ba18dd2b7",
+  "effective_license": "MIT",
+  "license_files": [
+    "LICENSE"
+  ],
+  "target_category": "business-operations",
+  "selected_rank": 712,
+  "public_branding_applied": true,
+  "product_display_name": "合规框架检查清单生成｜简诗 AI",
+  "product_slug": "compliance-checklist-generation-action-list",
+  "productization": "简诗 AI canonical v1",
+  "product_summary": "为SOC2、HIPAA、PCI-DSS和GDPR等主要合规框架生成结构化检查清单，映射控制项与要求，评估准备度并输出优先修复计划。",
+  "original_product_slug": "compliance-checklist-generation",
+  "semantic_reslug_version": "1.0.2",
+  "semantic_reslug_reason": "依据“合规框架检查清单生成”的真实交付物设计英文语义，明确表达检查清单，不使用品牌机械前缀或随机编号。"
+}

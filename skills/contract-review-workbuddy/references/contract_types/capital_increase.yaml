@@ -1,0 +1,330 @@
+rules:
+  - id: CI001
+    category: subject_risk
+    name: "增资方主体资格"
+    description: "增资方应具备合法主体资格，不存在经营异常或失信情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询增资方企业信用信息、营业执照状态及是否存在经营异常"
+    legal_basis: "《公司法》第15条、《民法典》第143条"
+    suggestion: "核实增资方主体资格，要求提供营业执照、信用信息报告及工商登记档案"
+    enabled: true
+
+  - id: CI002
+    category: subject_risk
+    name: "增资方为国有企业未履行国资审批"
+    description: "增资方为国有企业，未履行国资审批、评估备案等法定程序"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查增资方是否为国有企业，是否履行国资审批及评估备案程序"
+    legal_basis: "《企业国有资产法》第53条、《企业国有资产交易监督管理办法》第9条"
+    suggestion: "核实增资方性质，要求提供国资监管机构批准文件及评估报告备案证明"
+    enabled: true
+
+  - id: CI003
+    category: subject_risk
+    name: "增资方为外资企业涉及外资准入限制"
+    description: "增资方为外资企业，标的公司属于外资准入限制或禁止类行业"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查标的公司是否属于外商投资准入负面清单限制或禁止类行业"
+    legal_basis: "《外商投资法》第28条、《外商投资准入特别管理措施》"
+    suggestion: "核查标的公司行业属性，确认是否涉及外资准入限制，取得商务部门批准"
+    enabled: true
+
+  - id: CI004
+    category: subject_risk
+    name: "标的公司主体资格瑕疵"
+    description: "标的公司未依法设立或存在吊销、注销等情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "查询标的公司工商登记状态，确认公司合法存续"
+    legal_basis: "《公司法》第3条、《民法典》第55条"
+    suggestion: "核实标的公司主体资格，要求提供最新工商登记信息及经营资质"
+    enabled: true
+
+  - id: CI005
+    category: valuation
+    name: "增资估值方法约定不明"
+    description: "未明确约定估值方法（收益法、市场法、资产基础法），估值依据不充分"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定估值方法及估值依据"
+    legal_basis: "《公司法》第27条、《民法典》第143条"
+    suggestion: "明确约定估值方法（收益法/市场法/资产基础法），约定以评估报告为估值依据"
+    enabled: true
+
+  - id: CI006
+    category: valuation
+    name: "估值调整机制（对赌条款）缺失"
+    description: "未约定估值调整机制，当业绩不达标时无法保护增资方利益"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定业绩承诺及估值调整机制（对赌条款）"
+    legal_basis: "《九民纪要》第5条、《公司法》第35条"
+    suggestion: "约定业绩承诺指标及未达标时的估值调整机制（现金补偿或股权回购）"
+    enabled: true
+
+  - id: CI007
+    category: valuation
+    name: "增资价格与持股比例不匹配"
+    description: "增资价格与取得的股权比例不匹配，存在稀释或溢价不合理"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查增资价格与取得股权比例的计算是否合理"
+    legal_basis: "《公司法》第28条、股东协议惯例"
+    suggestion: "明确增资价格、注册资本增加额及增资后各方持股比例的计算方式"
+    enabled: true
+
+  - id: CI008
+    category: valuation
+    name: "未分配利润处理约定不明"
+    description: "增资前未分配利润的归属及处理方式未约定"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定增资前未分配利润的归属及处理方式"
+    legal_basis: "《公司法》第34条、股东协议惯例"
+    suggestion: "明确增资前未分配利润归属原股东或按持股比例分配"
+    enabled: true
+
+  - id: CI009
+    category: anti_dilution
+    name: "反稀释条款缺失"
+    description: "未约定反稀释保护条款，后续融资可能导致增资方股权被稀释"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否约定反稀释保护条款（完全棘轮或加权平均）"
+    legal_basis: "股东协议惯例、《公司法》第34条"
+    suggestion: "约定反稀释条款，明确后续融资价格低于本次时的股权调整机制"
+    enabled: true
+
+  - id: CI010
+    category: anti_dilution
+    name: "反稀释条款类型约定不明"
+    description: "反稀释条款未明确采用完全棘轮法或加权平均法"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查反稀释条款是否明确调整方法（完全棘轮或加权平均）"
+    legal_basis: "股东协议惯例"
+    suggestion: "明确约定反稀释调整方法（完全棘轮法或加权平均法），约定计算公式"
+    enabled: true
+
+  - id: CI011
+    category: anti_dilution
+    name: "反稀释例外情形未约定"
+    description: "未约定反稀释条款的例外情形（如员工期权、战略投资等）"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定反稀释条款的例外情形"
+    legal_basis: "股东协议惯例"
+    suggestion: "约定反稀释例外情形（如员工期权激励、战略投资者引入等）"
+    enabled: true
+
+  - id: CI012
+    category: anti_dilution
+    name: "优先认购权缺失"
+    description: "未约定增资方对后续增资的优先认购权"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定增资方对后续增资的优先认购权"
+    legal_basis: "《公司法》第34条"
+    suggestion: "约定增资方对后续增资享有优先认购权，明确行使期限和条件"
+    enabled: true
+
+  - id: CI013
+    category: board_seat
+    name: "董事会席位约定不明"
+    description: "未明确约定增资后董事会席位分配及增资方委派权"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定增资后董事会席位分配及增资方委派权"
+    legal_basis: "《公司法》第44条、第48条"
+    suggestion: "明确增资后董事会席位总数、各方委派人数及委派程序"
+    enabled: true
+
+  - id: CI014
+    category: board_seat
+    name: "董事会议事规则约定不明"
+    description: "未约定董事会议事规则及表决方式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定董事会议事规则及表决方式"
+    legal_basis: "《公司法》第48条"
+    suggestion: "明确董事会议事规则（过半数或2/3以上通过）、通知程序及表决方式"
+    enabled: true
+
+  - id: CI015
+    category: board_seat
+    name: "董事长委派权约定不明"
+    description: "未约定董事长、副董事长的委派权归属"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定董事长、副董事长的委派权归属"
+    legal_basis: "《公司法》第44条"
+    suggestion: "明确董事长、副董事长的委派权归属及产生方式"
+    enabled: true
+
+  - id: CI016
+    category: board_seat
+    name: "董事会职权范围约定不明"
+    description: "未明确约定董事会与股东会的职权划分"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定董事会与股东会的职权划分"
+    legal_basis: "《公司法》第46条、第37条"
+    suggestion: "明确董事会与股东会的职权划分，约定重大事项的决策权限"
+    enabled: true
+
+  - id: CI017
+    category: veto_right
+    name: "一票否决权缺失"
+    description: "增资方未约定对重大事项的一票否决权"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否约定增资方对重大事项的一票否决权"
+    legal_basis: "《公司法》第42条、股东协议惯例"
+    suggestion: "约定增资方对重大事项（如增资、合并、分立、解散等）享有一票否决权"
+    enabled: true
+
+  - id: CI018
+    category: veto_right
+    name: "一票否决权范围约定不明"
+    description: "一票否决权的适用范围未明确列举"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查一票否决权的适用范围是否明确列举"
+    legal_basis: "《公司法》第42条、股东协议惯例"
+    suggestion: "明确列举一票否决权适用的重大事项清单（如章程修改、增资、合并等）"
+    enabled: true
+
+  - id: CI019
+    category: veto_right
+    name: "一票否决权行使条件未约定"
+    description: "未约定一票否决权的行使条件及程序"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定一票否决权的行使条件及程序"
+    legal_basis: "股东协议惯例"
+    suggestion: "明确一票否决权的行使条件、程序及期限"
+    enabled: true
+
+  - id: CI020
+    category: veto_right
+    name: "保护性条款与法定表决比例冲突"
+    description: "一票否决权约定与公司法规定的特别决议2/3表决比例冲突"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查一票否决权约定是否与公司法规定的特别决议表决比例冲突"
+    legal_basis: "《公司法》第43条"
+    suggestion: "确保一票否决权约定不违反公司法强制性规定，可约定更高表决比例"
+    enabled: true
+
+  - id: CI021
+    category: payment
+    name: "增资价款支付条款约定不明"
+    description: "未明确约定增资价款的支付时间、方式及条件"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定增资价款的支付时间、方式及条件"
+    legal_basis: "《公司法》第28条、《民法典》第509条"
+    suggestion: "明确增资价款支付时间、支付方式及支付前提条件"
+    enabled: true
+
+  - id: CI022
+    category: payment
+    name: "增资价款未实缴的责任"
+    description: "未约定增资方未按期足额缴纳增资价款的责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定增资方未按期足额缴纳增资价款的违约责任"
+    legal_basis: "《公司法》第28条、《民法典》第577条"
+    suggestion: "约定增资方未按期缴纳的违约责任（违约金、利息、解除权等）"
+    enabled: true
+
+  - id: CI023
+    category: payment
+    name: "出资方式合法性"
+    description: "增资方出资方式（货币、实物、知识产权等）的合法性及评估"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查增资方出资方式是否合法，非货币出资是否经过评估"
+    legal_basis: "《公司法》第27条、第28条"
+    suggestion: "明确出资方式，非货币出资需经评估并办理财产权转移手续"
+    enabled: true
+
+  - id: CI024
+    category: corporate_governance
+    name: "股东会表决机制约定不明"
+    description: "未约定增资后股东会的表决机制及特别决议事项"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定增资后股东会的表决机制及特别决议事项"
+    legal_basis: "《公司法》第43条"
+    suggestion: "明确股东会表决机制，约定特别决议事项及表决比例"
+    enabled: true
+
+  - id: CI025
+    category: corporate_governance
+    name: "监事委派权约定不明"
+    description: "未约定增资后监事的委派权归属"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定增资后监事的委派权归属"
+    legal_basis: "《公司法》第51条"
+    suggestion: "明确监事会的组成及各方委派权"
+    enabled: true
+
+  - id: CI026
+    category: corporate_governance
+    name: "高级管理人员任命权约定不明"
+    description: "未约定总经理、财务负责人等高级管理人员的任命权"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定高级管理人员的任命权及程序"
+    legal_basis: "《公司法》第49条"
+    suggestion: "明确高级管理人员的任命权归属、提名程序及任期"
+    enabled: true
+
+  - id: CI027
+    category: exit
+    name: "股权回购条款缺失"
+    description: "未约定触发情形下的股权回购条款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定股权回购触发情形及回购价格"
+    legal_basis: "《公司法》第74条、股东协议惯例"
+    suggestion: "约定股权回购触发情形（如业绩不达标、创始人离职等）及回购价格"
+    enabled: true
+
+  - id: CI028
+    category: exit
+    name: "强制随售权缺失"
+    description: "未约定强制随售权（Drag-along），影响退出机制"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定强制随售权"
+    legal_basis: "股东协议惯例"
+    suggestion: "约定强制随售权，明确触发条件及价格确定方式"
+    enabled: true
+
+  - id: CI029
+    category: exit
+    name: "优先清算权缺失"
+    description: "未约定增资方在清算时的优先分配权"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定清算时的优先分配权"
+    legal_basis: "《公司法》第186条、股东协议惯例"
+    suggestion: "约定清算时增资方的优先分配权及分配顺序"
+    enabled: true
+
+  - id: CI030
+    category: exit
+    name: "知情权与检查权约定不明"
+    description: "未约定增资方对公司经营状况的知情权与检查权"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定增资方的知情权与检查权"
+    legal_basis: "《公司法》第33条"
+    suggestion: "明确增资方查阅财务资料、检查公司经营状况的权利及程序"
+    enabled: true

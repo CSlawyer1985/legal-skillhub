@@ -1,0 +1,11 @@
+skill:
+  name: legal-brief-drafter
+  description: "法律文书整理与起草系统"
+  author: "董国华（清醒建造者）"
+  license: "CC-BY-NC-SA-4.0"
+  type: cli
+  language: zh-CN
+  execution:
+    entry: script.py
+    timeout: 600
+    sandbox: false

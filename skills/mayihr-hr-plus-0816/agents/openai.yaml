@@ -1,0 +1,4 @@
+interface:
+  display_name: "民法典合同编HR应用指引"
+  short_description: "用自然语言或上传文件完成民法典合同编HR应用指引，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-hr-plus-0816 请帮我完成民法典合同编HR应用指引：劳动合同/劳务合同/派遣协议/外包协议的民法典合同编要点。"

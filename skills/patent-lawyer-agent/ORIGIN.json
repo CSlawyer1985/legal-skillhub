@@ -1,0 +1,19 @@
+{
+  "source_key": "michaelboeding__skills",
+  "repo_url": "https://github.com/michaelboeding/skills",
+  "commit": "84abf02d42612ab0b94a54de1a1a454ae25dd131",
+  "source_relative_path": "skills/patent-lawyer-agent/SKILL.md",
+  "source_skill_sha256": "461c8bf9dd115731501341104568b2563a970c00c702716040cf031b4d798eb2",
+  "source_tree_sha256": "62290c83fa7f8d8dde4df25d3e3729588c78d2a74a36825ec32180d7b430e8b2",
+  "effective_license": "MIT",
+  "license_files": [
+    "LICENSE"
+  ],
+  "target_category": "office-productivity",
+  "selected_rank": 535,
+  "public_branding_applied": true,
+  "product_display_name": "专利申请分析与撰写｜简诗 AI",
+  "product_slug": "patent-lawyer-agent",
+  "productization": "简诗 AI canonical v1",
+  "product_summary": "提供知识产权指导和专利分析，辅助撰写专利申请文件。非法律建议，需咨询持证专利律师。"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "clause-schema",
+  "category": "penalty",
+  "name": "固定比例违约金（20%）",
+  "applicable_types": [
+    "house-sale",
+    "sales",
+    "investment"
+  ],
+  "clause_text": "任一方违反本合同约定导致合同目的无法实现的，违约方应向守约方支付合同总价【20】%的违约金。违约金不足以覆盖守约方实际损失的，违约方应继续赔偿超出违约金部分的损失。违约金总额不超过合同总价的【30】%。",
+  "position_tips": {
+    "buyer": "争取将违约金与违约后果挂钩（如：逾期办证违约金与实际损失挂钩）",
+    "seller": "20%是合理上限，足以覆盖买方的资金成本损失"
+  },
+  "legal_reference": "《民法典》第585条"
+}

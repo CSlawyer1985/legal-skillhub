@@ -1,0 +1,51 @@
+{
+  "name": "gdpr-guard",
+  "displayName": "GDPR Guardrail —— GDPR 合规护栏",
+  "version": "1.0.0",
+  "description": "GDPR 合规护栏。在 AI 应用输入/输出链路中实时检测 GDPR 语境下的个人数据：IBAN、UK NI、EU 电话、信用卡（Luhn）等模式，以及 Art.9 特殊类别数据（种族/基因/生物识别/健康等）和 Art.10 刑事定罪数据。纯本地运行，零网络、零动态执行。",
+  "author": "Wei Wu (wwumit)",
+  "license": "MIT",
+  "keywords": [
+    "GDPR",
+    "guardrail",
+    "EU data protection",
+    "PII detection",
+    "Art.9",
+    "special category data",
+    "personal data",
+    "compliance",
+    "data privacy"
+  ],
+  "files": [
+    "SKILL.md",
+    "package.json",
+    "requirements.txt",
+    "CHANGELOG.md",
+    "README.md",
+    "scripts/"
+  ],
+  "scripts": {
+    "guard": "python3 scripts/guard.py",
+    "detect": "python3 scripts/guard.py --action detect --format json",
+    "mask": "python3 scripts/guard.py --action mask",
+    "block": "python3 scripts/guard.py --action block",
+    "profiles": "python3 scripts/guard.py --list-profiles"
+  },
+  "openclaw": {
+    "skill": true,
+    "category": "compliance",
+    "region": "cn",
+    "dependencies": [],
+    "emoji": "🛡️"
+  },
+  "security": {
+    "scanned": true,
+    "issues": 0,
+    "warnings": 0
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wwumit/pipl-guard"
+  },
+  "homepage": "https://github.com/wwumit/pipl-guard"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "laosi-contract-review-skill",
+  "displayName": "LAOSI Contract Review Skill",
+  "description": "AI-powered contract review skill for OpenClaw agents - identifies risky clauses, missing provisions, and compliance issues in legal documents",
+  "version": "1.0.1",
+  "author": "laosi",
+  "homepage": "https://github.com/laosi/contract-review-skill",
+  "license": "MIT",
+  "keywords": ["legal", "contract", "review", "compliance", "risk-assessment", "document-analysis"],
+  "category": "productivity",
+  "engines": {
+    "openclaw": ">=1.0.0"
+  },
+  "scripts": {
+    "review": "python contract_reviewer.py"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "claw.json",
+    "review_engine.py",
+    "contract_reviewer.py",
+    "legal_patterns/",
+    "templates/"
+  ]
+}

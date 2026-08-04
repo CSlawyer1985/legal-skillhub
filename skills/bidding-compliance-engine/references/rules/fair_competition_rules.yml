@@ -1,0 +1,676 @@
+# 公平竞争审查规则
+# 覆盖审查表"第一部分 公平竞争审查"事项1.1~7.5，共28条规则
+# 规则ID命名规范：FC_ 前缀 + 大写下划线，对应审查表编号
+
+rules:
+  # ===== 一、所有制与组织形式限制（1.1-1.3） =====
+  - rule_id: FC_OWNERSHIP_LIMIT
+    title: 所有制形式限制
+    severity: high
+    description: 招标文件中限制国有企业、民营企业或外资企业参与投标，违反公平竞争原则
+    keywords:
+      - "国有企业"
+      - "民营企业"
+      - "外资企业"
+      - "所有制"
+      - "国有控股"
+      - "民企"
+    patterns:
+      - "仅限.*国有.*企业"
+      - "须为.*国有.*企业"
+      - "不接受.*民营"
+      - "不接受.*外资"
+      - "投标人须为.*国有"
+      - "仅接受.*国有控股"
+    exclusion_patterns:
+      - "或同等"
+      - "不限所有制"
+    category: fair_competition
+    suggestion: "删除所有制形式限制条款，确保各类所有制企业均可平等参与投标"
+    legal_basis: "《招标投标法》第六条：依法必须进行招标的项目，其招标投标活动不受地区或者部门的限制和干涉；《公平竞争审查条例实施办法》第三条"
+    check_item: "1.1"
+
+  - rule_id: FC_ORG_FORM_LIMIT
+    title: 组织形式限制
+    severity: high
+    description: 招标文件限制公司制、合伙制等特定组织形式参与投标，排除其他合法组织形式
+    keywords:
+      - "公司制"
+      - "合伙制"
+      - "有限责任公司"
+      - "股份有限公司"
+      - "组织形式"
+    patterns:
+      - "须为.*有限责任公司"
+      - "须为.*股份有限公司"
+      - "仅接受.*公司制"
+      - "不接受.*合伙"
+      - "不接受.*个体"
+      - "投标人须为.*公司"
+    exclusion_patterns:
+      - "或其他合法组织形式"
+      - "或同等法律主体"
+    category: fair_competition
+    suggestion: "删除组织形式限制，允许公司制、合伙制等各类合法组织形式参与投标"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《公平竞争审查条例实施办法》第十四条"
+    check_item: "1.2"
+
+  - rule_id: FC_AFFILIATION_LIMIT
+    title: 隶属关系限制
+    severity: high
+    description: 招标文件要求投标人具有特定行政隶属关系，如隶属于某级政府或部门
+    keywords:
+      - "隶属"
+      - "主管单位"
+      - "归口管理"
+      - "行政隶属"
+      - "部属"
+      - "省属"
+    patterns:
+      - "须隶属于.*"
+      - "主管单位须为.*"
+      - "归口.*管理"
+      - "须为.*部属.*单位"
+      - "须为.*省属.*单位"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "删除行政隶属关系要求，不得以隶属关系作为投标资格条件"
+    legal_basis: "《招标投标法》第六条：依法必须进行招标的项目，其招标投标活动不受地区或者部门的限制和干涉；《公平竞争审查条例实施办法》第十四条"
+    check_item: "1.3"
+
+  # ===== 二、地域与市场准入限制（2.1-2.4） =====
+  - rule_id: FC_LOCAL_BRANCH
+    title: 本地分支机构要求
+    severity: high
+    description: 招标文件要求投标人在项目所在地设立分支机构或办事机构，对外地企业构成歧视
+    keywords:
+      - "分支机构"
+      - "办事机构"
+      - "分公司"
+      - "本地机构"
+      - "驻本省"
+      - "驻本市"
+    patterns:
+      - "须在.*设有分支机构"
+      - "须在.*设立分公司"
+      - "须在.*设有办事机构"
+      - "须在.*注册登记"
+      - "须有本地.*机构"
+      - "在项目所在地.*设有.*机构"
+    exclusion_patterns:
+      - "或在项目所在地设有服务网点"
+    category: fair_competition
+    suggestion: "删除本地分支机构要求，外地企业可通过项目团队派驻等方式提供服务保障"
+    legal_basis: "《招标投标法》第六条：《招标投标法实施条例》第三十二条第（五）项：以要求提供本地设分支机构限制或者排斥潜在投标人"
+    check_item: "2.1"
+
+  - rule_id: FC_LOCAL_TAX
+    title: 本地纳税/社保要求
+    severity: high
+    description: 招标文件要求投标人在项目所在地纳税或缴纳社保，对外地企业设置不合理门槛
+    keywords:
+      - "本地纳税"
+      - "本地社保"
+      - "纳税证明"
+      - "社保缴纳"
+      - "在本地缴纳"
+    patterns:
+      - "须在.*行政区域内纳税"
+      - "须提供.*本地.*纳税证明"
+      - "须在.*缴纳社会保险"
+      - "在本地.*社保缴纳证明"
+      - "纳税所在地须为.*"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "删除本地纳税/社保缴纳要求，企业注册地纳税和社保缴纳记录均应被认可"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《公平竞争审查条例实施办法》第十四条"
+    check_item: "2.2"
+
+  - rule_id: FC_LOCAL_PERFORMANCE
+    title: 本地业绩要求
+    severity: high
+    description: 招标文件将本地业绩作为资格条件或加分条件，对外地企业构成歧视
+    keywords:
+      - "本地业绩"
+      - "本省业绩"
+      - "本市业绩"
+      - "区域内业绩"
+      - "属地业绩"
+    patterns:
+      - "在.*省.*完成.*业绩"
+      - "在.*市.*完成.*业绩"
+      - "本地业绩.*加分"
+      - "本省.*项目经验"
+      - "须提供.*本地.*业绩"
+      - "区域内.*同类项目"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "删除本地业绩限制，对本地和外地业绩应同等对待"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以特定行政区域业绩限制潜在投标人；《公平竞争审查条例实施办法》第十四条"
+    check_item: "2.3"
+
+  - rule_id: FC_LOCAL_ACCESS_BARRIER
+    title: 本地市场准入障碍
+    severity: high
+    description: 招标文件设置额外的审批、备案、登记等程序，限制外地经营者进入本地市场
+    keywords:
+      - "备案"
+      - "审批"
+      - "登记"
+      - "准入许可"
+      - "前置审批"
+    patterns:
+      - "须在.*办理.*备案"
+      - "须取得.*本地.*审批"
+      - "外地企业须.*审批"
+      - "须在.*行业主管部门登记"
+      - "须取得.*准入许可"
+    exclusion_patterns:
+      - "依法应当"
+      - "法定"
+    category: fair_competition
+    suggestion: "删除无法定依据的备案、审批等准入程序，不得对外地企业设置额外市场准入障碍"
+    legal_basis: "《招标投标法》第六条；《公平竞争审查条例实施办法》第十五条：不得设置不合理和歧视性的准入和退出条件"
+    check_item: "2.4"
+
+  # ===== 三、资质资格与业绩条件（3.1-3.4） =====
+  - rule_id: FC_QUAL_EXCESS
+    title: 资质要求不合理
+    severity: high
+    description: 资质等级要求超出项目实际需要，可能排斥合格投标人参与
+    keywords:
+      - "资质等级"
+      - "甲级"
+      - "一级"
+      - "特级"
+      - "资质要求"
+    patterns:
+      - "须具备.*甲级资质"
+      - "须具备.*一级.*资质"
+      - "须具备.*特级资质"
+      - "须具有.*最高等级.*资质"
+      - "同时具备.*资质"
+    exclusion_patterns:
+      - "或同等"
+      - "或以上"
+    category: fair_competition
+    suggestion: "根据项目实际规模和复杂程度设定合理的资质等级，一般不低于法定最低要求即可"
+    legal_basis: "《招标投标法实施条例》第三十二条第（二）项：招标人不得以不合理的条件限制、排斥潜在投标人；《建筑业企业资质管理规定》"
+    check_item: "3.1"
+
+  - rule_id: FC_PERF_EXCESS
+    title: 业绩条件不必要
+    severity: medium
+    description: 业绩数量、金额或规模要求与项目实际不匹配，可能排斥合格投标人
+    keywords:
+      - "业绩"
+      - "同类项目"
+      - "合同金额"
+      - "成功案例"
+      - "项目经验"
+    patterns:
+      - "单项合同金额.*不低于"
+      - "近.*年.*完成.*个以上"
+      - "累计合同金额.*不低于"
+      - "须提供.*个以上.*业绩"
+      - "业绩规模.*不低于.*倍"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "业绩要求应与项目规模匹配，一般不超过项目预算金额的1.5倍，数量不超过3个"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "3.2"
+
+  - rule_id: FC_AWARD_BIAS
+    title: 奖项设置不合理
+    severity: medium
+    description: 将无依据或特定行业奖项作为资格条件或加分条件，排除其他经营者
+    keywords:
+      - "获奖"
+      - "奖项"
+      - "优良工程"
+      - "鲁班奖"
+      - "国家奖"
+      - "省部奖"
+    patterns:
+      - "须获得.*奖"
+      - "获得.*奖项.*加分"
+      - "鲁班奖.*加分"
+      - "省级以上.*奖.*加分"
+      - "须具有.*获奖证明"
+    exclusion_patterns:
+      - "同等荣誉"
+      - "或同级"
+    category: fair_competition
+    suggestion: "不得将特定奖项作为资格条件或加分条件，确需设置应采用'国家级或省级同等荣誉'"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以特定行政区域或者特定行业的奖项作为加分条件或者中标条件"
+    check_item: "3.3"
+
+  - rule_id: FC_PERSONNEL_EXCESS
+    title: 人员资格要求过度
+    severity: medium
+    description: 项目团队人员资质、数量、经验要求超出项目规模实际需要
+    keywords:
+      - "项目负责人"
+      - "项目经理"
+      - "技术负责人"
+      - "注册"
+      - "高级职称"
+      - "专职"
+    patterns:
+      - "须具备.*注册.*证书"
+      - "须有.*年以上经验"
+      - "不少于.*名.*高级"
+      - "须配备.*名以上.*专职"
+      - "项目负责人须.*高级职称"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "人员要求应与项目规模和难度匹配，避免过度要求排斥中小企业"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "3.4"
+
+  # ===== 四、技术标准与品牌指定（4.1-4.4） =====
+  - rule_id: FC_TECH_DIRECTION
+    title: 技术参数指向性
+    severity: high
+    description: 技术参数指定特定品牌、型号或专利，具有明显指向性
+    keywords:
+      - "品牌"
+      - "型号"
+      - "专利"
+      - "指定"
+      - "必须采用"
+      - "制造商"
+    patterns:
+      - "须采用.*品牌"
+      - "要求使用.*品牌.*型号"
+      - "须选用.*型号"
+      - "品牌为.*"
+      - "必须选用.*品牌"
+      - "采用.*专利技术"
+    exclusion_patterns:
+      - "或同等"
+      - "或相当于"
+      - "或同等品牌"
+      - "性能不低于"
+    category: fair_competition
+    suggestion: "修改为'XX品牌XX型号或同等品牌'，或改为性能参数描述方式"
+    legal_basis: "《招标投标法实施条例》第三十二条第（三）项：招标人不得指定特定的品牌或产地；《工程建设项目施工招标投标办法》第二十七条"
+    check_item: "4.1"
+
+  - rule_id: FC_TECH_EXCLUSIVE
+    title: 技术标准唯一性
+    severity: high
+    description: 技术标准设置具有排他性，使特定经营者成为唯一满足条件的中标候选人
+    keywords:
+      - "唯一"
+      - "排他"
+      - "独占"
+      - "仅.*满足"
+      - "独家"
+    patterns:
+      - "仅.*满足.*条件"
+      - "须同时满足.*项.*指标"
+      - "精度不低于.*分辨率不低于.*且.*"
+      - "参数.*唯一满足"
+    exclusion_patterns:
+      - "或同等"
+      - "或相当"
+    category: fair_competition
+    suggestion: "检查技术参数组合是否仅一家可满足，适当放宽参数范围或增加'或同等'选项"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "4.2"
+
+  - rule_id: FC_CERT_REQUIRE
+    title: 检测认证要求不合理
+    severity: medium
+    description: 检测认证要求超出国标规定，或指定特定机构出具的检测报告
+    keywords:
+      - "检测报告"
+      - "认证"
+      - "检验"
+      - "检定"
+      - "指定机构"
+    patterns:
+      - "须由.*机构出具.*检测报告"
+      - "须通过.*认证"
+      - "检测报告须由.*指定"
+      - "须获得.*级.*认证"
+      - "须提供.*机构.*检验报告"
+    exclusion_patterns:
+      - "或同等资质机构"
+      - "或具备资质的第三方"
+    category: fair_competition
+    suggestion: "检测认证要求应限于国标规定的范围，不得指定特定检测机构"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《认证认可条例》"
+    check_item: "4.3"
+
+  - rule_id: FC_SAMPLE_BIAS
+    title: 样品演示要求不合理
+    severity: medium
+    description: 样品或演示要求不合理，增加投标人负担，偏向特定供应商
+    keywords:
+      - "样品"
+      - "演示"
+      - "测试"
+      - "试用"
+      - "样机"
+    patterns:
+      - "须提供.*样品.*不少于.*台"
+      - "须现场演示.*功能"
+      - "须提供.*样机"
+      - "须送样.*检测"
+    exclusion_patterns:
+      - "可提供"
+      - "可选择"
+    category: fair_competition
+    suggestion: "样品和演示要求应公平、合理，不应对投标人造成不合理负担"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "4.4"
+
+  # ===== 五、评分标准与权重设置（5.1-5.4） =====
+  - rule_id: FC_SCORE_SUBJECTIVE
+    title: 评分因素不量化
+    severity: medium
+    description: 评分标准存在主观性因素，缺乏量化指标，可能导致评审结果不可预期
+    keywords:
+      - "综合评估"
+      - "择优选取"
+      - "综合考虑"
+      - "酌情"
+      - "视情况"
+      - "优中选优"
+    patterns:
+      - "综合评估.*择优"
+      - "根据.*情况.*综合"
+      - "由.*酌情确定"
+      - "视.*情况而定"
+      - "优中选优"
+      - "评委.*综合打分"
+    exclusion_patterns:
+      - "\\d+分"
+      - "\\d+%"
+    category: fair_competition
+    suggestion: "将模糊表述替换为可量化的评分标准，明确各评审因素的权重和评分方法"
+    legal_basis: "《招标投标法实施条例》第五十五条：招标文件应当包括评标标准和方法；《评标委员会和评标方法暂行规定》第二十九条"
+    check_item: "5.1"
+
+  - rule_id: FC_WEIGHT_UNFAIR
+    title: 权重分配不合理
+    severity: medium
+    description: 评分权重分配不合理，压低价格权重规避价格竞争，或技术权重过高偏向特定投标人
+    keywords:
+      - "权重"
+      - "占比"
+      - "评分比例"
+      - "价格分"
+      - "技术分"
+    patterns:
+      - "价格.*权重.*低于.*%"
+      - "价格.*占比.*%"
+      - "技术.*权重.*高于.*%"
+      - "商务.*分值.*低于.*%"
+      - "价格评分.*占.*%"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "价格权重应符合法定要求，货物类一般不低于30%，服务类一般不低于10%"
+    legal_basis: "《评标委员会和评标方法暂行规定》第二十八条：价格分值权重应符合相关规定；《政府采购货物和服务招标投标管理办法》第五十五条"
+    check_item: "5.2"
+
+  - rule_id: FC_PRICE_CALC_UNFAIR
+    title: 价格评分计算不合理
+    severity: medium
+    description: 价格评分计算方式不合理，如设置最低限价干预价格竞争，或价格分计算公式偏向特定报价
+    keywords:
+      - "最低限价"
+      - "最高限价"
+      - "基准价"
+      - "价格评分"
+      - "投标限价"
+    patterns:
+      - "投标报价不得低于.*"
+      - "最低投标限价.*"
+      - "价格分.*以.*基准价"
+      - "报价低于.*为无效"
+      - "设置最低限价"
+    exclusion_patterns:
+      - "成本价"
+      - "不得低于成本"
+    category: fair_competition
+    suggestion: "不得设置最低投标限价，价格评分计算应公平合理，可设置最高限价但不得设置最低限价"
+    legal_basis: "《招标投标法实施条例》第二十七条：招标人不得规定最低投标限价；《评标委员会和评标方法暂行规定》"
+    check_item: "5.3"
+
+  - rule_id: FC_REVIEW_UNFAIR
+    title: 评审过程不公正
+    severity: high
+    description: 评审程序设计可能影响评审公正性，如暗标评审不严格、评标委员会权限过大等
+    keywords:
+      - "评标"
+      - "暗标"
+      - "评审"
+      - "推荐中标"
+      - "定标"
+    patterns:
+      - "招标人.*直接确定.*中标"
+      - "评标委员会.*推荐.*招标人确定"
+      - "暗标.*不满足.*为废标"
+      - "评标办法.*由.*解释"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "评审程序应确保公正性，评标委员会应按招标文件确定的评标标准和方法评审"
+    legal_basis: "《招标投标法》第四十条：评标委员会应当按照招标文件确定的评标标准和方法评审；《招标投标法实施条例》第五十五条"
+    check_item: "5.4"
+
+  # ===== 六、其他排斥限制情形（6.1-6.4） =====
+  - rule_id: FC_OWNERSHIP_CONDITION
+    title: 所有制挂钩条件
+    severity: high
+    description: 将特定所有制形式作为投标条件、加分条件或中标条件
+    keywords:
+      - "国有"
+      - "民营"
+      - "所有制"
+      - "国企优先"
+      - "国有优先"
+    patterns:
+      - "国有.*优先"
+      - "国企.*加分"
+      - "所有制.*作为.*条件"
+      - "国有企业.*优先中标"
+      - "国资背景.*加分"
+    exclusion_patterns: []
+    category: fair_competition
+    suggestion: "删除所有制挂钩条件，确保各类所有制企业平等竞争"
+    legal_basis: "《招标投标法》第六条：《公平竞争审查条例实施办法》第十四条：不得在招标投标中设置不合理条件排斥或者限制经营者"
+    check_item: "6.1"
+
+  - rule_id: FC_MANDATORY_EXCHANGE
+    title: 强制进场交易
+    severity: medium
+    description: 无法定依据强制要求进入公共资源交易平台交易
+    keywords:
+      - "公共资源交易"
+      - "进场交易"
+      - "交易平台"
+      - "交易中心"
+    patterns:
+      - "须进入.*公共资源交易平台"
+      - "须在.*交易中心.*交易"
+      - "必须进场交易"
+    exclusion_patterns:
+      - "依法必须"
+      - "法定"
+    category: fair_competition
+    suggestion: "仅法定必须进场交易的项目应要求进场，不得强制非法定项目进场"
+    legal_basis: "《公共资源交易平台管理暂行办法》第八条；《公平竞争审查条例实施办法》"
+    check_item: "6.2"
+
+  - rule_id: FC_ORIGINAL_REQUIRED
+    title: 原件提交要求不合理
+    severity: medium
+    description: 对可通过告知承诺方式证明的事项，仍强制要求提交原件
+    keywords:
+      - "原件"
+      - "原件核验"
+      - "原件备查"
+      - "提交原件"
+      - "携带原件"
+    patterns:
+      - "须提交.*原件"
+      - "须提供.*原件核验"
+      - "须携带.*原件"
+      - "原件.*现场核验"
+      - "须递交.*原件"
+    exclusion_patterns:
+      - "可提供复印件加盖公章"
+      - "可提供扫描件"
+      - "告知承诺"
+    category: fair_competition
+    suggestion: "对可告知承诺的事项，不应强制要求提交原件，可采用复印件加盖公章或电子扫描件"
+    legal_basis: "《招标投标法实施条例》第三十二条；《国务院办公厅关于全面推行证明事项告知承诺制的意见》"
+    check_item: "6.3"
+
+  - rule_id: FC_MANDATORY_ATTEND
+    title: 强制人员到场
+    severity: medium
+    description: 违法要求法定代表人等必须到场，增加投标人负担
+    keywords:
+      - "法定代表人"
+      - "到场"
+      - "亲自"
+      - "本人到场"
+      - "须到场"
+    patterns:
+      - "法定代表人.*须到场"
+      - "法定代表人.*亲自到场"
+      - "法定代表人.*必须到场"
+      - "投标人.*须派.*到场"
+      - "项目负责人.*须到场"
+    exclusion_patterns:
+      - "或委托代理人"
+      - "或授权代表"
+      - "或委托代理人到场"
+    category: fair_competition
+    suggestion: "允许法定代表人委托代理人参加，不得强制要求法定代表人本人到场"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "6.4"
+
+  # ===== 七、保证金收取规范性（7.1-7.5） =====
+  - rule_id: FC_BID_BOND_EXCESS
+    title: 投标保证金超限
+    severity: high
+    description: 投标保证金超过估算价2%或不允许以非现金形式缴纳
+    keywords:
+      - "投标保证金"
+      - "保证金"
+      - "保证金金额"
+      - "保证金比例"
+    patterns:
+      - "投标保证金.*万元"
+      - "投标保证金.*%"
+      - "保证金.*须以.*现金"
+      - "保证金.*须以.*银行转账"
+      - "不接受.*保函"
+    exclusion_patterns:
+      - "不超过.*2%"
+      - "或保函"
+      - "或担保"
+    category: fair_competition
+    suggestion: "投标保证金不得超过项目估算价的2%，且应允许以保函、担保等非现金形式缴纳"
+    legal_basis: "《招标投标法实施条例》第二十六条：投标保证金不得超过招标项目估算价的2%；《工程建设项目施工招标投标办法》第三十七条"
+    check_item: "7.1"
+
+  - rule_id: FC_EXTRA_BOND
+    title: 无依据保证金种类
+    severity: high
+    description: 要求缴纳法定名目外的保证金，如诚信保证金、履约保证金（非中标后）等
+    keywords:
+      - "诚信保证金"
+      - "报名保证金"
+      - "入围保证金"
+      - "保证金"
+      - "押金"
+    patterns:
+      - "诚信保证金"
+      - "报名保证金"
+      - "入围保证金"
+      - "投标.*须缴纳.*保证金"
+      - "须缴纳.*押金"
+    exclusion_patterns:
+      - "投标保证金"
+      - "履约保证金"
+      - "质量保证金"
+    category: fair_competition
+    suggestion: "删除法定名目外的保证金要求，仅保留法律规定的投标保证金、履约保证金和质量保证金"
+    legal_basis: "《招标投标法实施条例》第二十六条；《建设工程质量保证金管理办法》"
+    check_item: "7.2"
+
+  - rule_id: FC_BOND_REFUND
+    title: 保证金退还条件违规
+    severity: medium
+    description: 保证金退还设定法定外条件或超时退还
+    keywords:
+      - "保证金退还"
+      - "保证金退回"
+      - "退还条件"
+      - "无息退还"
+      - "保证金不予退还"
+    patterns:
+      - "保证金.*不予退还"
+      - "保证金.*在.*后退还"
+      - "保证金.*无息退还"
+      - "中标后.*退还投标保证金"
+      - "合同签订后.*退还"
+    exclusion_patterns:
+      - "中标通知书发出后"
+      - "书面合同签订后5日内"
+    category: fair_competition
+    suggestion: "投标保证金应在中标通知书发出后及时退还，最迟不超过合同签订后5日"
+    legal_basis: "《招标投标法实施条例》第三十一条：招标人最迟应当在书面合同签订后5日内退还投标保证金及银行同期存款利息"
+    check_item: "7.3"
+
+  - rule_id: FC_PERF_BOND_EXCESS
+    title: 履约保证金比例超限
+    severity: high
+    description: 履约保证金超过合同价10%或限定特定担保形式
+    keywords:
+      - "履约保证金"
+      - "履约担保"
+      - "履约保函"
+    patterns:
+      - "履约保证金.*%"
+      - "履约保证金.*万元"
+      - "履约担保.*须.*银行保函"
+      - "履约保证金.*须以.*现金"
+      - "不接受.*担保公司"
+    exclusion_patterns:
+      - "不超过.*10%"
+      - "或保函"
+      - "或担保"
+    category: fair_competition
+    suggestion: "履约保证金不得超过合同金额的10%，且应允许保函、担保等多种形式"
+    legal_basis: "《招标投标法实施条例》第五十八条：履约保证金不得超过中标合同金额的10%；《建设工程项目管理规范》"
+    check_item: "7.4"
+
+  - rule_id: FC_QUALITY_BOND_EXCESS
+    title: 工程质量保证金超限
+    severity: medium
+    description: 工程质量保证金超过结算总额3%或约定不退还
+    keywords:
+      - "质量保证金"
+      - "质保金"
+      - "保修金"
+      - "工程质量保证金"
+    patterns:
+      - "质量保证金.*%"
+      - "质保金.*%"
+      - "保修金.*%"
+      - "质量保证金.*不予退还"
+      - "质保期满.*退还"
+    exclusion_patterns:
+      - "不超过.*3%"
+      - "不超过3%"
+    category: fair_competition
+    suggestion: "工程质量保证金不得超过结算总额的3%，缺陷责任期满后应及时退还"
+    legal_basis: "《建设工程质量保证金管理办法》第七条：保证金总预留比例不得高于工程价款结算总额的3%"
+    check_item: "7.5"

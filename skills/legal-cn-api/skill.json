@@ -1,0 +1,29 @@
+{
+  "name": "legal-cn-api",
+  "displayName": "中国法律条文检索付费 API",
+  "description": "基于 x402 微支付的中国法律数据库 API，提供全量现行法律法规全文检索，自动收费，去中心化支付，资金直接到账",
+  "version": "1.0.0",
+  "author": "Felix Feng <fengsu82@qq.com>",
+  "license": "MIT",
+  "keywords": ["legal", "law", "china", "api", "x402", "payment", "micro-payment", "search", "meilisearch", "ai-agent"],
+  "categories": ["api", "data", "payment"],
+  "source": "https://github.com/Fengfelix/legal-cn-api",
+  "homepage": "https://github.com/Fengfelix/legal-cn-api",
+  "repository": "github:Fengfelix/legal-cn-api",
+  "bugs": "https://github.com/Fengfelix/legal-cn-api/issues",
+  "tags": ["法律", "检索", "API", "微支付", "x402", "去中心化"],
+  "openclaw": {
+    "runtime": "python",
+    "requires": {
+      "python": ">=3.9",
+      "bins": ["docker", "docker-compose"]
+    },
+    "install": [
+      "pip install -r requirements.txt",
+      "cp config.py.example config.py"
+    ],
+    "env": {},
+    "main": "main.py:app",
+    "docs": "README.md"
+  }
+}

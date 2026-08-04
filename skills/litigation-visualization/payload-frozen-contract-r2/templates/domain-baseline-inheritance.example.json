@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "target_skill": {
+    "name": "example-cause-of-action-skill",
+    "candidate_version": "0.1.0"
+  },
+  "donor_inventories": [
+    {
+      "donor_id": "validated-domain-baseline",
+      "source_skill": "validated-domain-skill",
+      "source_version": "1.0.0",
+      "source_freeze_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "required_gate_ids": ["P0-1", "P0-2", "P0-3", "P0-4"]
+    }
+  ],
+  "decisions": [
+    {
+      "donor_id": "validated-domain-baseline",
+      "gate_id": "P0-1",
+      "decision": "保留",
+      "donor_evidence": "baseline-ledger#P0-1",
+      "legal_impact": "保留授权和只读输入门",
+      "decision_reason": "该门对所有案件型 Skill 均为前置条件",
+      "regression_test": "未获授权输入必须进入 HOLD-AUTHORIZATION"
+    },
+    {
+      "donor_id": "validated-domain-baseline",
+      "gate_id": "P0-2",
+      "decision": "强化",
+      "donor_evidence": "baseline-ledger#P0-2",
+      "legal_impact": "增加答案键与截止点的物理隔离证明",
+      "decision_reason": "仅声明不读取不足以证明盲态",
+      "regression_test": "起草席可见答案键时必须进入 HOLD-ANSWER-KEY"
+    },
+    {
+      "donor_id": "validated-domain-baseline",
+      "gate_id": "P0-3",
+      "decision": "组合",
+      "donor_evidence": "baseline-ledger#P0-3",
+      "legal_impact": "将证据定位门与结构化输出契约组合",
+      "decision_reason": "派生文书仍需逐项回溯 SSOT",
+      "regression_test": "缺少 source locator 的事实不得进入法院提交件"
+    },
+    {
+      "donor_id": "validated-domain-baseline",
+      "gate_id": "P0-4",
+      "decision": "替换",
+      "donor_evidence": "baseline-ledger#P0-4",
+      "legal_impact": "以双席盲态 E2E 替换起草席自验",
+      "decision_reason": "自验不能证明答案键隔离和独立性",
+      "regression_test": "构建席与验收席相同必须进入 HOLD-E2E"
+    }
+  ],
+  "coverage": {
+    "required_gate_count": 4,
+    "decision_count": 4,
+    "missing_gate_ids": [],
+    "duplicate_gate_ids": [],
+    "status": "PASS"
+  }
+}

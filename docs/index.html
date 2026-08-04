@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal SkillHub · 法律 Skill 聚合站</title>
+<meta name="description" content="2049 个法律 Agent Skill 的目录、说明书、分类体系与部署入口。">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+
+<section class="stats-bar" id="stats"></section>
+
+<section class="search-zone">
+  <div class="search-box">
+    <input id="q" type="text" placeholder="搜索技能名称或简介，如：合同审查 / contract review / 工伤" autofocus>
+  </div>
+  <div class="search-hint">// 支持中英文模糊搜索；点击左侧标签组合筛选；筛选条件同步到地址栏可分享</div>
+</section>
+
+<div class="active-filters" id="chips"></div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="result-meta" id="meta">加载中…</div>
+    <div class="sort-row" id="sortrow">
+      <span>sort:</span>
+      <span class="sort-opt on" data-sort="name">名称</span>
+      <span class="sort-opt" data-sort="files">文件数</span>
+      <span class="sort-opt" data-sort="q">质量分</span>
+      <span style="margin-left:auto"></span>
+      <span class="sort-opt" data-quick="scripts">有脚本</span>
+      <span class="sort-opt" data-quick="references">有参考库</span>
+      <span class="sort-opt" data-quick="fresh">含新法</span>
+      <span class="sort-opt" data-quick="cur">★精选</span>
+    </div>
+    <div class="cards" id="cards"></div>
+    <div id="sentinel" style="height:1px"></div>
+  </main>
+</div>
+
+<div id="footer"></div>
+<script src="./assets/common.js"></script>
+<script src="./assets/app.js"></script>
+</body>
+</html>

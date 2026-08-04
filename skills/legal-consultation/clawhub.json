@@ -1,0 +1,18 @@
+{
+  "name": "legal-consultation",
+  "version": "1.0.0",
+  "description": "General legal consultation entry point to help users identify their legal issues and guide them to appropriate resources.",
+  "author": "OpenClaw",
+  "license": "MIT",
+  "keywords": ["legal", "consultation", "法律咨询", "法律问题"],
+  "category": "legal",
+  "homepage": "https://github.com/openclaw/skills/tree/main/legal-consultation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/skills.git"
+  },
+  "openclaw": {
+    "skill": true,
+    "minVersion": "2026.3.0"
+  }
+}

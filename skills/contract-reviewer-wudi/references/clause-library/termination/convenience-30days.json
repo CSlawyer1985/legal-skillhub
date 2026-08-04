@@ -1,0 +1,17 @@
+{
+  "$schema": "clause-schema",
+  "category": "termination",
+  "name": "随时解除条款（提前30天通知）",
+  "applicable_types": [
+    "service",
+    "tech-service",
+    "consulting",
+    "commission"
+  ],
+  "clause_text": "任一方可提前【30】日以书面形式通知对方解除本合同，无需说明解除理由。合同解除后，双方应根据实际履行情况结算费用：委托方应支付受托方截至解除日已完成工作的合理报酬；若委托方因自身原因提前解除，受托方有权要求委托方支付已发生费用及相当于剩余合同金额【20】%的赔偿金。",
+  "position_tips": {
+    "buyer": "争取随时解除权，无需说明理由；赔偿金上限不超过已发生费用",
+    "seller": "争取固定期限合同，设置违约金；提前解除赔偿应覆盖预期收益"
+  },
+  "legal_reference": "《民法典》第787条（委托合同的任意解除）"
+}

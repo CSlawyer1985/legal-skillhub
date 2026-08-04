@@ -1,0 +1,32 @@
+{
+  "name": "defense-draft",
+  "version": "1.0.0",
+  "description": "Generate civil answer/defense document frameworks in response to complaints",
+  "main": "scripts/defense-drafter.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "defense",
+    "answer",
+    "lawsuit",
+    "legal",
+    "答辩状"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "openclaw": {
+    "skill": true,
+    "category": "legal",
+    "triggers": [
+      "答辩状",
+      "答辩书",
+      "被告怎么答辩",
+      "怎么应诉",
+      "收到起诉书",
+      "我要答辩"
+    ]
+  }
+}

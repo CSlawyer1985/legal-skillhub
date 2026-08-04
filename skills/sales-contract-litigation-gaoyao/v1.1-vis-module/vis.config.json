@@ -1,0 +1,5 @@
+{"schema": "gaotao.v11.vis-config.v1", "default_enabled": false,
+ "trigger": "on_request_after_text_pass",
+ "input": "same-case-independent-frozen-07-plus-A01-A09",
+ "outputs_per_case": {"svg": 4, "png": 4},
+ "write_back_to_text_or_global_case_state": false}

@@ -1,0 +1,69 @@
+{
+  "_comment": "EquityReport data input format for generate_equity_report.py",
+  "subject": {
+    "company_name": "北京示例科技有限公司",
+    "credit_no": "91110000XXXXXXXXXX",
+    "company_type": "有限责任公司(法人独资)",
+    "legal_person": "示例人",
+    "capital": "50,000.00 万人民币",
+    "capital_display": "5 亿人民币",
+    "capital_note": "",
+    "type_short": "法人独资",
+    "type_full": "有限责任公司(法人独资)",
+    "establish_date": "2007-08-13",
+    "authority": "XX市市场监督管理局",
+    "company_status": "正常",
+    "company_address": "XX市XX区XX路XX号",
+    "years_note": "存续逾 18 年"
+  },
+  "stock_code": "000000.SZ / 00000.HK",
+  "sole_shareholder": "XX控股有限公司",
+  "shareholder_note": "持股 100%",
+  "controller": {
+    "controller_name": "实际控制人姓名",
+    "controller_type": "自然人 / 非自然人",
+    "benefit_ratio": "XX.XX%",
+    "voting_right": "XX.XX%",
+    "position": "法定代表人,董事长",
+    "paths": [
+      "控制路径描述1",
+      "控制路径描述2"
+    ]
+  },
+  "beneficial_owner": {},
+  "listed_parent": {
+    "code": "000000",
+    "registeredCapital": "XX亿",
+    "employeesNum": "XXXXX",
+    "industry": "行业名称"
+  },
+  "investments": [
+    {
+      "name": "子公司名称",
+      "legal_person": "法人姓名",
+      "capital": "X,XXX万人民币",
+      "establish_date": "2020-01-01",
+      "status": "正常",
+      "ratio": 1.0,
+      "ratio_display": "100%",
+      "sector": "业务领域"
+    }
+  ],
+  "chain_table_html": "<table>...</table>",
+  "control_assessment_html": "<table>...</table>",
+  "summary_text": "150-200字核心结论",
+  "ai_summary_html": "<p>AI深度解读HTML内容</p>",
+  "ai_ch2_html": "<p>第二章AI解读</p>",
+  "risk_control_text": "控制权风险分析",
+  "risk_transparency_html": "<p>架构透明度风险</p>",
+  "positive_factors": [
+    ["积极因素1", "详细说明"],
+    ["积极因素2", "详细说明"]
+  ],
+  "ai_risk_html": "<p>风险综合评估</p>",
+  "sectors": [
+    ["行业1", "X", "代表企业"],
+    ["行业2", "Y", "代表企业"]
+  ],
+  "svg_layers": []
+}

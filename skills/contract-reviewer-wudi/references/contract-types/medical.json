@@ -1,0 +1,246 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "医疗服务合同",
+  "contract_type_en": "medical",
+  "description": "诊疗服务、手术合同、医疗美容、健康管理服务等医疗合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》侵权编",
+    "《中华人民共和国基本医疗卫生与健康促进法》",
+    "《医疗纠纷预防和处理条例》"
+  ],
+  "keywords_for_detection": [
+    "医疗", "诊疗", "手术", "医疗服务", "医疗美容", "就诊",
+    "手术合同", "知情同意", "病历", "医疗纠纷"
+  ],
+  "key_clauses": [
+    {
+      "name": "医疗服务内容",
+      "required": true,
+      "keywords": ["服务内容", "诊疗项目", "治疗方案", "手术方案"],
+      "check_points": [
+        {
+          "item": "内容明确",
+          "description": "医疗服务内容是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "治疗方案",
+          "description": "治疗/手术方案是否充分告知",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确医疗服务内容和治疗方案"
+    },
+    {
+      "name": "知情同意",
+      "required": true,
+      "keywords": ["知情同意", "告知", "知情权", "手术同意书"],
+      "check_points": [
+        {
+          "item": "告知义务",
+          "description": "医疗机构是否充分告知诊疗信息",
+          "risk_level": "致命"
+        },
+        {
+          "item": "同意书",
+          "description": "知情同意书的签署",
+          "risk_level": "致命"
+        },
+        {
+          "item": "替代方案",
+          "description": "是否告知替代诊疗方案",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "充分告知诊疗信息、风险和替代方案，取得知情同意"
+    },
+    {
+      "name": "医疗费用",
+      "required": true,
+      "keywords": ["医疗费用", "收费标准", "费用预估", "自费项目"],
+      "check_points": [
+        {
+          "item": "费用预估",
+          "description": "医疗费用预估是否充分告知",
+          "risk_level": "重大"
+        },
+        {
+          "item": "自费项目",
+          "description": "自费项目是否明确告知",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确医疗费用，自费项目须单独告知"
+    },
+    {
+      "name": "医疗质量",
+      "required": true,
+      "keywords": ["医疗质量", "注意义务", "诊疗规范", "操作规程"],
+      "check_points": [
+        {
+          "item": "注意义务",
+          "description": "医疗机构诊疗注意义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "规范遵守",
+          "description": "是否遵守诊疗规范和操作规程",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确医疗质量要求，医疗机构须遵守诊疗规范"
+    },
+    {
+      "name": "病历管理",
+      "required": true,
+      "keywords": ["病历", "记录", "保存", "复制"],
+      "check_points": [
+        {
+          "item": "病历保存",
+          "description": "病历资料的保存期限（通常30年）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "复制权",
+          "description": "患者复制病历的权利",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确病历保存期限，保障患者复制权"
+    },
+    {
+      "name": "医疗美容特别条款",
+      "required": false,
+      "keywords": ["美容", "效果", "预期效果", "不满意"],
+      "check_points": [
+        {
+          "item": "效果预期",
+          "description": "医疗美容效果预期是否合理告知",
+          "risk_level": "重大"
+        },
+        {
+          "item": "效果不达",
+          "description": "效果不达预期时的处理",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "医疗美容须明确告知效果预期，约定效果不达的处理"
+    },
+    {
+      "name": "医疗纠纷处理",
+      "required": true,
+      "keywords": ["纠纷", "投诉", "调解", "鉴定"],
+      "check_points": [
+        {
+          "item": "投诉渠道",
+          "description": "投诉渠道是否畅通",
+          "risk_level": "一般"
+        },
+        {
+          "item": "调解",
+          "description": "医疗纠纷调解机制",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确投诉渠道和纠纷处理程序"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "MED001",
+      "name": "知情同意不充分",
+      "description": "未充分告知诊疗风险和替代方案，侵犯患者知情同意权",
+      "severity": "高风险",
+      "suggestion": "充分告知诊疗风险、替代方案、费用预估，取得书面知情同意",
+      "legal_basis": "《医疗纠纷预防和处理条例》第13条"
+    },
+    {
+      "id": "MED002",
+      "name": "诊疗过错",
+      "description": "医疗机构违反诊疗规范，造成患者损害",
+      "severity": "高风险",
+      "suggestion": "医疗机构须遵守诊疗规范和操作规程",
+      "legal_basis": "《民法典》第1222条"
+    },
+    {
+      "id": "MED003",
+      "name": "费用不透明",
+      "description": "未告知自费项目和费用预估，产生天价账单",
+      "severity": "中风险",
+      "suggestion": "充分告知医疗费用，自费项目须单独告知并取得同意"
+    },
+    {
+      "id": "MED004",
+      "name": "医疗美容效果争议",
+      "description": "医疗美容效果与患者预期不符，产生纠纷",
+      "severity": "中风险",
+      "suggestion": "明确告知合理效果预期，约定效果不达的处理"
+    },
+    {
+      "id": "MED005",
+      "name": "病历不完整",
+      "description": "病历资料不完整，影响患者维权和鉴定",
+      "severity": "中风险",
+      "suggestion": "规范书写病历，妥善保存，按规定提供复制",
+      "legal_basis": "《医疗纠纷预防和处理条例》第15条"
+    }
+  ],
+  "position_guidance": {
+    "patient": {
+      "name": "患者",
+      "priority_checks": [
+        "知情同意",
+        "医疗费用",
+        "病历复制",
+        "美容效果"
+      ],
+      "key_concerns": [
+        "充分了解诊疗风险",
+        "明确医疗费用",
+        "及时复制病历",
+        "了解纠纷处理途径"
+      ],
+      "avoid": [
+        "未仔细阅读知情同意书",
+        "不知情下签署",
+        "不了解费用构成",
+        "不保留病历资料"
+      ]
+    },
+    "medical_institution": {
+      "name": "医疗机构",
+      "priority_checks": [
+        "知情同意",
+        "诊疗规范",
+        "病历管理",
+        "费用告知"
+      ],
+      "key_concerns": [
+        "充分告知诊疗信息",
+        "遵守诊疗规范",
+        "规范书写病历",
+        "合理告知费用"
+      ],
+      "avoid": [
+        "告知不充分",
+        "违反诊疗规范",
+        "病历不完整",
+        "费用不透明"
+      ]
+    }
+  },
+  "legal_notes": {
+    "informed_consent": {
+      "description": "知情同意",
+      "rule": "医务人员在诊疗活动中应当向患者说明病情和医疗措施。需要实施手术、特殊检查、特殊治疗的，医务人员应当及时向患者说明医疗风险、替代医疗方案等情况，并取得其书面同意",
+      "legal_basis": "《医疗纠纷预防和处理条例》第13条"
+    },
+    "medical_tort": {
+      "description": "医疗损害责任",
+      "rule": "患者在诊疗活动中受到损害，医疗机构或者其医务人员有过错的，由医疗机构承担赔偿责任",
+      "presumption": "违反诊疗规范、隐匿病历、拒绝提供病历的，推定医疗机构有过错",
+      "legal_basis": "《民法典》第1222条"
+    }
+  }
+}

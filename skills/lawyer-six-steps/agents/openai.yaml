@@ -1,0 +1,4 @@
+interface:
+  display_name: "律师办案六步法"
+  short_description: "中国律师办案六步法：案件分析、要件审查与案件分析报告"
+  default_prompt: "Use $lawyer-six-steps to analyze a Chinese litigation case, complete the structured six-step assessment, and finish with a final case analysis report."

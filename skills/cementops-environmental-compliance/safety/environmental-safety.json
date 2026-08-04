@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "id": "EC-SAF-001",
+    "title": "Environmental Compliance Safety Hazards",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01"
+  },
+  "description": "Safety hazards associated with environmental compliance activities at cement plants including CEMS maintenance, stack testing, and chemical handling.",
+  "hazards": [
+    {
+      "hazard_id": "EC-SAF-H01",
+      "title": "CEMS Calibration Gas Handling",
+      "severity": "high",
+      "description": "CEMS calibration requires handling compressed gas cylinders containing toxic, corrosive, or asphyxiant gases including SO2, NO, CO, HCl, and high-concentration span gases.",
+      "specific_risks": [
+        "Toxic gas exposure from cylinder leaks or regulator failures (SO2, NO, CO, HCl)",
+        "Asphyxiation in enclosed CEMS shelters from gas release displacing oxygen",
+        "Compressed gas cylinder falling or valve breaking causing projectile hazard",
+        "Regulator failure causing over-pressurization of sample system"
+      ],
+      "required_ppe": [
+        "Safety glasses",
+        "Gloves appropriate for gas type",
+        "Respiratory protection available on standby for toxic gas cylinders",
+        "Steel-toed boots"
+      ],
+      "controls": [
+        "Ensure CEMS shelter has adequate ventilation (minimum 6 air changes per hour)",
+        "Install fixed gas detection in CEMS shelter for CO and O2 depletion",
+        "Secure all cylinders in upright position with chains or straps",
+        "Use proper regulators matched to gas type and cylinder connection",
+        "Replace cylinders before pressure drops below minimum operating level",
+        "Post SDS for all calibration gases in CEMS shelter",
+        "Never use damaged or expired calibration gas cylinders"
+      ],
+      "cfr_references": [
+        "29 CFR 1910.1000 (PELs for calibration gases)",
+        "OSHA 29 CFR 1910.134 (Respiratory protection)"
+      ]
+    },
+    {
+      "hazard_id": "EC-SAF-H02",
+      "title": "Stack Testing at Height",
+      "severity": "critical",
+      "description": "Emissions stack testing requires working at elevated platforms on the stack or ductwork, typically 50-300 feet above ground, with heavy test equipment and in proximity to hot exhaust gases.",
+      "specific_risks": [
+        "Falls from elevated stack test platforms",
+        "Hot gas exposure when inserting or removing test probes from stack ports",
+        "Burns from hot probe equipment and sample lines",
+        "Lifting heavy test equipment (probe assemblies, sample boxes) to elevated platforms",
+        "Exposure to weather conditions (wind, lightning, rain) at height",
+        "Structural failure of poorly maintained test platforms or access ladders"
+      ],
+      "required_ppe": [
+        "Full body harness with shock-absorbing lanyard or SRL",
+        "Hard hat with chin strap",
+        "Heat-resistant gloves for probe handling",
+        "Safety glasses",
+        "Steel-toed boots with slip-resistant soles",
+        "High-visibility vest"
+      ],
+      "controls": [
+        "Inspect all fall protection equipment before each use",
+        "Verify stack test platform structural integrity before loading equipment",
+        "Use platform weight limits and do not exceed with equipment and personnel",
+        "Install hoisting equipment for lifting heavy test gear (do not carry up ladders)",
+        "Check weather forecast and suspend testing during lightning, high winds (>25 mph), or icing",
+        "Ensure stack ports have proper caps and are depressurized before opening",
+        "Minimum 2 persons on the test platform at all times",
+        "Establish emergency rescue plan for person suspended in fall arrest"
+      ],
+      "cfr_references": [
+        "30 CFR 56.15005 (Fall protection)",
+        "29 CFR 1926.502 (Fall protection systems)"
+      ]
+    },
+    {
+      "hazard_id": "EC-SAF-H03",
+      "title": "Environmental Chemical Handling",
+      "severity": "medium",
+      "description": "Environmental compliance activities may involve handling chemicals including activated carbon for mercury control, ammonia/urea for SNCR, dry sorbent (lime, sodium bicarbonate), and laboratory chemicals for sample analysis.",
+      "specific_risks": [
+        "Ammonia exposure from SNCR system leaks (irritant, toxic at high concentration)",
+        "Activated carbon dust is combustible (dust explosion risk in enclosed spaces)",
+        "Lime dust (calcium oxide) causes severe skin and eye burns",
+        "Laboratory chemical exposure during sample preparation and analysis",
+        "Sodium bicarbonate dust inhalation from dry sorbent injection systems"
+      ],
+      "required_ppe": [
+        "Chemical splash goggles or safety glasses with side shields",
+        "Chemical-resistant gloves appropriate for the specific chemical",
+        "Dust mask (N95 minimum) or respirator as required by chemical",
+        "Chemical-resistant apron for laboratory work",
+        "Emergency eyewash and shower within 10 seconds of chemical handling areas"
+      ],
+      "controls": [
+        "Maintain current SDS for all chemicals and post in use areas",
+        "Follow spill response procedures specific to each chemical",
+        "Ensure ammonia detection system is operational on SNCR system",
+        "Ground and bond all activated carbon handling equipment to prevent static ignition",
+        "Store incompatible chemicals separately per NFPA 400",
+        "Train all personnel handling chemicals in HAZCOM requirements"
+      ],
+      "cfr_references": [
+        "29 CFR 1910.120 (HAZWOPER)",
+        "30 CFR 56.20001 (SDS requirements)"
+      ]
+    }
+  ]
+}

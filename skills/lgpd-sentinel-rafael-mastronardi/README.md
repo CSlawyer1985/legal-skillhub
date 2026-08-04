@@ -1,0 +1,1 @@
+面向巴西处理操作的 LGPD 指引。涵盖法律依据（第 7 条和第 11 条）、DPIA、事件（第 48-49 条）、数据主体权利（第 18 条）和国际传输。触发词：LGPD、DPIA、ANPD、data protection、personal data、consent、data protection officer、Brazil DPO、data incident、legitimate interest。

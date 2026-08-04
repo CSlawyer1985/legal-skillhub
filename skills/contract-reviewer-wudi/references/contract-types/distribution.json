@@ -1,0 +1,315 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "经销合同",
+  "contract_type_en": "distribution",
+  "description": "产品经销、代理销售、分销协议等",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "经销", "代理", "分销", "经销商", "代理商", "供货商",
+    "销售区域", "独家代理", "总代理", "分销权"
+  ],
+  "key_clauses": [
+    {
+      "name": "经销产品",
+      "required": true,
+      "keywords": ["产品", "商品", "经销产品", "产品清单"],
+      "check_points": [
+        {
+          "item": "产品范围",
+          "description": "经销产品范围是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "产品清单",
+          "description": "是否附产品清单或价格表",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确经销产品范围，附产品清单和价格表"
+    },
+    {
+      "name": "经销区域",
+      "required": true,
+      "keywords": ["经销区域", "销售区域", "区域", "独家"],
+      "check_points": [
+        {
+          "item": "区域范围",
+          "description": "经销区域是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "经销性质",
+          "description": "独家经销/非独家经销是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "跨区域销售",
+          "description": "是否允许跨区域销售",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确经销区域（省/市/县）、经销性质（独家/非独家），约定跨区域销售限制"
+    },
+    {
+      "name": "经销期限",
+      "required": true,
+      "keywords": ["期限", "合同期限", "经销期限", "续约"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "经销期限是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "续约条件",
+          "description": "续约条件和程序",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确经销期限（通常1-3年），续约条件"
+    },
+    {
+      "name": "销售任务",
+      "required": true,
+      "keywords": ["销售任务", "销售目标", "最低采购额", "年度任务"],
+      "check_points": [
+        {
+          "item": "任务指标",
+          "description": "年度/季度销售任务是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "考核周期",
+          "description": "考核周期是否明确",
+          "risk_level": "一般"
+        },
+        {
+          "item": "未达标后果",
+          "description": "未完成任务的处理方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确销售任务指标、考核周期、未达标处理方式（如取消经销权/降级）"
+    },
+    {
+      "name": "价格与折扣",
+      "required": true,
+      "keywords": ["价格", "折扣", "供货价", "零售价", "指导价"],
+      "check_points": [
+        {
+          "item": "供货价格",
+          "description": "供货价格是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "价格调整",
+          "description": "价格调整机制",
+          "risk_level": "重大"
+        },
+        {
+          "item": "折扣政策",
+          "description": "批量折扣、回款折扣等",
+          "risk_level": "一般"
+        },
+        {
+          "item": "转售价格",
+          "description": "是否限制转售价格",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确供货价、价格调整机制、折扣政策；注意限制转售价格可能违反反垄断法"
+    },
+    {
+      "name": "订单与交付",
+      "required": true,
+      "keywords": ["订单", "交货", "交付", "运输", "物流"],
+      "check_points": [
+        {
+          "item": "订单程序",
+          "description": "下单程序和确认方式",
+          "risk_level": "一般"
+        },
+        {
+          "item": "交货时间",
+          "description": "交货时间和方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "运输费用",
+          "description": "运输费用承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确订单程序、交货时间、运输方式和费用承担"
+    },
+    {
+      "name": "付款",
+      "required": true,
+      "keywords": ["付款", "结算", "账期", "信用额度"],
+      "check_points": [
+        {
+          "item": "付款方式",
+          "description": "预付款/货到付款/账期",
+          "risk_level": "重大"
+        },
+        {
+          "item": "账期",
+          "description": "账期长短",
+          "risk_level": "重大"
+        },
+        {
+          "item": "信用额度",
+          "description": "是否给予信用额度",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确付款方式（建议现款现货或短账期），信用额度（如有）"
+    },
+    {
+      "name": "市场推广",
+      "required": false,
+      "keywords": ["推广", "广告", "市场支持", "促销", "宣传"],
+      "check_points": [
+        {
+          "item": "推广支持",
+          "description": "供货商是否提供推广支持",
+          "risk_level": "一般"
+        },
+        {
+          "item": "费用分担",
+          "description": "推广费用分担比例",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确供货商提供的市场支持（如广告补贴、促销品）"
+    },
+    {
+      "name": "知识产权",
+      "required": true,
+      "keywords": ["商标", "知识产权", "品牌", "侵权"],
+      "check_points": [
+        {
+          "item": "商标授权",
+          "description": "商标使用授权范围和期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "侵权处理",
+          "description": "知识产权侵权处理责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确商标授权范围，供货商应保证不侵犯第三方知识产权"
+    },
+    {
+      "name": "售后服务",
+      "required": true,
+      "keywords": ["售后", "保修", "维修", "退换货", "质保"],
+      "check_points": [
+        {
+          "item": "售后责任",
+          "description": "售后服务责任划分",
+          "risk_level": "重大"
+        },
+        {
+          "item": "退换货",
+          "description": "退换货条件和程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质保",
+          "description": "质保期限和责任",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确售后服务责任（供货商负责/经销商负责/共同负责）、退换货条件"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "D001",
+      "name": "销售任务过高",
+      "description": "销售任务设定过高，经销商难以完成，面临取消经销权风险",
+      "severity": "高风险",
+      "suggestion": "销售任务应合理，考虑市场容量和经销商能力，设置阶梯目标"
+    },
+    {
+      "id": "D002",
+      "name": "转售价格限制",
+      "description": "限制经销商转售价格（固定价格或最低价格），可能违反反垄断法",
+      "severity": "高风险",
+      "suggestion": "避免限制转售价格，可设定建议零售价",
+      "legal_basis": "《反垄断法》第18条"
+    },
+    {
+      "id": "D003",
+      "name": "独家经销无区域保护",
+      "description": "约定独家经销但无区域保护，供货商可在该区域直销",
+      "severity": "中风险",
+      "suggestion": "独家经销应配套区域保护，约定供货商不得在该区域直销或授权其他经销商"
+    },
+    {
+      "id": "D004",
+      "name": "账期过长",
+      "description": "给予经销商过长账期，增加回款风险",
+      "severity": "中风险",
+      "suggestion": "账期建议30-60日，新客户建议现款现货"
+    },
+    {
+      "id": "D005",
+      "name": "终止后库存处理不清",
+      "description": "合同终止后库存产品处理方式未约定",
+      "severity": "中风险",
+      "suggestion": "约定合同终止后的库存回购或处理方式"
+    }
+  ],
+  "position_guidance": {
+    "supplier": {
+      "name": "供货商（甲方）",
+      "priority_checks": [
+        "销售任务",
+        "付款条件",
+        "区域管控",
+        "价格体系"
+      ],
+      "key_concerns": [
+        "设定合理的销售任务",
+        "控制回款风险（现款现货或短账期）",
+        "防止跨区域串货",
+        "维护价格体系，避免恶性竞争",
+        "确保经销商不损害品牌形象"
+      ],
+      "avoid": [
+        "限制转售价格",
+        "独家经销无区域保护",
+        "过长账期",
+        "过高销售任务"
+      ]
+    },
+    "distributor": {
+      "name": "经销商（乙方）",
+      "priority_checks": [
+        "经销区域",
+        "供货价格",
+        "销售任务",
+        "售后责任"
+      ],
+      "key_concerns": [
+        "争取独家经销权和区域保护",
+        "争取优惠的供货价格和折扣",
+        "销售任务应可达成",
+        "明确售后服务责任",
+        "争取市场支持"
+      ],
+      "avoid": [
+        "销售任务过高",
+        "无区域保护的独家经销",
+        "承担全部售后责任",
+        "合同终止后库存无回购"
+      ]
+    }
+  }
+}

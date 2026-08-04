@@ -1,0 +1,172 @@
+{
+  "schema_version": "l2-anchor-contract/1.0",
+  "contract_id": "gaotao.L2-05.litigation-visualization-anchor-contract.v1",
+  "document_id": "L2-05",
+  "document_title": "诉讼案件办案方案工作底稿",
+  "applies_to": "All case-type Skills distilled from lawyer-legal-knowledge-distillation-geo after candidate promotion",
+  "status": "candidate-local-only",
+  "locator_profiles": {
+    "document_profile": "l2-markdown-paragraph-table-v1",
+    "downstream_source_ref_profile": "downstream-source-ref-v1",
+    "allowed_item_locator_patterns": [
+      "SOURCE_ID#pN",
+      "SOURCE_ID#para-N",
+      "SOURCE_ID#cell-A1",
+      "SOURCE_ID#ts-HH:MM:SS"
+    ],
+    "l2_anchor_map_locator_kinds": [
+      "para-N",
+      "cell-A1"
+    ],
+    "source_ledger_prefix_rule": "locator_prefix MUST equal source_id followed by #"
+  },
+  "anchor_map_contract": {
+    "format": "json",
+    "relative_path_required": true,
+    "sha256_binding_required": true,
+    "fact_text_duplication_allowed": false,
+    "required_fields": [
+      "schema_version",
+      "document_id",
+      "document_sha256",
+      "locator_profile",
+      "anchors"
+    ],
+    "anchor_entry_required_fields": [
+      "anchor_id",
+      "locators",
+      "status"
+    ],
+    "anchor_statuses": [
+      "present",
+      "empty_hold",
+      "not_applicable"
+    ],
+    "empty_hold_rule": "A required anchor without supported content MUST remain empty_hold and MUST NOT be omitted or guessed."
+  },
+  "stable_anchors": [
+    {
+      "anchor_id": "parties_roles",
+      "heading": "当事人、参与人与诉讼角色",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "contract_chain",
+      "heading": "合同关系与交易链",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "performance_delivery_acceptance",
+      "heading": "履行、交付与验收",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "payment_balance",
+      "heading": "付款、核销与余额",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "notices_objections_termination_limitation",
+      "heading": "通知、异议、解除与时效",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "claim_element_fact_evidence_matrix",
+      "heading": "诉请、要件、事实与证据矩阵",
+      "required": true,
+      "allowed_locators": [
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "evidence_index",
+      "heading": "证据索引与来源回链",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    },
+    {
+      "anchor_id": "litigation_stage_plan",
+      "heading": "诉讼阶段、行动与条件",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow"
+      ]
+    },
+    {
+      "anchor_id": "risk_hold_register",
+      "heading": "风险、缺口与 HOLD 恢复条件",
+      "required": true,
+      "allowed_locators": [
+        "para-N",
+        "cell-A1"
+      ],
+      "visualization_roles": [
+        "case_process_flow",
+        "claim_evidence_matrix"
+      ]
+    }
+  ],
+  "invariants": {
+    "frozen_l2_required": true,
+    "unknowns_preserved": true,
+    "conflicts_preserved": true,
+    "source_refs_required_for_supported_content": true,
+    "raw_case_backfill_forbidden": true,
+    "downstream_write_back_allowed": false,
+    "court_submission_body_changed_by_extension": false
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "tests": [
+    {
+      "test_id": "ABT_20260321012546_a2d2084d",
+      "test_type": "description_style",
+      "test_name": "描述方式对比测试",
+      "created_at": "2026-03-21T01:25:46.697696",
+      "status": "completed",
+      "variants": {
+        "simple": {
+          "samples": 3,
+          "metrics": [
+            {
+              "case_id": "case_1",
+              "variant": "simple",
+              "accuracy": 0.72,
+              "completeness": 0.65,
+              "satisfaction": 3.8,
+              "response_time": 1.430511474609375e-06,
+              "timestamp": "2026-03-21T01:25:46.697754"
+            },
+            {
+              "case_id": "case_3",
+              "variant": "simple",
+              "accuracy": 0.72,
+              "completeness": 0.65,
+              "satisfaction": 3.8,
+              "response_time": 7.152557373046875e-07,
+              "timestamp": "2026-03-21T01:25:46.697770"
+            },
+            {
+              "case_id": "case_9",
+              "variant": "simple",
+              "accuracy": 0.72,
+              "completeness": 0.65,
+              "satisfaction": 3.8,
+              "response_time": 7.152557373046875e-07,
+              "timestamp": "2026-03-21T01:25:46.697813"
+            }
+          ]
+        },
+        "structured": {
+          "samples": 2,
+          "metrics": [
+            {
+              "case_id": "case_4",
+              "variant": "structured",
+              "accuracy": 0.96,
+              "completeness": 0.95,
+              "satisfaction": 4.7,
+              "response_time": 7.152557373046875e-07,
+              "timestamp": "2026-03-21T01:25:46.697777"
+            },
+            {
+              "case_id": "case_8",
+              "variant": "structured",
+              "accuracy": 0.96,
+              "completeness": 0.95,
+              "satisfaction": 4.7,
+              "response_time": 9.5367431640625e-07,
+              "timestamp": "2026-03-21T01:25:46.697805"
+            }
+          ]
+        },
+        "mixed": {
+          "samples": 5,
+          "metrics": [
+            {
+              "case_id": "case_0",
+              "variant": "mixed",
+              "accuracy": 0.91,
+              "completeness": 0.88,
+              "satisfaction": 4.5,
+              "response_time": 1.1920928955078125e-06,
+              "timestamp": "2026-03-21T01:25:46.697743"
+            },
+            {
+              "case_id": "case_2",
+              "variant": "mixed",
+              "accuracy": 0.91,
+              "completeness": 0.88,
+              "satisfaction": 4.5,
+              "response_time": 7.152557373046875e-07,
+              "timestamp": "2026-03-21T01:25:46.697762"
+            },
+            {
+              "case_id": "case_5",
+              "variant": "mixed",
+              "accuracy": 0.91,
+              "completeness": 0.88,
+              "satisfaction": 4.5,
+              "response_time": 4.76837158203125e-07,
+              "timestamp": "2026-03-21T01:25:46.697784"
+            },
+            {
+              "case_id": "case_6",
+              "variant": "mixed",
+              "accuracy": 0.91,
+              "completeness": 0.88,
+              "satisfaction": 4.5,
+              "response_time": 7.152557373046875e-07,
+              "timestamp": "2026-03-21T01:25:46.697791"
+            },
+            {
+              "case_id": "case_7",
+              "variant": "mixed",
+              "accuracy": 0.91,
+              "completeness": 0.88,
+              "satisfaction": 4.5,
+              "response_time": 4.76837158203125e-07,
+              "timestamp": "2026-03-21T01:25:46.697798"
+            }
+          ]
+        }
+      },
+      "test_cases_count": 30,
+      "results": [
+        {
+          "case_id": "case_0",
+          "variant": "mixed",
+          "accuracy": 0.91,
+          "completeness": 0.88,
+          "satisfaction": 4.5,
+          "response_time": 1.1920928955078125e-06,
+          "timestamp": "2026-03-21T01:25:46.697743"
+        },
+        {
+          "case_id": "case_1",
+          "variant": "simple",
+          "accuracy": 0.72,
+          "completeness": 0.65,
+          "satisfaction": 3.8,
+          "response_time": 1.430511474609375e-06,
+          "timestamp": "2026-03-21T01:25:46.697754"
+        },
+        {
+          "case_id": "case_2",
+          "variant": "mixed",
+          "accuracy": 0.91,
+          "completeness": 0.88,
+          "satisfaction": 4.5,
+          "response_time": 7.152557373046875e-07,
+          "timestamp": "2026-03-21T01:25:46.697762"
+        },
+        {
+          "case_id": "case_3",
+          "variant": "simple",
+          "accuracy": 0.72,
+          "completeness": 0.65,
+          "satisfaction": 3.8,
+          "response_time": 7.152557373046875e-07,
+          "timestamp": "2026-03-21T01:25:46.697770"
+        },
+        {
+          "case_id": "case_4",
+          "variant": "structured",
+          "accuracy": 0.96,
+          "completeness": 0.95,
+          "satisfaction": 4.7,
+          "response_time": 7.152557373046875e-07,
+          "timestamp": "2026-03-21T01:25:46.697777"
+        },
+        {
+          "case_id": "case_5",
+          "variant": "mixed",
+          "accuracy": 0.91,
+          "completeness": 0.88,
+          "satisfaction": 4.5,
+          "response_time": 4.76837158203125e-07,
+          "timestamp": "2026-03-21T01:25:46.697784"
+        },
+        {
+          "case_id": "case_6",
+          "variant": "mixed",
+          "accuracy": 0.91,
+          "completeness": 0.88,
+          "satisfaction": 4.5,
+          "response_time": 7.152557373046875e-07,
+          "timestamp": "2026-03-21T01:25:46.697791"
+        },
+        {
+          "case_id": "case_7",
+          "variant": "mixed",
+          "accuracy": 0.91,
+          "completeness": 0.88,
+          "satisfaction": 4.5,
+          "response_time": 4.76837158203125e-07,
+          "timestamp": "2026-03-21T01:25:46.697798"
+        },
+        {
+          "case_id": "case_8",
+          "variant": "structured",
+          "accuracy": 0.96,
+          "completeness": 0.95,
+          "satisfaction": 4.7,
+          "response_time": 9.5367431640625e-07,
+          "timestamp": "2026-03-21T01:25:46.697805"
+        },
+        {
+          "case_id": "case_9",
+          "variant": "simple",
+          "accuracy": 0.72,
+          "completeness": 0.65,
+          "satisfaction": 3.8,
+          "response_time": 7.152557373046875e-07,
+          "timestamp": "2026-03-21T01:25:46.697813"
+        }
+      ],
+      "summary": {
+        "simple": {
+          "samples": 3,
+          "avg_accuracy": 0.7200000000000001,
+          "avg_completeness": 0.65,
+          "avg_satisfaction": 3.7999999999999994,
+          "avg_response_time": 9.5367431640625e-07,
+          "winner_score": 1.315
+        },
+        "structured": {
+          "samples": 2,
+          "avg_accuracy": 0.96,
+          "avg_completeness": 0.95,
+          "avg_satisfaction": 4.7,
+          "avg_response_time": 8.344650268554688e-07,
+          "winner_score": 1.705
+        },
+        "mixed": {
+          "samples": 5,
+          "avg_accuracy": 0.9099999999999999,
+          "avg_completeness": 0.8800000000000001,
+          "avg_satisfaction": 4.5,
+          "avg_response_time": 7.152557373046875e-07,
+          "winner_score": 1.619
+        },
+        "winner": "structured",
+        "winner_metrics": {
+          "samples": 2,
+          "avg_accuracy": 0.96,
+          "avg_completeness": 0.95,
+          "avg_satisfaction": 4.7,
+          "avg_response_time": 8.344650268554688e-07,
+          "winner_score": 1.705
+        }
+      },
+      "completed_at": "2026-03-21T01:25:46.697867"
+    }
+  ],
+  "summary": {}
+}

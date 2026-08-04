@@ -1,0 +1,30 @@
+{
+  "name": "contract-terms-cn",
+  "displayName": "合同关键条款速查",
+  "version": "1.0.0",
+  "description": "把常见合同条款拆成通俗解释、风险点和需要咨询律师的问题清单。",
+  "author": "ikun",
+  "license": "MIT",
+  "category": "knowledge",
+  "tags": [
+    "合同",
+    "条款",
+    "知识科普",
+    "风险提示"
+  ],
+  "keywords": [
+    "合同条款",
+    "违约责任",
+    "付款条款",
+    "保密条款",
+    "知识科普"
+  ],
+  "platforms": [
+    "openclaw",
+    "skillhub",
+    "claude-code",
+    "cursor"
+  ],
+  "language": "zh-CN",
+  "minAgentVersion": "0.1.0"
+}

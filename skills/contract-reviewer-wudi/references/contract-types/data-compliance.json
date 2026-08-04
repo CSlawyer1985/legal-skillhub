@@ -1,0 +1,313 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "数据合规合同",
+  "contract_type_en": "data-compliance",
+  "description": "数据处理协议、数据共享协议、个人信息保护协议等数据合规合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国个人信息保护法》",
+    "《中华人民共和国数据安全法》",
+    "《中华人民共和国网络安全法》",
+    "《数据出境安全评估办法》"
+  ],
+  "keywords_for_detection": [
+    "个人信息", "数据处理", "数据共享", "数据安全", "隐私",
+    "数据控制者", "数据处理者", "数据主体", "数据出境",
+    "GDPR", "个保法", "数据合规"
+  ],
+  "key_clauses": [
+    {
+      "name": "数据处理目的",
+      "required": true,
+      "keywords": ["处理目的", "数据用途", "使用目的"],
+      "check_points": [
+        {
+          "item": "目的明确",
+          "description": "数据处理目的是否明确、具体",
+          "risk_level": "致命"
+        },
+        {
+          "item": "目的限制",
+          "description": "数据处理是否限于约定目的",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确数据处理目的，约定目的限制原则"
+    },
+    {
+      "name": "数据类型与范围",
+      "required": true,
+      "keywords": ["数据类型", "个人信息", "敏感信息", "数据范围"],
+      "check_points": [
+        {
+          "item": "数据类型",
+          "description": "处理的数据类型是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "敏感信息",
+          "description": "是否涉及敏感个人信息（生物识别、医疗、金融等）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "最小化原则",
+          "description": "数据收集是否遵循最小化原则",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确数据类型，敏感信息需单独同意，遵循最小化原则"
+    },
+    {
+      "name": "数据处理者义务",
+      "required": true,
+      "keywords": ["处理者义务", "安全措施", "保密", "技术措施"],
+      "check_points": [
+        {
+          "item": "安全措施",
+          "description": "数据处理者采取的安全技术措施",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保密义务",
+          "description": "数据处理者的保密义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "转委托限制",
+          "description": "数据处理者转委托的限制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确安全措施、保密义务、转委托限制"
+    },
+    {
+      "name": "数据主体权利",
+      "required": true,
+      "keywords": ["数据主体", "知情权", "访问权", "删除权", "可携带权"],
+      "check_points": [
+        {
+          "item": "知情权",
+          "description": "数据主体的知情权保障",
+          "risk_level": "重大"
+        },
+        {
+          "item": "访问权",
+          "description": "数据主体的访问和复制权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "删除权",
+          "description": "数据主体的删除权（被遗忘权）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "可携带权",
+          "description": "数据主体的数据可携带权",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确数据主体权利保障机制"
+    },
+    {
+      "name": "数据安全事件",
+      "required": true,
+      "keywords": ["数据泄露", "安全事件", "通知", "应急响应"],
+      "check_points": [
+        {
+          "item": "通知义务",
+          "description": "数据安全事件的通知义务（72小时内）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "应急响应",
+          "description": "数据安全事件的应急响应措施",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确数据安全事件通知义务（72小时内通知监管机构）"
+    },
+    {
+      "name": "数据出境",
+      "required": false,
+      "keywords": ["数据出境", "跨境传输", "境外", "出境评估"],
+      "check_points": [
+        {
+          "item": "出境合规",
+          "description": "数据出境是否符合法律要求",
+          "risk_level": "致命"
+        },
+        {
+          "item": "出境评估",
+          "description": "是否进行数据出境安全评估",
+          "risk_level": "致命"
+        },
+        {
+          "item": "标准合同",
+          "description": "是否签订数据出境标准合同",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "数据出境需进行安全评估或签订标准合同"
+    },
+    {
+      "name": "数据保留与删除",
+      "required": true,
+      "keywords": ["保留期限", "删除", "销毁", "数据保存"],
+      "check_points": [
+        {
+          "item": "保留期限",
+          "description": "数据保留期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "删除义务",
+          "description": "合同终止后的数据删除义务",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确数据保留期限，合同终止后及时删除数据"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "赔偿", "责任", "罚款"],
+      "check_points": [
+        {
+          "item": "违约情形",
+          "description": "数据违规的违约情形",
+          "risk_level": "重大"
+        },
+        {
+          "item": "赔偿责任",
+          "description": "数据泄露的赔偿责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "责任上限",
+          "description": "赔偿责任上限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确数据违规的违约责任，约定合理的责任上限"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "DAT001",
+      "name": "数据出境违规",
+      "description": "数据出境未进行安全评估或签订标准合同",
+      "severity": "高风险",
+      "suggestion": "数据出境需进行安全评估（重要数据/100万人以上个人信息）或签订标准合同",
+      "legal_basis": "《数据出境安全评估办法》第4条"
+    },
+    {
+      "id": "DAT002",
+      "name": "敏感信息处理违规",
+      "description": "处理敏感个人信息未取得单独同意",
+      "severity": "高风险",
+      "suggestion": "处理敏感个人信息需取得单独同意，并告知必要性",
+      "legal_basis": "《个人信息保护法》第29条"
+    },
+    {
+      "id": "DAT003",
+      "name": "数据安全事件未通知",
+      "description": "发生数据安全事件未及时通知监管机构和数据主体",
+      "severity": "高风险",
+      "suggestion": "数据安全事件发生后72小时内通知监管机构",
+      "legal_basis": "《个人信息保护法》第57条"
+    },
+    {
+      "id": "DAT004",
+      "name": "处理目的不明",
+      "description": "数据处理目的不明确，超出约定目的使用数据",
+      "severity": "高风险",
+      "suggestion": "明确数据处理目的，约定目的限制原则"
+    },
+    {
+      "id": "DAT005",
+      "name": "数据主体权利保障不足",
+      "description": "未建立数据主体权利响应机制",
+      "severity": "中风险",
+      "suggestion": "建立数据主体权利响应机制，明确响应时限"
+    },
+    {
+      "id": "DAT006",
+      "name": "转委托无限制",
+      "description": "数据处理者可无限制转委托，数据安全无法保障",
+      "severity": "中风险",
+      "suggestion": "限制转委托，转委托需数据控制者书面同意"
+    }
+  ],
+  "position_guidance": {
+    "controller": {
+      "name": "数据控制者",
+      "priority_checks": [
+        "处理目的",
+        "安全措施",
+        "数据出境",
+        "违约责任"
+      ],
+      "key_concerns": [
+        "明确处理目的和范围",
+        "确保处理者安全措施",
+        "数据出境合规",
+        "明确违约责任"
+      ],
+      "avoid": [
+        "处理目的过宽",
+        "安全措施不足",
+        "数据出境违规",
+        "责任无限制"
+      ]
+    },
+    "processor": {
+      "name": "数据处理者",
+      "priority_checks": [
+        "处理范围",
+        "安全措施",
+        "责任上限",
+        "转委托"
+      ],
+      "key_concerns": [
+        "明确处理范围",
+        "约定合理安全措施",
+        "争取责任上限",
+        "明确转委托权利"
+      ],
+      "avoid": [
+        "处理范围过宽",
+        "安全措施过高",
+        "责任无上限",
+        "转委托受限"
+      ]
+    }
+  },
+  "legal_notes": {
+    "sensitive_data": {
+      "description": "敏感个人信息",
+      "categories": [
+        "生物识别信息（指纹、人脸、虹膜等）",
+        "宗教信仰",
+        "特定身份",
+        "医疗健康",
+        "金融账户",
+        "行踪轨迹",
+        "不满14周岁未成年人的个人信息"
+      ],
+      "legal_basis": "《个人信息保护法》第28条"
+    },
+    "data_export": {
+      "description": "数据出境",
+      "assessment": "重要数据出境、处理100万人以上个人信息出境：需安全评估",
+      "standard_contract": "处理10万人以上个人信息出境：可签订标准合同",
+      "certification": "可通过个人信息保护认证",
+      "legal_basis": "《数据出境安全评估办法》"
+    },
+    "penalties": {
+      "description": "违规处罚",
+      "individual": "个人信息保护违规：最高5000万元或上一年度营业额5%",
+      "data_security": "数据安全违规：最高1000万元",
+      "legal_basis": "《个人信息保护法》第66条、《数据安全法》第45条"
+    }
+  }
+}

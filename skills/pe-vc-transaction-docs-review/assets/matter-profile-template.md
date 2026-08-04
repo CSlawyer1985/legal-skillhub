@@ -1,0 +1,27 @@
+# Matter Profile
+
+- Matter:
+- Matter ID / workspace:
+- User role / review purpose:
+- Client side:
+- Counterparty / target:
+- Structure:
+- Governing law:
+- Dispute forum / arbitration seat:
+- Round:
+- Review scope:
+- Output mode:
+- Primary / controlling language:
+- Client risk preference:
+- Key redlines:
+- Acceptable fallbacks:
+- Confidentiality level:
+- Cross-matter use allowed:
+- Connector status: legal / entity / document:
+- Legal-authority cutoff / last checked:
+- Assumptions authorized by user:
+- Version-chain baseline:
+- Documents:
+- Missing documents:
+- Unreadable / OCR-required documents:
+- Review gate status:

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="shieldBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3949AB"/>
+      <stop offset="100%" stop-color="#1A237E"/>
+    </linearGradient>
+    <linearGradient id="shieldRim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7986CB"/>
+      <stop offset="100%" stop-color="#3F51B5"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0D1642" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- 盾牌底座 -->
+  <path d="M256 48 L432 128 L432 288 C432 384 352 464 256 480 C160 464 80 384 80 288 L80 128 Z"
+        fill="url(#shieldBg)" stroke="url(#shieldRim)" stroke-width="8" filter="url(#shadow)"/>
+
+  <!-- 盾牌内边框 -->
+  <path d="M256 72 L408 140 L408 284 C408 368 340 440 256 456 C172 440 104 368 104 284 L104 140 Z"
+        fill="none" stroke="#5C6BC0" stroke-width="2" opacity="0.4"/>
+
+  <!-- 天平横杆 -->
+  <line x1="176" y1="220" x2="336" y2="220" stroke="#FFD54F" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- 天平底座柱 -->
+  <line x1="256" y1="220" x2="256" y2="320" stroke="#FFD54F" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- 天平底座三角 -->
+  <polygon points="232,320 280,320 256,340" fill="url(#goldAccent)"/>
+
+  <!-- 左托盘 -->
+  <ellipse cx="176" cy="236" rx="48" ry="8" fill="#FFD54F" opacity="0.9"/>
+  <line x1="176" y1="220" x2="160" y2="236" stroke="#FFD54F" stroke-width="3"/>
+  <line x1="176" y1="220" x2="192" y2="236" stroke="#FFD54F" stroke-width="3"/>
+  <!-- 左盘上的小文档 -->
+  <rect x="160" y="214" width="32" height="20" rx="2" fill="#E8EAF6" opacity="0.85"/>
+  <line x1="166" y1="220" x2="186" y2="220" stroke="#9FA8DA" stroke-width="1.5"/>
+  <line x1="166" y1="226" x2="182" y2="226" stroke="#9FA8DA" stroke-width="1.5"/>
+
+  <!-- 右托盘 -->
+  <ellipse cx="336" cy="236" rx="48" ry="8" fill="#FFD54F" opacity="0.9"/>
+  <line x1="336" y1="220" x2="320" y2="236" stroke="#FFD54F" stroke-width="3"/>
+  <line x1="336" y1="220" x2="352" y2="236" stroke="#FFD54F" stroke-width="3"/>
+  <!-- 右盘上的对勾（合规通过） -->
+  <path d="M324 228 L333 237 L349 216" fill="none" stroke="#66BB6A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 天平顶部圆点 -->
+  <circle cx="256" cy="208" r="6" fill="url(#goldAccent)"/>
+
+  <!-- 放大镜（右下角） -->
+  <g transform="translate(320, 340)">
+    <circle cx="0" cy="0" r="24" fill="#1A237E" fill-opacity="0.6" stroke="#9FA8DA" stroke-width="3"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#C5CAE9" stroke-width="2"/>
+    <line x1="13" y1="13" x2="30" y2="30" stroke="#9FA8DA" stroke-width="4" stroke-linecap="round"/>
+    <!-- 放大镜内的感叹号 -->
+    <line x1="0" y1="-9" x2="0" y2="4" stroke="#FFD54F" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="9" r="2" fill="#FFD54F"/>
+  </g>
+
+  <!-- 文档图标（左下角） -->
+  <g transform="translate(128, 350)">
+    <path d="M-18,-28 L12,-28 L22,-18 L22,28 L-18,28 Z" fill="#E8EAF6" stroke="#9FA8DA" stroke-width="2"/>
+    <path d="M12,-28 L12,-18 L22,-18" fill="none" stroke="#9FA8DA" stroke-width="2"/>
+    <line x1="-10" y1="-14" x2="14" y2="-14" stroke="#7986CB" stroke-width="1.5"/>
+    <line x1="-10" y1="-4" x2="14" y2="-4" stroke="#7986CB" stroke-width="1.5"/>
+    <line x1="-10" y1="6" x2="6" y2="6" stroke="#7986CB" stroke-width="1.5"/>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="256" y="418" text-anchor="middle" fill="#C5CAE9" font-family="sans-serif" font-size="22" font-weight="bold" letter-spacing="4">AD AUDIT</text>
+  <text x="256" y="440" text-anchor="middle" fill="#9FA8DA" font-family="sans-serif" font-size="12" letter-spacing="2">广告引证合规审查</text>
+</svg>

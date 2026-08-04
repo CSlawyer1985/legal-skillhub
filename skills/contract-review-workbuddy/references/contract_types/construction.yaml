@@ -1,0 +1,330 @@
+rules:
+  - id: CON001
+    category: subject_risk
+    name: "承包方主体资格"
+    description: "承包方应具备与工程规模相适应的施工资质等级，无资质或超越资质签订的合同无效"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询承包方企业资质信息、安全生产许可证状态及是否存在经营异常"
+    legal_basis: "《建筑法》第13条、第26条；《民法典》第143条；《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第1条"
+    suggestion: "核实承包方主体资格和资质等级，要求提供营业执照、建筑业企业资质证书和安全生产许可证"
+    enabled: true
+
+  - id: CON002
+    category: subject_risk
+    name: "承包方履约能力审查"
+    description: "承包方应具备足够的资金、技术、设备和人员能力以完成约定工程"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查承包方财务状况、同类项目业绩、技术人员配置及机械设备情况"
+    legal_basis: "《建筑法》第26条；《建设工程质量管理条例》第25条"
+    suggestion: "要求承包方提供近年财务报表、同类工程业绩证明、项目经理及技术负责人资格证书"
+    enabled: true
+
+  - id: CON003
+    category: subject_risk
+    name: "非法转包与违法分包"
+    description: "承包方不得将工程整体转包或肢解后分包给不具备相应资质的单位"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否约定转包和分包的条件与限制，是否符合法律规定"
+    legal_basis: "《建筑法》第28条、第29条；《民法典》第791条；《建设工程质量管理条例》第78条"
+    suggestion: "明确约定承包方不得转包工程，分包需经发包方书面同意且分包单位应具备相应资质"
+    enabled: true
+
+  - id: CON004
+    category: construction_period
+    name: "工期约定不明确"
+    description: "合同未明确约定开工日期、竣工日期或总日历天数，导致工期争议"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否明确约定了开工日期、竣工日期和合同总日历天数"
+    legal_basis: "《民法典》第795条；《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第10条"
+    suggestion: "明确约定开工日期、竣工日期和总日历天数，约定开工通知程序和工期起算方式"
+    enabled: true
+
+  - id: CON005
+    category: construction_period
+    name: "工期顺延约定缺失"
+    description: "未约定因设计变更、工程量增加、不可抗力等因素导致工期顺延的条件"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定工期顺延的情形、申请程序和确认时限"
+    legal_basis: "《民法典》第803条；《建设工程工程量清单计价规范》第9.11条"
+    suggestion: "明确约定工期顺延的情形（设计变更、工程量增加、不可抗力、发包方原因等）及申请确认程序"
+    enabled: true
+
+  - id: CON006
+    category: construction_period
+    name: "逾期违约责任过重"
+    description: "约定的工期违约金过高，可能因过分高于实际损失而被调整"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查逾期违约金的计算方式和金额是否合理，日违约金不宜过高"
+    legal_basis: "《民法典》第585条；《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第30条"
+    suggestion: "合理设定逾期违约金标准，一般不超过合同总价的千分之一至千分之二每日，累计不超过总价3%-5%"
+    enabled: true
+
+  - id: CON007
+    category: construction_period
+    name: "赶工费用约定缺失"
+    description: "因发包方原因要求赶工时，未约定赶工费用的计算和承担方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定赶工费用的计算方法、确认程序和支付时间"
+    legal_basis: "《民法典》第803条；《建设工程工程量清单计价规范》第9.10条"
+    suggestion: "明确约定赶工费用的计算方法（人工费增加、夜间施工措施费等）及确认程序"
+    enabled: true
+
+  - id: CON008
+    category: quality_standard
+    name: "工程质量标准约定不明"
+    description: "合同未明确约定工程质量标准，或引用的质量标准已废止"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否明确约定工程质量标准（合格/优良）、依据的验收规范版本"
+    legal_basis: "《建筑法》第58条、第59条；《建设工程质量管理条例》第16条、第28条"
+    suggestion: "明确约定工程质量等级标准、依据的现行国家标准和行业标准名称及版本"
+    enabled: true
+
+  - id: CON009
+    category: quality_standard
+    name: "材料设备质量责任不清"
+    description: "未明确约定由发包方提供的材料设备的质量责任和检验义务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定材料设备的质量标准、验收程序及不合格材料的处理方式"
+    legal_basis: "《民法典》第804条；《建设工程质量管理条例》第29条、第37条"
+    suggestion: "明确约定材料设备的质量标准、进场验收程序、不合格材料的退场费用承担"
+    enabled: true
+
+  - id: CON010
+    category: quality_standard
+    name: "隐蔽工程验收程序缺失"
+    description: "未约定隐蔽工程覆盖前的验收程序和验收时限，可能导致质量隐患"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否约定隐蔽工程验收的通知时限、验收程序和逾期验收的处理"
+    legal_basis: "《民法典》第798条；《建设工程质量管理条例》第30条"
+    suggestion: "明确约定隐蔽工程覆盖前承包方应提前通知验收（如48小时）、发包方逾期验收的处理方式"
+    enabled: true
+
+  - id: CON011
+    category: quality_standard
+    name: "质量缺陷修复责任不清"
+    description: "未明确约定工程质量缺陷的修复时限、费用承担和二次验收程序"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定质量缺陷的修复时限、修复费用承担及二次验收程序"
+    legal_basis: "《建设工程质量管理条例》第32条；《建筑法》第60条、第61条"
+    suggestion: "明确约定质量缺陷的修复时限（如接到通知后7日内）、修复费用承担及二次验收程序"
+    enabled: true
+
+  - id: CON012
+    category: quality_standard
+    name: "工程质量创优奖励约定缺失"
+    description: "约定工程质量需达到优良标准但未约定创优奖励，可能导致承包方缺乏动力"
+    severity: low
+    check_type: prompt_check
+    check_rule: "检查合同是否约定工程质量创优的奖励标准和支付方式"
+    legal_basis: "《建设工程质量管理条例》第16条"
+    suggestion: "如约定工程质量需达到优良标准，应同时约定创优奖励的计算方式和支付条件"
+    enabled: true
+
+  - id: CON013
+    category: payment
+    name: "工程预付款约定缺失"
+    description: "未约定工程预付款的金额、支付时间和扣回方式，影响承包方资金周转"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定预付款的比例（一般10%-30%）、支付时间和扣回方式"
+    legal_basis: "《建设工程工程量清单计价规范》第10.1.2条；《民法典》第803条"
+    suggestion: "明确约定预付款比例（一般10%-30%）、支付时间（开工前7日内）和扣回方式"
+    enabled: true
+
+  - id: CON014
+    category: payment
+    name: "工程进度款支付条件不清"
+    description: "未明确约定工程进度款的支付节点、支付比例和审核程序"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否明确约定进度款支付节点（按月/按形象进度）、支付比例和审核时限"
+    legal_basis: "《建设工程工程量清单计价规范》第10.3条；《民法典》第803条"
+    suggestion: "明确约定进度款支付节点（按月或按形象进度）、支付比例（已完成工程价款的70%-80%）和审核时限"
+    enabled: true
+
+  - id: CON015
+    category: payment
+    name: "工程变更价款调整方式缺失"
+    description: "未约定工程变更价款的确定方法和调整程序，导致结算争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定工程变更的确认程序、价款确定方法和调整时间"
+    legal_basis: "《建设工程工程量清单计价规范》第9.3条；《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第19条"
+    suggestion: "明确约定变更价款的确定方法（已有单价按已有单价、类似单价参照类似单价、无适用单价按成本加利）"
+    enabled: true
+
+  - id: CON016
+    category: payment
+    name: "工程结算款支付期限缺失"
+    description: "未约定工程竣工验收后结算款的支付期限和逾期支付利息"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否约定结算款支付期限、逾期支付利息和结算审核时限"
+    legal_basis: "《民法典》第807条；《建设工程工程量清单计价规范》第11.3条；《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第26条、第27条"
+    suggestion: "明确约定结算款支付期限（竣工验收合格后28日内支付至97%）、逾期支付利息（按同期贷款利率）"
+    enabled: true
+
+  - id: CON017
+    category: payment
+    name: "工程保留金比例不合理"
+    description: "约定的工程保留金比例过高或过低，影响双方权益平衡"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同约定的保留金比例是否合理（一般3%-5%）"
+    legal_basis: "《建设工程工程量清单计价规范》第11.3条"
+    suggestion: "合理设定保留金比例（一般3%-5%），明确保留金的返还时间和条件"
+    enabled: true
+
+  - id: CON018
+    category: payment
+    name: "工程款支付担保缺失"
+    description: "未约定发包方提供工程款支付担保，承包方收款风险较大"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定发包方提供工程款支付担保"
+    legal_basis: "《保障农民工工资支付条例》第24条；《建设工程工程量清单计价规范》第10.1.2条"
+    suggestion: "约定发包方提供工程款支付担保（银行保函或担保公司担保），担保金额不低于合同价款的10%"
+    enabled: true
+
+  - id: CON019
+    category: acceptance
+    name: "竣工验收条件约定不明"
+    description: "未明确约定工程竣工验收的条件、标准和程序"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否明确约定竣工验收的条件、依据的标准和验收程序"
+    legal_basis: "《建筑法》第61条；《建设工程质量管理条例》第16条；《房屋建筑和市政基础设施工程竣工验收规定》第6条"
+    suggestion: "明确约定竣工验收的条件（完成设计和约定内容、技术档案完整、试验报告齐全等）和验收程序"
+    enabled: true
+
+  - id: CON020
+    category: acceptance
+    name: "竣工验收资料交付义务不清"
+    description: "未明确约定承包方应提交的竣工验收资料清单和交付时限"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定竣工验收资料的清单、份数和交付时限"
+    legal_basis: "《建设工程质量管理条例》第16条；《房屋建筑和市政基础设施工程竣工验收备案管理办法》第5条"
+    suggestion: "明确约定竣工验收资料清单（竣工图、隐蔽工程记录、材料合格证等）、份数（一般3-5份）和交付时限"
+    enabled: true
+
+  - id: CON021
+    category: acceptance
+    name: "擅自使用工程的法律后果"
+    description: "未约定发包方擅自使用未经验收工程的法律后果，可能导致质量责任转移"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同是否约定发包方擅自使用未验收工程时质量责任的转移"
+    legal_basis: "《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第14条；《民法典》第799条"
+    suggestion: "明确约定发包方擅自使用未验收工程视为验收合格，但承包方仍应承担地基基础和主体结构质量责任"
+    enabled: true
+
+  - id: CON022
+    category: acceptance
+    name: "竣工验收不合格处理方式缺失"
+    description: "未约定工程竣工验收不合格时承包方的修复责任和二次验收程序"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定验收不合格的处理方式、修复时限和二次验收费用承担"
+    legal_basis: "《民法典》第801条；《建设工程质量管理条例》第32条"
+    suggestion: "明确约定验收不合格时承包方应在约定期限内修复、二次验收费用由承包方承担"
+    enabled: true
+
+  - id: CON023
+    category: acceptance
+    name: "甩项验收约定缺失"
+    description: "未约定因部分工程未完成而进行甩项验收的条件和后续处理"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定甩项验收的条件、甩项工程完成时间和费用扣减方式"
+    legal_basis: "《房屋建筑和市政基础设施工程竣工验收规定》第7条"
+    suggestion: "明确约定甩项验收的条件、甩项工程完成时限和相应工程款扣减方式"
+    enabled: true
+
+  - id: CON024
+    category: acceptance
+    name: "竣工验收备案责任不清"
+    description: "未明确约定竣工验收备案的责任主体和配合义务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定竣工验收备案的责任主体和各方配合义务"
+    legal_basis: "《房屋建筑和市政基础设施工程竣工验收备案管理办法》第4条、第5条"
+    suggestion: "明确约定发包方为备案责任主体，承包方应提供备案所需的施工资料并配合办理"
+    enabled: true
+
+  - id: CON025
+    category: warranty
+    name: "质量保修期约定不符合法定最低期限"
+    description: "约定的质量保修期低于法定最低期限，该约定无效"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查合同约定的质量保修期是否不低于法定最低期限"
+    legal_basis: "《建设工程质量管理条例》第39条、第40条；《建筑法》第62条"
+    suggestion: "确保质量保修期不低于法定最低期限：地基基础和主体结构为设计年限，防水工程5年，供热供冷2个周期，电气管线2年"
+    enabled: true
+
+  - id: CON026
+    category: warranty
+    name: "缺陷责任期与保修期混淆"
+    description: "合同混淆缺陷责任期（质保金返还期）与质量保修期，导致质保金返还争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确区分缺陷责任期和质量保修期"
+    legal_basis: "《建设工程质量保证金管理办法》第2条、第8条；《建设工程质量管理条例》第40条"
+    suggestion: "明确区分缺陷责任期（一般1年，最长2年）与质量保修期（法定最低期限），分别约定"
+    enabled: true
+
+  - id: CON027
+    category: warranty
+    name: "质量保修责任履行方式不清"
+    description: "未明确约定质量保修期内承包方的维修时限、费用承担和违约责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定保修期内承包方的维修时限、费用承担和违约责任"
+    legal_basis: "《建设工程质量管理条例》第41条；《建筑法》第62条"
+    suggestion: "明确约定承包方应在接到保修通知后7日内到场维修，紧急情况24小时内到场，维修费用按责任承担"
+    enabled: true
+
+  - id: CON028
+    category: warranty
+    name: "质量保修金返还条件缺失"
+    description: "未明确约定质量保修金的返还条件和返还时间"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定质量保修金的返还条件、返还时间和返还比例"
+    legal_basis: "《建设工程质量保证金管理办法》第10条、第11条"
+    suggestion: "明确约定质量保修金在缺陷责任期满后14日内返还，返还比例不低于保修金总额的97%"
+    enabled: true
+
+  - id: CON029
+    category: breach_liability
+    name: "发包方违约责任约定缺失"
+    description: "未约定发包方逾期付款、未提供施工条件等违约行为的违约责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否约定发包方各类违约行为的违约责任"
+    legal_basis: "《民法典》第803条、第804条；《最高人民法院关于审理建设工程施工合同纠纷案件适用法律问题的解释（一）》第26条"
+    suggestion: "明确约定发包方逾期付款的利息、未提供施工条件的赔偿责任、停工窝工损失的承担"
+    enabled: true
+
+  - id: CON030
+    category: general_clause
+    name: "不可抗力条款缺失"
+    description: "未约定不可抗力事件的范围、通知义务和损失分担方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定不可抗力的范围、通知程序和损失分担方式"
+    legal_basis: "《民法典》第180条、第590条；《建设工程施工合同（示范文本）》第17条"
+    suggestion: "明确约定不可抗力的范围、通知义务（事件发生后24小时内）、损失分担方式（工程损失发包方承担，各自损失各自承担）"
+    enabled: true

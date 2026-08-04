@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 · Skill 的本质 · 学习中心</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>01 · Skill 的本质</h1>
+  <p class="lead">先纠正一个最常见的误解：Skill 不是"一个保存起来的长提示词"。它是<strong>能力封装</strong>——把一套完成某类工作的方法、标准和工具，打包成 AI 可以自主发现和调用的组件。</p>
+
+  <h2>一、六个容易混淆的概念</h2>
+  <p>法律人第一次接触 AI 工作流时，最常在六个概念之间迷路。它们的关系可以用一张表说清：</p>
+  <table>
+    <tr><th>概念</th><th>本质</th><th>什么时候生效</th><th>法律工作中的类比</th></tr>
+    <tr><td><strong>Prompt</strong></td><td>一次性对话指令</td><td>这一次对话</td><td>口头交代实习生办一件事</td></tr>
+    <tr><td><strong>工作区规则</strong>（CLAUDE.md / rules）</td><td>持久化的行为约束</td><td>该工作区每一次会话</td><td>律所的办案规程，进门就要遵守</td></tr>
+    <tr><td><strong>Skill</strong></td><td>可调用的能力包（方法+标准+工具）</td><td>AI 判断当前任务需要时自动加载</td><td>一本《某类案件操作指引》，需要时才取下来用</td></tr>
+    <tr><td><strong>Agent</strong></td><td>能自主规划、调用工具、循环执行的执行体</td><td>被委派任务时</td><td>一名可以独立办案的律师</td></tr>
+    <tr><td><strong>MCP</strong></td><td>连接外部系统/数据的协议接口</td><td>需要读写外部世界时</td><td>律所开通的各类数据库账号（法宝、企查查）</td></tr>
+    <tr><td><strong>Plugin</strong></td><td>打包分发的载体（可含多个 Skill/命令/Agent）</td><td>安装后</td><td>一整套引进的管理系统</td></tr>
+  </table>
+  <p>关键区别在于：<strong>规则是"必须遵守"，Skill 是"需要才用"</strong>。你不需要 AI 每次都背一遍《建工司法解释》，你只需要在它处理建工案件时，能准确调用建工案件的处理方法——这就是 Skill 的位置。</p>
+
+  <h2>二、一个 Skill 长什么样</h2>
+  <p>一个 Skill 就是一个文件夹，里面唯一必须存在的是一张"名片"——<code>SKILL.md</code>：</p>
+  <pre>contract-review/
+├── SKILL.md          ← 必须：名片（叫什么、什么时候用、怎么做）
+├── references/       ← 可选：知识库（法规、审查标准、内部口径）
+├── scripts/          ← 可选：工具脚本（检索、计算、格式处理）
+├── assets/           ← 可选：模板（合同范本、文书样式）
+└── LICENSE           ← 可选：授权文件</pre>
+  <p>AI 启动一个任务时，会先读所有 Skill 的"名片摘要"（frontmatter 里的 name 和 description），判断哪个 Skill 与当前任务相关；命中后才加载 SKILL.md 正文；正文里引用的附属文件，再按需读取。这个机制叫<strong>渐进式披露</strong>——用多少，加载多少，不浪费上下文。</p>
+  <p>本站收录的 2049 个法律 Skill 就是这个结构的 2049 个实例：约 65% 是"纯名片"（只有 SKILL.md），约 17% 带知识库，约 17% 带工具脚本。你可以在<a class="case-link" href="../index.html#type=knowledge-pack">技能库里按"知识包型"筛选</a>看看带知识库的长什么样。</p>
+
+  <h2>三、Skill 是能力封装，不是知识堆积</h2>
+  <p>新手写 Skill 最容易犯的错误，是把 Skill 当成"知识容器"——往里面堆法条、堆解释、堆资料。这是错的。法条 AI 训练时大多读过，你堆进去只是重复；真正让 Skill 有价值的是<strong>模型原本不知道的东西</strong>：</p>
+  <ul>
+    <li><strong>你的方法</strong>：审查一份建工合同，你先看什么、再看什么、什么条款必须动、什么条款可以让；</li>
+    <li><strong>你的标准</strong>：什么样的违约金约定算"明显过高"，你的口径是超过 LPR 几倍；</li>
+    <li><strong>你的流程</strong>：先核验主体资格，再看效力性条款，最后看价格机制——顺序本身就是专业判断；</li>
+    <li><strong>你的模板</strong>：所里用了五年的法律意见书格式，每个部分怎么写、不能写什么；</li>
+    <li><strong>你的工具</strong>：一个能自动检索法规库的脚本，一套能生成批注版合同的工具链。</li>
+  </ul>
+  <div class="note"><b>检验标准</b>：如果一个内容删掉了，AI 的输出质量会明显下降——它才值得写进 Skill。法条原文属于"删了 AI 也知道"的，放检索路径和验证方法，别堆原文。</div>
+
+  <h2>四、为什么法律人尤其需要 Skill</h2>
+  <p>法律服务有个结构性矛盾：<strong>经验在资深律师脑子里，工作在 junior 手上</strong>。Skill 恰好打在这个点上：</p>
+  <ol>
+    <li><strong>方法论复用</strong>：把"怎么审一份抵押合同"写一次，全团队每次都能复用，不用逐个教；</li>
+    <li><strong>质量稳定</strong>：AI 没有状态起伏——你写进 Skill 的审查清单，它每一次都逐项过，不会像人一样第 50 份合同开始走神；</li>
+    <li><strong>团队传承</strong>：资深律师离开，方法论留下。Skill 是比"师带徒"便宜得多的传承介质；</li>
+    <li><strong>能力组合</strong>：审查合同 → 生成批注版 → 起草沟通函，三个 Skill 串起来就是一条工作流。</li>
+  </ol>
+  <p>这不是说 AI 能替代律师判断——而是说<strong>律师的判断可以被封装成工具，在每一次相似任务中被稳定调用</strong>。这是本学习中心后面六讲要手把手教你做的事。</p>
+
+  <h2>五、Skill 可以跨平台迁移</h2>
+  <p>Skill 的开放标准（agentskills.io）意味着它本质上是<strong>一个结构化的 Markdown 文件夹</strong>：不绑定某个 AI 产品。同一个 Skill 文件夹，放进 Claude Code 的 <code>~/.claude/skills/</code> 能用，放进其他遵循同一标准的 Agent 环境也能用。这也是本站把所有 Skill 以原始文件夹形式提供下载的原因——它不是某个平台的私有格式，而是你的工作资产。</p>
+
+  <h2>下一讲</h2>
+  <p>理解了 Skill 是什么，下一个问题是：你自己的哪些工作值得封装成 Skill？→ <a class="case-link" href="./02-good-candidates.html">02 · 什么适合做 Skill</a></p>
+</article>
+<div id="footer"></div>
+<script src="../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
+</script>
+</body>
+</html>

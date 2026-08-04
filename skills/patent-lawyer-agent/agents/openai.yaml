@@ -1,0 +1,4 @@
+interface:
+  display_name: "专利申请分析与撰写｜简诗 AI"
+  short_description: "提供知识产权指导和专利分析，辅助撰写专利申请文件。非法律建议，需咨询持证专利律师。"
+  default_prompt: "使用 $patent-lawyer-agent 完成“专利申请分析与撰写”任务，并给出可执行结果。"

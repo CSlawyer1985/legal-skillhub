@@ -1,0 +1,4 @@
+interface:
+  display_name: "创业担保贷款资格初筛"
+  short_description: "面向蚂蚁社保用户，核验“创业担保贷款资格初筛”的条件、路径、材料与风险"
+  default_prompt: "使用 $check-ant-ss-387 帮我处理“创业担保贷款资格初筛”，先询问必要信息，再依据最新官方口径给出结论和下一步。"

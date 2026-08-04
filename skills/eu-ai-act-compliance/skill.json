@@ -1,0 +1,8 @@
+{
+  "name": "eu-ai-act-compliance",
+  "version": "1.0.0",
+  "description": "EU AI Act compliance checker for HR and recruitment systems with Irish regulatory context",
+  "author": "rochyroch",
+  "tags": ["eu-ai-act", "hr", "compliance", "gdpr", "recruitment", "ireland", "risk-classification"],
+  "category": "compliance"
+}

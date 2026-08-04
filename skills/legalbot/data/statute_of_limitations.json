@@ -1,0 +1,67 @@
+{
+  "categories": [
+    {
+      "name": "劳动争议",
+      "statutes": [
+        { "name": "劳动仲裁时效", "period": "1年", "start": "从当事人知道或者应当知道其权利被侵害之日起计算", "basis": "《劳动争议调解仲裁法》第二十七条", "level": "critical" },
+        { "name": "工伤认定申请", "period": "1年", "start": "从发生事故或被诊断职业病之日起", "basis": "《工伤保险条例》第十七条", "level": "critical" },
+        { "name": "劳动仲裁不服起诉", "period": "15日", "start": "收到仲裁裁决书之日起", "basis": "《劳动争议调解仲裁法》第五十条", "level": "critical" }
+      ]
+    },
+    {
+      "name": "民事诉讼",
+      "statutes": [
+        { "name": "一般民事诉讼时效", "period": "3年", "start": "从权利人知道权利受到损害及义务人之日起", "basis": "《民法典》第一百八十八条", "level": "critical" },
+        { "name": "最长期限", "period": "20年", "start": "从权利受到损害之日起", "basis": "《民法典》第一百八十八条", "level": "info" },
+        { "name": "人身损害赔偿", "period": "3年", "start": "从知道或应当知道损害及侵权人之日起", "basis": "《民法典》第一百八十八条", "level": "critical" },
+        { "name": "环境污染损害", "period": "3年", "start": "从当事人知道或应当知道受到损害时起", "basis": "《民法典》第一百八十八条", "level": "critical" }
+      ]
+    },
+    {
+      "name": "合同纠纷",
+      "statutes": [
+        { "name": "合同纠纷诉讼时效", "period": "3年", "start": "从知道或应当知道权利被侵害之日起", "basis": "《民法典》第一百八十八条", "level": "critical" },
+        { "name": "商品房买卖合同纠纷", "period": "3年", "start": "从知道或应当知道权利被侵害之日起", "basis": "《民法典》第一百八十八条", "level": "critical" },
+        { "name": "房屋买卖合同解除权", "period": "1年", "start": "经催告后3个月内未行使，或未经催告1年内", "basis": "《民法典》第五百六十四条", "level": "high" }
+      ]
+    },
+    {
+      "name": "消费者权益",
+      "statutes": [
+        { "name": "网络购物退货", "period": "7日", "start": "收到商品之日起（7天无理由退货）", "basis": "《消费者权益保护法》第二十五条", "level": "high" },
+        { "name": "产品缺陷损害赔偿", "period": "2年", "start": "从当事人知道或应当知道权益受损之日起", "basis": "《产品质量法》第四十五条", "level": "critical" },
+        { "name": "产品缺陷（安全期）", "period": "10年", "start": "造成损害的产品交付最初消费者之日起", "basis": "《产品质量法》第四十五条", "level": "info" },
+        { "name": "食品安全惩罚性赔偿", "period": "3年", "start": "从知道或应当知道权益受损之日起", "basis": "《食品安全法》第一百四十八条", "level": "critical" }
+      ]
+    },
+    {
+      "name": "行政复议与诉讼",
+      "statutes": [
+        { "name": "行政复议申请", "period": "60日", "start": "知道具体行政行为之日起", "basis": "《行政复议法》第九条", "level": "critical" },
+        { "name": "行政诉讼起诉", "period": "6个月", "start": "知道或应当知道行政行为作出之日起", "basis": "《行政诉讼法》第四十六条", "level": "critical" },
+        { "name": "最长行政诉讼期限", "period": "20年", "start": "从行政行为作出之日起", "basis": "《行政诉讼法》第四十六条", "level": "info" }
+      ]
+    },
+    {
+      "name": "婚姻家庭",
+      "statutes": [
+        { "name": "离婚后财产纠纷", "period": "3年", "start": "发现对方隐匿财产行为之日起", "basis": "《民法典》第一百八十八条", "level": "high" },
+        { "name": "离婚后损害赔偿", "period": "1年", "start": "办理离婚登记之日起", "basis": "《民法典》第一千零九十一条", "level": "high" }
+      ]
+    },
+    {
+      "name": "交通事故",
+      "statutes": [
+        { "name": "交通事故损害赔偿", "period": "3年", "start": "从知道权利被侵害及义务人之日起", "basis": "《民法典》第一百八十八条", "level": "critical" },
+        { "name": "交通事故认定书复核", "period": "3日", "start": "收到事故认定书之日起", "basis": "《道路交通事故处理程序规定》第七十一条", "level": "high" }
+      ]
+    },
+    {
+      "name": "工伤",
+      "statutes": [
+        { "name": "工伤认定申请", "period": "1年", "start": "发生事故或被诊断为职业病之日起", "basis": "《工伤保险条例》第十七条", "level": "critical" },
+        { "name": "劳动能力鉴定申请", "period": "伤情相对稳定后", "start": "经治疗伤情相对稳定后", "basis": "《工伤保险条例》第二十一条", "level": "high" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "contract-risk-helper",
+  "version": "1.0.0",
+  "description": "Scan contracts for common risk clauses. Read-only local analysis.",
+  "entry": "handler.py",
+  "author": "harrylabsj",
+  "license": "MIT-0"
+}

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>钢铁行业税务合规规则包 · 合规工作流</title>
+<style>
+:root {
+    --ok:#16a34a; --bad:#dc2626; --warn:#d97706; --info:#2563eb;
+    --bg:#f6f8fb; --card:#fff; --bd:#e5e9f0; --txt:#1f2937; --sub:#6b7280; --brand:#2563eb;
+    --step-bg:#f0f4ff; --step-active:#2563eb;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--txt); line-height:1.6; }
+.wrap { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
+h1 { font-size:20px; margin:8px 0 4px; }
+.sub { color:var(--sub); font-size:13px; margin-bottom:14px; }
+.card { background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:16px 18px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+.card h2 { font-size:16px; margin:0 0 10px; }
+.badge { font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:var(--brand); }
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px; }
+@media (max-width:680px){ .grid{grid-template-columns:1fr;} }
+label { display:block; font-size:12.5px; color:var(--sub); margin-bottom:3px; }
+label b { color:var(--txt); font-weight:600; }
+input,select { width:100%; padding:8px 10px; border:1px solid var(--bd); border-radius:8px; font-size:14px; background:#fff; }
+input:focus,select:focus { outline:none; border-color:var(--brand); }
+.hint { font-size:11px; color:var(--sub); margin-top:2px; }
+button { background:var(--brand); color:#fff; border:none; border-radius:9px; padding:11px 22px; font-size:15px; cursor:pointer; }
+button:hover { opacity:.92; }
+.btn.secondary { background:var(--bd); color:var(--txt); }
+.btn.primary { background:linear-gradient(135deg,#2563eb,#7c3aed); }
+.btn-row { display:flex; gap:10px; justify-content:space-between; margin-top:14px; flex-wrap:wrap; }
+.progress { display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+.step { flex:1; min-width:80px; text-align:center; font-size:11px; padding:8px 4px; border-radius:8px; background:var(--step-bg); color:var(--sub); cursor:pointer; }
+.step.active { background:var(--step-active); color:#fff; font-weight:600; }
+.step.done { background:#dcfce7; color:var(--ok); }
+.step-panel { display:none; }
+.step-panel.active { display:block; }
+.ind-input { margin-bottom:12px; }
+.ind-section { margin-bottom:14px; }
+.op-tag { color:var(--brand); font-size:11px; font-weight:600; }
+.checkbox-wrap { display:flex; align-items:center; gap:8px; cursor:pointer; font-size:14px; }
+.checkbox-wrap input { width:18px; height:18px; }
+.check-label { color:var(--txt); }
+.rk-item { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:#fff5f5; margin-bottom:6px; font-size:13px; }
+.rk-name { font-weight:600; flex:1; }
+.rk-extra { margin:-4px 0 10px 0; padding-left:2px; }
+.risk-trigger { font-size:12px; color:var(--sub); }
+.risk-sugg { font-size:12px; color:#b45309; background:#fffbeb; border-radius:6px; padding:6px 8px; margin-top:4px; }
+.pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600; flex-shrink:0; }
+.pill.ok { background:#dcfce7; color:var(--ok); }
+.pill.bad { background:#fee2e2; color:var(--bad); }
+.pill.warn { background:#fef3c7; color:var(--warn); }
+.summary-box { padding:14px; border-radius:10px; margin-top:10px; }
+.summary-box.pass { background:#f0fdf4; border:1px solid #bbf7d0; }
+.summary-box.fail { background:#fef2f2; border:1px solid #fecaca; }
+.summary-box.warn { background:#fffbeb; border:1px solid #fde68a; }
+.summary-title { font-size:16px; font-weight:700; margin-bottom:6px; }
+.summary-detail { font-size:13px; color:var(--sub); }
+.ind-result { padding:10px 12px; border:1px solid var(--bd); border-radius:10px; margin-bottom:8px; }
+.ind-result .ind-key { font-weight:600; }
+.ind-result .ind-meta { font-size:12px; color:var(--sub); }
+.biz-item { display:flex; align-items:center; gap:8px; padding:10px 12px; border-radius:8px; background:#f8fafc; margin-bottom:6px; font-size:13px; cursor:pointer; border:1px solid transparent; }
+.biz-item:hover { border-color:var(--brand); background:#f0f4ff; }
+.biz-key { background:var(--brand); color:#fff; font-size:10px; padding:2px 6px; border-radius:4px; flex-shrink:0; }
+.biz-name { font-weight:600; flex:1; }
+.biz-toggle { color:var(--sub); font-weight:700; }
+.biz-detail { flex-basis:100%; margin-top:8px; padding-top:8px; border-top:1px dashed var(--bd); }
+.biz-rules { font-size:12px; color:var(--sub); margin-bottom:8px; }
+.biz-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.biz-actions .btn { padding:7px 14px; font-size:13px; }
+.qa-card { background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:16px 18px; margin-bottom:16px; }
+.tab-nav { display:flex; gap:0; margin-bottom:12px; border-bottom:2px solid var(--bd); flex-wrap:wrap; }
+.tab-item { flex:1; min-width:90px; text-align:center; padding:9px 6px; font-size:13px; color:var(--sub); cursor:pointer; border-bottom:2px solid transparent; }
+.tab-item.active { color:var(--brand); font-weight:700; border-bottom-color:var(--brand); }
+.prompt-row { display:flex; align-items:center; gap:10px; padding:9px 12px; margin-bottom:6px; border-radius:8px; background:#fff; border:1px solid var(--bd); cursor:pointer; }
+.prompt-row:hover { background:#f0f4ff; border-color:var(--brand); }
+.prompt-text { font-size:13px; flex:1; line-height:1.55; }
+.copy-btn { flex-shrink:0; padding:5px 14px; font-size:12px; border:1px solid var(--bd); border-radius:6px; background:#f8fafc; color:var(--sub); cursor:pointer; }
+.copy-btn:hover { border-color:var(--brand); color:var(--brand); background:#eef2ff; }
+.qa-example { border:1px solid var(--bd); border-radius:10px; margin-bottom:10px; overflow:hidden; }
+.qa-q { background:#f8fafc; padding:10px 12px; font-weight:600; font-size:13.5px; }
+.qa-a { padding:10px 12px; font-size:13px; }
+.foot { font-size:11px; color:var(--sub); margin-top:10px; }
+.toast { position:fixed; top:20px; right:20px; background:#1e293b; color:#fff; padding:12px 20px; border-radius:10px; font-size:13px; z-index:9999; transform:translateX(120%); transition:transform .25s; }
+.toast.show { transform:translateX(0); }
+.consent-mask { position:fixed; inset:0; background:rgba(15,23,42,.55); display:none; align-items:center; justify-content:center; z-index:999; padding:16px; }
+.consent-box { background:#fff; border-radius:14px; max-width:540px; width:100%; padding:22px 24px; box-shadow:0 20px 60px rgba(0,0,0,.25); }
+.consent-box h3 { margin:0 0 10px; font-size:17px; color:var(--txt); }
+.consent-box p { font-size:13px; color:var(--sub); line-height:1.6; margin:0 0 10px; }
+.consent-box ul { margin:0 0 14px; padding-left:18px; font-size:12.5px; color:var(--sub); line-height:1.75; }
+.consent-box .consent-btns { display:flex; flex-wrap:wrap; gap:10px; }
+.consent-box .consent-btns .btn { flex:1; min-width:150px; }
+.consent-check { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--sub); margin:0 0 14px; cursor:pointer; }
+.consent-check input { width:16px; height:16px; cursor:pointer; }
+.tier-hint { font-size:11px; color:var(--brand); margin-top:3px; }
+.kb-banner { background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 100%); border:1px solid #c7d2fe; border-radius:10px; padding:10px 16px; margin:12px 0 20px; font-size:12px; line-height:1.6; }
+.kb-banner .kb-title { font-weight:700; color:var(--brand); }
+.kb-banner .kb-link { color:var(--brand); text-decoration:underline; cursor:pointer; font-weight:600; }
+.kb-banner .kb-link:hover { color:#1d4ed8; }
+.kb-banner .kb-cta { color:#6b7280; margin-top:2px; }
+.kb-banner .kb-cta b { color:var(--brand); font-weight:700; }
+.deep-card { border:1px solid #c7d2fe; background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 100%); }
+.deep-card h2 { color:var(--brand); }
+.deep-note { font-size:12.5px; color:#374151; line-height:1.7; margin-bottom:10px; }
+.deep-note b { color:var(--brand); }
+.deep-prompt { width:100%; min-height:200px; padding:12px 14px; border:1px solid var(--bd); border-radius:10px; font-size:13px; line-height:1.65; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--txt); background:#fff; resize:vertical; }
+.deep-prompt:focus { outline:none; border-color:var(--brand); }
+.deep-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+.deep-actions .btn { padding:10px 18px; font-size:14px; }
+.deep-hint { font-size:11.5px; color:var(--sub); margin-top:8px; }
+.loop-title-bar { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.loop-title-bar .lt-badge { font-size:10.5px; padding:3px 10px; border-radius:999px; background:var(--brand); color:#fff; font-weight:700; letter-spacing:.5px; }
+.loop-title-bar .lt-title { font-size:14.5px; font-weight:700; color:var(--txt); }
+.loop-pipeline { display:flex; align-items:stretch; gap:0; flex-wrap:wrap; }
+.loop-step { flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 4px; position:relative; }
+.loop-step:not(:last-child)::after { content:""; position:absolute; top:18px; right:-6px; width:10px; height:2px; background:var(--brand); opacity:.35; z-index:0; }
+.loop-step .ls-icon { width:32px; height:32px; border-radius:50%; background:#fff; border:2px solid var(--brand); display:flex; align-items:center; justify-content:center; font-size:14px; margin-bottom:5px; z-index:1; box-shadow:0 2px 6px rgba(37,99,235,.15); }
+.loop-step .ls-num { font-size:9px; color:var(--brand); font-weight:700; margin-bottom:1px; }
+.loop-step .ls-name { font-size:11px; font-weight:700; color:var(--txt); line-height:1.3; }
+.loop-step .ls-desc { font-size:9.5px; color:var(--sub); line-height:1.3; margin-top:2px; max-width:90px; }
+@media (max-width:680px){
+    .loop-pipeline { flex-direction:column; gap:6px; }
+    .loop-step:not(:last-child)::after { content:""; position:absolute; right:16px; top:-4px; width:2px; height:10px; background:var(--brand); opacity:.35; }
+    .loop-step { flex-direction:row; gap:8px; text-align:left; align-items:center; padding:6px 8px; background:#fff; border-radius:8px; border:1px solid #e2e8f0; }
+    .loop-step .ls-icon { margin-bottom:0; }
+}
+/* 特色工具 widget */
+.widget-wrap { display:flex; flex-direction:column; gap:14px; }
+.widget-card { border:1px solid var(--bd); border-radius:12px; padding:14px 16px; background:#fff; }
+.wc-head { display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; }
+.wc-icon { font-size:22px; }
+.wc-title { font-weight:700; font-size:15px; }
+.wc-intro { font-size:12px; color:var(--sub); margin-top:2px; }
+.wc-fields { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px; margin-bottom:12px; }
+@media (max-width:680px){ .wc-fields{grid-template-columns:1fr;} }
+.wc-field label { font-size:12px; color:var(--sub); display:block; margin-bottom:3px; }
+.wc-field .unit { color:var(--brand); font-size:11px; }
+.wc-result { margin-top:12px; padding:12px; border-radius:10px; background:#f0fdf4; border:1px solid #bbf7d0; }
+.wc-result.warn { background:#fffbeb; border-color:#fde68a; }
+.wc-result .wc-out { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dashed var(--bd); font-size:13.5px; }
+.wc-result .wc-out:last-child { border-bottom:none; }
+.wc-result .wc-out b { color:var(--brand); }
+.wc-result .wc-concl { margin-top:8px; font-weight:700; font-size:14px; }
+.wc-table { overflow-x:auto; }
+.wc-table table { width:100%; border-collapse:collapse; font-size:12.5px; }
+.wc-table th, .wc-table td { border:1px solid var(--bd); padding:7px 9px; text-align:left; vertical-align:top; }
+.wc-table th { background:#f1f5f9; font-weight:700; }
+.wc-table td.dim { background:#f8fafc; font-weight:600; color:var(--txt); white-space:nowrap; }
+.wc-table.highlight th { background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; }
+.wc-textarea { width:100%; min-height:120px; margin:10px 0; padding:10px; border:1px solid var(--bd); border-radius:8px; font-size:13px; font-family:Consolas,Menlo,monospace; resize:vertical; box-sizing:border-box; }
+.wc-hint-block { margin:6px 0 2px; font-size:12px; color:var(--sub); }
+.wc-fmt { background:#f8fafc; border:1px dashed var(--bd); border-radius:8px; padding:7px 10px; margin-bottom:6px; }
+.wc-warn { margin-top:10px; padding:8px 10px; border-radius:8px; background:#fffbeb; border:1px solid #fde68a; color:#92400e; font-size:12.5px; }
+.wc-project .wc-fields { grid-template-columns:repeat(2,1fr); }
+.wc-project details { margin-top:10px; font-size:12.5px; color:var(--sub); }
+.wc-project summary { cursor:pointer; color:var(--brand); }
+.wc-project ul { margin:6px 0 0; padding-left:18px; }
+.wc-project textarea.wc-textarea { background:#fff; }
+.wc-diff { margin-top:8px; font-size:12px; color:var(--sub); background:#f8fafc; border-radius:8px; padding:8px 10px; }
+.wc-checklist { display:flex; flex-direction:column; gap:8px; }
+.wc-check { display:flex; align-items:flex-start; gap:8px; padding:9px 11px; border:1px solid var(--bd); border-radius:9px; cursor:pointer; font-size:13px; }
+.wc-check:hover { background:#f0f4ff; border-color:var(--brand); }
+.wc-check input { width:18px; height:18px; margin-top:2px; }
+.wc-ck-label { font-weight:600; flex:1; }
+.wc-hint { display:block; font-size:11px; color:var(--sub); font-weight:400; margin-top:2px; }
+.wc-ledger table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:10px; }
+.wc-ledger th, .wc-ledger td { border:1px solid var(--bd); padding:6px 8px; }
+.wc-ledger th { background:#f1f5f9; font-weight:700; }
+.wc-ledger td[contenteditable="true"] { background:#fffef0; min-width:70px; }
+.wc-list { margin:0; padding-left:18px; font-size:13px; }
+.wc-list li { margin-bottom:6px; }
+.wc-text { font-size:13px; color:var(--txt); }
+/* 全流程链路 process */
+.wc-process { display:flex; flex-direction:column; gap:16px; }
+.pc-group { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fcfdff; }
+.pc-group-h { font-weight:700; color:var(--brand); margin-bottom:8px; font-size:14px; }
+.pc-stage { border-left:3px solid #cbd5e1; padding:6px 0 6px 12px; margin-bottom:8px; }
+.pc-stage-h { font-weight:600; margin-bottom:4px; }
+.pc-acts { margin:0 0 4px 0; padding-left:16px; font-size:12.5px; }
+.pc-delivs { font-size:12px; color:var(--sub); }
+.pc-deliv { display:inline-block; background:#eef2ff; border-radius:6px; padding:2px 7px; margin:2px 4px 0 0; }
+/* 案例 cases */
+.wc-cases { display:flex; flex-direction:column; gap:10px; }
+.case-card { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fff; }
+.case-h { font-weight:700; margin-bottom:6px; }
+.case-tag { font-size:11px; background:#e0f2fe; color:#0369a1; border-radius:6px; padding:2px 7px; margin-left:6px; }
+.case-f { font-size:12.5px; margin-bottom:4px; line-height:1.5; }
+/* 协同 cross / 监管 reg2026 */
+.wc-cross, .wc-reg { display:flex; flex-direction:column; gap:12px; }
+.cross-sec { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fcfdff; }
+.cross-h { font-weight:700; color:var(--brand); margin-bottom:6px; font-size:13.5px; }
+.cross-ex { border:1px dashed #93c5fd; border-radius:10px; padding:10px 12px; background:#f0f9ff; }
+.cross-ex-h { font-weight:700; color:#0369a1; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kb-banner">
+        <div class="kb-title">根据 tax-policy-knowledge 财税知识库与技能矩阵生成</div>
+        <span class="kb-link" onclick="copyKbLink()">🔗 点击查看并复制链接</span>
+        <div class="kb-cta">觉得好用请点 ★ 收藏 | 有需求建议可加企鹅号 <b>1817694478</b> 或在评论区留言 | 有你的关注与支持是我们功能升级持续更新的最大动力！</div>
+    </div>
+
+    <h1>📋 钢铁行业税务合规规则包</h1>
+    <div class="sub">钢铁行业（关联交易定价/资源综合利用增值税/环保税/存货跌价准备/出口退税）专项规则 <span class="badge">v1.0.1</span></div>
+
+    <div class="progress" id="progressBar">
+        <div class="step active" data-step="0">① 基础信息</div><div class="step" data-step="1">② 合规指标自检</div><div class="step" data-step="2">③ 涉税风险扫描</div><div class="step" data-step="3">④ 专题特色工具</div><div class="step" data-step="4">⑤ 政策问答</div>
+    </div>
+
+    <div class="step-panel active" id="step0">
+<div class="card"><h2>① 基础信息</h2><div class="sub">填写企业基本数据（本地保存，不上传，仅用于本次自检）</div><div class="grid"><div><label>企业名称</label><input id="q_company" placeholder="如 北京XX有限公司"/></div><div><label>统一社会信用代码</label><input id="q_credit_code" placeholder="如 91110108MA0XXXXXXX"/></div><div><label>注册地址</label><input id="q_address" placeholder="如 北京市XX区"/></div><div><label>成立时间</label><input id="q_reg_date" type="date"/></div></div><div class="btn-row"><button class="btn primary" onclick="loadSampleData()">📂 加载示例数据（自动体验全流程）</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div></div>
+</div>
+
+<div class="step-panel" id="step1">
+<div class="card"><h2>② 合规指标自检</h2><div class="sub">填写企业实际情况，系统将自动对照判定标准给出是否达标</div><div class="ind-section"><div class="ind-input" data-key="tp_doc_prepared"><label><b>转让定价同期资料已准备</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_tp_doc_prepared"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：国家税务总局公告2016年第42号</div></div><div class="ind-input" data-key="tp_pricing_fair"><label><b>关联交易定价公允</b> <span class="op-tag"><= 0.1</span></label><input type="number" id="i_tp_pricing_fair" placeholder="如 0.1" step="0.0001"/><div class="hint">关联方铁矿石/钢材价格偏离市场可比价±10%以内</div></div><div class="ind-input" data-key="resource_vat_refund"><label><b>资源综合利用增值税即征即退</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_resource_vat_refund"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：财政部税务总局公告2015年第78号</div></div><div class="ind-input" data-key="environment_tax"><label><b>环保税按期申报</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_environment_tax"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：环境保护税法</div></div><div class="ind-input" data-key="inventory_write_down"><label><b>存货跌价准备计提合理</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_inventory_write_down"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：企业所得税</div></div><div class="ind-input" data-key="export_refund_compliance"><label><b>出口退税单证完整</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_export_refund_compliance"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：出口退税管理</div></div><div class="ind-input" data-key="related_party_sales"><label><b>关联方销售占比合理</b> <span class="op-tag"><= 0.3</span></label><input type="number" id="i_related_party_sales" placeholder="如 0.3" step="0.0001"/><div class="hint">关联方销售占比≥30%触发特别审查</div></div><div class="ind-input" data-key="depreciation_method"><label><b>固定资产折旧方法合规</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_depreciation_method"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：企业所得税法</div></div><div class="ind-input" data-key="land_tax_compliance"><label><b>城镇土地使用税已申报</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_land_tax_compliance"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：城镇土地使用税暂行条例</div></div><div class="ind-input" data-key="energy_tax_credit"><label><b>节能环保设备投资抵免</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_energy_tax_credit"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：企业所得税法</div></div><div class="ind-input" data-key="goods_right_controlled"><label><b>钢材贸易货权实质转移</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_goods_right_controlled"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：国资发财评规〔2023〕74号（十不准⑤）</div></div><div class="ind-input" data-key="financing_trade_redflag"><label><b>无融资性贸易红线（托盘/价差固定）</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_financing_trade_redflag"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：国资发财评规〔2023〕74号（十不准④）</div></div><div class="ind-input" data-key="circular_trade_redflag"><label><b>无循环贸易闭口潜亏（最高法无效）</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_circular_trade_redflag"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：国资发财评规〔2023〕74号（十不准⑥）</div></div><div class="ind-input" data-key="mw07_fake_trade"><label><b>虚假贸易识别</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_mw07_fake_trade"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：国资委虚假贸易十不准</div></div><div class="ind-input" data-key="mw07_related_pricing"><label><b>关联交易定价公允</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_mw07_related_pricing"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：特别纳税调整实施办法</div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn" onclick="runIndicatorCheck()">🔍 立即自检</button></div></div><div id="indicatorResult" style="display:none"></div>
+</div>
+
+<div class="step-panel" id="step2">
+<div class="card"><h2>③ 涉税风险扫描</h2><div class="sub">基于指标检验结果，自动识别高风险项并给出整改建议</div><div id="riskReportResult"><p style="color:var(--sub)">请先完成指标自检后查看风险报告（也可直接点击下方「常见风险清单」预览）</p></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div>
+</div>
+
+<div class="step-panel" id="step3">
+<div class="card"><h2>④ 专题特色工具</h2><div class="sub">本专题独有可交互工具：测算 / 比对 / 判定 / 模板生成，结果可直接纳入合规报告</div><div class="widget-wrap"><div class="widget-card" data-kind="checklist" data-mod="tp"><div class="wc-head"><span class="wc-icon">✅</span><div><div class="wc-title">钢铁行业关联交易合规自查</div><div class="wc-intro">关联交易额达4000万须准备同期资料；重点核查以下高集中度交易</div></div></div><div class="wc-checklist"><label class="wc-check"><input type="checkbox" data-ck="0"/><span class="wc-ck-label">关联交易额≥4000万已备同期资料</span><span class="wc-hint">💡 转让定价文档</span></label><label class="wc-check"><input type="checkbox" data-ck="1"/><span class="wc-ck-label">铁矿石采购有可比价格支撑</span><span class="wc-hint">💡 成本公允</span></label><label class="wc-check"><input type="checkbox" data-ck="2"/><span class="wc-ck-label">设备采购定价公允</span><span class="wc-hint">💡 资产交易</span></label><label class="wc-check"><input type="checkbox" data-ck="3"/><span class="wc-ck-label">技术服务费有合理商业目的</span><span class="wc-hint">💡 费用归集</span></label><label class="wc-check"><input type="checkbox" data-ck="4"/><span class="wc-ck-label">关联方销售定价公允</span><span class="wc-hint">💡 收入公允</span></label></div><button class="btn" onclick="runChecklist('tp')">🔍 判定</button><div class="wc-result" id="wc_tp" style="display:none" data-ok="✅ 关联交易合规自查通过" data-no="⚠️ 关联交易存在转让定价风险"></div></div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div>
+</div>
+
+<div class="step-panel" id="step4">
+<div class="qa-card"><h2>⑤ 政策问答（结果示例 + 常用提示词）</h2><div class="sub">常用咨询提示词推荐 · 一键复制返回 Agent 对话框粘贴问答</div><div class="tab-nav" id="qaTabNav"><div class="tab-item active" data-tab="examples">📌 结果示例</div><div class="tab-item active" data-tab="cat0">🔗 转让定价</div><div class="tab-item" data-tab="cat1">♻️ 资源综合利用与环保税</div><div class="tab-item" data-tab="cat2">🚢 出口退税</div><div class="tab-item" data-tab="cat3">🛒 废钢采购与关联交易</div><div class="tab-item" data-tab="cat4">🚧 钢材虚假贸易与融资性贸易</div></div><div id="qaTabContent"><div class="tab-content" data-tab="examples" style="display:block"><div class="qa-example"><div class="qa-q">❓ 我们钢铁企业从境外关联方采购铁矿石，价格比独立第三方低了18%，会被认定转移利润吗？怎么准备同期资料？</div><div class="qa-a"><ol><li>关联方交易价格偏离市场可比价超过±10%即触发特别纳税调整风险，偏低18%明显不合规，应调整为独立交易原则下的公允价格。</li><li>关联交易金额达到4000万元的，须按《国家税务总局关于完善关联申报和同期资料管理有关事项的公告》（国家税务总局公告2016年第42号）准备主体文档、本地文档和特殊事项文档。</li><li>建议收集同期可比交易价格（如普氏铁矿石指数、第三方采购合同）作为定价支撑，并向主管税务机关说明定价方法。</li><li>如已被约谈，应主动提交转让定价同期资料并说明合理性，必要时可申请预约定价安排降低争议。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 我们用炼钢废渣生产矿渣微粉，能享受增值税即征即退吗？环保税方面还有什么要留意的？</div><div class="qa-a"><ol><li>利用废渣生产符合《资源综合利用产品和劳务增值税优惠目录》的产品，可依据《财政部 国家税务总局关于印发〈资源综合利用产品和劳务增值税优惠目录〉的通知》（财税〔2015〕78号）申请增值税即征即退，退税率按目录为30%—100%不等。</li><li>即征即退资格需定期复核，应在到期前重新提交资源综合利用认定材料，避免资质过期被追缴已退税款。</li><li>钢铁生产排放的废气、废水、固体废物按《中华人民共和国环境保护税法》依污染当量申报环保税，须安装监测设备并留存排放量记录。</li><li>如购置了符合条件的节能环保设备，可按企业所得税法就设备投资额的10%抵免应纳税额。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 我们第一次出口钢材，出口退税被退单了，说单证不齐，到底要备哪些材料？</div><div class="qa-a"><ol><li>出口退税核心单证包括：出口货物报关单、增值税专用发票（进项）、出口销售合同、装箱单以及海运提单（或运输单据），五者信息须保持一致。</li><li>报关单与提单的发货人、品名、数量、金额不一致是常见退单原因，应核对并补充更正单证后再申报。</li><li>建议在货物出口后及时收齐进项发票并完成勾选认证，避免因发票缺失导致退税被否。</li><li>如已发生退单，应按税务机关出口退（免）税管理要求补正资料重新申报，切勿虚开单证。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 钢材价格这半年跌了很多，我们存货跌价准备提得很少，税务上会不会有问题？关联方销售占比高又该怎么处理？</div><div class="qa-a"><ol><li>存货跌价准备须以可变现净值低于成本的差额为依据并留存测算表，价格大幅下跌未充分计提的，企业所得税汇算时可能被纳税调增。</li><li>关联方销售占比达到30%会触发特别纳税调整审查，应确保交易价格与非关联方一致或提供可比性分析。</li><li>从个体户等零散来源收购废钢难以取得专票的，应规范供应商准入、取得合规凭证，避免进项虚开风险。</li><li>加速折旧、城镇土地使用税等也应按对应政策申报，相关问题可在本页工作流中逐项自检。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 我们钢铁企业帮下游客户做钢材托盘贸易，代付货款收固定融资费，会被认定为融资性贸易吗？</div><div class="qa-a"><ol><li>若合同含垫资/融资/借款本金/利息等借款合同表述，或价差固定为资金占用费（与市价无关），实质是以贸易为名的借贷，属国资委74号"十不准"④明确禁止的融资性贸易。</li><li>托盘贸易中货权名义转移但实际由采购方控制、资金方不关注货权与市价波动，是典型红线信号；关联企业循环买卖同一批钢材则属不准⑥循环贸易，最高法认定买卖合同无效。</li><li>国资委46号令（2026.1实施）确立终身追责、穿透监管，融资性贸易/空转/循环贸易属明确追责情形，直接责任人可就地免职。</li><li>建议立即停止该类业务、清理退出，并穿透核查货权真实转移与资金最终用途；完整"十不准"与七流一致自查见核心库 business-compliance-traps.md。</li></ol></div></div></div><div class="tab-content" data-tab="cat0" style="display:block"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">我们公司从关联方进口铁矿石，价格比市场低了15%，这样会有税务风险吗？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">关联交易金额超过4000万，转让定价同期资料要准备哪些文件？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">母子公司之间的技术服务费怎么定价才不算转移利润？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">关联方销售占比到了35%，税务局会怎么审查？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">特别纳税调整是什么意思？我们被约谈了要怎么应对？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat1" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">钢铁废料回收再利用能申请增值税即征即退吗？能退多少比例？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">资源综合利用即征即退资格快到期了，要怎么续期？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">钢铁厂排放的废气废水要怎么计算环保税？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">环保税漏报了会有什么后果，怎么补救？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">我们上了脱硫除尘设备，环保税能减免吗？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat2" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">钢材出口的报关单和海运提单对不上，影响退税吗？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">出口退税需要准备哪些单证材料？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">出口退税被税务否了，常见原因有哪些？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">我们第一次做钢材出口，退税流程怎么走？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">出口发票和合同金额不一致，能顺利退税吗？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat3" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">从个体户收购废钢没有发票，进项税怎么处理才合规？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">关联方之间卖钢材，定价多少算合理？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">钢材价格大跌，存货跌价准备要提多少合适？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">关联采购的设备用了加速折旧，需要什么依据？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">厂区占地面积大，城镇土地使用税怎么算、怎么申报？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat4" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">我们做钢材托盘贸易，帮客户代付货款收固定融资费，算融资性贸易吗？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">关联企业之间循环买卖同一批钢材做大规模，有什么后果？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">钢材贸易用了非标仓单，货权真的在我手里吗？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">国资委74号十不准对钢材贸易有哪些红线？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">贸易合同写着借款本金和利息，这还是贸易吗？</div><div class="copy-btn">复制</div></div></div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn" onclick="generateReport()">📋 生成合规自查报告</button></div>
+</div>
+
+
+
+    <div class="card" style="margin-top:10px">
+        <h2>⚠️ 常见风险清单（预设预览）</h2>
+        <div class="sub">以下为本专题典型风险项及整改建议，完整风险评估需完成指标自检后生成</div>
+        <div id="staticRisks">
+            <div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">关联交易转移利润</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：铁矿石采购/钢材销售价格明显偏低</div><div class="risk-sugg">💡 整改建议：重新按独立交易原则核定铁矿石、钢材关联交易价格，准备同期可比价资料并向税务机关说明定价依据；必要时可申请预约定价安排。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">环保税漏报</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：应税污染物排放量未申报或低报</div><div class="risk-sugg">💡 整改建议：立即按实际污染物排放量补报环保税并缴纳滞纳金，安装在线监测设备留存排放记录，避免再次漏报。</div></div><div class="rk-item"><span class="pill warn" data-level="中">中</span><span class="rk-name">资源综合利用资质过期</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：即征即退资格到期未重新申请</div><div class="risk-sugg">💡 整改建议：尽快向主管部门重新提交资源综合利用认定材料，在资质续期前暂停即征即退申报以免被追缴已退税款。</div></div><div class="rk-item"><span class="pill warn" data-level="中">中</span><span class="rk-name">存货跌价准备不足</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：钢材价格大幅波动未充分计提跌价</div><div class="risk-sugg">💡 整改建议：依据近期钢材可变现净值重新测算跌价准备并留存测算底稿，在企业所得税汇算时据实调整。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">出口退税单证不全</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：报关单/发票等缺失导致退税被否</div><div class="risk-sugg">💡 整改建议：补齐报关单、发票、合同、装箱单与提单等单证并确保信息一致，按税务机关要求重新申报出口退（免）税。</div></div><div class="rk-item"><span class="pill warn" data-level="中">中</span><span class="rk-name">折旧方法不当</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：加速折旧无政策依据</div><div class="risk-sugg">💡 整改建议：核实加速折旧是否符合政策规定，补充加速折旧的合理性说明与备案资料，否则应改回直线法并调整申报。</div></div><div class="rk-item"><span class="pill warn" data-level="极高">极高</span><span class="rk-name">钢材融资性贸易（托盘/隐性借贷）</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：合同条款含垫资/融资/借款表述，或价差固定为资金占用费</div><div class="risk-sugg">💡 整改建议：认定为融资性贸易（十不准④），停止以贸易为名对外提供资金；国资委46号令（2026.1）终身追责，须清理退出并追究责任人。</div></div><div class="rk-item"><span class="pill warn" data-level="极高">极高</span><span class="rk-name">钢材循环贸易闭口潜亏</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：关联企业多份相同合同形成闭合回路、低价卖高价回购</div><div class="risk-sugg">💡 整改建议：认定为无商业实质循环贸易（十不准⑥）；最高法认定买卖合同无效、收益诉求不支持，须清理并计提潜亏。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">钢材空转走单（货权未实质转移）</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：标的控制权全程未变更、下游不经我方直接取货、非标仓单</div><div class="risk-sugg">💡 整改建议：认定为空转走单（十不准⑤⑧），穿透查验货权真实转移，补齐运输/仓储/收发货单据，停止非标仓单交易。</div></div>
+        </div>
+    </div>
+
+    <div class="card loop-card">
+  <h2>🔄 专题闭环示例</h2>
+  <div class="loop-title-bar">
+    <span class="lt-badge">CLOSED-LOOP</span>
+    <span class="lt-title">专题闭环示例 · 钢铁企业废钢采购进项合规闭环</span>
+  </div>
+  <div class="loop-pipeline"><div class="loop-step"><div class="ls-icon">💬</div><div class="ls-num">①</div><div class="ls-name">问答</div><div class="ls-desc">问：从个体户收废钢拿不到专票，进项税能不能先抵扣？</div></div><div class="loop-step"><div class="ls-icon">📊</div><div class="ls-num">②</div><div class="ls-name">结果</div><div class="ls-desc">系统判定“废钢进项凭证”不合规，存在虚开风险，建议暂停抵扣并补取合规凭证。</div></div><div class="loop-step"><div class="ls-icon">🔍</div><div class="ls-num">③</div><div class="ls-name">溯源</div><div class="ls-desc">引用《中华人民共和国发票管理办法》及资源综合利用即征即退政策，定位到废钢采购环节凭证缺失。</div></div><div class="loop-step"><div class="ls-icon">📁</div><div class="ls-num">④</div><div class="ls-name">案例</div><div class="ls-desc">某钢企因接受无证废钢发票被追缴进项税并处罚款，整改后改用准入供应商＋过磅单＋银行流水三单一致。</div></div><div class="loop-step"><div class="ls-icon">🤝</div><div class="ls-num">⑤</div><div class="ls-name">辅导</div><div class="ls-desc">引导企业建立废钢供应商白名单，要求提供增值税发票与过磅记录，并留存资金流证明。</div></div><div class="loop-step"><div class="ls-icon">⭐</div><div class="ls-num">⑥</div><div class="ls-name">评价</div><div class="ls-desc">企业完成整改后复检，进项凭证完整率从60%提升至98%，风险等级由高降为中。</div></div><div class="loop-step"><div class="ls-icon">📄</div><div class="ls-num">⑦</div><div class="ls-name">报告</div><div class="ls-desc">自动生成《废钢采购进项合规整改报告》，含问题清单、整改证据与后续申报建议，可下载归档。</div></div></div>
+<div class="foot">上述问答→结果→溯源→案例→辅导→评价→报告七个环节，均可在本页合规工作流中一键串联：用户从问答入口提交疑问，系统调用规则包指标实时判定并标注风险，自动关联政策依据与真实案例，推送辅导方案，复检后生成可下载的合规报告，形成可追溯、可落地的闭环。</div></div>
+
+
+    <div class="card"><h2>🔗 业务类型工作流入口</h2><div class="sub">点击展开各业务类型，跳转专属自检或复制专属提示词</div><div class="biz-grid"><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">selfcheck</span><span class="biz-name">钢铁税务合规自检</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：indicators</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">tp_doc</span><span class="biz-name">转让定价文档</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：tp</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">risk_scan</span><span class="biz-name">关联交易风险扫描</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：risks</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div></div></div>
+
+    <div class="card deep-card"><h2>💬 复制提示词 · 获取 AI 深度分析与报告</h2><div class="deep-note">本页自检为<b>轻量体验版</b>，结果仅供初步筛查。复制下方提示词粘贴到 Agent 对话框，即可由 AI 结合最新政策，为您生成<b>更有针对性、更详细</b>的合规分析报告、分优先级整改方案与落地模板。<br>👉 在 Agent 对话框说出「打开本专题自检页」，也会自动弹出本页可点击链接。</div><textarea id="deepPrompt" class="deep-prompt" readonly></textarea><div class="deep-actions"><button class="btn" onclick="copyDeepPrompt()">📋 复制提示词去 AI 深度分析</button><button class="btn secondary" onclick="refreshDeepPrompt()">🔄 按当前结果刷新</button></div><div class="deep-hint">提示：先填写指标并运行自检，再点「按当前结果刷新」，提示词会自动带入你的真实不达标项与风险项，分析更精准。</div></div>
+
+    <div class="foot">本工作流默认在本地完成计算；如您勾选"同意"，本次填写的税务指标数值（不含任何企业身份信息）将加密发送至云端用于规则判定，服务端不留存。内容依据公开税收政策与判定标准，仅供参考；具体操作请以最新法规及主管税务机关要求为准。</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="consent-mask" id="consentMask">
+  <div class="consent-box">
+    <h3>数据发送知情同意</h3>
+    <p>在开始税务自检前，请确认以下数据发送说明：</p>
+    <ul>
+      <li><b>将发送的数据</b>：仅本次填写的税务指标数值（如研发费用占比、人员比例等），<b>不含</b>企业名称、统一社会信用代码、注册地址、成立时间等身份信息。</li>
+      <li><b>用途</b>：经 HTTPS 加密连接发送至云端无状态自评服务，用于规则判定并即时返回结果。</li>
+      <li><b>不留存</b>：该服务不留存您提交的数据，亦不与任何身份关联。</li>
+      <li><b>匿名访问</b>：本次访问不关联任何账号或身份；为调用云端服务自动签发的临时密钥仅存于本次浏览器会话（关闭标签页即失效），不跨会话留存，也不写入本地持久存储。</li>
+    </ul>
+    <label class="consent-check"><input type="checkbox" id="consentChk"/> 我已阅读并同意上述数据发送说明</label>
+    <div class="consent-btns">
+      <button class="btn secondary" onclick="closeConsent()">取消</button>
+      <button class="btn primary" onclick="agreeConsent()">同意并自检</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = "https://mcp.aitaxs.top/api/v1";
+// ===== 统一注册 + API Key 安全鉴权（与 Python 客户端一致） =====
+// 安全约束（防止匿名调用泄露信息）：
+//  1) 匿名访问：不关联任何账号/身份，仅用于调用无状态自评服务；
+//  2) 知情同意门控：未获用户显式同意(CONSENTED)前，绝不发卡、绝不调用，杜绝静默匿名访问；
+//  3) 密钥会话级：key 仅存于 sessionStorage（关闭标签页即失效），不跨会话持久化，缩小 XSS 窃取窗口。
+const AUTH_LS_KEY = "tax_policy_mcp_api_key";
+const AUTH_LS_CID = "tax_policy_mcp_client_id";
+function _consentOk(){ return (typeof CONSENTED !== "undefined") && !!CONSENTED; }
+function _webClientId(){
+  let cid = sessionStorage.getItem(AUTH_LS_CID);
+  if(!cid){ cid = "tax-web-" + Math.random().toString(36).slice(2,10) + Date.now().toString(36); sessionStorage.setItem(AUTH_LS_CID, cid); }
+  return cid;
+}
+async function _ensureApiKey(){
+  // 防御纵深：未获知情同意前绝不匿名发卡/调用
+  if(!_consentOk()) return null;
+  let key = sessionStorage.getItem(AUTH_LS_KEY);
+  if(key) return key;
+  try{
+    const res = await fetch(API + "/auth/register", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ name:"tax-policy-web-"+_webClientId().slice(0,8), user_id:"auto", device_id:_webClientId() })
+    });
+    if(res.ok){ const d = await res.json(); if(d && d.api_key){ sessionStorage.setItem(AUTH_LS_KEY, d.api_key); return d.api_key; } }
+  }catch(e){ console.warn("API Key 注册失败：", e); }
+  return null;
+}
+async function apiFetch(path, init){ init = init || {}; init.headers = init.headers || {};
+  const key = await _ensureApiKey();
+  if(key) init.headers["Authorization"] = "Bearer " + key;
+  init.headers["X-Client-Id"] = _webClientId();
+  if(init.body && typeof init.body === "string" && !init.headers["Content-Type"]) init.headers["Content-Type"] = "application/json";
+  return fetch(API + path, init);
+}
+const TOPIC = "steel";
+const RULES = {"topic": "steel", "title": "钢铁行业税务合规规则包", "version": "1.0.1", "updated": "2026-07-24", "version_note": "v1.0.1 新增钢材大宗贸易虚假贸易·融资性贸易(托盘)·循环贸易·空转风险与四流核验指标(呼应经营合规八大陷阱/国资委74号十不准)", "desc": "钢铁行业（关联交易定价/资源综合利用增值税/环保税/存货跌价准备/出口退税）专项规则", "web_page": "https://skillhub.cn/skills/tax-steel", "bizTypes": {"selfcheck": {"name": "钢铁税务合规自检", "rules": ["indicators"], "version": "1.0.0"}, "tp_doc": {"name": "转让定价文档", "rules": ["tp"], "version": "1.0.0"}, "risk_scan": {"name": "关联交易风险扫描", "rules": ["risks"], "version": "1.0.0"}}, "tp": {"tp_threshold_cny": 40000000, "steel_tp_focus": ["铁矿石采购", "设备采购", "技术服务费", "关联方销售"], "note": "钢铁行业关联交易集中度高，铁矿石/设备/技术服务须有可比价格支撑"}, "indicators": [{"key": "tp_doc_prepared", "name": "转让定价同期资料已准备", "type": "bool_pass", "threshold": true, "policy": "国家税务总局公告2016年第42号", "desc": "关联交易金额≥4000万须准备转让定价同期资料"}, {"key": "tp_pricing_fair", "name": "关联交易定价公允", "type": "ratio", "threshold": 0.1, "operator": "<=", "policy": "特别纳税调整", "desc": "关联方铁矿石/钢材价格偏离市场可比价±10%以内"}, {"key": "resource_vat_refund", "name": "资源综合利用增值税即征即退", "type": "bool_pass", "threshold": true, "policy": "财政部税务总局公告2015年第78号", "desc": "钢铁废料回收再利用可申请增值税即征即退30%-100%"}, {"key": "environment_tax", "name": "环保税按期申报", "type": "bool_pass", "threshold": true, "policy": "环境保护税法", "desc": "钢铁企业须按应税污染物当量申报环保税"}, {"key": "inventory_write_down", "name": "存货跌价准备计提合理", "type": "bool_pass", "threshold": true, "policy": "企业所得税", "desc": "钢材价格波动大，存货跌价准备须有合理依据"}, {"key": "export_refund_compliance", "name": "出口退税单证完整", "type": "bool_pass", "threshold": true, "policy": "出口退税管理", "desc": "钢铁出口须有报关单/合同/发票/装箱单/海运提单"}, {"key": "related_party_sales", "name": "关联方销售占比合理", "type": "ratio", "threshold": 0.3, "operator": "<=", "policy": "特别纳税调整", "desc": "关联方销售占比≥30%触发特别审查"}, {"key": "depreciation_method", "name": "固定资产折旧方法合规", "type": "bool_pass", "threshold": true, "policy": "企业所得税法", "desc": "钢铁设备加速折旧须有正当理由"}, {"key": "land_tax_compliance", "name": "城镇土地使用税已申报", "type": "bool_pass", "threshold": true, "policy": "城镇土地使用税暂行条例", "desc": "钢铁企业厂区用地须按占地面积申报城镇土地使用税"}, {"key": "energy_tax_credit", "name": "节能环保设备投资抵免", "type": "bool_pass", "threshold": true, "policy": "企业所得税法", "desc": "符合条件的节能环保设备投资额的10%抵免企业所得税"}, {"key": "goods_right_controlled", "name": "钢材贸易货权实质转移", "type": "bool_pass", "threshold": true, "policy": "国资发财评规〔2023〕74号（十不准⑤）", "desc": "钢材仓单/提货单/仓储验收真实，标的控制权实质转移，警惕非标仓单（不准⑧）"}, {"key": "financing_trade_redflag", "name": "无融资性贸易红线（托盘/价差固定）", "type": "bool_pass", "threshold": true, "policy": "国资发财评规〔2023〕74号（十不准④）", "desc": "合同条款无垫资/融资/借款表述，价差不固定为资金占用费（隐性借贷），46号令终身追责"}, {"key": "circular_trade_redflag", "name": "无循环贸易闭口潜亏（最高法无效）", "type": "bool_pass", "threshold": true, "policy": "国资发财评规〔2023〕74号（十不准⑥）", "desc": "无关联企业多份相同合同形成闭合回路，货物流转未创造价值、形成潜亏"}, {"key": "mw07_fake_trade", "name": "虚假贸易识别", "type": "bool_pass", "threshold": true, "policy": "国资委虚假贸易十不准", "desc": "空转走单/循环贸易/融资性贸易无实物流涉虚开"}, {"key": "mw07_related_pricing", "name": "关联交易定价公允", "type": "bool_pass", "threshold": true, "policy": "特别纳税调整实施办法", "desc": "关联方购销定价不公允触发调整与资本弱化限制"}], "risks": [{"code": "STL-R01", "name": "关联交易转移利润", "level": "高", "trigger": "铁矿石采购/钢材销售价格明显偏低", "suggestion": "重新按独立交易原则核定铁矿石、钢材关联交易价格，准备同期可比价资料并向税务机关说明定价依据；必要时可申请预约定价安排。"}, {"code": "STL-R02", "name": "环保税漏报", "level": "高", "trigger": "应税污染物排放量未申报或低报", "suggestion": "立即按实际污染物排放量补报环保税并缴纳滞纳金，安装在线监测设备留存排放记录，避免再次漏报。"}, {"code": "STL-R03", "name": "资源综合利用资质过期", "level": "中", "trigger": "即征即退资格到期未重新申请", "suggestion": "尽快向主管部门重新提交资源综合利用认定材料，在资质续期前暂停即征即退申报以免被追缴已退税款。"}, {"code": "STL-R04", "name": "存货跌价准备不足", "level": "中", "trigger": "钢材价格大幅波动未充分计提跌价", "suggestion": "依据近期钢材可变现净值重新测算跌价准备并留存测算底稿，在企业所得税汇算时据实调整。"}, {"code": "STL-R05", "name": "出口退税单证不全", "level": "高", "trigger": "报关单/发票等缺失导致退税被否", "suggestion": "补齐报关单、发票、合同、装箱单与提单等单证并确保信息一致，按税务机关要求重新申报出口退（免）税。"}, {"code": "STL-R06", "name": "折旧方法不当", "level": "中", "trigger": "加速折旧无政策依据", "suggestion": "核实加速折旧是否符合政策规定，补充加速折旧的合理性说明与备案资料，否则应改回直线法并调整申报。"}, {"code": "STL-R07", "name": "钢材融资性贸易（托盘/隐性借贷）", "level": "极高", "trigger": "合同条款含垫资/融资/借款表述，或价差固定为资金占用费", "suggestion": "认定为融资性贸易（十不准④），停止以贸易为名对外提供资金；国资委46号令（2026.1）终身追责，须清理退出并追究责任人。"}, {"code": "STL-R08", "name": "钢材循环贸易闭口潜亏", "level": "极高", "trigger": "关联企业多份相同合同形成闭合回路、低价卖高价回购", "suggestion": "认定为无商业实质循环贸易（十不准⑥）；最高法认定买卖合同无效、收益诉求不支持，须清理并计提潜亏。"}, {"code": "STL-R09", "name": "钢材空转走单（货权未实质转移）", "level": "高", "trigger": "标的控制权全程未变更、下游不经我方直接取货、非标仓单", "suggestion": "认定为空转走单（十不准⑤⑧），穿透查验货权真实转移，补齐运输/仓储/收发货单据，停止非标仓单交易。"}], "qa_prompts": {"转让定价": {"icon": "🔗", "prompts": ["我们公司从关联方进口铁矿石，价格比市场低了15%，这样会有税务风险吗？", "关联交易金额超过4000万，转让定价同期资料要准备哪些文件？", "母子公司之间的技术服务费怎么定价才不算转移利润？", "关联方销售占比到了35%，税务局会怎么审查？", "特别纳税调整是什么意思？我们被约谈了要怎么应对？"]}, "资源综合利用与环保税": {"icon": "♻️", "prompts": ["钢铁废料回收再利用能申请增值税即征即退吗？能退多少比例？", "资源综合利用即征即退资格快到期了，要怎么续期？", "钢铁厂排放的废气废水要怎么计算环保税？", "环保税漏报了会有什么后果，怎么补救？", "我们上了脱硫除尘设备，环保税能减免吗？"]}, "出口退税": {"icon": "🚢", "prompts": ["钢材出口的报关单和海运提单对不上，影响退税吗？", "出口退税需要准备哪些单证材料？", "出口退税被税务否了，常见原因有哪些？", "我们第一次做钢材出口，退税流程怎么走？", "出口发票和合同金额不一致，能顺利退税吗？"]}, "废钢采购与关联交易": {"icon": "🛒", "prompts": ["从个体户收购废钢没有发票，进项税怎么处理才合规？", "关联方之间卖钢材，定价多少算合理？", "钢材价格大跌，存货跌价准备要提多少合适？", "关联采购的设备用了加速折旧，需要什么依据？", "厂区占地面积大，城镇土地使用税怎么算、怎么申报？"]}, "钢材虚假贸易与融资性贸易": {"icon": "🚧", "prompts": ["我们做钢材托盘贸易，帮客户代付货款收固定融资费，算融资性贸易吗？", "关联企业之间循环买卖同一批钢材做大规模，有什么后果？", "钢材贸易用了非标仓单，货权真的在我手里吗？", "国资委74号十不准对钢材贸易有哪些红线？", "贸易合同写着借款本金和利息，这还是贸易吗？"]}}, "qa_examples": [{"q": "我们钢铁企业从境外关联方采购铁矿石，价格比独立第三方低了18%，会被认定转移利润吗？怎么准备同期资料？", "a": "<ol><li>关联方交易价格偏离市场可比价超过±10%即触发特别纳税调整风险，偏低18%明显不合规，应调整为独立交易原则下的公允价格。<\/li><li>关联交易金额达到4000万元的，须按《国家税务总局关于完善关联申报和同期资料管理有关事项的公告》（国家税务总局公告2016年第42号）准备主体文档、本地文档和特殊事项文档。<\/li><li>建议收集同期可比交易价格（如普氏铁矿石指数、第三方采购合同）作为定价支撑，并向主管税务机关说明定价方法。<\/li><li>如已被约谈，应主动提交转让定价同期资料并说明合理性，必要时可申请预约定价安排降低争议。<\/li><\/ol>"}, {"q": "我们用炼钢废渣生产矿渣微粉，能享受增值税即征即退吗？环保税方面还有什么要留意的？", "a": "<ol><li>利用废渣生产符合《资源综合利用产品和劳务增值税优惠目录》的产品，可依据《财政部 国家税务总局关于印发〈资源综合利用产品和劳务增值税优惠目录〉的通知》（财税〔2015〕78号）申请增值税即征即退，退税率按目录为30%—100%不等。<\/li><li>即征即退资格需定期复核，应在到期前重新提交资源综合利用认定材料，避免资质过期被追缴已退税款。<\/li><li>钢铁生产排放的废气、废水、固体废物按《中华人民共和国环境保护税法》依污染当量申报环保税，须安装监测设备并留存排放量记录。<\/li><li>如购置了符合条件的节能环保设备，可按企业所得税法就设备投资额的10%抵免应纳税额。<\/li><\/ol>"}, {"q": "我们第一次出口钢材，出口退税被退单了，说单证不齐，到底要备哪些材料？", "a": "<ol><li>出口退税核心单证包括：出口货物报关单、增值税专用发票（进项）、出口销售合同、装箱单以及海运提单（或运输单据），五者信息须保持一致。<\/li><li>报关单与提单的发货人、品名、数量、金额不一致是常见退单原因，应核对并补充更正单证后再申报。<\/li><li>建议在货物出口后及时收齐进项发票并完成勾选认证，避免因发票缺失导致退税被否。<\/li><li>如已发生退单，应按税务机关出口退（免）税管理要求补正资料重新申报，切勿虚开单证。<\/li><\/ol>"}, {"q": "钢材价格这半年跌了很多，我们存货跌价准备提得很少，税务上会不会有问题？关联方销售占比高又该怎么处理？", "a": "<ol><li>存货跌价准备须以可变现净值低于成本的差额为依据并留存测算表，价格大幅下跌未充分计提的，企业所得税汇算时可能被纳税调增。<\/li><li>关联方销售占比达到30%会触发特别纳税调整审查，应确保交易价格与非关联方一致或提供可比性分析。<\/li><li>从个体户等零散来源收购废钢难以取得专票的，应规范供应商准入、取得合规凭证，避免进项虚开风险。<\/li><li>加速折旧、城镇土地使用税等也应按对应政策申报，相关问题可在本页工作流中逐项自检。<\/li><\/ol>"}, {"q": "我们钢铁企业帮下游客户做钢材托盘贸易，代付货款收固定融资费，会被认定为融资性贸易吗？", "a": "<ol><li>若合同含垫资/融资/借款本金/利息等借款合同表述，或价差固定为资金占用费（与市价无关），实质是以贸易为名的借贷，属国资委74号\"十不准\"④明确禁止的融资性贸易。<\/li><li>托盘贸易中货权名义转移但实际由采购方控制、资金方不关注货权与市价波动，是典型红线信号；关联企业循环买卖同一批钢材则属不准⑥循环贸易，最高法认定买卖合同无效。<\/li><li>国资委46号令（2026.1实施）确立终身追责、穿透监管，融资性贸易/空转/循环贸易属明确追责情形，直接责任人可就地免职。<\/li><li>建议立即停止该类业务、清理退出，并穿透核查货权真实转移与资金最终用途；完整\"十不准\"与七流一致自查见核心库 business-compliance-traps.md。<\/li><\/ol>"}], "loop_example": {"title": "专题闭环示例 · 钢铁企业废钢采购进项合规闭环", "items": [{"tag": "①问答", "text": "问：从个体户收废钢拿不到专票，进项税能不能先抵扣？"}, {"tag": "②结果", "text": "系统判定“废钢进项凭证”不合规，存在虚开风险，建议暂停抵扣并补取合规凭证。"}, {"tag": "③溯源", "text": "引用《中华人民共和国发票管理办法》及资源综合利用即征即退政策，定位到废钢采购环节凭证缺失。"}, {"tag": "④案例", "text": "某钢企因接受无证废钢发票被追缴进项税并处罚款，整改后改用准入供应商＋过磅单＋银行流水三单一致。"}, {"tag": "⑤辅导", "text": "引导企业建立废钢供应商白名单，要求提供增值税发票与过磅记录，并留存资金流证明。"}, {"tag": "⑥评价", "text": "企业完成整改后复检，进项凭证完整率从60%提升至98%，风险等级由高降为中。"}, {"tag": "⑦报告", "text": "自动生成《废钢采购进项合规整改报告》，含问题清单、整改证据与后续申报建议，可下载归档。"}], "foot": "上述问答→结果→溯源→案例→辅导→评价→报告七个环节，均可在本页合规工作流中一键串联：用户从问答入口提交疑问，系统调用规则包指标实时判定并标注风险，自动关联政策依据与真实案例，推送辅导方案，复检后生成可下载的合规报告，形成可追溯、可落地的闭环。"}, "sample_data": {"tp_doc_prepared": false, "tp_pricing_fair": 0.16, "resource_vat_refund": true, "environment_tax": true, "inventory_write_down": true, "export_refund_compliance": true, "related_party_sales": 0.22, "depreciation_method": true, "land_tax_compliance": true, "energy_tax_credit": true}};
+const WIDGETS = {"steel": {"tp": {"kind": "checklist", "title": "钢铁行业关联交易合规自查", "intro": "关联交易额达4000万须准备同期资料；重点核查以下高集中度交易", "items": [{"label": "关联交易额≥4000万已备同期资料", "hint": "转让定价文档"}, {"label": "铁矿石采购有可比价格支撑", "hint": "成本公允"}, {"label": "设备采购定价公允", "hint": "资产交易"}, {"label": "技术服务费有合理商业目的", "hint": "费用归集"}, {"label": "关联方销售定价公允", "hint": "收入公允"}], "conclusion_ok": "✅ 关联交易合规自查通过", "conclusion_no": "⚠️ 关联交易存在转让定价风险", "_mod": "tp"}}};
+const TOTAL_STEPS = 5;
+const HAS_IND = true;
+let STEP = 0;
+const WIDGET_RESULTS = {};
+
+function toastMsg(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 3000);
+}
+
+function updateProgress() {
+    document.querySelectorAll("#progressBar .step").forEach((el, i) => {
+        el.classList.toggle("active", i === STEP);
+        el.classList.toggle("done", i < STEP);
+    });
+    document.querySelectorAll(".step-panel").forEach((el, i) => {
+        el.classList.toggle("active", i === STEP);
+    });
+}
+
+function nextStep() { if (STEP < TOTAL_STEPS - 1) { STEP++; updateProgress(); } }
+function prevStep() { if (STEP > 0) { STEP--; updateProgress(); } }
+function goToStep(i) { STEP = i; updateProgress(); }
+document.querySelectorAll("#progressBar .step").forEach(el => {
+    el.addEventListener("click", () => goToStep(parseInt(el.dataset.step)));
+});
+
+let CONSENTED = false;  // 是否已完成知情同意
+
+function showConsentModal() { const m = document.getElementById("consentMask"); if (m) m.style.display = "flex"; }
+function closeConsent() { const m = document.getElementById("consentMask"); if (m) m.style.display = "none"; }
+function agreeConsent() {
+    const chk = document.getElementById("consentChk");
+    if (chk && !chk.checked) { toastMsg("请先勾选同意数据发送说明"); return; }
+    CONSENTED = true; closeConsent(); runIndicatorCheck();
+}
+
+// 仅采集指标数值（RULES.indicators），绝不携带 q_* 身份字段
+function collectMetrics() {
+    const m = {};
+    (RULES.indicators || []).forEach(ind => {
+        const input = document.getElementById("i_" + ind.key);
+        if (!input) return;
+        if (ind.type === "bool_pass") m[ind.key] = input.checked;
+        else { const v = parseFloat(input.value); m[ind.key] = isNaN(v) ? null : v; }
+    });
+    return m;
+}
+
+
+async function runIndicatorCheck() {
+    if (!HAS_IND) { toastMsg("本专题无逐指标自检，已为你展开风险清单"); goToStep(riskStepIndex()); return; }
+    if (!CONSENTED) { showConsentModal(); return; }
+    const metrics = collectMetrics();
+    try {
+        const r = await apiFetch("/topic_selfcheck", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic: TOPIC, metrics })
+        });
+        if (!r.ok) throw new Error("自检失败：" + (await r.json()).error);
+        const data = await r.json();
+        LAST_SELFCHECK = data;
+        renderIndicatorResult(data);
+        const riskEl = document.getElementById("riskReportResult");
+        if (riskEl) renderRiskResult(data, riskEl);
+        toastMsg("✅ 自检完成");
+    } catch(e) { toastMsg("⚠️ " + e.message); console.error(e); }
+}
+
+function riskStepIndex() {
+    const panels = Array.from(document.querySelectorAll(".step-panel"));
+    const risk = panels.find(p => p.querySelector("#riskReportResult"));
+    return panels.indexOf(risk);
+}
+
+function renderIndicatorResult(data) {
+    const container = document.getElementById("indicatorResult");
+    if (!container) return;
+    const summary = data.summary || {};
+    const indicators = data.indicators || [];
+    const sc = summary.overall === "达标" ? "pass" : (summary.overall === "部分达标" ? "warn" : "fail");
+    let h = '<div class="summary-box ' + sc + '">';
+    h += '<div class="summary-title">' + (summary.overall || "未知") + '</div>';
+    h += '<div class="summary-detail">共 ' + (summary.total_indicators||0) + ' 项指标，不达标 ' + (summary.failed||0) + ' 项，提示 ' + (summary.warned||0) + ' 项</div>';
+    h += '</div>';
+    indicators.forEach(ind => {
+        const pass = ind.pass;
+        const pillClass = pass === true ? "ok" : (pass === false ? "bad" : "warn");
+        const passText = pass === true ? "✅ 达标" : (pass === false ? "❌ 不达标" : "⚠️ 待确认");
+        h += '<div class="ind-result">';
+        h += '<span class="ind-key">' + ind.name + '</span> <span class="pill ' + pillClass + '">' + passText + '</span>';
+        h += '<div class="ind-meta">' + (ind.policy||"") + (ind.note ? " | " + ind.note : "") + '</div>';
+        h += '</div>';
+    });
+    container.innerHTML = h;
+    container.style.display = "block";
+}
+
+function findRiskSuggestion(name) {
+    const list = RULES.risks || [];
+    for (const r of list) {
+        if (r.name === name) return { trigger: r.trigger || "", suggestion: r.suggestion || "" };
+    }
+    return { trigger: "", suggestion: "" };
+}
+
+function renderRiskResult(data, container) {
+    const risks = data.risks || [];
+    const suggestions = data.suggestions || [];
+    let h = "";
+    if (risks.length === 0 && suggestions.length === 0) {
+        h = '<p style="color:var(--ok);font-weight:600">✅ 当前输入数据未发现明显风险项</p>';
+    } else {
+        risks.forEach(r => {
+            const lv = r.level || "中";
+            const extra = findRiskSuggestion(r.name || "");
+            h += '<div class="rk-item" style="border-left:3px solid ' + (lv==="高"?"var(--bad)":"var(--warn)") + '">';
+            h += '<span class="pill ' + (lv==="高"?"bad":"warn") + '">' + lv + '</span>';
+            h += '<span class="rk-name">' + (r.name||"") + '</span></div>';
+            if (extra.trigger) h += '<div class="rk-extra"><div class="risk-trigger">⚠️ 触发：' + extra.trigger + '</div></div>';
+            if (extra.suggestion) h += '<div class="rk-extra"><div class="risk-sugg">💡 整改建议：' + extra.suggestion + '</div></div>';
+        });
+        suggestions.forEach(s => {
+            h += '<div style="padding:8px 12px;background:#f0f9ff;border-radius:8px;margin-bottom:6px;font-size:13px">💡 ' + s + '</div>';
+        });
+    }
+    container.innerHTML = h;
+}
+
+function switchQATab(tabName) {
+    document.querySelectorAll("#qaTabNav .tab-item").forEach(t => t.classList.toggle("active", t.dataset.tab === tabName));
+    document.querySelectorAll("#qaTabContent .tab-content").forEach(t => t.style.display = t.dataset.tab === tabName ? "block" : "none");
+}
+document.querySelectorAll("#qaTabNav .tab-item").forEach(t => {
+    t.addEventListener("click", () => switchQATab(t.dataset.tab));
+});
+
+function copyPrompt(row) {
+    const text = row.querySelector(".prompt-text").textContent;
+    navigator.clipboard.writeText(text).then(() => toastMsg("✅ 提示词已复制"));
+}
+
+function resetWorkflow() {
+    STEP = 0;
+    document.querySelectorAll("input[type='text'],input[type='number'],input[type='date'],select").forEach(el => el.value = "");
+    document.querySelectorAll("input[type='checkbox']").forEach(el => el.checked = false);
+    updateProgress();
+    const res = document.getElementById("indicatorResult");
+    if (res) res.style.display = "none";
+    const risk = document.getElementById("riskReportResult");
+    if (risk) risk.innerHTML = '<p style="color:var(--sub)">请先完成指标自检后查看风险报告</p>';
+}
+
+/* ---------- 专题特色工具：测算/判定/比对/生成 ---------- */
+function fmtVal(v, fmt) {
+    if (fmt === "money") {
+        const n = parseFloat(v); if (isNaN(n)) return "—";
+        return "¥" + n.toLocaleString("zh-CN", {minimumFractionDigits:2, maximumFractionDigits:2});
+    }
+    if (fmt === "pct") {
+        const n = parseFloat(v); if (isNaN(n)) return "—";
+        return (n*100).toFixed(2) + "%";
+    }
+    return (v === undefined || v === null) ? "—" : String(v);
+}
+
+function runCalc(modKey) {
+    const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][modKey]) || {};
+    if (!spec.compute) return;
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const f = {};
+    card.querySelectorAll("[data-f]").forEach(el => {
+        const raw = el.value;
+        if (el.tagName === "SELECT") { f[el.dataset.f] = raw; return; }
+        const num = (raw === "" || raw === null) ? 0 : Number(raw);
+        f[el.dataset.f] = isNaN(num) ? raw : num;
+    });
+    const m = (RULES[TOPIC] && RULES[TOPIC][modKey]) || {};
+    let res;
+    try {
+        const fkeys = Object.keys(f);
+        const fn = new Function(...fkeys, "m", spec.compute);
+        res = fn(...fkeys.map(k => f[k]), m);
+    } catch(e) { toastMsg("⚠️ 计算异常：" + e.message); return; }
+    WIDGET_RESULTS[modKey] = res;
+    let h = "";
+    (spec.outs || []).forEach(o => {
+        const v = res[o.key];
+        const show = (o.fmt === "text") ? String(v) : fmtVal(v, o.fmt);
+        h += '<div class="wc-out"><span>' + o.label + '</span><b>' + show + '</b></div>';
+    });
+    const box = document.getElementById("wc_" + modKey);
+    box.innerHTML = h;
+    box.className = "wc-result";
+    box.style.display = "block";
+    toastMsg("✅ " + spec.title + " 已测算");
+}
+
+function runChecklist(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const boxes = card.querySelectorAll('input[type="checkbox"]');
+    let checked = 0;
+    boxes.forEach(b => { if (b.checked) checked++; });
+    const box = document.getElementById("wc_" + modKey);
+    const ok = (checked === boxes.length);
+    box.innerHTML = '<div class="wc-concl">' + (ok ? box.dataset.ok : box.dataset.no) + '</div>'
+        + '<div class="wc-out"><span>已确认项</span><b>' + checked + ' / ' + boxes.length + '</b></div>';
+    box.className = "wc-result" + (ok ? "" : " warn");
+    box.style.display = "block";
+    WIDGET_RESULTS[modKey] = { ok: ok, checked: checked, total: boxes.length };
+    toastMsg(ok ? "✅ 判定通过" : "⚠️ 尚有未确认项");
+}
+
+function escHtml(s){ var d=document.createElement('div'); d.textContent=(s==null?'':s); return d.innerHTML; }
+
+function runHours(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const ta = document.getElementById("hc_" + modKey);
+    const raw = (ta ? ta.value : "").trim();
+    if (!raw) { toastMsg("⚠️ 请先粘贴工时打卡记录"); return; }
+    const lines = raw.split(/\r?\n/).filter(x => x.trim());
+    const rows = [];
+    let skipped = 0;
+    for (const ln of lines) {
+        const cols = ln.split(/[,，\t]/).map(s => s.trim());
+        if (cols.length < 3) { skipped++; continue; }
+        if (/^(日期|人员|设备|项目|工时)/.test(cols[0]) && /工时|项目/.test(ln)) { skipped++; continue; }
+        const date = cols[0], who = cols[1], proj = cols[2];
+        const hrs = parseFloat(cols[3]);
+        if (isNaN(hrs)) { skipped++; continue; }
+        rows.push({date, who, proj, hrs});
+    }
+    if (!rows.length) { toastMsg("⚠️ 未解析到有效记录（需含 日期,人员/设备,项目,工时）"); return; }
+    const byProj = {}, byWho = {};
+    let totalH = 0;
+    const anomalies = [];
+    for (const r of rows) {
+        byProj[r.proj] = (byProj[r.proj] || 0) + r.hrs;
+        byWho[r.who] = (byWho[r.who] || 0) + r.hrs;
+        totalH += r.hrs;
+        if (r.hrs > 24 || r.hrs < 0) anomalies.push("异常工时：" + r.date + " " + r.who + "=" + r.hrs);
+        if (!r.proj || r.proj === "-") anomalies.push("缺项目编号：" + r.date + " " + r.who);
+    }
+    let ph = "<div class='wc-out'><span>总工时</span><b>" + totalH.toFixed(1) + " 小时</b></div>";
+    ph += "<div class='wc-table'><table><tr><th>项目</th><th>总工时</th><th>占比</th></tr>";
+    Object.keys(byProj).sort((a,b)=>byProj[b]-byProj[a]).forEach(p => {
+        ph += "<tr><td>" + escHtml(p) + "</td><td>" + byProj[p].toFixed(1) + "</td><td>" + (byProj[p]/totalH*100).toFixed(1) + "%</td></tr>";
+    });
+    ph += "</table></div>";
+    let wh = "<div class='wc-table'><table><tr><th>人员/设备</th><th>总工时</th></tr>";
+    Object.keys(byWho).sort((a,b)=>byWho[b]-byWho[a]).forEach(w => {
+        wh += "<tr><td>" + escHtml(w) + "</td><td>" + byWho[w].toFixed(1) + "</td></tr>";
+    });
+    wh += "</table></div>";
+    let anHtml = anomalies.length ? "<div class='wc-warn'>⚠️ 异常 " + anomalies.length + " 条：" + anomalies.slice(0,8).map(escHtml).join("；") + (anomalies.length>8?"…":"") + "</div>" : "<div class='wc-out'><span>异常检查</span><b>未发现问题</b></div>";
+    const box = document.getElementById("wc_" + modKey);
+    box.innerHTML = ph + wh + anHtml + "<button class='btn secondary' onclick=\"exportHours('" + modKey + "')\">⬇️ 导出工时汇总 CSV</button>";
+    box.className = "wc-result";
+    box.style.display = "block";
+    WIDGET_RESULTS[modKey] = {totalH: totalH, byProj: byProj, byWho: byWho, anomalies: anomalies};
+    toastMsg("✅ 已读取 " + rows.length + " 条记录，跳过 " + skipped + " 行");
+}
+
+function exportHours(modKey) {
+    const r = WIDGET_RESULTS[modKey];
+    if (!r) { toastMsg("⚠️ 请先分析"); return; }
+    let csv = "项目,总工时,占比\n";
+    Object.keys(r.byProj).forEach(p => { csv += '"' + p + '",' + r.byProj[p].toFixed(1) + ',"' + (r.byProj[p]/r.totalH*100).toFixed(1) + '%"\n'; });
+    csv += "\n人员或设备,总工时\n";
+    Object.keys(r.byWho).forEach(w => { csv += '"' + w + '",' + r.byWho[w].toFixed(1) + '\n'; });
+    const blob = new Blob(["﻿"+csv], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "研发工时汇总_" + modKey + ".csv";
+    a.click();
+    toastMsg("⬇️ 工时汇总 CSV 已导出");
+}
+
+function genProject(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const vals = {};
+    card.querySelectorAll("[data-pf]").forEach(el => { vals[el.dataset.pf] = el.value.trim(); });
+    const get = k => vals[k] || "（待填）";
+    const txt =
+        "【研发项目立项书】\n"
+        + "项目名称：" + get("项目名称") + "\n"
+        + "项目编号：" + get("项目编号") + "\n"
+        + "所属领域：" + get("所属领域") + "\n"
+        + "立项日期：" + get("立项日期") + "    负责人：" + get("负责人") + "\n"
+        + "研发周期：" + get("研发周期") + "\n"
+        + "参与人员：" + get("参与人员") + "\n"
+        + "主要设备：" + get("主要设备") + "\n"
+        + "预算总额：" + get("预算总额(元)") + " 元\n"
+        + "—— 创新目标 ——\n" + get("创新目标") + "\n"
+        + "—— 技术路线 ——\n" + get("技术路线") + "\n"
+        + "—— 阶段里程碑 ——\n" + get("阶段里程碑") + "\n"
+        + "—— 预期成果 ——\n" + get("预期成果") + "\n"
+        + "（本立项书由财税合规技能自动生成，须加盖企业公章与有权部门签批后归档）\n";
+    const ta = document.getElementById("proj_" + modKey);
+    ta.value = txt;
+    WIDGET_RESULTS[modKey] = {project: txt};
+    toastMsg("📝 立项书已生成，可复制归档");
+}
+
+function copyProj(modKey) {
+    const ta = document.getElementById("proj_" + modKey);
+    if (!ta || !ta.value) { toastMsg("⚠️ 请先生成立项书"); return; }
+    navigator.clipboard.writeText(ta.value).then(() => toastMsg("📋 立项书已复制"));
+}
+
+function toggleBiz(el) {
+    const detail = el.querySelector(".biz-detail");
+    if (detail.style.display === "none") detail.style.display = "block";
+    else detail.style.display = "none";
+}
+
+function copyBizPrompt(el) {
+    const name = el.closest(".biz-item").querySelector(".biz-name").textContent;
+    const text = "请按【" + name + "】业务类型，结合本专题指标与风险，给出合规操作指引与风险提示。";
+    navigator.clipboard.writeText(text).then(() => toastMsg("✅ 专属提示词已复制"));
+}
+
+function exportLedger(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const table = card.querySelector("table");
+    let csv = "";
+    table.querySelectorAll("tr").forEach(tr => {
+        const cells = Array.from(tr.querySelectorAll("th,td")).map(c => '"' + c.textContent.replace(/"/g,'""') + '"');
+        csv += cells.join(",") + "\n";
+    });
+    const blob = new Blob(["\ufeff" + csv], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "研发辅助账_" + modKey + ".csv";
+    a.click();
+    toastMsg("⬇️ 辅助账 CSV 已导出");
+}
+
+function copySteps(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    let text = "【ESOP 落地步骤清单】\n";
+    card.querySelectorAll(".wc-check").forEach((c, i) => {
+        const done = c.querySelector("input").checked ? "[x]" : "[ ]";
+        text += (i+1) + ". " + done + " " + c.querySelector(".wc-ck-label").textContent.trim() + "\n";
+    });
+    navigator.clipboard.writeText(text).then(() => toastMsg("📋 落地清单已复制"));
+}
+
+function loadSampleData() {
+    const sample = RULES.sample_data || {};
+    if (!HAS_IND || Object.keys(sample).length === 0) {
+        toastMsg("本专题以案例测算与政策对比为主，已为你展开风险清单与闭环示例");
+        goToStep(riskStepIndex());
+        return;
+    }
+    let filled = 0;
+    (RULES.indicators || []).forEach(ind => {
+        const input = document.getElementById("i_" + ind.key);
+        if (!input) return;
+        const v = sample[ind.key];
+        if (v === undefined) return;
+        if (ind.type === "bool_pass") input.checked = !!v;
+        else input.value = v;
+        filled++;
+    });
+    toastMsg("📂 已加载示例数据（" + filled + " 项），正在自动自检…");
+    goToStep(STEP + 1 < TOTAL_STEPS ? stepIndexOf("ind") : STEP);
+    setTimeout(() => { runIndicatorCheck(); }, 400);
+}
+
+function stepIndexOf(kind) {
+    const panels = Array.from(document.querySelectorAll(".step-panel"));
+    if (kind === "ind") {
+        const idx = panels.findIndex(p => p.querySelector(".ind-section"));
+        return idx >= 0 ? idx : STEP;
+    }
+    return STEP;
+}
+
+// ===== 深度分析提示词：将本页自检结果固化为可复制提示词，供用户粘贴到 Agent 对话框获取更有针对性报告 =====
+let LAST_SELFCHECK = null;
+
+function buildDeepPrompt() {
+    const title = (RULES.title || TOPIC) || "本专题";
+    const companyEl = document.getElementById("q_company");
+    const company = (companyEl && companyEl.value) ? companyEl.value : "（企业名称）";
+    let s = "我是「" + company + "」的财税/合规负责人。我刚在《" + title + "》合规自检交互页完成轻量自检，请基于以下结果，结合最新财税政策与监管口径，为我生成一份【有针对性的深度合规分析报告】：\n\n";
+    const d = LAST_SELFCHECK;
+    if (d && d.summary) {
+        const sum = d.summary;
+        s += "【自检结果摘要】\n";
+        s += "· 整体判定：" + (sum.overall || "未知") + "；共 " + (sum.total_indicators || 0) + " 项指标，不达标 " + (sum.failed || 0) + " 项，提示 " + (sum.warned || 0) + " 项。\n";
+        const inds = (d.indicators || []).filter(function (i) { return i.pass !== true; });
+        if (inds.length) {
+            s += "· 不达标 / 待确认指标：\n";
+            inds.forEach(function (i) { s += "  - " + i.name + (i.note ? "（" + i.note + "）" : "") + "\n"; });
+        }
+        const risks = d.risks || [];
+        if (risks.length) {
+            s += "· 风险项：\n";
+            risks.forEach(function (r) { s += "  - " + (r.name || "") + "（等级：" + (r.level || "中") + "）\n"; });
+        }
+        const sugg = d.suggestions || [];
+        if (sugg.length) { s += "· 系统补充建议：" + sugg.join("；") + "\n"; }
+    } else {
+        s += "（我尚未在页内运行自检。请先结合本专题常见风险与我方业务实际给出分析框架；\n  本专题特征：" + ((RULES.desc || "").slice(0, 80)) + "）\n";
+    }
+    const wk = Object.keys(WIDGET_RESULTS);
+    if (wk.length) {
+        s += "\n【专题特色工具测算结果】\n";
+        wk.forEach(function (k) {
+            const r = WIDGET_RESULTS[k];
+            const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][k]) || {};
+            s += "· " + (spec.title || k) + "：";
+            if (spec.outs) { s += (spec.outs).map(function (o) { return o.label + "=" + fmtVal(r[o.key], o.fmt); }).join("；") + "\n"; }
+            else if (r && typeof r === "object" && ("ok" in r)) { s += (r.ok ? "判定通过" : "判定未通过(" + r.checked + "/" + r.total + ")") + "\n"; }
+            else { s += "已测算\n"; }
+        });
+    }
+    s += "\n【请输出】\n";
+    s += "① 逐条问题定性与政策依据（注明文件名称与适用条款）；\n";
+    s += "② 按风险等级（高/中/低）输出分优先级整改方案、责任部门与时间表；\n";
+    s += "③ 涉税风险敞口评估与潜在稽查 / 补税后果提示；\n";
+    s += "④ 可落地操作模板、合同 / 凭证要点与对外沟通话术；\n";
+    s += "⑤ 标注需由执业税务师 / 律师进一步确认的事项。\n";
+    return s;
+}
+
+function refreshDeepPrompt() {
+    const ta = document.getElementById("deepPrompt");
+    if (ta) { ta.value = buildDeepPrompt(); }
+}
+
+function copyDeepPrompt() {
+    const ta = document.getElementById("deepPrompt");
+    if (!ta) return;
+    if (!ta.value) { ta.value = buildDeepPrompt(); }
+    navigator.clipboard.writeText(ta.value).then(function () {
+        toastMsg("✅ 深度分析提示词已复制，粘贴到 Agent 对话框即可生成针对性报告");
+    });
+}
+
+function generateReport() {
+    const company = document.getElementById("q_company") ? document.getElementById("q_company").value : "";
+    const resEl = document.getElementById("indicatorResult");
+    const riskEl = document.getElementById("riskReportResult");
+    let report = "【" + (RULES.title||TOPIC) + " 合规自查报告】\n";
+    if (company) report += "企业：" + company + "\n";
+    report += "生成时间：" + new Date().toLocaleString() + "\n\n";
+    if (resEl && resEl.style.display !== "none") {
+        report += "一、指标自检\n" + resEl.innerText.replace(/\n+/g,"\n").trim() + "\n\n";
+    }
+    if (riskEl && riskEl.innerText.trim()) {
+        report += "二、风险与整改建议\n" + riskEl.innerText.trim() + "\n\n";
+    }
+    // 纳入特色工具结果
+    const wk = Object.keys(WIDGET_RESULTS);
+    if (wk.length) {
+        report += "三、专题特色工具结果\n";
+        wk.forEach(k => {
+            const r = WIDGET_RESULTS[k];
+            const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][k]) || {};
+            report += "· " + (spec.title || k) + "：";
+            if (spec.outs) {
+                report += (spec.outs).map(o => o.label + "=" + fmtVal(r[o.key], o.fmt)).join("；") + "\n";
+            } else if (r && typeof r === "object" && "ok" in r) {
+                report += (r.ok ? "判定通过" : "判定未通过(" + r.checked + "/" + r.total + ")") + "\n";
+            } else {
+                report += "已测算\n";
+            }
+        });
+        report += "\n";
+    }
+    // 四、主要政策文件依据
+    if (RULES.policy_lib && RULES.policy_lib.length) {
+        report += "四、主要政策文件依据\n";
+        RULES.policy_lib.slice(1).forEach(function(r){ report += "· " + r[0] + "：" + r[1] + "（" + r[2] + "）\n"; });
+        report += "\n";
+    }
+    // 五、企业落地路线图
+    if (RULES.landing_roadmap && RULES.landing_roadmap.length) {
+        report += "五、企业落地路线图\n";
+        RULES.landing_roadmap.slice(1).forEach(function(r){ report += "· " + r[0] + "（" + r[1] + "）：" + r[2] + "\n"; });
+        report += "\n";
+    }
+    report += "---\n根据 tax-policy-knowledge 财税知识库与技能矩阵生成\n企鹅号 1817694478（欢迎留言与关注）\n";
+    navigator.clipboard.writeText(report).then(() => toastMsg("📋 报告已复制，可粘贴保存"));
+}
+
+function copyKbLink() {
+    const link = "https://skillhub.cn/skills/tax-policy-knowledge";
+    navigator.clipboard.writeText(link).then(() => {
+        toastMsg("🔗 链接已复制");
+        window.open(link, "_blank");
+    });
+}
+
+updateProgress();
+refreshDeepPrompt();
+</script>
+</body>
+</html>

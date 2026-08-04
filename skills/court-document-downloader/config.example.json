@@ -1,0 +1,16 @@
+{
+  "work_directory": "~/Desktop/诉讼案件",
+  "archive_mode": "by_year",
+  "archive_subdirectory": ".archive",
+  "calendar_name": "个人",
+  "default_reminders": [
+    {
+      "days_before": 7,
+      "description": "提前7天"
+    },
+    {
+      "days_before": 2,
+      "description": "提前2天"
+    }
+  ]
+}

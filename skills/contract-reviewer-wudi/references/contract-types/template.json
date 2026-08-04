@@ -1,0 +1,55 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "合同类型名称",
+  "contract_type_en": "contract-type-code",
+  "description": "合同类型的简要描述",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《相关法律》"
+  ],
+  "keywords_for_detection": [
+    "关键词1", "关键词2", "关键词3"
+  ],
+  "key_clauses": [
+    {
+      "name": "条款名称",
+      "required": true,
+      "keywords": ["关键词1", "关键词2"],
+      "check_points": [
+        {
+          "item": "检查项名称",
+          "description": "检查项描述",
+          "risk_level": "致命|重大|一般|轻微",
+          "regex_pattern": "可选的正则表达式"
+        }
+      ],
+      "suggestion": "修改建议"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "R001",
+      "name": "风险名称",
+      "description": "风险描述",
+      "severity": "高风险|中风险|低风险",
+      "pattern": "匹配的正则表达式",
+      "negative_pattern": false,
+      "suggestion": "修改建议",
+      "legal_basis": "法律依据"
+    }
+  ],
+  "position_guidance": {
+    "party_a": {
+      "name": "甲方名称",
+      "priority_checks": ["优先检查项1", "优先检查项2"],
+      "key_concerns": ["关注要点1", "关注要点2"],
+      "avoid": ["应避免的问题1", "应避免的问题2"]
+    },
+    "party_b": {
+      "name": "乙方名称",
+      "priority_checks": ["优先检查项1", "优先检查项2"],
+      "key_concerns": ["关注要点1", "关注要点2"],
+      "avoid": ["应避免的问题1", "应避免的问题2"]
+    }
+  }
+}

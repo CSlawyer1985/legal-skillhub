@@ -1,0 +1,1 @@
+“验证优先”方法论，适用于非洲特别法庭（Extraordinary African Chambers），涵盖达喀尔的 Hissène Habré 审判。每项引用均对照 forumchambresafricaines.org 和 legal-tools.org 验证。涵盖 2016 年 5 月 30 日判决、2017 年 4 月 27 日上诉判决、对 7,396 名受害者的 822.9 亿非洲法郎（CFAF）赔偿，以及普遍管辖权。为研究辅助工具，不构成法律意见。

@@ -1,0 +1,46 @@
+{
+  "api_base_url": "https://www.9235.net/api",
+  "token": "YOUR_API_TOKEN_HERE",
+  "default_data_scope": "cn",
+  "default_page_size": 10,
+  "max_records": 1000,
+  "timeout_seconds": 30,
+  "download_dir": "./downloads",
+  "enable_cache": false,
+  "cache_ttl_seconds": 3600,
+  "retry_times": 3,
+  "retry_delay_seconds": 1
+}
+
+/*
+配置说明:
+
+1. token (必需):
+   - 需要从 https://www.9235.net/api/open 申请
+   - 或者通过环境变量 PATENT_API_TOKEN 设置
+
+2. 数据范围:
+   - "cn": 仅中国专利 (默认)
+   - "all": 全球专利；亦可用 us/jp/kr/tw/wo/ep 指定国别
+
+3. 分页设置:
+   - default_page_size: 默认每页显示条数 (1-50)
+   - max_records: 最大返回记录数 (API限制1000)
+
+4. 下载设置:
+   - download_dir: 文件下载目录
+   - 会自动创建目录
+
+5. 缓存设置:
+   - enable_cache: 是否启用缓存
+   - cache_ttl_seconds: 缓存有效期 (秒)
+
+6. 重试设置:
+   - retry_times: 请求失败重试次数
+   - retry_delay_seconds: 重试延迟时间
+
+使用环境变量替代配置文件:
+export PATENT_API_TOKEN="your_token_here"
+export PATENT_API_BASE_URL="https://www.9235.net/api"
+export PATENT_DEFAULT_SCOPE="cn"
+*/

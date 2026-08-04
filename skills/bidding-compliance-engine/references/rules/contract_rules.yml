@@ -1,0 +1,114 @@
+# 合同条款风险评估规则
+rules:
+  - rule_id: PAYMENT_UNREASONABLE
+    title: 付款条件不合理
+    severity: medium
+    description: 付款条件不利于供应商，如预付款比例过低、付款周期过长、质保金比例过高
+    keywords:
+      - "付款"
+      - "预付款"
+      - "质保金"
+      - "尾款"
+      - "进度款"
+    patterns:
+      - "预付款.*不超过.*%"
+      - "质保金.*不低于.*%"
+      - "验收合格后.*天内支付"
+      - "无预付款"
+    exclusion_patterns: []
+    category: contract_terms
+    suggestion: "建议预付款比例不低于30%，质保金不超过5%，付款周期不超过验收合格后30天"
+
+  - rule_id: PENALTY_ASYMMETRIC
+    title: 违约责任不对等
+    severity: medium
+    description: 供应商违约重罚，采购方违约轻罚或不提
+    keywords:
+      - "违约"
+      - "违约金"
+      - "赔偿"
+    patterns:
+      - "供应商.*违约.*支付.*违约金"
+      - "逾期.*按.*支付"
+    exclusion_patterns: []
+    category: contract_terms
+    suggestion: "双方违约责任应基本对等，违约金比例应保持平衡"
+
+  - rule_id: WARRANTY_INSUFFICIENT
+    title: 保修期低于行业惯例
+    severity: low
+    description: 保修期低于行业惯例或法定最低标准
+    keywords:
+      - "保修"
+      - "质保期"
+      - "保修期"
+    patterns:
+      - "质保期.*年"
+      - "保修期.*年"
+      - "免费维修.*年"
+    exclusion_patterns: []
+    category: contract_terms
+    suggestion: "保修期应不低于行业惯例标准，建议参考同类型项目的保修条款"
+
+  - rule_id: IP_CLAIM_EXCESSIVE
+    title: 知识产权归属过度偏向采购方
+    severity: medium
+    description: 知识产权条款过度偏向采购方，要求供应商放弃全部知识产权
+    keywords:
+      - "知识产权"
+      - "著作权"
+      - "专利权"
+      - "所有权"
+    patterns:
+      - "知识产权.*归.*所有"
+      - "全部知识产权.*归属"
+    exclusion_patterns:
+      - "双方共有"
+      - "另有约定"
+    category: contract_terms
+    suggestion: "知识产权归属应合理，区分背景知识产权和项目产出知识产权"
+
+  - rule_id: TERMINATION_UNILATERAL
+    title: 单方面解约权不对等
+    severity: medium
+    description: 采购方拥有单方面解除合同的权利，供应商缺乏同等权利
+    keywords:
+      - "解除合同"
+      - "终止合同"
+      - "单方面"
+    patterns:
+      - "采购方有权.*解除合同"
+      - "甲方有权.*终止"
+    exclusion_patterns:
+      - "乙方有权"
+    category: contract_terms
+    suggestion: "双方解除合同的权利和条件应对等"
+
+  - rule_id: DISPUTE_CLAUSE_UNFAIR
+    title: 争议解决条款不利
+    severity: low
+    description: 争议解决方式或管辖法院对供应商不利
+    keywords:
+      - "争议"
+      - "仲裁"
+      - "管辖"
+      - "诉讼"
+    patterns:
+      - "在.*仲裁"
+      - "向.*法院提起诉讼"
+    exclusion_patterns: []
+    category: contract_terms
+    suggestion: "争议解决条款应公平，仲裁地点建议选择项目所在地"
+
+  - rule_id: FORCE_MAJEURE_MISSING
+    title: 缺少不可抗力条款
+    severity: low
+    description: 合同条款中缺少不可抗力条款
+    keywords:
+      - "不可抗力"
+    patterns: []
+    exclusion_patterns:
+      - "不可抗力"
+    category: contract_terms
+    suggestion: "应增加不可抗力条款，明确不可抗力事件的范围和处理方式"
+    is_absence_check: true

@@ -1,0 +1,37 @@
+# billable-time — matter routing example
+#
+# Place a matter.yml at the root of each matter directory. The CLI uses
+# `routes:` (or the matter.yml's own directory) to decide which Claude
+# Code sessions count as on-matter.
+
+matter:
+  id: "2026-0427" # billing-system matter ID (e.g. Clio matter number)
+  client: "Acme Holdings Ltd"
+  caption: "Acme v. Smith"
+  jurisdiction: "FL" # matter venue / governing law jurisdiction code
+  practice_area: "litigation"
+
+# Attorney of record — required in --strict mode. The artifact stamps the
+# attorney's name and bar credentials in the header and the signature block.
+attorney:
+  name: "Jane Doe"
+  bar_id: "FL-1234567"
+  bar_jurisdiction: "FL" # bar admission, not necessarily matter venue
+
+billing:
+  rate_per_hour: 450
+  rounding: "nearest_tenth"
+  minimum_increment_hours: 0.1
+
+ethics:
+  ai_disclosure_required: true
+  disclosure_pack: "fl-24-1" # loads disclosures/fl-24-1.yml as default
+  # disclosure_text: ~                 # uncomment to override the pack canonical
+  # for this matter (e.g. tailor to client
+  # engagement letter language).
+
+# Path prefixes that route to this matter. Narrow these to the actual matter
+# directory — broad routes (home dir, root, 1-2 segments) will trip the
+# routing-warning banner and refuse generation in --strict mode.
+routes:
+  - "~/Documents/Matters/acme-v-smith"

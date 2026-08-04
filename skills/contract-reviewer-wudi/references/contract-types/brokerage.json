@@ -1,0 +1,285 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "居间合同",
+  "contract_type_en": "brokerage",
+  "description": "房屋居间、商务居间、媒介居间等居间合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "居间", "中介", "居间人", "委托人", "媒介", "撮合",
+    "佣金", "中介费", "居间报酬", "房产中介"
+  ],
+  "key_clauses": [
+    {
+      "name": "居间事项",
+      "required": true,
+      "keywords": ["居间事项", "委托事项", "服务内容", "媒介服务"],
+      "check_points": [
+        {
+          "item": "事项明确",
+          "description": "居间人提供的服务内容是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "居间类型",
+          "description": "报告居间/媒介居间/两者兼具",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确居间事项（报告订约机会/媒介订约/两者兼具）"
+    },
+    {
+      "name": "居间报酬",
+      "required": true,
+      "keywords": ["报酬", "佣金", "中介费", "居间费", "费用"],
+      "check_points": [
+        {
+          "item": "报酬标准",
+          "description": "居间报酬金额或计算标准是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付条件",
+          "description": "报酬支付条件（合同成立时支付）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付方式",
+          "description": "一次性支付/分期支付",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确报酬标准、支付条件（合同成立时）、支付方式"
+    },
+    {
+      "name": "居间费用",
+      "required": true,
+      "keywords": ["费用", "必要费用", "活动费用", "成本"],
+      "check_points": [
+        {
+          "item": "费用承担",
+          "description": "居间活动的必要费用由谁承担",
+          "risk_level": "重大"
+        },
+        {
+          "item": "未促成时的费用",
+          "description": "居间未促成合同时的费用处理",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确居间活动必要费用的承担，未促成合同时可要求支付必要费用"
+    },
+    {
+      "name": "居间期限",
+      "required": true,
+      "keywords": ["居间期限", "期限", "服务期限", "委托期限"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "居间服务期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "独家委托",
+          "description": "是否为独家居间（委托人不得委托他人）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确居间期限，约定是否为独家居间"
+    },
+    {
+      "name": "居间人义务",
+      "required": true,
+      "keywords": ["如实报告", "调查", "核实", "尽职"],
+      "check_points": [
+        {
+          "item": "如实报告",
+          "description": "居间人如实报告有关订立合同事项的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "尽职调查",
+          "description": "居间人的尽职调查义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保密义务",
+          "description": "居间人对委托人信息的保密义务",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确居间人如实报告、尽职调查、保密等义务"
+    },
+    {
+      "name": "委托人义务",
+      "required": true,
+      "keywords": ["协助", "提供资料", "配合", "跳单"],
+      "check_points": [
+        {
+          "item": "协助义务",
+          "description": "委托人协助居间人开展工作的义务",
+          "risk_level": "一般"
+        },
+        {
+          "item": "跳单限制",
+          "description": "禁止委托人利用居间人提供的信息绕过居间人订立合同",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确委托人协助义务，约定禁止跳单条款"
+    },
+    {
+      "name": "跳单条款",
+      "required": true,
+      "keywords": ["跳单", "绕开", "私下交易", "规避"],
+      "check_points": [
+        {
+          "item": "跳单定义",
+          "description": "跳单行为的定义",
+          "risk_level": "重大"
+        },
+        {
+          "item": "跳单后果",
+          "description": "委托人跳单仍需支付报酬",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确跳单定义（利用居间人信息后绕开居间人），约定跳单仍需支付报酬"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "责任"],
+      "check_points": [
+        {
+          "item": "委托人违约",
+          "description": "委托人拒付报酬、跳单等违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "居间人违约",
+          "description": "居间人未尽义务、虚假报告等违约责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确双方违约责任，特别是跳单责任和虚假报告责任"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "BRO001",
+      "name": "报酬支付条件不明",
+      "description": "未明确居间报酬在何时支付（合同成立/签订/履行）",
+      "severity": "高风险",
+      "suggestion": "明确居间促成合同成立时即应支付报酬",
+      "legal_basis": "《民法典》第963条"
+    },
+    {
+      "id": "BRO002",
+      "name": "跳单风险",
+      "description": "委托人利用居间人提供的信息绕开居间人订立合同，居间人无法获得报酬",
+      "severity": "高风险",
+      "suggestion": "明确约定跳单定义和跳单仍需支付报酬",
+      "legal_basis": "《民法典》第965条"
+    },
+    {
+      "id": "BRO003",
+      "name": "居间人虚假报告",
+      "description": "居间人故意隐瞒重要事实或提供虚假情况，损害委托人利益",
+      "severity": "高风险",
+      "suggestion": "约定居间人如实报告义务和虚假报告的赔偿责任",
+      "legal_basis": "《民法典》第962条"
+    },
+    {
+      "id": "BRO004",
+      "name": "独家居间限制",
+      "description": "独家居间限制委托人委托其他居间人，但服务不佳时委托人无法更换",
+      "severity": "中风险",
+      "suggestion": "谨慎约定独家居间，或约定独家居间的解除条件"
+    },
+    {
+      "id": "BRO005",
+      "name": "报酬标准过高",
+      "description": "居间报酬标准过高，超过行业惯例",
+      "severity": "中风险",
+      "suggestion": "参考行业惯例确定报酬标准，房产居间通常1-3%"
+    },
+    {
+      "id": "BRO006",
+      "name": "未促成合同的费用",
+      "description": "居间未促成合同成立时，居间人要求支付报酬",
+      "severity": "中风险",
+      "suggestion": "明确未促成合同时不得要求报酬，但可要求支付必要费用",
+      "legal_basis": "《民法典》第964条"
+    }
+  ],
+  "position_guidance": {
+    "broker": {
+      "name": "居间人",
+      "priority_checks": [
+        "报酬标准",
+        "跳单条款",
+        "独家委托",
+        "费用承担"
+      ],
+      "key_concerns": [
+        "争取合理的报酬标准",
+        "明确跳单条款保护自身利益",
+        "争取独家委托",
+        "明确费用承担"
+      ],
+      "avoid": [
+        "报酬标准过低",
+        "无跳单保护",
+        "非独家委托",
+        "承担全部居间费用"
+      ]
+    },
+    "client": {
+      "name": "委托人",
+      "priority_checks": [
+        "居间人义务",
+        "如实报告",
+        "跳单条款",
+        "报酬支付条件"
+      ],
+      "key_concerns": [
+        "明确居间人如实报告义务",
+        "限制跳单条款范围",
+        "避免独家委托限制",
+        "明确报酬支付条件"
+      ],
+      "avoid": [
+        "居间人义务不清",
+        "跳单定义过宽",
+        "独家委托限制",
+        "报酬支付条件过宽"
+      ]
+    }
+  },
+  "legal_notes": {
+    "remuneration": {
+      "description": "居间报酬",
+      "rule": "居间人促成合同成立的，委托人应当按照约定支付报酬。对报酬没有约定或约定不明确，根据居间人的劳务合理确定",
+      "timing": "居间促成合同成立时即应支付报酬",
+      "legal_basis": "《民法典》第963条"
+    },
+    "expenses": {
+      "description": "居间费用",
+      "rule": "居间人促成合同成立的，居间活动的费用由居间人负担。居间人未促成合同成立的，不得请求支付报酬，但可以按照约定请求委托人支付从事居间活动支出的必要费用",
+      "legal_basis": "《民法典》第963-964条"
+    },
+    "duty_report": {
+      "description": "如实报告义务",
+      "rule": "居间人应当就有关订立合同的事项向委托人如实报告。居间人故意隐瞒与订立合同有关的重要事实或提供虚假情况，损害委托人利益的，不得请求支付报酬并应当承担赔偿责任",
+      "legal_basis": "《民法典》第962条"
+    },
+    "bypass": {
+      "description": "跳单",
+      "rule": "委托人在接受居间人的服务后，利用其提供的交易机会或媒介服务，绕开居间人直接订立合同的，应当向居间人支付报酬",
+      "legal_basis": "《民法典》第965条"
+    }
+  }
+}

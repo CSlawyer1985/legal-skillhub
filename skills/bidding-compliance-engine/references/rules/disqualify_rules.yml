@@ -1,0 +1,170 @@
+# 废标/否决条款审查规则
+# 规则ID命名规范：大写下划线，与issue_list中的rule_id对应
+# 覆盖审查表相关废标/否决条款，共8条规则
+
+rules:
+  - rule_id: BRAND_SPECIFIED_ONLY
+    title: 技术参数指定唯一品牌
+    severity: high
+    description: 招标文件中指定唯一品牌/型号，未提供"或同等品牌"替代选项
+    keywords:
+      - "指定品牌"
+      - "唯一品牌"
+      - "仅限"
+      - "必须采用"
+    patterns:
+      - "要求使用.*品牌.*型号"
+      - "须采用.*品牌"
+      - "必须选用.*品牌"
+      - "仅接受.*品牌"
+    exclusion_patterns:
+      - "或同等"
+      - "或相当于"
+      - "或同等品牌"
+      - "或同等型号"
+    category: compliance_mandatory
+    suggestion: "修改为'XX品牌XX型号或同等品牌'，确保允许多品牌参与竞争"
+    legal_basis: "《招标投标法实施条例》第三十二条第（三）项：招标人不得指定特定的品牌或产地"
+    check_item: "4.1"
+
+  - rule_id: LOCAL_VENDOR_RESTRICTION
+    title: 限制外地/特定区域供应商
+    severity: high
+    description: 招标文件中存在限制外地企业或特定区域供应商参与的条款
+    keywords:
+      - "本地企业"
+      - "本地注册"
+      - "本市"
+      - "本省"
+      - "本地纳税"
+    patterns:
+      - "须在.*注册"
+      - "须在.*设有分支机构"
+      - "本地企业优先"
+      - "在.*行政区域内纳税"
+    exclusion_patterns: []
+    category: compliance_mandatory
+    suggestion: "删除地域限制条款，确保公平竞争"
+    legal_basis: "《招标投标法》第六条：依法必须进行招标的项目，其招标投标活动不受地区或者部门的限制；《招标投标法实施条例》第三十二条第（五）项"
+    check_item: "2.1"
+
+  - rule_id: AMBIGUOUS_EVALUATION_LANGUAGE
+    title: 评标标准表述模糊
+    severity: medium
+    description: 评标标准使用模糊表述，缺乏量化指标，可能导致评标结果不可预期
+    keywords:
+      - "综合评估"
+      - "择优选取"
+      - "综合考虑"
+      - "酌情"
+    patterns:
+      - "综合评估.*择优"
+      - "根据.*情况.*综合"
+      - "由.*酌情确定"
+      - "视.*情况而定"
+    exclusion_patterns:
+      - "\\d+分"
+      - "\\d+%"
+    category: compliance_mandatory
+    suggestion: "将模糊表述替换为可量化的评分标准，明确各评审因素的权重和评分方法"
+    legal_basis: "《招标投标法实施条例》第五十五条：招标文件应当包括评标标准和方法；《评标委员会和评标方法暂行规定》第二十九条"
+    check_item: "5.1"
+
+  - rule_id: EXPERIENCE_OVERREQUIREMENT
+    title: 业绩要求超出项目需要
+    severity: medium
+    description: 业绩金额或数量要求明显超出项目实际规模
+    keywords:
+      - "业绩"
+      - "同类项目"
+      - "成功案例"
+    patterns:
+      - "近.*年.*完成.*个以上"
+      - "单项合同金额.*不低于"
+      - "累计合同金额.*不低于"
+    exclusion_patterns: []
+    category: compliance_mandatory
+    suggestion: "将业绩要求调整为与项目规模相匹配的标准，一般不超过项目预算金额的1.5倍"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "3.2"
+
+  - rule_id: CERTIFICATE_DISCRIMINATION
+    title: 资质证书歧视性指向
+    severity: high
+    description: 资质证书要求指向特定机构颁发或特定类型，排除其他等效资质
+    keywords:
+      - "认证"
+      - "资质"
+      - "证书"
+    patterns:
+      - "须获得.*认证"
+      - "须具有.*级资质"
+      - "仅认可.*证书"
+    exclusion_patterns:
+      - "或同等"
+      - "或相当"
+    category: compliance_mandatory
+    suggestion: "明确资质要求的具体能力标准，允许同等或更高级别的替代资质"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《认证认可条例》"
+    check_item: "3.1"
+
+  - rule_id: UNREASONABLE_DEADLINE
+    title: 投标截止时间不合理
+    severity: low
+    description: 投标文件提交的截止时间过短，不合理地限制潜在投标人准备投标
+    keywords:
+      - "截止"
+      - "递交"
+      - "投标时间"
+    patterns:
+      - "自公告发布之日起.*天内"
+    exclusion_patterns: []
+    category: compliance_mandatory
+    suggestion: "确保从招标文件发出之日起至提交投标文件截止之日止，不少于20日（依法必须招标的项目）"
+    legal_basis: "《招标投标法》第二十四条：招标人应当确定投标人编制投标文件所需要的合理时间；依法必须进行招标的项目，自招标文件开始发出之日起至提交投标文件截止之日止，最短不得少于二十日"
+    check_item: "11.1"
+
+  - rule_id: DQ_BID_DEADLINE_SHORT
+    title: 投标准备期不足
+    severity: high
+    description: 依法必须招标的项目，投标准备期不足20日，违反法定最低时限要求
+    keywords:
+      - "投标准备期"
+      - "投标截止"
+      - "编制时间"
+      - "准备时间"
+    patterns:
+      - "自招标文件发出之日起至.*截止.*不足"
+      - "投标准备期.*少于.*日"
+      - "编制投标文件时间.*不足"
+      - "招标文件发售.*至.*投标截止.*天"
+    exclusion_patterns:
+      - "不少于20日"
+      - "不少于20天"
+    category: compliance_mandatory
+    suggestion: "依法必须招标的项目，自招标文件开始发出之日起至提交投标文件截止之日止，最短不得少于20日"
+    legal_basis: "《招标投标法》第二十四条：依法必须进行招标的项目，自招标文件开始发出之日起至投标人提交投标文件截止之日止，最短不得少于二十日"
+    check_item: "11.1"
+
+  - rule_id: DQ_CLARIFICATION_PERIOD
+    title: 澄清修改期不足
+    severity: high
+    description: 招标文件澄清或修改未在投标截止15日前发出，违反法定时限要求
+    keywords:
+      - "澄清"
+      - "修改"
+      - "补充通知"
+      - "答疑"
+      - "书面通知"
+    patterns:
+      - "澄清.*在投标截止.*日前"
+      - "修改.*不足.*日"
+      - "补充通知.*距截止.*不足15日"
+      - "答疑.*通知.*时间"
+    exclusion_patterns:
+      - "15日前"
+      - "十五日前"
+    category: compliance_mandatory
+    suggestion: "招标文件澄清或修改应在投标截止时间至少15日前以书面形式通知所有获取招标文件的潜在投标人"
+    legal_basis: "《招标投标法》第二十三条：招标人对已发出的招标文件进行必要的澄清或者修改的，应当在招标文件要求提交投标文件截止时间至少十五日前，以书面形式通知所有招标文件收受人"
+    check_item: "11.2"

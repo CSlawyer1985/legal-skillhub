@@ -1,0 +1,233 @@
+[
+  {
+    "id": 1,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 2,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 3,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "出生日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 4,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "工作单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 5,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "职务（填空）",
+    "original": " "
+  },
+  {
+    "id": 6,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 7,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 8,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 9,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "代理权限：一般授权",
+    "original": "□"
+  },
+  {
+    "id": 10,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "特别授权",
+    "original": "□"
+  },
+  {
+    "id": 11,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 12,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 13,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 14,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "出生日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 15,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "工作单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 16,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 17,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 18,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "诉讼请求（完整表述）",
+    "original": "（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）"
+  },
+  {
+    "id": 19,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 20,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 21,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 22,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 23,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 24,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 25,
+    "section": "事实与理由",
+    "role": "",
+    "label": "事实与理由（完整表述）",
+    "original": "（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）"
+  },
+  {
+    "id": 26,
+    "section": "事实与理由",
+    "role": "",
+    "label": "时间（填空）",
+    "original": " "
+  },
+  {
+    "id": 27,
+    "section": "事实与理由",
+    "role": "",
+    "label": "年        月         日",
+    "original": "年        月         日"
+  },
+  {
+    "id": 28,
+    "section": "事实与理由",
+    "role": "",
+    "label": "具体理由（填空）",
+    "original": " "
+  },
+  {
+    "id": 29,
+    "section": "事实与理由",
+    "role": "",
+    "label": "具体理由（填空）",
+    "original": " "
+  },
+  {
+    "id": 30,
+    "section": "事实与理由",
+    "role": "",
+    "label": "具体理由（填空）",
+    "original": " "
+  },
+  {
+    "id": 31,
+    "section": "事实与理由",
+    "role": "",
+    "label": "具体理由（填空）",
+    "original": " "
+  },
+  {
+    "id": 32,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 33,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  }
+]

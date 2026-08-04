@@ -1,0 +1,28 @@
+{
+  "name": "Legal Regulatory Compliance Mapper",
+  "slug": "legal-regulatory-compliance-mapper",
+  "version": "1.1.1",
+  "description": "Helps map regulatory obligations, controls, owners, evidence, review cadence, verification gaps, and attorney-review triggers for a product, business unit, or jurisdiction.",
+  "author": "Pearl Team (OpenClaw)",
+  "tags": [
+    "legal",
+    "compliance",
+    "regulatory",
+    "risk",
+    "descriptive"
+  ],
+  "trigger_keywords": [
+    "regulatory compliance",
+    "obligation map",
+    "controls tracker",
+    "compliance program",
+    "legal-regulatory-compliance-mapper",
+    "legal regulatory compliance mapper"
+  ],
+  "language": "en",
+  "outputs": "markdown",
+  "requires_api": false,
+  "readiness": "stable",
+  "type": "descriptive",
+  "legal_disclaimer": "Informational workflow support only; not legal advice."
+}

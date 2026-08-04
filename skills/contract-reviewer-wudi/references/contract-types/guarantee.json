@@ -1,0 +1,294 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "保证合同",
+  "contract_type_en": "guarantee",
+  "description": "一般保证、连带责任保证等保证合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《最高人民法院关于适用〈中华人民共和国民法典〉有关担保制度的解释》"
+  ],
+  "keywords_for_detection": [
+    "保证", "担保", "保证人", "债务人", "债权人", "连带责任",
+    "一般保证", "保证期间", "保证范围", "担保人"
+  ],
+  "key_clauses": [
+    {
+      "name": "主债权",
+      "required": true,
+      "keywords": ["主债权", "主债务", "债权金额", "债务内容"],
+      "check_points": [
+        {
+          "item": "债权明确",
+          "description": "被担保的主债权种类、数额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "债务信息",
+          "description": "债务人履行债务的期限是否明确",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确主债权种类、数额、债务人履行期限"
+    },
+    {
+      "name": "保证方式",
+      "required": true,
+      "keywords": ["保证方式", "一般保证", "连带责任保证", "连带保证"],
+      "check_points": [
+        {
+          "item": "方式明确",
+          "description": "一般保证/连带责任保证是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "推定规则",
+          "description": "未约定时按一般保证处理（民法典第686条）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保证方式，连带责任保证风险远高于一般保证"
+    },
+    {
+      "name": "保证范围",
+      "required": true,
+      "keywords": ["保证范围", "主债权", "利息", "违约金", "损害赔偿金"],
+      "check_points": [
+        {
+          "item": "范围明确",
+          "description": "保证担保的范围是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "推定范围",
+          "description": "未约定时包括主债权及利息、违约金、损害赔偿金等",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保证范围，建议限定为主债权及利息，排除违约金"
+    },
+    {
+      "name": "保证期间",
+      "required": true,
+      "keywords": ["保证期间", "保证期限", "保证时效", "6个月"],
+      "check_points": [
+        {
+          "item": "期间明确",
+          "description": "保证期间是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "法定期间",
+          "description": "未约定时为6个月，约定不明时为2年",
+          "risk_level": "重大"
+        },
+        {
+          "item": "起算点",
+          "description": "保证期间起算点（主债务履行期届满之日）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保证期间（建议2年），起算点为主债务履行期届满之日"
+    },
+    {
+      "name": "保证人资格",
+      "required": true,
+      "keywords": ["保证人", "资格", "机关法人", "公益机构"],
+      "check_points": [
+        {
+          "item": "主体资格",
+          "description": "保证人是否具有保证资格",
+          "risk_level": "致命"
+        },
+        {
+          "item": "禁止主体",
+          "description": "机关法人、公益机构等不得为保证人",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "确保保证人具有完全民事行为能力，非禁止主体"
+    },
+    {
+      "name": "公司担保",
+      "required": false,
+      "keywords": ["公司", "股东会", "董事会", "决议", "对外担保"],
+      "check_points": [
+        {
+          "item": "决议程序",
+          "description": "公司对外担保是否经股东会/董事会决议",
+          "risk_level": "致命"
+        },
+        {
+          "item": "关联担保",
+          "description": "为股东/实控人担保是否经股东会决议",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "公司担保需审查股东会/董事会决议，关联担保需股东会决议"
+    },
+    {
+      "name": "保证人权利",
+      "required": true,
+      "keywords": ["抗辩权", "追偿权", "先诉抗辩权", "代位权"],
+      "check_points": [
+        {
+          "item": "抗辩权",
+          "description": "保证人可主张债务人对债权人的抗辩",
+          "risk_level": "一般"
+        },
+        {
+          "item": "先诉抗辩权",
+          "description": "一般保证人的先诉抗辩权",
+          "risk_level": "一般"
+        },
+        {
+          "item": "追偿权",
+          "description": "保证人承担保证责任后的追偿权",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确保证人抗辩权、追偿权，一般保证人享有先诉抗辩权"
+    },
+    {
+      "name": "债务转让与变更",
+      "required": false,
+      "keywords": ["债务转让", "主合同变更", "加重债务", "书面同意"],
+      "check_points": [
+        {
+          "item": "债务转让",
+          "description": "债务人转让债务需保证人书面同意",
+          "risk_level": "重大"
+        },
+        {
+          "item": "主合同变更",
+          "description": "主合同内容变更对保证责任的影响",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "约定债务人转让债务或加重债务时需保证人书面同意"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "GUA001",
+      "name": "保证方式不明",
+      "description": "未明确一般保证还是连带责任保证，按一般保证处理",
+      "severity": "高风险",
+      "suggestion": "明确保证方式，连带责任保证对保证人风险更大",
+      "legal_basis": "《民法典》第686条"
+    },
+    {
+      "id": "GUA002",
+      "name": "保证期间过短",
+      "description": "保证期间约定过短（如3个月），债权人可能来不及主张权利",
+      "severity": "高风险",
+      "suggestion": "保证期间建议约定2年，不少于6个月"
+    },
+    {
+      "id": "GUA003",
+      "name": "保证范围过宽",
+      "description": "保证范围包括违约金、损害赔偿金等，责任过重",
+      "severity": "高风险",
+      "suggestion": "限定保证范围为主债权及利息，明确排除违约金、损害赔偿金"
+    },
+    {
+      "id": "GUA004",
+      "name": "公司担保无决议",
+      "description": "公司对外担保未经股东会/董事会决议，担保可能无效",
+      "severity": "高风险",
+      "suggestion": "债权人应审查公司担保决议，关联担保需股东会决议",
+      "legal_basis": "《公司法》第16条、《担保制度解释》第7条"
+    },
+    {
+      "id": "GUA005",
+      "name": "保证人不具备资格",
+      "description": "机关法人、公益机构等作为保证人，保证合同无效",
+      "severity": "高风险",
+      "suggestion": "确保保证人具有保证资格，非禁止主体",
+      "legal_basis": "《民法典》第683条"
+    },
+    {
+      "id": "GUA006",
+      "name": "未约定债务转让限制",
+      "description": "未约定债务人转让债务需保证人同意，保证人可能承担未知风险",
+      "severity": "中风险",
+      "suggestion": "约定债务人转让债务或加重债务时需保证人书面同意"
+    }
+  ],
+  "position_guidance": {
+    "guarantor": {
+      "name": "保证人",
+      "priority_checks": [
+        "保证方式",
+        "保证范围",
+        "保证期间",
+        "主债务信息"
+      ],
+      "key_concerns": [
+        "争取一般保证（先诉抗辩权）",
+        "限定保证范围，排除违约金",
+        "保证期间不宜过长",
+        "了解主债务人偿债能力"
+      ],
+      "avoid": [
+        "连带责任保证",
+        "保证范围过宽",
+        "保证期间过长",
+        "为不了解的债务人担保"
+      ]
+    },
+    "creditor": {
+      "name": "债权人",
+      "priority_checks": [
+        "保证人资格",
+        "保证方式",
+        "公司担保决议",
+        "保证期间"
+      ],
+      "key_concerns": [
+        "确保保证人具有保证资格",
+        "争取连带责任保证",
+        "审查公司担保决议",
+        "在保证期间内主张权利"
+      ],
+      "avoid": [
+        "接受无资格保证人",
+        "未审查公司决议",
+        "超过保证期间主张",
+        "主合同变更未通知"
+      ]
+    }
+  },
+  "legal_notes": {
+    "guarantee_types": {
+      "description": "保证方式",
+      "general": "一般保证：保证人享有先诉抗辩权，债权人须先执行债务人财产",
+      "joint": "连带责任保证：债权人可直接要求保证人承担责任",
+      "default": "未约定或约定不明时，按一般保证处理",
+      "legal_basis": "《民法典》第686-687条"
+    },
+    "guarantee_period": {
+      "description": "保证期间",
+      "default": "未约定时为主债务履行期届满之日起6个月",
+      "unclear": "约定不明时为主债务履行期届满之日起2年",
+      "effect": "债权人未在保证期间主张权利的，保证人免责",
+      "legal_basis": "《民法典》第692条"
+    },
+    "prohibited_guarantors": {
+      "description": "禁止为保证人的主体",
+      "list": [
+        "机关法人（经国务院批准为使用外国政府或国际经济组织贷款进行转贷的除外）",
+        "以公益为目的的非营利法人、非法人组织",
+        "无民事行为能力人、限制民事行为能力人"
+      ],
+      "legal_basis": "《民法典》第683条"
+    },
+    "company_guarantee": {
+      "description": "公司对外担保",
+      "general": "公司向其他企业投资或为他人提供担保，依公司章程由董事会或股东会决议",
+      "related": "为公司股东或实控人提供担保，必须经股东会决议",
+      "effect": "债权人未尽审查义务，担保对公司不发生效力",
+      "legal_basis": "《公司法》第16条、《担保制度解释》第7-11条"
+    }
+  }
+}

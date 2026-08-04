@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# 本地工作区配置与过程档案（不上远端）
+.claude/
+scratch/
+
+# Python
+__pycache__/
+*.pyc

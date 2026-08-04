@@ -1,0 +1,317 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "保险合同",
+  "contract_type_en": "insurance",
+  "description": "人身保险、财产保险、责任保险等保险合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国保险法》"
+  ],
+  "keywords_for_detection": [
+    "保险", "保险人", "投保人", "被保险人", "受益人",
+    "保费", "保额", "保险金额", "保险期间", "保险责任", "免责条款"
+  ],
+  "key_clauses": [
+    {
+      "name": "保险标的",
+      "required": true,
+      "keywords": ["保险标的", "保险对象", "被保险财产", "被保险人"],
+      "check_points": [
+        {
+          "item": "标的明确",
+          "description": "保险标的是否明确具体",
+          "risk_level": "致命"
+        },
+        {
+          "item": "标的价值",
+          "description": "保险标的的价值是否确定",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保险标的名称、数量、价值，人身保险需明确被保险人身份"
+    },
+    {
+      "name": "保险责任",
+      "required": true,
+      "keywords": ["保险责任", "承保范围", "保险事故"],
+      "check_points": [
+        {
+          "item": "责任范围",
+          "description": "保险人承担保险责任的情形是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "责任起止",
+          "description": "保险责任开始和终止时间",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保险责任范围、保险事故定义、责任开始时间"
+    },
+    {
+      "name": "责任免除",
+      "required": true,
+      "keywords": ["免责", "责任免除", "除外责任", "不赔"],
+      "check_points": [
+        {
+          "item": "免责条款",
+          "description": "责任免除条款是否明确列明",
+          "risk_level": "致命"
+        },
+        {
+          "item": "提示说明",
+          "description": "免责条款是否以显著方式提示并明确说明",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "免责条款必须显著提示并明确说明，否则不产生效力"
+    },
+    {
+      "name": "保险期间",
+      "required": true,
+      "keywords": ["保险期间", "保险期限", "起保日期", "终止日期"],
+      "check_points": [
+        {
+          "item": "期间明确",
+          "description": "保险期间起止时间是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "续保",
+          "description": "续保条件和程序",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确保险期间起止时间，约定续保条件"
+    },
+    {
+      "name": "保险金额",
+      "required": true,
+      "keywords": ["保险金额", "保额", "赔偿限额", "最高赔偿"],
+      "check_points": [
+        {
+          "item": "金额确定",
+          "description": "保险金额是否确定",
+          "risk_level": "致命"
+        },
+        {
+          "item": "超额保险",
+          "description": "保险金额是否超过保险价值",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "保险金额不得超过保险价值，超过部分无效"
+    },
+    {
+      "name": "保险费",
+      "required": true,
+      "keywords": ["保险费", "保费", "缴费", "支付方式"],
+      "check_points": [
+        {
+          "item": "保费金额",
+          "description": "保险费金额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付方式",
+          "description": "保费支付方式（趸交/期交）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "宽限期",
+          "description": "保费宽限期是否约定",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保费金额、支付方式、宽限期（通常60日）"
+    },
+    {
+      "name": "保险金赔偿",
+      "required": true,
+      "keywords": ["赔偿", "给付", "理赔", "保险金"],
+      "check_points": [
+        {
+          "item": "赔偿计算",
+          "description": "保险金计算方式是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "理赔程序",
+          "description": "理赔申请程序和材料要求",
+          "risk_level": "重大"
+        },
+        {
+          "item": "理赔时限",
+          "description": "保险人核定和赔付时限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确理赔程序、所需材料、核定和赔付时限"
+    },
+    {
+      "name": "如实告知",
+      "required": true,
+      "keywords": ["告知", "如实告知", "询问", "健康状况"],
+      "check_points": [
+        {
+          "item": "告知范围",
+          "description": "投保人如实告知义务范围",
+          "risk_level": "重大"
+        },
+        {
+          "item": "询问方式",
+          "description": "保险人询问方式（书面/口头）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "投保人仅对保险人询问的内容承担告知义务"
+    },
+    {
+      "name": "受益人",
+      "required": false,
+      "keywords": ["受益人", "指定受益人", "法定受益人"],
+      "check_points": [
+        {
+          "item": "受益人指定",
+          "description": "受益人是否明确指定",
+          "risk_level": "重大"
+        },
+        {
+          "item": "变更受益人",
+          "description": "受益人变更程序",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "人身保险建议明确指定受益人，避免法定继承纠纷"
+    },
+    {
+      "name": "合同解除",
+      "required": true,
+      "keywords": ["解除", "退保", "犹豫期", "解除合同"],
+      "check_points": [
+        {
+          "item": "犹豫期",
+          "description": "投保人犹豫期（通常15日）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "解除权",
+          "description": "合同解除条件和后果",
+          "risk_level": "重大"
+        },
+        {
+          "item": "现金价值",
+          "description": "解除合同时现金价值退还",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确犹豫期、解除权行使条件、现金价值计算"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "INS001",
+      "name": "免责条款未提示说明",
+      "description": "免责条款未以显著方式提示并明确说明，不产生效力",
+      "severity": "高风险",
+      "suggestion": "确保免责条款以加粗、变色等显著方式提示，并向投保人明确说明",
+      "legal_basis": "《保险法》第17条"
+    },
+    {
+      "id": "INS002",
+      "name": "超额保险",
+      "description": "保险金额超过保险价值，超过部分无效",
+      "severity": "高风险",
+      "suggestion": "财产保险金额不得超过保险价值",
+      "legal_basis": "《保险法》第55条"
+    },
+    {
+      "id": "INS003",
+      "name": "未如实告知",
+      "description": "投保人故意或重大过失未如实告知，保险人可解除合同",
+      "severity": "高风险",
+      "suggestion": "投保人应如实回答保险人询问，保留告知记录",
+      "legal_basis": "《保险法》第16条"
+    },
+    {
+      "id": "INS004",
+      "name": "保险责任范围不清",
+      "description": "保险责任范围约定模糊，理赔时易产生争议",
+      "severity": "中风险",
+      "suggestion": "明确保险责任范围，列明承保的具体风险和除外责任"
+    },
+    {
+      "id": "INS005",
+      "name": "理赔时限过长",
+      "description": "保险人核定和赔付时限过长，损害被保险人权益",
+      "severity": "中风险",
+      "suggestion": "约定合理的理赔时限（复杂案件30日，简单案件10日）",
+      "legal_basis": "《保险法》第23-25条"
+    }
+  ],
+  "position_guidance": {
+    "policyholder": {
+      "name": "投保人",
+      "priority_checks": [
+        "保险责任范围",
+        "免责条款",
+        "理赔程序",
+        "犹豫期"
+      ],
+      "key_concerns": [
+        "了解保险责任范围和除外责任",
+        "确保如实告知，避免合同解除风险",
+        "关注犹豫期和退保损失",
+        "明确理赔程序和时限"
+      ],
+      "avoid": [
+        "未如实告知重要事实",
+        "超额投保",
+        "忽视免责条款",
+        "错过犹豫期"
+      ]
+    },
+    "insurer": {
+      "name": "保险人",
+      "priority_checks": [
+        "如实告知",
+        "免责条款提示",
+        "保险金额",
+        "理赔程序"
+      ],
+      "key_concerns": [
+        "确保投保人如实告知",
+        "免责条款必须显著提示并说明",
+        "防止超额保险和道德风险",
+        "建立规范的理赔流程"
+      ],
+      "avoid": [
+        "免责条款未提示说明",
+        "未核实保险标的",
+        "拖延理赔",
+        "不当拒赔"
+      ]
+    }
+  },
+  "legal_limits": {
+    "incontestability": {
+      "description": "不可抗辩条款",
+      "rule": "自合同成立之日起超过2年的，保险人不得解除合同",
+      "legal_basis": "《保险法》第16条"
+    },
+    "cooling_off": {
+      "description": "犹豫期",
+      "period": "通常15日（人身保险）",
+      "rule": "投保人在犹豫期内可无条件解除合同，保险人退还全部保费",
+      "legal_basis": "《保险法》第15条"
+    },
+    "claim_period": {
+      "description": "理赔时限",
+      "simple_case": "10日内作出核定",
+      "complex_case": "30日内作出核定",
+      "payment": "达成赔偿协议后10日内支付",
+      "legal_basis": "《保险法》第23-25条"
+    }
+  }
+}

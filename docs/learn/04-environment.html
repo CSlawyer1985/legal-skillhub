@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>04 · 工作环境与配套条件 · 学习中心</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>04 · 工作环境与配套条件</h1>
+  <p class="lead">一个 Skill 下载下来跑不动，十有八九不是 Skill 的问题，而是<strong>配套条件没就位</strong>。这一讲讲清：Skill 在哪里运行、各类 Skill 分别需要什么配套、怎么快速判断一个 Skill 的依赖。</p>
+
+  <h2>一、Skill 在哪里运行</h2>
+  <p>Skill 是"宿主 Agent + 约定目录"的机制。以 Claude Code 为例：</p>
+  <pre>~/.claude/skills/            ← 个人级：对你所有项目生效
+└── contract-review/
+    └── SKILL.md
+<项目目录>/.claude/skills/   ← 项目级：只对此项目生效
+└── case-analysis/
+    └── SKILL.md</pre>
+  <p>安装一个 Skill，本质上就是<strong>把这个文件夹按原结构复制到上述目录</strong>。本站每个详情页都提供三种安装方式（curl 逐文件 / git sparse-checkout / 让 AI 助手代装），效果相同。安装后不需要重启——下一次对话中，当任务与 Skill 的 description 匹配时，宿主会自动调用。</p>
+  <p>验证安装是否成功：直接向 AI 描述一个该 Skill 覆盖的任务（比如装了合同审查 Skill，就丢一份合同过去），观察它是否明确说出"我将使用 xxx skill"。</p>
+
+  <h2>二、四类配套条件，逐类对照</h2>
+  <h3>1. 纯 Markdown Skill（约 65%）</h3>
+  <p>只有 SKILL.md（±LICENSE）。<strong>零依赖</strong>，复制即用。本站多数 Skill 属于此类。</p>
+  <h3>2. 带脚本（scripts/）的 Skill（约 20%）</h3>
+  <p>脚本意味着运行时依赖。最常见的三类：</p>
+  <table>
+    <tr><th>脚本特征</th><th>配套条件</th><th>检查方法</th></tr>
+    <tr><td><code>.py</code> 文件</td><td>Python 3 运行时；import 了第三方库（如 python-docx、requests）还要先 pip install</td><td>看 scripts/ 里的 import 语句</td></tr>
+    <tr><td>调用外部 API（搜代码里的 api_key/requests）</td><td>需要对应平台的 API key，且通常要联网</td><td>看 README 或 SKILL.md 的"首次使用检查"段</td></tr>
+    <tr><td>读写本地文件/调用 pandoc、ffmpeg 等</td><td>需要安装对应命令行工具</td><td>看脚本中的 subprocess/os.system 调用</td></tr>
+  </table>
+  <p>典型实例：<a class="case-link" href="../skill.html?f=prc-legal-research">prc-legal-research</a>——它内置的"首次使用检查"是教科书级做法：运行前先检查两个 API key 是否配置，没配置就引导用户完成，而不是直接报错。</p>
+  <h3>3. 处理文档的 Skill</h3>
+  <p>生成 Word 报告、读取 docx 批注、处理 PDF——这类 Skill 的能力上限取决于<strong>宿主的文档工具链</strong>：</p>
+  <ul>
+    <li><strong>生成 docx</strong>：需要宿主环境能操作 OOXML（有 docx 处理能力或相应脚本库）；</li>
+    <li><strong>读取批注/修订</strong>：普通文本提取会丢掉批注层，需要能解析 OOXML 批注结构的工具；</li>
+    <li><strong>扫描件 PDF</strong>：需要 OCR 能力。</li>
+  </ul>
+  <p>写这类 Skill 时，正确做法是<strong>把工具要求显式写进 SKILL.md</strong>（"本 Skill 需要 docx 处理能力；若当前环境不具备，应改为输出结构化 Markdown 供后续转换"）——给模型留降级路径，而不是让它撞墙。</p>
+  <h3>4. 需要外部数据/系统的 Skill</h3>
+  <ul>
+    <li><strong>联网检索</strong>：需要宿主有搜索工具；</li>
+    <li><strong>MCP 数据库</strong>（法规库、企业信息库）：需要预先配置对应 MCP server 和账号；</li>
+    <li><strong>本地知识库</strong>：需要用户自备知识库文件（SKILL.md 里应说明目录约定）。</li>
+  </ul>
+
+  <h2>三、三秒钟看懂一个 Skill 的依赖</h2>
+  <p>在本站详情页，依赖判断已经替你做好了——每个 Skill 的"安装与部署"区块都有<strong>依赖与配套条件</strong>一栏（由全量内容分析得出）：</p>
+  <ol>
+    <li>看<strong>文件树</strong>：有没有 scripts/？→ 有就有运行时依赖；</li>
+    <li>看<strong>依赖栏</strong>：写了 "python3 运行时" / "需要 API key（元典）" / "需要联网检索" 中的哪些；</li>
+    <li>拿不准就点开 scripts/ 里的文件直接读代码——本站文件浏览器就是为这个设计的。</li>
+  </ol>
+
+  <h2>四、不触发、误触发的排查</h2>
+  <table>
+    <tr><th>症状</th><th>常见原因</th><th>处理</th></tr>
+    <tr><td>Skill 从不被调用</td><td>description 太抽象，AI 匹配不到；或安装目录错了</td><td>检查目录结构；把触发词说得更直白（"用 xx skill 处理"）验证</td></tr>
+    <tr><td>不该调用时乱调用</td><td>description 太宽泛，没写"不触发场景"</td><td>在 description 里补"不适用于……"；对话中明确"这次不用 skill"</td></tr>
+    <tr><td>调用了但输出不对</td><td>配套条件缺失（如没联网、没 API key）</td><td>按第二节对照检查；让 AI 先自述"我检查了哪些条件"</td></tr>
+    <tr><td>脚本报错</td><td>Python 库缺失、路径假设不符（如假设了 ~/.claude/skills 之外的目录）</td><td>按报错装库；检查脚本里的路径变量</td></tr>
+  </table>
+  <div class="note"><b>给自己 Skill 的良心建议</b>：在 SKILL.md 开头加一个"首次使用检查"段——让 Skill 自己验证依赖是否就位，缺什么就引导用户补什么，而不是默默给出残缺输出。</div>
+
+  <h2>下一讲</h2>
+  <p>环境没问题了，更深一层的问题是：什么样的法律 Skill 算"好"——法律这个行当对 Skill 有哪些特殊要求？→ <a class="case-link" href="./05-good-legal-skill.html">05 · 什么是好的法律 Skill</a></p>
+</article>
+<div id="footer"></div>
+<script src="../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
+</script>
+</body>
+</html>

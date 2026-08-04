@@ -1,0 +1,416 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "房屋买卖合同",
+  "contract_type_en": "house-sale",
+  "description": "二手房买卖、新房预售等房屋交易合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国城市房地产管理法》",
+    "《不动产登记暂行条例》",
+    "《商品房销售管理办法》"
+  ],
+  "keywords_for_detection": [
+    "房屋",
+    "买卖",
+    "房产证",
+    "不动产权证",
+    "过户",
+    "定金",
+    "首付款",
+    "二手房",
+    "商品房",
+    "住宅",
+    "车位",
+    "储藏室"
+  ],
+  "key_clauses": [
+    {
+      "name": "房屋基本信息",
+      "required": true,
+      "keywords": [
+        "房屋",
+        "坐落",
+        "地址",
+        "产权证",
+        "建筑面积"
+      ],
+      "check_points": [
+        {
+          "item": "不动产权证号",
+          "description": "是否填写完整的不动产权证号",
+          "risk_level": "致命",
+          "regex_pattern": "粤\\([0-9]{4}\\)佛南不动产权第[0-9]+号|房产证号|权证号"
+        },
+        {
+          "item": "房屋地址",
+          "description": "是否精确到门牌号、房号",
+          "risk_level": "致命",
+          "regex_pattern": "[0-9]+栋[0-9]+单元[0-9]+号|[0-9]+号楼[0-9]+室|[0-9]+座[0-9]+房"
+        },
+        {
+          "item": "建筑面积",
+          "description": "建筑面积、套内面积是否明确",
+          "risk_level": "重大",
+          "regex_pattern": "建筑面积|套内面积|[0-9]+\\.?[0-9]*平方米"
+        }
+      ],
+      "suggestion": "必须核实房产证信息与合同一致，地址精确到房号"
+    },
+    {
+      "name": "成交价格与付款方式",
+      "required": true,
+      "keywords": [
+        "成交价格",
+        "总价",
+        "付款",
+        "定金",
+        "首付款"
+      ],
+      "check_points": [
+        {
+          "item": "总价明确",
+          "description": "总价是否明确（大小写）",
+          "risk_level": "致命",
+          "regex_pattern": "人民币.*元整|¥[0-9,]+|总价[0-9,]+"
+        },
+        {
+          "item": "定金比例",
+          "description": "定金是否≤成交价的20%",
+          "risk_level": "重大",
+          "regex_pattern": "定金[0-9,]+万|定金.*元"
+        },
+        {
+          "item": "付款节点",
+          "description": "付款节点是否合理、可执行",
+          "risk_level": "重大"
+        },
+        {
+          "item": "资金监管",
+          "description": "是否约定资金监管",
+          "risk_level": "重大",
+          "regex_pattern": "资金监管|银行监管|第三方监管"
+        }
+      ],
+      "suggestion": "建议采用资金监管，付款节点与过户节点挂钩"
+    },
+    {
+      "name": "税费承担",
+      "required": true,
+      "keywords": [
+        "税费",
+        "增值税",
+        "个人所得税",
+        "契税"
+      ],
+      "check_points": [
+        {
+          "item": "税费约定",
+          "description": "是否明确税费承担方",
+          "risk_level": "重大",
+          "regex_pattern": "税费.*承担|各自承担|买方承担|卖方承担"
+        },
+        {
+          "item": "税费种类",
+          "description": "是否列明具体税费种类",
+          "risk_level": "重大",
+          "regex_pattern": "增值税|个人所得税|契税|印花税|土地增值税"
+        }
+      ],
+      "suggestion": "明确增值税、个人所得税、契税等各自承担方，预留税费预算"
+    },
+    {
+      "name": "收款账户信息",
+      "required": true,
+      "keywords": [
+        "收款账户",
+        "收款账号",
+        "开户行"
+      ],
+      "check_points": [
+        {
+          "item": "账户完整性",
+          "description": "户名、开户行、账号是否完整",
+          "risk_level": "重大",
+          "regex_pattern": "户名|开户行|账号|银行"
+        }
+      ],
+      "suggestion": "必须填写完整户名、开户行、账号，建议增加'以甲方书面指定为准'条款"
+    },
+    {
+      "name": "房屋交付",
+      "required": true,
+      "keywords": [
+        "交付",
+        "交房",
+        "收楼",
+        "房屋交接"
+      ],
+      "check_points": [
+        {
+          "item": "交付条件",
+          "description": "交付条件是否明确（全款到账/过户完成）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "交付时间",
+          "description": "交付时间是否明确",
+          "risk_level": "重大",
+          "regex_pattern": "收齐房款|过户完成|交付.*日"
+        },
+        {
+          "item": "交付标准",
+          "description": "是否附房屋交接清单",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确'收齐房款'以银行到账凭证为准，建议制作房屋交接清单"
+    },
+    {
+      "name": "户口迁出",
+      "required": false,
+      "keywords": [
+        "户口",
+        "户籍",
+        "迁出"
+      ],
+      "check_points": [
+        {
+          "item": "迁出时间",
+          "description": "是否约定户口迁出时间",
+          "risk_level": "重大",
+          "regex_pattern": "户口.*迁出|户籍.*迁出"
+        },
+        {
+          "item": "违约责任",
+          "description": "是否约定逾期迁出违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "户口保证金",
+          "description": "是否预留户口保证金",
+          "risk_level": "一般",
+          "regex_pattern": "户口保证金|户籍保证金"
+        }
+      ],
+      "suggestion": "建议约定过户后30-60日内迁出，预留2-5万户口保证金"
+    },
+    {
+      "name": "车位/储藏室",
+      "required": false,
+      "keywords": [
+        "车位",
+        "车库",
+        "储藏室",
+        "杂物间"
+      ],
+      "check_points": [
+        {
+          "item": "车位权属",
+          "description": "车位是否有独立产权或使用权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "车位编号",
+          "description": "车位编号是否明确",
+          "risk_level": "重大",
+          "regex_pattern": "[0-9]+号车位|[0-9]+号车库"
+        }
+      ],
+      "suggestion": "明确是产权车位（附权属证书编号）还是使用权车位（附使用权期限）"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": [
+        "违约",
+        "违约金",
+        "赔偿责任"
+      ],
+      "check_points": [
+        {
+          "item": "违约金对等",
+          "description": "双方违约金标准是否对等",
+          "risk_level": "重大"
+        },
+        {
+          "item": "违约金比例",
+          "description": "违约金是否过高或过低",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "建议双方违约金标准一致，一般为成交价的10%或固定金额"
+    },
+    {
+      "name": "网签与过户",
+      "required": true,
+      "keywords": [
+        "网签",
+        "过户",
+        "产权转移",
+        "不动产登记"
+      ],
+      "check_points": [
+        {
+          "item": "网签时间",
+          "description": "网签时间是否明确",
+          "risk_level": "重大",
+          "regex_pattern": "网签|网上签约"
+        },
+        {
+          "item": "过户时间",
+          "description": "过户时间是否明确",
+          "risk_level": "重大",
+          "regex_pattern": "过户|产权转移|登记"
+        }
+      ],
+      "suggestion": "明确网签和过户的时间节点及双方配合义务"
+    },
+    {
+      "name": "中介服务",
+      "required": false,
+      "keywords": [
+        "中介",
+        "代理费",
+        "佣金",
+        "丙方"
+      ],
+      "check_points": [
+        {
+          "item": "代理费承担",
+          "description": "正常交易时代理费如何承担",
+          "risk_level": "一般"
+        },
+        {
+          "item": "代理费比例",
+          "description": "代理费比例是否明确",
+          "risk_level": "一般",
+          "regex_pattern": "[0-9]+%|百分之[一二三四五六七八九十]"
+        }
+      ],
+      "suggestion": "明确正常交易时的代理费分担比例"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "R001",
+      "name": "违约金不对等",
+      "description": "甲方违约需支付固定高额违约金，乙方违约仅按日计算或违约金较低",
+      "severity": "高风险",
+      "pattern": "甲方违约.*[0-9,]+万|违约金.*贰拾万|1‰",
+      "suggestion": "建议双方违约金标准一致，均为成交价10%或固定金额",
+      "legal_basis": "《民法典》第585条：违约金应当与实际损失相当"
+    },
+    {
+      "id": "R002",
+      "name": "收款账户空白",
+      "description": "甲方收款账户信息未填写或填写不完整",
+      "severity": "高风险",
+      "pattern": "收款账户.*为[：:]$|收款账户.*空白|账户.*待填",
+      "suggestion": "必须填写完整户名、开户行、账号，建议增加'以甲方书面指定账户为准'条款"
+    },
+    {
+      "id": "R003",
+      "name": "税费未约定",
+      "description": "合同未明确增值税、个人所得税、契税等税费承担方",
+      "severity": "高风险",
+      "pattern": "税费.*各自承担|按.*规定承担",
+      "negative_pattern": true,
+      "suggestion": "增加条款：'本次交易产生的税费，由甲乙双方按国家法律法规规定各自承担。甲方承担增值税、个人所得税；乙方承担契税、印花税。'"
+    },
+    {
+      "id": "R004",
+      "name": "户口迁出缺失",
+      "description": "合同未约定户口迁出时间和违约责任",
+      "severity": "中风险",
+      "pattern": "户口|户籍",
+      "negative_pattern": true,
+      "suggestion": "增加条款：'甲方应在房屋过户后30日内将户口迁出，逾期按日支付违约金500元。乙方可预留户口迁出保证金2万元，户口迁出后当日退还甲方。'"
+    },
+    {
+      "id": "R005",
+      "name": "车位权属不清",
+      "description": "车位未明确是产权车位还是使用权车位",
+      "severity": "中风险",
+      "pattern": "车位.*包含|车库.*包含",
+      "suggestion": "明确约定：'上述车位为产权车位（权属证书编号：XXX）/使用权车位（使用权期限：XXX），随房屋一并转让给乙方。'"
+    },
+    {
+      "id": "R006",
+      "name": "交房条件模糊",
+      "description": "'收齐房款时'交房，但未明确全款到账的确认标准",
+      "severity": "中风险",
+      "pattern": "收齐房款.*交付|收齐房款.*交房",
+      "suggestion": "修改为：'甲方收齐全部房款（以银行到账凭证或资金监管账户解冻确认为准）当日将房屋交付乙方。'"
+    },
+    {
+      "id": "R007",
+      "name": "定金比例过高",
+      "description": "定金超过成交价的20%",
+      "severity": "中风险",
+      "pattern": "定金[0-9,]+万",
+      "check_function": "check_deposit_ratio"
+    }
+  ],
+  "position_guidance": {
+    "seller": {
+      "name": "甲方（卖方）",
+      "priority_checks": [
+        "收款账户信息",
+        "违约责任对等",
+        "交房条件明确",
+        "税费承担约定"
+      ],
+      "key_concerns": [
+        "确保收款账户安全，避免现金交易",
+        "坚持违约责任对等，避免单方承担过高违约金",
+        "明确'收齐房款'以银行到账为准",
+        "争取合理的户口迁出时间（30-60日）",
+        "预留交房保证金不宜过高"
+      ],
+      "avoid": [
+        "过短的付款周期",
+        "过高的违约金（超过成交价10%）",
+        "模糊的交房标准",
+        "未约定税费承担",
+        "未明确收款账户"
+      ]
+    },
+    "buyer": {
+      "name": "乙方（买方）",
+      "priority_checks": [
+        "房屋基本信息",
+        "产权清晰",
+        "付款与过户挂钩",
+        "户口迁出约定"
+      ],
+      "key_concerns": [
+        "核实房产证信息与合同一致",
+        "确保付款节点与过户节点挂钩",
+        "建议采用资金监管",
+        "约定明确的户口迁出时间和违约责任",
+        "预留户口迁出保证金（2-5万）",
+        "交房前验房，制作交接清单"
+      ],
+      "avoid": [
+        "未资金监管直接付款",
+        "未约定户口迁出",
+        "未验房即付清全款",
+        "接受模糊的房屋交付标准",
+        "忽略车位权属问题"
+      ]
+    }
+  },
+  "calculation_helpers": {
+    "deposit_max": {
+      "description": "定金法定上限",
+      "formula": "成交价 × 20%",
+      "legal_basis": "《民法典》第586条"
+    },
+    "penalty_reasonable": {
+      "description": "合理违约金范围",
+      "formula": "实际损失的30%以内",
+      "legal_basis": "《民法典》第585条"
+    }
+  }
+}

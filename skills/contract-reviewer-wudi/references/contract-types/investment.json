@@ -1,0 +1,364 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "投资协议",
+  "contract_type_en": "investment",
+  "description": "股权投资、增资扩股、天使投资、风险投资等投资协议",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国公司法》"
+  ],
+  "keywords_for_detection": [
+    "投资", "股权投资", "增资", "融资", "投资方", "标的公司", "创始人",
+    "估值", "投前估值", "投后估值", "股权比例", "天使投资", "VC", "PE"
+  ],
+  "key_clauses": [
+    {
+      "name": "投资基本信息",
+      "required": true,
+      "keywords": ["投资方", "标的公司", "创始人", "投资金额"],
+      "check_points": [
+        {
+          "item": "主体信息",
+          "description": "投资方、标的公司、创始人信息是否完整",
+          "risk_level": "致命"
+        },
+        {
+          "item": "投资金额",
+          "description": "投资金额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "投资方式",
+          "description": "增资/股权转让/可转债等方式是否明确",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确投资方、标的公司、创始人信息，投资金额、方式"
+    },
+    {
+      "name": "公司估值与股权比例",
+      "required": true,
+      "keywords": ["估值", "投前估值", "投后估值", "股权比例", "持股比例"],
+      "check_points": [
+        {
+          "item": "投前估值",
+          "description": "投前估值是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "投后估值",
+          "description": "投后估值是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "股权比例",
+          "description": "投资后股权比例是否明确",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确投前估值、投后估值、投资方持股比例，建议附股权结构表"
+    },
+    {
+      "name": "投资款支付",
+      "required": true,
+      "keywords": ["支付", "付款", "交割", "先决条件"],
+      "check_points": [
+        {
+          "item": "支付条件",
+          "description": "投资款支付的先决条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付时间",
+          "description": "支付时间节点",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付方式",
+          "description": "支付方式和收款账户",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交割条件（如尽职调查完成、股东会决议等）、支付时间和方式"
+    },
+    {
+      "name": "公司治理",
+      "required": true,
+      "keywords": ["董事会", "股东会", "表决权", "一票否决权", "委派董事"],
+      "check_points": [
+        {
+          "item": "董事会席位",
+          "description": "投资方董事会席位",
+          "risk_level": "重大"
+        },
+        {
+          "item": "重大事项否决权",
+          "description": "投资方重大事项一票否决权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "信息权",
+          "description": "投资方知情权、查阅权",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确董事会席位分配、重大事项否决权清单、投资方信息权"
+    },
+    {
+      "name": "股东权利",
+      "required": true,
+      "keywords": ["优先认购权", "优先购买权", "共同出售权", "反稀释"],
+      "check_points": [
+        {
+          "item": "优先认购权",
+          "description": "后续融资优先认购权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "优先购买权",
+          "description": "其他股东股权转让时优先购买权",
+          "risk_level": "一般"
+        },
+        {
+          "item": "共同出售权",
+          "description": "创始人出售股权时的共同出售权",
+          "risk_level": "一般"
+        },
+        {
+          "item": "反稀释",
+          "description": "反稀释保护条款",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确优先认购权、反稀释保护（加权平均/完全棘轮）"
+    },
+    {
+      "name": "业绩承诺与对赌",
+      "required": false,
+      "keywords": ["业绩承诺", "对赌", "估值调整", "补偿", "回购"],
+      "check_points": [
+        {
+          "item": "业绩指标",
+          "description": "业绩承诺指标（收入/利润/用户等）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "补偿机制",
+          "description": "业绩未达标的补偿机制",
+          "risk_level": "重大"
+        },
+        {
+          "item": "股权回购",
+          "description": "股权回购触发条件和价格",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "业绩承诺指标应合理可达成，补偿机制（现金补偿/股权补偿）应明确，注意对赌条款的法律效力"
+    },
+    {
+      "name": "股权锁定与转让限制",
+      "required": true,
+      "keywords": ["股权锁定", "禁售期", "转让限制", "全职服务期"],
+      "check_points": [
+        {
+          "item": "创始人锁定期",
+          "description": "创始人股权锁定期",
+          "risk_level": "重大"
+        },
+        {
+          "item": "全职服务",
+          "description": "创始人全职服务期要求",
+          "risk_level": "重大"
+        },
+        {
+          "item": "股权转让限制",
+          "description": "股权转让限制条件",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "创始人股权锁定期通常4年，全职服务期与锁定期挂钩"
+    },
+    {
+      "name": "清算优先权",
+      "required": true,
+      "keywords": ["清算", "清算优先", "优先分配", "剩余财产"],
+      "check_points": [
+        {
+          "item": "清算优先",
+          "description": "投资方清算优先权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "优先倍数",
+          "description": "清算优先倍数（1倍/1.5倍/2倍）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "参与分配",
+          "description": "是否参与剩余财产分配",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确清算优先倍数（通常1倍）和是否参与剩余分配（非参与型/参与型）"
+    },
+    {
+      "name": "陈述与保证",
+      "required": true,
+      "keywords": ["陈述", "保证", "Warranties", "披露", "重大事实"],
+      "check_points": [
+        {
+          "item": "公司陈述",
+          "description": "公司合法存续、股权清晰等陈述",
+          "risk_level": "重大"
+        },
+        {
+          "item": "创始人陈述",
+          "description": "创始人全职投入、竞业禁止等陈述",
+          "risk_level": "重大"
+        },
+        {
+          "item": "披露义务",
+          "description": "重大事实披露义务",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "详细列明公司和创始人的陈述保证事项，披露清单作为附件"
+    },
+    {
+      "name": "退出机制",
+      "required": true,
+      "keywords": ["退出", "回购", "股权转让", "IPO", "并购"],
+      "check_points": [
+        {
+          "item": "回购权",
+          "description": "投资方回购权触发条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "回购价格",
+          "description": "回购价格计算方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "拖售权",
+          "description": "投资方拖售权（强制其他股东一起出售）",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确回购触发条件（如5年内未上市）、回购价格（投资本金+利息/公允价值）"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "I001",
+      "name": "对赌条款效力风险",
+      "description": "与目标公司对赌无效，与股东对赌有效；业绩补偿不得损害公司债权人利益",
+      "severity": "高风险",
+      "suggestion": "对赌对象应为创始人/原股东，而非目标公司；业绩补偿不得抽逃出资",
+      "legal_basis": "《九民纪要》第5条"
+    },
+    {
+      "id": "I002",
+      "name": "估值过高",
+      "description": "投前估值过高，后续融资困难或触发反稀释",
+      "severity": "高风险",
+      "suggestion": "估值应合理，参考同行业可比公司，预留后续融资空间"
+    },
+    {
+      "id": "I003",
+      "name": "反稀释条款过于严苛",
+      "description": "完全棘轮反稀释对创始人过于不利",
+      "severity": "中风险",
+      "suggestion": "争取加权平均反稀释，而非完全棘轮"
+    },
+    {
+      "id": "I004",
+      "name": "一票否决权范围过宽",
+      "description": "投资方一票否决权事项过多，影响公司决策效率",
+      "severity": "中风险",
+      "suggestion": "限制一票否决权范围于重大保护性事项（如合并分立、处置核心资产、对外担保等）"
+    },
+    {
+      "id": "I005",
+      "name": "清算优先倍数过高",
+      "description": "清算优先倍数超过1倍，且为参与型优先股，对创始人不利",
+      "severity": "中风险",
+      "suggestion": "争取1倍非参与型优先清算权"
+    },
+    {
+      "id": "I006",
+      "name": "回购价格不合理",
+      "description": "回购价格过低（如仅本金）或过高（如高额复利）",
+      "severity": "中风险",
+      "suggestion": "回购价格通常为投资本金+年8-12%利息，或公允价值"
+    },
+    {
+      "id": "I007",
+      "name": "股权锁定期过长",
+      "description": "创始人股权锁定期超过4年，或全职服务期过长",
+      "severity": "中风险",
+      "suggestion": "创始人股权锁定期通常为4年，全职服务期与锁定期一致"
+    }
+  ],
+  "position_guidance": {
+    "investor": {
+      "name": "投资方",
+      "priority_checks": [
+        "估值与股权比例",
+        "公司治理权利",
+        "保护性条款",
+        "退出机制"
+      ],
+      "key_concerns": [
+        "确保估值合理，获得足够股权比例",
+        "争取董事会席位和重大事项否决权",
+        "争取反稀释保护、优先认购权",
+        "设置合理的业绩承诺和对赌",
+        "明确的回购退出机制"
+      ],
+      "avoid": [
+        "与目标公司直接对赌",
+        "估值过高导致后续融资困难",
+        "缺乏保护性条款",
+        "无退出机制"
+      ]
+    },
+    "founder": {
+      "name": "创始人/标的公司",
+      "priority_checks": [
+        "估值",
+        "控制权",
+        "对赌条款",
+        "反稀释"
+      ],
+      "key_concerns": [
+        "争取合理估值，避免过度稀释",
+        "保留公司控制权，限制投资方否决权范围",
+        "对赌指标应可达成，避免与公司对赌",
+        "争取加权平均反稀释",
+        "限制股权锁定期（4年以内）"
+      ],
+      "avoid": [
+        "估值过低，过度稀释",
+        "一票否决权范围过宽",
+        "完全棘轮反稀释",
+        "过高的清算优先倍数",
+        "与公司对赌"
+      ]
+    }
+  },
+  "legal_notes": {
+    "valuation_adjustment": {
+      "description": "对赌条款效力",
+      "valid": "投资方与目标公司股东/实际控制人对赌有效",
+      "invalid": "投资方与目标公司对赌无效（除非履行不违反强制性规定）",
+      "legal_basis": "《九民纪要》第5条"
+    },
+    "preferred_rights": {
+      "description": "优先权利",
+      "note": "公司法未明确规定优先股，优先权利通过股东协议和公司章程约定实现",
+      "suggestion": "投资协议中约定优先权利，并在公司章程中体现"
+    }
+  }
+}

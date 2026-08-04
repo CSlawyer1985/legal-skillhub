@@ -1,0 +1,85 @@
+{
+ "schema": "gaotao.six-package.vis-runner-as-run/v2-plain-python",
+ "runner": "tools/run_vis.py",
+ "runner_sha256": "8f1f688c08a4cf9507af677927bd0f5520bf1a0accdde62ffab694fbf38bcb01",
+ "hygiene_gate": "runner内部sys.dont_write_bytecode=True（加载包内模块前）；本轮全部调用=普通python3无-B无env抑制",
+ "fixture": {
+  "dir": "fixtures/sample-case",
+  "md_sha256": "c1e7b75d241eeb5a89d003a9c792fcd8e6bf26bf17d9b74b5c097a88bd94db4a",
+  "note": "合成自测样例（源=mother node6L fixtures/vis-sample-07.md，零真实案件事实）"
+ },
+ "positive": {
+  "test_id": "VIS-POSITIVE",
+  "invocation": "plain python3 (no -B, no env suppression)",
+  "exit_code": 0,
+  "stdout_last": "VALID: SAMPLE-01 4SVG+4PNG（07-only·九锚精确集）",
+  "artifacts": [
+   "01-主体关系图.png",
+   "01-主体关系图.svg",
+   "02-关键事件时间线.png",
+   "02-关键事件时间线.svg",
+   "03-要件证据矩阵.png",
+   "03-要件证据矩阵.svg",
+   "04-阶段计划与风险.png",
+   "04-阶段计划与风险.svg"
+  ],
+  "artifact_sha256": {
+   "01-主体关系图.png": "f150cb8ff90217d1ebfcf4a33bc714a17f116b69b42d661900b0c76837339d32",
+   "01-主体关系图.svg": "bb34e22aac7ebb16e9fb81ad617f96fbef076d3c1957134cff2cc86c33fe1efa",
+   "02-关键事件时间线.png": "b2d5d02cf45df0d485c00e25f8f27522edca793038a4cb5b8f5e4ba6743d8ca3",
+   "02-关键事件时间线.svg": "d25f69d31d5d3f8efa132fafc8f544e7f108b76baa8304c62ff6e8b816a6e271",
+   "03-要件证据矩阵.png": "5a6a9b432302fe1098178e84e1d95f9b75ea36b779dda1bc28e09f39993b6d5a",
+   "03-要件证据矩阵.svg": "e5d31832bd0bd13f5bb2b22077f1adf38cd1a675791955c67b23e41acad79299",
+   "04-阶段计划与风险.png": "a7d7d485b7a8470b808371a450ff0c023b030753318ff9538829dbd90ee0ffd3",
+   "04-阶段计划与风险.svg": "b8a8f87d36d2fcc2477f5b47b0257f91559cb6176505f03cfbf3092890c3e7c9"
+  },
+  "svg_count": 4,
+  "png_count": 4,
+  "verdict": "PASS"
+ },
+ "negatives": [
+  {
+   "test_id": "VIS-N1-frozen07-missing",
+   "exit_code": 3,
+   "hold_line": "HOLD-VIS: 冻结07缺失",
+   "zero_artifacts": true,
+   "verdict": "PASS"
+  },
+  {
+   "test_id": "VIS-N2-frozen07-tamper",
+   "exit_code": 3,
+   "hold_line": "HOLD-VIS: 冻结07哈希不符",
+   "zero_artifacts": true,
+   "verdict": "PASS"
+  },
+  {
+   "test_id": "VIS-N3-cross-case",
+   "exit_code": 3,
+   "hold_line": "HOLD-VIS: TEXT收据跨案:SAMPLE-01≠OTHER-99",
+   "zero_artifacts": true,
+   "verdict": "PASS"
+  },
+  {
+   "test_id": "VIS-N4-anchor-set-mismatch",
+   "exit_code": 3,
+   "hold_line": "HOLD-VIS: 07解析失败:缺节:第九节　风险与暂停事项",
+   "zero_artifacts": true,
+   "verdict": "PASS"
+  },
+  {
+   "test_id": "VIS-N5-vis-disabled",
+   "exit_code": 3,
+   "hold_line": "HOLD-VIS: VIS默认关闭：未显式--enable-vis（关闭态零产物）",
+   "zero_artifacts": true,
+   "verdict": "PASS"
+  }
+ ],
+ "negatives_all_pass": true,
+ "pyc_after_all_runs": [],
+ "zero_bytecode_after_plain_runs": true,
+ "package_tree_before": "142c166d95eb8dc00a999c03cf6d8ac9a9a15514d230820f0d8275a494b217f0",
+ "package_tree_after": "142c166d95eb8dc00a999c03cf6d8ac9a9a15514d230820f0d8275a494b217f0",
+ "package_tree_unchanged": true,
+ "only_input_contract": "同案冻结07(manifest哈希绑定)+A01-A09精确锚集；不读case-views.json或其他案件态；默认关闭",
+ "verdict": "PASS"
+}

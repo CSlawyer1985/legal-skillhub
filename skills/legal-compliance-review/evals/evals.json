@@ -1,0 +1,111 @@
+{
+  "skill_name": "legal-compliance-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我们公司最近和一家供应商签了一份采购合同，合同里写的是'验收合格后付款，具体时间双方协商'，'如有争议以供应商所在地法院管辖'，'供应商对任何间接损失不承担责任'，'合同自动续约，无需另行通知'。帮我看看这份合同有哪些法律风险？",
+      "expected_output": "应识别至少4个风险点：付款时间模糊（中风险）、管辖地对买方不利（中风险）、间接损失免责条款可能过宽（高风险）、自动续约无退出机制（中风险），每条附修改建议",
+      "assertions": [
+        {
+          "name": "识别付款条款模糊风险",
+          "type": "contains_concept",
+          "description": "输出中应识别'验收时间/付款时间模糊'为风险点"
+        },
+        {
+          "name": "识别管辖地不利风险",
+          "type": "contains_concept",
+          "description": "输出中应识别供应商所在地管辖对我方不利"
+        },
+        {
+          "name": "识别免责条款风险",
+          "type": "contains_concept",
+          "description": "输出中应识别免责条款存在法律问题"
+        },
+        {
+          "name": "识别自动续约风险",
+          "type": "contains_concept",
+          "description": "输出中应识别自动续约无通知机制的风险"
+        },
+        {
+          "name": "提供修改建议",
+          "type": "contains_concept",
+          "description": "每个风险点均附有具体的修改建议"
+        },
+        {
+          "name": "风险分级标注",
+          "type": "contains_concept",
+          "description": "输出中有明确的风险等级标注（高/中/低风险）"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "我是一家设计公司的行政，老板让我起草一份和客户的平面设计服务合同，客户是一家餐饮连锁品牌，我们帮他们做品牌VI设计，总费用8万元，分三期付款，工期3个月。帮我生成一份完整的服务合同初稿。",
+      "expected_output": "生成完整服务合同，包含：双方信息、服务内容（VI设计）、分三期付款条款（建议具体比例）、工期3个月、知识产权归属（重要！设计成果应明确归属）、验收标准、违约责任、保密条款、争议解决。格式规范，可直接编辑使用",
+      "assertions": [
+        {
+          "name": "包含付款分期条款",
+          "type": "contains_concept",
+          "description": "合同中有三期付款安排，含具体金额或比例"
+        },
+        {
+          "name": "包含知识产权条款",
+          "type": "contains_concept",
+          "description": "合同中明确约定设计成果知识产权归属"
+        },
+        {
+          "name": "包含验收条款",
+          "type": "contains_concept",
+          "description": "合同中有验收标准和验收流程"
+        },
+        {
+          "name": "包含违约责任",
+          "type": "contains_concept",
+          "description": "合同中有双方违约责任条款"
+        },
+        {
+          "name": "占位符处理",
+          "type": "contains_concept",
+          "description": "未确认信息使用【待填写】标注，而非留空或随意填写"
+        },
+        {
+          "name": "格式完整规范",
+          "type": "contains_concept",
+          "description": "合同有完整章节结构，包含签字盖章区域"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "我们公司要跟一个员工签保密协议，这个员工是技术总监，掌握我们核心算法。我想让他签署：1）永不泄露任何公司信息；2）离职后5年内不得去竞争对手公司；3）违约赔偿500万。请帮我审查这三条是否合法合规，有没有问题？",
+      "expected_output": "合规校验结果：1）'任何公司信息'范围过宽存在争议，需明确定义；2）竞业限制5年超过法定2年上限，违反劳动合同法第24条，且须支付补偿金；3）500万违约金需评估是否与实际损失匹配，过高可能被调整。给出具体法规依据和修改建议",
+      "assertions": [
+        {
+          "name": "识别竞业限制期限违规",
+          "type": "contains_concept",
+          "description": "指出5年竞业限制超过劳动合同法2年上限"
+        },
+        {
+          "name": "引用具体法规",
+          "type": "contains_concept",
+          "description": "引用劳动合同法第23、24条或相关法规条文"
+        },
+        {
+          "name": "指出补偿金义务",
+          "type": "contains_concept",
+          "description": "指出竞业限制须向员工支付经济补偿"
+        },
+        {
+          "name": "评估违约金合理性",
+          "type": "contains_concept",
+          "description": "对500万违约金的合理性进行评估"
+        },
+        {
+          "name": "提供合规修改方案",
+          "type": "contains_concept",
+          "description": "给出三条内容各自合规化的修改建议"
+        }
+      ]
+    }
+  ]
+}

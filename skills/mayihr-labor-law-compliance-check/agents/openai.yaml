@@ -1,0 +1,4 @@
+interface:
+  display_name: "劳动法合规自检工具"
+  short_description: "用自然语言或直接上传文件完成劳动法合规自检工具并交付可复核结果"
+  default_prompt: "使用 $mayihr-labor-law-compliance-check 帮我做劳动用工合规自检，输出在报告里直接可见的红黄绿风险表。"

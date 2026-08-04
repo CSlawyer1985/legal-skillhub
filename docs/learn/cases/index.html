@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精选案例解剖 · 学习中心</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>精选案例解剖</h1>
+  <p class="lead">从 2049 个 Skill 中精选若干个不同类型的优秀样本，逐个解剖结构、方法论与可借鉴点。这是"看别人怎么写"的最短路径。</p>
+
+  <div class="learn-toc" id="cases"></div>
+
+  <h2>选择标准</h2>
+  <ul>
+    <li><strong>质量分高</strong>：带知识库或脚本、结构完整；</li>
+    <li><strong>模式多样</strong>：覆盖检索增强 / 审查清单 / 文书模板 / 流程 SOP / 计算工具 / 角色方法论六种形态；</li>
+    <li><strong>法域多样</strong>：中、美、欧各占一定比例。</li>
+  </ul>
+  <p>每个案例按统一模板解剖：背景与触发 → 模式归类 → 结构解剖 → 亮点摘录 → 可复用方法论 → 法域适配讨论，并附直达<a class="case-link" href="../../index.html">技能库详情页</a>的链接。</p>
+</article>
+<div id="footer"></div>
+<script src="../../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../../");
+  const cases = [
+    {f:"ad-compliance-consumer-rights-review-plus", t:"广告合规审查 Plus（知识库增强型·中国）",
+     d:"78 个附属文件承载法答网问答、标签合规锚点——渐进式披露的完整教案。"},
+    {f:"prc-legal-research", t:"中国法律研究助手（流程 SOP 型·中国）",
+     d:"八阶段工作流 + 元典/Tavily 双检索 + 强制验证闭环，工程化标杆。"},
+    {f:"construction-contract-review", t:"施工合同审查（审查清单型·中国）",
+     d:"13 维度专业级风险排查，五套标准对照，任务自由度的黄金分割。"},
+    {f:"complaint-drafter", t:"要素式起诉状生成（文书模板型·中国）",
+     d:"最高法 67 类官方模板上'填空而非重写'，模板保真优先于生成自由。"},
+    {f:"30b6-deposition", t:"30(b)(6) 公司代表取证（流程 SOP 型·美国）",
+     d:"Part A/B 双线工作流，美国程序法 Skill 的典型结构。"},
+    {f:"demand-letter", t:"诉前催告函（文书起草型·美国）",
+     d:"element-driven narrative，把诉求要素驱动写入流程。"},
+    {f:"analyse-dpa-fournisseur-hugo-salard", t:"DPA 数据处理协议审查（审查清单型·欧盟/法国）",
+     d:"RGPD 第 28 条逐条款 18 项诊断 + 可插入救济条款，欧盟合规 Skill 范本。"},
+    {f:"ai-governance-reviewer-carl-ditzler", t:"AI 治理审查（知识库增强型·通用）",
+     d:"25 文件的审查矩阵，AI 用例/产品/工作流/供应商全覆盖。"},
+    {f:"civil-litigation-mindset", t:"民事诉讼思维（角色方法论型·中国）",
+     d:"高自由度典范：只给诉讼思维框架，不给僵硬步骤。"},
+    {f:"billable-time-stephane-boghossian", t:"计时审计包（工具/合规型·通用）",
+     d:"SHA-256 证据链 + 五条硬性拒绝，AI 计费合规防御的开荒设计。"},
+  ];
+  document.getElementById("cases").innerHTML = cases.map((c,i)=>`
+    <a class="learn-item" href="../../skill.html?f=${c.f}">
+      <span class="num">${String(i+1).padStart(2,'0')}</span>
+      <div><div class="lt">${c.t}</div><div class="ld">${c.d}</div></div>
+    </a>`).join("");
+</script>
+</body>
+</html>

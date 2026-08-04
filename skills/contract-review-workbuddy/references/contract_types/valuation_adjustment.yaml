@@ -1,0 +1,330 @@
+rules:
+  - id: VAM001
+    category: subject_risk
+    name: "对赌协议主体资格"
+    description: "对赌各方应具备合法主体资格，不存在经营异常或失信情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询对赌方企业信用信息、营业执照状态及是否存在经营异常"
+    legal_basis: "《公司法》第15条、《民法典》第143条"
+    suggestion: "核实对赌各方主体资格，要求提供营业执照和信用信息"
+    enabled: true
+
+  - id: VAM002
+    category: subject_risk
+    name: "对赌方为国有企业未履行国资审批"
+    description: "对赌方为国有企业，未履行国资审批、评估备案等法定程序"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查对赌方是否为国有企业，是否履行国资审批及评估备案程序"
+    legal_basis: "《企业国有资产法》第53条、《企业国有资产交易监督管理办法》第9条"
+    suggestion: "核实对赌方性质，要求提供国资监管机构批准文件及评估报告备案证明"
+    enabled: true
+
+  - id: VAM003
+    category: subject_risk
+    name: "对赌方为外资企业涉及外资准入限制"
+    description: "对赌方为外资企业，标的公司属于外资准入限制或禁止类行业"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查标的公司是否属于外商投资准入负面清单限制或禁止类行业"
+    legal_basis: "《外商投资法》第28条、《外商投资准入特别管理措施》"
+    suggestion: "核查标的公司行业属性，确认是否涉及外资准入限制，取得商务部门批准"
+    enabled: true
+
+  - id: VAM004
+    category: subject_risk
+    name: "对赌方自然人行为能力瑕疵"
+    description: "对赌方为自然人时，可能存在限制民事行为能力或无民事行为能力情形"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查对赌方为自然人时，是否具备完全民事行为能力"
+    legal_basis: "《民法典》第18条、第19条、第143条"
+    suggestion: "核实自然人对赌方的民事行为能力，必要时要求提供监护人同意书"
+    enabled: true
+
+  - id: VAM005
+    category: subject_risk
+    name: "标的公司主体资格瑕疵"
+    description: "标的公司未依法设立或存在吊销、注销等情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "查询标的公司工商登记状态，确认公司合法存续"
+    legal_basis: "《公司法》第3条、《民法典》第55条"
+    suggestion: "核实标的公司主体资格，要求提供最新工商登记信息及经营资质"
+    enabled: true
+
+  - id: VAM006
+    category: performance_commitment
+    name: "业绩承诺指标约定不明"
+    description: "业绩承诺指标（净利润、营收等）未明确约定计算口径和依据"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查业绩承诺指标是否明确约定计算口径、会计准则及依据"
+    legal_basis: "《九民纪要》第5条、《公司法》第35条"
+    suggestion: "明确约定业绩指标的计算口径、会计准则及审计机构"
+    enabled: true
+
+  - id: VAM007
+    category: performance_commitment
+    name: "业绩承诺期限过短"
+    description: "业绩承诺期限过短（不足3年），无法有效反映标的公司真实经营能力"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查业绩承诺期限是否合理，通常应不少于3年"
+    legal_basis: "《九民纪要》第5条、行业惯例"
+    suggestion: "建议业绩承诺期限不少于3年，并与投资周期匹配"
+    enabled: true
+
+  - id: VAM008
+    category: performance_commitment
+    name: "业绩承诺豁免情形未约定"
+    description: "未约定不可抗力、政策变化等业绩承诺豁免情形"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定业绩承诺豁免情形"
+    legal_basis: "《民法典》第180条、第533条"
+    suggestion: "约定不可抗力、重大政策变化等业绩承诺豁免情形"
+    enabled: true
+
+  - id: VAM009
+    category: performance_commitment
+    name: "业绩承诺指标过高"
+    description: "承诺业绩显著高于历史水平和行业平均，实现可能性低"
+    severity: high
+    check_type: prompt_check
+    check_rule: "对比承诺业绩与历史数据、行业平均水平的合理性"
+    legal_basis: "《民法典》第6条公平原则"
+    suggestion: "建议根据历史业绩和行业平均合理设定承诺指标"
+    enabled: true
+
+  - id: VAM010
+    category: performance_commitment
+    name: "业绩补偿计算方式不明确"
+    description: "业绩未达标时的补偿金额、计算方式及支付时间约定不明"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查业绩补偿的计算方式、金额及支付时间是否明确"
+    legal_basis: "《九民纪要》第5条、《民法典》第143条"
+    suggestion: "明确约定业绩补偿公式、计算基数及支付期限"
+    enabled: true
+
+  - id: VAM011
+    category: compensation_mechanism
+    name: "现金补偿条款缺失"
+    description: "未约定以现金方式补偿业绩差额"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定现金补偿条款"
+    legal_basis: "《九民纪要》第5条、《公司法》第35条"
+    suggestion: "约定以现金方式补偿业绩差额，明确计算公式"
+    enabled: true
+
+  - id: VAM012
+    category: compensation_mechanism
+    name: "股权补偿条款缺失"
+    description: "未约定以股权方式补偿业绩差额"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定股权补偿条款"
+    legal_basis: "《九民纪要》第5条、股东协议惯例"
+    suggestion: "约定以股权方式补偿业绩差额，明确调整比例"
+    enabled: true
+
+  - id: VAM013
+    category: compensation_mechanism
+    name: "补偿义务人主体约定不明"
+    description: "未明确约定补偿义务人（创始人、控股股东或标的公司）"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定补偿义务人"
+    legal_basis: "《九民纪要》第5条、《公司法》第15条"
+    suggestion: "明确约定补偿义务人为控股股东或创始人，避免约定为标的公司"
+    enabled: true
+
+  - id: VAM014
+    category: compensation_mechanism
+    name: "补偿金额上限未约定"
+    description: "未约定补偿金额上限，补偿义务人可能承担过重责任"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定补偿金额上限"
+    legal_basis: "《民法典》第6条公平原则"
+    suggestion: "约定补偿金额上限（如投资本金加合理回报）"
+    enabled: true
+
+  - id: VAM015
+    category: compensation_mechanism
+    name: "补偿时间节点未约定"
+    description: "未约定补偿义务的履行期限"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定补偿支付的时间节点"
+    legal_basis: "《民法典》第143条"
+    suggestion: "明确约定补偿支付的时间节点（如审计报告出具后30日内）"
+    enabled: true
+
+  - id: VAM016
+    category: compensation_mechanism
+    name: "补偿方式选择权未约定"
+    description: "未约定补偿方式（现金或股权）的选择权归属"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定补偿方式的选择权归属"
+    legal_basis: "《民法典》第143条"
+    suggestion: "约定补偿方式选择权归属（投资方或义务人）"
+    enabled: true
+
+  - id: VAM017
+    category: repurchase_clause
+    name: "股权回购条款缺失"
+    description: "未约定触发情形下的股权回购条款"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否约定股权回购触发情形及回购价格"
+    legal_basis: "《九民纪要》第5条、《公司法》第74条"
+    suggestion: "约定股权回购触发情形（如业绩不达标、创始人离职等）及回购价格"
+    enabled: true
+
+  - id: VAM018
+    category: repurchase_clause
+    name: "回购触发情形约定不明"
+    description: "股权回购的触发情形未明确列举，标准模糊"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查股权回购的触发情形是否明确列举"
+    legal_basis: "《民法典》第143条"
+    suggestion: "明确列举股权回购触发情形（如业绩不达标、IPO失败、创始人离职等）"
+    enabled: true
+
+  - id: VAM019
+    category: repurchase_clause
+    name: "回购价格约定不明"
+    description: "股权回购价格及计算方式未明确约定"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查回购价格及计算方式是否明确"
+    legal_basis: "《九民纪要》第5条、《民法典》第143条"
+    suggestion: "明确约定回购价格计算方式（投资本金加固定回报/市场估值折扣）"
+    enabled: true
+
+  - id: VAM020
+    category: repurchase_clause
+    name: "回购义务人主体约定不明"
+    description: "未明确约定回购义务人（创始人、控股股东或标的公司）"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定回购义务人"
+    legal_basis: "《九民纪要》第5条、《公司法》第15条、第35条"
+    suggestion: "明确约定回购义务人为控股股东或创始人，不得约定为标的公司"
+    enabled: true
+
+  - id: VAM021
+    category: repurchase_clause
+    name: "回购条款违反公司法强制性规定"
+    description: "回购条款可能违反公司法关于股东不得抽逃出资的规定"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查回购条款是否违反公司法关于股东不得抽逃出资的强制性规定"
+    legal_basis: "《公司法》第35条、《九民纪要》第5条"
+    suggestion: "确保回购条款不违反公司法强制性规定，回购义务人应为其他股东"
+    enabled: true
+
+  - id: VAM022
+    category: repurchase_clause
+    name: "回购条款未考虑公司亏损情形"
+    description: "未约定公司亏损时回购价格的调整机制"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定公司亏损时回购价格的调整机制"
+    legal_basis: "《民法典》第6条公平原则"
+    suggestion: "约定公司亏损时回购价格的调整机制（如按持股比例分担亏损）"
+    enabled: true
+
+  - id: VAM023
+    category: repurchase_clause
+    name: "回购期限未约定"
+    description: "未约定回购义务的履行期限"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定回购义务的履行期限"
+    legal_basis: "《民法典》第143条"
+    suggestion: "明确约定回购义务的履行期限（如触发情形发生后6个月内）"
+    enabled: true
+
+  - id: VAM024
+    category: corporate_governance
+    name: "一票否决权缺失"
+    description: "投资方未约定对重大事项的一票否决权"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定投资方对重大事项的一票否决权"
+    legal_basis: "《公司法》第42条、股东协议惯例"
+    suggestion: "约定投资方对重大事项（如增资、合并、分立、解散等）享有一票否决权"
+    enabled: true
+
+  - id: VAM025
+    category: corporate_governance
+    name: "一票否决权范围约定不明"
+    description: "一票否决权的适用范围未明确列举"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查一票否决权的适用范围是否明确列举"
+    legal_basis: "《公司法》第42条"
+    suggestion: "明确列举一票否决权适用的重大事项清单"
+    enabled: true
+
+  - id: VAM026
+    category: valuation
+    name: "增资估值方法约定不明"
+    description: "未明确约定估值方法（收益法、市场法、资产基础法），估值依据不充分"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定估值方法及估值依据"
+    legal_basis: "《公司法》第27条、《民法典》第143条"
+    suggestion: "明确约定估值方法（收益法/市场法/资产基础法），约定以评估报告为估值依据"
+    enabled: true
+
+  - id: VAM027
+    category: valuation
+    name: "估值调整机制触发条件不明确"
+    description: "估值调整的触发条件（业绩未达标比例）未明确约定"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查估值调整的触发条件是否明确"
+    legal_basis: "《九民纪要》第5条、《民法典》第143条"
+    suggestion: "明确约定估值调整的触发条件（如业绩低于承诺的80%）"
+    enabled: true
+
+  - id: VAM028
+    category: valuation
+    name: "对赌协议与章程冲突"
+    description: "对赌协议约定与标的公司章程条款存在冲突"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查对赌协议约定是否与标的公司章程存在冲突"
+    legal_basis: "《公司法》第11条、《民法典》第143条"
+    suggestion: "确保对赌协议与章程一致，必要时修改公司章程"
+    enabled: true
+
+  - id: VAM029
+    category: valuation
+    name: "对赌协议未约定上市对赌"
+    description: "未约定IPO对赌条款（上市失败触发回购）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定IPO对赌条款"
+    legal_basis: "《九民纪要》第5条、股东协议惯例"
+    suggestion: "约定IPO对赌条款，明确上市失败触发回购的情形"
+    enabled: true
+
+  - id: VAM030
+    category: valuation
+    name: "对赌协议未约定信息披露义务"
+    description: "未约定标的公司及原股东的定期信息披露义务"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定标的公司及原股东的定期信息披露义务"
+    legal_basis: "《公司法》第33条、《民法典》第143条"
+    suggestion: "约定标的公司定期提供财务报告、经营报告等信息披露义务"
+    enabled: true

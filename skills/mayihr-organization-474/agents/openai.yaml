@@ -1,0 +1,4 @@
+interface:
+  display_name: "职级体系搭建工具"
+  short_description: "用自然语言或上传文件完成职级体系搭建工具，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-organization-474 请帮我完成职级体系搭建工具：按行业参照→设计管理序列+专业序列+技术序列+操作序列的完整职级体系。"

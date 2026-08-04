@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  WIPO ST.26 核苷酸/氨基酸序列表模板
+  WIPO Standard ST.26 for the Presentation of Nucleotide and Amino Acid Sequence Listings
+  版本: v1.0
+  依据: WIPO ST.26 标准 (https://www.wipo.int/sta/en/)
+
+  使用说明:
+  1. 本模板适用于生物技术、制药、基因工程等领域的专利申请
+  2. 序列表必须符合WIPO ST.26标准要求
+  3. <seq-data>中的序列必须使用标准单字母编码
+  4. 多个序列时，<SequenceTotalQuantity>必须与实际序列数量一致
+-->
+<ST26SequenceListing dtdVersion="v1.3">
+  <!-- 基本信息部分 -->
+  <ApplicationNumber identification="application-number">
+    <!-- 专利申请号 -->
+  </ApplicationNumber>
+
+  <FilingDate identification="filing-date">
+    <!-- 专利申请日期 (YYYY-MM-DD) -->
+  </FilingDate>
+
+  <ApplicantFileReference identification="applicant-file-reference">
+    <!-- 申请人文件参考号 -->
+  </ApplicantFileReference>
+
+  <ApplicantName identification="applicant-name">
+    <!-- 申请人名称 -->
+  </ApplicantName>
+
+  <InventionTitle identification="invention-title" language="zh">
+    <!-- 发明名称 -->
+  </InventionTitle>
+
+  <SequenceTotalQuantity identification="sequence-total-quantity">
+    1
+    <!-- 序列总数 -->
+  </SequenceTotalQuantity>
+
+  <!-- 序列数据部分 -->
+  <SequenceData sequenceID="1">
+    <SEQIDNO identification="seqid-no">
+      <!-- 序列标识号 -->
+    </SEQIDNO>
+
+    <Length identification="length">
+      <!-- 序列长度（核苷酸数量或氨基酸数量） -->
+    </Length>
+
+    <MoleculeType identification="molecule-type">
+      <!-- 分子类型: DNA | RNA | AA (氨基酸) -->
+    </MoleculeType>
+
+    <Division identification="division">
+      <!-- 部分号（适用于大型序列的分段提交） -->
+    </Division>
+
+    <Organism identification="organism">
+      <!-- 源生物体名称 -->
+    </Organism>
+
+    <Features identification="features">
+      <!-- 特性注释部分 -->
+      <FeatureKey name="source">
+        <Location>
+          <!-- 位置信息 -->
+        </Location>
+        <Qualifiers>
+          <Qualifier name="organism">
+            <Value>
+              <!-- 生物体名称 -->
+            </Value>
+          </Qualifier>
+          <Qualifier name="mol_type">
+            <Value>
+              <!-- 分子类型: genomic DNA | mRNA | protein 等 -->
+            </Value>
+          </Qualifier>
+        </Qualifiers>
+      </FeatureKey>
+
+      <FeatureKey name="gene">
+        <Location>
+          <!-- 基因位置 -->
+        </Location>
+        <Qualifiers>
+          <Qualifier name="gene">
+            <Value>
+              <!-- 基因名称 -->
+            </Value>
+          </Qualifier>
+        </Qualifiers>
+      </FeatureKey>
+
+      <FeatureKey name="CDS">
+        <Location>
+          <!-- 编码序列位置 -->
+        </Location>
+        <Qualifiers>
+          <Qualifier name="translation">
+            <Value>
+              <!-- 对应的氨基酸序列 -->
+            </Value>
+          </Qualifier>
+        </Qualifiers>
+      </FeatureKey>
+
+      <!-- 可添加更多特性: misc_feature, promoter, intron, exon, etc. -->
+    </Features>
+
+    <seq-data>
+      <!--
+        序列数据内容
+        核苷酸序列使用: a, t, g, c, u, n (小写)
+        氨基酸序列使用: 20种标准氨基酸单字母代码 (大写)
+        每行建议70-80个字符
+      -->
+    </seq-data>
+  </SequenceData>
+
+  <!--
+    如有多个序列，继续添加<SequenceData>元素
+    每个序列的sequenceID必须唯一且递增
+
+    示例: 第二个序列
+    <SequenceData sequenceID="2">
+      ...
+    </SequenceData>
+  -->
+</ST26SequenceListing>

@@ -1,0 +1,32 @@
+{
+ "schema": "gaotao.t2.necessary-english.v1",
+ "case_id": "CASE-01",
+ "policy": "显式且窄：仅列举盲稿实际使用且clean input实体存在的标识符token；禁动态派生",
+ "tokens": [
+  {
+   "token": "CNTJ",
+   "verified_in_clean_input": true,
+   "reason": "合同编号前缀"
+  },
+  {
+   "token": "LN",
+   "verified_in_clean_input": true,
+   "reason": "租赁物编号前缀"
+  },
+  {
+   "token": "QZ",
+   "verified_in_clean_input": true,
+   "reason": "合同编号段"
+  },
+  {
+   "token": "RZ",
+   "verified_in_clean_input": true,
+   "reason": "融资合同号段"
+  },
+  {
+   "token": "SC",
+   "verified_in_clean_input": true,
+   "reason": "设备型号段"
+  }
+ ]
+}

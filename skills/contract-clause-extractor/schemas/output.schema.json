@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openclaw.dev/skills/contract-clause-extractor/output.schema.json",
+  "title": "Contract Clause Extractor Output",
+  "description": "Schema for clause extraction results and risk reports",
+  "type": "object",
+  "required": ["extraction_table", "risk_summary"],
+  "properties": {
+    "extraction_table": {
+      "type": "array",
+      "description": "Structured clause extraction table",
+      "items": {
+        "type": "object",
+        "required": ["clause_id", "category", "excerpt", "risk_level", "modification_suggestion"],
+        "properties": {
+          "clause_id": { "type": "integer" },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Payment Terms", "Delivery/Performance", "Breach & Penalties",
+              "Confidentiality", "Intellectual Property", "Non-Compete / Non-Solicit",
+              "Jurisdiction & Dispute Resolution", "Termination", "Force Majeure",
+              "Liability & Indemnity Caps", "Acceptance Criteria", "Renewal & Term",
+              "Other"
+            ]
+          },
+          "excerpt": { "type": "string" },
+          "summary": { "type": "string" },
+          "risk_level": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "risk_reason": { "type": "string" },
+          "modification_suggestion": { "type": "string" }
+        }
+      }
+    },
+    "risk_summary": {
+      "type": "object",
+      "required": ["high", "medium", "low"],
+      "properties": {
+        "high": { "type": "integer" },
+        "medium": { "type": "integer" },
+        "low": { "type": "integer" },
+        "overall_risk": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        }
+      }
+    },
+    "hidden_risks": {
+      "type": "array",
+      "description": "Structural risk alerts",
+      "items": {
+        "type": "object",
+        "properties": {
+          "risk_type": { "type": "string" },
+          "clause_reference": { "type": "string" },
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "explanation": { "type": "string" },
+          "suggestion": { "type": "string" }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "parties": { "type": "array", "items": { "type": "string" } },
+        "total_clauses": { "type": "integer" },
+        "detected_language": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "bilingual": {
+      "type": "object",
+      "description": "Bilingual extraction results (optional)",
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "original": { "type": "string" },
+              "translation": { "type": "string" }
+            }
+          }
+        },
+        "glossary": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "disclaimer": {
+      "type": "string",
+      "description": "Legal disclaimer text"
+    }
+  },
+  "additionalProperties": false
+}

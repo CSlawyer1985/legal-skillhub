@@ -1,0 +1,41 @@
+# STRICT-CLEAN matter.yml — used to generate `out/sample-draft-strict.md`.
+#
+# This file is configured to PASS --strict mode:
+#   - Narrow `routes:` (a specific project directory, not $HOME)
+#   - `attorney:` block populated
+#   - `disclosure_text` set explicitly (overrides the pack's verified: false)
+#
+# In Stephane's dry-run the route below catches no events (his sessions
+# launched from home), so the strict-clean sample demonstrates the
+# "no on-matter intervals" outcome — a valid strict pass.
+
+matter:
+  id: "TEST-002"
+  client: "Demo Client (strict-clean run)"
+  caption: "Test Matter — strict-pass demo"
+  jurisdiction: "FL"
+  practice_area: "general"
+
+attorney:
+  name: "Jane Doe (demo)"
+  bar_id: "FL-DEMO-001"
+  bar_jurisdiction: "FL"
+
+billing:
+  rate_per_hour: 450
+  rounding: "nearest_tenth"
+  minimum_increment_hours: 0.1
+
+ethics:
+  ai_disclosure_required: true
+  disclosure_pack: "fl-24-1"
+  disclosure_text: |
+    Generative AI tools were used in connection with certain work product on
+    this matter. The attorney of record verified the AI-assisted output,
+    exercised independent professional judgment, and adopted the final work
+    product as the attorney's own. Time billed reflects actual attorney
+    time. No markup applied for AI-assisted efficiency.
+
+# Narrow route — only catches sessions launched from inside this directory.
+routes:
+  - "/Users/stephanemacmini/Documents/Code/billable-time"

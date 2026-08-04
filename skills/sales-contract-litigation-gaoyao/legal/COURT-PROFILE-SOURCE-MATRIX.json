@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-18T18:33:24.619Z",
+  "current_as_of": "2026-07-18",
+  "status": "PASS-SOURCE-AND-STRUCTURE-ONLY",
+  "purpose": "为买卖合同纠纷L1法院提交文书和L2办案工作底稿建立官方court-profile来源与边界。",
+  "official_profile_sources": [
+    {
+      "profile_id": "PROFILE-001",
+      "source_id": "LAW-010",
+      "title": "法〔2025〕82号及67类示范文本推广说明",
+      "role": "确认全国推广日期、积极引导和尊重选择原则",
+      "mandatory_copying": false
+    },
+    {
+      "profile_id": "PROFILE-002",
+      "source_id": "LAW-011",
+      "title": "民事答辩状（买卖合同纠纷）官方实例",
+      "role": "提取主体、价款、利息或违约金、履行或解除、损失、瑕疵、担保、费用及总额等结构要素",
+      "mandatory_copying": false,
+      "sample_fact_reuse": "PROHIBITED"
+    },
+    {
+      "profile_id": "PROFILE-003",
+      "source_id": "LAW-012",
+      "title": "2026年7月9日最高法示范文本应用典型案例发布页",
+      "role": "确认买卖合同货款纠纷以结构化要素、对账和争点归纳提高可处理性",
+      "mandatory_copying": false,
+      "legal_authority_role": "PROCESS-REFERENCE-NOT-RULE-OF-DECISION"
+    },
+    {
+      "profile_id": "PROFILE-004",
+      "source_id": "LAW-009",
+      "title": "2026版民事案件案由规定",
+      "role": "确保标题、案由和实际法律关系路由一致",
+      "mandatory_copying": false
+    }
+  ],
+  "l1_court_filing_contract": {
+    "required_documents": [
+      "民事起诉状",
+      "证据目录",
+      "法院提交口径代理词",
+      "法律意见书"
+    ],
+    "conditional_documents": [
+      "财产保全申请及线索表",
+      "管辖说明",
+      "质证预案"
+    ],
+    "prohibited_without_input": [
+      "未收到对方证据时的正式质证意见",
+      "执行申请书及其他执行程序文书",
+      "未核验事实、金额或法源的法院定稿"
+    ],
+    "style": [
+      "正式、简明、可扫描",
+      "请求与事实逐项对应",
+      "事实陈述按合同成立、交付验收、付款结算、违约及催告顺序组织",
+      "法律依据只保留支持请求所必需的现行条文",
+      "不写答案键、裁判结果或后见事实",
+      "不机械复制表格式实例事实或措辞"
+    ]
+  },
+  "core_fact_elements": [
+    {
+      "element_id": "E-01",
+      "name": "主体与授权",
+      "ssot_bindings": ["party", "legal_representative", "agent_authority"],
+      "evidence": ["登记材料", "身份证明", "授权委托"],
+      "hold": "HOLD-PARTY"
+    },
+    {
+      "element_id": "E-02",
+      "name": "合同成立与实际法律关系",
+      "ssot_bindings": ["contract", "transaction_purpose", "actual_relationship", "route"],
+      "evidence": ["合同", "订单", "磋商", "履行链"],
+      "hold": "HOLD-CONTRACT-FORMATION或HOLD-ROUTE"
+    },
+    {
+      "element_id": "E-03",
+      "name": "标的、数量、价款与税费",
+      "ssot_bindings": ["goods", "quantity", "unit_price", "total_price", "tax"],
+      "evidence": ["合同清单", "订单", "发票", "结算"],
+      "hold": "HOLD-AMOUNT"
+    },
+    {
+      "element_id": "E-04",
+      "name": "交付、签收与验收",
+      "ssot_bindings": ["delivery", "receipt", "acceptance", "risk_transfer"],
+      "evidence": ["物流", "送货单", "签收", "验收", "授权"],
+      "hold": "HOLD-DELIVERY-EVIDENCE"
+    },
+    {
+      "element_id": "E-05",
+      "name": "付款、对账与欠款",
+      "ssot_bindings": ["payment_schedule", "payments", "reconciliation", "principal_due"],
+      "evidence": ["银行流水", "回单", "对账单", "债权确认"],
+      "hold": "HOLD-AMOUNT"
+    },
+    {
+      "element_id": "E-06",
+      "name": "违约、催告与利息或违约金",
+      "ssot_bindings": ["due_date", "breach_date", "demand", "interest", "liquidated_damages"],
+      "evidence": ["合同条款", "催告与送达", "计算表", "LPR版本"],
+      "hold": "HOLD-DAMAGES-CALC"
+    },
+    {
+      "element_id": "E-07",
+      "name": "质量、检验与异议",
+      "ssot_bindings": ["quality_standard", "inspection_period", "objection", "remedy"],
+      "evidence": ["质量约定", "检验", "异议送达", "维修或鉴定"],
+      "hold": "HOLD-QUALITY"
+    },
+    {
+      "element_id": "E-08",
+      "name": "担保、所有权保留与第三人",
+      "ssot_bindings": ["guarantee", "title_retention", "registration", "third_party"],
+      "evidence": ["担保合同", "决议或授权", "登记", "第三人交易"],
+      "hold": "HOLD-GUARANTEE或HOLD-INSTALLMENT-TITLE-RETENTION"
+    },
+    {
+      "element_id": "E-09",
+      "name": "诉讼时效与管辖",
+      "ssot_bindings": ["limitation", "jurisdiction", "forum_clause"],
+      "evidence": ["到期日", "中断证据", "住所", "履行地", "管辖条款"],
+      "hold": "HOLD-LIMITATION或HOLD-JURISDICTION"
+    },
+    {
+      "element_id": "E-10",
+      "name": "请求、金额与证据目录一致性",
+      "ssot_bindings": ["claims", "calculation", "evidence_ids", "source_locator"],
+      "evidence": ["SSOT", "计算表", "证据目录", "原件locator"],
+      "hold": "HOLD-CROSS-DOCUMENT-CONSISTENCY"
+    }
+  ],
+  "l2_work_product_contract": {
+    "required_documents": [
+      "案件事实与争点表",
+      "诉讼案件办案方案工作底稿",
+      "证据与证明目的矩阵",
+      "请求与金额计算表",
+      "法律检索与适用表",
+      "风险登记表",
+      "质证预案"
+    ],
+    "binding_rule": "每个结论绑定证据编号、原件locator、条款或页码、计算链和官方法源。",
+    "risk_fields": ["severity", "likelihood", "impact_on_claim", "evidence_basis"],
+    "formal_cross_rule": "未收到对方证据时只能输出质证预案，不得生成正式质证意见。"
+  },
+  "acceptance_gates": [
+    "SSOT与L1/L2事实、金额、请求、证据编号一致",
+    "证据目录使用真实Word表格时须在后续DOCX阶段验证可编辑性",
+    "中文工整、异常字符为零",
+    "法院文风简洁且不牺牲事实要素",
+    "实例事实复用为零",
+    "本机绝对路径为零",
+    "answer-key和历史结果载荷为零",
+    "DOCX双遍固定字体逐页渲染在后续阶段单独验收",
+    "Claude独立验收前不得标记最终PASS"
+  ]
+}

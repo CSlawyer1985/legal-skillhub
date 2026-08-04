@@ -1,0 +1,49 @@
+{
+  "license_text_family": "GPL-3.0",
+  "max_archive_bytes": 10485760,
+  "max_files": 200,
+  "package_id": "recovery-right",
+  "package_license": "GPL-3.0-only",
+  "private_space_only": false,
+  "required_paths": [
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "LICENSE-PROVENANCE.json",
+    "RIGHTS-AND-RELEASE-NOTICE.md",
+    "PLATFORM-LITE-NOTICE.md",
+    "PACKAGE-PROFILE.json",
+    "SOURCE-BINDING.json",
+    "PACKAGE-MANIFEST.json",
+    "PACKAGE-RECEIPT.json",
+    "tests/route-prompts.json",
+    "scripts/validate_package.py",
+    "scripts/smoke_test.py",
+    "SHA256SUMS.txt",
+    "common/追偿权路线.md",
+    "common/五链核验.md",
+    "templates/markdown/07-诉讼案件办案方案工作底稿.md"
+  ],
+  "required_route_behaviors": [
+    "保证人履责追偿",
+    "反担保追偿",
+    "五链",
+    "HOLD",
+    "production-intake",
+    "retrospective-benchmark"
+  ],
+  "schema": "gaotao.platform-lite.package-profile/v1",
+  "skill_name": "recovery-right-litigation",
+  "source_archive_sha256": "08892b792fa803faba0018eb90e45566369d5b74f76bc53747b282d986cfe7e2",
+  "stale_wrapper_names": [],
+  "version": "1.0.4-platform-lite",
+  "workflow_markers": [
+    "保证人履责追偿",
+    "反担保追偿",
+    "五链",
+    "HOLD",
+    "production-intake",
+    "retrospective-benchmark"
+  ]
+}

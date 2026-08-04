@@ -1,0 +1,1 @@
+面向 NCAA 学生运动员、从运动员视角进行的 NIL（姓名、形象和肖像）合同分析。当用户说'review this NIL contract'、'analyze this NIL deal'、'check this athlete agreement'、'review my NIL agreement'，或上传 PDF NIL 合同供审查时使用。识别危险信号、缺失保护和合规问题。产出带谈判立场的结构化审查备忘录。**不要**用于一般合同审查、雇佣协议、非 NIL 代言或品牌方交易分析。

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>模板08 - 试用期考核表</title>
+<style>
+  body { font-family: "SimSun", "宋体", serif; font-size: 14px; line-height: 1.8; margin: 0; padding: 20px; }
+  .page { width: 210mm; margin: 0 auto; padding: 20mm; background: white; }
+  h1 { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+  h2 { font-size: 15px; font-weight: bold; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #333; padding-bottom: 4px; }
+  p { text-indent: 2em; margin: 6px 0; text-align: justify; }
+  .tip { background: #e8f5e9; border: 1px solid #4caf50; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; }
+  .tip strong { color: #2e7d32; }
+  .warn { background: #fff3e0; border: 1px solid #ff9800; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; }
+  .warn strong { color: #e65100; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+  td, th { border: 1px solid #333; padding: 5px 8px; font-size: 13px; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: bold; text-align: center; }
+  .score-cell { text-align: center; font-weight: bold; }
+  .result-pass { color: #2e7d32; font-weight: bold; }
+  .result-fail { color: #c62828; font-weight: bold; }
+  .footer { text-align: center; font-size: 12px; color: #666; margin-top: 30px; }
+  @media print { body { padding: 0; } .page { margin: 0; padding: 15mm; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>试 用 期 考 核 表</h1>
+
+  <div class="warn">
+    <strong>⚖️ 法律关键点：</strong>试用期考核结果是判断员工"是否符合录用条件"的核心证据。根据《劳动合同法》第39条第1项，只有"被证明不符合录用条件"才能合法解除。考核表须：① 考核指标与《录用条件确认书》一致；② 员工本人签字确认考核结果；③ 考核过程有书面记录。
+  </div>
+
+  <!-- 基本信息 -->
+  <table>
+    <tr><th colspan="4" style="background:#333; color:white;">员工基本信息</th></tr>
+    <tr><td style="width:90px; text-align:right;">姓名</td><td style="width:160px;">________________</td>
+        <td style="width:90px; text-align:right;">部门</td><td>________________</td></tr>
+    <tr><td style="text-align:right;">岗位</td><td>________________</td>
+        <td style="text-align:right;">直属主管</td><td>________________</td></tr>
+    <tr><td style="text-align:right;">入职日期</td><td>____年____月____日</td>
+        <td style="text-align:right;">试用期</td><td>____个月（至 ____年____月____日）</td></tr>
+    <tr><td style="text-align:right;">考核周期</td><td colspan="3">□ 试用期中期考核（第____个月）　□ 试用期转正考核（第____个月）</td></tr>
+  </table>
+
+  <h2>一、考核评分表（满分100分，合格线：____分）</h2>
+  <table>
+    <tr><th style="width:15%;">考核维度</th><th style="width:35%;">考核指标</th><th style="width:12%;">权重</th><th style="width:13%;">评分标准</th><th style="width:10%;">得分</th><th style="width:15%;">评分人</th></tr>
+    <tr><td style="text-align:center; font-weight:bold;">工作业绩</td>
+        <td>完成工作任务的数量、质量、时效（与岗位说明书对照）</td>
+        <td style="text-align:center;">____%</td>
+        <td style="font-size:11px;">优秀(90-100)<br>良好(75-89)<br>合格(60-74)<br>不合格(&lt;60)</td>
+        <td class="score-cell">____</td><td>直属主管</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">工作能力</td>
+        <td>专业技能熟练度、学习能力、问题解决能力</td>
+        <td style="text-align:center;">____%</td>
+        <td style="font-size:11px;">同上</td>
+        <td class="score-cell">____</td><td>直属主管</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">工作态度</td>
+        <td>责任心、团队合作、出勤纪律、主动性</td>
+        <td style="text-align:center;">____%</td>
+        <td style="font-size:11px;">同上</td>
+        <td class="score-cell">____</td><td>直属主管</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">规章制度遵守</td>
+        <td>考勤合规、遵守员工手册及公司制度情况</td>
+        <td style="text-align:center;">____%</td>
+        <td style="font-size:11px;">有违纪记录则本项0分</td>
+        <td class="score-cell">____</td><td>HR/直属主管</td></tr>
+    <tr><td colspan="4" style="text-align:right; font-weight:bold;">综合得分（加权平均）</td>
+        <td class="score-cell" style="font-size:16px; background:#f5f5f5;">____</td><td>—</td></tr>
+  </table>
+
+  <h2>二、考核评语</h2>
+  <table>
+    <tr><td style="width:100px; text-align:right; font-weight:bold;">直属主管评语</td>
+        <td style="height:70px;">（须具体说明：工作表现、主要成绩、存在不足、是否符合录用条件）<br><br>□ 建议转正　□ 建议延长试用期（须双方协商一致）　□ 建议解除劳动合同<br><br>签名：________________　日期：____年____月____日</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">部门负责人意见</td>
+        <td style="height:50px;">□ 同意转正　□ 不同意转正<br><br>签名：________________　日期：____年____月____日</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">HR部意见</td>
+        <td style="height:50px;">□ 同意转正　□ 不同意转正（理由：________________________）<br><br>签名：________________　日期：____年____月____日</td></tr>
+  </table>
+
+  <h2>三、员工本人确认</h2>
+  <div style="border:1px solid #333; padding:10px; margin:10px 0; font-size:13px; line-height:1.8;">
+    <p style="text-indent:0;">本人已收到上述考核结果通知，对考核过程和结果：</p>
+    <p>□ 无异议，确认考核结果属实。</p>
+    <p>□ 有异议，具体异议内容为：</p>
+    <p>________________________________________________________________</p>
+    <p>________________________________________________________________</p>
+    <p style="margin-top:15px;">员工本人签名：________________　日期：____年____月____日</p>
+  </div>
+
+  <div class="tip">
+    <strong>✅ 合规提示：</strong>员工在考核表上签字确认非常重要。如员工拒绝签字，须通过快递、电子邮件等可举证的方式送达考核结果，并保留送达凭证。
+  </div>
+
+  <div class="footer">—— 模板08 结束 ——</div>
+</div>
+</body>
+</html>

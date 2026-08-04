@@ -1,0 +1,299 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "借款合同",
+  "contract_type_en": "loan",
+  "description": "民间借贷、企业借款、个人借款等借款合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《最高人民法院关于审理民间借贷案件适用法律若干问题的规定》"
+  ],
+  "keywords_for_detection": [
+    "借款", "借贷", "出借", "借款人", "出借人", "本金", "利息",
+    "还款", "借条", "欠条"
+  ],
+  "key_clauses": [
+    {
+      "name": "借款金额",
+      "required": true,
+      "keywords": ["借款金额", "本金", "人民币"],
+      "check_points": [
+        {
+          "item": "金额明确",
+          "description": "借款金额是否明确（大小写）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "币种",
+          "description": "币种是否明确（人民币/外币）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "借款金额必须大小写一致，明确币种"
+    },
+    {
+      "name": "借款用途",
+      "required": true,
+      "keywords": ["借款用途", "用于"],
+      "check_points": [
+        {
+          "item": "用途约定",
+          "description": "借款用途是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "用途限制",
+          "description": "是否禁止用于违法活动",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确借款用途，约定不得用于违法活动"
+    },
+    {
+      "name": "借款期限",
+      "required": true,
+      "keywords": ["借款期限", "借期", "借款期间"],
+      "check_points": [
+        {
+          "item": "起止日期",
+          "description": "借款起止日期是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "还款日期",
+          "description": "还款日期是否明确",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确借款期限和还款日期"
+    },
+    {
+      "name": "借款利率",
+      "required": true,
+      "keywords": ["利率", "利息", "年利率", "月利率"],
+      "check_points": [
+        {
+          "item": "利率标准",
+          "description": "利率是否明确，是否超过法定上限",
+          "risk_level": "致命"
+        },
+        {
+          "item": "计息方式",
+          "description": "计息方式是否明确（年/月/日利率）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "复利约定",
+          "description": "是否约定复利",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "利率不得超过LPR的4倍（目前约14-15%年利率），建议明确年利率"
+    },
+    {
+      "name": "还款方式",
+      "required": true,
+      "keywords": ["还款", "归还", "偿还", "到期还本付息", "分期还款"],
+      "check_points": [
+        {
+          "item": "还款方式",
+          "description": "到期一次性还本付息/分期还款",
+          "risk_level": "重大"
+        },
+        {
+          "item": "还款顺序",
+          "description": "先息后本/先本后息",
+          "risk_level": "一般"
+        },
+        {
+          "item": "提前还款",
+          "description": "是否允许提前还款",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确还款方式、还款顺序，约定是否允许提前还款"
+    },
+    {
+      "name": "收款账户",
+      "required": true,
+      "keywords": ["收款账户", "收款账号", "指定账户"],
+      "check_points": [
+        {
+          "item": "账户信息",
+          "description": "借款人收款账户是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确借款人收款账户，建议通过银行转账并保留凭证"
+    },
+    {
+      "name": "担保条款",
+      "required": false,
+      "keywords": ["担保", "抵押", "质押", "保证", "担保人"],
+      "check_points": [
+        {
+          "item": "担保方式",
+          "description": "保证/抵押/质押是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "担保范围",
+          "description": "担保范围是否明确（本金/利息/违约金）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "担保期限",
+          "description": "保证期间是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确担保方式、范围、期限；抵押需办理登记"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "逾期", "违约金", "罚息"],
+      "check_points": [
+        {
+          "item": "逾期利息",
+          "description": "逾期利息是否约定，是否过高",
+          "risk_level": "重大"
+        },
+        {
+          "item": "违约金",
+          "description": "违约金是否约定，是否过高",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "逾期利息建议不超过LPR的4倍，违约金与逾期利息总和不超过法定上限"
+    },
+    {
+      "name": "争议解决",
+      "required": false,
+      "keywords": ["争议", "诉讼", "仲裁", "管辖"],
+      "check_points": [
+        {
+          "item": "管辖约定",
+          "description": "管辖法院或仲裁机构是否明确",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "建议约定出借人所在地法院管辖"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "N001",
+      "name": "利率超过法定上限",
+      "description": "约定利率超过合同成立时一年期LPR的4倍，超过部分无效",
+      "severity": "高风险",
+      "suggestion": "年利率不超过14-15%（以当前LPR计算）",
+      "legal_basis": "《民间借贷规定》第25条"
+    },
+    {
+      "id": "N002",
+      "name": "砍头息",
+      "description": "预先在本金中扣除利息（砍头息），按实际出借金额认定本金",
+      "severity": "高风险",
+      "suggestion": "按实际出借金额计算本金和利息",
+      "legal_basis": "《民间借贷规定》第26条"
+    },
+    {
+      "id": "N003",
+      "name": "无息借款",
+      "description": "未约定利息视为无息借款，出借人无法主张利息",
+      "severity": "中风险",
+      "suggestion": "明确约定利率，避免无息",
+      "legal_basis": "《民法典》第680条"
+    },
+    {
+      "id": "N004",
+      "name": "现金交付无凭证",
+      "description": "大额现金交付无银行转账凭证，难以证明借款实际发生",
+      "severity": "高风险",
+      "suggestion": "建议银行转账并保留凭证，现金交付需出具收条"
+    },
+    {
+      "id": "N005",
+      "name": "保证期间未约定",
+      "description": "保证合同未约定保证期间，保证期间为主债务履行期满6个月",
+      "severity": "中风险",
+      "suggestion": "明确约定保证期间（建议为主债务履行期满后2-3年）",
+      "legal_basis": "《民法典》第692条"
+    },
+    {
+      "id": "N006",
+      "name": "抵押未登记",
+      "description": "不动产抵押未办理抵押登记，抵押权未设立",
+      "severity": "高风险",
+      "suggestion": "不动产抵押必须办理抵押登记",
+      "legal_basis": "《民法典》第402条"
+    }
+  ],
+  "position_guidance": {
+    "lender": {
+      "name": "出借人（甲方）",
+      "priority_checks": [
+        "借款利率",
+        "担保条款",
+        "收款账户",
+        "违约责任"
+      ],
+      "key_concerns": [
+        "确保利率约定明确且合法",
+        "争取担保（抵押/保证）",
+        "通过银行转账保留凭证",
+        "约定逾期利息和违约金",
+        "约定有利于己方的管辖法院"
+      ],
+      "avoid": [
+        "利率超过法定上限",
+        "砍头息",
+        "大额现金交付",
+        "抵押未登记",
+        "保证期间过短"
+      ]
+    },
+    "borrower": {
+      "name": "借款人（乙方）",
+      "priority_checks": [
+        "借款利率",
+        "还款方式",
+        "提前还款",
+        "违约责任"
+      ],
+      "key_concerns": [
+        "确保利率不超过法定上限",
+        "争取分期还款减轻压力",
+        "争取提前还款权利",
+        "限制逾期利息和违约金",
+        "避免过于严苛的担保要求"
+      ],
+      "avoid": [
+        "利率过高",
+        "砍头息",
+        "过高的违约金",
+        "个人无限连带责任",
+        "房产抵押给非金融机构"
+      ]
+    }
+  },
+  "legal_limits": {
+    "interest_rate_max": {
+      "description": "利率法定上限",
+      "formula": "合同成立时一年期LPR × 4",
+      "current_approx": "14-15%年利率",
+      "legal_basis": "《民间借贷规定》第25条"
+    },
+    "overdue_interest": {
+      "description": "逾期利率",
+      "formula": "有约定从约定，但不超过LPR×4；无约定按LPR计算",
+      "legal_basis": "《民间借贷规定》第28条"
+    },
+    "compound_interest": {
+      "description": "复利",
+      "rule": "可约定复利，但本息之和不得超过以最初本金为基数、以LPR×4计算的整个借款期间的利息之和",
+      "legal_basis": "《民间借贷规定》第27条"
+    }
+  }
+}

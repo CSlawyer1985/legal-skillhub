@@ -1,0 +1,19 @@
+{
+  "name": "qichacha",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "企查查企业信息查询 - 根据公司名称查询企业基本信息",
+  "author": "Alpha Xiang",
+  "license": "MIT",
+  "keywords": [
+    "qichacha",
+    "company",
+    "enterprise",
+    "search",
+    "china",
+    "business"
+  ],
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}

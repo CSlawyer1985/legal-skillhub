@@ -1,0 +1,43 @@
+{
+  "id": "contract-review-assistant",
+  "name": "合同检查智能小助手",
+  "displayName": "合同检查智能小助手",
+  "version": "1.0.0",
+  "description": "基于《民法典》合同编，对各类中文合同执行结构化风险审查，自动识别高风险条款、缺失必备要素、合规红线、金额/日期矛盾与笔误，支持签名笔迹初步比对，输出带评分与修订建议的 Markdown 风险报告。",
+  "summary": "一键式中文合同风险体检，输出带风险评分的 Markdown 报告。",
+  "category": "法律合规",
+  "platforms": ["WorkBuddy", "QClaw", "ima"],
+  "tags": ["合同审查", "法律风险", "合规", "中文合同", "民法典", "签名笔迹比对"],
+  "author": "WorkBuddy User",
+  "license": "MIT",
+  "homepage": "https://github.com/your-org/contract-review-assistant",
+  "repository": "https://github.com/your-org/contract-review-assistant",
+  "icon": "assets/icon.png",
+  "screenshots": [
+    "assets/screenshot-1.png",
+    "assets/screenshot-2.png"
+  ],
+  "minAppVersion": "1.0.0",
+  "source": "user-created",
+  "locale": "zh-CN",
+  "triggerKeywords": [
+    "审查合同",
+    "检查合同",
+    "合同风险",
+    "合同合规",
+    "合同审查",
+    "合同体检",
+    "合同风险报告",
+    "帮我看下这份合同",
+    "contract review"
+  ],
+  "capabilities": [
+    "完整性检查",
+    "风险条款识别",
+    "合法合规性审查",
+    "歧义与笔误检测",
+    "金额前后矛盾自动比对",
+    "签名笔迹初步比对",
+    "结构化风险评分报告"
+  ]
+}

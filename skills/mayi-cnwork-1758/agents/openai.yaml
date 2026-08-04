@@ -1,0 +1,4 @@
+interface:
+  display_name: "法务意见业务翻译"
+  short_description: "完成法务意见业务翻译，输出证据、动作、风险和复盘步骤"
+  default_prompt: "Use $mayi-cnwork-1758 to help me complete 法务意见业务翻译 from my real workplace materials."

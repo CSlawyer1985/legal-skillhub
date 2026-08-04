@@ -1,0 +1,29 @@
+{
+  "name": "tax-compliance-planning",
+  "displayName": "税务合规与筹划",
+  "version": "1.0.0",
+  "description": "企业税务合规管理与筹划综合解决方案，涵盖税务政策识别、合规评估与报告、税务筹划与优化、税务风险评估、审计支持、转让定价分析等六大核心能力。特别聚焦2026年增值税法实施要点，提供完整工作流程、检查清单和参考文档。适合企业财务、税务经理、财税顾问使用。",
+  "author": "tax-compliance-planning",
+  "license": "MIT-0",
+  "tags": [
+    "finance",
+    "tax",
+    "china",
+    "合规",
+    "筹划",
+    "风险管理",
+    "审计",
+    "转让定价",
+    "增值税",
+    "企业所得税",
+    "税务报告"
+  ],
+  "entry": "SKILL.md",
+  "requirements": {
+    "python": ">=3.8",
+    "platforms": ["linux", "macos", "windows"]
+  },
+  "categories": ["finance", "productivity"],
+  "homepage": "https://clawhub.ai/skills/tax-compliance-planning",
+  "changelog": "v1.0.0: 初始版本发布，提供税务合规评估、筹划优化、风险管理、审计支持、转让定价分析等完整工作流程，包含2026年增值税法专题。"
+}

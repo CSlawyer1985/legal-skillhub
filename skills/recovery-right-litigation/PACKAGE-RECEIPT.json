@@ -1,0 +1,15 @@
+{
+  "court_submission_executed": false,
+  "file_count": 45,
+  "generated_date": "2026-07-30",
+  "geo_activation_executed": false,
+  "installation_executed": false,
+  "legacy_package_overwritten": false,
+  "package_id": "recovery-right",
+  "private_space_only": false,
+  "promotion_executed": false,
+  "schema": "gaotao.platform-lite.package-receipt/v1",
+  "source_archive_sha256": "08892b792fa803faba0018eb90e45566369d5b74f76bc53747b282d986cfe7e2",
+  "status": "BUILT-AWAITING-VALIDATION",
+  "upload_executed": false
+}

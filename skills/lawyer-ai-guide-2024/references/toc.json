@@ -1,0 +1,28 @@
+{
+  "book": "律师使用AI指南 2024",
+  "authors": "陆凌燕、陆洲、李小鹏、俞冬梅、葛华舟",
+  "publisher": "法律出版社 / 无锡市律师协会",
+  "total_pages": 340,
+  "chapters": [
+    {"num": "第一章", "title": "AI技术在律师工作中的实际应用", "start_page": 20},
+    {"num": "第二章", "title": "法律研究与文书准备", "start_page": 28},
+    {"num": "第三章", "title": "日常办公与效率提升", "start_page": 102},
+    {"num": "第四章", "title": "客户服务与咨询沟通", "start_page": 208},
+    {"num": "第五章", "title": "专业发展与能力提升", "start_page": 270},
+    {"num": "第六章", "title": "规范和自我约束", "start_page": 324},
+    {"num": "附录-第一章", "title": "律师行业人工智能技术应用管理规范 · 总则", "start_page": 306},
+    {"num": "附录-第二章", "title": "人工智能的选择和评价", "start_page": 324},
+    {"num": "附录-第三章", "title": "数据安全与隐私保护", "start_page": 325},
+    {"num": "附录-第四章", "title": "人工智能的应用和监管", "start_page": 325},
+    {"num": "附录-第五章", "title": "协作与交流", "start_page": 327},
+    {"num": "附录-第六章", "title": "规范和自我约束", "start_page": 327},
+    {"num": "附录-第七章", "title": "律师协会和律师事务所的责任", "start_page": 328},
+    {"num": "附录-第八章", "title": "附则", "start_page": 328}
+  ],
+  "tool_mentions": {
+    "文心一言": 102, "Kimi": 88, "通义": 87, "通义法睿": 40, "MetaLaw": 33,
+    "秘塔": 33, "ProcessOn": 26, "通义千问": 20, "法天使": 14, "GPT": 9,
+    "百度": 9, "讯飞": 8, "ChatGPT": 6, "Xmind": 5, "智谱": 3, "威科": 2,
+    "Alpha": 2, "豆包": 1, "Gemini": 1, "飞书": 1, "北大法宝": 1
+  }
+}

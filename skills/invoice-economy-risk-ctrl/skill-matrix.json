@@ -1,0 +1,90 @@
+{
+  "version": "1.0",
+  "name": "财税风控差异化技能矩阵",
+  "description": "发票经济风控 / 财税风险扫描 / 财税政策知识库 三大技能的差异定位、动态关联与智能推荐路由。三者共享同一云端财税知识库 MCP 服务，避免重复开发知识库。",
+  "shared_mcp_service": {
+    "service_name": "tax-policy-knowledge",
+    "mcp_url": "https://mcp.aitaxs.top/api/services/tax-policy-knowledge/mcp",
+    "api_base": "https://mcp.aitaxs.top/api/services/tax-policy-knowledge",
+    "registered_by": "tax-policy-knowledge-mcp",
+    "reused_by": ["invoice-economy-risk-ctrl"],
+    "note": "invoice-economy-risk-ctrl 复用 tax-policy-knowledge-mcp 已注册的同一 API Key 与配置（~/.workbuddy/config/tax-policy-mcp.json），无需重复注册。"
+  },
+  "skills": [
+    {
+      "id": "invoice-economy-risk-ctrl",
+      "name": "发票经济风险管控",
+      "version": "3.0.0",
+      "granularity": "微观（发票/交易级）",
+      "core_value": "15 项发票专项风控指标，单张发票与买卖方关系扫描，命中后自动调用云端知识库补强政策依据",
+      "recommends": [
+        {
+          "target": "tax-policy-knowledge-mcp",
+          "when": "命中指标后需要政策原文、税率计算、优惠依据或法律后果时",
+          "say": "需要该风险点的具体政策依据与整改口径，已为你调用财税政策知识库查询。"
+        },
+        {
+          "target": "tax-risk-scanner",
+          "when": "用户希望从企业整体（问卷/报表）视角再做一次财税健康体检时",
+          "say": "发票级扫描已完成，建议再用「财税风险扫描」做一次企业级 questionnaire 体检，覆盖所得税/个税等更广维度。"
+        }
+      ]
+    },
+    {
+      "id": "tax-risk-scanner",
+      "name": "财税风险扫描与合规处理",
+      "version": "1.0.1",
+      "granularity": "中观（企业/报表级）",
+      "core_value": "14 条企业级风险规则，问卷式/文件式扫描，覆盖增值税/所得税/个税/优惠等",
+      "recommends": [
+        {
+          "target": "invoice-economy-risk-ctrl",
+          "when": "扫描提示发票类风险，需要逐张发票深挖时",
+          "say": "发现发票相关风险，建议用「发票经济风险管控」对发票明细做 15 项指标级扫描。"
+        },
+        {
+          "target": "tax-policy-knowledge-mcp",
+          "when": "需要某条规则的法规原文或优惠条件核实时",
+          "say": "已为你调用财税政策知识库查询该规则的法规依据与适用条件。"
+        }
+      ]
+    },
+    {
+      "id": "tax-policy-knowledge-mcp",
+      "name": "财税政策知识库 MCP版",
+      "version": "2.2.5",
+      "granularity": "宏观（政策/税率级）",
+      "core_value": "全税费种政策问答、税额计算、风险预警，云端知识库本体，被前两者共享调用",
+      "recommends": [
+        {
+          "target": "invoice-economy-risk-ctrl",
+          "when": "用户问的是具体发票风险/顶格开票/进销项异常时",
+          "say": "这是发票专项风险问题，建议用「发票经济风险管控」做 15 项指标扫描并补强政策。"
+        },
+        {
+          "target": "tax-risk-scanner",
+          "when": "用户希望把政策结论落到企业整体风险体检时",
+          "say": "政策已查证，建议用「财税风险扫描」做企业级 questionnaire 体检，看是否整体命中。"
+        }
+      ]
+    }
+  ],
+  "routing": [
+    {
+      "intent": "发票专项风险/顶格开票/进销项/红冲/循环开票/税负率",
+      "keywords": ["顶格开票", "发票风险", "进销项", "红冲", "循环开票", "税负率", "发票异常", "虚开", "滞留票", "发票经济"],
+      "route_to": "invoice-economy-risk-ctrl"
+    },
+    {
+      "intent": "企业整体财税健康/合规体检/所得税/个税",
+      "keywords": ["风险扫描", "财税体检", "合规处理", "企业所得税", "个税", "关联交易", "长亏不倒", "公私账"],
+      "route_to": "tax-risk-scanner"
+    },
+    {
+      "intent": "政策原文/税率计算/优惠依据/法规查询",
+      "keywords": ["政策", "税率", "优惠", "怎么算", "文件依据", "法规", "金税四期预警指标"],
+      "route_to": "tax-policy-knowledge-mcp"
+    }
+  ],
+  "intelligent_guide": "当用户问题同时命中多个意图时，按『微观发票扫描 → 中观企业体检 → 宏观政策溯源』顺序引导：先用 invoice-economy-risk-ctrl 定位具体风险，再用 tax-risk-scanner 做整体体检，最后由 tax-policy-knowledge-mcp 给出政策依据。三者通过本矩阵相互推荐，避免重复开发且覆盖完整闭环。"
+}

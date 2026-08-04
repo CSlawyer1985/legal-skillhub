@@ -1,0 +1,21 @@
+{
+  "authorization_basis": "1785256236821-user",
+  "external_distribution_gate": "independent rights proof required before any upload, external transfer or public release",
+  "geo": {
+    "activation": false,
+    "public_projection": false,
+    "release": false
+  },
+  "independent_rights_proof_status": "not-established-locally for proprietary donor entities",
+  "legacy_package_overwritten": false,
+  "package_id": "sales-contract",
+  "package_license": "GPL-3.0-only",
+  "private_space_only": false,
+  "rights_policy": "selected source entities only; original license history preserved; unselected historical evidence and binary artifacts excluded",
+  "schema": "gaotao.platform-lite.license-provenance/v1",
+  "source_archive_name": "买卖合同纠纷Skill开源包-GPL-3.0-2026-07-28.zip",
+  "source_archive_sha256": "92b2d44d2381cb287238a8c8e12a24f8d1580086fa7120b566fdac7741d1f09c",
+  "source_payload_provenance_sha256": "e73617f19ecec566b1d682447d7ec7bcb46ad5ee31e000abbb9df7f8b0e99a0b",
+  "source_top_provenance_sha256": "54cea79c8ae7d172fa8697ec9fa4bf8626e1fff96ebc593bc84eb4cbcbcf525e",
+  "upload_executed": false
+}

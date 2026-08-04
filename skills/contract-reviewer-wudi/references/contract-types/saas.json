@@ -1,0 +1,266 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "SaaS服务协议",
+  "contract_type_en": "saas",
+  "description": "软件即服务、云计算服务、在线软件租赁等SaaS合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《云计算服务安全评估办法》",
+    "《网络安全法》"
+  ],
+  "keywords_for_detection": [
+    "SaaS", "软件即服务", "云服务", "云计算", "在线软件",
+    "订阅", "服务费", "云平台", "部署方式"
+  ],
+  "key_clauses": [
+    {
+      "name": "服务内容",
+      "required": true,
+      "keywords": ["服务内容", "软件功能", "使用权限", "功能模块"],
+      "check_points": [
+        {
+          "item": "功能明确",
+          "description": "软件功能和服务内容是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "使用权限",
+          "description": "使用权限（用户数/功能范围）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确软件功能、使用权限（用户数、并发数、功能模块）"
+    },
+    {
+      "name": "服务等级",
+      "required": true,
+      "keywords": ["SLA", "服务等级", "可用性", " uptime"],
+      "check_points": [
+        {
+          "item": "可用性",
+          "description": "服务可用性保证（通常99.9%）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "故障响应",
+          "description": "故障响应和处理时限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "赔偿机制",
+          "description": "服务未达标的赔偿机制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确服务可用性SLA、故障响应时限、赔偿机制"
+    },
+    {
+      "name": "费用与计费",
+      "required": true,
+      "keywords": ["服务费", "订阅费", "年费", "按量计费", "费用调整"],
+      "check_points": [
+        {
+          "item": "计费方式",
+          "description": "订阅制/按量计费/混合",
+          "risk_level": "重大"
+        },
+        {
+          "item": "价格调整",
+          "description": "价格调整条件和程序",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确计费方式和价格调整机制"
+    },
+    {
+      "name": "数据安全",
+      "required": true,
+      "keywords": ["数据安全", "数据隔离", "加密", "备份"],
+      "check_points": [
+        {
+          "item": "数据隔离",
+          "description": "多租户数据隔离措施",
+          "risk_level": "重大"
+        },
+        {
+          "item": "数据备份",
+          "description": "数据备份频率和恢复机制",
+          "risk_level": "重大"
+        },
+        {
+          "item": "数据归属",
+          "description": "用户数据的归属权",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确数据隔离、备份机制，确保用户数据归属用户"
+    },
+    {
+      "name": "数据迁移",
+      "required": true,
+      "keywords": ["数据迁移", "导出", "数据归属", "合同终止"],
+      "check_points": [
+        {
+          "item": "导出权利",
+          "description": "用户导出数据的权利",
+          "risk_level": "重大"
+        },
+        {
+          "item": "终止迁移",
+          "description": "合同终止后的数据迁移协助",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确用户导出数据权利，合同终止后须协助数据迁移"
+    },
+    {
+      "name": "知识产权",
+      "required": true,
+      "keywords": ["知识产权", "版权", "所有权", "授权"],
+      "check_points": [
+        {
+          "item": "软件版权",
+          "description": "SaaS软件版权归属",
+          "risk_level": "重大"
+        },
+        {
+          "item": "用户数据版权",
+          "description": "用户数据版权归属",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确软件版权归服务商，用户数据版权归用户"
+    },
+    {
+      "name": "合同期限",
+      "required": true,
+      "keywords": ["服务期限", "合同期限", "自动续约", "续约"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "服务期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "自动续约",
+          "description": "自动续约条款",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确服务期限和自动续约条款"
+    },
+    {
+      "name": "合规与安全评估",
+      "required": false,
+      "keywords": ["安全评估", "等级保护", "合规", "等保"],
+      "check_points": [
+        {
+          "item": "安全评估",
+          "description": "云服务安全评估",
+          "risk_level": "重大"
+        },
+        {
+          "item": "等保",
+          "description": "网络安全等级保护",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "云服务须通过安全评估，建议达到等保三级"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "SAAS001",
+      "name": "数据归属不明",
+      "description": "用户数据归属不明确，服务商可能主张数据权益",
+      "severity": "高风险",
+      "suggestion": "明确约定用户数据归属用户，服务商仅在提供服务范围内使用"
+    },
+    {
+      "id": "SAAS002",
+      "name": "服务中断无赔偿",
+      "description": "服务可用性不达标，缺乏赔偿机制",
+      "severity": "中风险",
+      "suggestion": "约定SLA和赔偿机制（通常按不可用时间退还服务费）"
+    },
+    {
+      "id": "SAAS003",
+      "name": "数据迁移困难",
+      "description": "合同终止后服务商不配合数据迁移",
+      "severity": "高风险",
+      "suggestion": "明确约定终止后数据迁移协助义务和时限（通常30天内）"
+    },
+    {
+      "id": "SAAS004",
+      "name": "价格调整无限制",
+      "description": "服务商可随时大幅调整价格",
+      "severity": "中风险",
+      "suggestion": "约定价格调整的条件、幅度和提前通知时限"
+    },
+    {
+      "id": "SAAS005",
+      "name": "安全评估缺失",
+      "description": "云服务未通过安全评估，存在安全隐患",
+      "severity": "高风险",
+      "suggestion": "要求服务商提供安全评估报告或等保证明",
+      "legal_basis": "《云计算服务安全评估办法》"
+    }
+  ],
+  "position_guidance": {
+    "user": {
+      "name": "用户/客户",
+      "priority_checks": [
+        "服务可用性",
+        "数据归属",
+        "数据迁移",
+        "知识产权"
+      ],
+      "key_concerns": [
+        "明确SLA可用性",
+        "确保数据归属自己",
+        "约定终止后迁移",
+        "了解涨价机制"
+      ],
+      "avoid": [
+        "无SLA保证",
+        "数据归属不明",
+        "无迁移权利",
+        "价格无上限"
+      ]
+    },
+    "provider": {
+      "name": "服务商",
+      "priority_checks": [
+        "服务范围",
+        "知识产权",
+        "价格调整",
+        "责任限制"
+      ],
+      "key_concerns": [
+        "明确服务范围",
+        "保持软件版权",
+        "保留调价权",
+        "限制责任上限"
+      ],
+      "avoid": [
+        "服务范围过宽",
+        "SLA过高",
+        "无条件迁移义务",
+        "责任无上限"
+      ]
+    }
+  },
+  "legal_notes": {
+    "data_ownership": {
+      "description": "数据归属",
+      "rule": "用户通过SaaS服务产生的数据归用户所有，服务商仅为提供技术服务",
+      "recommendation": "合同中明确约定数据归属、数据使用范围、数据迁移义务"
+    },
+    "sla": {
+      "description": "服务等级协议（SLA）",
+      "typical": "通常为99.9%月可用性（相当于每月约44分钟计划外停机）",
+      "compensation": "未达标的补偿通常为按比例退还服务费"
+    }
+  }
+}

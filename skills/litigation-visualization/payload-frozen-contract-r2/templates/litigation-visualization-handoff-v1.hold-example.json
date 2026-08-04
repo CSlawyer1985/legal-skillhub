@@ -1,0 +1,135 @@
+{
+  "schema_version": "litigation-visualization-handoff/1.0",
+  "handoff_id": "EXAMPLE-HOLD-R2-20260723",
+  "created_at": "2026-07-23T07:01:28Z",
+  "upstream": {
+    "gaotao_skill": {
+      "skill_id": "lawyer-legal-knowledge-distillation-geo",
+      "version": "1.0.0-rc.3",
+      "skill_sha256": "aab6608f69841e43f4eddd6fe7fa98a7278d5aa9a45a424f1850743196bdcabf",
+      "manifest_or_contract_sha256": "de94f78facf3331e3e9d02176c050619f51b03eb0e44bfb7ef61af56b4c92de3"
+    },
+    "case_skill": {
+      "skill_id": "sales-contract-litigation-gaoyao",
+      "version": "0.2.0-rc.1",
+      "skill_sha256": "ccf28d708daf93c742de5797944697bec83fd8f9cf3fb0502a860999397d018e",
+      "manifest_or_contract_sha256": "7979cbe8573e15b99727c71a46fffd144fb6e27d107e72143a63e34b451254ba"
+    },
+    "litigation_plan": {
+      "artifact_id": "L2-05",
+      "artifact_version": "accepted-template-pre-anchor-contract",
+      "artifact_sha256": "c5362596f23851bf268e87534c6e8e97d95b91dca512dd1f112bfed70e54148d",
+      "relative_path": "templates/markdown/07-诉讼案件办案方案工作底稿.md",
+      "source_id": "L2-PLAN",
+      "source_cutoff": "2026-07-23",
+      "locator_profile": "l2-markdown-paragraph-table-v1",
+      "anchor_contract_version": "l2-anchor-contract/1.0",
+      "anchor_contract_sha256": "aa0bb5640c0ba60f87face0c22ef45272ef179c26c546daa1738f9e6bd910b14",
+      "anchor_map_relative_path": "contracts/L2-05-anchor-map.hold-example.json",
+      "anchor_map_sha256": "fe16aa7ec2a6cf81541ac190b6f04359c4105afbddb6cb36c5f62e5d78125a05",
+      "filing_status": "internal_work_product"
+    }
+  },
+  "route": {
+    "downstream_skill": {
+      "skill_id": "litigation-visualization-cn",
+      "version": "0.1.0",
+      "skill_sha256": "dadcdb85f97d12c0cf2fa980c93f46894e32024aeb13836f8f4a871d48ba2dca",
+      "manifest_or_contract_sha256": "b3f1b73ce1e17608f4b887b921076ed9d5a36f8e09a800175b8e10ea1b2a4b9d"
+    },
+    "output_profile": "professional_service.litigation_visualization",
+    "capability_status": "hold",
+    "trigger": "on_request",
+    "requested_views": [
+      "case_process_flow",
+      "claim_evidence_matrix"
+    ]
+  },
+  "validator_compatibility": {
+    "downstream_skill_id": "litigation-visualization-cn",
+    "validate_spec_sha256": "5b71446ea24710e8624875ae55cc568f5a257956457624769f4cc67b7b0b5f06",
+    "validate_output_sha256": "84bd8acd9524d528f976877b21137653632e5b4e86501280d2b09ba92720d47a",
+    "privacy_contract": "local-only-internal-parties-v1",
+    "source_ledger_contract": "downstream-source-ledger-11-fields-v1",
+    "source_ref_contract": "downstream-source-ref-v1"
+  },
+  "source_ledger": [
+    {
+      "source_id": "L2-PLAN",
+      "source_kind": "derived",
+      "source_hash_or_version": "sha256:c5362596f23851bf268e87534c6e8e97d95b91dca512dd1f112bfed70e54148d",
+      "custody_or_processing_location": "local_only",
+      "ingested_at": "2026-07-23",
+      "source_cutoff": "2026-07-23",
+      "authorized_use": [
+        "local candidate contract validation",
+        "synthetic HOLD demonstration"
+      ],
+      "locator_prefix": "L2-PLAN#",
+      "page_or_unit_locator_scheme": "SOURCE_ID#pN | SOURCE_ID#para-N | SOURCE_ID#cell-A1 | SOURCE_ID#ts-HH:MM:SS",
+      "ocr_or_derivation_note": "Synthetic HOLD example binds the accepted L2 template hash. It does not authorize real-case rendering.",
+      "description": "Synthetic L2 source for Gaotao handoff contract testing."
+    }
+  ],
+  "privacy_authorization": {
+    "processing_location": "local_only",
+    "allowed_processors": [
+      "internal:codex",
+      "internal:claude-code"
+    ],
+    "allowed_recipients": [
+      "internal:root"
+    ],
+    "allowed_channel": "local_only",
+    "field_allowlist": [
+      "case_id",
+      "labels",
+      "facts",
+      "legal_rules",
+      "source_ids",
+      "dates",
+      "amounts",
+      "relationships",
+      "procedures",
+      "notes"
+    ],
+    "redaction_status": "pending",
+    "retention_policy": "Retain candidate evidence locally until root disposition.",
+    "human_release_approved": false,
+    "human_release_by": null,
+    "human_release_at": null,
+    "authorization_basis": "Synthetic contract validation only; no real-case release authorization is represented.",
+    "external_processing_authorized": false,
+    "external_delivery_authorized": false
+  },
+  "legal_review": {
+    "required": true,
+    "jurisdiction": "PRC mainland",
+    "effective_at": "pending-review",
+    "law_checked_at": null,
+    "law_check_status": "pending",
+    "reviewer": "pending-reviewer",
+    "legal_rule_refs": []
+  },
+  "workflow_status": "hold",
+  "hold_control": {
+    "scope": "all rendering and release",
+    "reason": "The accepted L2 template predates the stable-anchor contract and this example contains no real case facts.",
+    "owner": "candidate-review-team",
+    "recovery_conditions": [
+      "Generate and freeze a real L2-05 using all nine stable anchors.",
+      "Bind a complete anchor-map and source ledger.",
+      "Complete privacy authorization.",
+      "Pass downstream semantic validation and independent semantic review."
+    ]
+  },
+  "gates": {
+    "litigation_plan_frozen": true,
+    "source_ledger_complete": true,
+    "privacy_authorized": false,
+    "semantic_spec_valid": false,
+    "independent_semantic_review_pass": false,
+    "render_allowed": false
+  },
+  "write_back_allowed": false
+}

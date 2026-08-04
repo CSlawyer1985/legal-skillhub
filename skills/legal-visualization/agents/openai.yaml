@@ -1,0 +1,4 @@
+interface:
+  display_name: "Legal Visualization"
+  short_description: "Lawyer-grade legal diagram workflows"
+  default_prompt: "Turn the legal facts below into clear lawyer-grade diagrams, choosing draw.io or Excalidraw as appropriate."

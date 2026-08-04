@@ -1,0 +1,4 @@
+interface:
+  display_name: "HR法条援引助手"
+  short_description: "用自然语言或上传文件完成HR法条援引助手，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-hr-productivity-503 请帮我完成HR法条援引助手：处理具体HR事件→自动援引相关法条+司法解释+典型案例+合规建议。"

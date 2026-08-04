@@ -1,0 +1,5 @@
+{
+  "type": "wecom",
+  "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=你的群机器人Key",
+  "headers": {}
+}

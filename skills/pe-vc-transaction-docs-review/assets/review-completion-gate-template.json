@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "matter_id": "replace-with-matter-id",
+  "review_mode": "first_round",
+  "checkpoint": "review-state.json",
+  "source_files": [
+    "source/agreement.docx"
+  ],
+  "requirements": {
+    "major_issue_list": true,
+    "package_matrix": true,
+    "native_comments": false
+  },
+  "artifacts": {
+    "issue_log": "output/issue-log.csv",
+    "major_issue_list": "output/major-issue-list.csv",
+    "package_matrix": "output/package-matrix.json",
+    "comment_apply_report": null,
+    "deliverables": [
+      "output/summary.md"
+    ]
+  },
+  "judgment_gates": {
+    "matter_and_authority": {
+      "status": "passed",
+      "reviewer": "reviewing-agent-or-designated-reviewer",
+      "evidence": "Matter, side, scope, governing law, assumptions and version baseline checked."
+    },
+    "substantive_coverage": {
+      "status": "passed",
+      "reviewer": "reviewing-agent-or-designated-reviewer",
+      "evidence": "Every applicable clause family is marked reviewed, not applicable, missing or deferred."
+    },
+    "high_risk_spot_check": {
+      "status": "passed",
+      "reviewer": "reviewing-agent-or-designated-reviewer",
+      "evidence": "Every high-risk recommendation was checked against the current text, client side and current authority."
+    },
+    "delivery_and_confidentiality": {
+      "status": "passed",
+      "reviewer": "reviewing-agent-or-designated-reviewer",
+      "evidence": "Requested output mode, source integrity, final files, limitations and confidentiality scan checked."
+    }
+  },
+  "limitations": [],
+  "forbidden_terms": []
+}

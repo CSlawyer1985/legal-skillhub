@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/promotion-evidence.schema.json",
+  "title": "Candidate Promotion Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "candidate_skill", "domain_baseline", "court_visible_text", "render", "e2e_cases", "seats", "overall"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "candidate_skill": {"type": "string", "minLength": 1},
+    "domain_baseline": {
+      "type": "object",
+      "required": ["status", "missing_gate_ids", "duplicate_gate_ids"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "missing_gate_ids": {"type": "array", "maxItems": 0},
+        "duplicate_gate_ids": {"type": "array", "maxItems": 0}
+      }
+    },
+    "court_visible_text": {
+      "type": "object",
+      "required": ["status", "governance_jargon_hits", "placeholder_hits", "non_chinese_anomaly_hits", "hidden_text_hits"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "governance_jargon_hits": {"const": 0},
+        "placeholder_hits": {"const": 0},
+        "non_chinese_anomaly_hits": {"const": 0},
+        "hidden_text_hits": {"const": 0}
+      }
+    },
+    "render": {
+      "type": "object",
+      "required": ["status", "fixed_font_double_render", "pixel_mismatch_pages", "sparse_pages", "ooxml_editable", "external_relationship_count"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "fixed_font_double_render": {"const": true},
+        "pixel_mismatch_pages": {"type": "array", "maxItems": 0},
+        "sparse_pages": {"type": "array", "maxItems": 0},
+        "ooxml_editable": {"const": true},
+        "external_relationship_count": {"const": 0}
+      }
+    },
+    "e2e_cases": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["role", "answer_key_isolated", "status"],
+        "properties": {
+          "role": {"enum": ["complete-nine-document", "hold-case"]},
+          "document_count": {"type": "integer", "minimum": 0},
+          "hold_triggered": {"type": "boolean"},
+          "answer_key_isolated": {"const": true},
+          "status": {"const": "PASS"}
+        }
+      }
+    },
+    "seats": {
+      "type": "object",
+      "required": ["builder", "acceptance"],
+      "properties": {
+        "builder": {"type": "string", "minLength": 1},
+        "acceptance": {"type": "string", "minLength": 1}
+      }
+    },
+    "overall": {"const": "PASS"}
+  }
+}

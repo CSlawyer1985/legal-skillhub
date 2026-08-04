@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--
+  法普小象 · 被狗咬伤能赔多少钱计算器
+  Author: 张卓 (Zhang Zhuo) | Version 1.0 | © 2026
+  Data: 最高法6个饲养动物损害典型案例 + 元典MCP补充全国9省判例
+  Legal: 民法典第1245-1251条 饲养动物损害责任
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>被狗咬了能赔多少钱？</title>
+<meta property="og:title" content="被狗咬了能赔多少钱？">
+<meta property="og:description" content="填5个问题，基于民法典饲养动物损害责任+最高法典型案例，算算能拿多少赔偿。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="法普小象">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--a:#534ab7;--al:#eeedfe;--g:#1d9e75;--gl:#e1f5ee;--c:#d85a30;--cl:#faece7;--am:#ef9f27;--aml:#faeeda;--bg:#f5f3ef;--ca:#fff;--t:#2c2c2a;--ts:#777;--b:#e0ded8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased}
+.ct{max-width:500px;margin:0 auto;padding:20px 16px 40px}
+.hd{text-align:center;padding:24px 0 16px}
+.hd .l{font-size:42px;display:block;margin-bottom:6px}
+.hd h1{font-size:20px;font-weight:700;margin-bottom:4px}
+.hd .s{font-size:13px;color:var(--ts)}
+.dc{background:var(--aml);border-radius:10px;padding:10px 16px;font-size:13px;color:#854f0b;line-height:1.5;margin-bottom:20px;display:flex;align-items:center;gap:4px}
+.qb{background:var(--ca);border-radius:14px;padding:20px;margin-bottom:10px;border:1px solid var(--b);display:none}
+.qb.active{display:block}
+.qb .qt{font-size:15px;font-weight:500;margin-bottom:10px}
+.qb .qt .num{display:inline-block;background:var(--a);color:#fff;width:22px;height:22px;text-align:center;line-height:22px;border-radius:50%;font-size:12px;margin-right:6px;vertical-align:middle}
+.op{display:flex;flex-direction:column;gap:8px}
+.op label{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--b);border-radius:10px;font-size:14px;cursor:pointer;transition:all .2s}
+.op label:active{transform:scale(.98)}
+.op label input{display:none}
+.op label.sel{border-color:var(--a);background:var(--al);font-weight:500}
+.op label.sel::after{content:"✓";margin-left:auto;color:var(--a);font-weight:700}
+.ext{display:none;margin-top:10px;padding:10px 14px;background:#fafafa;border:1px dashed var(--b);border-radius:8px;font-size:13px;color:var(--ts)}
+.ext textarea{width:100%;border:1px solid var(--b);border-radius:6px;padding:8px 10px;font-size:13px;font-family:inherit;resize:none;margin-top:6px;min-height:44px}
+.ext.show{display:block}
+.pb{margin:20px 0 10px;display:flex;justify-content:space-between;align-items:center}
+.pb .bar{flex:1;height:4px;background:var(--b);border-radius:2px;margin:0 12px;overflow:hidden}
+.pb .bar .fi{height:100%;background:var(--a);border-radius:2px;transition:width .3s;width:0%}
+.pb .i,.pb .c{font-size:12px;color:var(--ts);white-space:nowrap}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s;margin-top:12px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.primary{background:var(--a);color:#fff}
+.btn.primary:active{transform:scale(.98)}
+.rs{display:none}
+.rs.active{display:block}
+.rs .bd{background:var(--ca);border-radius:14px;padding:24px 20px;border:1px solid var(--b);margin-top:20px}
+.rs .bd h2{font-size:18px;font-weight:700;margin-bottom:4px}
+.rs .bd .r{display:inline-block;padding:3px 12px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:14px}
+.rs .bd .r.g{background:var(--gl);color:var(--g)}
+.rs .bd .r.a{background:var(--aml);color:#854f0b}
+.rs .bd .r.c{background:var(--cl);color:var(--c)}
+.rs .bd .amt{font-size:32px;font-weight:800;margin-bottom:4px}
+.rs .bd .amt .unit{font-size:16px;font-weight:400;color:var(--ts)}
+.rs .bd .desc{font-size:13px;color:var(--ts);margin-bottom:16px;line-height:1.5}
+.rs .bd .law{background:var(--al);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--a);margin-bottom:16px}
+.rs .bd .case{background:#fafafa;border-radius:10px;padding:14px;margin-bottom:12px;font-size:13px}
+.rs .bd .case .ctitle{font-weight:600;margin-bottom:4px}
+.rs .bd .case .cinfo{color:var(--ts);font-size:12px;line-height:1.5}
+.rs .bd .case .cresult{margin-top:6px;font-size:12px}
+.rs .bd .case .cresult .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.rs .bd .case .cresult .tag.g{background:var(--gl);color:var(--g)}
+.rs .bd .case .cresult .tag.a{background:var(--aml);color:#854f0b}
+.rs .bd .case .cresult .tag.c{background:var(--cl);color:var(--c)}
+.rs .tip{background:var(--ca);border-radius:14px;padding:20px;border:1px solid var(--b);margin-top:14px}
+.rs .tip h3{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--a)}
+.rs .tip .step{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.rs .tip .step .sn{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--a);color:#fff;font-size:13px;font-weight:700;flex-shrink:0}
+.rs .tip .step .sn.warn{background:var(--c)}
+.rs .tip .step .sn.ok{background:var(--g)}
+.rs .tip .step .sc{font-size:13px;line-height:1.5}
+.rs .tip .step .sc strong{display:block;margin-bottom:2px}
+.rs .tip .step .sc .hint{color:var(--ts);font-size:12px}
+.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:999;justify-content:center;align-items:center;flex-direction:column}
+.overlay.show{display:flex}
+.overlay img{max-width:90%;max-height:80%;border-radius:10px}
+.overlay .hint{color:#fff;font-size:14px;margin-top:16px;text-align:center}
+.overlay .hint .close{color:rgba(255,255,255,.6);font-size:13px;margin-top:8px;cursor:pointer}
+#longImg{width:100%;max-width:500px}
+.footer{text-align:center;padding:24px 0 8px;font-size:12px;color:#999}
+</style>
+</head>
+<body>
+
+<div class="ct" id="app">
+
+<div class="hd">
+  <span class="l">🐶</span>
+  <h1>被狗咬了能赔多少钱？</h1>
+  <p class="s">法普小象 · 基于民法典饲养动物损害责任及最高法典型案例</p>
+</div>
+
+<div class="dc">
+  <strong>⚠️</strong> 结果仅供参考，不构成法律意见。
+</div>
+
+<div id="questions"></div>
+
+<div class="pb" id="progressBar" style="display:none">
+  <span class="i">已答 <span id="done">0</span>/5</span>
+  <div class="bar"><div class="fi" id="progFill"></div></div>
+  <span class="c"><span id="pct">0</span>%</span>
+</div>
+
+<button class="btn primary" id="analyzeBtn" disabled style="margin-top:16px">请先回答完所有问题</button>
+
+<div class="rs" id="result">
+  <div class="bd" id="resultContent"></div>
+
+  <div class="tip" id="actionsTip">
+    <h3>💡 你可以马上做的3件事</h3>
+    <div class="step">
+      <div class="sn">1</div>
+      <div class="sc"><strong>保存证据</strong>伤口拍照 · 就医记录 · 报警记录 · 主人信息</div>
+    </div>
+    <div class="step">
+      <div class="sn warn">2</div>
+      <div class="sc"><strong>不要私了</strong>被狗咬后先报警固定证据，不要接受对方口头承诺</div>
+    </div>
+    <div class="step">
+      <div class="sn ok">3</div>
+      <div class="sc"><strong>维权渠道</strong>打110/12345固定证据 → 去法院立案（案由：饲养动物损害责任纠纷）→ 协商不成可委托律师提起人身损害赔偿诉讼</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div style="text-align:center;padding:24px 0 8px;font-size:12px;color:#999">
+  🐘 法普小象 · © 2026 张卓
+</div>
+
+<div class="overlay" id="overlay">
+  <img id="longImg" src="" alt="长图">
+  <div class="hint">
+    👇 长按图片保存到相册，发朋友圈
+    <div class="close" onclick="document.getElementById('overlay').classList.remove('show')">点击关闭</div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════
+// 判例数据库（最高法6个 + 地方9个 = 15个）
+// ═══════════════════════════════════
+var CASES = [
+  // ── 最高法典型案例 ──
+  {id:'c1',type:'c',title:'最高法案例一：禁养阿拉斯加犬抓伤7岁小孩',court:'最高人民法院典型案例',fact:'刘某某在市区饲养禁止饲养的大型犬阿拉斯加犬，7岁徐某某逗犬时被抓伤面部，住院26天。',result:'判决刘某某赔偿全部合理费用30197.65元。禁养犬即使受害人逗犬也不能减责。',tag:'禁养犬→100%赔'},
+  {id:'c2',type:'c',title:'最高法案例二：7岁小孩遛犬咬伤婴儿',court:'最高人民法院典型案例',fact:'斯某让7岁儿子遛腊肠犬，咬伤不满1岁婴儿。',result:'赔偿3092元。应由成年人遛狗，让小孩遛犬=饲养人全责。',tag:'小孩遛犬→全责'},
+  {id:'c3',type:'c',title:'最高法案例三：大型犬追逐电瓶车致摔倒十级伤残',court:'最高人民法院典型案例',fact:'张某乙饲养的黑色大型犬追逐电瓶车，致张某甲受惊吓摔倒，膝关节十级伤残。',result:'赔偿211264.63元。无接触伤害也属动物致损。',tag:'无接触也赔'},
+  {id:'c4',type:'c',title:'最高法案例四：孕妇被咬后终止妊娠',court:'最高人民法院典型案例',fact:'安某被缪某的狗咬伤，注射疫苗后发现已怀孕→终止妊娠。',result:'赔偿各项费用6069元（含精神损害抚慰金）。咬伤与终止妊娠有因果关系。',tag:'终止妊娠→含精神赔偿'},
+  {id:'c5',type:'g',title:'最高法案例五：狗追扑摩托车致骨折（调解）',court:'最高人民法院典型案例',fact:'包某两只狗追扑张某摩托车致摔伤骨折。',result:'经调解，包某赔偿5000元。',tag:'调解结案'},
+  {id:'c6',type:'a',title:'最高法案例六：菜市场无证养11只狗',court:'最高人民法院典型案例',fact:'王某某在菜市场无证养犬11只，不拴绳，责令改正后拒不整改。',result:'没收全部狗。违规养犬可被行政处罚。',tag:'违规养犬→行政处罚'},
+  // ── 地方中院案例 ──
+  {id:'c7',type:'c',title:'湖北荆门案：不拴绳狗咬伤路人',court:'荆门市中级人民法院 (2025)鄂08民终419号',fact:'叶某炎经过胡某明家门口，被未拴绳的狗咬伤腿部。',result:'胡某明全责赔偿医疗费2772.7元+护理费300元+交通费400元。',tag:'不拴绳→全责'},
+  {id:'c8',type:'a',title:'宁夏银川案：受害人逗狗被咬→自担20%',court:'银川市中级人民法院 (2024)宁01民终4425号',fact:'菜鸟驿站经营者挑逗宠物狗被咬脚踝，花医疗费3020.48元。',result:'受害人挑逗狗有重大过失，自担20%责任，主人赔80%（2416元）。',tag:'逗狗→减责'},
+  {id:'c9',type:'c',title:'吉林高院案：禁养犬→再审改判100%全赔',court:'吉林省高级人民法院 (2022)吉民再18号',fact:'一审判主人80%+二审70%→再审改判：禁养阿拉斯加犬，受害人逗犬也不能减责。',result:'再审改判刘某某赔偿全部30197.65元。禁养烈性犬=绝对责任。',tag:'禁养犬→绝对责任'},
+  {id:'c10',type:'c',title:'湖南郴州案：流浪狗咬人→投喂者赔偿',court:'汝城县人民法院 (2024)湘1026民初295号',fact:'甘某梅在小区门店前被突然冲出的狗咬伤，狗主人称是流浪狗拒绝赔钱。',result:'法院认定实际管理者需赔偿医疗费511.5元。即使是流浪狗，实际投喂者也要赔。',tag:'流浪狗→投喂者赔'},
+  {id:'c11',type:'a',title:'江西奉新案：流浪狗咬人→物业90%+投喂者10%',court:'奉新县人民法院 (2024)赣0921民初1666号',fact:'李某某在小区被长期流浪狗咬伤，物业知道流浪狗存在但未采取措施，赖某某长期投喂。',result:'物业担90%(3696.3元)+投喂者10%(410.7元)。',tag:'物业有过错→要赔'},
+  {id:'c12',type:'c',title:'甘肃定西案：流浪狗咬人十级伤残→物业60%',court:'定西县人民法院 (2022)甘1102民初4559号',fact:'吕丽萍在小区被四只流浪狗攻击致十级伤残，物业未设防。',result:'物业承担60%赔偿责任，含残疾赔偿金。',tag:'伤残→含残疾金'},
+  {id:'c13',type:'a',title:'辽宁阜新案：拴绳但受害人进屋→主人90%+受害人10%',court:'阜新市中级人民法院 (2024)辽09民终1137号',fact:'李某独自进入杨某军家中被拴绳的狗咬伤，接种狂犬疫苗888元。',result:'主人90%+受害人10%（受害人进屋有注意义务）。',tag:'拴绳+受害人进屋→减责10%'},
+  {id:'c14',type:'c',title:'内蒙古通辽案：狗咬致十级伤残→主人主要责任',court:'通辽市中级人民法院 (2025)内05民终2903号',fact:'陈某某被孟某家庭农牧场的狗咬致十级伤残，含残疾赔偿金。',result:'主人未采取安全措施致害→承担主要赔偿责任。',tag:'十级伤残'},
+  {id:'c15',type:'c',title:'北京二中院案：擅自进入院落→主人全责',court:'北京市第二中级人民法院 (2024)京02民终6272号',fact:'吴某因租房擅自进入李某宅院，被未拴绳的狗咬伤。',result:'主人全责赔3887.92元。未经同意进入院落不构成重大过失。',tag:'入户→全责'},
+  {id:'c16',type:'c',title:'河南驻马店案：6岁女童摸普通宠物犬→主人全责',court:'驻马店市驿城区人民法院 2025年',fact:'6岁女童在小区抚摸被牵引绳拴住的宠物犬被咬伤手臂，花医疗费5953元，主人已付2300元。',result:'主人全责赔偿3793元。未成年人摸狗属一般过失，不减责。',tag:'小孩摸狗→全责'},
+  {id:'c17',type:'c',title:'成都青羊案：两只狗打架→拉架人被咬→对方全责',court:'成都市青羊区人民法院 2024年',fact:'两人各自遛狗，萨摩耶没拴绳，两狗吠叫厮打，泰迪主人上去拉架被咬伤右腿。',result:'萨摩耶管理人全责赔4617.8元（医疗+误工3257+交通300+营养）。拉架不构成重大过失。',tag:'狗打架拉架→对方全责'}
+];
+
+// ═══════════════════════════════════
+// 问题（5题）
+// ═══════════════════════════════════
+var QS = [
+  {
+    id:'q1',q:'咬人的是什么狗？',
+    opts:[
+      {v:'normal',l:'普通宠物犬'},
+      {v:'big',l:'大型犬（如阿拉斯加、金毛等）'},
+      {v:'banned',l:'禁养烈性犬/禁止饲养的大型犬'},
+      {v:'stray',l:'流浪狗/不知道谁的狗'},
+    ]
+  },
+  {
+    id:'q2',q:'狗主人有没有管好狗？',
+    opts:[
+      {v:'restrained',l:'拴绳了+戴了嘴套'},
+      {v:'leash',l:'拴了绳但没戴嘴套'},
+      {v:'noleash',l:'没拴绳/散养/无人看管'},
+      {v:'child',l:'让小孩遛狗'},
+    ]
+  },
+  {
+    id:'q3',q:'受伤的人当时在做什么？',
+    opts:[
+      {v:'passing',l:'正常走路/经过，没招惹狗'},
+      {v:'touch',l:'主动去摸狗/逗狗玩'},
+      {v:'provoke',l:'挑逗/攻击/吓唬狗'},
+      {v:'kid',l:'小孩不懂事，靠近摸狗'},
+    ]
+  },
+  {
+    id:'q4',q:'伤得有多重？',
+    opts:[
+      {v:'scratch',l:'轻微抓伤/咬伤，不需要缝针'},
+      {v:'wound',l:'需要缝针/伤口较深'},
+      {v:'disable',l:'骨折/构成伤残（十级以上）'},
+      {v:'face',l:'面部受伤/留疤/毁容'},
+      {v:'pregnant',l:'孕妇被咬（可能影响胎儿）'},
+    ]
+  },
+  {
+    id:'q5',q:'总共花了多少钱？（医疗+误工+交通等全部费用）',
+    opts:[
+      {v:'lt1000',l:'不到1000元（门诊+疫苗）'},
+      {v:'lt5000',l:'1000~5000元（门诊+疫苗+少量误工）'},
+      {v:'lt20000',l:'5000~20000元（住院/缝针/较多误工）'},
+      {v:'gt20000',l:'20000元以上（伤残/疤痕修复/长期治疗）'},
+      {v:'number',l:'我知道具体数字，填在下面→'},
+    ],
+    hasInput:true
+  }
+];
+
+// ═══════════════════════════════════
+// 渲染
+// ═══════════════════════════════════
+var a = {};
+
+function renderQuestions(){
+  var html='';
+  QS.forEach(function(q,i){
+    var optsHtml='';
+    q.opts.forEach(function(o){
+      optsHtml += '<label onclick="sel(\''+q.id+'\',\''+o.v+'\',this)"><input type="radio" name="'+q.id+'">'+o.l+'</label>';
+    });
+    var extHtml='';
+    if(q.hasInput){
+      extHtml='<div class="ext" id="ext_'+q.id+'"><div style="font-size:12px;color:var(--ts);margin-bottom:6px">填上你的具体花费（元）</div><textarea placeholder="请填写具体数字，如 3500" oninput="extInput(\''+q.id+'\',this.value)"></textarea></div>';
+    }else{
+      extHtml='<div class="ext" id="ext_'+q.id+'"><textarea placeholder="补充说明：如果有其他情况，请写在这里" oninput="extInput(\''+q.id+'\',this.value)"></textarea></div>';
+    }
+    html += '<div class="qb" id="qb_'+i+'"><div class="qt"><span class="num">'+(i+1)+'</span>'+q.q+'</div><div class="op">'+optsHtml+'</div>'+extHtml+'</div>';
+  });
+  document.getElementById('questions').innerHTML = html;
+  document.getElementById('progressBar').style.display='flex';
+  var firstQ = document.querySelector('.qb');
+  if(firstQ) firstQ.classList.add('active');
+}
+
+var sel = function(qid,val,el){
+  var labels=el.parentElement.querySelectorAll('label');
+  for(var i=0;i<labels.length;i++) labels[i].classList.remove('sel');
+  el.classList.add('sel');
+  a[qid]=val;
+  var ext=document.getElementById('ext_'+qid);
+  if(ext) ext.classList.add('show');
+  updateProgress();
+  var qb=el.closest('.qb');
+  if(qb){
+    var next=qb.nextElementSibling;
+    while(next && !next.classList.contains('qb')) next=next.nextElementSibling;
+    if(next) next.classList.add('active');
+  }
+};
+
+var extInput = function(qid,val){
+  if(val) a[qid+'_ext']=val;
+};
+
+function updateProgress(){
+  var n=0;
+  for(var k in a){
+    if(k.match(/^q\d+$/) && !k.match(/_ext$/)) n++;
+  }
+  var pct=Math.round(n/5*100);
+  if(pct>100) pct=100;
+  document.getElementById('done').textContent=n;
+  document.getElementById('pct').textContent=pct;
+  document.getElementById('progFill').style.width=pct+'%';
+  if(n>=5){
+    document.getElementById('analyzeBtn').disabled=false;
+    document.getElementById('analyzeBtn').textContent='🔍 算算我能拿多少钱';
+  }else{
+    document.getElementById('analyzeBtn').disabled=true;
+    document.getElementById('analyzeBtn').textContent='请先回答完所有问题（'+n+'/5）';
+  }
+}
+
+// ═══════════════════════════════════
+// 计算逻辑（按狗类型分支，案例不交叉）
+function calc(){
+  var r={type:'',ratio:0,pct:'',msg:'',cases:[],amt:'',feeTotal:0};
+  var dogType=a.q1, safety=a.q2, action=a.q3, inj=a.q4, fees=a.q5;
+  var ratio=100;
+
+  // ═══ ① 禁养/烈性犬（第1247条）→ 绝对全责 ═══
+  if(dogType==='banned'){
+    r.type='c'; ratio=100;
+    r.cases=[CASES[0],CASES[8]]; // 阿拉斯加案+吉林再审案
+    r.msg='咬人的是禁养或禁止饲养的烈性犬/大型犬。根据民法典第1247条，无论受害人有无过错，饲养人均承担全部赔偿责任。';
+  }
+
+  // ═══ ② 流浪狗 → 找原主人/物业/投喂者 ═══
+  else if(dogType==='stray'){
+    r.type='a'; ratio=60;
+    r.cases=[CASES[9],CASES[10],CASES[11]]; // 郴州案+奉新案+定西案
+    r.msg='流浪狗咬人，首选找原饲养人赔偿（民法典第1249条）。找不到原主人时，物业有过错（明知流浪狗不管）由物业赔，长期投喂者也要担责。';
+  }
+
+  // ═══ ③ 普通犬/大型犬 → 看过错+安全措施 ═══
+  else {
+    // 受害人过错判定
+    if(action==='provoke'){
+      ratio=50; r.type='a';
+      r.cases=[CASES[7]]; // 宁夏银川案：受害人逗狗自担20%
+      r.msg='你挑逗/攻击了狗，属于重大过失。根据民法典第1245条，饲养人可以减轻责任（约各担50%）。';
+    }else if(action==='touch'){
+      ratio=80; r.type='a';
+      r.cases=[CASES[7]]; // 同上，但比例更轻
+      r.msg='你主动去摸/逗狗，可能构成重大过失。主人通常承担大部分责任（约80%），你承担约20%。';
+    }else if(action==='kid'){
+      r.type='c'; ratio=100;
+      r.cases=[CASES[15]]; // 河南驻马店案：小孩摸普通犬不减责
+      r.msg='小孩不懂事摸狗，属于一般过失，不减轻饲养人责任。饲养人承担全部赔偿责任。';
+    }else{
+      r.type='c'; ratio=100;
+      r.cases=[CASES[6],CASES[14]]; // 荆门案+北京案：路人无过错
+      r.msg='你正常路过/无招惹行为，饲养人应当承担100%赔偿责任（民法典第1245条）。';
+    }
+
+    // 安全措施违规 → 加重
+    if(safety==='noleash'||safety==='child'){
+      r.type='c';
+      r.msg+=' 此外，狗主人未采取安全措施（不拴绳/让小孩遛狗），根据民法典第1246条，即使你有过失，主人也不能完全免责。';
+      // 补充案例：最高法案例二（小孩遛狗）
+      r.cases.push(CASES[1]);
+    }
+  }
+
+  r.ratio=ratio;
+  r.pct=ratio===100?'狗主人承担全部赔偿责任':'狗主人承担约'+ratio+'%责任';
+
+  // ═══ 总费用计算 ═══
+  var totalFee=0;
+  var feeMap={lt1000:500,lt5000:3000,lt20000:10000,gt20000:30000};
+  totalFee=feeMap[fees]||500;
+  // 具体数字
+  if(fees==='number'){
+    totalFee=a.q5_ext?parseFloat(a.q5_ext):0;
+    if(!a.q5_ext){r.msg+=' ⚠️ 请在上方输入框填写具体费用。';}
+  }
+
+  // 伤情加重（额外加成，不在比例折扣范围内）
+  if(inj==='disable'){totalFee+=50000;r.msg+=' 构成伤残等级，可主张残疾赔偿金。';}
+  if(inj==='face'){totalFee+=20000;r.msg+=' 面部受伤/毁容，可主张精神损害抚慰金。';}
+  if(inj==='pregnant'){totalFee+=2000;r.msg+=' 孕妇被咬，可能影响胎儿，法院支持赔偿。';r.cases=[CASES[3]];}
+  if(inj==='disable'||inj==='face'||inj==='pregnant'){
+    r.msg+=' 注意：精神损害抚慰金通常在达到伤残或严重后果时支持。';
+  }
+
+  // 赔偿 = 总费用 × 责比（伤残费全额不折扣）
+  var baseFee=totalFee-({
+    disable:50000,face:20000,pregnant:2000
+  }[inj]||0);
+  var bonusFee=totalFee-baseFee;
+  r.feeTotal=Math.round(baseFee*ratio/100+bonusFee);
+  r.amt=r.feeTotal>0?r.feeTotal.toLocaleString():'需协商';
+
+  return r;
+}
+
+// ═══════════════════════════════════
+// 显示结果
+// ═══════════════════════════════════
+function render(r){
+  var html='';
+  var cls=r.type||'g';
+  var tag=cls==='c'?'违法行为·可主张全赔':(cls==='a'?'双方过错·按比例赔':'可协商赔偿');
+
+  html+='<h2>赔偿预判</h2>';
+  html+='<div class="r '+cls+'">'+tag+'</div>';
+  html+='<div class="desc">'+r.msg+'</div>';
+  html+='<div class="mtx" style="text-align:center;margin:16px 0"><span style="font-size:22px;font-weight:800;color:'+(cls==='c'?'var(--c)':cls==='a'?'#854f0b':'var(--g)')+'">'+r.amt+'</span><span style="font-size:14px;color:var(--ts)"> 元（预估区间）</span></div>';
+  html+='<div class="law">📖 民法典第1245-1251条 · 饲养动物损害责任<br>'+r.pct+'</div>';
+
+  // 案例
+  html+='<div style="margin-top:16px"><strong style="font-size:14px">📚 参考案例</strong></div>';
+  for(var i=0;i<r.cases.length;i++){
+    var c=r.cases[i];
+    html+='<div class="case"><div class="ctitle">'+c.title+'</div><div class="cinfo">'+c.court+' · '+c.fact+'</div><div class="cresult"><span class="tag '+c.type+'">'+c.tag+'</span> '+c.result+'</div></div>';
+  }
+
+  document.getElementById('resultContent').innerHTML=html;
+  document.getElementById('result').classList.add('active');
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+document.getElementById('analyzeBtn').onclick=function(){
+  var r=calc();
+  render(r);
+};
+
+function genLongImage(){
+  var el=document.getElementById('result');
+  html2canvas(el,{scale:2,backgroundColor:'#f5f3ef',useCORS:true,allowTaint:true})
+    .then(function(canvas){
+      document.getElementById('longImg').src=canvas.toDataURL('image/png');
+      document.getElementById('overlay').classList.add('show');
+    });
+}
+
+renderQuestions();
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   Copyright 2026 游初 (WeChat: Cyruswcx)
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+================================================================================
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute
+          must include a readable copy of the attribution notices
+          contained within such NOTICE file, excluding those notices
+          that do not pertain to any part of the Derivative Works, in
+          at least one of the following places: within a NOTICE text
+          file distributed as part of the Derivative Works; within the
+          Source form or documentation, if provided along with the
+          Derivative Works; or, within a display generated by the
+          Derivative Works, if and wherever such third-party notices
+          normally appear. The contents of the NOTICE file are for
+          informational purposes only and do not modify the License.
+          You may add Your own attribution notices within Derivative
+          Works that You distribute, alongside or as an addendum to
+          the NOTICE text from the Work, provided that such additional
+          attribution notices cannot be construed as modifying the
+          License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+================================================================================
+
+NOTICE / 声明
+
+This project, "gutachten-civil-case" (鉴定式民法案例研习 Skill), is an
+original work by 游初 (You Chu).
+
+本项目"gutachten-civil-case"（鉴定式民法案例研习 Skill）由游初原创开发。
+
+The skill implements the German Gutachtenstil (鉴定式案例分析法) methodology
+adapted for Chinese civil law practice, featuring an outline-engine that
+performs independent legal analysis without external knowledge base dependencies.
+
+本技能将德国鉴定式案例分析方法论（Gutachtenstil）适配中国民法实务，通过内置
+大纲引擎（outline-engine）独立完成法律分析，无需依赖外部知识库。
+
+================================================================================
+
+ACADEMIC ACKNOWLEDGMENT / 学术参考致谢
+
+The research and development of this skill package referenced the following
+scholarly works on the Anspruchsgrundlage (请求权基础) methodology and legal
+interpretation:
+
+本技能包研发过程中参考了以下请求权基础方法论与法律解释领域的学术著作：
+
+1. 吴香香：《请求权基础：方法、体系与实例》，北京大学出版社，2021年7月第1版。
+   Wu Xiangxiang, "Anspruchsgrundlage: Method, System and Examples"
+   (Peking University Press, 1st ed., July 2021).
+
+2. 吴香香：《民事案由请求权基础》，中国法制出版社，2024年5月第1版。
+   Wu Xiangxiang, "Anspruchsgrundlage for Civil Case Causes of Action"
+   (China Legal Publishing House, 1st ed., May 2024).
+
+3. [德] 罗尔夫·旺克（Rolf Wank）著，蒋毅、季红明译：《法律解释（第六版）》，
+   北京大学出版社，2020年12月第1版。
+   Rolf Wank, "Juristische Methodenlehre (6. Aufl.)", translated by
+   Jiang Yi & Ji Hongming (Peking University Press, 1st Chinese ed.,
+   December 2020).
+
+The author gratefully acknowledges the contributions of the above scholars
+to the methodology of legal case analysis. The workflow design of this skill
+draws upon selected methodological frameworks from these works, adapted and
+extended for AI-assisted implementation.
+
+作者衷心感谢上述学者对法律案例分析方法论的学术贡献。本技能包的工作流设计参考
+了这些著作中的部分方法论框架，并在此基础上进行了适配与扩展，以实现 AI 辅助的
+鉴定式案例分析自动化。
+
+================================================================================
+
+CONTACT / 联系方式
+
+Author / 作者: 游初 (You Chu)
+Email / 邮箱: 994559732@qq.com
+WeChat / 微信: Cyruswcx
+
+For questions, suggestions, or collaboration inquiries, feel free to reach out
+via WeChat.
+
+如有问题、建议或合作意向，欢迎通过微信联系。
+
+================================================================================
+
+ADDITIONAL TERMS / 附加条款
+
+1. Attribution / 署名要求:
+   If you use, modify, or redistribute this skill or any substantial portion
+   thereof, please retain this copyright notice and provide appropriate
+   attribution to the original author.
+
+   如您使用、修改或再分发本技能或其实质性部分，请保留本版权声明并对原作者
+   进行适当署名。
+
+2. No Endorsement / 非背书声明:
+   The name "游初" and "gutachten-civil-case" shall not be used to endorse or
+   promote derivative works without prior written permission.
+
+   未经事先书面许可，不得使用"游初"或"gutachten-civil-case"名称为衍生作品
+   背书或进行推广。
+
+3. Academic Integrity / 学术诚信:
+   This skill is designed as a learning and practice aid. Users are responsible
+   for ensuring academic integrity in their own use of this tool.
+
+   本技能旨在作为学习和实务辅助工具。用户应自行确保使用本工具时的学术诚信。
+
+4. Respect for Referenced Works / 尊重参考著作:
+   The academic works referenced in the Academic Acknowledgment section above
+   are the intellectual property of their respective authors and publishers.
+   Users of this skill are encouraged to purchase and study the original works
+   for a deeper understanding of the underlying methodology.
+
+   上述"学术参考致谢"部分所引用的学术著作，其知识产权归 respective 作者及
+   出版社所有。鼓励本技能用户购买并研读原著，以深入理解底层方法论。

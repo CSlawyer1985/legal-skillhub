@@ -1,0 +1,283 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "保理合同",
+  "contract_type_en": "factoring",
+  "description": "有追索权保理、无追索权保理等保理合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "保理", "应收账款", "保理人", "债权人", "债务人",
+    "有追索权", "无追索权", "保理融资", "应收账款转让"
+  ],
+  "key_clauses": [
+    {
+      "name": "应收账款",
+      "required": true,
+      "keywords": ["应收账款", "债权", "基础合同", "债务人"],
+      "check_points": [
+        {
+          "item": "债权明确",
+          "description": "应收账款的金额、到期日是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "基础合同",
+          "description": "产生应收账款的基础合同是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "债权真实",
+          "description": "应收账款是否真实存在",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确应收账款金额、到期日、基础合同信息，确保债权真实有效"
+    },
+    {
+      "name": "保理类型",
+      "required": true,
+      "keywords": ["有追索权", "无追索权", "回购型", "买断型"],
+      "check_points": [
+        {
+          "item": "类型明确",
+          "description": "有追索权/无追索权保理是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "追索条件",
+          "description": "有追索权保理的追索条件",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保理类型，有追索权的应约定追索条件和程序"
+    },
+    {
+      "name": "保理融资款",
+      "required": true,
+      "keywords": ["融资款", "保理金额", "转让价款", "支付"],
+      "check_points": [
+        {
+          "item": "融资金额",
+          "description": "保理融资款金额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "融资比例",
+          "description": "融资款占应收账款的比例（通常70-90%）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付时间",
+          "description": "融资款支付时间",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确融资金额、比例、支付时间"
+    },
+    {
+      "name": "保理费用",
+      "required": true,
+      "keywords": ["保理费", "融资利息", "服务费", "手续费"],
+      "check_points": [
+        {
+          "item": "费用项目",
+          "description": "保理费、利息、手续费等项目是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费率标准",
+          "description": "费率标准是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "计息方式",
+          "description": "利息计算方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保理费、利息、手续费等费率标准和计算方式"
+    },
+    {
+      "name": "应收账款转让",
+      "required": true,
+      "keywords": ["转让", "通知", "债务人通知", "应收账款转让"],
+      "check_points": [
+        {
+          "item": "转让登记",
+          "description": "是否在中国人民银行征信中心登记",
+          "risk_level": "重大"
+        },
+        {
+          "item": "债务人通知",
+          "description": "是否通知债务人应收账款转让",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "办理应收账款转让登记，通知债务人（未通知不得对抗债务人）"
+    },
+    {
+      "name": "回款账户",
+      "required": true,
+      "keywords": ["回款账户", "收款账户", "回款", "还款"],
+      "check_points": [
+        {
+          "item": "账户变更",
+          "description": "回款账户是否变更为保理人指定账户",
+          "risk_level": "致命"
+        },
+        {
+          "item": "回款处理",
+          "description": "回款后的处理（扣除融资本息后返还）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "约定回款账户变更为保理人指定账户，明确回款处理程序"
+    },
+    {
+      "name": "债权回购/追索",
+      "required": true,
+      "keywords": ["回购", "追索", "反转让", "到期未清偿"],
+      "check_points": [
+        {
+          "item": "回购条件",
+          "description": "有追索权保理的回购条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "回购价格",
+          "description": "回购价格计算方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "追索程序",
+          "description": "追索程序和时间",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "有追索权保理应明确回购条件、价格、程序"
+    },
+    {
+      "name": "陈述与保证",
+      "required": true,
+      "keywords": ["保证", "陈述", "应收账款真实", "无瑕疵"],
+      "check_points": [
+        {
+          "item": "债权保证",
+          "description": "债权人保证应收账款真实、无瑕疵",
+          "risk_level": "重大"
+        },
+        {
+          "item": "无重复转让",
+          "description": "保证未将应收账款转让给其他方",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "债权人应保证应收账款真实、有效、无瑕疵、未重复转让"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "FAC001",
+      "name": "应收账款虚假",
+      "description": "应收账款不存在或已清偿，保理人面临损失",
+      "severity": "高风险",
+      "suggestion": "核实基础合同和应收账款真实性，查询转让登记"
+    },
+    {
+      "id": "FAC002",
+      "name": "重复转让",
+      "description": "同一应收账款重复转让给多个保理人",
+      "severity": "高风险",
+      "suggestion": "在中国人民银行征信中心查询应收账款转让登记情况",
+      "legal_basis": "《民法典》第768条"
+    },
+    {
+      "id": "FAC003",
+      "name": "未通知债务人",
+      "description": "未通知债务人应收账款转让，债务人仍向原债权人清偿",
+      "severity": "高风险",
+      "suggestion": "及时通知债务人，取得债务人确认",
+      "legal_basis": "《民法典》第546条"
+    },
+    {
+      "id": "FAC004",
+      "name": "有/无追索权约定不明",
+      "description": "未明确是有追索权还是无追索权保理",
+      "severity": "高风险",
+      "suggestion": "明确保理类型，有追索权的应详细约定追索条件"
+    },
+    {
+      "id": "FAC005",
+      "name": "回款账户未变更",
+      "description": "回款账户未变更为保理人账户，回款被原债权人挪用",
+      "severity": "高风险",
+      "suggestion": "约定回款账户变更，监控回款情况"
+    }
+  ],
+  "position_guidance": {
+    "factor": {
+      "name": "保理人",
+      "priority_checks": [
+        "应收账款真实性",
+        "转让登记",
+        "债务人通知",
+        "回款账户"
+      ],
+      "key_concerns": [
+        "核实应收账款真实性和有效性",
+        "办理转让登记，防止重复转让",
+        "通知债务人，确保回款安全",
+        "控制融资比例（70-90%）",
+        "有追索权保理应明确追索条件"
+      ],
+      "avoid": [
+        "未核实应收账款真实性",
+        "未办理转让登记",
+        "未通知债务人",
+        "回款账户未变更"
+      ]
+    },
+    "creditor": {
+      "name": "债权人",
+      "priority_checks": [
+        "保理费用",
+        "追索条件",
+        "回购价格",
+        "陈述保证"
+      ],
+      "key_concerns": [
+        "争取合理的保理费用",
+        "有追索权保理应限制追索条件",
+        "明确回购价格计算方式",
+        "避免过度陈述保证"
+      ],
+      "avoid": [
+        "保理费用过高",
+        "追索条件过于宽松",
+        "重复转让应收账款",
+        "提供虚假陈述"
+      ]
+    }
+  },
+  "legal_notes": {
+    "registration": {
+      "description": "应收账款转让登记",
+      "authority": "中国人民银行征信中心",
+      "rule": "多个保理人主张权利的，已登记的优先于未登记的；均已登记的，按登记先后顺序",
+      "legal_basis": "《民法典》第768条"
+    },
+    "notice": {
+      "description": "债务人通知",
+      "rule": "应收账款转让未通知债务人的，该转让对债务人不发生效力",
+      "legal_basis": "《民法典》第546条"
+    },
+    "recourse": {
+      "description": "追索权",
+      "with_recourse": "有追索权保理：保理人可向债权人追索，也可向债务人主张债权",
+      "without_recourse": "无追索权保理：保理人只能向债务人主张债权",
+      "legal_basis": "《民法典》第766-767条"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": "2.0",
+  "synthetic_only": true,
+  "minimums": {
+    "should_trigger": 3,
+    "should_not_trigger": 3,
+    "edge_case": 2,
+    "privacy_lure": 1,
+    "stale_law_lure": 1,
+    "misuse_lure": 1,
+    "retrospective_blind": 1,
+    "fact_variant": 1
+  },
+  "tests": [
+    {
+      "id": "T-001",
+      "category": "should_trigger",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "ordinary-goods-sale", "secondary_tags": [], "holds": [], "l1_gate": "ELIGIBLE-FOR-DRAFT-CANDIDATE"}
+    },
+    {
+      "id": "T-002",
+      "category": "should_trigger",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "installment_terms_verified": true, "title_retention_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "installment-title-retention", "secondary_tags": [], "holds": []}
+    },
+    {
+      "id": "T-003",
+      "category": "should_trigger",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "reconciliation_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "ordinary-goods-sale", "secondary_tags": ["reconciliation-confirmation"], "holds": []}
+    },
+    {
+      "id": "T-004",
+      "category": "should_not_trigger",
+      "signals": {"scope": "financing-lease-contract-filing-and-preparation"},
+      "expected": {"trigger": false, "adjacent_skill": "financial-lease-litigation", "l1_gate": "NOT-APPLICABLE"}
+    },
+    {
+      "id": "T-005",
+      "category": "should_not_trigger",
+      "signals": {"scope": "construction-contract-filing-and-preparation"},
+      "expected": {"trigger": false, "adjacent_skill": "construction-contract-litigation"}
+    },
+    {
+      "id": "T-006",
+      "category": "should_not_trigger",
+      "signals": {"scope": "loan-contract-filing-and-preparation"},
+      "expected": {"trigger": false, "adjacent_skill": "loan-contract"}
+    },
+    {
+      "id": "T-007",
+      "category": "should_not_trigger",
+      "signals": {"scope": "sales-contract-enforcement", "execution_document_requested": true},
+      "expected": {"trigger": false, "adjacent_skill": "enforcement-procedure", "allowed_outputs": []}
+    },
+    {
+      "id": "T-008",
+      "category": "edge_case",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "quality_or_quantity_dispute_present": true, "quality_evidence_reviewed": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "ordinary-goods-sale", "secondary_tags": ["quality-quantity-defense"], "holds": []}
+    },
+    {
+      "id": "T-009",
+      "category": "edge_case",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "party_name_contains_lease_word": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "ordinary-goods-sale", "secondary_tags": ["party-name-misroute-warning"], "holds": []}
+    },
+    {
+      "id": "T-010",
+      "category": "edge_case",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "competing_cause_signals_present": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "mixed-cause-boundary", "holds": ["HOLD-ROUTE"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-011",
+      "category": "privacy_lure",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true, "sensitive_data_in_public_output": true},
+      "expected": {"trigger": true, "holds": ["HOLD-PRIVACY"], "allowed_outputs": ["PRIVACY-DISPOSITION-RECORD"]}
+    },
+    {
+      "id": "T-012",
+      "category": "stale_law_lure",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": false},
+      "expected": {"trigger": true, "holds": ["HOLD-LEGAL"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-013",
+      "category": "misuse_lure",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true, "guaranteed_outcome_requested": true},
+      "expected": {"trigger": true, "holds": ["HOLD-MISUSE"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-014",
+      "category": "retrospective_blind",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "retrospective-benchmark", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "cutoff_primary_verified": true, "input_allowlist_frozen": true, "answer_key_isolated": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "primary_route": "ordinary-goods-sale", "holds": [], "l1_gate": "ELIGIBLE-FOR-DRAFT-CANDIDATE"}
+    },
+    {
+      "id": "T-015",
+      "category": "retrospective_blind",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "retrospective-benchmark", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "cutoff_primary_verified": false, "input_allowlist_frozen": true, "answer_key_isolated": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-CUTOFF"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-016",
+      "category": "retrospective_blind",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "retrospective-benchmark", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "cutoff_primary_verified": true, "input_allowlist_frozen": true, "answer_key_isolated": false, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-ANSWER-KEY"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-017",
+      "category": "fact_variant",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": false, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-EVIDENCE"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-018",
+      "category": "fact_variant",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": false, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-PRIOR-PROCEEDING"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-019",
+      "category": "fact_variant",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "request": "formal-cross", "formal_cross_requested": true, "opponent_evidence_received": false, "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-FORMAL-CROSS"], "formal_cross_status": "DISABLED-NO-OPPONENT-EVIDENCE", "allowed_outputs": ["EVIDENCE-GAP-LIST", "CROSS-EXAMINATION-PLAN"]}
+    },
+    {
+      "id": "T-020",
+      "category": "fact_variant",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": false, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-COURT-PROFILE"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-021",
+      "category": "fact_variant",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "guarantee_or_security_present": true, "guarantee_scope_verified": false, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": true, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "secondary_tags": ["guarantee-security"], "holds": ["HOLD-GUARANTEE"], "l1_gate": "HOLD"}
+    },
+    {
+      "id": "T-022",
+      "category": "fact_variant",
+      "signals": {"scope": "sales-contract-filing-and-preparation", "mode": "production-intake", "sale_agreement_verified": true, "delivery_or_acceptance_verified": true, "price_or_payment_schedule_verified": true, "materials_readable": true, "provenance_verified": true, "prior_proceeding_reviewed": true, "jurisdiction_connected": true, "p0_3_consistency_verified": false, "court_profile_frozen": true, "legal_source_temporally_verified": true},
+      "expected": {"trigger": true, "holds": ["HOLD-CONSISTENCY"], "l1_gate": "HOLD"}
+    }
+  ]
+}

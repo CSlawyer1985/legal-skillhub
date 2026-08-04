@@ -1,0 +1,6 @@
+interface:
+  display_name: "MVP 隐私协议自助生成器"
+  short_description: "收集产品信息，生成并复查 MVP 最小合规版隐私协议。"
+  default_prompt: "使用 $privacy-policy-self-service-generator-mvp，按 MVP / 最小合规版本处理；收集产品事实，在不覆盖既有内容的前提下生成基础隐私协议、缺口清单和复查报告。"
+policy:
+  allow_implicit_invocation: true

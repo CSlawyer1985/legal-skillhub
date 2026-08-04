@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>劳动纠纷法律程序模拟报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 封面 */
+        .cover {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 80px 60px;
+            text-align: center;
+        }
+        
+        .cover h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .cover .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .cover .info-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .cover .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .cover .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cover .label {
+            opacity: 0.8;
+        }
+        
+        .cover .value {
+            font-weight: 500;
+        }
+        
+        /* 内容区 */
+        .content {
+            padding: 50px 60px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #1e3c72;
+            border-left: 4px solid #1e3c72;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            padding-left: 19px;
+        }
+        
+        /* 信息卡片 */
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            color: #2a5298;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .info-row {
+            display: flex;
+            padding: 8px 0;
+        }
+        
+        .info-label {
+            width: 120px;
+            color: #666;
+            flex-shrink: 0;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        /* 时间线 */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ddd;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #2a5298;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #2a5298;
+        }
+        
+        .timeline-item.completed::before {
+            background: #28a745;
+            box-shadow: 0 0 0 2px #28a745;
+        }
+        
+        .timeline-item.pending::before {
+            background: #ccc;
+            box-shadow: 0 0 0 2px #ccc;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-content {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 文书列表 */
+        .doc-list {
+            list-style: none;
+        }
+        
+        .doc-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 3px solid #2a5298;
+        }
+        
+        .doc-icon {
+            width: 40px;
+            height: 40px;
+            background: #2a5298;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+        
+        .doc-info {
+            flex: 1;
+        }
+        
+        .doc-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        
+        .doc-meta {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .doc-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .doc-status.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .doc-status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        /* 胜诉率 */
+        .win-rate-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .win-rate-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .rate-item {
+            text-align: center;
+        }
+        
+        .rate-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .rate-circle.employee {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .rate-circle.company {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .rate-number {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .rate-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .rate-title {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .rate-analysis {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .rate-analysis h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .rate-analysis p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* 表格 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* 结论 */
+        .conclusion {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .conclusion h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .conclusion p {
+            opacity: 0.95;
+            line-height: 2;
+        }
+        
+        /* 提示框 */
+        .tip-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2a5298;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .tip-box.warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .tip-box.success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: #f8f9fa;
+            padding: 30px 60px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 封面 -->
+        <div class="cover">
+            <h1>劳动纠纷法律程序模拟报告</h1>
+            <div class="subtitle">Labor Dispute Legal Procedure Simulation Report</div>
+            
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="label">员工姓名</span>
+                    <span class="value">{{员工姓名}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">公司名称</span>
+                    <span class="value">{{公司名称}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">纠纷类型</span>
+                    <span class="value">{{纠纷类型}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">模拟日期</span>
+                    <span class="value">{{模拟日期}}</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">当前阶段</span>
+                    <span class="value">{{当前阶段}}</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 内容区 -->
+        <div class="content">
+            <!-- 案件基本信息 -->
+            <div class="section">
+                <h2 class="section-title">一、案件基本信息</h2>
+                <div class="section-content">
+                    <div class="info-card">
+                        <h3>员工信息</h3>
+                        <div class="info-grid">
+                            <div class="info-row">
+                                <span class="info-label">姓名：</span>
+                                <span class="info-value">{{员工姓名}}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">入职时间：</span>
+                                <span class="info-value">{{入职日期}}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">岗位：</span>
+                                <span class="info-value">{{岗位名称}}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">离职时间：</span>
+                                <span class="info-value">{{离职日期}}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">工作年限：</span>
+                                <span class="info-value">{{工作年限}}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">月平均工资：</span>
+                                <span class="info-value">{{月平均工资}} 元</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>公司信息</h3>
+                        <div class="info-grid">
+                            <div class="info-row">
+                                <span class="info-label">公司名称：</span>
+                                <span class="info-value">{{公司名称}}</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">公司地址：</span>
+                                <span class="info-value">{{公司地址}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>争议概况</h3>
+                        <div class="info-row">
+                            <span class="info-label">纠纷类型：</span>
+                            <span class="info-value">{{纠纷类型}}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">争议焦点：</span>
+                            <span class="info-value">{{争议焦点}}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">纠纷地点：</span>
+                            <span class="info-value">{{纠纷地点}}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">仲裁时效：</span>
+                            <span class="info-value">{{仲裁时效状态}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 程序流程记录 -->
+            <div class="section">
+                <h2 class="section-title">二、程序流程记录</h2>
+                <div class="section-content">
+                    <div class="timeline">
+                        <div class="timeline-item {{仲裁状态}}">
+                            <div class="timeline-title">第一阶段：劳动仲裁</div>
+                            <div class="timeline-content">
+                                {{仲裁阶段描述}}
+                            </div>
+                        </div>
+                        <div class="timeline-item {{一审状态}}">
+                            <div class="timeline-title">第二阶段：一审诉讼</div>
+                            <div class="timeline-content">
+                                {{一审阶段描述}}
+                            </div>
+                        </div>
+                        <div class="timeline-item {{二审状态}}">
+                            <div class="timeline-title">第三阶段：二审诉讼</div>
+                            <div class="timeline-content">
+                                {{二审阶段描述}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 生成文书清单 -->
+            <div class="section">
+                <h2 class="section-title">三、生成文书清单</h2>
+                <div class="section-content">
+                    <ul class="doc-list">
+                        {{文书列表}}
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 证据对抗要点 -->
+            <div class="section">
+                <h2 class="section-title">四、证据对抗要点</h2>
+                <div class="section-content">
+                    <div class="info-card">
+                        <h3>员工方主要证据</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>证据名称</th>
+                                    <th>证明目的</th>
+                                    <th>证据强度</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{员工方证据列表}}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>公司方主要证据</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>证据名称</th>
+                                    <th>证明目的</th>
+                                    <th>证据强度</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{公司方证据列表}}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>关键质证意见</h3>
+                        {{质证意见内容}}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 胜诉率评估 -->
+            <div class="section">
+                <h2 class="section-title">五、胜诉率评估</h2>
+                <div class="section-content">
+                    <div class="win-rate-box">
+                        <div class="win-rate-display">
+                            <div class="rate-item">
+                                <div class="rate-circle employee">
+                                    <span class="rate-number">{{员工方胜率}}%</span>
+                                    <span class="rate-label">胜诉概率</span>
+                                </div>
+                                <div class="rate-title">员工方</div>
+                            </div>
+                            <div class="rate-item">
+                                <div class="rate-circle company">
+                                    <span class="rate-number">{{公司方胜率}}%</span>
+                                    <span class="rate-label">胜诉概率</span>
+                                </div>
+                                <div class="rate-title">公司方</div>
+                            </div>
+                        </div>
+                        
+                        <div class="rate-analysis">
+                            <h4>评估分析</h4>
+                            <p>{{胜率分析内容}}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <strong>评估说明：</strong>本胜诉率评估基于双方提交的证据、法律适用情况和类似案例统计，仅供参考，不构成法律意见。实际结果可能因具体案情、法官裁量等因素而有所不同。
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模拟裁判结果 -->
+            <div class="section">
+                <h2 class="section-title">六、模拟裁判结果</h2>
+                <div class="section-content">
+                    <div class="info-card">
+                        <h3>查明事实</h3>
+                        <p>{{查明事实内容}}</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>裁判理由</h3>
+                        <p>{{裁判理由内容}}</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>裁判主文</h3>
+                        <p>{{裁判主文内容}}</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>赔偿金额明细</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>赔偿项目</th>
+                                    <th>计算方式</th>
+                                    <th>金额（元）</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{赔偿明细列表}}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2"><strong>合计</strong></td>
+                                    <td><strong>{{赔偿总额}} 元</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 法律建议 -->
+            <div class="section">
+                <h2 class="section-title">七、法律建议与后续指引</h2>
+                <div class="section-content">
+                    <div class="conclusion">
+                        <h3>专业建议</h3>
+                        <p>{{法律建议内容}}</p>
+                    </div>
+                    
+                    <div class="tip-box warning" style="margin-top: 20px;">
+                        <strong>重要提示：</strong>
+                        <ol style="margin-left: 20px; margin-top: 10px;">
+                            <li>本报告为模拟结果，仅供学习参考，不构成正式法律意见</li>
+                            <li>如需正式法律文书，请咨询专业劳动法律师</li>
+                            <li>注意仲裁时效（1年）和诉讼时效，避免超期</li>
+                            <li>证据材料需妥善保管原件，以备庭审使用</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>本报告由劳动纠纷法律程序模拟器生成 | 生成时间：{{生成时间}}</p>
+            <p>仅供参考学习，不构成法律意见</p>
+        </div>
+    </div>
+</body>
+</html>

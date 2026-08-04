@@ -1,0 +1,20 @@
+# 合同比对报告
+
+## 📋 文件信息
+- **模板文件**: input/合作协议模板.docx
+- **盖章合同**: input/合作协议_盖章版.pdf
+
+## 📊 比对结果总览
+- **风险等级**: 🟢 低
+- 🟢 新增条款: 1 处
+- 🔴 删除条款: 1 处
+- 🟡 修改内容: 0 处
+
+## 🟢 新增内容（模板 → 盖章合同）
+1. `BR LL BET Be (FF Hil RAS BR SHE AIS: TL2023042000136 xiii]: 2023 4 06 H 19 Ly DX AR a Fy: CTR “SH” HR RRA: RIM Soak: FE CUA) AH HUH 1S CRM) CARR ORLA” KRRRA: CE 2 & UPR “KK B” ) 2022 F 12 A ¥ fi, Met | eS FL: jute LE EK EMAL RT. —. WA ER WR. RO. RS” RIK, SEKNSEAA, =. I, Bone MELE iil HE Al, AS FEA = a BE AL ll TP RRR, CERFHR, At RRB A, SR I GIT ER AE (-) KRW els WRI “KAMER PO” AE ial “Male PO” AL, UP Ole MER tl P28 Fl ile RAP FE ES Up 4) AUR ME el BOR LARE@H, BH REA Al, BOK Fa 3 REF “Hae IN EO DEKE AL LE. LAN 1. FR eS LA EA EAR ME ARR RARE Ee. Ae EA. IGM. 8H 2 Mas, 3. SRR {Eo PH 2 FULT, GEIR RE ERR RK, REL Rb ees 2. Ee kK, FREE YH BID TRA BI. MAE SEAM MEL til LIGA RIE LF RR BAP BRA, HE EET 1. 2. FR: KDE RAI IK 3. RRL: i 4. FRG HAR: MA EEN Fela VRAIS, LA Yee AR, SAR Ay Sb, HAR, HK 8H 5. AOE. AY AL SE. 6. AGI Re: OR EE RR RIO FARMS Sy PRB BL AAR FL OL ARR RAM, RRR ERA RIE 2, AE: HE BHR. 3. EAA (A) EE ROME 1. RL SAE 1-2 KEE 2. STE A Rife 5 3. & 9 ob A A ET FRME 2-3 Ke =. SARE, RI AAR ER, WR, A, SLE LAUER, Ae EA. IGM. BRR 150 7 Ol Bt BRIA, 2. BRAK: CHK AAR Ht HE ES SE VRE Al Uh FA ye POY CA FEUAA EN 5 RA SEAR ME FB te » Hy, 1. BAAR PTA o DET RSE, SKE A, RAR Lee ER MR. AA RRS AO 4) 2. Bt PO TE IRAP YR RIE 3. HESS Al: CD tl (2 fr. 4, VY we” . HES BM Kea SES ERAN KAR UK. SA, SER), SAP fi CHIR AT) RSE wh AT AEH ES SE A AI THLE AWE A AL AT x ME 48 (1) RE HOR, 8H AEN AN FZ HET 12 RAMA ROAR, AAA. RHR, SERA, PRA EMS. 6. WAR BAIR PA Ae — CARA EN IPO 7 A — Tr RAR ES BARE WA 2. MRA RG A FR DA 3. OA AEA, RMA RRR, MAAS +. FORAAMMA ARS XS. MRMAIL, A, SBE ORI) le BAR. 2. a. MARA OY 4 OEM le AXA LE. 3. GEN, ARAM. AG Ae EA. IGM. HTH, 8H BEE WHE IX AE © AER HAIN A TRE 4. ERK, FL HEF 5. MAAR ARAM. 6. AMU-ACH, Ae EA. IGM. WREAK, Hr: HR (AH) A * AG GA: CRM) FA A PRBS LE EA. EIT TE.`
+
+## 🔴 删除内容（模板 → 盖章合同）
+1. `天津智赋岐黄医疗科技有限公司 哈尔滨工业大学（威海） 关于山东省数字服务计算技术与系统重点实验室建设 合作协议 合同编号： 签约时间： 2026年4月7日 签约地点： 安徽省合肥市 签约方 甲方： 天津智赋岐黄医疗科技有限公司 法定代表人：李坤 地址：安徽省合肥市经济技术开发区中德合作创新园4号楼5层 乙方： 哈尔滨工业大学（威海）（以下简称"哈工大"） 法定代表人：谭忆秋 地址：威海市文化西路2号 背景 山东省数字服务计算技术与系统重点实验室（以下简称"实验室"）是前沿技术研究类山东省重点实验室，是科技部2022年12月批准建设的全国重点实验室。甲方为实验室的建设运营单位。 为充分发挥双方优势，加强产学研结合，甲方与乙方围绕实验室的建设开展合作，经双方友好协商，现就合作事项达成如下协议： 第一条 合作宗旨 双方按照"开放、流动、联合、竞争"的建设原则，形成全方位、宽领域、多层次的合作关系，共促实验室高质量发展。 第二条 合作内容 甲方负责实验室整体建设工作，邀请哈工大作为山东省数字服务计算技术与系统重点实验室研究任务"中医临床大模型"的共建单位参与实验室平台建设，包括科学研究、人才培养、成果转化、学术交流等工作。同时，实验室支持哈工大交叉学科建设、促进科研成果转化、提升学生职业能力。 （一）共建协同创新中心 双方共建"大规模个性化定制系统与技术协同创新中心"（以下简称"协同创新中心"）作为合作的实体科研机构，协同创新中心下设多个研究室，如糖尿病中西医分型模型实验室、冠心病早期筛查模型实验室和中医皮肤病诊断模型实验室等。 协同创新中心由山东省数字服务计算技术与系统重点实验室和哈工大双重管理，既是实验室的下属中心，也是哈工大的科研机构，集中围绕实验室赋予的研究目标和任务开展工作，牵头开展实验室"中医临床大模型"科研工作，参与实验室其他科研工作。 （二）人才队伍合作 哈工大的高端学术人才参与实验室科研工作，充实实验室科研实力。 甲方聘请哈工大初佃辉教授担任山东省数字服务计算技术与系统重点实验室兼职副主任。 协同创新中心主任由哈工大提名，经与甲方协商一致后聘任，任期五年，试用期一年，考核合格后可以连任。 哈工大发挥学科综合优势，组织相关学院建立高水平研究团队（约40人），参与实验室科研工作。 （三）人才培养交流 双方共同探索务实的人才合作机制，在人才联合培养等方面开展合作。 根据实验室建设需求，哈工大聘任甲方行业资深人士为合作导师，共同建设研究生实践培养基地，联合培养专业型研究生，参与实验室课题研究和科研项目。校外合作导师应符合哈工大聘任条件。 哈工大根据实验室建设需求，与甲方联合招收博士后，开展实验室相关项目研究，为实验室定向培养人才。 （四）联合科研攻关 哈工大为实验室的整体科研工作献计献策，并牵头或参与其中部分项目建设。双方重点围绕大规模个性化定制理论技术系统等方向开展深入研究，努力产出原始创新成果和突破关键技术。科研、项目包括但不限于以下方式： 定向任务： 每年实验室向协同创新中心下达研究任务，由甲方和哈工大对任务完成情况进行考核。 开放课题： 实验室发布开放课题指南，哈工大可组织申报，由实验室评审。 应急课题： 结合当前形势和热点，由实验室设立临时性应急研究课题。 联合申报： 双方联合申报国家、省、市等第三方发布的项目。 自由建议： 哈工大将具有前瞻性、创新性、挑战性的科研建议提交实验室，由实验室论证。 系统集成： 双方配合确保研究成果能够系统地、无缝地集成和应用实际系统。 （五）场所设施保障 科研条件： 哈工大提供协同创新中心的科研、办公、交流和成果展示场所，并提供技术测试、成果展示等基础设施设备保障。 实验数据： 双方共同汇集科研所需数据，支持算法、核心技术等测试。 哈工大派驻实验室科研人员在青岛所需要的科研场所和条件，由甲方提供。 （六）高水平学术交流 双方建立长效合作机制，开展高水平国际学术交流合作。 两年内协同创新中心牵头举办1-2次国际学术研讨会议。 甲方支持协同创新中心研究人员每年参加学术会议或进行学术交流5人次以上。 协同创新中心每年邀请海内外知名学者来哈工大和实验室进行学术报告2-3次。 第三条 研讨机制 实验室每月召开研讨会，双方确定研讨主题、参加人员等，交流研究目标、任务、路线、进展、测试、应用、展示等，确保围绕主线、同向同行。 每半年由协同创新中心常务副主任提交报告，双方领导和专家共同进行阶段性进展评估，上报实验室主任，评估工作成效。 备注 本合同及其附件（如果有）除填写必需的合同签约主体、签约人、签约时间或已有的空格外，任何涂改、删除、增添均无效。`
+
+---
+*⚠️ 注：比对结果基于 OCR 文字识别，可能存在误差。请人工核对关键条款。*

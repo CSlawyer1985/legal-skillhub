@@ -1,0 +1,36 @@
+{
+  "project": "总裁的替身新娘",
+  "genre": "都市甜宠·逆袭",
+  "tone": "爽感强、节奏快",
+  "character_count": 4,
+  "cards": {
+    "林悦": {
+      "name": "林悦",
+      "role_type": "女性角色",
+      "anchor_zh": "林悦：25岁，清秀鹅蛋脸，黑长直，杏眼，纤瘦，身穿米色针织裙",
+      "seed": 1183472901,
+      "presence": {"episodes": [1, 2, 3, 4], "scene_count": 12, "shot_count": 68, "dialogue_lines": 41}
+    },
+    "顾北辰": {
+      "name": "顾北辰",
+      "role_type": "男性角色",
+      "anchor_zh": "顾北辰：30岁，冷峻方脸，寸头，深邃剑眉，宽肩，身穿深灰西装",
+      "seed": 209844117,
+      "presence": {"episodes": [1, 2, 3, 4], "scene_count": 10, "shot_count": 55, "dialogue_lines": 33}
+    },
+    "陈曼": {
+      "name": "陈曼",
+      "role_type": "反派/长辈角色",
+      "anchor_zh": "陈曼：28岁，艳丽狐狸脸，波浪长发，凤眼，身材高挑，身穿红色礼服",
+      "seed": 771230984,
+      "presence": {"episodes": [2, 3, 4], "scene_count": 6, "shot_count": 24, "dialogue_lines": 18}
+    },
+    "苏文": {
+      "name": "苏文",
+      "role_type": "男性角色",
+      "anchor_zh": "苏文：27岁，阳光圆脸，微卷短发，笑眼，中等身材，身穿休闲夹克",
+      "seed": 448190273,
+      "presence": {"episodes": [1, 3], "scene_count": 4, "shot_count": 15, "dialogue_lines": 9}
+    }
+  }
+}

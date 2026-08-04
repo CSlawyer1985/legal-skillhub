@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gaoyao:sales-contract-litigation:risk:0.1",
+  "title": "买卖合同纠纷风险记录",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["risk_id", "issue", "severity", "likelihood", "impact_on_claim", "evidence_basis", "hold_status", "recovery_condition"],
+  "properties": {
+    "risk_id": {"type": "string", "pattern": "^R-[0-9]{3,}$"},
+    "issue": {"type": "string", "minLength": 1},
+    "severity": {"enum": ["fatal", "major", "general"]},
+    "likelihood": {"enum": ["high", "medium", "low", "unknown"]},
+    "impact_on_claim": {"enum": ["delete", "amend", "downgrade", "filing-ok-but-win-or-recovery-risk"]},
+    "evidence_basis": {
+      "oneOf": [
+        {"const": "missing"},
+        {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      ]
+    },
+    "hold_status": {"type": "string", "pattern": "^(HOLD-[A-Z0-9-]+|NONE)$"},
+    "recovery_condition": {"type": "string", "minLength": 1},
+    "fabricated_probability": {"const": false}
+  }
+}

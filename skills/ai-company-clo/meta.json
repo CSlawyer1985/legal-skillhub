@@ -1,0 +1,12 @@
+﻿{
+    "version":  "1.1.1",
+    "skill":  "ai-company-clo",
+    "tags":  [
+                 "ai-company",
+                 "c-suite"
+             ],
+    "description":  "AI Company clo.ToUpper() skill",
+    "created":  "2026-04-12",
+    "name":  "ai-company-clo",
+    "author":  "johnsmithfan"
+}

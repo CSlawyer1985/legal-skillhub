@@ -1,0 +1,104 @@
+---
+skills:
+- id: L01_contract_intake
+  name: 合同接收与分类
+  purpose: 接收合同文件，识别合同类型、业务场景、版本和送审人。
+  inputs:
+  - contract_file
+  - message_text
+  - user_profile
+  outputs:
+  - contract_record
+  - contract_type
+  - version_info
+  human_review: true
+  audit_log: true
+- id: L02_contract_key_extract
+  name: 合同要素抽取
+  purpose: 抽取主体、金额、期限、付款、交付、违约、保密和争议解决等要素。
+  inputs:
+  - contract_text
+  outputs:
+  - key_terms
+  - party_info
+  - amount_terms
+  - deadline_terms
+  human_review: true
+  audit_log: true
+- id: L03_clause_risk_review
+  name: 条款风险审查
+  purpose: 按公司规则识别高风险条款、责任不对等、付款和交付风险。
+  inputs:
+  - key_terms
+  - contract_text
+  - risk_rules
+  outputs:
+  - risk_list
+  - risk_level
+  - policy_basis
+  human_review: true
+  audit_log: true
+- id: L04_template_compare
+  name: 条款模板对比
+  purpose: 与标准模板对比差异、缺失条款和非标条款。
+  inputs:
+  - contract_text
+  - standard_template
+  outputs:
+  - difference_list
+  - missing_clauses
+  - deviation_summary
+  human_review: true
+  audit_log: true
+- id: L05_revision_suggestion
+  name: 修改建议生成
+  purpose: 生成修改意见、替代条款、谈判口径和需确认事项。
+  inputs:
+  - risk_list
+  - difference_list
+  - business_context
+  outputs:
+  - revision_suggestions
+  - alternative_clauses
+  - negotiation_points
+  human_review: true
+  audit_log: true
+- id: L06_legal_qa
+  name: 法律咨询问答
+  purpose: 基于法律知识库和公司制度回答常见问题，并标注需人工确认事项。
+  inputs:
+  - question
+  - business_context
+  - knowledge_base
+  outputs:
+  - answer
+  - basis
+  - need_lawyer_confirm
+  human_review: true
+  audit_log: true
+- id: L07_approval_opinion
+  name: 合同审批意见生成
+  purpose: 汇总要素、风险和修改建议，生成法务审批意见草稿。
+  inputs:
+  - key_terms
+  - risk_list
+  - revision_suggestions
+  outputs:
+  - approval_opinion
+  - approval_card
+  - need_confirm
+  human_review: true
+  audit_log: true
+- id: L08_contract_ledger_update
+  name: 合同台账更新
+  purpose: 生成合同台账记录、期限提醒和风险标签。
+  inputs:
+  - key_terms
+  - approval_status
+  - contract_record
+  outputs:
+  - ledger_row
+  - reminders
+  - risk_tags
+  human_review: true
+  audit_log: true

@@ -1,0 +1,32 @@
+{
+  "schema_version": "financial-lease-direct-public-package-v3",
+  "name": "financial-lease-direct-litigation",
+  "version": "3.0.0",
+  "release_date": "2026-07-15",
+  "author": "李时瑀律师",
+  "license": "CC-BY-4.0",
+  "status": "public-release-ready",
+  "scope": "ordinary-direct-lease-only",
+  "hard_holds": [
+    "HOLD-MATERIAL-READABILITY",
+    "HOLD-ROUTE",
+    "HOLD-EVIDENCE"
+  ],
+  "required_deliverables": [
+    "editable-civil-complaint-docx",
+    "editable-evidence-index-docx",
+    "editable-missing-material-checklist-docx"
+  ],
+  "templates": [
+    "templates/民事起诉状-空白模板.docx",
+    "templates/证据目录-空白模板.docx",
+    "templates/缺失材料清单-空白模板.docx"
+  ],
+  "verified_authority_sources": [
+    "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+    "https://cicc.court.gov.cn/html/1/380/385/12843.html"
+  ],
+  "external_publication_performed": false,
+  "private_method_content_included": false,
+  "client_material_included": false
+}

@@ -1,0 +1,12 @@
+{
+ "schema": "gaotao.v11.acceptance-spec.v1",
+ "runs": [
+  {
+   "run_id": "sales-contract-case003",
+   "case_id": "CASE-003",
+   "md_src": "<local-source-redacted>",
+   "allowlist": "v1.1-vis-module/allowlists/necessary-english-CASE-003.json",
+   "bundle_spec": "v1.1-vis-module/allowlists/bundle-CASE-003.json"
+  }
+ ]
+}

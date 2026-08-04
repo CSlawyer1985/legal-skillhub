@@ -1,0 +1,16 @@
+name: NG Lawyer DB Build
+slug: ng-lawyer-db-build
+version: "0.1.0"
+description: >
+  Step-1 skill: web-research Nigeria lawyers and build a structured lawyer database for fast matching.
+author: Fei Gao
+inputs:
+  city:
+    type: string
+    description: "Target city/region in Nigeria. Currently: Lagos or Abuja."
+  practice:
+    type: string
+    description: "Target practice area. Example: Construction, RealEstate."
+  n_per_segment:
+    type: number
+    description: "Candidates per (Firm_Size x Position) segment. Default 3."

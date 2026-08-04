@@ -1,0 +1,18 @@
+{
+  "brand": "律锥",
+  "save_to_notes_enabled": true,
+  "notes_notebook": "法律咨询",
+  "search_intensity": 1.0,
+  "search_intensity_range": [0.5, 2.0],
+  "default_mode": "expert",
+  "quick_mode": {
+    "enabled": true,
+    "max_search_rounds": 1,
+    "max_law_articles": 3,
+    "max_cases": 2,
+    "no_internet_search": true,
+    "use_rag_only": true,
+    "skip_tiered_reading": true,
+    "output_template": "brief"
+  }
+}

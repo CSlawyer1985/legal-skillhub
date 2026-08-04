@@ -1,0 +1,39 @@
+{
+ "schema": "gaotao.six-package.viz-mit-evidence/v1",
+ "package_id": "litigation-visualization",
+ "validator_smoke": {
+  "validate_spec.py": {
+   "syntax": "OK",
+   "sha256": "5b71446ea24710e8624875ae55cc568f5a257956457624769f4cc67b7b0b5f06"
+  },
+  "validate_output.py": {
+   "syntax": "OK",
+   "sha256": "84bd8acd9524d528f976877b21137653632e5b4e86501280d2b09ba92720d47a"
+  }
+ },
+ "viz_engine_smoke": {
+  "mother-build_t4.py": {
+   "syntax": "OK",
+   "sha256": "aefe84ed02020aa8d2c3b987b156eb95aa6b08fa31362bb4f85c5007fd4a164a"
+  },
+  "mother-render_t4.py": {
+   "syntax": "OK",
+   "sha256": "6447260c9f966dda4b937c17a359021e9be5eece56172c1949c5872ee81c2f49"
+  },
+  "recovery-gen_case_views.py": {
+   "syntax": "OK",
+   "sha256": "cf236d5d2e720e18d839a1526974d05defacba1b4434520e8f129ea1cefdcdd1"
+  },
+  "recovery-render_views.py": {
+   "syntax": "OK",
+   "sha256": "ef4a39238c1d040941eb61d69f34fd9abb3729abf0c89972b95846e048ae9de2"
+  }
+ },
+ "mit_purity": {
+  "gpl_fulltext_files_outside_LICENSE": [],
+  "case_signature_hits_36lib": 0,
+  "scan_library": "node6L financial-lease desensitize_sigs.json基线a97b1d6e（外部扫描不入包）"
+ },
+ "fail_closed_contract": "缺失/篡改/跨案/锚集失配/关闭态产物→由集成方machine-gate强制（本包COPYRIGHT与SKILL声明单案后置07-only边界）",
+ "verdict": "PASS"
+}

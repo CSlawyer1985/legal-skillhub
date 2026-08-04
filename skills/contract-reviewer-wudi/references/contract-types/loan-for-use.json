@@ -1,0 +1,252 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "借用合同",
+  "contract_type_en": "loan-for-use",
+  "description": "动产借用、物品借用等无偿借用合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "借用", "借用人", "出借人", "无偿使用", "借用物",
+    "借用期限", "返还", "物品借用"
+  ],
+  "key_clauses": [
+    {
+      "name": "借用物",
+      "required": true,
+      "keywords": ["借用物", "标的物", "物品", "动产", "设备"],
+      "check_points": [
+        {
+          "item": "借用物明确",
+          "description": "借用物的名称、数量、质量、规格是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属清晰",
+          "description": "出借人对借用物享有所有权或处分权",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确借用物信息，确保权属清晰"
+    },
+    {
+      "name": "借用期限",
+      "required": true,
+      "keywords": ["借用期限", "期限", "借用期间", "使用时间"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "借用期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "续借",
+          "description": "是否可以续借及续借条件",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确借用期限，约定续借条件和程序"
+    },
+    {
+      "name": "借用物交付",
+      "required": true,
+      "keywords": ["交付", "移交", "占有转移", "接收"],
+      "check_points": [
+        {
+          "item": "交付时间",
+          "description": "借用物交付时间",
+          "risk_level": "重大"
+        },
+        {
+          "item": "交付状态",
+          "description": "借用物交付时的状态",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确交付时间和借用物状态，建议制作交接清单"
+    },
+    {
+      "name": "借用物使用",
+      "required": true,
+      "keywords": ["使用", "用途", "使用范围", "保管"],
+      "check_points": [
+        {
+          "item": "用途限制",
+          "description": "借用物用途是否有限制",
+          "risk_level": "一般"
+        },
+        {
+          "item": "保管义务",
+          "description": "借用人妥善保管借用物的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "禁止行为",
+          "description": "禁止转借、出租、出售等",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确借用物用途、保管义务、禁止转借出租出售"
+    },
+    {
+      "name": "借用物返还",
+      "required": true,
+      "keywords": ["返还", "归还", "到期返还", "返还状态"],
+      "check_points": [
+        {
+          "item": "返还时间",
+          "description": "借用物返还时间",
+          "risk_level": "重大"
+        },
+        {
+          "item": "返还状态",
+          "description": "借用物返还时的状态（自然损耗除外）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "返还地点",
+          "description": "借用物返还地点",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确返还时间、返还状态（自然损耗除外）、返还地点"
+    },
+    {
+      "name": "费用承担",
+      "required": false,
+      "keywords": ["费用", "维修费", "保养费", "保险"],
+      "check_points": [
+        {
+          "item": "维修费用",
+          "description": "借用物维修费用由谁承担",
+          "risk_level": "一般"
+        },
+        {
+          "item": "日常费用",
+          "description": "日常使用费用（如油费、电费）由谁承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确维修费用、日常使用费用的承担"
+    },
+    {
+      "name": "损毁责任",
+      "required": true,
+      "keywords": ["损毁", "灭失", "损坏", "赔偿"],
+      "check_points": [
+        {
+          "item": "损毁责任",
+          "description": "借用物损毁、灭失的赔偿责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "免责情形",
+          "description": "自然损耗、不可抗力等免责情形",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确借用人保管不善造成损毁的赔偿责任，自然损耗和不可抗力免责"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "LFU001",
+      "name": "借用物权属不清",
+      "description": "出借人对借用物无处分权，借用关系存在瑕疵",
+      "severity": "高风险",
+      "suggestion": "核实出借人对借用物享有所有权"
+    },
+    {
+      "id": "LFU002",
+      "name": "借用期限不明",
+      "description": "借用期限不明确，出借人无法及时收回借用物",
+      "severity": "中风险",
+      "suggestion": "明确借用期限，约定出借人可随时要求返还"
+    },
+    {
+      "id": "LFU003",
+      "name": "借用人擅自处分",
+      "description": "借用人将借用物转借、出租、出售或抵押",
+      "severity": "高风险",
+      "suggestion": "明确禁止转借、出租、出售，约定违约责任"
+    },
+    {
+      "id": "LFU004",
+      "name": "损毁责任不明",
+      "description": "借用物损毁、灭失的赔偿责任不明确",
+      "severity": "中风险",
+      "suggestion": "明确借用人保管不善的赔偿责任，区分自然损耗和人为损坏"
+    },
+    {
+      "id": "LFU005",
+      "name": "返还状态争议",
+      "description": "借用物返还时的状态（损耗程度）产生争议",
+      "severity": "中风险",
+      "suggestion": "交付时拍照或制作清单，明确自然损耗范围"
+    }
+  ],
+  "position_guidance": {
+    "lender": {
+      "name": "出借人",
+      "priority_checks": [
+        "借用期限",
+        "使用限制",
+        "返还状态",
+        "损毁责任"
+      ],
+      "key_concerns": [
+        "明确借用期限",
+        "限制使用范围和用途",
+        "明确返还状态要求",
+        "约定损毁赔偿责任"
+      ],
+      "avoid": [
+        "借用期限过长",
+        "使用限制不清",
+        "无返还状态约定",
+        "无损毁责任约定"
+      ]
+    },
+    "borrower": {
+      "name": "借用人",
+      "priority_checks": [
+        "借用物状态",
+        "使用范围",
+        "费用承担",
+        "损毁免责"
+      ],
+      "key_concerns": [
+        "确认借用物交付状态",
+        "明确允许的使用范围",
+        "明确费用承担",
+        "争取自然损耗免责"
+      ],
+      "avoid": [
+        "借用物已有损坏未记录",
+        "使用范围限制过严",
+        "承担过重费用",
+        "承担自然损耗责任"
+      ]
+    }
+  },
+  "legal_notes": {
+    "nature": {
+      "description": "借用合同性质",
+      "rule": "借用合同是指出借人将借用物无偿交付给借用人使用，借用人于使用后返还原物的合同",
+      "gratuitous": "借用合同为无偿合同",
+      "legal_basis": "《民法典》第887条"
+    },
+    "custody": {
+      "description": "借用人义务",
+      "rule": "借用人应当按照约定的方法使用借用物，妥善保管借用物。借用人违反约定使用借用物或保管不善造成借用物毁损、灭失的，应当承担赔偿责任",
+      "legal_basis": "《民法典》第889-890条"
+    },
+    "return": {
+      "description": "返还义务",
+      "rule": "借用人应当按照约定的期限返还借用物。未约定期限的，出借人可以随时要求返还，但应当给借用人必要的准备时间",
+      "condition": "返还的借用物应当符合按照约定或借用物的性质使用后的状态",
+      "legal_basis": "《民法典》第891条"
+    }
+  }
+}

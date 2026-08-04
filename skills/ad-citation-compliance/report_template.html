@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>广告引证内容合规审查报告</title>
+  <style>
+    :root {
+      --pass: #10b981;
+      --warning: #f59e0b;
+      --high-risk: #ef4444;
+      --neutral: #6b7280;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-light: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── 页面布局 ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* ── 报告头 ── */
+    .report-header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    .report-header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .report-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+    .report-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* ── 总体风险评级 ── */
+    .risk-summary {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .risk-card {
+      flex: 1;
+      min-width: 160px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .risk-card .count {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .risk-card .label { font-size: 13px; color: var(--text-light); }
+    .risk-card.pass   .count { color: var(--pass); }
+    .risk-card.warning .count { color: var(--warning); }
+    .risk-card.high-risk .count { color: var(--high-risk); }
+    .risk-card.total  .count { color: #2563eb; }
+
+    /* ── 整体评级徽章 ── */
+    .overall-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .overall-badge.pass      { background: #d1fae5; color: #065f46; }
+    .overall-badge.warning   { background: #fef3c7; color: #92400e; }
+    .overall-badge.high-risk { background: #fee2e2; color: #991b1b; }
+
+    /* ── 审查内容摘要 ── */
+    .content-preview {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .content-text {
+      font-size: 14px;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 120px;
+      overflow: hidden;
+      position: relative;
+    }
+    .content-text::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 32px;
+      background: linear-gradient(to bottom, transparent, white);
+    }
+
+    /* ── 维度结果卡片 ── */
+    .dimension-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .dimension-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dimension-icon { font-size: 20px; }
+    .dimension-title { font-size: 15px; font-weight: 600; flex: 1; }
+    .dimension-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .badge-pass      { background: #d1fae5; color: #065f46; }
+    .badge-warning   { background: #fef3c7; color: #92400e; }
+    .badge-high-risk { background: #fee2e2; color: #991b1b; }
+    .dimension-legal {
+      font-size: 12px;
+      color: var(--text-light);
+      padding: 6px 20px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── 规则列表 ── */
+    .rule-list { padding: 12px 20px; }
+    .rule-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .rule-item:last-child { border-bottom: none; }
+    .rule-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .rule-content { flex: 1; }
+    .rule-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+    .rule-detail { font-size: 13px; color: var(--text-light); margin-bottom: 4px; }
+    .rule-suggestion {
+      font-size: 12px;
+      background: #f0f9ff;
+      border-left: 3px solid #0ea5e9;
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+      color: #0369a1;
+      margin-top: 4px;
+    }
+
+    /* ── 整改建议汇总 ── */
+    .remediation-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .remediation-section h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .remediation-item {
+      display: flex;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+    }
+    .remediation-item:last-child { border-bottom: none; }
+    .rem-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── 典型案例参考 ── */
+    .cases-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .cases-section h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .case-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .case-table th {
+      background: #f1f5f9;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+    .case-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .case-table tr:last-child td { border-bottom: none; }
+
+    /* ── 页脚 ── */
+    .report-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .report-footer a { color: #2563eb; text-decoration: none; }
+
+    /* ── 打印优化 ── */
+    @media print {
+      body { background: white; }
+      .page { padding: 16px; }
+      .dimension-card,
+      .risk-summary,
+      .remediation-section,
+      .cases-section { break-inside: avoid; }
+    }
+
+    /* ── 占位符说明 ── */
+    .placeholder {
+      background: #fefce8;
+      border: 1px dashed #ca8a04;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #92400e;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 报告头 -->
+  <div class="report-header">
+    <h1>📋 广告引证内容合规审查报告</h1>
+    <div class="report-meta">
+      <span>📅 审查时间：{{AUDIT_DATE}}</span>
+      <span>🏭 行业分类：{{INDUSTRY}}</span>
+      <span>📌 报告编号：{{REPORT_ID}}</span>
+    </div>
+  </div>
+
+  <!-- 整体评级 -->
+  <div class="overall-badge {{OVERALL_LEVEL}}">
+    {{OVERALL_ICON}} 整体风险等级：{{OVERALL_LABEL}}
+  </div>
+
+  <!-- 风险统计摘要 -->
+  <div class="risk-summary">
+    <div class="risk-card total">
+      <div class="count">{{TOTAL_RULES}}</div>
+      <div class="label">审查规则总数</div>
+    </div>
+    <div class="risk-card pass">
+      <div class="count">{{PASS_COUNT}}</div>
+      <div class="label">✅ 通过</div>
+    </div>
+    <div class="risk-card warning">
+      <div class="count">{{WARNING_COUNT}}</div>
+      <div class="label">⚠️ 警告</div>
+    </div>
+    <div class="risk-card high-risk">
+      <div class="count">{{HIGH_RISK_COUNT}}</div>
+      <div class="label">🔴 高风险</div>
+    </div>
+  </div>
+
+  <!-- 审查内容摘要 -->
+  <div class="content-preview">
+    <div class="section-title">📝 审查内容（摘要）</div>
+    <div class="content-text">{{INPUT_TEXT_PREVIEW}}</div>
+  </div>
+
+  <!-- 六维度审查结果 -->
+  <div class="section-title" style="margin-bottom:12px">🔍 六维度审查详情</div>
+
+  <!-- ── 维度 1：来源准确性 ── -->
+  <div class="dimension-card">
+    <div class="dimension-header">
+      <span class="dimension-icon">🏛️</span>
+      <span class="dimension-title">维度一：来源准确性审查</span>
+      <span class="dimension-badge {{DIM1_BADGE}}">{{DIM1_LABEL}}</span>
+    </div>
+    <div class="dimension-legal">法律依据：《广告法》第十一条第二款、《指南》第二条</div>
+    <div class="rule-list">
+      <!-- SA-01 -->
+      <div class="rule-item">
+        <span class="rule-icon">{{SA01_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SA-01 出具机构标注</div>
+          <div class="rule-detail">{{SA01_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SA01_SUGGESTION_STYLE}}">{{SA01_SUGGESTION}}</div>
+        </div>
+      </div>
+      <!-- SA-02 -->
+      <div class="rule-item">
+        <span class="rule-icon">{{SA02_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SA-02 出具机构资质</div>
+          <div class="rule-detail">{{SA02_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SA02_SUGGESTION_STYLE}}">{{SA02_SUGGESTION}}</div>
+        </div>
+      </div>
+      <!-- SA-03 -->
+      <div class="rule-item">
+        <span class="rule-icon">{{SA03_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SA-03 原文引用检测</div>
+          <div class="rule-detail">{{SA03_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SA03_SUGGESTION_STYLE}}">{{SA03_SUGGESTION}}</div>
+        </div>
+      </div>
+      <!-- SA-04 -->
+      <div class="rule-item">
+        <span class="rule-icon">{{SA04_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SA-04 概然性结论表述</div>
+          <div class="rule-detail">{{SA04_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SA04_SUGGESTION_STYLE}}">{{SA04_SUGGESTION}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 维度 2：出处明示性 ── -->
+  <div class="dimension-card">
+    <div class="dimension-header">
+      <span class="dimension-icon">📎</span>
+      <span class="dimension-title">维度二：出处明示性审查</span>
+      <span class="dimension-badge {{DIM2_BADGE}}">{{DIM2_LABEL}}</span>
+    </div>
+    <div class="dimension-legal">法律依据：《广告法》第十一条第二款、《指南》第八条</div>
+    <div class="rule-list">
+      <div class="rule-item">
+        <span class="rule-icon">{{SD01_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SD-01 出处标注检测</div>
+          <div class="rule-detail">{{SD01_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SD01_SUGGESTION_STYLE}}">{{SD01_SUGGESTION}}</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-icon">{{SD02_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SD-02 期刊引用规范</div>
+          <div class="rule-detail">{{SD02_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SD02_SUGGESTION_STYLE}}">{{SD02_SUGGESTION}}</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-icon">{{SD03_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SD-03 互联网来源URL</div>
+          <div class="rule-detail">{{SD03_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SD03_SUGGESTION_STYLE}}">{{SD03_SUGGESTION}}</div>
+        </div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-icon">{{SD04_ICON}}</span>
+        <div class="rule-content">
+          <div class="rule-name">SD-04 出处可查询性</div>
+          <div class="rule-detail">{{SD04_DETAIL}}</div>
+          <div class="rule-suggestion" style="{{SD04_SUGGESTION_STYLE}}">{{SD04_SUGGESTION}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 维度 3：适用范围和期限 ── -->
+  <div class="dimension-card">
+    <div class="dimension-header">
+      <span class="dimension-icon">🗺️</span>
+      <span class="dimension-title">维度三：适用范围和期限审查</span>
+      <span class="dimension-badge {{DIM3_BADGE}}">{{DIM3_LABEL}}</span>
+    </div>
+    <div class="dimension-legal">法律依据：《广告法》第十一条第二款、《指南》第九至十三条</div>
+    <div class="rule-list">
+      <div class="placeholder">📌 规则 SP-01 至 SP-05 结果见 App 报告，此处为模板占位符</div>
+    </div>
+  </div>
+
+  <!-- ── 维度 4：呈现清晰性 ── -->
+  <div class="dimension-card">
+    <div class="dimension-header">
+      <span class="dimension-icon">🔤</span>
+      <span class="dimension-title">维度四：呈现清晰性审查</span>
+      <span class="dimension-badge {{DIM4_BADGE}}">{{DIM4_LABEL}}</span>
+    </div>
+    <div class="dimension-legal">法律依据：《指南》第十四条、《通知》</div>
+    <div class="rule-list">
+      <div class="placeholder">📌 规则 PC-01 至 PC-03 结果见 App 报告</div>
+    </div>
+  </div>
+
+  <!-- ── 维度 5：绝对化用语 ── -->
+  <div class="dimension-card">
+    <div class="dimension-header">
+      <span class="dimension-icon">🚫</span>
+      <span class="dimension-title">维度五：绝对化用语审查</span>
+      <span class="dimension-badge {{DIM5_BADGE}}">{{DIM5_LABEL}}</span>
+    </div>
+    <div class="dimension-legal">法律依据：《广告法》第九条第三项、《广告绝对化用语执法指南》</div>
+    <div class="rule-list">
+      <div class="placeholder">📌 规则 AT-01 至 AT-03 结果见 App 报告</div>
+    </div>
+  </div>
+
+  <!-- ── 维度 6：AI 生成内容 ── -->
+  <div class="dimension-card">
+    <div class="dimension-header">
+      <span class="dimension-icon">🤖</span>
+      <span class="dimension-title">维度六：AI 生成内容审查</span>
+      <span class="dimension-badge {{DIM6_BADGE}}">{{DIM6_LABEL}}</span>
+    </div>
+    <div class="dimension-legal">法律依据：《指南》第十七条</div>
+    <div class="rule-list">
+      <div class="placeholder">📌 规则 AI-01 至 AI-04 结果见 App 报告</div>
+    </div>
+  </div>
+
+  <!-- 整改建议汇总 -->
+  <div class="remediation-section">
+    <h2>🛠️ 整改建议汇总（高优先级）</h2>
+    <!-- 由 App 动态填充 -->
+    <div class="remediation-item">
+      <div class="rem-num">1</div>
+      <div>{{REMEDIATION_1}}</div>
+    </div>
+    <div class="remediation-item">
+      <div class="rem-num">2</div>
+      <div>{{REMEDIATION_2}}</div>
+    </div>
+    <div class="remediation-item">
+      <div class="rem-num">3</div>
+      <div>{{REMEDIATION_3}}</div>
+    </div>
+  </div>
+
+  <!-- 典型案例参考 -->
+  <div class="cases-section">
+    <h2>📚 相关典型案例参考</h2>
+    <table class="case-table">
+      <thead>
+        <tr>
+          <th>案例</th>
+          <th>违规类型</th>
+          <th>处罚结果</th>
+          <th>整改建议</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>百度百科引证</td>
+          <td>来源不准确</td>
+          <td>罚款10万元</td>
+          <td>改引认证机构报告或学术期刊</td>
+        </tr>
+        <tr>
+          <td>天猫TOP1未标期限</td>
+          <td>排名期限缺失</td>
+          <td>罚款1万元</td>
+          <td>补充统计期限和品类范围</td>
+        </tr>
+        <tr>
+          <td>59字小字限制条件</td>
+          <td>呈现不清晰</td>
+          <td>罚款1万元</td>
+          <td>限制条件与正文同字号呈现</td>
+        </tr>
+        <tr>
+          <td>AI合成医生形象代言</td>
+          <td>AI生成他人形象</td>
+          <td>罚款20万元</td>
+          <td>取得授权或使用虚拟AI形象并明示</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="report-footer">
+    <p>⚠️ <strong>免责声明：</strong>本报告系人工智能生成，仅供参考，不构成法律意见。使用者应结合具体情况咨询专业律师。</p>
+    <p>《广告引证内容执法指南》目前仍处于征求意见稿阶段，尚未正式发布施行，不具有强制性法律效力。</p>
+    <p>🏛️ 本工具由 <strong>河北世纪方舟律师事务所</strong>@公益制作 | 感谢君合律师事务所作者：沈程 马钦奕 俞典 蒋泰志</p>
+    <p>📖 参考文章：<a href="https://mp.weixin.qq.com/s/-k15b-Q81exAz8G5NIzw4g">《广告合规系列：引用的数据、资料该如何标注？》</a></p>
+    <p>如需进一步咨询可联系接洽专业律师。</p>
+  </div>
+
+</div>
+</body>
+</html>

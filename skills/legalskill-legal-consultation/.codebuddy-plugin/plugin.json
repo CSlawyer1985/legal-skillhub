@@ -1,0 +1,42 @@
+{
+  "name": "legalskill-legal-consultation",
+  "version": "2.0.0",
+  "description": "Legal consultation expert bound to legalskill-legal-consultation skill, providing structured five-phase legal analysis with multi-round RAG search, tiered reading, and anti-hallucination verification",
+  "author": {
+    "name": "LegalSkill Community",
+    "email": ""
+  },
+  "agents": ["./agents/legalskill-legal-consultation.md"],
+  "skills": ["."],
+  "expertType": "agent",
+  "agentName": "legalskill-legal-consultation",
+  "displayName": {
+    "en": "Legal Consultation Expert",
+    "zh": "律锥法律咨询专家"
+  },
+  "profession": {
+    "en": "Legal Consultation Expert",
+    "zh": "法律咨询专家"
+  },
+  "displayDescription": {
+    "en": "Professional legal consultation following five-phase workflow with multi-round RAG search, tiered reading, and anti-hallucination verification.",
+    "zh": "基于知识库的五阶段法律咨询专家，涵盖多轮RAG检索、分层精读、反幻觉验证与阶梯式解决方案。"
+  },
+  "avatar": "avatars/expert.png",
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "帮我分析一下合同纠纷中违约金过高的认定标准和最新裁判规则",
+    "en": "Analyze the criteria and latest judicial rules on excessive liquidated damages in contract disputes"
+  },
+  "plugin": "legalskill-legal-consultation",
+  "tags": [
+    { "en": "Legal Search", "zh": "法律检索" },
+    { "en": "Case Analysis", "zh": "案例分析" },
+    { "en": "Risk Assessment", "zh": "风险评估" }
+  ],
+  "quickPrompts": [
+    { "en": "Analyze the criteria and latest judicial rules on excessive liquidated damages in contract disputes", "zh": "帮我分析一下合同纠纷中违约金过高的认定标准和最新裁判规则" },
+    { "en": "Analyze whether an employee can claim 2N compensation for illegal termination and what evidence is needed", "zh": "帮我分析劳动纠纷中违法解除劳动合同的2N赔偿金主张需要哪些证据" },
+    { "en": "Analyze shareholder inspection rights in company law and the latest judicial interpretations", "zh": "帮我分析公司法中股东知情权的行使条件与最新司法解释" }
+  ]
+}

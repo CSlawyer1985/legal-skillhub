@@ -1,0 +1,86 @@
+{
+  "$schema": "clause-index",
+  "description": "条款库总索引",
+  "categories": [
+    {
+      "id": "payment",
+      "name": "付款/结算条款",
+      "files": [
+        "prepaid-30pct.json",
+        "milestone.json",
+        "net-30.json",
+        "escrow.json",
+        "escrow-construction.json"
+      ]
+    },
+    {
+      "id": "penalty",
+      "name": "违约金条款",
+      "files": [
+        "daily-5-per-10k.json",
+        "20pct-fixed.json",
+        "labor-daily-3pct.json"
+      ]
+    },
+    {
+      "id": "dispute",
+      "name": "争议解决条款",
+      "files": [
+        "court-shanghai.json",
+        "court-specified.json",
+        "arbitration-cietac.json",
+        "arbitration-local.json"
+      ]
+    },
+    {
+      "id": "force-majeure",
+      "name": "不可抗力条款",
+      "files": [
+        "standard.json"
+      ]
+    },
+    {
+      "id": "ip",
+      "name": "知识产权条款",
+      "files": [
+        "work-for-hire.json",
+        "joint-own.json",
+        "license-back.json"
+      ]
+    },
+    {
+      "id": "delivery",
+      "name": "交付/验收条款",
+      "files": [
+        "acceptance-7days.json",
+        "third-party-acceptance.json"
+      ]
+    },
+    {
+      "id": "confidentiality",
+      "name": "保密条款",
+      "files": [
+        "nda-3years.json",
+        "nda-perpetual.json"
+      ]
+    },
+    {
+      "id": "termination",
+      "name": "解除/终止条款",
+      "files": [
+        "convenience-30days.json",
+        "breach-cure-15days.json"
+      ]
+    },
+    {
+      "id": "general",
+      "name": "综合类条款",
+      "files": [
+        "amendment-written.json",
+        "governing-law-mainland.json",
+        "entire-agreement.json"
+      ]
+    }
+  ],
+  "total_files": 22
+}

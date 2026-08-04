@@ -1,0 +1,305 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "知识产权转让合同",
+  "contract_type_en": "ip-assignment",
+  "description": "专利权转让、商标权转让、著作权转让等",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国专利法》",
+    "《中华人民共和国商标法》",
+    "《中华人民共和国著作权法》"
+  ],
+  "keywords_for_detection": [
+    "转让", "Assignment", "专利权转让", "商标权转让", "著作权转让",
+    "知识产权转让", "所有权转让", "过户"
+  ],
+  "key_clauses": [
+    {
+      "name": "转让标的",
+      "required": true,
+      "keywords": ["转让标的", "专利", "商标", "著作权", "专利号", "注册号"],
+      "check_points": [
+        {
+          "item": "标的明确",
+          "description": "转让的知识产权具体内容是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权利信息",
+          "description": "专利号/商标注册号/作品名称是否列明",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权利状态",
+          "description": "知识产权当前状态（有效/无效/年费欠缴）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确转让标的（专利号、商标、作品名称）、权利状态、剩余有效期"
+    },
+    {
+      "name": "转让价款",
+      "required": true,
+      "keywords": ["转让价款", "转让费", "对价", "金额"],
+      "check_points": [
+        {
+          "item": "价款明确",
+          "description": "转让价款是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付方式",
+          "description": "一次性支付/分期支付",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付时间",
+          "description": "支付时间节点（与变更登记挂钩）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确转让价款、支付方式（建议分期：签约30%、变更登记后70%）"
+    },
+    {
+      "name": "权利变更登记",
+      "required": true,
+      "keywords": ["变更登记", "过户", "登记机关", "转让登记"],
+      "check_points": [
+        {
+          "item": "登记义务",
+          "description": "变更登记由谁负责办理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "登记时限",
+          "description": "变更登记完成时限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用承担",
+          "description": "登记费用由谁承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确变更登记办理方、时限、费用承担；专利/商标转让需在国家知识产权局/商标局登记"
+    },
+    {
+      "name": "转让生效时间",
+      "required": true,
+      "keywords": ["生效", "转让生效", "权利转移", "登记生效"],
+      "check_points": [
+        {
+          "item": "生效条件",
+          "description": "合同生效与权利转移是否区分",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确：合同自签订生效，知识产权转让自登记之日起生效"
+    },
+    {
+      "name": "权利保证",
+      "required": true,
+      "keywords": ["保证", "担保", "权利保证", "无质押", "无许可"],
+      "check_points": [
+        {
+          "item": "权属保证",
+          "description": "转让方保证拥有完整所有权",
+          "risk_level": "致命"
+        },
+        {
+          "item": "无瑕疵保证",
+          "description": "保证无质押、无其他转让、无独占许可",
+          "risk_level": "致命"
+        },
+        {
+          "item": "无侵权保证",
+          "description": "保证不侵犯第三方权利",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "转让方应保证拥有完整、无瑕疵的所有权，无质押、无其他转让"
+    },
+    {
+      "name": "技术资料移交",
+      "required": false,
+      "keywords": ["技术资料", "图纸", "文档", "移交"],
+      "check_points": [
+        {
+          "item": "资料清单",
+          "description": "移交的技术资料清单",
+          "risk_level": "重大"
+        },
+        {
+          "item": "移交时间",
+          "description": "资料移交时间",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "附技术资料移交清单，明确移交时间和方式"
+    },
+    {
+      "name": "人员培训与技术支持",
+      "required": false,
+      "keywords": ["培训", "技术支持", "指导", "过渡期"],
+      "check_points": [
+        {
+          "item": "培训安排",
+          "description": "是否提供技术培训",
+          "risk_level": "一般"
+        },
+        {
+          "item": "过渡期支持",
+          "description": "过渡期技术支持安排",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "约定过渡期技术支持，确保受让方顺利接手"
+    },
+    {
+      "name": "过渡期安排",
+      "required": true,
+      "keywords": ["过渡期", "期间", "维持", "年费"],
+      "check_points": [
+        {
+          "item": "过渡期定义",
+          "description": "过渡期定义（签约至变更登记完成）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "维持义务",
+          "description": "过渡期内转让方维持知识产权有效的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "年费缴纳",
+          "description": "过渡期内年费由谁缴纳",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确过渡期、转让方维持义务、年费缴纳责任"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "返还"],
+      "check_points": [
+        {
+          "item": "权属瑕疵",
+          "description": "权属存在瑕疵时的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "登记延误",
+          "description": "未按时办理变更登记的违约责任",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确权属瑕疵时的违约责任（返还价款+赔偿损失）"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "IPA001",
+      "name": "转让方无权转让",
+      "description": "转让方非真正权利人，或权利为共有但未获其他共有人同意",
+      "severity": "高风险",
+      "suggestion": "核实权属证明，共有权利需全体共有人同意",
+      "legal_basis": "《专利法》第10条、《商标法》第42条"
+    },
+    {
+      "id": "IPA002",
+      "name": "权利存在瑕疵",
+      "description": "知识产权已被质押、许可给他人（独占/排他许可）、或已被宣告无效",
+      "severity": "高风险",
+      "suggestion": "查询登记状态，核实无质押、无在先许可，确认权利有效"
+    },
+    {
+      "id": "IPA003",
+      "name": "未办理变更登记",
+      "description": "未在国家知识产权局/商标局办理转让登记，转让不生效",
+      "severity": "高风险",
+      "suggestion": "及时办理变更登记，专利转让自登记之日起生效",
+      "legal_basis": "《专利法》第10条"
+    },
+    {
+      "id": "IPA004",
+      "name": "职务发明权属争议",
+      "description": "专利为职务发明，但转让方未获得单位同意",
+      "severity": "高风险",
+      "suggestion": "核实发明人身份，职务发明需单位同意转让"
+    },
+    {
+      "id": "IPA005",
+      "name": "价款支付与登记顺序",
+      "description": "未约定清楚价款支付与变更登记的先后顺序",
+      "severity": "中风险",
+      "suggestion": "建议分期支付：签约支付部分，变更登记完成后支付尾款"
+    }
+  ],
+  "position_guidance": {
+    "assignor": {
+      "name": "转让方（甲方）",
+      "priority_checks": [
+        "转让价款",
+        "付款时间",
+        "变更登记",
+        "过渡期义务"
+      ],
+      "key_concerns": [
+        "确保获得合理转让价款",
+        "争取签约时支付大部分价款",
+        "明确变更登记办理时限",
+        "限制过渡期义务范围",
+        "明确后续侵权责任不承担"
+      ],
+      "avoid": [
+        "权属存在瑕疵",
+        "变更登记完成后才收款",
+        "过长的过渡期义务",
+        "承担转让后的侵权责任"
+      ]
+    },
+    "assignee": {
+      "name": "受让方（乙方）",
+      "priority_checks": [
+        "权属核实",
+        "权利保证",
+        "变更登记",
+        "价款支付"
+      ],
+      "key_concerns": [
+        "核实转让方权属，查询登记状态",
+        "要求转让方提供完整权利保证",
+        "确保及时办理变更登记",
+        "分期支付，尾款在登记后支付",
+        "要求移交完整技术资料"
+      ],
+      "avoid": [
+        "签约前支付全部价款",
+        "不核实权属状态",
+        "无权利保证条款",
+        "拖延变更登记"
+      ]
+    }
+  },
+  "registration_requirements": {
+    "patent": {
+      "authority": "国家知识产权局",
+      "requirement": "必须登记，转让自登记之日起生效",
+      "documents": "转让合同、著录项目变更申报书",
+      "legal_basis": "《专利法》第10条"
+    },
+    "trademark": {
+      "authority": "国家知识产权局商标局",
+      "requirement": "必须登记，转让经核准后公告生效",
+      "documents": "转让申请书、转让人和受让人身份证明",
+      "legal_basis": "《商标法》第42条"
+    },
+    "copyright": {
+      "authority": "版权局（自愿登记）",
+      "requirement": "自愿登记，转让合同自签订生效",
+      "note": "虽非强制，但建议办理登记以对抗第三人"
+    }
+  }
+}

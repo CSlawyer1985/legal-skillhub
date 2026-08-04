@@ -1,0 +1,249 @@
+{
+  "name": "expert-pod-p5",
+  "version": "1.0.0",
+  "description": "P5: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p5-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p5-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p5-lead",
+    "memberAgents": [
+      "tax-steel-expert",
+      "tax-pet-chain-expert",
+      "tax-tcm-clinic-expert",
+      "tax-education-expert",
+      "tax-life-services-expert",
+      "tax-construction-expert",
+      "tax-consumption-tax-expert",
+      "tax-data-asset-expert",
+      "tax-mfg-lifecycle-risk-expert",
+      "tax-sme-specialized-expert",
+      "tax-transfer-pricing-expert",
+      "tax-environmental-expert"
+    ]
+  },
+  "displayName": {
+    "en": "行业税务专项团",
+    "zh": "行业税务专项团"
+  },
+  "profession": {
+    "en": "行业税务专项团",
+    "zh": "行业税务专项团"
+  },
+  "displayDescription": {
+    "en": "P5: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「行业税务专项团」：由主理人协调 12 名专题专家，覆盖10+ 行业专项税务合规，提供跨域财税合规结"
+  },
+  "avatar": "avatars/pod-p5-lead.svg",
+  "categoryId": "12-IndustryConsultant",
+  "defaultInitPrompt": {
+    "zh": "我是「行业税务专项团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 行业税务专项团."
+  },
+  "plugin": "expert-pod-p5",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T3",
+      "zh": "T3优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p5-lead",
+      "displayName": {
+        "en": "行业税务首席",
+        "zh": "行业税务首席"
+      },
+      "profession": {
+        "en": "行业税务首席",
+        "zh": "行业税务首席"
+      },
+      "avatar": "avatars/pod-p5-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "tax-steel-expert",
+      "displayName": {
+        "en": "tax-steel",
+        "zh": "tax-steel"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-steel-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-pet-chain-expert",
+      "displayName": {
+        "en": "tax-pet-chain",
+        "zh": "tax-pet-chain"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-pet-chain-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-tcm-clinic-expert",
+      "displayName": {
+        "en": "tax-tcm-clinic",
+        "zh": "tax-tcm-clinic"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-tcm-clinic-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-education-expert",
+      "displayName": {
+        "en": "tax-education",
+        "zh": "tax-education"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-education-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-life-services-expert",
+      "displayName": {
+        "en": "tax-life-services",
+        "zh": "tax-life-services"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-life-services-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-construction-expert",
+      "displayName": {
+        "en": "tax-construction",
+        "zh": "tax-construction"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-construction-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-consumption-tax-expert",
+      "displayName": {
+        "en": "tax-consumption-tax",
+        "zh": "tax-consumption-tax"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-consumption-tax-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-data-asset-expert",
+      "displayName": {
+        "en": "tax-data-asset",
+        "zh": "tax-data-asset"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-data-asset-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-mfg-lifecycle-risk-expert",
+      "displayName": {
+        "en": "tax-mfg-lifecycle-risk",
+        "zh": "tax-mfg-lifecycle-risk"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-mfg-lifecycle-risk-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-sme-specialized-expert",
+      "displayName": {
+        "en": "tax-sme-specialized",
+        "zh": "tax-sme-specialized"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-sme-specialized-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-transfer-pricing-expert",
+      "displayName": {
+        "en": "tax-transfer-pricing",
+        "zh": "tax-transfer-pricing"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-transfer-pricing-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-environmental-expert",
+      "displayName": {
+        "en": "tax-environmental",
+        "zh": "tax-environmental"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-environmental-expert.svg",
+      "role": "member"
+    }
+  ]
+}

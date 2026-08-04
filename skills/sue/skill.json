@@ -1,0 +1,50 @@
+{
+  "name": "sue",
+  "version": "1.0.0",
+  "description": "A comprehensive AI agent skill for anyone considering or facing a lawsuit. Covers case evaluation, litigation process, evidence building, settlement strategy, small claims court, and judgment collection.",
+  "author": "AGIstack",
+  "license": "MIT-0",
+  "homepage": "https://clawhub.ai",
+  "keywords": [
+    "sue", "lawsuit", "litigation", "legal claim", "civil court",
+    "small claims", "settlement", "damages", "breach of contract",
+    "plaintiff", "defendant", "judgment", "collection", "dispute"
+  ],
+  "files": {
+    "skill.md": "skill.md",
+    "heartbeat.md": "heartbeat.md",
+    "examples.md": "examples.md"
+  },
+  "capabilities": {
+    "case_evaluation": "Assesses whether a legal claim is worth pursuing based on evidence, damages, and realistic outcomes",
+    "cost_benefit_analysis": "Models expected litigation costs against probable recovery to inform the decision to sue",
+    "process_guidance": "Explains each stage of civil litigation and what it requires",
+    "evidence_building": "Identifies what evidence exists and what is needed to support the claim",
+    "settlement_strategy": "Evaluates settlement offers against realistic trial outcomes",
+    "collection_guidance": "Identifies enforcement tools available after winning a judgment"
+  },
+  "triggers": [
+    "sue", "lawsuit", "suing", "legal claim", "take to court",
+    "civil lawsuit", "small claims", "breach of contract", "damages",
+    "settlement offer", "litigation", "file a lawsuit", "judgment",
+    "collect judgment", "statute of limitations", "plaintiff", "defendant"
+  ],
+  "heartbeat": {
+    "immediate": "Evaluate dispute and preserve evidence before taking any action",
+    "pre_filing": "Complete case evaluation and cost-benefit analysis",
+    "weekly": "Active case deadline and progress review",
+    "settlement": "Evaluate any settlement offer against realistic trial economics",
+    "post_judgment": "Identify and pursue collection options"
+  },
+  "audience": [
+    "Anyone considering filing a lawsuit and wanting to evaluate it honestly first",
+    "Self-represented litigants in small claims court",
+    "People who have received a settlement offer and need to evaluate it",
+    "Anyone trying to collect on a judgment that has not been paid",
+    "People facing a lawsuit who want to understand their situation"
+  ],
+  "openclaw": {
+    "primaryEnv": null,
+    "requires": {}
+  }
+}

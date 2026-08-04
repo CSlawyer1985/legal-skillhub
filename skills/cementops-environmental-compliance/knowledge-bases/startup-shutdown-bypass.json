@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "id": "EC-KB-005",
+    "title": "Startup, Shutdown, Bypass, and Malfunction Provisions",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-13",
+    "regulatory_basis": "40 CFR 63 Subpart LLL (Portland Cement NESHAP)"
+  },
+  "description": "Startup/shutdown work practice standards, bypass stack requirements, and malfunction affirmative defense provisions under NESHAP Subpart LLL. This is the most contested area of cement plant environmental compliance.",
+
+  "startup_shutdown_provisions": {
+    "summary": "There is NO blanket startup exemption for emission limits under current NESHAP Subpart LLL. Emission limits apply during all operating conditions including startup and shutdown, unless the facility has an approved alternative startup/shutdown plan.",
+    "regulatory_history": {
+      "pre_2015": "SSM (Startup, Shutdown, Malfunction) exemption plans were allowed under original rule",
+      "2015_ruling": "Sierra Club v. EPA (D.C. Circuit, 2008) led to EPA vacating SSM exemptions in 2015 amendments. SSM plans no longer provide exemption from emission limits.",
+      "2020_amendments": "Final rule confirmed: work practice standards during startup/shutdown replace blanket exemptions. Emission limits apply at all times.",
+      "current_status": "No SSM exemption. Work practice standards under §63.1346 apply during startup and shutdown."
+    },
+    "definitions": {
+      "startup": {
+        "cfr_reference": "§63.1341",
+        "definition": "The period beginning with initial kiln rotation for production and ending when the kiln system first reaches the temperature and feed rate at which it can operate in compliance with emission limits. Typically 12-72 hours depending on kiln condition.",
+        "key_distinction": "Startup is NOT the same as a brief process upset or feed interruption. Startup begins from a cold or semi-cold kiln condition."
+      },
+      "shutdown": {
+        "cfr_reference": "§63.1341",
+        "definition": "The period beginning when the kiln feed is halted and ending when the kiln system is no longer rotating. Includes controlled cooldown period.",
+        "key_distinction": "A temporary feed stop for maintenance is NOT a shutdown unless the kiln rotation ceases."
+      }
+    },
+    "work_practice_standards": {
+      "cfr_reference": "§63.1346",
+      "during_startup": [
+        "Follow the facility's written startup procedure",
+        "Minimize the duration of startup to reduce total emissions",
+        "Operate all pollution control equipment during startup to the extent practicable",
+        "Begin CEMS monitoring as soon as the kiln begins producing stack emissions",
+        "Document all startup events including: time of initial rotation, time feed started, time emission controls engaged, time normal operating conditions achieved"
+      ],
+      "during_shutdown": [
+        "Follow the facility's written shutdown procedure",
+        "Continue operating pollution control equipment until kiln rotation ceases",
+        "Document shutdown events including: time feed halted, time emission controls secured, time kiln rotation stopped",
+        "Minimize emissions during cooldown period"
+      ],
+      "documentation_required": [
+        "Written startup and shutdown procedures (must be available for inspector review)",
+        "Log of each startup and shutdown event with timestamps",
+        "Records of pollution control equipment operation during startup/shutdown",
+        "CEMS data from the event (even if equipment was warming up)"
+      ]
+    },
+    "emission_limits_during_startup": {
+      "cfr_reference": "§63.1348(a)(1)",
+      "rule": "Emission limits apply during startup unless the facility demonstrates compliance through work practice standards under §63.1346.",
+      "practical_meaning": "If your 30-day rolling average exceeds the limit because of startup emissions, you are potentially in violation unless you can demonstrate you followed all required work practices.",
+      "alternative_plan": "Facilities MAY apply for alternative startup/shutdown limits through a case-by-case determination with their permitting authority. This requires demonstration that meeting standard limits during startup is technically infeasible.",
+      "inspector_focus": "Inspectors look for: (1) written startup procedures exist, (2) they were followed, (3) pollution controls were operating, (4) startup duration was reasonable, (5) all events were documented"
+    }
+  },
+
+  "bypass_stack_provisions": {
+    "cfr_reference": "§63.1348(b)",
+    "summary": "Bypass stack emissions are NOT exempt from compliance determination. Every bypass event must be logged and reported.",
+    "when_bypass_permitted": [
+      "During kiln startup when main stack system is not yet at operating temperature",
+      "During process upset conditions that threaten kiln integrity or safety",
+      "During emergency conditions (fire, explosion risk, equipment failure threatening personnel)",
+      "During maintenance that requires isolating the main stack"
+    ],
+    "bypass_requirements": {
+      "monitoring": "Continue CEMS operation on the main stack even during bypass. If CEMS cannot operate on bypass stack, document as missing data.",
+      "logging": "Record for each bypass event: start time, end time, duration, reason for bypass, pollutant control status, estimated emissions during bypass",
+      "duration_limits": "No explicit federal limit on bypass duration, but extended bypass (>10% of total operating hours in a reporting period) triggers enhanced scrutiny",
+      "emissions_accounting": "Bypass emissions are typically uncontrolled. They must be included in excess emissions calculations and deviation reports."
+    },
+    "reporting_obligations": {
+      "semi_annual": "All bypass events must be reported in the semi-annual compliance report with duration, reason, and estimated excess emissions",
+      "deviation_report": "If bypass results in emission limit exceedance, it is a reportable deviation under Title V",
+      "prompt_notification": "Check state permit — many states require prompt notification (24-48 hours) for bypass events exceeding a specified duration"
+    },
+    "inspector_focus": [
+      "How long was the bypass open?",
+      "What was the documented reason?",
+      "Were there alternatives to bypass?",
+      "Was the bypass logged in real time or reconstructed later?",
+      "What was the estimated emission rate during bypass?",
+      "Is there a pattern of frequent bypass events?"
+    ]
+  },
+
+  "malfunction_provisions": {
+    "summary": "There is NO malfunction exemption under current NESHAP Subpart LLL (post-2015 amendments). Facilities must demonstrate compliance at all times including during malfunctions. However, an affirmative defense is available if specific conditions are met.",
+    "no_exemption": {
+      "rule": "The 2015 amendments removed the SSM exemption. Excess emissions during malfunctions are violations unless the facility successfully asserts the affirmative defense.",
+      "practical_meaning": "You cannot simply say 'it was a malfunction' to excuse excess emissions. You must prove you did everything right and the malfunction was unavoidable."
+    },
+    "affirmative_defense": {
+      "cfr_reference": "§63.1344(e)",
+      "what_it_is": "An affirmative defense shifts the burden of proof to the facility. You must prove all of the following elements to avoid penalties for excess emissions during a malfunction:",
+      "elements_required": [
+        "The excess emissions were caused by a sudden, unavoidable breakdown of equipment or process beyond the reasonable control of the operator",
+        "The excess emissions could not have been prevented through careful planning, proper design, better operation, or better maintenance",
+        "The facility was being operated in a manner consistent with good air pollution control practices for minimizing emissions",
+        "Repairs were made as expeditiously as possible when the operator knew or should have known that emission limitations were being exceeded",
+        "The amount and duration of excess emissions were minimized to the maximum extent practicable",
+        "All possible steps were taken to minimize the impact of the excess emissions on ambient air quality",
+        "The excess emissions were not part of a recurring pattern indicative of inadequate design, operation, or maintenance",
+        "The facility reported the malfunction and excess emissions to the permitting authority within 2 days of the event",
+        "The facility provided a root cause analysis and corrective action plan"
+      ],
+      "documentation_required": [
+        "Maintenance records showing equipment was properly maintained prior to malfunction",
+        "Operating logs showing the facility was operating correctly before the event",
+        "Timeline of the malfunction event with actions taken",
+        "Root cause analysis identifying why the malfunction occurred",
+        "Corrective action plan to prevent recurrence",
+        "Report to permitting authority within 2 days"
+      ],
+      "practical_advice": "Start documenting immediately when a malfunction occurs. The affirmative defense requires extensive evidence — if you do not have records from the event, you cannot assert it later."
+    },
+    "inspector_focus": [
+      "Was the equipment properly maintained? (Show maintenance records)",
+      "Was the malfunction truly unavoidable? (Show it was not foreseeable)",
+      "Did you report within 2 days? (Show notification records)",
+      "Is this a recurring issue? (Pattern defeats the defense)",
+      "Did you minimize emissions during the event? (Show what actions you took)"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "source_key": "kostja94__marketing-skills",
+  "repo_url": "https://github.com/kostja94/marketing-skills",
+  "commit": "70987bad4ebe9dce1f74858c1c64f3f8810f18e4",
+  "source_relative_path": "skills/strategies/brand/brand-protection/SKILL.md",
+  "source_skill_sha256": "cc13ab1edc072c9115750f65020522c10e10b0570afcfaaa32c4a9536b721be8",
+  "source_tree_sha256": "7e195f2b4a4b6286488c343c3176a6ba0ee2a247149030a8e0371159fc89757d",
+  "effective_license": "MIT",
+  "license_files": [
+    "LICENSE"
+  ],
+  "target_category": "growth-traffic",
+  "selected_rank": 142,
+  "public_branding_applied": true,
+  "product_display_name": "品牌仿冒投诉与下架｜简诗 AI",
+  "product_slug": "brand-protection-organizer",
+  "productization": "简诗 AI canonical v1",
+  "product_summary": "发现并处理假网站、钓鱼站、商标侵权和抢注域名，整理证据、举报路径与预防动作，降低品牌和客户损失。",
+  "original_product_slug": "brand-protection",
+  "semantic_reslug_version": "1.0.2",
+  "semantic_reslug_reason": "依据“品牌仿冒投诉与下架”的真实交付物设计英文语义，明确表达整理工具，不使用品牌机械前缀或随机编号。"
+}

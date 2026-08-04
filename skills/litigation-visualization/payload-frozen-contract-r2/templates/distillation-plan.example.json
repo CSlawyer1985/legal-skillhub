@@ -1,0 +1,62 @@
+{
+  "plan_id": "legal-distillation-example-001",
+  "mode": "mixed-distillation",
+  "objective": "将已授权且脱敏的法律材料蒸馏为本地候选 Skill",
+  "authorization": {
+    "authorizer": "authorized-owner",
+    "allowed_use": [
+      "internal-analysis",
+      "local-skill-candidate"
+    ],
+    "prohibited_use": [
+      "external-publication",
+      "third-party-training"
+    ],
+    "evidence_ref": "authorization-ledger#entry-001"
+  },
+  "rights": {
+    "status": "private-authorized",
+    "public_projection_allowed": false
+  },
+  "zones": {
+    "source_readonly": "zone://source-readonly",
+    "answer_key_sealed": "zone://answer-key-sealed",
+    "staging_private": "zone://staging-private",
+    "public_projection": "zone://public-projection"
+  },
+  "cutoffs": {
+    "evidence_cutoff": "YYYY-MM-DD",
+    "law_checked_at": "YYYY-MM-DD"
+  },
+  "inputs": [
+    {
+      "source_id": "source-001",
+      "source_type": "practice-note",
+      "relative_locator": "source-001#section-01",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "privacy_class": "internal",
+      "rights_status": "private-authorized"
+    }
+  ],
+  "review_seats": {
+    "builder": "builder-seat",
+    "privacy": "independent-privacy-seat",
+    "legal": "independent-legal-seat",
+    "acceptance": "independent-acceptance-seat"
+  },
+  "release": {
+    "physical_install_observed": false,
+    "install_authorization_receipt": "not-applicable",
+    "formal_skill_install_authorized": false,
+    "production_promotion_authorized": false,
+    "external_publish_authorized": false
+  },
+  "stop_conditions": [
+    "authorization-unclear",
+    "rights-unclear",
+    "privacy-leak",
+    "unreadable-material",
+    "answer-key-contamination",
+    "legal-validity-unclear"
+  ]
+}

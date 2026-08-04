@@ -1,0 +1,39 @@
+{
+  "synthetic": true,
+  "matter_code": "MATTER-SYNTH-001",
+  "mode": "production-intake",
+  "scope": "sales-contract-filing-and-preparation",
+  "opponent_evidence_received": false,
+  "materials": [
+    {"material_id": "MAT-001", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "readability": "pass", "set": "input", "logical_locator": "SYNTH/CONTRACT/P1"},
+    {"material_id": "MAT-002", "sha256": "2222222222222222222222222222222222222222222222222222222222222222", "readability": "pass", "set": "input", "logical_locator": "SYNTH/DELIVERY/P1"}
+  ],
+  "signals": {
+    "scope": "sales-contract-filing-and-preparation",
+    "mode": "production-intake",
+    "sale_agreement_verified": true,
+    "delivery_or_acceptance_verified": true,
+    "price_or_payment_schedule_verified": true,
+    "installment_terms_verified": false,
+    "title_retention_verified": false,
+    "reconciliation_verified": false,
+    "quality_or_quantity_dispute_present": false,
+    "guarantee_or_security_present": false,
+    "competing_cause_signals_present": false,
+    "materials_readable": true,
+    "provenance_verified": true,
+    "prior_proceeding_reviewed": true,
+    "jurisdiction_connected": true,
+    "p0_3_consistency_verified": false,
+    "court_profile_frozen": true,
+    "legal_source_temporally_verified": true
+  },
+  "expected_route": {
+    "trigger": true,
+    "primary_route": "ordinary-goods-sale",
+    "holds": ["HOLD-CONSISTENCY"],
+    "l1_gate": "HOLD"
+  },
+  "gates": {"P0-1": "PASS", "P0-2": "PASS", "P0-3": "HOLD", "P0-4": "HOLD"},
+  "publication": {"external_publish_authorized": false}
+}

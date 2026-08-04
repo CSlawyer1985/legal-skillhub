@@ -1,0 +1,50 @@
+{
+  "license_text_family": "GPL-3.0",
+  "max_archive_bytes": 10485760,
+  "max_files": 200,
+  "package_id": "sales-contract",
+  "package_license": "GPL-3.0-only",
+  "private_space_only": false,
+  "required_paths": [
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "LICENSE-PROVENANCE.json",
+    "RIGHTS-AND-RELEASE-NOTICE.md",
+    "PLATFORM-LITE-NOTICE.md",
+    "PACKAGE-PROFILE.json",
+    "SOURCE-BINDING.json",
+    "PACKAGE-MANIFEST.json",
+    "PACKAGE-RECEIPT.json",
+    "tests/route-prompts.json",
+    "scripts/validate_package.py",
+    "scripts/smoke_test.py",
+    "SHA256SUMS.txt",
+    "common/案型路由.md",
+    "legal/CURRENT-LAW-SOURCE-MATRIX.json",
+    "scripts/route_case.py",
+    "templates/markdown/01-民事起诉状.md"
+  ],
+  "required_route_behaviors": [
+    "ordinary-goods-sale",
+    "installment-title-retention",
+    "SSOT",
+    "HOLD-ROUTE",
+    "production-intake",
+    "retrospective-benchmark"
+  ],
+  "schema": "gaotao.platform-lite.package-profile/v1",
+  "skill_name": "sales-contract-litigation-gaoyao",
+  "source_archive_sha256": "92b2d44d2381cb287238a8c8e12a24f8d1580086fa7120b566fdac7741d1f09c",
+  "stale_wrapper_names": [],
+  "version": "1.1-platform-lite",
+  "workflow_markers": [
+    "ordinary-goods-sale",
+    "installment-title-retention",
+    "SSOT",
+    "HOLD",
+    "production-intake",
+    "retrospective-benchmark"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "clause-schema",
+  "category": "dispute",
+  "name": "原告所在地法院管辖条款",
+  "applicable_types": [
+    "all"
+  ],
+  "clause_text": "因本合同引起的或与本合同有关的任何争议，双方均有权向【原告方住所地】人民法院提起诉讼。",
+  "position_tips": {
+    "plaintiff": "争取己方所在地法院管辖，减少差旅成本",
+    "defendant": "争取被告所在地管辖；若有充分理由，可申请约定与争议有实际联系地点的法院"
+  },
+  "legal_reference": "《民事诉讼法》第34条（协议管辖：与争议有实际联系地点）"
+}

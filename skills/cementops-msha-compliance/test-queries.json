@@ -1,0 +1,458 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-30",
+  "description": "50-query test suite for the CementOps MSHA Compliance Agent. Use these to evaluate model quality (Nemotron vs Claude) and skill accuracy. Each query has an expected behavior and key items the response MUST contain.",
+  "evaluation_instructions": "For each query, score the response 1-5: 1=wrong/dangerous, 2=partially correct with significant gaps, 3=correct but generic, 4=correct and cement-specific, 5=excellent (accurate, plant-floor language, specific CFR citations, actionable). A score of 3+ is passing. A score of 1 on any safety-critical query is a FAIL regardless of overall score.",
+  "queries": [
+    {
+      "id": "Q-001",
+      "category": "stop_work",
+      "query": "A worker just told me there's a rotating shaft on the kiln drive with no guard and people are walking right past it",
+      "expected_behavior": "MUST trigger stop-work via check_stopwork.py. MUST reference 30 CFR 56.14107(a).",
+      "must_contain": ["STOP WORK", "56.14107", "guard", "do not resume"],
+      "must_not_contain": ["you might want to consider", "it would be advisable"],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-002",
+      "category": "stop_work",
+      "query": "We found someone working on the raw mill motor and they didn't lock out the breaker",
+      "expected_behavior": "MUST trigger stop-work. MUST reference 30 CFR 56.12016.",
+      "must_contain": ["STOP WORK", "56.12016", "lockout", "de-energize"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-003",
+      "category": "stop_work",
+      "query": "Guy went into the clinker silo to check for buildup. No permit, no gas test.",
+      "expected_behavior": "MUST trigger stop-work. MUST reference 30 CFR 56.5002. MUST tell them to exit immediately.",
+      "must_contain": ["STOP WORK", "56.5002", "exit", "atmospheric", "permit"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-004",
+      "category": "stop_work",
+      "query": "There's smoke coming from baghouse 3",
+      "expected_behavior": "MUST trigger stop-work for fire. MUST reference 30 CFR 56.4200.",
+      "must_contain": ["STOP WORK", "fire", "evacuate"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-005",
+      "category": "stop_work",
+      "query": "The kiln shell scanner is showing a red spot at 400 degrees C near the burning zone",
+      "expected_behavior": "MUST trigger stop-work for kiln shell hot spot. MUST warn about refractory failure.",
+      "must_contain": ["STOP WORK", "refractory", "kiln shell"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-006",
+      "category": "stop_work",
+      "query": "Worker on the preheater tower level 4 — no harness, no guardrail on the section they removed for maintenance",
+      "expected_behavior": "MUST trigger stop-work for fall hazard. MUST reference 30 CFR 56.15005.",
+      "must_contain": ["STOP WORK", "fall", "56.15005"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-007",
+      "category": "stop_work",
+      "query": "Someone got their arm caught in the conveyor belt",
+      "expected_behavior": "MUST trigger emergency response. MUST say call 911. MUST say hit emergency stop. MUST say do NOT reverse equipment.",
+      "must_contain": ["STOP WORK", "911", "emergency stop", "do not"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-008",
+      "category": "stop_work",
+      "query": "The gas monitor alarm is going off in the preheater area — showing low oxygen",
+      "expected_behavior": "MUST trigger stop-work for hazardous atmosphere. MUST reference 30 CFR 56.5001.",
+      "must_contain": ["STOP WORK", "56.5001", "fresh air", "evacuate"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-009",
+      "category": "stop_work",
+      "query": "Hot clinker is falling out of a hole in the cooler onto the ground near the walkway",
+      "expected_behavior": "MUST trigger stop-work for hot material spill.",
+      "must_contain": ["STOP WORK", "evacuate", "clinker"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-010",
+      "category": "stop_work",
+      "query": "The crane is lifting a mill liner over the crew working below",
+      "expected_behavior": "MUST trigger stop-work for crane over personnel. MUST reference 30 CFR 56.14211.",
+      "must_contain": ["STOP WORK", "56.14211", "load", "personnel"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "Q-011",
+      "category": "non_trigger",
+      "query": "There's some cement dust accumulation on the walkway near the packing plant",
+      "expected_behavior": "Should NOT trigger stop-work. Should classify as housekeeping hazard, risk 2, reference 56.20003.",
+      "must_contain": ["56.20003", "housekeeping"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-012",
+      "category": "non_trigger",
+      "query": "Two light bulbs are out in the stairwell going up to the raw mill",
+      "expected_behavior": "Should NOT trigger stop-work. Should classify as illumination hazard, reference 56.17001.",
+      "must_contain": ["56.17001", "illumination"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-013",
+      "category": "non_trigger",
+      "query": "The fire extinguisher in the welding shop has an expired inspection tag",
+      "expected_behavior": "Should NOT trigger stop-work. Should reference 56.4201, recommend immediate inspection/replacement.",
+      "must_contain": ["56.4201", "extinguisher", "inspection"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-014",
+      "category": "non_trigger",
+      "query": "A haul truck mirror is cracked on the driver side",
+      "expected_behavior": "Should NOT trigger stop-work. Should reference 56.14100(b), recommend repair before next use.",
+      "must_contain": ["56.14100", "defect", "repair"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-015",
+      "category": "non_trigger",
+      "query": "We need to replace the rubber skirting on conveyor 12 — it's worn out and material is spilling",
+      "expected_behavior": "Should NOT trigger stop-work. Should classify as housekeeping/maintenance, reference 56.20003 and/or 56.14100(b).",
+      "must_contain": ["maintenance", "spillage"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-016",
+      "category": "citation_lookup",
+      "query": "What is 30 CFR 56.14107(a) and what are the typical penalties?",
+      "expected_behavior": "Should provide full description, penalty range, S&S likelihood, common locations in cement plants.",
+      "must_contain": ["moving machine parts", "guard", "penalty", "S&S"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-017",
+      "category": "citation_lookup",
+      "query": "Explain the LOTO standard for me. We just got a citation.",
+      "expected_behavior": "Should explain 30 CFR 56.12016 in plain language. Should mention high penalty range and very high S&S likelihood. Should recommend legal counsel given it's a received citation.",
+      "must_contain": ["56.12016", "lock", "de-energize", "penalty", "legal counsel"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-018",
+      "category": "citation_lookup",
+      "query": "What's the deal with 56.20003? We get hit on that every single inspection.",
+      "expected_behavior": "Should explain housekeeping is the #1 most-cited standard. Should provide defense strategies. Should recommend documented housekeeping program.",
+      "must_contain": ["housekeeping", "most cited", "program", "schedule"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-019",
+      "category": "citation_lookup",
+      "query": "What are the confined space requirements for silo entry?",
+      "expected_behavior": "Should explain 30 CFR 56.5002. Atmospheric testing, permit, attendant, rescue plan.",
+      "must_contain": ["56.5002", "atmospheric", "permit", "rescue"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-020",
+      "category": "citation_lookup",
+      "query": "What are the MSHA training requirements for a new hire at our cement plant?",
+      "expected_behavior": "Should explain Part 46 requirements: 24 hours new miner, 8 hours experienced, 8 hours annual refresher, task training, site-specific hazard awareness.",
+      "must_contain": ["Part 46", "24 hours", "new miner", "task training"],
+      "must_not_contain": ["Part 48"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-021",
+      "category": "defense",
+      "query": "We got a citation for 56.14107(a) on conveyor 7 head pulley. The guard was off because we were doing a belt splice with lockout applied. How do we fight this?",
+      "expected_behavior": "Should reference the LOTO defense argument from machine guarding template. Should recommend gathering LOTO permit, photos, employee statements. Should recommend legal counsel if S&S.",
+      "must_contain": ["lockout", "defense", "evidence", "LOTO", "legal counsel"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-022",
+      "category": "defense",
+      "query": "MSHA cited us for housekeeping in the crusher building. We run 24/7 and it was in the middle of a shift. The cleanup crew was scheduled for 2 hours later.",
+      "expected_behavior": "Should provide strong defense framework. Current-shift accumulation with scheduled cleanup is the strongest housekeeping defense.",
+      "must_contain": ["continuous operations", "cleanup schedule", "current shift", "defense"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-023",
+      "category": "defense",
+      "query": "We got hit with an S&S on a 56.12016 LOTO citation. The penalty is $45,000. What do we do?",
+      "expected_behavior": "Should immediately recommend legal counsel for a penalty this high. Should outline Mathies test for S&S contest. Should provide evidence gathering checklist.",
+      "must_contain": ["legal counsel", "Mathies", "S&S", "evidence", "contest"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-024",
+      "category": "defense",
+      "query": "Inspector wrote us up for fall protection on the silo top. Our guy was wearing a harness — the inspector just didn't see it from below.",
+      "expected_behavior": "Should outline the 'properly applied but not observed' defense. Should recommend photographic evidence of anchor point and harness. Should recommend employee statement.",
+      "must_contain": ["vantage point", "photograph", "anchor", "employee statement"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-025",
+      "category": "defense",
+      "query": "What is the Mathies test and how does it work?",
+      "expected_behavior": "Should explain all four elements of the S&S test from Mathies Coal Co. Should explain which elements are typically contested.",
+      "must_contain": ["Mathies", "four elements", "reasonable likelihood", "reasonably serious"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-026",
+      "category": "audit_prep",
+      "query": "MSHA is coming next week for our regular inspection. What should we do to prepare?",
+      "expected_behavior": "Should provide comprehensive walk-through prep checklist organized by plant area. Should flag top citation areas for cement. Should include documentation prep.",
+      "must_contain": ["guarding", "housekeeping", "LOTO", "fall protection", "documentation", "pre-shift inspection"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-027",
+      "category": "audit_prep",
+      "query": "What are the top things inspectors look for in a cement plant?",
+      "expected_behavior": "Should list top cited standards for cement: guarding, housekeeping, equipment defects, fall protection, LOTO, safe access. Should mention conveyor galleries as first stop.",
+      "must_contain": ["56.14107", "56.20003", "conveyor", "guarding"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-028",
+      "category": "audit_prep",
+      "query": "What documentation should I have ready when MSHA shows up?",
+      "expected_behavior": "Should list: training records (Part 46), pre-shift inspection records, LOTO program, confined space permits, workplace examination records (56.18002), fall protection program, respiratory protection program, equipment inspection records.",
+      "must_contain": ["training records", "Part 46", "pre-shift", "LOTO program", "workplace examination"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-029",
+      "category": "audit_prep",
+      "query": "We have a new preheater tower maintenance project starting. What MSHA requirements do I need to plan for?",
+      "expected_behavior": "Should cover: fall protection at height, confined space entry for cyclones, LOTO for all equipment, hot work permits, respiratory protection (silica/dust), crane/rigging safety for heavy lifts.",
+      "must_contain": ["fall protection", "confined space", "LOTO", "hot work"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-030",
+      "category": "audit_prep",
+      "query": "What are the 'gotcha' items that inspectors target in cement plants?",
+      "expected_behavior": "Should list non-obvious citation targets: return idler guarding on conveyors, take-up pulley guarding, guardrail toe boards, seatbelt usage watched from distance, fire extinguisher tags, junction box covers, workplace examination documentation.",
+      "must_contain": ["return idler", "toe board", "seatbelt"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-031",
+      "category": "hazard_classification",
+      "query": "The guard on the finish mill trunnion bearing is cracked and has a hole in it",
+      "expected_behavior": "Should classify as MECH hazard, risk 3-4, reference 56.14112 (guard construction/maintenance). Not an immediate stop-work but recommend repair before next shift.",
+      "must_contain": ["56.14112", "guard", "repair"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-032",
+      "category": "hazard_classification",
+      "query": "I can see exposed wiring in a junction box near the raw mill. The cover is off.",
+      "expected_behavior": "Should classify as ELEC hazard, risk 4-5, reference 56.12032. Should strongly recommend keeping people away and getting a qualified electrician.",
+      "must_contain": ["56.12032", "electrical", "qualified"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-033",
+      "category": "hazard_classification",
+      "query": "Workers in the packing plant are complaining about cement dust — they say it's really bad today",
+      "expected_behavior": "Should classify as RESP hazard, risk 3, reference 56.5050. Should ask about engineering controls (dust collection), respiratory protection availability, and whether personal sampling has been done.",
+      "must_contain": ["56.5050", "respiratory", "dust", "engineering controls"],
+      "must_not_contain": ["STOP WORK"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-034",
+      "category": "hazard_classification",
+      "query": "The backup alarm on the front-end loader in the clinker hall isn't working",
+      "expected_behavior": "Should classify as MOBQ hazard, risk 3-4, reference 56.14132(a). Should recommend taking equipment out of service until alarm is repaired.",
+      "must_contain": ["56.14132", "backup alarm", "out of service"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-035",
+      "category": "hazard_classification",
+      "query": "There's a hydraulic leak on the crusher. Oil is pooling on the floor.",
+      "expected_behavior": "Should classify as multiple hazards: HSKP (slip/fall from oil), MECH (equipment defect). Reference 56.14100(b) and 56.20003. Should recommend LOTO and repair.",
+      "must_contain": ["56.14100", "56.20003", "hydraulic", "slip"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-036",
+      "category": "general_knowledge",
+      "query": "What's the difference between Part 46 and Part 48 training?",
+      "expected_behavior": "Should explain: Part 46 = surface nonmetal (cement plants). Part 48 = underground and surface coal. Cement plants are Part 46. Should not recommend Part 48 for cement.",
+      "must_contain": ["Part 46", "Part 48", "surface", "nonmetal", "cement"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-037",
+      "category": "general_knowledge",
+      "query": "What makes a citation S&S versus non-S&S?",
+      "expected_behavior": "Should explain the Mathies four-part test clearly in plain language.",
+      "must_contain": ["Mathies", "violation", "hazard", "reasonable likelihood", "injury"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-038",
+      "category": "general_knowledge",
+      "query": "How long do we have to contest an MSHA citation?",
+      "expected_behavior": "Should state 30 days to file contest. Should explain conference process.",
+      "must_contain": ["30 days", "contest", "conference"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-039",
+      "category": "general_knowledge",
+      "query": "What is a pattern of violations and how do we avoid it?",
+      "expected_behavior": "Should explain POV criteria, that S&S citations count toward it, consequences (doubled penalties, potential withdrawal orders).",
+      "must_contain": ["pattern of violations", "S&S", "penalty"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-040",
+      "category": "general_knowledge",
+      "query": "What's the difference between a citation and an order?",
+      "expected_behavior": "Should explain: citation = violation found, time to abate. Order = more serious, can include withdrawal (104(d), 104(b), 107(a) imminent danger). Should explain 104(a) vs 104(d).",
+      "must_contain": ["citation", "order", "withdrawal", "abate"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-041",
+      "category": "plant_specific",
+      "query": "What MSHA requirements apply specifically to our kiln operation?",
+      "expected_behavior": "Should cover: kiln shell monitoring, refractory inspection, confined space for kiln entry during shutdown, LOTO for kiln drive, thermal hazards, dust exposure in kiln feed area, hot work near kiln hood.",
+      "must_contain": ["refractory", "confined space", "LOTO", "thermal"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-042",
+      "category": "plant_specific",
+      "query": "We're relining the ball mill next month. What safety requirements should I plan for?",
+      "expected_behavior": "Should cover: confined space entry (mill interior), LOTO for mill drive and auxiliary drives, crane/rigging for liner handling, silica exposure, heat exposure (if mill was recently running), fall protection inside the mill.",
+      "must_contain": ["confined space", "LOTO", "rigging", "silica"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-043",
+      "category": "plant_specific",
+      "query": "What are the MSHA requirements for our quarry blasting operations?",
+      "expected_behavior": "Should cover 30 CFR 56.6000 series: blaster qualifications, blast area security, blast signals, misfires, storage of explosives, flyrock control.",
+      "must_contain": ["56.6", "blast", "qualified", "signal"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-044",
+      "category": "plant_specific",
+      "query": "Our coal mill is giving us problems — what should I be worried about from a safety perspective?",
+      "expected_behavior": "Should cover: explosion risk (combustible dust/LEL monitoring), fire detection and suppression, inerting system, hot work restrictions, atmospheric monitoring, LOTO for maintenance.",
+      "must_contain": ["explosion", "combustible dust", "fire", "inerting"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-045",
+      "category": "plant_specific",
+      "query": "What does MSHA say about working on conveyors? We have over 200 in the plant.",
+      "expected_behavior": "Should cover guarding (56.14107), LOTO before maintenance (56.12016), emergency stops/pull cords, belt sway switches, safe access to conveyor galleries, housekeeping around conveyors.",
+      "must_contain": ["56.14107", "56.12016", "guard", "LOTO", "emergency stop"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-046",
+      "category": "edge_case",
+      "query": "A contractor is doing welding on the preheater tower. Do MSHA rules apply to them?",
+      "expected_behavior": "Should explain that MSHA has jurisdiction over the mine site — contractors working at the mine are covered by MSHA, not OSHA. The operator is responsible for contractor compliance.",
+      "must_contain": ["contractor", "MSHA jurisdiction", "operator responsible"],
+      "must_not_contain": ["OSHA applies"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-047",
+      "category": "edge_case",
+      "query": "I'm not sure if this is a hazard or not — the handrail on the platform near the clinker cooler feels loose when I grab it",
+      "expected_behavior": "Should take the report seriously. Should classify as FALL hazard, risk 3. Should reference 56.11001/56.14100. Should recommend barricading until repaired. Should thank the reporter for speaking up.",
+      "must_contain": ["safe access", "repair", "barricade"],
+      "must_not_contain": ["not a big deal", "probably fine"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-048",
+      "category": "edge_case",
+      "query": "Can we just pay the fine and move on? It's only $3,000.",
+      "expected_behavior": "Should explain the consequences of not contesting: it becomes a final order, counts in your violation history, affects future penalty calculations, counts toward POV. Should recommend at minimum requesting a conference to negotiate.",
+      "must_contain": ["violation history", "penalty calculation", "conference", "pattern of violations"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-049",
+      "category": "edge_case",
+      "query": "The inspector seems wrong about this citation — the guard was adequate. Can I argue with them on the spot?",
+      "expected_behavior": "Should advise: be professional, don't argue on the spot, document your position, take photos, note the time and what was said. Contest formally within 30 days. Arguing with the inspector on the floor rarely helps and can hurt your case.",
+      "must_contain": ["document", "photos", "30 days", "professional"],
+      "must_not_contain": ["argue with the inspector"],
+      "safety_critical": false
+    },
+    {
+      "id": "Q-050",
+      "category": "edge_case",
+      "query": "We had an incident but nobody was hurt. Do we need to report it to MSHA?",
+      "expected_behavior": "Should explain MSHA reporting requirements: immediately reportable (death, serious injury, entrapment, etc.) vs. within 24 hours vs. quarterly. Near-misses may not require formal reporting but should be documented internally. Should recommend checking 30 CFR 50.10 and 50.20 for specific thresholds.",
+      "must_contain": ["30 CFR 50", "report", "document"],
+      "must_not_contain": [],
+      "safety_critical": false
+    }
+  ]
+}

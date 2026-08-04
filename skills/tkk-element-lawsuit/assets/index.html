@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUDE · 要素式起诉状转换工具 (模块化版)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="toast-container"></div>
+
+<div id="loading-overlay">
+  <div class="loading-box">
+    <div class="loading-spinner-big"></div>
+    <div class="loading-title">AI 正在分析文书…</div>
+    <div class="loading-sub" id="loading-sub-text">正在调用 AI 模型，请稍候</div>
+    <div class="loading-steps" id="loading-steps">
+      <div class="loading-step" id="ls-1">⬜ 文件解析</div>
+      <div class="loading-step" id="ls-2">⬜ 当事人识别</div>
+      <div class="loading-step" id="ls-3">⬜ 要素提取</div>
+      <div class="loading-step" id="ls-4">⬜ 生成表格结构</div>
+    </div>
+  </div>
+</div>
+
+<!-- AI助手面板 -->
+<div id="ai-panel-overlay" onclick="closeAiPanel()" style="display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.45);backdrop-filter:blur(2px);"></div>
+<div id="ai-panel" style="display:none;position:fixed;top:0;right:0;width:400px;height:100vh;z-index:801;background:#1a1a1a;border-left:1px solid rgba(202,167,105,0.25);box-shadow:-8px 0 40px rgba(0,0,0,0.6);display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.3s cubic-bezier(.4,0,.2,1);">
+  <div style="padding:20px 22px 16px;border-bottom:1px solid rgba(202,167,105,0.15);display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div style="font-family:Cinzel,monospace;font-size:13px;color:#CAA769;letter-spacing:0.15em;font-weight:600;">AI 助手</div>
+      <div style="font-size:11px;color:#555;margin-top:2px;letter-spacing:0.03em;">模型、接口、密钥与连通性配置</div>
+    </div>
+    <button onclick="closeAiPanel()" style="background:none;border:none;color:#555;cursor:pointer;font-size:18px;line-height:1;padding:4px 8px;border-radius:4px;transition:color 0.2s;" onmouseover="this.style.color='#CAA769'" onmouseout="this.style.color='#555'">✕</button>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:20px 22px;">
+    <div style="margin-bottom:16px;padding:12px 14px;background:#111;border:1px solid #242424;border-radius:8px;">
+      <div style="font-size:11px;color:#CAA769;letter-spacing:0.08em;font-weight:600;margin-bottom:8px;text-transform:uppercase;">配置说明</div>
+      <div style="font-size:11px;color:#666;line-height:1.75;">
+        默认已预置阿里云百炼兼容地址。切换到 DeepSeek / OpenAI 兼容模型时，可直接使用推荐接口地址，也可改成你自己的兼容网关。
+      </div>
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <div style="font-size:11px;color:#CAA769;letter-spacing:0.08em;font-weight:600;margin-bottom:10px;text-transform:uppercase;">选择模型</div>
+      <div id="model-cards" style="display:flex;flex-direction:column;gap:6px;">
+        <!-- 卡片由JS渲染 -->
+      </div>
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <div style="font-size:11px;color:#CAA769;letter-spacing:0.08em;font-weight:600;margin-bottom:8px;text-transform:uppercase;">接口地址</div>
+      <div style="font-size:11px;color:#555;margin-bottom:8px;">支持 OpenAI 兼容 chat/completions 地址</div>
+      <input type="text" id="apiBaseUrl" placeholder="https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions" style="width:100%;background:#111;color:#B4B4B4;border:1px solid #333;border-radius:6px;padding:9px 12px;font-size:12px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(202,167,105,0.5)'" onblur="this.style.borderColor='#333'">
+      <div id="endpoint-hint" style="font-size:10px;color:#444;margin-top:6px;line-height:1.6;">推荐：阿里云百炼兼容地址</div>
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="font-size:11px;color:#CAA769;letter-spacing:0.08em;font-weight:600;text-transform:uppercase;">API 密钥</div>
+        <button type="button" id="toggleApiKeyBtn" onclick="toggleApiKeyVisibility()" style="background:none;border:none;color:#666;font-size:11px;cursor:pointer;">显示</button>
+      </div>
+      <div style="font-size:11px;color:#555;margin-bottom:8px;">密钥仅保存在当前浏览器本地</div>
+      <input type="password" id="apiKey" placeholder="sk-..." style="width:100%;background:#111;color:#B4B4B4;border:1px solid #333;border-radius:6px;padding:9px 12px;font-size:13px;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(202,167,105,0.5)'" onblur="this.style.borderColor='#333'">
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <div style="font-size:11px;color:#CAA769;letter-spacing:0.08em;font-weight:600;margin-bottom:8px;text-transform:uppercase;">推断填写增强</div>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 12px;background:#111;border:1px solid #2a2a2a;border-radius:6px;">
+        <div style="position:relative;width:32px;height:18px;flex-shrink:0;">
+          <input type="checkbox" id="inferToggle" checked style="opacity:0;position:absolute;inset:0;margin:0;cursor:pointer;z-index:1;" onchange="updateInferToggle()">
+          <div id="inferTrack" style="position:absolute;inset:0;background:#CAA769;border-radius:9px;transition:background 0.2s;"></div>
+          <div id="inferThumb" style="position:absolute;top:2px;left:16px;width:14px;height:14px;background:white;border-radius:50%;transition:left 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#B4B4B4;">开启推断填写</div>
+          <div style="font-size:11px;color:#444;margin-top:1px;">仅在模板既有字段内补全可能遗漏的要素，不新增字段</div>
+        </div>
+      </label>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;">
+      <button type="button" id="save-config-btn" onclick="saveAiConfig(true)" style="background:rgba(202,167,105,0.12);color:#CAA769;border:1px solid rgba(202,167,105,0.35);border-radius:6px;padding:10px 12px;font-size:12px;cursor:pointer;">保存配置</button>
+      <button type="button" id="test-config-btn" onclick="testAiConnection()" style="background:#111;color:#B4B4B4;border:1px solid #333;border-radius:6px;padding:10px 12px;font-size:12px;cursor:pointer;">连接测试</button>
+    </div>
+
+    <div style="background:#111;border:1px solid #222;border-radius:8px;padding:14px;">
+      <div style="font-size:11px;color:#555;line-height:1.8;">
+        <div style="color:#444;font-weight:600;margin-bottom:6px;font-size:11px;">📌 当前状态</div>
+        <div id="ai-panel-status" style="color:#CAA769;font-size:12px;font-family:'JetBrains Mono',monospace;">Qwen Plus · 推荐</div>
+        <div style="margin-top:8px;color:#444;">密钥状态：<span id="key-status" style="color:#555;">未配置</span></div>
+        <div style="margin-top:4px;color:#444;">接口状态：<span id="endpoint-status" style="color:#555;">未校验</span></div>
+        <div id="config-save-status" style="margin-top:4px;color:#444;">保存状态：<span style="color:#555;">未保存</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="logo">
+    <img src="data:image/x-icon;base64,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" alt="BUDE" style="width:36px;height:36px;border-radius:8px;object-fit:contain;">
+    <div style="display:flex;flex-direction:column;gap:1px;">
+      <span style="font-family:Cinzel,'JetBrains Mono',monospace;font-size:14px;font-weight:600;color:#CAA769;letter-spacing:0.2em;">BUDE CONVERT</span>
+    </div>
+    <div style="width:1px;height:22px;background:rgba(202,167,105,0.2);margin:0 4px;"></div>
+    <span style="font-size:11px;color:#484848;letter-spacing:0.04em;">要素式起诉状转换工具</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#484848;border:1px solid #2a2a2a;padding:3px 8px;border-radius:3px;letter-spacing:0.08em;">v10.1</span>
+    <button id="ai-assistant-btn" onclick="toggleAiPanel()" style="display:flex;align-items:center;gap:7px;background:rgba(202,167,105,0.08);border:1px solid rgba(202,167,105,0.25);color:#CAA769;border-radius:6px;padding:7px 14px;font-size:12px;cursor:pointer;font-family:'Noto Sans SC',sans-serif;letter-spacing:0.04em;transition:all 0.2s;" onmouseover="this.style.background='rgba(202,167,105,0.15)';this.style.borderColor='rgba(202,167,105,0.45)'" onmouseout="this.style.background='rgba(202,167,105,0.08)';this.style.borderColor='rgba(202,167,105,0.25)'">
+      <span style="font-size:14px;">✦</span>
+      AI 助手
+      <span id="ai-btn-model" style="font-size:10px;color:#967830;font-family:'JetBrains Mono',monospace;">Qwen-Plus</span>
+    </button>
+  </div>
+</header>
+<!-- hidden input for model value, kept for compat -->
+<select id="modelSelect" style="display:none;">
+  <option value="qwen-turbo">Qwen-Turbo</option>
+  <option value="qwen-plus" selected>Qwen-Plus</option>
+  <option value="qwen-max">Qwen-Max</option>
+  <option value="qwen-long">Qwen-Long</option>
+  <option value="qwen2.5-72b-instruct">Qwen2.5-72B</option>
+  <option value="qwen2.5-7b-instruct">Qwen2.5-7B</option>
+  <option value="deepseek-chat">DeepSeek-Chat</option>
+  <option value="deepseek-reasoner">DeepSeek-Reasoner</option>
+  <option value="gpt-4o">GPT-4o</option>
+  <option value="gpt-4o-mini">GPT-4o-mini</option>
+</select>
+
+<div class="main-wrap">
+  <!-- Steps Nav -->
+  <div class="steps-nav">
+    <div class="step-item active" onclick="goStep(1)" id="step-nav-1">
+      <div class="step-num">1</div>
+      <div class="step-label"><div class="step-label"><div class="step-text">上传文件</div><div class="step-sub">DOCX / PDF</div></div></div>
+    </div>
+    <div class="step-item" onclick="goStep(2)" id="step-nav-2">
+      <div class="step-num">2</div>
+      <div class="step-label"><div class="step-label"><div class="step-text">AI 分析提取</div><div class="step-sub">Qwen 智能识别</div></div></div>
+    </div>
+    <div class="step-item" onclick="goStep(3)" id="step-nav-3">
+      <div class="step-num">3</div>
+      <div class="step-label"><div class="step-label"><div class="step-text">编辑校对</div><div class="step-sub">逐字段核对补充</div></div></div>
+    </div>
+    <div class="step-item" onclick="goStep(4)" id="step-nav-4">
+      <div class="step-num">4</div>
+      <div class="step-label"><div class="step-label"><div class="step-text">预览导出</div><div class="step-sub">生成 DOCX 文件</div></div></div>
+    </div>
+  </div>
+
+  <!-- ── Step 1: Upload ── -->
+  <div class="step-panel active" id="step-1">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon">①</div>
+        上传文件
+      </div>
+      <div class="card-body">
+        <div class="notice notice-info">
+          <span>ℹ</span>
+          <span>请上传待转换的传统起诉状文件（docx/pdf），工具将基于阿里云百炼 AI 自动提取要素并生成要素式起诉状。</span>
+        </div>
+        <div class="upload-grid">
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--ink);">待转换起诉状</p>
+            <div class="upload-zone" id="zone-complaint" onclick="document.getElementById('file-complaint').click()"
+                 ondrop="handleDrop(event,'complaint')" ondragover="e=>e.preventDefault()" ondragenter="this.classList.add('dragover')" ondragleave="this.classList.remove('dragover')">
+              <span class="upload-icon">📄</span>
+              <div class="upload-label">点击或拖拽上传</div>
+              <div class="upload-sub">支持 .docx .pdf 格式<br>文件大小 ≤ 20MB</div>
+              <div class="upload-file-name" id="complaint-name"></div>
+              <div class="upload-progress" id="complaint-progress"><div class="upload-progress-bar" id="complaint-bar"></div></div>
+            </div>
+            <input type="file" id="file-complaint" accept=".docx,.pdf" onchange="handleFileSelect(event,'complaint')">
+          </div>
+          <div>
+            <p style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--ink);">要素式起诉状范本（可选）</p>
+            <div class="upload-zone" id="zone-template" onclick="document.getElementById('file-template').click()"
+                 ondrop="handleDrop(event,'template')" ondragover="e=>e.preventDefault()" ondragenter="this.classList.add('dragover')" ondragleave="this.classList.remove('dragover')">
+              <span class="upload-icon">📋</span>
+              <div class="upload-label">点击或拖拽上传</div>
+              <div class="upload-sub">支持 .docx .pdf 格式<br>不上传则使用内置范本</div>
+              <div class="upload-file-name" id="template-name"></div>
+            </div>
+            <input type="file" id="file-template" accept=".docx,.pdf" onchange="handleFileSelect(event,'template')">
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div class="config-row">
+            <div class="form-group">
+              <label class="form-label">案件类型（AI 可自动识别）</label>
+              <select class="form-select" id="caseType" onchange="onCaseTypeChange(this.value)">
+                <option value="">-- 请选择或由 AI 自动识别 --</option>
+                <optgroup label="民事纠纷（合同类）">
+                  <option value="mjjd">民间借贷纠纷</option>
+                  <option value="jrjk">金融借款合同纠纷</option>
+                  <option value="maimai">买卖合同纠纷</option>
+                  <option value="fwmm">房屋买卖合同纠纷</option>
+                  <option value="fwzl">房屋租赁合同纠纷</option>
+                  <option value="jsgc">建设工程施工合同纠纷</option>
+                  <option value="wyfw">物业服务合同纠纷</option>
+                  <option value="xyk">信用卡纠纷</option>
+                  <option value="rongzi">融资租赁合同纠纷</option>
+                  <option value="jishu">技术合同纠纷</option>
+                </optgroup>
+                <optgroup label="民事纠纷（侵权/其他）">
+                  <option value="lihun">离婚纠纷</option>
+                  <option value="ldzy">劳动争议纠纷</option>
+                  <option value="jtsg">机动车交通事故责任纠纷</option>
+                  <option value="bxcss">财产损失保险合同纠纷</option>
+                  <option value="bzxbx">保证保险合同纠纷</option>
+                  <option value="rsbx">人身保险合同纠纷</option>
+                  <option value="zebx">责任保险合同纠纷</option>
+                  <option value="zqxjcs">证券虚假陈述责任纠纷</option>
+                </optgroup>
+                <optgroup label="知识产权">
+                  <option value="shangbiao">侵害商标权纠纷</option>
+                  <option value="fmzl">侵害发明专利权纠纷</option>
+                  <option value="wgsj">侵害外观设计专利权纠纷</option>
+                  <option value="zwxpz">侵害植物新品种权纠纷</option>
+                  <option value="zhuzuoquan">侵害著作权及邻接权纠纷</option>
+                  <option value="bzdj">不正当竞争纠纷</option>
+                  <option value="longduan">垄断纠纷</option>
+                  <option value="syms">侵害商业秘密纠纷</option>
+                </optgroup>
+                <optgroup label="行政诉讼">
+                  <option value="xzcf">行政处罚</option>
+                  <option value="xzqzzx">行政强制执行</option>
+                  <option value="xzxk">行政许可</option>
+                  <option value="fwzs">国有土地上房屋征收决定</option>
+                  <option value="gsbx">工伤保险资格或待遇认定</option>
+                  <option value="zfxxgk">政府信息公开</option>
+                  <option value="xzfy">行政复议</option>
+                  <option value="xzxy">行政协议</option>
+                  <option value="xzbc">行政补偿</option>
+                  <option value="xzpc">行政赔偿</option>
+                </optgroup>
+                <optgroup label="海事纠纷">
+                  <option value="cbpz">船舶碰撞损害责任纠纷</option>
+                  <option value="hsrs">海上通海水域人身损害责任纠纷</option>
+                  <option value="hshyd">海上通海水域货运代理合同纠纷</option>
+                  <option value="cylw">船员劳务合同纠纷</option>
+                </optgroup>
+                <optgroup label="公益诉讼">
+                  <option value="hjwr">环境污染民事公益诉讼</option>
+                  <option value="stph">生态破坏民事公益诉讼</option>
+                  <option value="stsh">生态环境损害赔偿诉讼</option>
+                </optgroup>
+                <optgroup label="执行类申请书">
+                  <option value="zxsqs">强制执行申请书</option>
+                  <option value="jsjczxsqs">暂时解除飞机高铁限制申请书</option>
+                  <option value="cyffpz">参与分配申请书</option>
+                  <option value="zxdbsqs">执行担保申请书</option>
+                  <option value="qryxgmqsqs">确认优先购买权申请书</option>
+                  <option value="zxyysqs">执行异议申请书</option>
+                  <option value="zxfysqs">执行复议申请书</option>
+                  <option value="zxjdsqs">执行监督申请书</option>
+                  <option value="byyxzc">不予执行仲裁裁决调解书申请书</option>
+                </optgroup>
+                <optgroup label="国家赔偿申请书">
+                  <option value="gjpcsqs1">违法刑事拘留赔偿申请书</option>
+                  <option value="gjpcsqs2">刑事改判无罪赔偿申请书</option>
+                  <option value="gjpcsqs3">怠于履行监管职责赔偿申请书</option>
+                  <option value="gjpcsqs4">错误执行赔偿申请书</option>
+                </optgroup>
+              </select>
+              <div id="template-meta-card" class="template-meta-card" style="margin-top:10px;display:none;">
+                <div class="template-meta-top">
+                  <div class="template-meta-title" id="template-meta-title">内置范本</div>
+                  <div class="template-meta-badge">67类内置</div>
+                </div>
+                <div class="template-meta-sub" id="template-meta-sub">将按对应要素式范本原有栏目顺序填充，不新增、不删减、不改名。</div>
+                <div class="template-meta-grid">
+                  <div><span>文书类型</span><strong id="template-meta-dockind">-</strong></div>
+                  <div><span>字段模式</span><strong>严格锁定</strong></div>
+                  <div><span>范本来源</span><strong id="template-meta-source">-</strong></div>
+                  <div><span>适配用途</span><strong id="template-meta-scope">传统起诉状转要素式</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="max-width:200px;">
+              <label class="form-label">受诉法院</label>
+              <input type="text" class="form-input" id="court" placeholder="如：上海市浦东新区法院">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;display:flex;justify-content:flex-end;gap:10px;">
+          <button class="btn btn-primary" id="btn-analyze" onclick="startAnalyze()" disabled>
+            <span>🤖</span> AI 分析提取
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- History -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon">H</div>
+        转换记录
+      </div>
+      <div class="card-body" style="padding:0;">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>文件名称</th>
+              <th>案件类型</th>
+              <th>当事人</th>
+              <th>转换时间</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="history-tbody">
+            <tr><td colspan="6" style="text-align:center;color:var(--gray);padding:24px;font-size:13px;">暂无转换记录</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Step 2: AI Analyze (auto-skip to step 3) ── -->
+  <div class="step-panel" id="step-2">
+    <div class="card">
+      <div class="card-header"><div class="icon">AI</div>AI 分析进行中</div>
+      <div class="card-body">
+        <div class="ai-status" id="ai-status-box">
+          <div class="ai-spinner"></div>
+          <div>
+            <div class="ai-status-text" id="ai-status-text">正在调用阿里云百炼 API…</div>
+            <div class="ai-status-sub" id="ai-status-sub">请稍候，通常需要 10-30 秒</div>
+          </div>
+        </div>
+        <div id="raw-text-preview" style="display:none;">
+          <p style="font-size:12px;color:var(--gray);margin-bottom:8px;font-weight:600;">原始文本预览（前 800 字）</p>
+          <div style="background:var(--paper-dark);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:12px;font-family:'JetBrains Mono',monospace;max-height:200px;overflow-y:auto;line-height:1.6;color:var(--gray);white-space:pre-wrap;" id="raw-text-content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Step 3: Edit ── -->
+  <div class="step-panel" id="step-3">
+    <div class="card" id="edit-card">
+      <div class="card-header">
+        <div class="icon">✏</div>
+        编辑校对要素信息
+        <span style="margin-left:auto;font-size:12px;opacity:0.7;">AI 提取结果，可手动修改</span>
+      </div>
+      <div class="card-body">
+        <div class="notice notice-warn" id="missing-notice" style="display:none;">
+          <span>⚠</span>
+          <span id="missing-text"></span>
+        </div>
+
+        <!-- Party Tabs -->
+        <div class="party-tabs" id="party-tabs">
+          <div class="party-tab active" onclick="showPartySection('plaintiffs')" id="tab-plaintiffs">
+            原告 <span class="badge" id="badge-plaintiffs">0</span>
+          </div>
+          <div class="party-tab" onclick="showPartySection('defendants')" id="tab-defendants">
+            被告 <span class="badge" id="badge-defendants">0</span>
+          </div>
+          <div class="party-tab" onclick="showPartySection('thirds')" id="tab-thirds">
+            第三人 <span class="badge" id="badge-thirds">0</span>
+          </div>
+          <div class="party-tab" onclick="showPartySection('agent')" id="tab-agent">委托代理人</div>
+          <div class="party-tab" onclick="showPartySection('claims')" id="tab-claims">诉讼请求</div>
+          <div class="party-tab" onclick="showPartySection('facts')" id="tab-facts">事实与理由</div>
+          <div class="party-tab" onclick="showPartySection('jurisdiction')" id="tab-jurisdiction">管辖等</div>
+        </div>
+
+        <!-- Plaintiff section -->
+        <div class="party-section visible" id="section-plaintiffs">
+          <div id="plaintiffs-container"></div>
+          <div class="add-party-row">
+            <div class="add-btns">
+              <button class="btn btn-outline btn-sm" onclick="addParty('plaintiffs','person')">＋ 原告（自然人）</button>
+              <button class="btn btn-outline btn-sm" onclick="addParty('plaintiffs','org')">＋ 原告（法人/组织）</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Defendant section -->
+        <div class="party-section" id="section-defendants">
+          <div id="defendants-container"></div>
+          <div class="add-party-row">
+            <div class="add-btns">
+              <button class="btn btn-outline btn-sm" onclick="addParty('defendants','person')">＋ 被告（自然人）</button>
+              <button class="btn btn-outline btn-sm" onclick="addParty('defendants','org')">＋ 被告（法人/组织）</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third party section -->
+        <div class="party-section" id="section-thirds">
+          <div id="thirds-container"></div>
+          <div class="add-party-row">
+            <div class="add-btns">
+              <button class="btn btn-outline btn-sm" onclick="addParty('thirds','person')">＋ 第三人（自然人）</button>
+              <button class="btn btn-outline btn-sm" onclick="addParty('thirds','org')">＋ 第三人（法人/组织）</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent section -->
+        <div class="party-section" id="section-agent">
+          <div class="section-block">
+            <div class="section-block-header">📋 委托诉讼代理人信息</div>
+            <div class="section-block-body">
+              <div style="margin-bottom:14px;">
+                <label class="field-label" style="display:block;margin-bottom:8px;">是否有委托诉讼代理人</label>
+                <div class="check-group">
+                  <label class="check-item"><input type="radio" name="hasAgent" value="yes" id="agent-yes" onchange="toggleAgent()"> 有</label>
+                  <label class="check-item"><input type="radio" name="hasAgent" value="no" id="agent-no" onchange="toggleAgent()" checked> 无</label>
+                </div>
+              </div>
+              <div id="agent-fields" style="display:none;">
+                <div class="field-grid">
+                  <div class="field-group">
+                    <label class="field-label">姓名</label>
+                    <input type="text" class="field-input" id="agent-name" placeholder="代理律师/代理人姓名">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">职务</label>
+                    <input type="text" class="field-input" id="agent-job" placeholder="如：律师">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">所在单位（律所名称）</label>
+                    <input type="text" class="field-input" id="agent-firm" placeholder="律师事务所全称">
+                  </div>
+                  <div class="field-group">
+                    <label class="field-label">联系电话</label>
+                    <input type="text" class="field-input" id="agent-phone" placeholder="联系电话">
+                  </div>
+                </div>
+                <div style="margin-top:12px;">
+                  <label class="field-label" style="display:block;margin-bottom:8px;">代理权限</label>
+                  <div class="check-group">
+                    <label class="check-item"><input type="radio" name="agentAuth" value="general" id="auth-general"> 一般授权</label>
+                    <label class="check-item"><input type="radio" name="agentAuth" value="special" id="auth-special" checked> 特别授权</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Claims section -->
+        <div class="party-section" id="section-claims">
+          <div class="section-block">
+            <div class="section-block-header">⚖ 诉讼请求</div>
+            <div class="section-block-body">
+              <div style="background:var(--paper-dark);border:1px dashed var(--border);border-radius:6px;padding:10px 14px;font-size:12px;color:var(--gray);margin-bottom:14px;">
+                💡 说明行（不填内容）：可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写
+              </div>
+              <!-- Dynamic claim fields per case type -->
+              <div id="claims-fields-container"></div>
+              <div class="field-grid" style="margin-top:14px;">
+                <div class="field-group">
+                  <label class="field-label">标的总额（元）</label>
+                  <input type="text" class="field-input" id="claim-total" placeholder="如：100,000.00 元">
+                </div>
+                <div class="field-group">
+                  <label class="field-label">是否主张诉讼费用</label>
+                  <select class="field-input" id="claim-lawyer-fee">
+                    <option value="">-- 请选择 --</option>
+                    <option value="yes">是</option>
+                    <option value="no">否</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">是否申请诉前保全</label>
+                  <select class="field-input" id="claim-preservation">
+                    <option value="">-- 请选择 --</option>
+                    <option value="yes">是</option>
+                    <option value="no">否</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">其他请求</label>
+                  <input type="text" class="field-input" id="claim-other" placeholder="其他特殊请求">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facts section -->
+        <div class="party-section" id="section-facts">
+          <div class="section-block">
+            <div class="section-block-header">📝 事实与理由</div>
+            <div class="section-block-body" id="facts-fields-container">
+              <!-- Dynamic based on case type -->
+            </div>
+          </div>
+          <div class="section-block" style="margin-top:14px;">
+            <div class="section-block-header">📁 证据清单</div>
+            <div class="section-block-body">
+              <textarea class="fact-textarea" id="evidence-list" rows="5" placeholder="证据一：…（证明目的：…）&#10;证据二：…（证明目的：…）"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jurisdiction section -->
+        <div class="party-section" id="section-jurisdiction">
+          <div class="section-block">
+            <div class="section-block-header">🏛 管辖及程序事项</div>
+            <div class="section-block-body">
+              <div class="jurisdiction-row">
+                <div class="field-group">
+                  <label class="field-label">受诉法院</label>
+                  <input type="text" class="field-input" id="j-court" placeholder="受诉法院全称">
+                </div>
+                <div class="field-group">
+                  <label class="field-label">管辖依据</label>
+                  <input type="text" class="field-input" id="j-basis" placeholder="如：合同约定管辖/侵权地管辖">
+                </div>
+                <div class="field-group">
+                  <label class="field-label">起诉日期</label>
+                  <input type="date" class="field-input" id="j-date">
+                </div>
+              </div>
+              <div style="margin-top:12px;">
+                <div class="field-group">
+                  <label class="field-label">诉前调解意愿</label>
+                  <div class="check-group" style="margin-top:6px;">
+                    <label class="check-item"><input type="radio" name="mediation" value="yes"> 同意诉前调解</label>
+                    <label class="check-item"><input type="radio" name="mediation" value="no" checked> 不同意诉前调解</label>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:12px;">
+                <div class="fact-field">
+                  <div class="fact-label">其他需要说明的事项</div>
+                  <textarea class="fact-textarea" id="j-notes" rows="3" placeholder="如有诉前保全、担保等特殊情况请在此说明"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:12px;margin-top:20px;border-top:1px solid var(--border);padding-top:16px;">
+          <button class="btn btn-outline" onclick="goStep(1)">← 重新上传</button>
+          <button class="btn btn-primary" onclick="goStep(4);generatePreview()">预览并导出 →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Step 4: Preview & Export ── -->
+  <div class="step-panel" id="step-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon">👁</div>
+        预览
+        <span style="margin-left:auto;">
+          <button class="btn btn-outline btn-sm" onclick="goStep(3)" style="font-size:12px;">← 返回编辑</button>
+        </span>
+      </div>
+      <div class="card-body">
+        <div id="step-preview">
+          <div class="preview-doc" id="preview-content">
+            <!-- Generated preview -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="icon">↓</div>导出文件</div>
+      <div class="card-body">
+        <div class="export-options">
+          <input type="text" class="filename-input" id="export-filename" value="要素式起诉状-买卖合同纠纷-20260307">
+          <button class="btn btn-gold" onclick="exportDocx()">
+            <span>📄</span> 导出 DOCX
+          </button>
+          <button class="btn btn-outline" onclick="exportHtml()">
+            <span>🌐</span> 导出 HTML
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

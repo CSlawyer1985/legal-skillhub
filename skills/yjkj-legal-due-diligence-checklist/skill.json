@@ -1,0 +1,28 @@
+{
+  "name": "Legal Due Diligence Checklist",
+  "slug": "legal-due-diligence-checklist",
+  "version": "1.0.0",
+  "description": "Creates legal due diligence checklists for transactions, investments, acquisitions, vendor onboarding, and corporate housekeeping.",
+  "author": "Pearl Team (OpenClaw)",
+  "tags": [
+    "legal",
+    "due-diligence",
+    "transactions",
+    "corporate",
+    "descriptive"
+  ],
+  "trigger_keywords": [
+    "legal due diligence",
+    "M&A checklist",
+    "investment diligence",
+    "corporate records",
+    "legal-due-diligence-checklist",
+    "legal due diligence checklist"
+  ],
+  "language": "en",
+  "outputs": "markdown",
+  "requires_api": false,
+  "readiness": "stable",
+  "type": "descriptive",
+  "legal_disclaimer": "Informational workflow support only; not legal advice."
+}

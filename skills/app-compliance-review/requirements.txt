@@ -1,0 +1,10 @@
+# ─── 依赖说明 ───
+# scripts/ 下的全部脚本仅使用 Python 标准库（zipfile, xml.etree, re, json, argparse）
+# 无任何第三方依赖，开箱即用。
+
+# ─── 可选：手动APK深度分析（非脚本依赖） ───
+# 如需对APK进行更深入的逆向分析（如反编译dex查看SDK初始化时序），
+# 审查人员可自行安装以下工具，但这些工具不是本skill脚本的运行依赖：
+# androguard  — Python APK逆向分析框架（pip install androguard）
+# apktool     — APK反编译工具（需Java环境）
+# jadx        — dex反编译为Java源码

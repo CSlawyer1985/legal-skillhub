@@ -1,0 +1,7 @@
+interface:
+  display_name: "罗翔说法律｜会议证据风控官"
+  short_description: "把观点拆成事实、规则、证据与责任，生成可审计的会议法律风险清单"
+  default_prompt: "使用 $legal-proof-meeting 审查这场会议的事实、证据、法律风险与待确认责任。"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#C93A36"

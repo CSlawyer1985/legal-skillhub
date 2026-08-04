@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/output-contract.schema.json",
+  "title": "Legal Skill Output Contracts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "contracts"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "contracts": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_class",
+          "audience",
+          "source_ssot",
+          "allowed_fields",
+          "redaction_policy",
+          "language",
+          "write_back",
+          "promotion_gate",
+          "render_gate",
+          "failure_state"
+        ],
+        "properties": {
+          "artifact_class": {"enum": ["court_submission", "professional_service"]},
+          "audience": {"enum": ["court", "authorized-lawyer-or-client"]},
+          "source_ssot": {"type": "string", "minLength": 1},
+          "allowed_fields": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "redaction_policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["private_case_payload", "absolute_paths", "governance_metadata_visible"],
+            "properties": {
+              "private_case_payload": {"const": false},
+              "absolute_paths": {"const": false},
+              "governance_metadata_visible": {"const": false}
+            }
+          },
+          "language": {"const": "zh-CN"},
+          "write_back": {"const": false},
+          "promotion_gate": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "render_gate": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["applicable", "fixed_font_double_render", "page_pixel_hash_match", "sparse_page_count", "ooxml_editable", "external_relationship_count"],
+            "properties": {
+              "applicable": {"type": "boolean"},
+              "fixed_font_double_render": {"type": "boolean"},
+              "page_pixel_hash_match": {"type": "boolean"},
+              "sparse_page_count": {"type": "integer", "minimum": 0},
+              "ooxml_editable": {"type": "boolean"},
+              "external_relationship_count": {"type": "integer", "minimum": 0}
+            }
+          },
+          "failure_state": {"enum": ["HOLD-OUTPUT-CONTRACT", "HOLD-COURT-TEXT", "HOLD-RENDER", "HOLD-E2E"]}
+        }
+      }
+    }
+  }
+}

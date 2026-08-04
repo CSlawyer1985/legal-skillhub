@@ -1,0 +1,4 @@
+interface:
+  display_name: "蚂蚁社保｜上市公司股权激励年度汇算核验"
+  short_description: "上市公司股权激励年度汇算核验，按当前有效官方口径给出结论与行动步骤"
+  default_prompt: "请使用 @check-ant-ss-546 帮我处理“上市公司股权激励年度汇算核验”，先核验地区、身份、年月和官方依据。"

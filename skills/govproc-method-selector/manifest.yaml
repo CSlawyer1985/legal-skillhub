@@ -1,0 +1,29 @@
+name: govproc-method-selector
+slug: govproc-method-selector
+display_name: 政府采购方式选择助手
+emoji: "⚖️"
+version: 1.0.0
+version_stage: "GA"
+author: "一线评标专家&ChesaraM"
+license: MIT-0
+agent_created: true
+description: >-
+  政府采购领域"某项目应选/已选何种采购方式"的法定适用条件判定与合规验证引擎。
+  六种法定方式（公开/邀请招标、竞谈/磋商/询价/单一来源）+ 框架协议采购（110号令）
+  + 工程↔招投标法衔接，支持正向推荐与反向验证双模式、阈值参数化（年份敏感）、
+  化整为零量化规则、竞谈vs磋商精细矩阵、单一来源程序红线、程序合规核验、
+  红黄蓝三级警告。仅做依法判定与提示，不做审批、不下裁量结论。
+tags:
+  - 采购方式
+  - 政府采购
+  - 公开招标
+  - 非招标采购
+  - 方式合法性
+  - 框架协议
+changelog:
+  - version: 1.0.0
+    date: 2026-07-20
+    change: "正式版发布：双模式（正向/反向）、修订草案时效追踪、法规时效声明、化整为零量化规则、竞谈vs磋商精细矩阵、添购10%计算逻辑、程序合规核验层、多方案对比、检索策略矩阵、JSON扩展字段、审计视角、快速通道、追问决策树、常见误用速查、标准化免责声明。"
+  - version: 1.0.1
+    date: 2026-07-21
+    change: "合规修复：补全 agent_created/slug/license/version_stage/emoji/changelog 等必需字段；移除 manifest 与 SKILL.md frontmatter 中的 connectorIds/knowledge_bases/feedback 非标准字段（改为运行时指令引用）；author 字段加引号规避 YAML 锚点歧义；新增显式安全护栏声明。"

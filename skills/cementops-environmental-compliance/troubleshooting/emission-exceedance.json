@@ -1,0 +1,113 @@
+{
+  "tree_id": "EC-TS-001",
+  "title": "Emission Limit Exceedance Response",
+  "entry_symptoms": ["emission exceedance", "permit violation", "CEMS alarm", "emission limit exceeded", "stack test failure", "regulatory violation"],
+  "metadata": {
+    "id": "EC-TS-001",
+    "title": "Emission Limit Exceedance Response",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01",
+    "severity": "critical",
+    "typical_impact": "Regulatory violation, potential enforcement action, fines, community complaints"
+  },
+  "description": "Six-step response procedure when a cement plant exceeds an emission limit detected by CEMS or stack testing.",
+  "steps": [
+    {
+      "id": 1,
+      "question": "Is the emission exceedance confirmed as real (not a CEMS malfunction)?",
+      "description": "Immediate Verification and Response",
+      "action": "Verify the exceedance is real. Check CEMS calibration status. Confirm the emission value against the correct limit. If confirmed, immediately notify plant environmental manager and operations. Begin documenting timeline.",
+      "check": [
+        "Verify the exceedance is real (not a CEMS malfunction, calibration drift, or data system error)",
+        "Check CEMS calibration status and recent QA/QC results",
+        "Confirm the emission value against the correct limit (proper units, O2 correction, averaging period)",
+        "If exceedance is confirmed, immediately notify plant environmental manager and operations",
+        "Begin documenting timeline: when exceedance started, when detected, actions taken"
+      ],
+      "expected_outcome": "Confirmed real exceedance with documentation initiated"
+    },
+    {
+      "id": 2,
+      "question": "What is causing the exceedance and can it be mitigated immediately?",
+      "description": "Identify and Mitigate the Cause",
+      "action": "Review process conditions at time of exceedance. Check for equipment malfunctions. Review alternative fuel feed rate and quality. Reduce kiln feed rate or AF rate if needed. Activate backup emission control equipment if available.",
+      "check": [
+        "Review process conditions at time of exceedance (kiln feed rate, fuel rate, temperatures, pressures)",
+        "Check for equipment malfunctions (baghouse, SNCR, scrubber, fan failures)",
+        "Review alternative fuel feed rate and quality if AF was in use",
+        "Reduce kiln feed rate or AF rate if needed to bring emissions into compliance",
+        "Activate backup emission control equipment if available",
+        "If exceedance continues despite adjustments, consider controlled shutdown"
+      ],
+      "expected_outcome": "Emissions returned to within permit limits, root cause identified"
+    },
+    {
+      "id": 3,
+      "question": "Have all required regulatory notifications been submitted within deadlines?",
+      "description": "Regulatory Notification",
+      "action": "Determine notification requirements per Title V permit. Prepare written notification. Submit to permitting authority. Notify local air quality agency if required. Document all notifications made.",
+      "check": [
+        "Determine notification requirements per Title V permit (prompt, 24-hour, 48-hour, or 10-day)",
+        "Prepare written notification including: date/time, pollutant, emission level, limit, duration, cause, corrective action",
+        "Submit to permitting authority (state air agency and EPA region if required)",
+        "Notify local air quality agency if required by permit or local rules",
+        "Document all notifications made (to whom, when, method, reference numbers)"
+      ],
+      "expected_outcome": "All required regulatory notifications completed within deadlines"
+    },
+    {
+      "id": 4,
+      "question": "What is the root cause of the emission exceedance?",
+      "description": "Root Cause Analysis",
+      "action": "Conduct formal root cause investigation (5-Why or similar methodology). Review DCS trend data. Interview operators on duty. Check maintenance records. Evaluate preventability. Determine if this is a repeat occurrence.",
+      "check": [
+        "Conduct formal root cause investigation (5-Why or similar methodology)",
+        "Review DCS trend data for all related process parameters",
+        "Interview operators on duty during the event",
+        "Check maintenance records for recent work on emission control equipment",
+        "Evaluate whether the exceedance was preventable with existing controls and procedures",
+        "Determine if this is a repeat occurrence (check deviation history)"
+      ],
+      "expected_outcome": "Root cause identified and documented"
+    },
+    {
+      "id": 5,
+      "question": "Have corrective actions been implemented and verified effective?",
+      "description": "Corrective Action Implementation",
+      "action": "Develop corrective action plan addressing root cause. Implement immediate fixes. Schedule longer-term corrective actions. Update operating procedures. Retrain operators if needed. Verify effectiveness through follow-up monitoring.",
+      "check": [
+        "Develop corrective action plan addressing root cause (not just symptoms)",
+        "Implement immediate fixes (repair equipment, adjust operating parameters)",
+        "Schedule longer-term corrective actions with responsible persons and deadlines",
+        "Update operating procedures if procedural gaps contributed to the event",
+        "Retrain operators if the event involved human error or inadequate response",
+        "Verify corrective actions are effective through follow-up monitoring"
+      ],
+      "expected_outcome": "Corrective actions implemented and verified effective"
+    },
+    {
+      "id": 6,
+      "question": "Is all documentation complete and are preventive measures in place?",
+      "description": "Documentation and Prevention",
+      "action": "Complete deviation report for compliance report. Update annual compliance certification. Add event to incident tracking system. Review and update emergency response procedures. Evaluate additional monitoring or redundancy needs. Share lessons learned.",
+      "check": [
+        "Complete deviation report for inclusion in semi-annual compliance report",
+        "Update the annual compliance certification to reflect the exceedance",
+        "Add event to plant environmental incident tracking system",
+        "Review and update emergency response procedures for emission control failures",
+        "Evaluate whether additional monitoring or redundancy is needed to prevent recurrence",
+        "Share lessons learned with operations and maintenance teams"
+      ],
+      "expected_outcome": "Complete documentation and preventive measures in place"
+    }
+  ],
+  "key_reminders": [
+    "Time is critical: notification deadlines are strict and non-negotiable",
+    "Document everything from the moment the exceedance is detected",
+    "Do not delete or alter any CEMS data (data integrity is legally required)",
+    "The emergency affirmative defense (if applicable) requires proving the event was beyond control",
+    "Consult with environmental legal counsel for significant or repeat exceedances",
+    "Voluntary self-disclosure may mitigate penalties (EPA Audit Policy)"
+  ]
+}

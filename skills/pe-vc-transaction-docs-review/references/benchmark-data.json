@@ -1,0 +1,337 @@
+{
+  "schema_version": 3,
+  "benchmark_period": "2024-2025 with 2025 as the current-year anchor",
+  "last_verified": "2026-07-10",
+  "source_label_for_outputs": "historical statistics for comparable VC/PE projects",
+  "do_not_name_source_in_user_outputs": true,
+  "default_method": "Use the 2025 current-year statistic as the primary anchor. Where exact comparable 2024 and 2025 figures are available in the market benchmark reference, use the 2024/2025 two-year average. Where 2024 is unavailable or not comparable, use 2025 only and mark that internally.",
+  "benchmarks": [
+    {
+      "id": "transaction_structure",
+      "aliases": [
+        "structure",
+        "架构",
+        "人民币架构",
+        "红筹",
+        "美元架构",
+        "VIE",
+        "direct holding"
+      ],
+      "benchmark": "2025: RMB/onshore 66.51%, offshore 33.49%; RMB currency 64.62%, USD 34.43%; onshore pure domestic 73.05%; offshore VIE 40.85%, direct holding 59.15%; early rounds 40.56%; state-owned/government-backed investors nearly 40% overall and over 50% in onshore deals.",
+      "review_use": "Classify structure first. In onshore deals, check pure-domestic/FIE status, SOE/government investor requirements, and registered-capital mechanics. In offshore deals, route direct-holding vs VIE issues separately."
+    },
+    {
+      "id": "preemptive_right",
+      "aliases": [
+        "preemptive",
+        "优先认购",
+        "优先认购权"
+      ],
+      "benchmark": "2025: overall 93.40%, RMB 94.33%, offshore 91.55%; absolute-ratio allocation 73.23%; over-allotment 56.06%. 2024/2025 average: overall 93.08%, absolute allocation 74.33%, over-allotment 56.80%.",
+      "review_use": "Missing preemptive rights are unusual; negotiate allocation formula, over-allotment, statutory PRC LLC preemptive subscription, and exceptions by party side.",
+      "calculations": [
+        {
+          "id": "overall_two_year_average",
+          "operation": "mean",
+          "inputs": [
+            92.75,
+            93.4
+          ],
+          "expected": 93.08,
+          "precision": 2,
+          "unit": "%"
+        },
+        {
+          "id": "absolute_allocation_two_year_average",
+          "operation": "mean",
+          "inputs": [
+            75.42,
+            73.23
+          ],
+          "expected": 74.33,
+          "precision": 2,
+          "unit": "%"
+        },
+        {
+          "id": "over_allotment_two_year_average",
+          "operation": "mean",
+          "inputs": [
+            57.54,
+            56.06
+          ],
+          "expected": 56.8,
+          "precision": 2,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "id": "rofr",
+      "aliases": [
+        "rofr",
+        "right of first refusal",
+        "优先购买",
+        "优先购买权"
+      ],
+      "benchmark": "2025: overall 89.15%, RMB 91.49%, offshore 84.51%; ordinary-share transfer/investor ROFR 89.95%; any-shareholder transfer ROFR 9.52%; relative-ratio allocation 81.18%; over-purchase 54.12%.",
+      "review_use": "Founder/common share transfer restrictions remain market-standard but declined in 2025; review permitted transfers, investor transfer restrictions, competitor carve-outs, and PRC LLC statutory ROFR."
+    },
+    {
+      "id": "co_sale",
+      "aliases": [
+        "co-sale",
+        "共同出售",
+        "共同出售权"
+      ],
+      "benchmark": "2025: overall 88.21%, RMB 90.07%, offshore 84.51%; change-of-control special co-sale 22.46%.",
+      "review_use": "Check sequencing with ROFR and formula breadth; investor side may ask for change-of-control full tag, while company/founder side should preserve small permitted transfers."
+    },
+    {
+      "id": "redemption",
+      "aliases": [
+        "redemption",
+        "回购",
+        "回购权",
+        "赎回"
+      ],
+      "benchmark": "2025: overall 79.72%, RMB 86.52%, offshore 66.20%, a nine-year low; material breach trigger 94.08%; cure period 59.75%; QIPO trigger 83.43%; cross-trigger 33.73%.",
+      "review_use": "Key exit clause, especially in RMB deals, but not near-universal. RMB deals need capital-reduction, share-transfer, collectability, founder liability, and cure-period review."
+    },
+    {
+      "id": "redemption_obligors",
+      "aliases": [
+        "回购义务主体",
+        "redemption obligor",
+        "创始股东回购",
+        "公司回购"
+      ],
+      "benchmark": "2025: only 16.57% of redemption clauses made the company the sole obligor; company-only was 9.84% in RMB deals and 34.04% in offshore deals. Founder involvement in redemption obligations increased.",
+      "review_use": "Investor side should seek founder support where company redemption is uncertain. Founder side should request specified triggers, second-ranking liability, equity/equity-value caps, and no liability for non-founder-caused breaches."
+    },
+    {
+      "id": "redemption_price",
+      "aliases": [
+        "回购价格",
+        "redemption price",
+        "赎回价格"
+      ],
+      "benchmark": "2025: investment amount plus simple/compound interest 86.98%; fixed-multiple-only average 100%; simple interest avg 8.03%; compound interest avg 8.33%.",
+      "review_use": "Prices materially above benchmark need negotiation and enforceability comments; align with liquidation preference and avoid cumulative high-return economics."
+    },
+    {
+      "id": "anti_dilution",
+      "aliases": [
+        "anti-dilution",
+        "反稀释",
+        "完全棘轮",
+        "加权平均"
+      ],
+      "benchmark": "2025: overall 85.85%, RMB 85.82%, offshore 85.92%; weighted-average formula 79.12% overall, RMB 74.38%, offshore 88.52%; full ratchet 20.88%.",
+      "review_use": "Full ratchet is investor-friendly; company side should seek weighted average and carve-outs. RMB implementation needs nominal issuance, founder transfer, cash compensation, tax, and registration review."
+    },
+    {
+      "id": "drag_along",
+      "aliases": [
+        "drag",
+        "drag-along",
+        "领售",
+        "拖售",
+        "领售权"
+      ],
+      "benchmark": "2025: overall 60.85%, RMB 58.16%, offshore 66.20%; investor-only drag approval 31.01%; founder/founder-director approval included 52.71%; time/valuation plus shareholder approval trigger 41.86%; shareholder approval only 23.26%.",
+      "review_use": "Offshore deals use drag more often; company side should request valuation, timing, shareholder approval, and founder consent conditions. Investor side should preserve a workable trade-sale path."
+    },
+    {
+      "id": "preferred_dividend",
+      "aliases": [
+        "preferred dividend",
+        "优先分红",
+        "分红"
+      ],
+      "benchmark": "2025: no preferred dividend 62.26%; if a preferred dividend exists, priority ranking 75.95%, dividend rate 20.25%, both 3.80%; rate bands: 5%-10% at 78.95%, 10%-15% at 15.79%.",
+      "review_use": "Not a mandatory clause; high rates need burden comments, especially if combined with redemption and liquidation return."
+    },
+    {
+      "id": "protective_provisions",
+      "aliases": [
+        "protective",
+        "reserved matters",
+        "保护性条款",
+        "保留事项",
+        "否决权"
+      ],
+      "benchmark": "2025: overall 83.49%, RMB 81.56%, offshore 87.32%, a nine-year low; investor veto appears in 95.48% of protective-provision clauses; investor veto threshold 6.51%; founder veto 6.21%.",
+      "review_use": "Control reserved-matter list, veto holder, thresholds, and deadlock. Investor veto is common, but 2025 data supports careful tailoring rather than every-investor vetoes."
+    },
+    {
+      "id": "board_seat",
+      "aliases": [
+        "board",
+        "director",
+        "董事",
+        "董事席位",
+        "董事委派",
+        "董事委派权"
+      ],
+      "benchmark": "2024 investor director right 72.02%. 2025 report states a clear decline but does not give an extractable exact overall adoption percentage; among deals granting investor board seats, threshold use was 43.33%, RMB 55.56%, offshore 25.00%; over 90% of entitled investors appointed directors at closing; director indemnity agreements appeared in 26.32%.",
+      "review_use": "Director rights are not automatic for every investor; threshold, observer rights, director indemnity, D&O insurance, and Articles/SHA consistency matter."
+    },
+    {
+      "id": "esop",
+      "aliases": [
+        "ESOP",
+        "option pool",
+        "股权激励",
+        "期权池",
+        "持股平台",
+        "限制性股权"
+      ],
+      "benchmark": "2025: adopted plan 31.13%, reserved/planned plan 53.30%; RMB adopted/reserved 85.11%, offshore adopted/reserved 83.10%; RMB plans used options 50% and restricted equity 48%; offshore plans used options 87.50%; 98% of RMB plans used holding platforms and all such platforms were limited partnerships.",
+      "review_use": "Check pool size, pre/post-money treatment, approvals, leaver rules, grant form, holding-platform mechanics, and PRC tax/registration issues.",
+      "calculations": [
+        {
+          "id": "rmb_adopted_or_reserved",
+          "operation": "sum",
+          "inputs": [
+            35.46,
+            49.65
+          ],
+          "expected": 85.11,
+          "precision": 2,
+          "unit": "%"
+        },
+        {
+          "id": "offshore_adopted_or_reserved",
+          "operation": "sum",
+          "inputs": [
+            22.54,
+            60.56
+          ],
+          "expected": 83.1,
+          "precision": 2,
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "id": "liquidation_preference",
+      "aliases": [
+        "liquidation",
+        "liquidation preference",
+        "清算优先",
+        "优先分配"
+      ],
+      "benchmark": "2025: overall 88.68%, RMB 87.23%, offshore 91.55%; participating 80.85%, capped participating 3.29%; RMB participating 89.43%, offshore participating 64.62%; investment plus interest formula 55.32%; multiple-only 24.47%; higher-of formula 18.62%; multiple avg 105.40%; simple interest avg 8.29%; compound interest avg 8.25%.",
+      "review_use": "Participating preference is common but investor-friendly; 2025 supports non-participating or capped participating fallbacks, especially offshore. Align waterfall with Articles."
+    },
+    {
+      "id": "founder_restrictions",
+      "aliases": [
+        "founder restriction",
+        "创始股东限制",
+        "限制性股权",
+        "离职回购",
+        "创始人限制"
+      ],
+      "benchmark": "2025: founder transfer restriction 88.68%, RMB 92.91%, offshore 80.28%; 98.92% prohibit founder transfer during the specified period without investor consent; restricted founder equity 46.70%; vesting/release period 3-5 years in 90.91%.",
+      "review_use": "Protect founder stability while adding permitted transfers, internal/family/trust carve-outs, reasonable leaver mechanics, and fair purchase-price rules."
+    },
+    {
+      "id": "founder_secondary_sale",
+      "aliases": [
+        "founder secondary",
+        "老股转让",
+        "创始股东股权出售",
+        "创始人售股"
+      ],
+      "benchmark": "2025: 11.32% of projects involved founder secondary sale, mostly in RMB structures; tax allocation: seller 66.67%, buyer/seller shared 8.33%, company 12.50%, unclear 12.50%; onshore LLC founder secondary sales had 100% fully paid registered capital for the transferred equity.",
+      "review_use": "Check disclosure, tax allocation, old-share price, primary/secondary split, control implications, and unpaid-capital transfer liability."
+    },
+    {
+      "id": "information_rights",
+      "aliases": [
+        "information",
+        "inspection",
+        "信息权",
+        "检查权",
+        "查阅权"
+      ],
+      "benchmark": "2025: information rights remain around the long-term c.90% market level; information-right thresholds: offshore 28%, RMB 4.88%, average threshold 4.59%. Inspection right 66.82%; inspection thresholds: offshore 36.73%, RMB 9.78%, average threshold 4.26%.",
+      "review_use": "Review reporting package, inspection scope, confidentiality, thresholds, non-disruption, and information firewall for strategic or competitor-sensitive investors."
+    },
+    {
+      "id": "rw_survival",
+      "aliases": [
+        "representations",
+        "warranties",
+        "survival",
+        "陈述与保证",
+        "追索期限"
+      ],
+      "benchmark": "2025: 94.81% did not set express survival periods; RMB no-survival 96.45%, offshore no-survival 91.55%; where a survival period was set, 63.64% were 1-3 years.",
+      "review_use": "Survival limits are company-friendly. Investor side should resist broad limitation, or accept only for non-fundamental warranties with fraud/fundamental carve-outs."
+    },
+    {
+      "id": "indemnity",
+      "aliases": [
+        "indemnity",
+        "赔偿",
+        "赔偿责任",
+        "责任上限",
+        "起赔"
+      ],
+      "benchmark": "2025: express indemnity 77.83%; indemnity cap 18.18%; basket/deductible 18.18%; neither cap nor basket 63.64%; company + founders joint/several arrangements 96.97%; founder personal cap by equity/equity value 72.67%, RMB 66.36%, offshore 88.46%.",
+      "review_use": "Founder side should seek caps and carve-outs; investor side should protect fraud/fundamental warranties and collection path. Distinguish general company breaches from founder-caused breaches."
+    },
+    {
+      "id": "investor_transfer_restrictions",
+      "aliases": [
+        "investor transfer",
+        "投资人转让限制",
+        "竞争对手",
+        "投资人限制"
+      ],
+      "benchmark": "2025: 58.96% restrict investor transfers, RMB 60.99%, offshore 54.93%; absolute prohibition on transfer to company competitors rose to 25.45% in affected deals; investor investment/cooperation restrictions appeared in 5.19%.",
+      "review_use": "Company side should review competitor and strategic-investor risks carefully. Financial investors need liquidity and affiliate/fund transfer carve-outs."
+    },
+    {
+      "id": "mfn",
+      "aliases": [
+        "mfn",
+        "most favored",
+        "最优惠待遇",
+        "最惠"
+      ],
+      "benchmark": "2025: existing/same-round MFN 25.59%; future-financing MFN 17.06%, both materially down from 2024.",
+      "review_use": "Separate same-round from future-financing MFN; exclude senior economics from later rounds where appropriate and consider valuation/down-round triggers."
+    },
+    {
+      "id": "registered_capital_contribution",
+      "aliases": [
+        "registered capital",
+        "出资",
+        "注册资本",
+        "实缴",
+        "失权",
+        "出资期限"
+      ],
+      "benchmark": "2025 onshore LLCs: founders fully paid registered capital pre-closing in 37.61%; not fully paid in 62.39%, of which 98.53% were not yet due. For unpaid founders, more than half of deals required payment within the Company Law transition/statutory period, 14.71% required a shorter period, 25% were silent, and most documents/articles did not expressly address shareholder forfeiture.",
+      "review_use": "RMB reviews must check subscription status, contribution deadlines, acceleration, unpaid-capital transfer liability, forfeiture mechanism, articles consistency, and closing/post-closing covenants."
+    },
+    {
+      "id": "governing_law_dispute",
+      "aliases": [
+        "governing law",
+        "dispute",
+        "arbitration",
+        "适用法律",
+        "争议解决",
+        "仲裁"
+      ],
+      "benchmark": "2025: RMB deal documents used PRC law in 99.29%; offshore deal documents used Hong Kong law in over 70% and Delaware law in 16.90%; arbitration was selected in 93.87%.",
+      "review_use": "Review arbitration body, seat, interim measures, preservation, service, consolidation, and enforcement. 涉及中国法律相关事项，请咨询执业中国律师；涉及非中国法管辖事项，请咨询相应法域的执业律师。"
+    }
+  ],
+  "distribution_profile": "public",
+  "provenance_notice": "Underlying development source records are intentionally excluded; independently verify figures before high-stakes reliance."
+}

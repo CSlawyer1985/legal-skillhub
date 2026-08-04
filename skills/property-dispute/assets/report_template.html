@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物业纠纷维权报告 | {{REPORT_TITLE}}</title>
+<style>
+:root {
+  --bg: #f5f5f5;
+  --card-bg: #ffffff;
+  --text: #1a1a1a;
+  --text-secondary: #666;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+  --success: #16a34a;
+  --border: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+.header { background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%); color: white; padding: 40px 20px; text-align: center; border-radius: 12px; margin-bottom: 24px; }
+.header h1 { font-size: 28px; margin-bottom: 8px; }
+.header p { opacity: 0.9; font-size: 14px; }
+
+/* Score Dashboard */
+.score-dashboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+@media (max-width: 600px) { .score-dashboard { grid-template-columns: repeat(2, 1fr); } }
+.score-card { background: var(--card-bg); border-radius: 12px; padding: 20px; text-align: center; box-shadow: var(--shadow); }
+.score-card .label { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.score-card .value { font-size: 36px; font-weight: 700; }
+.score-card .sub { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.risk-high { color: var(--danger); }
+.risk-medium { color: var(--warning); }
+.risk-low { color: var(--success); }
+
+/* Section */
+.section { background: var(--card-bg); border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow); }
+.section h2 { font-size: 20px; color: #1e3a5f; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); }
+.section h3 { font-size: 16px; color: #374151; margin: 16px 0 8px; }
+
+/* Rights Assessment */
+.rights-list { list-style: none; }
+.rights-list li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; }
+.rights-list li:last-child { border-bottom: none; }
+.rights-list .icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+/* Legal Cards */
+.legal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.legal-card { border: 1px solid var(--border); border-radius: 8px; padding: 16px; border-left: 4px solid var(--primary); }
+.legal-card .law-name { font-weight: 600; color: #1e3a5f; margin-bottom: 4px; }
+.legal-card .law-content { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.legal-card .penalty { margin-top: 8px; font-size: 13px; color: var(--danger); font-weight: 500; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.timeline-item { position: relative; margin-bottom: 20px; }
+.timeline-item::before { content: ''; position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 2px solid white; box-shadow: 0 0 0 2px var(--primary); }
+.timeline-item.urgent::before { background: var(--danger); box-shadow: 0 0 0 2px var(--danger); }
+.timeline-item h4 { font-size: 15px; margin-bottom: 4px; }
+.timeline-item .time-desc { font-size: 13px; color: var(--text-secondary); }
+
+/* Document Preview */
+.doc-preview { border: 1px dashed var(--border); border-radius: 8px; padding: 20px; background: #fafafa; margin: 12px 0; }
+.doc-preview h4 { margin-bottom: 12px; color: #1e3a5f; }
+.doc-preview pre { white-space: pre-wrap; font-family: inherit; font-size: 14px; line-height: 1.8; }
+
+/* Script Bubble */
+.script-bubble { background: #eff6ff; border-radius: 12px; padding: 16px; margin: 12px 0; border: 1px solid #bfdbfe; }
+.script-bubble .speaker { font-size: 12px; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
+.script-bubble p { font-size: 14px; color: #1e40af; font-style: italic; }
+
+/* Tax Audit Table */
+.audit-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.audit-table th { background: #1e3a5f; color: white; padding: 10px 12px; text-align: left; }
+.audit-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.audit-table tr:hover { background: #f8fafc; }
+.audit-table .missing { color: var(--danger); font-weight: 500; }
+
+/* Action Button */
+.action-bar { background: var(--card-bg); border-radius: 12px; padding: 20px; text-align: center; margin: 24px 0; box-shadow: var(--shadow); }
+.action-bar p { margin-bottom: 12px; color: var(--text-secondary); }
+.btn { display: inline-block; padding: 12px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
+.btn-primary { background: var(--danger); color: white; }
+.btn-secondary { background: var(--primary); color: white; margin-left: 12px; }
+
+/* Contact Table */
+.contact-table { width: 100%; font-size: 14px; }
+.contact-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.contact-table td:first-child { font-weight: 600; width: 120px; }
+
+/* Print */
+@media print {
+  body { background: white; }
+  .container { max-width: 100%; }
+  .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+}
+
+.warning-banner { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; color: var(--danger); font-size: 14px; }
+.success-banner { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; color: var(--success); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>⚖️ {{REPORT_TITLE}}</h1>
+  <p>生成时间：{{GEN_TIME}} | 基于《民法典》《物业管理条例》及关联法规</p>
+</div>
+
+<!-- Score Dashboard -->
+<div class="score-dashboard">
+  <div class="score-card">
+    <div class="label">权利指数</div>
+    <div class="value {{RIGHTS_SCORE_CLASS}}">{{RIGHTS_SCORE}}/100</div>
+    <div class="sub">法律支持度</div>
+  </div>
+  <div class="score-card">
+    <div class="label">紧迫程度</div>
+    <div class="value {{URGENCY_CLASS}}">{{URGENCY_LEVEL}}</div>
+    <div class="sub">{{URGENCY_DESC}}</div>
+  </div>
+  <div class="score-card">
+    <div class="label">胜诉概率</div>
+    <div class="value {{WIN_SCORE_CLASS}}">{{WIN_SCORE}}%</div>
+    <div class="sub">证据充分度评估</div>
+  </div>
+  <div class="score-card">
+    <div class="label">可追回金额</div>
+    <div class="value {{RECOVERY_CLASS}}">¥{{RECOVERY_AMOUNT}}</div>
+    <div class="sub">预估可追索</div>
+  </div>
+</div>
+
+<!-- 1. 权利评估 -->
+<div class="section">
+  <h2>📋 一、权利评估</h2>
+  {{RIGHTS_ASSESSMENT}}
+</div>
+
+<!-- 2. 法律条款速查 -->
+<div class="section">
+  <h2>📜 二、法律依据</h2>
+  <div class="legal-grid">
+    {{LEGAL_CARDS}}
+  </div>
+</div>
+
+<!-- 3. 升级流程 -->
+<div class="section">
+  <h2>🪜 三、维权升级流程</h2>
+  <div class="timeline">
+    {{TIMELINE_ITEMS}}
+  </div>
+</div>
+
+<!-- 4. 投诉文件 -->
+<div class="section">
+  <h2>📝 四、投诉文件</h2>
+  {{COMPLAINT_DOCUMENTS}}
+</div>
+
+<!-- 5. 谈判脚本 -->
+<div class="section">
+  <h2>💬 五、谈判脚本</h2>
+  {{NEGOTIATION_SCRIPTS}}
+</div>
+
+<!-- 6. 税务审计 -->
+<div class="section">
+  <h2>💰 六、公共收益与税务审计</h2>
+  {{TAX_AUDIT}}
+</div>
+
+<!-- 行动建议 -->
+<div class="action-bar">
+  <p><strong>⚠️ 以上内容为法律信息参考，不构成正式法律意见。建议在采取重大法律行动前咨询专业律师。</strong></p>
+  <p>建议立即采取以下行动：</p>
+  {{ACTION_RECOMMENDATIONS}}
+</div>
+
+<!-- 联系信息 -->
+<div class="section">
+  <h2>📞 关键联系方式</h2>
+  <table class="contact-table">
+    <tr><td>住建局物业科</td><td>{{HOUSING_BUREAU}}</td></tr>
+    <tr><td>12345 市民热线</td><td>12345（全国统一）</td></tr>
+    <tr><td>消防隐患举报</td><td>96119</td></tr>
+    <tr><td>税务违法举报</td><td>12366</td></tr>
+    <tr><td>市场监管举报</td><td>12315</td></tr>
+    <tr><td>法律援助热线</td><td>12348</td></tr>
+  </table>
+</div>
+
+</div>
+</body>
+</html>

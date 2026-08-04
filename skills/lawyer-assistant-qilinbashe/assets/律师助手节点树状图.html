@@ -1,0 +1,9201 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>律师助手 · 点击触达</title>
+
+<style>
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+
+    background: #eef6f7;
+
+    font-family: 'Microsoft YaHei','PingFang SC','Noto Sans SC',sans-serif;
+
+    padding: 0 0 40px 0;
+
+    color: #1a3c40;
+
+  }
+
+  /* 常驻顶栏：目录随时可点 */
+
+  .topbar {
+
+    position: sticky; top: 0; z-index: 50;
+
+    background: linear-gradient(135deg, #00838f, #00acc1);
+
+    color: #fff; padding: 14px 20px;
+
+    box-shadow: 0 4px 16px rgba(0,131,143,.3);
+
+  }
+
+  .topbar .top-row {
+
+    position: relative;
+
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+
+  }
+
+  .topbar h1 {
+
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+
+    font-size: 20px; letter-spacing: 2px; margin: 0;
+
+    white-space: nowrap;
+
+  }
+
+  .topbar h1 #verMeta {
+
+    font-size: 13px; opacity: .92; letter-spacing: 1px;
+
+    border: 1px solid rgba(255,255,255,.55); padding: 1px 9px; border-radius: 12px;
+
+  }
+
+  .topbar .meta {
+
+    font-size: 12px; opacity: .85; letter-spacing: 1px;
+
+    display: flex; align-items: center; justify-content: flex-start; gap: 16px; flex-wrap: wrap;
+
+  }
+
+  .topbar .hint {
+
+    display: inline-block; margin: 0; font-size: 12px; white-space: nowrap;
+
+    background: rgba(255,255,255,.16); padding: 3px 10px; border-radius: 20px;
+
+  }
+
+  .controls { display: flex; gap: 8px; flex-shrink: 0; }
+
+  .controls button {
+
+    padding: 5px 12px; border: 1px solid rgba(255,255,255,.4); border-radius: 6px;
+
+    background: rgba(255,255,255,.12); color: #fff; font-size: 12px; cursor: pointer;
+
+  }
+
+  .controls button:hover { background: rgba(255,255,255,.25); }
+
+  .topbar .collapse-btn {
+
+    flex-shrink: 0; margin-left: 10px;
+
+    padding: 4px 10px; border: 1px solid rgba(255,255,255,.5); border-radius: 6px;
+
+    background: rgba(255,255,255,.12); color: #fff; font-size: 12px; cursor: pointer; letter-spacing: normal;
+
+  }
+
+  .topbar .collapse-btn:hover { background: rgba(255,255,255,.25); }
+
+  /* 收起后常驻浮标：点一下唤回目录 */
+
+  .dir-fab {
+
+    position: fixed; right: 18px; bottom: 18px; z-index: 60; display: none;
+
+    align-items: center; gap: 6px; padding: 10px 16px; border-radius: 24px; cursor: pointer;
+
+    background: linear-gradient(135deg, #00838f, #00acc1); color: #fff;
+
+    box-shadow: 0 4px 16px rgba(0,131,143,.4); font-size: 14px; letter-spacing: 1px;
+
+  }
+
+  .dir-fab:hover { filter: brightness(1.08); }
+
+  body.collapsed .dir-fab { display: flex; }
+
+  body.collapsed .topbar,
+
+  body.collapsed .reaction,
+
+  body.collapsed .tree,
+
+  body.collapsed .footer { display: none; }
+
+
+
+  /* 反馈区（仅点击子节点后出现：已选节点 + 可编辑提问框 + 复制）：醒目深红，与青色主题强对比 */
+
+  .reaction {
+
+    position: sticky; top: 52px; z-index: 40;
+
+    padding: 0 20px;
+
+    background: linear-gradient(135deg, #0288d1, #0277bd);
+
+    border: 0 solid #01579b; border-radius: 12px;
+
+    box-shadow: 0 4px 18px rgba(2,119,189,.55);
+
+    color: #fff;
+
+    display: block; max-height: 0; overflow: hidden;
+
+    opacity: 0; transform: translateX(18px);
+
+    transition: max-height .22s ease, opacity .2s ease, transform .22s ease,
+
+                padding .22s ease, border-width .22s ease;
+
+    pointer-events: none;
+
+  }
+
+  .reaction.show {
+
+    max-height: 560px; opacity: 1; transform: none;
+
+    padding-top: 14px; padding-bottom: 14px;
+
+    border-width: 2px; overflow: visible; pointer-events: auto;
+
+  }
+
+  .reaction .r-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+
+  .reaction .r-ico { font-size: 20px; line-height: 1; }
+
+  .reaction .r-badge {
+
+    font-size: 14px; padding: 3px 12px; border-radius: 20px; font-weight: 700;
+
+    background: rgba(255,255,255,.22); color: #fff; border: 1px solid rgba(255,255,255,.5);
+
+  }
+
+  .reaction .r-name { font-weight: 700; color: #fff; font-size: 14px; letter-spacing: 1px; }
+
+  .reaction .r-text { font-size: 14px; line-height: 1.6; color: #e6fafa; }
+
+  .reaction .r-prompt {
+
+    margin-top: 8px; padding: 10px 12px; background: #fff; color: #1a3c40;
+
+    border-radius: 8px; font-size: 13px; border: 1px dashed rgba(255,255,255,.75);
+
+    border-left: 3px solid #fff; outline: none; cursor: text; min-height: 42px;
+
+    line-height: 1.45; white-space: pre-wrap; word-break: break-word;
+
+  }
+
+  .reaction .r-prompt:focus {
+
+    border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,.4);
+
+  }
+
+  .reaction .r-edit-tip {
+
+    font-size: 12px; color: #e6fafa; opacity: .82; letter-spacing: .5px; white-space: nowrap;
+
+  }
+
+  .reaction .r-content { margin-top: 8px; max-height: 340px; overflow-y: auto; padding-right: 4px; }
+  .reaction .r-content:empty { display: none; }
+  .reaction .v-tpl-grp { font-size: 12px; color: #fff; opacity: .85; margin: 9px 0 5px; font-weight: 700; letter-spacing: .5px; }
+  .reaction .v-tpl-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+  .reaction .v-tpl-item { display: inline-block; padding: 3px 9px; background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 12px; font-size: 12px; }
+
+  /* 胶囊可点展开下级 */
+  .reaction .v-tpl-item.has-sub { cursor: pointer; border-style: dashed; border-color: #ffd54f; background: rgba(255,213,79,.20); }
+  .reaction .v-tpl-item.has-sub::after { content: "▸"; margin-left: 6px; font-size: 10px; opacity: .85; display: inline-block; transition: transform .15s; }
+  .reaction .v-tpl-item.has-sub.open::after { transform: rotate(90deg); }
+  .reaction .v-sub { display: none; flex-basis: 100%; margin: 7px 0 3px 16px; padding: 6px 0 6px 12px; border-left: 2px solid #ffd54f; }
+  .reaction .v-tpl-item.has-sub.open + .v-sub { display: flex; flex-wrap: wrap; gap: 5px; }
+  .reaction .v-sub .v-tpl-item { font-size: 11px; background: rgba(255,255,255,.10); border-color: rgba(255,213,79,.5); }
+  .reaction .v-sub .v-sub .v-tpl-item { background: rgba(255,255,255,.06); border-style: dotted; }
+  .reaction .v-tpl-note, .reaction .v-plan-note { font-size: 12px; color: #e6fafa; opacity: .82; margin-top: 9px; line-height: 1.5; }
+  .reaction .v-plan-tbl { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 12px; }
+  .reaction .v-plan-tbl th, .reaction .v-plan-tbl td { border: 1px solid rgba(255,255,255,.3); padding: 6px 8px; text-align: left; color: #fff; vertical-align: top; line-height: 1.45; }
+  .reaction .v-plan-tbl th { background: rgba(255,255,255,.16); font-weight: 700; }
+
+  .reaction .r-actions { margin-top: 8px; display: flex; gap: 8px; align-items: center; }
+
+  .reaction .copy-btn {
+
+    padding: 6px 16px; border: none; border-radius: 6px; cursor: pointer;
+
+    background: #fff; color: #00838f; font-size: 13px; font-weight: 600;
+
+  }
+
+  .reaction .copy-btn:hover { background: #e6fafa; }
+
+  .reaction .toast { font-size: 12px; color: #e6fafa; opacity: 0; transition: opacity .3s; }
+
+  .reaction .toast.show { opacity: 1; }
+
+
+
+  .tree { max-width: 1100px; margin: 18px auto 0; padding: 0 20px; position: relative; }
+
+  .root-node {
+
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+
+    padding: 12px 24px;
+
+    background: linear-gradient(135deg, #00838f, #26a69a);
+
+    color: #fff; border-radius: 14px; font-size: 16px; font-weight: 700;
+
+    letter-spacing: 2px; margin-bottom: 24px;
+
+    box-shadow: 0 4px 16px rgba(0,131,143,.2);
+
+  }
+
+  .root-title { flex: 0 0 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+
+  .root-right { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+
+  .root-node .controls button { letter-spacing: normal; }
+
+  .phase-node { margin-bottom: 16px; }
+
+  .phase-label {
+
+    display: flex; align-items: center; gap: 10px;
+
+    padding: 11px 18px; border-radius: 12px;
+
+    cursor: pointer; user-select: none; font-weight: 700; font-size: 15px;
+
+    letter-spacing: 1px; border-left: 6px solid; transition: all .2s;
+
+  }
+
+  .phase-label:hover { filter: brightness(0.97); }
+
+  .phase-label .toggler {
+
+    display: inline-flex; align-items: center; justify-content: center;
+
+    width: 22px; height: 22px; border-radius: 6px;
+
+    background: rgba(255,255,255,.5); font-size: 13px;
+
+    transition: transform .25s; flex-shrink: 0;
+
+  }
+
+  .phase-label .toggler.open { transform: rotate(90deg); }
+
+  .phase-label .sub-desc { font-size: 12px; font-weight: 400; opacity: .75; }
+
+  .phase-label .count { font-size: 12px; font-weight: 400; opacity: .75; margin-left: auto; }
+
+
+
+  /* 7 阶段统一淡青家族：hue 166°→190°，高明度淡雅，阶段间可辨识 */
+
+  .p1 .phase-label { background: #e0f2f1; color: #004d40; border-color: #26a69a; }
+
+  .p2 .phase-label { background: #e1f5f0; color: #00695c; border-color: #4db6ac; }
+
+  .p3 .phase-label { background: #e6f7f4; color: #00796b; border-color: #4db6ac; }
+
+  .p4 .phase-label { background: #e3f6f8; color: #00838f; border-color: #4dd0e1; }
+
+  .p5 .phase-label { background: #e6f8f9; color: #0097a7; border-color: #4dd0e1; }
+
+  .p6 .phase-label { background: #e0f5f5; color: #00897b; border-color: #26a69a; }
+
+  .p7 .phase-label { background: #e8f6f3; color: #00796b; border-color: #4db6ac; }
+  .p8 .phase-label { background: #e3f3f8; color: #0277bd; border-color: #4fc3f7; }
+  .p9 .phase-label { background: #e8f1fb; color: #1565c0; border-color: #64b5f6; }
+  .p10 .phase-label { background: #eaf2fb; color: #283593; border-color: #7986cb; }
+  .p11 .phase-label { background: #eef0fb; color: #4527a0; border-color: #9fa8da; }
+  .p12 .phase-label { background: #f1eefb; color: #6a1b9a; border-color: #ba68c8; }
+
+
+
+
+  .children { display: none; margin: 8px 0 4px 30px; border-left: 2px dashed #b2dfdb; padding-left: 16px; }
+
+  .children.open { display: block; }
+
+
+
+  .child-node {
+
+    display: flex; align-items: flex-start; gap: 8px;
+
+    padding: 8px 12px; margin: 4px 0; border-radius: 8px;
+
+    background: #f4fbfc; font-size: 14px; line-height: 1.5;
+
+    transition: background .15s, box-shadow .15s; cursor: pointer;
+
+    border: 1px solid transparent;
+
+  }
+
+  .child-node:hover { background: #e6f4f6; }
+
+  .child-node.active { background: #e0f2f1; border-color: #26a69a; box-shadow: 0 2px 8px rgba(38,166,154,.25); }
+
+  .child-node .cn-num { font-size: 12px; color: #80cbc4; min-width: 26px; font-weight: 600; flex-shrink: 0; padding-top: 1px; }
+
+  .child-node .cn-icon { font-size: 16px; min-width: 22px; text-align: center; flex-shrink: 0; }
+
+  .child-node .cn-body { flex: 1; }
+
+  .child-node .cn-name { font-weight: 600; color: #004d40; }
+
+  .child-node .cn-detail { font-size: 12px; color: #4db6ac; margin-top: 1px; }
+
+  .child-node .cn-output { font-size: 12px; color: #00695c; margin-top: 3px; padding: 3px 8px; background: #e0f2f1; border-left: 3px solid #26a69a; border-radius: 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .child-node .cn-chip { display: inline-block; margin: 1px 0; padding: 2px 9px; background: #fff; color: #00695c; border: 1px solid #26a69a; border-radius: 12px; cursor: pointer; font-size: 12px; transition: background .15s, color .15s; }
+  .child-node .cn-chip:hover { background: #26a69a; color: #fff; }
+  .child-node .cn-chip::before { content: "▸ "; opacity: .55; }
+  .child-node .cn-chip.active { background: #00838f; color: #fff; border-color: #00838f; }
+  .child-node .cn-chip.active::before { content: "✕ "; opacity: .9; }
+
+  .child-node .cn-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+
+  .child-node .cn-tags span { font-size: 10px; padding: 1px 6px; border-radius: 4px; }
+
+  .tag-g { background: #e0f2f1; color: #00897b; }
+
+  .tag-b { background: #e1f5f9; color: #0097a7; }
+
+  .tag-o { background: #fff3e0; color: #ef6c00; }
+
+  .tag-p { background: #f3e5f5; color: #8e24aa; }
+
+  .tag-r { background: #e6fafa; color: #0288d1; }
+
+  .tag-t { background: #e0f2f1; color: #00838f; }
+
+
+
+  .footer {
+
+    max-width: 1100px; margin: 28px auto 0; text-align: center;
+
+    padding: 14px; background: #ffffff; border-radius: 12px; box-shadow: 0 1px 8px rgba(0,131,143,.08);
+
+  }
+
+  .footer table { margin: 0 auto; border-collapse: collapse; font-size: 13px; }
+
+  .footer td { padding: 4px 14px; border-right: 1px solid #d6ecee; color: #00695c; }
+
+  .footer td:last-child { border-right: none; }
+
+  .footer .num { font-size: 18px; font-weight: 700; color: #00695c; }
+
+  .footer .sig { margin-top: 10px; color: #80cbc4; font-size: 11px; letter-spacing: 1px; }
+
+
+
+  /* ===== 顶栏单行：标题 与 视图切换 Tab / 收起 同一水平，标题垂直居中 ===== */
+
+  .topbar .top-controls {
+
+    display: flex; align-items: center; gap: 14px; flex-shrink: 0; margin-left: auto;
+
+  }
+
+  .topbar .top-controls .tabbar { flex-shrink: 0; }
+
+  .topbar .top-controls .collapse-btn { margin-left: 0; }
+
+  /* ===== 视图切换 Tab（目录 / 时间轴 并列） ===== */
+
+  .tabbar { display: flex; gap: 6px; margin-top: 0; }
+
+  .tabbar .tab {
+
+    padding: 6px 18px; border-radius: 18px; cursor: pointer;
+
+    background: rgba(255,255,255,.14); color: #fff; font-size: 13px; letter-spacing: 1px;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    transition: background .15s, color .15s;
+
+  }
+
+  .tabbar .tab:hover { background: rgba(255,255,255,.26); }
+
+  .tabbar .tab.active { background: #eef6f7; color: #00695c; font-weight: 700; }
+
+
+
+  /* 时间轴视图（与目录并列） */
+
+  .timeline-view { max-width: 1100px; margin: 18px auto 0; padding: 0 20px; display: none; }
+
+  body.view-timeline .timeline-view { display: block; }
+
+  body.view-timeline .reaction,
+
+  body.view-timeline .phase-node,
+
+  body.view-timeline .footer { display: none; }
+
+  body.collapsed .timeline-view { display: none; }
+
+
+
+  .tl-intro {
+
+    position: sticky; top: 52px; z-index: 40; margin-bottom: 18px; padding: 14px 18px;
+
+    background: linear-gradient(135deg, #00838f, #26a69a); color: #fff; border-radius: 12px;
+
+    box-shadow: 0 4px 16px rgba(0,131,143,.22); font-size: 14px; line-height: 1.6;
+
+  }
+
+  .tl-intro b { color: #e0f2f1; }
+
+
+
+  .tl-track { position: relative; padding: 8px 0; }
+
+  .tl-axis { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: #9fb9bd; transform: translateX(-50%); }
+
+  .tl-item { position: relative; min-height: 62px; display: flex; align-items: center; }
+
+  .tl-item.left { justify-content: flex-start; }
+
+  .tl-item.right { justify-content: flex-end; }
+
+  .tl-dot {
+
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+
+    width: 14px; height: 14px; border-radius: 50%; border: 3px solid #fff; z-index: 2;
+
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+
+  }
+
+  .tl-conn { position: absolute; top: 50%; height: 2px; background: #b2dfdb; transform: translateY(-50%); z-index: 1; }
+
+  .tl-item.left .tl-conn { left: calc(50% - 38px); width: 38px; }
+
+  .tl-item.right .tl-conn { right: calc(50% - 38px); width: 38px; }
+
+  .tl-card {
+
+    width: calc(50% - 38px); padding: 7px 14px; border-radius: 10px;
+
+    background: #fff; border: 1px solid #d6ecee;
+
+    box-shadow: 0 1px 8px rgba(0,131,143,.08); cursor: default;
+
+    transition: box-shadow .15s, transform .15s;
+
+  }
+
+  .tl-card:hover { box-shadow: 0 3px 14px rgba(0,131,143,.18); transform: translateY(-1px); }
+
+  .tl-item.left .tl-card { text-align: right; }
+
+  .tl-item.left .tl-card.party-wo { border-left:1px solid #d6ecee; border-right:5px solid #185FA5; }
+
+  .tl-item.left .tl-card.party-fy { border-left:1px solid #d6ecee; border-right:5px solid #0F6E56; }
+
+  .tl-item.left .tl-card.party-df { border-left:1px solid #d6ecee; border-right:5px solid #993C1D; }
+
+  .tl-item.right .tl-card.party-wo { border-left:5px solid #185FA5; border-right:1px solid #d6ecee; }
+
+  .tl-item.right .tl-card.party-fy { border-left:5px solid #0F6E56; border-right:1px solid #d6ecee; }
+
+  .tl-item.right .tl-card.party-df { border-left:5px solid #993C1D; border-right:1px solid #d6ecee; }
+
+  .tl-dot.party-wo { background: #185FA5; }
+
+  .tl-dot.party-fy { background: #0F6E56; }
+
+  .tl-dot.party-df { background: #993C1D; }
+
+  .tl-card.party-wo .tl-party { color: #185FA5; }
+
+  .tl-card.party-fy .tl-party { color: #0F6E56; }
+
+  .tl-card.party-df .tl-party { color: #993C1D; }
+
+  /* 卡片淡彩底纹：低饱和，与青色主题协调 */
+
+  .tl-card.party-wo { background: #d9e6f7; }
+
+  .tl-card.party-fy { background: #d3ebe1; }
+
+  .tl-card.party-df { background: #f8e0cb; }
+
+  .tl-party { font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+
+  .tl-event { font-size: 15px; font-weight: 600; color: #004d40; margin: 1px 0; }
+
+  .tl-foot { font-size: 12px; color: #4db6ac; display: flex; gap: 10px; }
+
+  .tl-item.left .tl-foot { justify-content: flex-end; }
+
+  .tl-foot .u-red { color: #A32D2D; font-weight: 600; }
+
+  .tl-foot .u-amber { color: #854F0B; font-weight: 600; }
+
+  .tl-foot .u-green { color: #3B6D11; font-weight: 600; }
+
+
+
+  .tl-today {
+
+    position: absolute; left: 0; right: 0; z-index: 3;
+
+    border-top: 2px dashed #0288d1; pointer-events: none; display: none;
+
+  }
+
+  .tl-today .tl-today-label {
+
+    position: absolute; left: 50%; top: -10px; transform: translateX(-50%);
+
+    background: #0288d1; color: #fff; font-size: 11px; letter-spacing: 1px;
+
+    padding: 1px 10px; border-radius: 10px; white-space: nowrap;
+
+    box-shadow: 0 1px 6px rgba(198,40,40,.3);
+
+  }
+
+  body.view-timeline .tl-today { display: block; }
+
+
+
+  .tl-legend {
+
+    max-width: 1100px; margin: 22px auto 0; text-align: center; padding: 12px 14px;
+
+    background: #fff; border-radius: 12px; box-shadow: 0 1px 8px rgba(0,131,143,.08); font-size: 12px; color: #00695c;
+
+  }
+
+  .tl-legend span { display: inline-block; margin: 0 8px; }
+
+  .tl-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+
+  .l-wo { background: #185FA5; } .l-fy { background: #0F6E56; } .l-df { background: #993C1D; }
+
+  .l-red { background: #A32D2D; } .l-amber { background: #854F0B; } .l-green { background: #3B6D11; }
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="topbar">
+
+  <div class="top-row">
+
+    <h1>🌳 律师助手 · 实务全景导航</h1>
+
+    <div class="top-controls">
+
+      <button class="collapse-btn" onclick="toggleDir(false)">收起 ▾</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="reaction" id="reaction"></div>
+
+
+
+<div class="tree" id="tree">
+
+  <div class="root-node" id="rootNode">
+
+    <span class="root-title">⚖️ 导航目录：</span>
+
+    <span class="root-right">
+
+      <span class="tabbar">
+
+        <span class="tab active" id="tabDir" onclick="switchView('dir')">🌳 流程目录</span>
+
+        <span class="tab" id="tabTl" onclick="switchView('timeline')">📅 案件时间轴</span>
+
+      </span>
+
+      <span class="controls" onclick="event.stopPropagation()">
+
+        <button onclick="toggleAll(true)">全部展开</button>
+
+        <button onclick="toggleAll(false)">全部收起</button>
+
+      </span>
+
+    </span>
+
+  </div>
+
+  <!-- 阶段由 JS 渲染 -->
+
+</div>
+
+
+
+<div class="timeline-view" id="timelineView">
+
+  <div class="tl-intro">
+
+    📅 <b>案件时间轴</b>：全流程关键期限、时效计算、程序节点显示，随案情自动生成。
+
+  </div>
+
+  <div class="tl-track" id="tlTrack">
+
+    <div class="tl-axis"></div>
+
+    <!-- 里程碑由 JS 渲染 -->
+
+  </div>
+
+  <div class="tl-legend">
+
+    <span><i class="l-wo"></i>我方</span>
+
+    <span><i class="l-fy"></i>法院</span>
+
+    <span><i class="l-df"></i>对方</span>
+
+    <span style="margin-left:14px"><i class="l-red"></i>紧急(&lt;30天)</span>
+
+    <span><i class="l-amber"></i>关注(&lt;90天)</span>
+
+    <span><i class="l-green"></i>宽裕</span>
+
+  </div>
+
+</div>
+
+
+
+<div class="footer">
+
+  <table id="footerTable">
+
+    <tr>
+
+      <td><span class="num">12</span><br>大阶段</td>
+
+      <td><span class="num" id="fNodes">12</span><br>关键节点</td>
+
+      <td><span class="num" id="fSkills">107</span><br>技能文件</td>
+
+      <td><span class="num" id="fFiles">192</span><br>总文件数</td>
+
+      <td><span class="num">12</span><br>实务条线</td>
+
+    </tr>
+
+  </table>
+
+  <p class="sig">七邻八舍</p>
+
+</div>
+
+
+
+<div class="dir-fab" id="dirFab" onclick="toggleDir(true)" title="展开目录">📑 目录</div>
+
+
+
+<script>
+
+/* ===== 单一来源：版本号/计数只在这里定义，自动注入顶栏、根节点、footer ===== */
+
+const VERSION  = "v4.4.1";
+
+const SKILLS   = 107;
+
+const FILES    = 192;
+
+
+
+/* ===== 目录数据：12阶段·108节点（按律师实务条线，全量匹配技能包 agents），每节点带 反问语(reaction) 与 可复制提问(prompt) =====
+
+   内容已按真实律师接案流程 + 技能包真实能力重设：深度分析锚定 70号「要件审判九步法」、质量核验锚定 logic_doctor.py「十一维核验」、MCP 锚定 pkulaw/华宇元典/法规数据库、文书锚定 18种模板；规则类节点已标注「规则引导」、采集类标注「采集引导」 */
+
+/* 收起 / 唤回目录 */
+
+function toggleDir(show) {
+
+  if (show) document.body.classList.remove('collapsed');
+
+  else { document.body.classList.add('collapsed'); document.getElementById("reaction").classList.remove('show'); }
+
+}
+
+
+
+const STAGES = [
+ {
+  "cls": "p1",
+  "icon": "⚔️",
+  "title": "刑事辩护业务",
+  "count": "侦查·审查起诉·一审·二审·重罪·未成年·特殊程序·速裁，全阶段辩护",
+  "children": [
+   {
+    "num": "①",
+    "icon": "⚔️",
+    "name": "一审阶段刑事辩护技能",
+    "detail": "执业律师的AI助理，覆盖刑事一审阶段辩护：案件事实梳理→法规检索→证据审查→法律分析→文书生成。控方举证，辩方辩护。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "01号"
+     ]
+    ],
+    "reaction": "请使用「一审阶段刑事辩护技能」协助处理本案。",
+    "prompt": "请使用「一审阶段刑事辩护技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "一审阶段全流程辩护策略（庭前会议→庭审→量刑协商→判决）",
+         "控方证据审查与质证（非法证据排除、证人出庭申请、鉴定意见质证）",
+         "量刑情节梳理与量刑建议协商（自首/立功/认罪认罚/退赃退赔/刑事和解）",
+         "辩护方案选择（无罪辩护/罪轻辩护/程序辩护/量刑辩护路径评估）",
+         "一审辩护文书生成（辩护词/质证意见/排非申请书/量刑意见书/取保候审申请书）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "辩护",
+         "一审",
+         "刑事",
+         "量刑",
+         "无罪",
+         "罪轻",
+         "开庭",
+         "庭审"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "09-侦查阶段辩护",
+         "27-审查起诉阶段辩护",
+         "04-二审阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "⚔️",
+    "name": "二审阶段刑事辩护技能",
+    "detail": "执业律师的AI助理，覆盖刑事二审阶段辩护：案件事实梳理→法规检索→证据审查→法律分析→文书生成。控方举证，辩方辩护。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "04号"
+     ]
+    ],
+    "reaction": "请使用「二审阶段刑事辩护技能」协助处理本案。",
+    "prompt": "请使用「二审阶段刑事辩护技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "二审阶段全流程辩护策略（上诉/抗诉→二审审理→改判/发回重审）",
+         "一审判决全面审查（事实认定/证据采信/法律适用/量刑适当性）",
+         "二审新证据审查与新证据调取申请",
+         "一审程序违法审查（管辖/回避/审判组织/辩护权/排非程序）",
+         "上诉不加刑原则适用分析（刑诉法第237条）",
+         "二审辩护文书生成（上诉状/二审辩护词/开庭申请书/新证据调取申请书）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "二审",
+         "上诉",
+         "改判",
+         "发回重审",
+         "维持原判"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "27-审查起诉阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "⚔️",
+    "name": "侦查阶段刑事辩护技能",
+    "detail": "执业律师的AI助理，覆盖刑事侦查阶段辩护：案件事实梳理→法规检索→证据审查→法律分析→文书生成。控方举证，辩方辩护。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "09号"
+     ]
+    ],
+    "reaction": "请使用「侦查阶段刑事辩护技能」协助处理本案。",
+    "prompt": "请使用「侦查阶段刑事辩护技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "侦查阶段全流程辩护策略（拘留→报捕→侦查终结→移送审查起诉）",
+         "逮捕必要性审查与取保候审申请（刑诉法第67条、第81条）",
+         "侦查阶段会见权保障与讯问合法性审查（刑诉法第39条）",
+         "批捕前提出无罪/罪轻法律意见",
+         "侦查取证合法性监督（同步录音录像/提取程序/保管链条）",
+         "侦查阶段辩护文书生成（取保候审申请书/不批捕意见书/会见提纲）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "侦查",
+         "公安",
+         "立案",
+         "拘留",
+         "逮捕",
+         "取保候审",
+         "刑拘"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "27-审查起诉阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "⚔️",
+    "name": "刑事辩护总调度技能",
+    "detail": "轻量级总控路由，判断当前案件处于什么阶段→路由到对应刑事辩护阶段技能。3KB以内的精简路由表。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "14号"
+     ]
+    ],
+    "reaction": "请使用「刑事辩护总调度技能」协助处理本案。",
+    "prompt": "请使用「刑事辩护总调度技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "判断案件当前所处的刑事诉讼阶段（侦查/审查起诉/一审/二审/重罪复核）",
+         "路由到对应的刑事辩护阶段技能，提供阶段入口指针和衔接提示",
+         "处理程序分流（简易速裁/未成年人案件/违法所得没收/强制医疗/申诉再审）",
+         "识别是否首次委托，路由到案件承接与委托技能",
+         "阶段变更时自动提示重新路由"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "刑事辩护",
+         "侦查",
+         "审查起诉",
+         "一审",
+         "二审",
+         "取保候审",
+         "被抓",
+         "拘留",
+         "刑辩"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "04-二审阶段辩护",
+         "09-侦查阶段辩护",
+         "27-审查起诉阶段辩护",
+         "110-刑事案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "⚔️",
+    "name": "审查起诉阶段刑事辩护技能",
+    "detail": "执业律师的AI助理，覆盖刑事审查起诉阶段辩护：案件事实梳理→法规检索→证据审查→法律分析→文书生成。控方举证，辩方辩护。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "27号"
+     ]
+    ],
+    "reaction": "请使用「审查起诉阶段刑事辩护技能」协助处理本案。",
+    "prompt": "请使用「审查起诉阶段刑事辩护技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "审查起诉阶段全流程辩护策略（阅卷→证据审查→不起诉协商→认罪认罚协商）",
+         "全卷审查与证据分析（控方证据体系完整性+证据链闭环评估）",
+         "不起诉辩护（法定不起诉/酌定不起诉/证据不足不起诉，刑诉法第175条、第177条）",
+         "认罪认罚从宽制度适用与量刑建议协商（刑诉法第15条、第172-177条）",
+         "羁押必要性审查申请（刑诉法第95条）",
+         "审查起诉阶段辩护文书生成（不起诉法律意见书/阅卷报告/量刑建议协商意见）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "审查起诉",
+         "检察院",
+         "批捕",
+         "不起诉",
+         "认罪认罚"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "09-侦查阶段辩护",
+         "01-一审阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑥",
+    "icon": "⚔️",
+    "name": "未成年人案件刑事辩护技能",
+    "detail": "独立设计的未成年人刑事案件专用技能。覆盖社会调查、合适成年人到场、附条件不起诉、不公开审理、犯罪记录封存等特殊程序。与通用刑事模板D完全不同的流程设计。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "38号"
+     ]
+    ],
+    "reaction": "请使用「未成年人案件刑事辩护技能」协助处理本案。",
+    "prompt": "请使用「未成年人案件刑事辩护技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "未成年",
+         "少年",
+         "保护"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "27-审查起诉阶段辩护"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑦",
+    "icon": "⚔️",
+    "name": "重罪案件辩护技能（含重罪复核）",
+    "detail": "重罪案件专用技能，重点覆盖重罪复核阶段的特殊辩护策略。独立于模板D的诉讼阶段划分，专为重罪复核程序设计。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "40号"
+     ]
+    ],
+    "reaction": "请使用「重罪案件辩护技能（含重罪复核）」协助处理本案。",
+    "prompt": "请使用「重罪案件辩护技能（含重罪复核）」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "重罪",
+         "复核"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "04-二审阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑧",
+    "icon": "⚔️",
+    "name": "刑事特殊程序技能",
+    "detail": "覆盖3个特殊刑事程序：违法所得没收程序、强制医疗程序、申诉再审程序。每个程序独立说明，轻量版，每个1-2KB。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "44号"
+     ]
+    ],
+    "reaction": "请使用「刑事特殊程序技能」协助处理本案。",
+    "prompt": "请使用「刑事特殊程序技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "违法所得没收",
+         "强制医疗",
+         "申诉再审",
+         "特殊程序"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "14-刑事辩护总调度",
+         "38-未成年人案件",
+         "40-重罪案件"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑨",
+    "icon": "⚔️",
+    "name": "简易速裁程序刑事辩护技能",
+    "detail": "认罪认罚案件的简化版流程，重点在认罪认罚协商和量刑建议，不涉及完整证据审查。适用于刑事简易程序与速裁程序。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "55号"
+     ]
+    ],
+    "reaction": "请使用「简易速裁程序刑事辩护技能」协助处理本案。",
+    "prompt": "请使用「简易速裁程序刑事辩护技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "简易",
+         "速裁",
+         "程序"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p2",
+  "icon": "📑",
+  "title": "合同与商事纠纷",
+  "count": "买卖·借款·借贷·保证·委托·建设·房屋·承揽·合伙·股权·运输等合同纠纷",
+  "children": [
+   {
+    "num": "①",
+    "icon": "📑",
+    "name": "买卖合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖买卖合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "03号"
+     ]
+    ],
+    "reaction": "请使用「买卖合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「买卖合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "合同",
+         "买卖",
+         "购销",
+         "货款",
+         "交货",
+         "验收",
+         "质量异议",
+         "定金",
+         "违约",
+         "商品质量",
+         "货物",
+         "订单",
+         "付款"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "66-运输合同纠纷",
+         "07-产品责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "📑",
+    "name": "保证合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖保证合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "10号"
+     ]
+    ],
+    "reaction": "请使用「保证合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「保证合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "保证",
+         "担保",
+         "连带保证",
+         "保证人",
+         "担保人"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "41-民间借贷纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "📑",
+    "name": "借款合同纠纷（金融）诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖金融借款合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "11号"
+     ]
+    ],
+    "reaction": "请使用「借款合同纠纷（金融）诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「借款合同纠纷（金融）诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "借款",
+         "贷款",
+         "金融借贷",
+         "信贷",
+         "网贷",
+         "逾期",
+         "利率"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "41-民间借贷纠纷",
+         "10-保证合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "📑",
+    "name": "合伙协议纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖合伙协议纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "19号"
+     ]
+    ],
+    "reaction": "请使用「合伙协议纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「合伙协议纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "合伙",
+         "散伙",
+         "结算"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "03-买卖合同纠纷",
+         "25-委托合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "📑",
+    "name": "委托合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖委托合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "25号"
+     ]
+    ],
+    "reaction": "请使用「委托合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「委托合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "委托合同纠纷全流程代理（委托人立场/受托人立场双视角）",
+         "任意解除权分析（民法典第933条：双方均有任意解除权，但解除方须赔偿损失）",
+         "转委托效力审查（民法典第923条：经委托人同意才有效）",
+         "有偿vs无偿委托的责任标准区分（民法典第929条）",
+         "委托合同纠纷文书生成（起诉状/答辩状/代理词）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "委托",
+         "代理",
+         "受托",
+         "委托人",
+         "受托人",
+         "纠纷"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "24-委托合同管理",
+         "37-承揽合同纠纷",
+         "11-借款合同纠纷金融"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑥",
+    "icon": "📑",
+    "name": "建设工程施工合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖建设工程施工合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "30号"
+     ]
+    ],
+    "reaction": "请使用「建设工程施工合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「建设工程施工合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "建设工程施工合同纠纷全流程代理（承包人/发包人/实际施工人三视角）",
+         "工程款支付请求权+建设工程价款优先受偿权分析（民法典第807条、18个月）",
+         "黑白合同效力认定规则（以中标合同为准，建工解释一第2条）",
+         "实际施工人突破合同相对性路径分析（建工解释二第6条新规）",
+         "工期延误/质量争议/工程造价鉴定专项审查",
+         "建工纠纷文书生成（起诉状/答辩状/代理词/优先受偿权主张函）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "工程",
+         "施工",
+         "建设",
+         "工程款",
+         "承包",
+         "发包"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "37-承揽合同纠纷",
+         "25-委托合同纠纷",
+         "03-买卖合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑦",
+    "icon": "📑",
+    "name": "房屋买卖/租赁合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖房屋买卖/租赁合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "32号"
+     ]
+    ],
+    "reaction": "请使用「房屋买卖/租赁合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「房屋买卖/租赁合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "房屋买卖",
+         "二手房",
+         "商品房",
+         "购房",
+         "租房",
+         "租赁",
+         "租金",
+         "退房",
+         "过户",
+         "网签",
+         "物业交割",
+         "购房款"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "30-建设工程施工合同纠纷",
+         "43-物业服务合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑧",
+    "icon": "📑",
+    "name": "承揽合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖承揽合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "37号"
+     ]
+    ],
+    "reaction": "请使用「承揽合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「承揽合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "承揽合同纠纷全流程代理（定作人立场/承揽人立场双视角）",
+         "质量异议审查（质量标准约定+验收程序+质检报告评估）",
+         "工期延误责任分析（关键路径法+延误原因归属+赶工费索赔）",
+         "定作人任意解除权分析（民法典第787条：随时解除但须赔偿损失）",
+         "承揽人留置权分析（民法典第783条：未付报酬可留置工作成果）",
+         "承揽合同纠纷文书生成（起诉状/答辩状/代理词）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "承揽",
+         "加工",
+         "定作",
+         "修理",
+         "定制"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "30-建设工程施工合同纠纷",
+         "25-委托合同纠纷",
+         "03-买卖合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑨",
+    "icon": "📑",
+    "name": "民间借贷纠纷诉讼技能（含律师版/当事人版）",
+    "detail": "民间借贷纠纷诉讼技能（律师版+当事人版双模式）。借钱不还怎么办？自动采集案情→检索法规→分析证据→生成起诉状→主动建议后续文书。说\"切换专业模式\"用法言法语，说\"切换大白话模式\"获取通俗解释。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "41号"
+     ]
+    ],
+    "reaction": "请使用「民间借贷纠纷诉讼技能（含律师版/当事人版）」协助处理本案。",
+    "prompt": "请使用「民间借贷纠纷诉讼技能（含律师版/当事人版）」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "民事",
+         "借贷",
+         "欠款",
+         "借条",
+         "利息"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "10-保证合同纠纷",
+         "54-离婚纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑩",
+    "icon": "📑",
+    "name": "股权转让纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖股权转让纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "59号"
+     ]
+    ],
+    "reaction": "请使用「股权转让纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「股权转让纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "股权",
+         "转让"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "03-买卖合同纠纷",
+         "19-合伙协议纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑪",
+    "icon": "📑",
+    "name": "运输合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖运输合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "66号"
+     ]
+    ],
+    "reaction": "请使用「运输合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「运输合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "运输合同纠纷全流程代理（托运人/承运人双视角）",
+         "货损责任分析（承运人责任期间+免责事由审查：不可抗力/货物自然属性/托运人过错，民法典第832条）",
+         "保价条款效力审查（民法典第833条：如实申报价值vs赔偿限额）",
+         "运费纠纷处理（托运人拒付/承运人留置/运费计算争议）",
+         "运输合同纠纷文书生成（起诉状/答辩状/代理词）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "运输",
+         "货运",
+         "物流",
+         "托运",
+         "承运",
+         "货损"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "37-承揽合同纠纷",
+         "25-委托合同纠纷",
+         "05-交通事故责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p3",
+  "icon": "💑",
+  "title": "婚姻家事与继承",
+  "count": "离婚·抚养·财产分割·继承·家事非诉协议",
+  "children": [
+   {
+    "num": "①",
+    "icon": "💑",
+    "name": "婚姻家事诉讼",
+    "detail": "婚姻家事领域诉讼专业 Skill。覆盖离婚诉讼全流程（感情破裂认定、财产分割、子女抚养权判定、抚养费计算、损害赔偿、调解策略）、彩礼返还裁判规则、夫妻共同债务认定及离婚损害赔偿法定情形。用于婚姻家事诉讼案件的阶段判断、流程编排、文书起草、策略分析和法规援引。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "26号"
+     ]
+    ],
+    "reaction": "请使用「婚姻家事诉讼」协助处理本案。",
+    "prompt": "请使用「婚姻家事诉讼」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "离婚诉讼全流程（感情破裂认定→财产分割→子女抚养权→抚养费→损害赔偿）",
+         "彩礼返还裁判规则分析（民法典婚姻家庭编解释一第5条）",
+         "夫妻共同债务认定规则（民法典第1064条）",
+         "离婚损害赔偿（民法典第1091条5种法定情形）",
+         "调解策略和诉前财产保全建议"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "离婚",
+         "婚姻",
+         "感情破裂",
+         "抚养权",
+         "财产分割",
+         "彩礼",
+         "家暴"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "28-家事非诉与协议",
+         "54-离婚纠纷",
+         "57-继承纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "💑",
+    "name": "家事非诉与协议",
+    "detail": "婚姻家事领域非诉讼业务专业 Skill。覆盖婚前协议起草与审查、婚内财产协议、离婚协议（含财产分割+子女抚养条款）、继承方案设计（法定继承+遗嘱+遗赠扶养协议）、人身保护令申请。用于婚姻家事非诉法律服务的文书起草、方案设计和法律咨询。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "28号"
+     ]
+    ],
+    "reaction": "请使用「家事非诉与协议」协助处理本案。",
+    "prompt": "请使用「家事非诉与协议」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "婚前协议起草与审查（民法典第1065条，财产约定制）",
+         "婚内财产协议起草与审查",
+         "离婚协议起草（含财产分割+子女抚养条款，民法典第1076条）",
+         "继承方案设计（法定继承/遗嘱/遗赠扶养协议，民法典继承编）",
+         "人身保护令申请（反家庭暴力法第23条）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "婚前协议",
+         "离婚协议",
+         "继承方案",
+         "人身保护令",
+         "婚内协议"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "26-婚姻家事诉讼",
+         "54-离婚纠纷",
+         "20-合同审查"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "💑",
+    "name": "离婚纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖离婚纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "54号"
+     ]
+    ],
+    "reaction": "请使用「离婚纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「离婚纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "离婚",
+         "婚姻",
+         "感情",
+         "抚养权",
+         "财产"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "26-婚姻家事诉讼",
+         "28-家事非诉与协议",
+         "57-继承纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "💑",
+    "name": "继承纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖继承纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "57号"
+     ]
+    ],
+    "reaction": "请使用「继承纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「继承纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "继承",
+         "遗产",
+         "遗嘱",
+         "房产"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "54-离婚纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p4",
+  "icon": "👷",
+  "title": "劳动争议",
+  "count": "仲裁程序·证据体系·劳动关系认定·经济补偿·用人单位合规",
+  "children": [
+   {
+    "num": "①",
+    "icon": "👷",
+    "name": "劳动争议仲裁程序管理律师助手",
+    "detail": "执业律师的AI助理，覆盖劳动争议仲裁程序管理案件：仲裁程序启动→法规检索→证据审查→法律分析→文书生成。仲裁前置，举证倒置，1年仲裁时效。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "15号"
+     ]
+    ],
+    "reaction": "请使用「劳动争议仲裁程序管理律师助手」协助处理本案。",
+    "prompt": "请使用「劳动争议仲裁程序管理律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "劳动仲裁",
+         "仲裁申请",
+         "仲裁时效",
+         "仲裁程序",
+         "仲裁裁决",
+         "不服仲裁",
+         "劳动仲裁前置"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "16-劳动争议证据体系",
+         "17-劳动关系认定与经济补偿计算",
+         "45-用人单位劳动合规"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "👷",
+    "name": "劳动争议证据体系律师助手",
+    "detail": "执业律师的AI助理，覆盖劳动争议证据体系案件：证据收集→举证责任分配→证据审查→法律分析→文书生成。仲裁前置，举证倒置，1年仲裁时效。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "16号"
+     ]
+    ],
+    "reaction": "请使用「劳动争议证据体系律师助手」协助处理本案。",
+    "prompt": "请使用「劳动争议证据体系律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "劳动证据",
+         "考勤",
+         "工资条",
+         "劳动合同",
+         "解除通知",
+         "加班记录",
+         "证据清单",
+         "举证责任"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "15-劳动争议仲裁程序管理",
+         "17-劳动关系认定与经济补偿计算",
+         "05-交通事故责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "👷",
+    "name": "劳动关系认定与经济补偿计算律师助手",
+    "detail": "执业律师的AI助理，覆盖劳动关系认定与经济补偿计算案件：劳动关系确认→法规检索→证据审查→赔偿计算→文书生成。仲裁前置，举证倒置，1年仲裁时效。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "17号"
+     ]
+    ],
+    "reaction": "请使用「劳动关系认定与经济补偿计算律师助手」协助处理本案。",
+    "prompt": "请使用「劳动关系认定与经济补偿计算律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "劳动关系认定",
+         "经济补偿",
+         "赔偿金",
+         "N+1",
+         "解除补偿",
+         "劳动合同解除",
+         "双倍工资",
+         "社保补缴"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "15-劳动争议仲裁程序管理",
+         "16-劳动争议证据体系",
+         "45-用人单位劳动合规",
+         "05-交通事故责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "👷",
+    "name": "用人单位劳动合规非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖用人单位劳动合规非诉业务：合规审查→法规检索→制度审查→风险评估→文书生成。公司视角，非诉业务。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "45号"
+     ]
+    ],
+    "reaction": "请使用「用人单位劳动合规非诉法律助手」协助处理本案。",
+    "prompt": "请使用「用人单位劳动合规非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "用工合规",
+         "规章制度",
+         "劳动合同管理",
+         "社保合规",
+         "加班合规",
+         "裁员合规",
+         "劳动监察",
+         "用工风险"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "15-劳动争议仲裁程序管理",
+         "17-劳动关系认定与经济补偿计算"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p5",
+  "icon": "🚧",
+  "title": "侵权与物业纠纷",
+  "count": "交通事故·产品责任·医疗损害·网络侵权·物业服务",
+  "children": [
+   {
+    "num": "①",
+    "icon": "🚧",
+    "name": "机动车交通事故责任纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖机动车交通事故责任纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "05号"
+     ]
+    ],
+    "reaction": "请使用「机动车交通事故责任纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「机动车交通事故责任纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "交通",
+         "车祸",
+         "撞车",
+         "理赔",
+         "保险"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "18-医疗损害责任纠纷",
+         "07-产品责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "🚧",
+    "name": "产品责任纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖产品责任纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "07号"
+     ]
+    ],
+    "reaction": "请使用「产品责任纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「产品责任纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "产品缺陷",
+         "产品致害",
+         "缺陷产品赔偿",
+         "人身损害",
+         "财产损害",
+         "产品责任诉讼",
+         "制造商责任",
+         "销售者责任"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "03-买卖合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "🚧",
+    "name": "医疗损害责任纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖医疗损害责任纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "18号"
+     ]
+    ],
+    "reaction": "请使用「医疗损害责任纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「医疗损害责任纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "医疗损害责任纠纷全流程代理（患方/医方双视角）",
+         "医疗过错认定分析（诊疗规范+专家共识+合理注意义务，民法典第1218-1228条）",
+         "医疗损害司法鉴定申请与审查（鉴定意见的质证+专家辅助人出庭）",
+         "过错推定情形审查（3种情形：违反法律/隐匿病历/伪造病历，民法典第1222条）",
+         "人身损害赔偿计算（医疗费/护理费/误工费/残疾赔偿金/精神损害抚慰金等）",
+         "医疗纠纷文书生成（起诉状/答辩状/鉴定申请书/证据保全申请书）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "医疗",
+         "误诊",
+         "手术",
+         "损害"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "07-产品责任纠纷",
+         "05-交通事故责任纠纷",
+         "07-产品责任纠纷",
+         "58-网络侵权责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "🚧",
+    "name": "物业服务合同纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖物业服务合同纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。同时支持物业公司追费和业主抗辩两种立场。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "43号"
+     ]
+    ],
+    "reaction": "请使用「物业服务合同纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「物业服务合同纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "物业",
+         "物业费",
+         "业主",
+         "小区"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "58-网络侵权责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "🚧",
+    "name": "网络侵权责任纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖网络侵权责任纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "58号"
+     ]
+    ],
+    "reaction": "请使用「网络侵权责任纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「网络侵权责任纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "侵权",
+         "赔偿",
+         "伤害",
+         "名誉",
+         "诽谤"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "07-产品责任纠纷",
+         "18-医疗损害责任纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p6",
+  "icon": "🔬",
+  "title": "知识产权",
+  "count": "专利·商标·著作权侵权诉讼与合规申请",
+  "children": [
+   {
+    "num": "①",
+    "icon": "🔬",
+    "name": "专利侵权纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖专利侵权纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "02号"
+     ]
+    ],
+    "reaction": "请使用「专利侵权纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「专利侵权纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "专利",
+         "发明专利",
+         "实用新型",
+         "外观设计",
+         "专利侵权"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "23-商标侵权纠纷",
+         "60-著作权侵权纠纷",
+         "48-知识产权诉讼",
+         "47-知识产权合规与申请"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "🔬",
+    "name": "商标侵权纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖商标侵权纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "23号"
+     ]
+    ],
+    "reaction": "请使用「商标侵权纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「商标侵权纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "商标",
+         "注册商标",
+         "假冒",
+         "商标侵权",
+         "商标权"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "02-专利侵权纠纷",
+         "60-著作权侵权纠纷",
+         "48-知识产权诉讼",
+         "25-委托合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "🔬",
+    "name": "知识产权合规与申请非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖知识产权合规与申请非诉业务：需求采集→法规检索→可注册性分析→流程指引→文书生成。输出商标注册申请方案/专利申请策略。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "47号"
+     ]
+    ],
+    "reaction": "请使用「知识产权合规与申请非诉法律助手」协助处理本案。",
+    "prompt": "请使用「知识产权合规与申请非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "执业律师的AI助理，覆盖知识产权合规与申请非诉业务：需求采集→法规检索→可注册性分析→流程指引→文书生成。输出商标注册申请方案/专利申请策略。零配置，对话即交付。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "专利申请",
+         "商标注册",
+         "著作权登记",
+         "知识产权",
+         "合规"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "02-专利侵权纠纷",
+         "23-商标侵权纠纷",
+         "60-著作权侵权纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "🔬",
+    "name": "知识产权诉讼",
+    "detail": "知识产权诉讼专业 Skill，覆盖专利侵权、商标侵权、著作权侵权及不正当竞争诉讼全流程，含权利基础审查、侵权比对（全面覆盖原则/等同原则）、混淆可能性判断、实质性相似认定、现有技术抗辩/合理使用抗辩、损害赔偿计算、证据保全（诉前/诉中）等核心任务。事项建档、路径、文件读取、来源披露、OCR 校正和缺口归档由「法律工作总控」统一处理。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "48号"
+     ]
+    ],
+    "reaction": "请使用「知识产权诉讼」协助处理本案。",
+    "prompt": "请使用「知识产权诉讼」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "专利侵权",
+         "商标侵权",
+         "著作权侵权",
+         "侵权诉讼",
+         "知识产权纠纷"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "02-专利侵权纠纷",
+         "23-商标侵权纠纷",
+         "60-著作权侵权纠纷",
+         "47-知识产权合规与申请"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "🔬",
+    "name": "著作权侵权纠纷诉讼律师助手",
+    "detail": "执业律师的AI助理，覆盖著作权侵权纠纷案件全流程：案情梳理→法规检索→证据审查→法律分析→文书生成。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "60号"
+     ]
+    ],
+    "reaction": "请使用「著作权侵权纠纷诉讼律师助手」协助处理本案。",
+    "prompt": "请使用「著作权侵权纠纷诉讼律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "著作权",
+         "版权",
+         "盗版",
+         "抄袭",
+         "侵权赔偿"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "02-专利侵权纠纷",
+         "23-商标侵权纠纷",
+         "48-知识产权诉讼",
+         "47-知识产权合规与申请"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p7",
+  "icon": "🏦",
+  "title": "破产与清算",
+  "count": "申请受理·债权申报·和解·重整·清算·管理人工作",
+  "children": [
+   {
+    "num": "①",
+    "icon": "🏦",
+    "name": "债权人会议 律师助手",
+    "detail": "执业律师的AI助理，覆盖债权人会议：会议召集→表决权确认→决议事项→决议效力。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "12号"
+     ]
+    ],
+    "reaction": "请使用「债权人会议 律师助手」协助处理本案。",
+    "prompt": "请使用「债权人会议 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "债权人会议",
+         "表决",
+         "决议",
+         "破产债权"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "13-债权申报与审查",
+         "49-破产和解程序",
+         "67-重整程序",
+         "52-破产清算",
+         "50-破产文书生成"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "🏦",
+    "name": "债权申报与审查 律师助手",
+    "detail": "执业律师的AI助理，覆盖债权申报与审查：债权申报→管理人审查→异议处理→债权表确认。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "13号"
+     ]
+    ],
+    "reaction": "请使用「债权申报与审查 律师助手」协助处理本案。",
+    "prompt": "请使用「债权申报与审查 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "债权申报",
+         "申报债权",
+         "管理人审查",
+         "破产债权"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "12-债权人会议",
+         "49-破产和解程序",
+         "67-重整程序",
+         "52-破产清算"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "🏦",
+    "name": "破产和解程序 律师助手",
+    "detail": "执业律师的AI助理，覆盖破产和解程序：和解意愿→和解协议草案→债权人表决→法院认可→执行监督。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "49号"
+     ]
+    ],
+    "reaction": "请使用「破产和解程序 律师助手」协助处理本案。",
+    "prompt": "请使用「破产和解程序 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "破产和解",
+         "和解协议",
+         "和解申请",
+         "破产和解程序",
+         "和解失败转清算"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "52-破产清算",
+         "67-重整程序"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "🏦",
+    "name": "破产文书生成 律师助手",
+    "detail": "执业律师的AI助理，覆盖破产文书生成：破产申请文书→债权申报文书→会议文书→重整/和解文书→分配方案文书。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "50号"
+     ]
+    ],
+    "reaction": "请使用「破产文书生成 律师助手」协助处理本案。",
+    "prompt": "请使用「破产文书生成 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "破产文书",
+         "破产申请书",
+         "债权申报书",
+         "管理人报告",
+         "破产文件",
+         "文书模板"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "49-破产和解程序",
+         "67-重整程序",
+         "52-破产清算"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "🏦",
+    "name": "破产法律分析 律师助手",
+    "detail": "执业律师的AI助理，覆盖破产法律分析：破产原因认定→三种程序选择→法律意见。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "51号"
+     ]
+    ],
+    "reaction": "请使用「破产法律分析 律师助手」协助处理本案。",
+    "prompt": "请使用「破产法律分析 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "破产原因",
+         "资不抵债",
+         "不能清偿",
+         "破产可行性",
+         "破产分析",
+         "破产条件",
+         "破产资格"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "53-破产申请与受理",
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "64-财产调查与管理"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑥",
+    "icon": "🏦",
+    "name": "破产清算 律师助手",
+    "detail": "执业律师的AI助理，覆盖破产清算：财产变价→分配方案→终结程序→注销登记。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "52号"
+     ]
+    ],
+    "reaction": "请使用「破产清算 律师助手」协助处理本案。",
+    "prompt": "请使用「破产清算 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "破产清算",
+         "清算程序",
+         "财产变价",
+         "财产分配",
+         "清偿顺序",
+         "注销登记",
+         "清算终结"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "49-破产和解程序",
+         "67-重整程序",
+         "50-破产文书生成"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑦",
+    "icon": "🏦",
+    "name": "破产申请与受理 律师助手",
+    "detail": "执业律师的AI助理，覆盖破产申请与受理：申请材料审查→法院裁定→债权申报通知。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "53号"
+     ]
+    ],
+    "reaction": "请使用「破产申请与受理 律师助手」协助处理本案。",
+    "prompt": "请使用「破产申请与受理 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "破产申请",
+         "破产受理",
+         "申请主体",
+         "受理审查",
+         "破产启动",
+         "受理裁定",
+         "破产管辖"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "51-破产法律分析",
+         "13-债权申报与审查",
+         "64-财产调查与管理"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑧",
+    "icon": "🏦",
+    "name": "管理人工作 律师助手",
+    "detail": "执业律师的AI助理，覆盖管理人工作：全面接管→财产管理→债权审查→会议召集→分配执行。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "56号"
+     ]
+    ],
+    "reaction": "请使用「管理人工作 律师助手」协助处理本案。",
+    "prompt": "请使用「管理人工作 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "管理人",
+         "接管",
+         "破产管理",
+         "清算组"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "52-破产清算",
+         "64-财产调查与管理"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑨",
+    "icon": "🏦",
+    "name": "重整程序 律师助手",
+    "detail": "执业律师的AI助理，覆盖重整程序：重整价值判断→计划草案→分组表决→法院批准→执行监督。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "67号"
+     ]
+    ],
+    "reaction": "请使用「重整程序 律师助手」协助处理本案。",
+    "prompt": "请使用「重整程序 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "重整",
+         "重组",
+         "恢复经营",
+         "重整计划"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "49-破产和解程序",
+         "52-破产清算"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p8",
+  "icon": "🔨",
+  "title": "执行程序",
+  "count": "申请执行·财产查控·强制措施·异议救济·和解终结",
+  "children": [
+   {
+    "num": "①",
+    "icon": "🔨",
+    "name": "仲裁裁决执行与撤销助手",
+    "detail": "执业律师的AI助理，覆盖仲裁裁决执行与撤销全流程：裁决结果分析→撤销事由审查→执行申请→不予执行抗辩→涉外仲裁特别规则。一裁终局后的有限救济。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "08号"
+     ]
+    ],
+    "reaction": "请使用「仲裁裁决执行与撤销助手」协助处理本案。",
+    "prompt": "请使用「仲裁裁决执行与撤销助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "仲裁执行",
+         "申请执行",
+         "撤销仲裁",
+         "不予执行",
+         "仲裁裁决",
+         "裁决履行",
+         "执行异议",
+         "仲裁保全"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "22-商事仲裁申请与程序",
+         "22A-仲裁保全指引"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "🔨",
+    "name": "执行和解与终结助手",
+    "detail": "执业律师的AI助理，专注执行中的和解协商与程序终结：履行评估→方案设计→终结选择→恢复分析→文书生成。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "33号"
+     ]
+    ],
+    "reaction": "请使用「执行和解与终结助手」协助处理本案。",
+    "prompt": "请使用「执行和解与终结助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "执行和解",
+         "和解协议",
+         "执行终结",
+         "终本",
+         "恢复执行",
+         "终结本次执行",
+         "执行结案"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "36-执行申请与启动"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "🔨",
+    "name": "执行异议与救济助手",
+    "detail": "执业律师的AI助理，专注案外人/当事人执行异议与救济：异议识别→救济路径→证据审查→法律分析→文书生成。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "34号"
+     ]
+    ],
+    "reaction": "请使用「执行异议与救济助手」协助处理本案。",
+    "prompt": "请使用「执行异议与救济助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "执行异议全流程代理（当事人/案外人/利害关系人/其他债权人多视角）",
+         "执行行为异议（民诉法第225条：执行措施违法→异议→裁定→复议）",
+         "案外人异议（民诉法第227条：主张执行标的所有权→异议→裁定→异议之诉）",
+         "分配方案异议（不认同分配比例→15日异议期→分配方案异议之诉）",
+         "追加被执行人异议（出资瑕疵/一人公司/合并分立等法定情形）",
+         "执行异议文书生成（执行异议申请书/案外人异议之诉起诉状/追加被执行人申请书）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "执行异议",
+         "案外人异议",
+         "执行复议",
+         "执行异议之诉",
+         "追加被执行人",
+         "执行救济",
+         "参与分配"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "35-执行措施与强制手段",
+         "36-执行申请与启动",
+         "33-执行和解与终结"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "🔨",
+    "name": "执行措施与强制手段助手",
+    "detail": "执业律师的AI助理，专注限高/失信/查控/拍卖/拘留等强制措施：措施评估→策略组合→实施跟踪→法律分析→文书生成。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "35号"
+     ]
+    ],
+    "reaction": "请使用「执行措施与强制手段助手」协助处理本案。",
+    "prompt": "请使用「执行措施与强制手段助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "强制执行",
+         "查封",
+         "冻结",
+         "扣押",
+         "拍卖",
+         "变卖",
+         "限高",
+         "失信名单",
+         "司法拘留",
+         "拒不执行"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "36-执行申请与启动"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "🔨",
+    "name": "执行申请与启动助手",
+    "detail": "执业律师的AI助理，专注申请法院强制执行：条件审查→管辖确认→材料准备→可行性评估→文书生成。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "36号"
+     ]
+    ],
+    "reaction": "请使用「执行申请与启动助手」协助处理本案。",
+    "prompt": "请使用「执行申请与启动助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "申请执行",
+         "执行立案",
+         "执行时效",
+         "执行管辖",
+         "执行依据",
+         "执行担保",
+         "执行申请书"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "65-财产调查与线索收集",
+         "35-执行措施与强制手段"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑥",
+    "icon": "🔨",
+    "name": "财产调查与管理 律师助手",
+    "detail": "执业律师的AI助理，覆盖财产调查与管理：财产认定→可撤销行为→追回财产→别除权处理。法院主导，管理人执行，集体清偿。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "64号"
+     ]
+    ],
+    "reaction": "请使用「财产调查与管理 律师助手」协助处理本案。",
+    "prompt": "请使用「财产调查与管理 律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "债务人财产",
+         "财产接管",
+         "财产清单",
+         "可撤销行为",
+         "追回权",
+         "破产财产",
+         "别除权",
+         "取回权"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "65-财产调查与线索收集",
+         "34-执行异议与救济"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑦",
+    "icon": "🔨",
+    "name": "财产调查与线索收集助手",
+    "detail": "执业律师的AI助理，专注查找被执行人财产线索：需求分析→策略制定→调查实施→线索评估→文书生成。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "65号"
+     ]
+    ],
+    "reaction": "请使用「财产调查与线索收集助手」协助处理本案。",
+    "prompt": "请使用「财产调查与线索收集助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "财产线索",
+         "律师调查令",
+         "网络查控",
+         "被执行人财产",
+         "隐匿财产",
+         "悬赏执行",
+         "财产申报"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "64-财产调查与管理",
+         "36-执行申请与启动"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p9",
+  "icon": "🏛️",
+  "title": "行政诉讼与复议",
+  "count": "行政复议·立案分析·庭审代理",
+  "children": [
+   {
+    "num": "①",
+    "icon": "🏛️",
+    "name": "行政复议律师助手",
+    "detail": "执业律师的AI助理，覆盖行政复议全流程：复议申请条件审查→复议机关确定→复议申请文书生成→复议听证代理→复议转诉讼评估。前置或独立救济途径。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "61号"
+     ]
+    ],
+    "reaction": "请使用「行政复议律师助手」协助处理本案。",
+    "prompt": "请使用「行政复议律师助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "行政复议",
+         "复议申请",
+         "复议机关",
+         "复议期限",
+         "复议决定",
+         "复议前置",
+         "不服处罚复议"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "62-行政诉讼庭审与代理",
+         "63-行政诉讼立案与分析"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "🏛️",
+    "name": "行政诉讼庭审与代理助手",
+    "detail": "执业律师的AI助理，覆盖行政诉讼庭审与代理全流程：被告举证审查→合法性审查→质证→代理词生成→判决类型分析。被告举证，合法性审查为轴心。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "62号"
+     ]
+    ],
+    "reaction": "请使用「行政诉讼庭审与代理助手」协助处理本案。",
+    "prompt": "请使用「行政诉讼庭审与代理助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "行政诉讼",
+         "行政庭审",
+         "行政代理",
+         "被告举证",
+         "合法性审查",
+         "行政判决",
+         "行政上诉"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "63-行政诉讼立案与分析"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "🏛️",
+    "name": "行政诉讼立案与分析助手",
+    "detail": "执业律师的AI助理，覆盖行政诉讼立案与分析全流程：受案范围审查→复议前置判断→起诉期限核验→被告资格认定→文书生成。被告举证，合法性审查先行。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "63号"
+     ]
+    ],
+    "reaction": "请使用「行政诉讼立案与分析助手」协助处理本案。",
+    "prompt": "请使用「行政诉讼立案与分析助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "行政立案",
+         "起诉期限",
+         "受案范围",
+         "原告资格",
+         "行政起诉",
+         "立案审查",
+         "被告资格"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "61-行政复议",
+         "62-行政诉讼庭审与代理"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p10",
+  "icon": "⚖️",
+  "title": "商事仲裁",
+  "count": "仲裁申请与程序推进",
+  "children": [
+   {
+    "num": "①",
+    "icon": "⚖️",
+    "name": "商事仲裁申请与程序助手",
+    "detail": "执业律师的AI助理，覆盖商事仲裁申请与程序全流程：仲裁协议审查→仲裁机构确定→仲裁申请→仲裁员选定→一裁终局告知。一裁终局，无上诉机会。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "22号"
+     ]
+    ],
+    "reaction": "请使用「商事仲裁申请与程序助手」协助处理本案。",
+    "prompt": "请使用「商事仲裁申请与程序助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "仲裁",
+         "一裁终局",
+         "仲裁协议",
+         "仲裁庭",
+         "CIETAC"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "08-仲裁裁决执行与撤销",
+         "22A-仲裁保全指引",
+         "22B-仲裁员选定与组庭策略"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "⚖️",
+    "name": "仲裁保全指引",
+    "detail": "执业律师的AI助理，覆盖商事仲裁财产保全与证据保全全流程：保全必要性评估→管辖路径（仲裁委转交/直接法院）→申请材料→担保与保全保险→执行衔接。防止对方在仲裁期间转移资产、灭失证据。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "22号"
+     ]
+    ],
+    "reaction": "仲裁还没立案，能先查封对方账户吗",
+    "prompt": "仲裁还没立案，能先查封对方账户吗",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "保全必要性与紧急性评估",
+         "管辖路径与程序选择（仲裁前/仲裁中）",
+         "保全申请材料清单与文书框架",
+         "担保数额与保全保险方案测算",
+         "与仲裁程序、后续执行的衔接提示"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "仲裁保全",
+         "财产保全",
+         "证据保全",
+         "保全担保",
+         "查封冻结",
+         "仲裁委转交"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "仲裁还没立案，能先查封对方账户吗",
+         "申请仲裁的同时怎么申请财产保全",
+         "仲裁保全要交多少担保"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "22-商事仲裁申请与程序",
+         "08-仲裁裁决执行与撤销",
+         "82-保全决策指引"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "⚖️",
+    "name": "仲裁员选定与组庭策略",
+    "detail": "执业律师的AI助理，覆盖商事仲裁仲裁员选定与仲裁庭组庭策略：仲裁员名册研究→专业领域匹配→回避审查→首席仲裁员博弈→独任/合议选择。选定仲裁员是影响案件走向的关键一步，需策略性对待。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "22号"
+     ]
+    ],
+    "reaction": "仲裁员该怎么选才对我方有利",
+    "prompt": "仲裁员该怎么选才对我方有利",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "仲裁员名册研究与专业背景匹配",
+         "己方仲裁员选定建议",
+         "首席仲裁员博弈策略",
+         "回避情形审查与申请",
+         "独任/合议仲裁庭选择分析"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "仲裁员选定",
+         "组庭",
+         "仲裁员名册",
+         "首席仲裁员",
+         "回避",
+         "独任仲裁"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "仲裁员该怎么选才对我方有利",
+         "首席仲裁员怎么定",
+         "对方选的仲裁员要回避吗"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "22-商事仲裁申请与程序",
+         "22A-仲裁保全指引"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p11",
+  "icon": "📋",
+  "title": "非诉与合规",
+  "count": "合同审查起草·广告合规·数据合规·尽调·公司治理",
+  "children": [
+   {
+    "num": "①",
+    "icon": "📋",
+    "name": "合同审查非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖合同审查非诉业务：需求采集→法规检索→审查分析→风险提示→文书生成。输出合同审查意见书。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "20号"
+     ]
+    ],
+    "reaction": "请使用「合同审查非诉法律助手」协助处理本案。",
+    "prompt": "请使用「合同审查非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "合同审查",
+         "审合同",
+         "合同风险",
+         "合同条款"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "29-广告合规审核",
+         "47-知识产权合规与申请"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "📋",
+    "name": "合同起草非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖合同起草非诉业务：需求采集→法规检索→结构设计→草案生成→条款说明。输出合同草案+条款说明。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "21号"
+     ]
+    ],
+    "reaction": "请使用「合同起草非诉法律助手」协助处理本案。",
+    "prompt": "请使用「合同起草非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "合同起草",
+         "写合同",
+         "拟定合同",
+         "起草合同"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "20-合同审查"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "📋",
+    "name": "委托合同管理与授权文书非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖委托合同管理与授权文书非诉业务：需求采集→法规检索→审查分析→风险提示→文书生成。输出委托合同/授权委托书。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "24号"
+     ]
+    ],
+    "reaction": "请使用「委托合同管理与授权文书非诉法律助手」协助处理本案。",
+    "prompt": "请使用「委托合同管理与授权文书非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "委托",
+         "授权",
+         "代理",
+         "受托",
+         "委托书"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "25-委托合同纠纷",
+         "20-合同审查",
+         "21-合同起草"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "📋",
+    "name": "广告合规审核非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖广告合规审核非诉业务：需求采集→法规检索→逐条审核→风险提示→文书生成。输出广告合规审查报告。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "29号"
+     ]
+    ],
+    "reaction": "请使用「广告合规审核非诉法律助手」协助处理本案。",
+    "prompt": "请使用「广告合规审核非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "广告",
+         "宣传",
+         "合规",
+         "营销"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "20-合同审查",
+         "68-预包装食品标签合规"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "📋",
+    "name": "数据合规与个保法审查",
+    "detail": "个人信息保护法/数据安全法合规审查工具。输入业务场景→输出合规审查报告（数据处理合法性/告知同意/跨境传输/数据安全义务）。覆盖个保法/数据安全法/网络安全法/个人信息出境标准合同。含常见场景合规清单（App收集/员工信息/客户数据/营销推送）。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "84号"
+     ]
+    ],
+    "reaction": "公司收集客户信息合规吗",
+    "prompt": "公司收集客户信息合规吗",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "个人信息保护法/数据安全法合规审查工具。输入业务场景→输出合规审查报告（数据处理合法性/告知同意/跨境传输/数据安全义务）。覆盖个保法/数据安全法/网络安全法/个人信息出境标准合同。含常见场景合规清单（App收集/员工信息/客户数据/营销推送）。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "数据合规",
+         "个人信息保护",
+         "个保法",
+         "数据安全",
+         "个人信息",
+         "隐私政策",
+         "告知同意",
+         "数据出境",
+         "合规审查"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "公司收集客户信息合规吗",
+         "个保法审查",
+         "数据合规怎么做",
+         "个人信息出境有什么要求",
+         "员工信息采集合规"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "20-合同审查",
+         "29-广告合规审核",
+         "45-用人单位劳动合规"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑥",
+    "icon": "📋",
+    "name": "法律尽职调查",
+    "detail": "法律尽职调查辅助工具。按场景输出尽职调查清单、尽调报告框架、风险提示。覆盖股权收购/资产收购/投融资/房地产交易/知识产权交易等常见场景。含尽调流程指引（准备→调查→分析→报告→后续）。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "85号"
+     ]
+    ],
+    "reaction": "怎么做尽职调查",
+    "prompt": "怎么做尽职调查",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "法律尽职调查辅助工具。按场景输出尽职调查清单、尽调报告框架、风险提示。覆盖股权收购/资产收购/投融资/房地产交易/知识产权交易等常见场景。含尽调流程指引（准备→调查→分析→报告→后续）。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "尽职调查",
+         "尽调",
+         "DD",
+         "法律尽调",
+         "尽调清单",
+         "尽调报告",
+         "股权收购",
+         "投资尽调",
+         "法务尽调"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "怎么做尽职调查",
+         "尽调清单",
+         "收购公司要查什么",
+         "投资前的法律调查",
+         "尽调报告怎么写"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "59-股权转让纠纷",
+         "20-合同审查",
+         "21-合同起草"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑦",
+    "icon": "📋",
+    "name": "公司治理合规",
+    "detail": "新公司法下的公司治理合规审查工具。输入公司类型/章程/决议等，输出公司治理合规报告（章程审查/三会运作/股东权利/董事高管义务/利润分配/减资增资）。覆盖2024年新《公司法》核心变化点。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "92号"
+     ]
+    ],
+    "reaction": "公司章程怎么审",
+    "prompt": "公司章程怎么审",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "新公司法下的公司治理合规审查工具。输入公司类型/章程/决议等，输出公司治理合规报告（章程审查/三会运作/股东权利/董事高管义务/利润分配/减资增资）。覆盖2024年新《公司法》核心变化点。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "公司治理",
+         "公司章程",
+         "股东会",
+         "董事会",
+         "监事会",
+         "董事义务",
+         "高管责任",
+         "股东权利",
+         "新公司法",
+         "公司合规"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "公司章程怎么审",
+         "股东会决议怎么写",
+         "董事有哪些义务",
+         "公司治理合规",
+         "新公司法变化"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "20-合同审查",
+         "21-合同起草",
+         "59-股权转让纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ {
+  "cls": "p12",
+  "icon": "🧰",
+  "title": "通用办案工具",
+  "count": "总控路由·要件九步法·证据引擎·文书工程·类案检索·模拟法庭·期限时效",
+  "children": [
+   {
+    "num": "①",
+    "icon": "🧰",
+    "name": "产品法务合规非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖产品法务合规非诉业务：需求采集→法规检索→合规审查→风险提示→文书生成。输出产品上线合规审查报告。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "06号"
+     ]
+    ],
+    "reaction": "请使用「产品法务合规非诉法律助手」协助处理本案。",
+    "prompt": "请使用「产品法务合规非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "产品合规",
+         "产品责任",
+         "缺陷产品",
+         "召回",
+         "质量标准",
+         "三包",
+         "产品说明",
+         "警示标志",
+         "销售合规",
+         "产品质量法"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "07-产品责任纠纷",
+         "29-广告合规审核"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "②",
+    "icon": "🧰",
+    "name": "工伤赔偿专项",
+    "detail": "执业律师的AI助理，覆盖工伤认定与赔偿全流程：工伤认定申请→劳动关系确认→伤残等级鉴定→一次性赔偿计算（伤残补助金/医疗补助金/就业补助金/停工留薪期工资）→争议处理路径（劳动仲裁/行政诉讼）。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "100号"
+     ]
+    ],
+    "reaction": "上班时受伤了算不算工伤",
+    "prompt": "上班时受伤了算不算工伤",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "❌ **我不会做**：预测工伤认定结果或赔偿额确定数值、替代律师出庭或代理案件、出具可直接提交法院的正式文件",
+         "⚠️ **注意**：伤残等级须经劳动能力鉴定委员会评定，赔偿金额以鉴定结论和当地标准为准；涉及劳动关系确认的先行仲裁"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "工伤",
+         "工伤认定",
+         "伤残鉴定",
+         "伤残等级",
+         "工伤保险",
+         "一次性伤残补助金",
+         "停工留薪",
+         "工亡",
+         "职业病",
+         "工伤赔偿",
+         "劳动能力鉴定",
+         "工伤待遇"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "上班时受伤了算不算工伤",
+         "工伤认定怎么申请",
+         "工伤十级能赔多少钱",
+         "单位不报工伤怎么办",
+         "工伤赔偿和人身损害赔偿哪个赔得多"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "15-劳动争议仲裁程序管理",
+         "16-劳动争议证据体系",
+         "17-劳动关系认定与经济补偿计算",
+         "98-人身损害赔偿计算器"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "③",
+    "icon": "🧰",
+    "name": "保险合同纠纷",
+    "detail": "执业律师的AI助理，覆盖保险合同纠纷案件全流程：保单效力审查→保险责任认定→拒赔理由分析→理赔金额计算→诉讼路径（财产险/人身险/代位求偿）。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "101号"
+     ]
+    ],
+    "reaction": "保险公司拒赔了怎么办",
+    "prompt": "保险公司拒赔了怎么办",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "❌ **我不会做**：预测理赔或诉讼结果、替代律师出庭或代理案件、出具可直接提交法院的正式文件",
+         "⚠️ **注意**：保险条款解释争议、免责条款效力认定须结合投保过程证据；涉及两年不可抗辩期等专业规则时以核验法条为准"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "保险",
+         "保险公司",
+         "拒赔",
+         "理赔",
+         "保单",
+         "保费",
+         "保险责任",
+         "车险",
+         "重疾险",
+         "寿险",
+         "意外险",
+         "代位求偿",
+         "免责条款",
+         "保险纠纷",
+         "赔付"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "保险公司拒赔了怎么办",
+         "车险理赔金额不合理怎么维权",
+         "重疾险确诊了不赔怎么办",
+         "保险免责条款没提示过有效吗",
+         "代位求偿是怎么回事"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "05-交通事故责任纠纷",
+         "03-买卖合同纠纷",
+         "41-民间借贷纠纷",
+         "98-人身损害赔偿计算器"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "④",
+    "icon": "🧰",
+    "name": "彩礼返还纠纷",
+    "detail": "执业律师的AI助理，覆盖彩礼返还纠纷全流程：彩礼性质认定→返还条件审查（未登记/未共同生活/给付致贫）→返还比例计算→诉讼策略。依据2024年最高法彩礼新规与当地司法口径。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "102号"
+     ]
+    ],
+    "reaction": "给了彩礼没结婚能要回来吗",
+    "prompt": "给了彩礼没结婚能要回来吗",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "❌ **我不会做**：预测判决结果或返还比例确定数值、替代律师出庭或代理案件、出具可直接提交法院的正式文件",
+         "⚠️ **注意**：各地对共同生活时长、彩礼数额的司法口径有差异，须结合当地法院类案裁判尺度"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "彩礼",
+         "彩礼返还",
+         "订婚",
+         "彩礼纠纷",
+         "婚约",
+         "返还彩礼",
+         "彩礼钱",
+         "三金",
+         "见面礼",
+         "改口费",
+         "聘礼"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "给了彩礼没结婚能要回来吗",
+         "领了证没一起住，离婚彩礼退不退",
+         "彩礼返还的比例一般是多少",
+         "什么算彩礼什么算赠与",
+         "借的彩礼钱离婚后谁还"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "26-婚姻家事诉讼",
+         "54-离婚纠纷",
+         "28-家事非诉与协议"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑤",
+    "icon": "🧰",
+    "name": "政府信息公开",
+    "detail": "执业律师的AI助理，覆盖政府信息公开全流程：申请主体与范围审查→申请书起草→答复类型分析（公开/不予公开/部分公开/补正）→不服答复的救济路径（行政复议/行政诉讼）。输出经主办律师审核后可用于立案、庭审、交付客户。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "103号"
+     ]
+    ],
+    "reaction": "怎么申请政府信息公开",
+    "prompt": "怎么申请政府信息公开",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "❌ **我不会做**：预测答复结果或诉讼结果、替代律师出庭或代理案件、出具可直接提交法院的正式文件",
+         "⚠️ **注意**：涉及国家秘密/商业秘密/个人隐私的豁免情形认定复杂，须结合具体答复理由分析"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "政府信息公开",
+         "信息公开",
+         "依申请公开",
+         "政务公开",
+         "公开申请",
+         "不予公开",
+         "信息不存在",
+         "答复书",
+         "主动公开"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "怎么申请政府信息公开",
+         "申请公开的文件被拒绝了怎么办",
+         "行政机关不答复信息公开申请怎么办",
+         "哪些政府信息可以申请公开",
+         "信息公开申请怎么写"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "61-行政复议",
+         "63-行政诉讼立案与分析",
+         "62-行政诉讼庭审与代理"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑥",
+    "icon": "🧰",
+    "name": "证据三性质证引擎",
+    "detail": "对对方提交的每一份证据逐份做三性审查（真实性/合法性/关联性）+证明力评估，输出质证意见原文与质证策略。输入对方证据清单（证据名称+证明目的+来源），输出《证据三性审查表》+《质证意见书初稿》+质证策略（认可/不认可/部分认可）。庭审准备核心工具。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "104号"
+     ]
+    ],
+    "reaction": "对方提交的证据帮我逐份质证",
+    "prompt": "对方提交的证据帮我逐份质证",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "对对方提交的每一份证据逐份做三性审查（真实性/合法性/关联性）+证明力评估，输出质证意见原文与质证策略。输入对方证据清单（证据名称+证明目的+来源），输出《证据三性审查表》+《质证意见书初稿》+质证策略（认可/不认可/部分认可）。庭审准备核心工具。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "质证",
+         "质证意见",
+         "三性",
+         "真实性",
+         "合法性",
+         "关联性",
+         "证明力",
+         "证据审查",
+         "证据能力",
+         "对方证据",
+         "质证意见书",
+         "证据异议"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "对方提交的证据帮我逐份质证",
+         "这份借条的三性怎么质证",
+         "帮我写质证意见",
+         "对方证据是复印件能认可吗",
+         "聊天记录截图能不能作为证据"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "75-通用证据体系引擎",
+         "70-案件深度分析系统",
+         "87-案卷精读防漏技能",
+         "88-模拟法庭对抗推演"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑦",
+    "icon": "🧰",
+    "name": "庭审发问提纲生成器",
+    "detail": "自动生成庭审发问提纲：法官发问预判+己方证人主询问+对方证人交叉询问+鉴定人询问。输入争点+证人类型+案情，输出《庭审发问提纲》（每问标注目的/预设回答/应变路径），含开放式引导与封闭式固定技术。庭审准备核心工具。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "105号"
+     ]
+    ],
+    "reaction": "开庭前帮我设计发问提纲",
+    "prompt": "开庭前帮我设计发问提纲",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "自动生成庭审发问提纲：法官发问预判+己方证人主询问+对方证人交叉询问+鉴定人询问。输入争点+证人类型+案情，输出《庭审发问提纲》（每问标注目的/预设回答/应变路径），含开放式引导与封闭式固定技术。庭审准备核心工具。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "发问提纲",
+         "交叉询问",
+         "主询问",
+         "发问",
+         "询问提纲",
+         "庭审发问",
+         "证人询问",
+         "法官发问",
+         "质询",
+         "庭审准备",
+         "开庭提纲"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "开庭前帮我设计发问提纲",
+         "对方证人的交叉询问怎么问",
+         "法官可能会问哪些问题",
+         "己方证人怎么引导作证",
+         "鉴定人的质询问题怎么设计"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "70-案件深度分析系统",
+         "88-模拟法庭对抗推演",
+         "104-证据三性质证引擎",
+         "74-庭审与执行辅助路由"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑧",
+    "icon": "🧰",
+    "name": "事实时间线与资金流水分析",
+    "detail": "从案件材料自动构建事实时间轴（事件↔证据↔法条三对应）与资金流水分析（大额/频繁/对倒/异常标记），输出《事实时间线图谱》+《资金流水分析表》。输入事件清单/银行流水/聊天记录时间点，输出时间轴+资金流向+异常点+证据锚定。复杂案件（借贷/金融/建工/股权）事实梳理核心工具。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "106号"
+     ]
+    ],
+    "reaction": "帮我梳理这个案件的时间线",
+    "prompt": "帮我梳理这个案件的时间线",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "从案件材料自动构建事实时间轴（事件↔证据↔法条三对应）与资金流水分析（大额/频繁/对倒/异常标记），输出《事实时间线图谱》+《资金流水分析表》。输入事件清单/银行流水/聊天记录时间点，输出时间轴+资金流向+异常点+证据锚定。复杂案件（借贷/金融/建工/股权）事实梳理核心工具。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "时间线",
+         "时间轴",
+         "时间脉络",
+         "资金流水",
+         "流水分析",
+         "资金流向",
+         "转账记录",
+         "对账单",
+         "往来明细",
+         "事实梳理",
+         "时间图谱",
+         "资金异常"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我梳理这个案件的时间线",
+         "分析这笔资金流向",
+         "借贷的转账记录帮我整理成表格",
+         "哪些转账时间异常",
+         "建工案的时间脉络怎么整理"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "87-案卷精读防漏技能",
+         "97-案件要点萃取引擎",
+         "70-案件深度分析系统",
+         "41-民间借贷纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑨",
+    "icon": "🧰",
+    "name": "多模态材料解析与证据审查",
+    "detail": "律师助手的多模态入口与证据审查一体化技能。用户上传图片/照片/扫描件/PDF/语音/录音/文件时，自动解析为结构化文本（OCR / PDF 抽取 / 语音转写），脱敏后完成证据审查（要素识别、证据三性评估、质证意见、保全建议），并交「87-案卷精读防漏」或「39-案件承接与委托」继续办案。零配置，上传即解析，解析即审查。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "107号"
+     ]
+    ],
+    "reaction": "这张合同照片帮我看下有没有坑",
+    "prompt": "这张合同照片帮我看下有没有坑",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "律师助手的多模态入口与证据审查一体化技能。用户上传图片/照片/扫描件/PDF/语音/录音/文件时，自动解析为结构化文本（OCR / PDF 抽取 / 语音转写），脱敏后完成证据审查（要素识别、证据三性评估、质证意见、保全建议），并交「87-案卷精读防漏」或「39-案件承接与委托」继续办案。零配置，上传即解析，解析即审查。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "图片",
+         "照片",
+         "OCR",
+         "扫描件",
+         "PDF",
+         "语音",
+         "录音",
+         "转写",
+         "多模态",
+         "材料文件",
+         "上传文件",
+         "图片证据",
+         "截图证据",
+         "借条照片",
+         "聊天截图",
+         "图片审查"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "这张合同照片帮我看下有没有坑",
+         "这个录音转成文字",
+         "扫描件里的字帮我识别一下",
+         "PDF 里的判决书提取文本",
+         "把这段对话截图里的条款读出来",
+         "这张借条照片能不能作为证据",
+         "微信聊天截图怎么证明对方承认欠钱",
+         "照片能看出被PS过吗",
+         "图片证据怎么固定才有效"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "87-案卷精读防漏技能",
+         "39-案件承接与委托",
+         "31-总控路由",
+         "104-证据三性质证引擎",
+         "108-语音证据处理"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑩",
+    "icon": "🧰",
+    "name": "语音证据处理",
+    "detail": "录音/语音类证据的转写与审查分析工具。输入音频材料，输出转写稿（带时间戳）、合法性审查（偷录/窃听/非法取证排除）、内容分析（关键自认/矛盾点/威胁恐吓识别）、三性质证意见。支持联动voice_transcribe.py脚本做音频转文字。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "108号"
+     ]
+    ],
+    "reaction": "录音能不能作为证据",
+    "prompt": "录音能不能作为证据",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "录音/语音类证据的转写与审查分析工具。输入音频材料，输出转写稿（带时间戳）、合法性审查（偷录/窃听/非法取证排除）、内容分析（关键自认/矛盾点/威胁恐吓识别）、三性质证意见。支持联动voice_transcribe.py脚本做音频转文字。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "录音",
+         "语音",
+         "音频",
+         "录音证据",
+         "语音证据",
+         "偷录",
+         "窃听",
+         "录音转写",
+         "语音转文字",
+         "通话录音"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "录音能不能作为证据",
+         "偷录的谈话算不算非法证据",
+         "帮我分析这段录音的内容",
+         "录音里的承认有用吗",
+         "语音材料怎么转成文字"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "104-证据三性质证引擎",
+         "87-案卷精读防漏技能",
+         "107-多模态材料解析"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑪",
+    "icon": "🧰",
+    "name": "庭审实时辅助系统",
+    "detail": "庭审中实时辅助工具（跨案由）。开庭时实时转写（说话人分离）+ 要点浮窗（争议焦点实时提示、对方漏洞/自认实时标注、法条实时弹窗、下一步发问建议、质证即时提示），休庭后一键导出庭审速记。联动70-案件深度分析、97-要点萃取、104-质证、105-发问提纲、88-模拟法庭、96-法条核验。配置讯飞RTASR后走实时流，未配置时回退录音后处理模式。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "109号"
+     ]
+    ],
+    "reaction": "开庭时能不能实时帮我记要点",
+    "prompt": "开庭时能不能实时帮我记要点",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "庭审中实时辅助工具（跨案由）。开庭时实时转写（说话人分离）+ 要点浮窗（争议焦点实时提示、对方漏洞/自认实时标注、法条实时弹窗、下一步发问建议、质证即时提示），休庭后一键导出庭审速记。联动70-案件深度分析、97-要点萃取、104-质证、105-发问提纲、88-模拟法庭、96-法条核验。配置讯飞RTASR后走实时流，未配置时回退录音后处理模式。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "庭审实时辅助",
+         "开庭实时转写",
+         "庭审实时转写",
+         "实时要点",
+         "法庭浮窗",
+         "同步转写",
+         "庭审要点",
+         "实时庭审辅助",
+         "法庭实时记录",
+         "庭审辅助"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "开庭时能不能实时帮我记要点",
+         "庭审实时转写",
+         "法庭上对方说了什么帮我实时标注",
+         "庭审要点浮窗",
+         "同步转写庭审"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "74-庭审与执行辅助路由",
+         "70-案件深度分析系统",
+         "97-案件要点萃取引擎",
+         "104-证据三性质证引擎",
+         "105-庭审发问提纲生成器",
+         "88-模拟法庭对抗推演",
+         "96-法条交叉核验引擎",
+         "108-语音证据处理"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑫",
+    "icon": "🧰",
+    "name": "刑事案件深度分析系统",
+    "detail": "基于犯罪构成理论（四要件/三阶层）的刑事版要件分析中枢（对标70民事中枢）。覆盖罪与非罪、此罪与彼罪、构成要件拆解、要件-证据映射（排除合理怀疑）、量刑情节分析、辩护策略生成、程序阶段适配。联动14-刑事总调度、88-模拟法庭、104-质证、97-要点萃取、40-重罪、09/27各阶段。当律师需要系统分析刑事案件、构建辩护策略、庭前准备时触发。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "110号"
+     ]
+    ],
+    "reaction": "帮我系统分析这个刑事案子",
+    "prompt": "帮我系统分析这个刑事案子",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "基于犯罪构成理论（四要件/三阶层）的刑事版要件分析中枢（对标70民事中枢）。覆盖罪与非罪、此罪与彼罪、构成要件拆解、要件-证据映射（排除合理怀疑）、量刑情节分析、辩护策略生成、程序阶段适配。联动14-刑事总调度、88-模拟法庭、104-质证、97-要点萃取、40-重罪、09/27各阶段。当律师需要系统分析刑事案件、构建辩护策略、庭前准备时触发。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "刑事要件分析",
+         "犯罪构成",
+         "四要件",
+         "三阶层",
+         "刑事深度分析",
+         "量刑情节分析",
+         "刑事辩护策略",
+         "罪与非罪",
+         "此罪与彼罪",
+         "刑事要件拆解",
+         "刑事辩护总分析"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我系统分析这个刑事案子",
+         "刑事要件分析",
+         "这个行为构不构成犯罪",
+         "量刑情节怎么分析",
+         "刑事辩护策略怎么定"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "14-刑事辩护总调度",
+         "09-侦查阶段辩护",
+         "27-审查起诉阶段辩护",
+         "01-一审阶段辩护",
+         "04-二审阶段辩护",
+         "40-重罪案件",
+         "38-未成年人案件",
+         "44-特殊程序",
+         "55-简易速裁程序",
+         "88-模拟法庭对抗推演",
+         "104-证据三性质证引擎",
+         "97-案件要点萃取引擎",
+         "96-法条交叉核验引擎",
+         "70-案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑬",
+    "icon": "🧰",
+    "name": "民事案由总控路由",
+    "detail": "案由路由器。用户描述法律问题→自动匹配对应技能。含三段式入口、异常处理、能力边界声明和MCP降级路径。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "31号"
+     ]
+    ],
+    "reaction": "请使用「民事案由总控路由」协助处理本案。",
+    "prompt": "请使用「民事案由总控路由」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案由路由器。用户描述法律问题→自动匹配对应技能。含三段式入口、异常处理、能力边界声明和MCP降级路径。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "法律咨询",
+         "律师",
+         "法律问题",
+         "案由",
+         "打官司",
+         "纠纷",
+         "起诉",
+         "我要咨询"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "02-专利侵权纠纷",
+         "03-买卖合同纠纷",
+         "04-二审阶段辩护",
+         "05-交通事故责任纠纷",
+         "07-产品责任纠纷",
+         "08-仲裁裁决执行与撤销",
+         "09-侦查阶段辩护",
+         "10-保证合同纠纷",
+         "11-借款合同纠纷金融",
+         "12-债权人会议",
+         "13-债权申报与审查",
+         "14-刑事辩护总调度",
+         "15-劳动争议仲裁程序管理",
+         "16-劳动争议证据体系",
+         "17-劳动关系认定与经济补偿计算",
+         "18-医疗损害责任纠纷",
+         "19-合伙协议纠纷",
+         "20-合同审查",
+         "21-合同起草",
+         "22-商事仲裁申请与程序",
+         "23-商标侵权纠纷",
+         "25-委托合同纠纷",
+         "26-婚姻家事诉讼",
+         "27-审查起诉阶段辩护",
+         "28-家事非诉与协议",
+         "29-广告合规审核",
+         "30-建设工程施工合同纠纷",
+         "32-房屋买卖租赁合同纠纷",
+         "33-执行和解与终结",
+         "34-执行异议与救济",
+         "35-执行措施与强制手段",
+         "36-执行申请与启动",
+         "37-承揽合同纠纷",
+         "38-未成年人案件",
+         "39-案件承接与委托",
+         "40-重罪案件",
+         "41-民间借贷纠纷",
+         "43-物业服务合同纠纷",
+         "44-特殊程序",
+         "45-用人单位劳动合规",
+         "47-知识产权合规与申请",
+         "48-知识产权诉讼",
+         "49-破产和解程序",
+         "50-破产文书生成",
+         "51-破产法律分析",
+         "52-破产清算",
+         "53-破产申请与受理",
+         "54-离婚纠纷",
+         "55-简易速裁程序",
+         "56-管理人工作",
+         "57-继承纠纷",
+         "58-网络侵权责任纠纷",
+         "59-股权转让纠纷",
+         "60-著作权侵权纠纷",
+         "61-行政复议",
+         "62-行政诉讼庭审与代理",
+         "63-行政诉讼立案与分析",
+         "64-财产调查与管理",
+         "65-财产调查与线索收集",
+         "66-运输合同纠纷",
+         "67-重整程序",
+         "70-案件深度分析系统",
+         "71-案由竞合检测",
+         "72-Word文档工程",
+         "73-立案与程序启动路由",
+         "74-庭审与执行辅助路由",
+         "75-通用证据体系引擎",
+         "76-期限与时效计算器",
+         "77-诉讼费用计算器",
+         "78-利益冲突自查指引",
+         "79-收费合规与风险代理指引",
+         "80-类案检索与裁判尺度报告",
+         "81-裁判文书解读与上诉决策",
+         "82-保全决策指引",
+         "83-法律检索与研究报告",
+         "84-数据合规与个保法审查",
+         "85-法律尽职调查",
+         "86-案件风险评估报告",
+         "87-案卷精读防漏技能",
+         "88-模拟法庭对抗推演",
+         "89-和解与调解策略",
+         "91-结案报告与归档",
+         "92-公司治理合规",
+         "22A-仲裁保全指引",
+         "22B-仲裁员选定与组庭策略",
+         "109-庭审实时辅助系统",
+         "110-刑事案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑭",
+    "icon": "🧰",
+    "name": "案件承接与委托（通用版）",
+    "detail": "通用案件承接与委托手续办理。覆盖民事/刑事/行政/非诉全领域的委托流程：接待笔录→委托书→授权委托书→风险告知书。含利益冲突自查（转78）、收费合规自查（转79）、接待记录模板、委托合同签订指引。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "39号"
+     ]
+    ],
+    "reaction": "请使用「案件承接与委托（通用版）」协助处理本案。",
+    "prompt": "请使用「案件承接与委托（通用版）」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "办理刑事辩护委托手续全流程（委托书/风险告知书/授权委托书/会见权告知）",
+         "委托主体资格审查（本人/近亲属/法律援助指派）",
+         "近亲属关系证明文件梳理与核验指引",
+         "利益冲突审查与告知（同案多名被告人的辩护策略冲突）",
+         "刑事辩护风险告知（结果风险/会见风险/证据风险/费用风险/保密义务/冲突风险）",
+         "委托完成后路由到对应刑事辩护阶段技能"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "刑事案件",
+         "委托",
+         "委托书",
+         "风险告知书",
+         "会见",
+         "家属委托",
+         "刑案承接"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "09-侦查阶段辩护",
+         "27-审查起诉阶段辩护",
+         "04-二审阶段辩护",
+         "14-刑事辩护总调度"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑮",
+    "icon": "🧰",
+    "name": "监管合规监测非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖监管合规监测非诉业务：需求采集→法规检索→影响评估→整改建议→文书生成。输出合规简报+整改清单。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "46号"
+     ]
+    ],
+    "reaction": "请使用「监管合规监测非诉法律助手」协助处理本案。",
+    "prompt": "请使用「监管合规监测非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "合规",
+         "监管",
+         "监测",
+         "处罚",
+         "行政处罚"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "29-广告合规审核",
+         "68-预包装食品标签合规"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑯",
+    "icon": "🧰",
+    "name": "预包装食品标签合规非诉法律助手",
+    "detail": "执业律师的AI助理，覆盖预包装食品标签合规非诉业务：需求采集→法规检索→逐项核对→风险提示→文书生成。输出食品标签合规审查报告。零配置，对话即交付。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "68号"
+     ]
+    ],
+    "reaction": "请使用「预包装食品标签合规非诉法律助手」协助处理本案。",
+    "prompt": "请使用「预包装食品标签合规非诉法律助手」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案情梳理与关键事实提取",
+         "法律法规与典型案例检索",
+         "证据分析（效力/缺口/补充建议）",
+         "法律分析（含确定性评级）",
+         "法律文书起草（起诉状/申请书等）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "食品",
+         "标签",
+         "预包装"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "46-监管合规监测",
+         "29-广告合规审核"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑰",
+    "icon": "🧰",
+    "name": "案件深度分析系统",
+    "detail": "基于邹碧华《要件审判九步法》的标准化案件分析系统。提供接案评估→诉请构建→攻防推演→文书核验→庭审预演→策略复盘全流程。当律师需要系统分析案件、梳理诉讼策略、庭前准备、案件评估时触发。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "70号"
+     ]
+    ],
+    "reaction": "请使用「案件深度分析系统」协助处理本案。",
+    "prompt": "请使用「案件深度分析系统」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "基于邹碧华《要件审判九步法》的标准化案件分析系统。提供接案评估→诉请构建→攻防推演→文书核验→庭审预演→策略复盘全流程。当律师需要系统分析案件、梳理诉讼策略、庭前准备、案件评估时触发。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "见技能说明"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "05-交通事故责任纠纷",
+         "31-总控路由",
+         "54-离婚纠纷",
+         "80-类案检索与裁判尺度报告",
+         "110-刑事案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑱",
+    "icon": "🧰",
+    "name": "案由竞合检测",
+    "detail": "当用户描述涉及多个法律领域时，自动识别竞合案由并联动对应技能，处理刑民交叉、责任竞合、多领域并行等场景",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "71号"
+     ]
+    ],
+    "reaction": "请使用「案由竞合检测」协助处理本案。",
+    "prompt": "请使用「案由竞合检测」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "当用户描述涉及多个法律领域时，自动识别竞合案由并联动对应技能，处理刑民交叉、责任竞合、多领域并行等场景"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "见技能说明"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑲",
+    "icon": "🧰",
+    "name": "72-Word文档工程",
+    "detail": "Word文档工程与修订管理——处理分节/页眉页脚/自动目录/跨页表格/多人批注/修订管理的全流程专家技能",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "72号"
+     ]
+    ],
+    "reaction": "请使用「72-Word文档工程」协助处理本案。",
+    "prompt": "请使用「72-Word文档工程」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "分节修复与格式统一（分节符类型/方向/纸张大小统一）",
+         "页眉页脚管理（独立/链接到前一节、奇偶页不同、首页不同）",
+         "自动目录生成与更新（多级标题样式映射、目录域更新）",
+         "跨页表格修复（标题行重复、列宽统一、单元格合并拆分）",
+         "多人修订与批注管理（接受/拒绝修订、解决批注、生成修订日志）",
+         "自动编号与交叉引用修复（标题编号、图表编号、脚注尾注）",
+         "交付质检（样式一致性、拼写检查、超链接验证、元数据清理）"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "见技能说明"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "⑳",
+    "icon": "🧰",
+    "name": "立案与程序启动路由",
+    "detail": "程序阶段路由（跨案由）。把\"递交法院/仲裁委/行政机关\"这一步统一成主线：民事立案通用框架、行政立案（63）、商事仲裁申请（22）、破产申请（53）、行政复议（61）、执行启动（36）、速裁（55）、特殊程序（44）。含通用立案材料清单、管辖与时效核查、程序选型判断，路由到对应专业技能。当律师进入立案/申请/启动程序阶段或被点选目录节点\"⑨ 立案与程序启动\"时触发。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "73号"
+     ]
+    ],
+    "reaction": "请使用「立案与程序启动路由」协助处理本案。",
+    "prompt": "请使用「立案与程序启动路由」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "程序阶段路由（跨案由）。把\"递交法院/仲裁委/行政机关\"这一步统一成主线：民事立案通用框架、行政立案（63）、商事仲裁申请（22）、破产申请（53）、行政复议（61）、执行启动（36）、速裁（55）、特殊程序（44）。含通用立案材料清单、管辖与时效核查、程序选型判断，路由到对应专业技能。当律师进入立案/申请/启动程序阶段或被点选目录节点\"⑨ 立案与程序启动\"时触发。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "立案",
+         "提交起诉状",
+         "申请仲裁",
+         "申请破产",
+         "行政复议申请",
+         "申请执行",
+         "管辖",
+         "诉讼时效",
+         "程序选型"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "22-商事仲裁申请与程序",
+         "36-执行申请与启动",
+         "44-特殊程序",
+         "53-破产申请与受理",
+         "55-简易速裁程序",
+         "61-行政复议",
+         "63-行政诉讼立案与分析"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "21",
+    "icon": "🧰",
+    "name": "庭审与执行辅助路由",
+    "detail": "程序阶段路由（跨案由）。覆盖立案后到结案/拿到钱的推进阶段：庭审质证辩论要点（一审01/二审04/行政庭审62/刑事调度14）、执行推进（33-36·64-65/仲裁执行撤销08）、上诉与再审决策。补齐\"庭审通用质证辩论框架\"与\"上诉决策判断树\"两项原缺能力。当律师进入开庭/质证/执行/上诉阶段或被点选目录节点\"⑩ 庭审与执行辅助\"时触发。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "74号"
+     ]
+    ],
+    "reaction": "请使用「庭审与执行辅助路由」协助处理本案。",
+    "prompt": "请使用「庭审与执行辅助路由」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "程序阶段路由（跨案由）。覆盖立案后到结案/拿到钱的推进阶段：庭审质证辩论要点（一审01/二审04/行政庭审62/刑事调度14）、执行推进（33-36·64-65/仲裁执行撤销08）、上诉与再审决策。补齐\"庭审通用质证辩论框架\"与\"上诉决策判断树\"两项原缺能力。当律师进入开庭/质证/执行/上诉阶段或被点选目录节点\"⑩ 庭审与执行辅助\"时触发。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "开庭",
+         "质证",
+         "辩论",
+         "庭审准备",
+         "上诉",
+         "再审",
+         "申请执行",
+         "财产调查",
+         "强制措施",
+         "执行和解"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "01-一审阶段辩护",
+         "04-二审阶段辩护",
+         "08-仲裁裁决执行与撤销",
+         "14-刑事辩护总调度",
+         "33-执行和解与终结",
+         "34-执行异议与救济",
+         "35-执行措施与强制手段",
+         "36-执行申请与启动",
+         "62-行政诉讼庭审与代理",
+         "64-财产调查与管理",
+         "65-财产调查与线索收集",
+         "70-案件深度分析系统",
+         "109-庭审实时辅助系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "22",
+    "icon": "🧰",
+    "name": "通用证据体系引擎",
+    "detail": "按案由自动输出证据收集清单、举证责任分配表、取证要点指引。输入案由→输出标准化证据清单（证据类型+来源+证明目的+举证方）+ 举证责任分配分析。覆盖民间借贷/交通事故/劳动争议/离婚/合同纠纷/建设工程/医疗损害/知识产权/刑事/行政等15+高频案由。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "75号"
+     ]
+    ],
+    "reaction": "我这个案子需要准备哪些证据",
+    "prompt": "我这个案子需要准备哪些证据",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "按案由自动输出证据收集清单、举证责任分配表、取证要点指引。输入案由→输出标准化证据清单（证据类型+来源+证明目的+举证方）+ 举证责任分配分析。覆盖民间借贷/交通事故/劳动争议/离婚/合同纠纷/建设工程/医疗损害/知识产权/刑事/行政等15+高频案由。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "证据",
+         "举证",
+         "取证",
+         "证据清单",
+         "举证责任",
+         "证据目录",
+         "需要什么证据",
+         "证据不够"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "我这个案子需要准备哪些证据",
+         "帮我列一下证据清单",
+         "证据够了没有",
+         "我该收集什么证据",
+         "举证责任是谁的"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "70-案件深度分析系统",
+         "87-案卷精读防漏技能",
+         "05-交通事故责任纠纷",
+         "41-民间借贷纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "23",
+    "icon": "🧰",
+    "name": "期限与时效计算器",
+    "detail": "一键计算诉讼时效/除斥期间/举证期限/上诉期限/执行期限。输入案由+关键日期，输出起算日、届满日、剩余天数、风险等级（✅正常/⚠️即将届满/❌已届满）。覆盖普通诉讼时效3年/人身损害/劳动争议/行政起诉/上诉/执行/保证期间等30+场景。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "76号"
+     ]
+    ],
+    "reaction": "帮我算算诉讼时效过了没有",
+    "prompt": "帮我算算诉讼时效过了没有",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "一键计算诉讼时效/除斥期间/举证期限/上诉期限/执行期限。输入案由+关键日期，输出起算日、届满日、剩余天数、风险等级（✅正常/⚠️即将届满/❌已届满）。覆盖普通诉讼时效3年/人身损害/劳动争议/行政起诉/上诉/执行/保证期间等30+场景。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "时效",
+         "诉讼时效",
+         "除斥期间",
+         "届满",
+         "过期",
+         "上诉期",
+         "上诉期限",
+         "执行期限",
+         "举证期限",
+         "仲裁时效",
+         "保证期间"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我算算诉讼时效过了没有",
+         "还有多久到期",
+         "上诉期还有几天",
+         "执行期限到什么时候",
+         "时效中断怎么算"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "73-立案与程序启动路由",
+         "70-案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "24",
+    "icon": "🧰",
+    "name": "诉讼费用计算器",
+    "detail": "按标的额自动计算案件受理费/保全费/执行费/仲裁费。输入案件类型+标的金额，输出《诉讼费用计算表》（含受理费/保全费/执行费/仲裁费/上诉费分段累计明细）。覆盖财产案件/非财产案件/知识产权/行政/劳动争议/仲裁等全类型。附风险代理比例上限指引。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "77号"
+     ]
+    ],
+    "reaction": "起诉要多少钱",
+    "prompt": "起诉要多少钱",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "按标的额自动计算案件受理费/保全费/执行费/仲裁费。输入案件类型+标的金额，输出《诉讼费用计算表》（含受理费/保全费/执行费/仲裁费/上诉费分段累计明细）。覆盖财产案件/非财产案件/知识产权/行政/劳动争议/仲裁等全类型。附风险代理比例上限指引。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "诉讼费",
+         "受理费",
+         "保全费",
+         "执行费",
+         "仲裁费",
+         "案件受理费",
+         "诉讼费用",
+         "打官司多少钱",
+         "起诉费用"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "起诉要多少钱",
+         "帮我算算诉讼费",
+         "标的额50万诉讼费多少",
+         "保全费怎么算",
+         "仲裁费计算"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "73-立案与程序启动路由",
+         "79-收费合规与风险代理指引"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "25",
+    "icon": "🧰",
+    "name": "利益冲突自查指引",
+    "detail": "收案前利益冲突自查工具。输入当事人信息→输出冲突类型（直接冲突/间接冲突/可豁免情形）+ 处理建议（回避/告知/豁免）。覆盖《律师法》和《律师执业行为规范》规定的全部冲突情形。清单式自查，不接OA系统，即查即用。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "78号"
+     ]
+    ],
+    "reaction": "这个案子我能接吗",
+    "prompt": "这个案子我能接吗",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "收案前利益冲突自查工具。输入当事人信息→输出冲突类型（直接冲突/间接冲突/可豁免情形）+ 处理建议（回避/告知/豁免）。覆盖《律师法》和《律师执业行为规范》规定的全部冲突情形。清单式自查，不接OA系统，即查即用。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "利益冲突",
+         "冲突审查",
+         "能不能代理",
+         "回避",
+         "接案审查",
+         "不得代理",
+         "禁止代理",
+         "代理限制"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "这个案子我能接吗",
+         "有没有利益冲突",
+         "帮我查查能不能代理",
+         "对方以前是我们客户怎么办",
+         "对方和我另一个客户有纠纷能接吗"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "39-案件承接与委托",
+         "79-收费合规与风险代理指引"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "26",
+    "icon": "🧰",
+    "name": "收费合规与风险代理指引",
+    "detail": "律师收费合规自查工具。输入案件类型+标的额+收费方案→输出收费合规审查报告：风险代理禁区校验、收费比例上限提醒、收费方式建议。覆盖风险代理适用范围/禁止情形/比例上限/收费方式选择/律师服务收费管理办法。不接财务系统，清单式自查。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "79号"
+     ]
+    ],
+    "reaction": "这个案子能风险代理吗",
+    "prompt": "这个案子能风险代理吗",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "律师收费合规自查工具。输入案件类型+标的额+收费方案→输出收费合规审查报告：风险代理禁区校验、收费比例上限提醒、收费方式建议。覆盖风险代理适用范围/禁止情形/比例上限/收费方式选择/律师服务收费管理办法。不接财务系统，清单式自查。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "收费",
+         "律师费",
+         "风险代理",
+         "收费合规",
+         "收费比例",
+         "律师收费",
+         "收费方式",
+         "风险代理禁止",
+         "收费办法"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "这个案子能风险代理吗",
+         "风险代理最多收多少",
+         "收费合规吗",
+         "帮我看看收费方案",
+         "风险代理有哪些限制"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "39-案件承接与委托",
+         "77-诉讼费用计算器",
+         "78-利益冲突自查指引"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "27",
+    "icon": "🧰",
+    "name": "类案检索与裁判尺度报告",
+    "detail": "输入案由+争议焦点，输出规范《类案检索报告》（含检索条件、案例摘要、裁判倾向分析、类案适用论证）。按最高法《类案检索指导意见》标准格式，覆盖民事/刑事/行政全领域。附检索词扩展建议、多库交叉验证指引。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "80号"
+     ]
+    ],
+    "reaction": "帮我找类似案例",
+    "prompt": "帮我找类似案例",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "输入案由+争议焦点，输出规范《类案检索报告》（含检索条件、案例摘要、裁判倾向分析、类案适用论证）。按最高法《类案检索指导意见》标准格式，覆盖民事/刑事/行政全领域。附检索词扩展建议、多库交叉验证指引。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "类案",
+         "检索报告",
+         "同案同判",
+         "裁判尺度",
+         "案例检索",
+         "裁判要旨",
+         "类案适用",
+         "类案对比"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我找类似案例",
+         "这类案子法院一般怎么判",
+         "类案检索报告",
+         "同案同判分析",
+         "法官的裁判口径"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "70-案件深度分析系统",
+         "75-通用证据体系引擎",
+         "76-期限与时效计算器"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "28",
+    "icon": "🧰",
+    "name": "裁判文书解读与上诉决策",
+    "detail": "输入判决书核心内容，输出结构化解读报告：胜败点分析、判决逻辑还原、上诉可行性量化分析（改判可能性/成本/周期/风险）、上诉期倒计时。附上诉状/再审申请书生成引导。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "81号"
+     ]
+    ],
+    "reaction": "帮我分析一下这个判决",
+    "prompt": "帮我分析一下这个判决",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "输入判决书核心内容，输出结构化解读报告：胜败点分析、判决逻辑还原、上诉可行性量化分析（改判可能性/成本/周期/风险）、上诉期倒计时。附上诉状/再审申请书生成引导。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "判决",
+         "判決",
+         "判决书",
+         "上诉",
+         "再审",
+         "裁判文书",
+         "解读",
+         "上诉可行性",
+         "改判",
+         "判决分析"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我分析一下这个判决",
+         "要不要上诉",
+         "判决书看不太懂",
+         "上诉能赢吗",
+         "帮我看看判决有什么问题"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "76-期限与时效计算器",
+         "70-案件深度分析系统",
+         "04-二审阶段辩护"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "29",
+    "icon": "🧰",
+    "name": "保全决策指引",
+    "detail": "财产保全/证据保全的决策辅助工具。输入案情+财产线索，输出保全可行性评估、担保方案建议、紧急保全路径指引。覆盖诉前保全/诉中保全/仲裁保全/证据保全全类型。附财产线索识别清单和申请书生成引导。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "82号"
+     ]
+    ],
+    "reaction": "要不要申请财产保全",
+    "prompt": "要不要申请财产保全",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "财产保全/证据保全的决策辅助工具。输入案情+财产线索，输出保全可行性评估、担保方案建议、紧急保全路径指引。覆盖诉前保全/诉中保全/仲裁保全/证据保全全类型。附财产线索识别清单和申请书生成引导。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "保全",
+         "财产保全",
+         "证据保全",
+         "诉前保全",
+         "冻结",
+         "查封",
+         "扣押",
+         "担保",
+         "保全申请",
+         "紧急保全"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "要不要申请财产保全",
+         "保全需要什么条件",
+         "怎么防止对方转移财产",
+         "证据保全怎么做",
+         "诉前保全怎么申请"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "77-诉讼费用计算器",
+         "73-立案与程序启动路由"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "30",
+    "icon": "🧰",
+    "name": "法律检索与研究报告",
+    "detail": "法律检索方法论+研究报告生成。输入研究问题→输出检索路径设计、检索词建议、多库交叉验证指引、法律备忘录。覆盖北大法宝/华宇元典/裁判文书网/法规数据库等多源检索策略。含离线兜底（不依赖MCP也能给出法条出处指引）。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "83号"
+     ]
+    ],
+    "reaction": "帮我查一下这个法律问题",
+    "prompt": "帮我查一下这个法律问题",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "法律检索方法论+研究报告生成。输入研究问题→输出检索路径设计、检索词建议、多库交叉验证指引、法律备忘录。覆盖北大法宝/华宇元典/裁判文书网/法规数据库等多源检索策略。含离线兜底（不依赖MCP也能给出法条出处指引）。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "检索",
+         "法律研究",
+         "法律检索",
+         "法条检索",
+         "法律备忘录",
+         "检索报告",
+         "法条查询",
+         "法规查询",
+         "法律研究"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我查一下这个法律问题",
+         "法律研究怎么做",
+         "帮我写个法律备忘录",
+         "这个法条怎么查",
+         "检索报告怎么写"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "80-类案检索与裁判尺度报告",
+         "70-案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "31",
+    "icon": "🧰",
+    "name": "案件风险评估报告",
+    "detail": "全案风险评估工具。输入案情+证据，输出结构化风险评估矩阵（胜诉可能性/执行风险/时间成本/经济成本/声誉风险）。量化评级（高/中/低）+应对策略建议。可用于接案阶段给客户出风险告知书，也可用于庭审前给自检。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "86号"
+     ]
+    ],
+    "reaction": "这个案子风险大不大",
+    "prompt": "这个案子风险大不大",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "全案风险评估工具。输入案情+证据，输出结构化风险评估矩阵（胜诉可能性/执行风险/时间成本/经济成本/声誉风险）。量化评级（高/中/低）+应对策略建议。可用于接案阶段给客户出风险告知书，也可用于庭审前给自检。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "风险评估",
+         "风险分析",
+         "胜诉可能性",
+         "案件评估",
+         "风险告知",
+         "风险矩阵",
+         "败诉风险",
+         "案件预判"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "这个案子风险大不大",
+         "帮我评估一下这个案子",
+         "胜诉可能性有多大",
+         "风险告知书",
+         "给客户的风险评估"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "70-案件深度分析系统",
+         "75-通用证据体系引擎",
+         "76-期限与时效计算器",
+         "77-诉讼费用计算器"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "32",
+    "icon": "🧰",
+    "name": "案卷精读防漏技能",
+    "detail": "案卷精读强制技能。用户提交含证据册/庭审笔录/材料/资料/案卷/卷宗/质证/书证/案情等任何案件材料的案件（当事人可能不懂法，对非专业叫法如\"材料\"\"资料\"同样触发），并要求撰写或分析任何法律文书（代理意见、答辩状、起诉状、法律意见书、要件审判九步法推演、请求权基础分析等）时，本技能强制在第一时间产出「证据清单 + 要件事实—证据矩阵 + 矛盾风险标记」三件套（表格/文档交付），并作为后续一切写作的唯一事实来源与写作前闸门，从根上防止漏读细节、把单方主张当查明事实、把证人陈述当权证记载。真实在审案件强制脱敏当事人信息。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "87号"
+     ]
+    ],
+    "reaction": "请使用「案卷精读防漏技能」协助处理本案。",
+    "prompt": "请使用「案卷精读防漏技能」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "场景处理：**",
+         "**信息不足：** “您提供的案卷信息不足以搭建完整矩阵，请补充：证据原件/页码、当事人关系、争议焦点方向。”",
+         "**超出范围：** “本技能仅做案卷精读与事实矩阵，不涉及具体代理决策；我可以帮您转接相关案由技能，或建议拨打12348法律援助热线当面咨询。”",
+         "**连续失败：** “看起来沟通不太顺利，建议拨打12348法律援助热线，或到社区法律援助中心现场咨询。”",
+         "降级与兜底：**",
+         "脚本不可用（无 OCR 环境等）时，降级为纯文本逐条精读，依靠已有知识完成基本事实梳理；",
+         "仍无法完成则告知“当前服务不稳定，请稍后重试或拨打12348法律援助热线”。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "证据",
+         "笔录",
+         "庭审笔录",
+         "材料",
+         "资料",
+         "案卷",
+         "卷宗",
+         "质证",
+         "书证",
+         "案情",
+         "起诉状",
+         "答辩状",
+         "代理意见",
+         "要件",
+         "请求权基础"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "70-案件深度分析系统",
+         "74-庭审与执行辅助路由"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "33",
+    "icon": "🧰",
+    "name": "模拟法庭对抗推演",
+    "detail": "庭审前三方（原告代理/被告代理/法官）对抗推演技能。基于本案已固化材料（案情确认书、证据矩阵、争点、请求权基础、抗辩路径、裁判规则、庭审要点、防漏），按回合制（举证质证→法庭辩论→法官心证→模拟裁判）模拟庭审对抗；三方在每一回合实时调用北大法宝(pkulaw)、华宇元典(yuandian)、IMA本案知识库三大权威源，结合各自证据与证人语言引用法条，输出带法条出处与证据锚点的三方对抗记录、攻防清单、证据运用表、模拟裁判文书与弱点扫描。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "88号"
+     ]
+    ],
+    "reaction": "请使用「模拟法庭对抗推演」协助处理本案。",
+    "prompt": "请使用「模拟法庭对抗推演」协助处理本案。",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "庭审前三方（原告代理/被告代理/法官）对抗推演技能。基于本案已固化材料（案情确认书、证据矩阵、争点、请求权基础、抗辩路径、裁判规则、庭审要点、防漏），按回合制（举证质证→法庭辩论→法官心证→模拟裁判）模拟庭审对抗；三方在每一回合实时调用北大法宝(pkulaw)、华宇元典(yuandian)、IMA本案知识库三大权威源，结合各自证据与证人语言引用法条，输出带法条出处与证据锚点的三方对抗记录、攻防清单、证据运用表、模拟裁判文书与弱点扫描。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "模拟法庭",
+         "模拟庭审",
+         "对抗推演",
+         "庭前演练",
+         "庭审模拟",
+         "双方PK",
+         "攻防演练",
+         "mock trial"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "请使用本技能协助处理本案。"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "70-案件深度分析系统",
+         "87-案卷精读防漏技能",
+         "74-庭审与执行辅助路由",
+         "72-Word文档工程"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "34",
+    "icon": "🧰",
+    "name": "和解与调解策略",
+    "detail": "和解/调解方案的策略辅助工具。输入案情+对方诉求，输出调解可行性评估、谈判方案设计、底线与让步空间建议、和解协议要点。覆盖诉讼调解/仲裁调解/诉前调解/自行和解全场景。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "89号"
+     ]
+    ],
+    "reaction": "调解方案怎么出",
+    "prompt": "调解方案怎么出",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "和解/调解方案的策略辅助工具。输入案情+对方诉求，输出调解可行性评估、谈判方案设计、底线与让步空间建议、和解协议要点。覆盖诉讼调解/仲裁调解/诉前调解/自行和解全场景。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "和解",
+         "调解",
+         "调解方案",
+         "谈判",
+         "和解协议",
+         "让步",
+         "调解策略",
+         "诉前调解",
+         "调解可行性"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "调解方案怎么出",
+         "对方想和解怎么谈",
+         "调解底线在哪里",
+         "谈判方案设计",
+         "和解协议怎么写"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "86-案件风险评估报告",
+         "70-案件深度分析系统"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "35",
+    "icon": "🧰",
+    "name": "结案报告与归档",
+    "detail": "案件全流程总结工具。输入案件全流程信息+裁判结果，自动生成《结案报告》（案件概要/代理过程/裁判结果/代理效果评估/经验总结）。附卷宗归档清单（按法院/律所标准整理）和案例入库指引。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "91号"
+     ]
+    ],
+    "reaction": "结案报告",
+    "prompt": "结案报告",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "案件全流程总结工具。输入案件全流程信息+裁判结果，自动生成《结案报告》（案件概要/代理过程/裁判结果/代理效果评估/经验总结）。附卷宗归档清单（按法院/律所标准整理）和案例入库指引。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "结案",
+         "结案报告",
+         "归档",
+         "卷宗",
+         "办案总结",
+         "代理总结",
+         "案件归档",
+         "结案总结",
+         "案例入库"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "结案报告",
+         "案件总结",
+         "归档需要哪些材料",
+         "代理效果评估",
+         "办案总结"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "87-案卷精读防漏技能",
+         "72-Word文档工程"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "36",
+    "icon": "🧰",
+    "name": "法条交叉核验引擎",
+    "detail": "所有\"引用法条 / 给出法律分析 / 输出法律意见\"动作的强制前置校验关卡。在输出任何法条号与条文内容前，必须先用本引擎对华宇元典、北大法宝、IMA、裁判文书网做多源交叉比对，禁止仅凭模型自身知识生成法条引用。当律师或任一案由 Agent 需要确认法条现行有效性、避免\"号变内容不变\"类引用错误时触发。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "96号"
+     ]
+    ],
+    "reaction": "帮我核一下民法典第X条现在还有效吗",
+    "prompt": "帮我核一下民法典第X条现在还有效吗",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "所有\"引用法条 / 给出法律分析 / 输出法律意见\"动作的强制前置校验关卡。在输出任何法条号与条文内容前，必须先用本引擎对华宇元典、北大法宝、IMA、裁判文书网做多源交叉比对，禁止仅凭模型自身知识生成法条引用。当律师或任一案由 Agent 需要确认法条现行有效性、避免\"号变内容不变\"类引用错误时触发。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "见技能说明"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我核一下民法典第X条现在还有效吗",
+         "这条法条引用准不准，帮我交叉比对一下",
+         "我要引用仲裁法第43条，确认下现行内容",
+         "这个法律分析里的法条是不是最新的"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "70-案件深度分析系统",
+         "73-立案与程序启动路由",
+         "74-庭审与执行辅助路由",
+         "83-法律检索与研究报告",
+         "85-法律尽职调查"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "37",
+    "icon": "🧰",
+    "name": "案件要点萃取引擎",
+    "detail": "专为强哥\"出彩点\"要求打造的案件要点萃取专项引擎。输入案件材料→输出六件套：争点清单（按优先级区分程序/实体/证据）、证据链图谱（谁主张-谁举证-缺什么-补证建议）、攻防策略矩阵（我方/对方/法院三方视角）、风险预警（红线+机会标级别）、类案参考（必须走华宇元典/北大法宝权威库，禁止LLM生成）、要件九步法自检（每条结论对照要件检查清单）。并额外提炼本案最值得打的制胜角度。当律师需要快速从卷宗/材料里榨出核心要点、庭前梳理、汇报案件精华时触发。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "97号"
+     ]
+    ],
+    "reaction": "帮我把这堆材料榨出核心要点",
+    "prompt": "帮我把这堆材料榨出核心要点",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "专为强哥\"出彩点\"要求打造的案件要点萃取专项引擎。输入案件材料→输出六件套：争点清单（按优先级区分程序/实体/证据）、证据链图谱（谁主张-谁举证-缺什么-补证建议）、攻防策略矩阵（我方/对方/法院三方视角）、风险预警（红线+机会标级别）、类案参考（必须走华宇元典/北大法宝权威库，禁止LLM生成）、要件九步法自检（每条结论对照要件检查清单）。并额外提炼本案最值得打的制胜角度。当律师需要快速从卷宗/材料里榨出核心要点、庭前梳理、汇报案件精华时触发。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "见技能说明"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "帮我把这堆材料榨出核心要点",
+         "这个案子最出彩的打点在哪",
+         "给我一份庭前要点萃取",
+         "争点/证据/攻防/风险/类案，一次性出齐",
+         "出彩点帮我拎出来"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "70-案件深度分析系统",
+         "96-法条交叉核验引擎",
+         "75-通用证据体系引擎",
+         "80-类案检索与裁判尺度报告",
+         "86-案件风险评估报告",
+         "88-模拟法庭对抗推演"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "38",
+    "icon": "🧰",
+    "name": "人身损害赔偿计算器",
+    "detail": "按伤情+收入+责任比例自动计算人身损害赔偿各项金额（医疗费/误工费/护理费/营养费/住院伙食补助/残疾赔偿金/被扶养人生活费/精神损害抚慰金/交通费/鉴定费）。输入伤情等级+误工期+收入水平，输出《人身损害赔偿计算表》分项明细与合计。覆盖交通事故/工伤/一般侵权/医疗损害场景。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "98号"
+     ]
+    ],
+    "reaction": "被撞了伤残十级能赔多少钱",
+    "prompt": "被撞了伤残十级能赔多少钱",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "按伤情+收入+责任比例自动计算人身损害赔偿各项金额（医疗费/误工费/护理费/营养费/住院伙食补助/残疾赔偿金/被扶养人生活费/精神损害抚慰金/交通费/鉴定费）。输入伤情等级+误工期+收入水平，输出《人身损害赔偿计算表》分项明细与合计。覆盖交通事故/工伤/一般侵权/医疗损害场景。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "残疾赔偿金",
+         "误工费",
+         "护理费",
+         "被扶养人生活费",
+         "精神损害抚慰金",
+         "伤残赔偿",
+         "人身损害赔偿",
+         "赔偿计算",
+         "伤残十级赔多少",
+         "营养费",
+         "住院伙食补助"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "被撞了伤残十级能赔多少钱",
+         "误工费护理费怎么算",
+         "帮我算算人身损害赔偿总额",
+         "残疾赔偿金按什么标准算",
+         "被扶养人生活费怎么计算"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "05-交通事故责任纠纷",
+         "18-医疗损害责任纠纷",
+         "100-工伤赔偿专项"
+        ]
+       }
+      ]
+     }
+    }
+   },
+   {
+    "num": "39",
+    "icon": "🧰",
+    "name": "利息与违约金计算器",
+    "detail": "按本金+利率+期间自动计算利息/逾期利息/违约金，含LPR四倍上限自动校验与分段计算。输入借款金额+约定利率+起止日期，输出《利息与违约金计算表》（分段明细+上限校验+合规提示）。覆盖民间借贷/金融借款/买卖合同逾期付款/工程款利息等场景。",
+    "output": "核心功能、适用场景、直接提问、关联技能",
+    "tags": [
+     [
+      "tag-b",
+      "99号"
+     ]
+    ],
+    "reaction": "借了10万利息怎么算",
+    "prompt": "借了10万利息怎么算",
+    "views": {
+     "核心功能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "我会做 / 核心能力",
+        "items": [
+         "按本金+利率+期间自动计算利息/逾期利息/违约金，含LPR四倍上限自动校验与分段计算。输入借款金额+约定利率+起止日期，输出《利息与违约金计算表》（分段明细+上限校验+合规提示）。覆盖民间借贷/金融借款/买卖合同逾期付款/工程款利息等场景。"
+        ]
+       }
+      ]
+     },
+     "适用场景": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "触发关键词 / 适用场景",
+        "items": [
+         "利息计算",
+         "逾期利息",
+         "违约金",
+         "LPR",
+         "LPR四倍",
+         "利率",
+         "利息",
+         "借款利息",
+         "欠款利息",
+         "迟延履行",
+         "加倍利息",
+         "资金占用费"
+        ]
+       }
+      ]
+     },
+     "直接提问": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "可直接复制的提问",
+        "items": [
+         "借了10万利息怎么算",
+         "逾期利息按什么标准算",
+         "违约金和利息能同时要吗",
+         "LPR四倍怎么计算",
+         "帮我算算欠款的利息总额"
+        ]
+       }
+      ]
+     },
+     "关联技能": {
+      "type": "tpl",
+      "groups": [
+       {
+        "title": "关联技能",
+        "items": [
+         "31-总控路由",
+         "41-民间借贷纠纷",
+         "11-借款合同纠纷金融",
+         "30-建设工程施工合同纠纷",
+         "03-买卖合同纠纷"
+        ]
+       }
+      ]
+     }
+    }
+   }
+  ]
+ }
+];
+
+
+
+/* ===== 渲染 ===== */
+
+function render() {
+
+  // 单一来源注入：版本与计数
+
+
+
+  document.getElementById("fSkills").textContent = SKILLS;
+
+  document.getElementById("fFiles").textContent = FILES;
+
+
+
+  let total = 0;
+
+  const tree = document.getElementById("tree");
+
+  STAGES.forEach((stage, si) => {
+
+    const wrap = document.createElement("div");
+
+    wrap.className = "phase-node " + stage.cls;
+
+    const label = document.createElement("div");
+
+    label.className = "phase-label";
+
+    label.innerHTML = '<span class="toggler">▶</span><span>' + stage.icon + ' ' + stage.title +
+
+      '</span><span class="sub-desc">— ' + stage.children.length + '个节点</span>' +
+
+      '<span class="count">' + stage.count + '</span>';
+
+    label.onclick = function(){ toggle(label); };
+
+    const kids = document.createElement("div");
+
+    kids.className = "children";
+
+    stage.children.forEach((c, ci) => {
+
+      total++;
+
+      const node = document.createElement("div");
+
+      node.className = "child-node";
+
+      let tagsHtml = "";
+
+      if (c.tags) c.tags.forEach(t => { tagsHtml += '<span class="' + t[0] + '">' + t[1] + '</span>'; });
+
+      node.innerHTML = '<span class="cn-num">' + c.num + '</span>' +
+
+        '<span class="cn-icon">' + c.icon + '</span>' +
+
+        '<div class="cn-body"><div class="cn-name">' + c.name + '</div>' +
+
+        '<div class="cn-detail">' + c.detail + '</div>' +
+
+        (c.output ? '<div class="cn-output">📦 可交付：' + splitOutputs(c.output).map(function(o){ return '<span class="cn-chip" title="再次点击收起此菜单" onclick="event.stopPropagation();openOutput(this)">' + esc(o) + '</span>'; }).join('') + '</div>' : '') +
+
+        (tagsHtml ? '<div class="cn-tags">' + tagsHtml + '</div>' : '') + '</div>';
+
+      node._data = c;
+      node.onclick = function(event){ event.stopPropagation(); activate(node, c); };
+
+      kids.appendChild(node);
+
+    });
+
+    wrap.appendChild(label);
+
+    wrap.appendChild(kids);
+
+    tree.appendChild(wrap);
+
+  });
+
+  document.getElementById("fNodes").textContent = total;
+
+}
+
+
+
+/* ===== 阶段展开/收起 ===== */
+
+function toggle(label) {
+
+  const c = label.parentElement.querySelector('.children');
+
+  if (!c) return;
+
+  c.classList.toggle('open');
+
+  const t = label.querySelector('.toggler');
+
+  if (t) t.classList.toggle('open');
+
+}
+
+function toggleAll(open) {
+
+  document.querySelectorAll('.children').forEach(c => c.classList.toggle('open', open));
+
+  document.querySelectorAll('.toggler').forEach(t => t.classList.toggle('open', open));
+
+}
+
+
+
+/* 收起右侧反馈区（主对话框 + 二级菜单），清掉所有激活态 */
+function hideReaction() {
+  const r = document.getElementById("reaction");
+  if (r) r.classList.remove('show');
+  document.querySelectorAll('.child-node.active').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.cn-chip.active').forEach(n => n.classList.remove('active'));
+}
+
+/* 点击子节点 → 反馈区给出 标题 + 可编辑提问框 + 复制；再次点击同一节点则收起 */
+function activate(nodeEl, c, force) {
+  const wasActive = nodeEl.classList.contains('active');
+  document.querySelectorAll('.child-node.active').forEach(n => n.classList.remove('active'));
+  if (!force && wasActive) {
+    hideReaction();
+    return;
+  }
+  nodeEl.classList.add('active');
+
+  const r = document.getElementById("reaction");
+
+  r.classList.add('show');
+
+  r.innerHTML =
+
+    '<div class="r-head"><span class="r-badge">已选节点</span>' +
+
+    '<span class="r-name">' + c.num + ' ' + c.name + '</span></div>' +
+
+    '<div class="r-content" id="rContent"></div>' +
+
+    '<div class="r-prompt" id="rPrompt" contenteditable="true" spellcheck="false">' + esc(c.prompt) + '</div>' +
+
+    '<div class="r-actions"><button class="copy-btn" onclick="copyPrompt()">📋 复制此提问</button>' +
+
+    '<span class="r-edit-tip">✎ 可直接在此框里改文字，改好再点左侧按钮复制</span>' +
+
+    '<span class="toast" id="toast">已复制，去主对话框粘贴发送即可</span></div>';
+
+  r.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+}
+
+/* ===== 点击交付物胶囊 → 展开二级菜单（隐藏对话框）；再次点击同一胶囊则收起 ===== */
+function openOutput(chipEl) {
+  const nodeEl = chipEl.closest('.child-node');
+  const c = nodeEl && nodeEl._data;
+  if (!c) return;
+  const outputName = (chipEl.textContent || '').trim();
+  const wasActive = chipEl.classList.contains('active');
+  document.querySelectorAll('.cn-chip.active').forEach(function(n){ n.classList.remove('active'); });
+  if (wasActive) {
+    // 点击第二次：收起二级菜单（隐藏反馈区）
+    hideReaction();
+    return;
+  }
+  chipEl.classList.add('active');
+  activate(nodeEl, c, true);
+  const r = document.getElementById("reaction");
+  const nameEl = r.querySelector('.r-name');
+  if (nameEl) nameEl.innerHTML = esc(c.num + ' ' + c.name) + ' · <span style="color:#ffd54f">' + esc(outputName) + '</span>';
+  const promptEl = r.querySelector('#rPrompt');
+  if (promptEl) {
+    promptEl.textContent = '「' + outputName + '」\n请在此补充或确认该交付物的具体内容、要求或待办事项；改好点上方“复制此提问”即可发送。';
+    promptEl.focus();
+    placeCaretEnd(promptEl);
+  }
+  const contentEl = r.querySelector('#rContent');
+  if (contentEl) {
+    const v = c.views && c.views[outputName];
+    contentEl.innerHTML = v ? renderView(v) : '';
+  }
+  r.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function placeCaretEnd(el) {
+  try {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    range.collapse(false);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  } catch (e) {}
+}
+
+function splitOutputs(s) {
+  if (!s) return [];
+  return s.split('、').map(function(x){ return x.trim(); }).filter(Boolean);
+}
+
+/* ===== 交付物视图渲染：templates 清单 / 多方案比选表 ===== */
+function renderView(v) {
+  if (!v) return '';
+  if (v.type === 'tpl') {
+    let html = '';
+    (v.groups || []).forEach(function(g){
+      html += '<div class="v-tpl-grp">' + esc(g.title) + '</div><div class="v-tpl-grid">' +
+        g.items.map(renderTplItem).join('') + '</div>';
+    });
+    if (v.note) html += '<div class="v-tpl-note">' + esc(v.note) + '</div>';
+    return html;
+  }
+  if (v.type === 'plan') {
+    let html = '<table class="v-plan-tbl"><tr>' + (v.head || []).map(function(h){ return '<th>' + esc(h) + '</th>'; }).join('') + '</tr>';
+    (v.rows || []).forEach(function(row){
+      html += '<tr>' + row.map(function(cell, i){ return (i === 0 ? '<td><b>' + esc(cell) + '</b></td>' : '<td>' + esc(cell) + '</td>'); }).join('') + '</tr>';
+    });
+    html += '</table>';
+    if (v.note) html += '<div class="v-plan-note">' + esc(v.note) + '</div>';
+    return html;
+  }
+  return '';
+}
+
+
+
+/* HTML 转义：防止提问文案里的特殊字符破坏可编辑结构 */
+
+function esc(s) {
+
+  return (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+}
+
+/* 胶囊可点展开下级：item 可为字符串，或 { t, sub:[...] } 对象（sub 可再嵌套） */
+
+function renderTplItem(it) {
+
+  if (typeof it === 'string') {
+
+    return '<span class="v-tpl-item">' + esc(it) + '</span>';
+
+  }
+
+  if (it && typeof it === 'object') {
+
+    var inner = (it.sub || []).map(renderTplItem).join('');
+
+    if (inner) {
+
+      return '<span class="v-tpl-item has-sub" onclick="toggleSub(this)">' + esc(it.t || '') + '</span>' +
+
+             '<div class="v-sub">' + inner + '</div>';
+
+    }
+
+    return '<span class="v-tpl-item">' + esc(it.t || '') + '</span>';
+
+  }
+
+  return '';
+
+}
+
+function toggleSub(el) {
+
+  el.classList.toggle('open');
+
+  var s = el.nextElementSibling;
+
+  if (s && s.classList && s.classList.contains('v-sub')) {
+
+    s.classList.toggle('open', el.classList.contains('open'));
+
+  }
+
+}
+
+
+
+function copyPrompt() {
+
+  const text = document.getElementById("rPrompt").textContent;
+
+  const toast = document.getElementById("toast");
+
+  const done = () => { if (toast) { toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 1800); } };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+
+  } else {
+
+    fallbackCopy(text, done);
+
+  }
+
+}
+
+function fallbackCopy(text, done) {
+
+  const ta = document.createElement("textarea");
+
+  ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+
+  document.body.appendChild(ta); ta.select();
+
+  try { document.execCommand("copy"); done(); } catch (e) {}
+
+  document.body.removeChild(ta);
+
+}
+
+
+
+window.addEventListener('DOMContentLoaded', function () {
+
+  render();
+
+  renderTimeline();
+
+  toggleAll(true); // 默认全展开，方便随时点
+
+  // ESC 关闭右侧反馈区（主对话框 + 二级菜单），跨平台弹层标准交互
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') hideReaction();
+  });
+
+  // 点击空白处（目录树空白 / 非激活节点 / 非面板区域）收起二级菜单：弹层类 UI 最成熟用法
+  document.addEventListener('click', function (e) {
+    const r = document.getElementById('reaction');
+    if (!r || !r.classList.contains('show')) return;
+    if (r.contains(e.target)) return;            // 点在面板内不收
+    if (e.target.closest('.cn-chip')) return;     // 胶囊已 stopPropagation，不会到这
+    if (e.target.closest('.child-node')) return;  // 点别的节点 = 切换内容，交给 activate
+    hideReaction();                               // 其余空白区域 → 收起
+  });
+
+});
+
+window.addEventListener('resize', function () {
+
+  if (document.body.classList.contains('view-timeline')) positionToday();
+
+});
+
+
+
+/* ===== 视图切换：能力目录 / 案件时间轴 并列 ===== */
+
+function switchView(view) {
+
+  const isTl = (view === 'timeline');
+
+  document.body.classList.toggle('view-timeline', isTl);
+
+  document.getElementById("tabDir").classList.toggle('active', !isTl);
+
+  document.getElementById("tabTl").classList.toggle('active', isTl);
+
+  document.getElementById("reaction").classList.remove('show');
+
+  if (isTl) { positionToday(); }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+}
+
+
+
+/* ===== 时间轴数据（示意里程碑）===== */
+
+const PARTY_NAME = { wo:"我方", fy:"法院", df:"对方" };
+
+const TODAY  = "08-03";   // 由 render_panorama.py 按真实「今天」实时注入（MM-DD）
+
+let todayLine = null;
+
+
+
+function renderTimeline() {
+
+  const track = document.getElementById("tlTrack");
+
+  TIMELINE.forEach((m, i) => {
+
+    const left = (i % 2 === 0);
+
+    const item = document.createElement("div");
+
+    item.className = "tl-item " + (left ? "left" : "right");
+
+    const lvlCls = (m.level === "red") ? "u-red" : (m.level === "amber" ? "u-amber" : "u-green");
+
+    item.innerHTML =
+
+      '<div class="tl-dot party-' + m.party + '"></div>' +
+
+      '<div class="tl-conn"></div>' +
+
+      '<div class="tl-card party-' + m.party + '">' +
+
+        '<div class="tl-party">' + PARTY_NAME[m.party] + '</div>' +
+
+        '<div class="tl-event">' + m.event + '</div>' +
+
+        '<div class="tl-foot"><span>' + m.date + '</span><span class="' + lvlCls + '">' + m.note + '</span></div>' +
+
+      '</div>';
+
+    track.appendChild(item);
+
+  });
+
+  todayLine = document.createElement("div");
+
+  todayLine.className = "tl-today";
+
+  todayLine.innerHTML = '<span class="tl-today-label">📍 今天 ' + TODAY + '</span>';
+
+  track.appendChild(todayLine);
+
+}
+
+
+
+function positionToday() {
+
+  if (!todayLine) return;
+
+  const track = document.getElementById("tlTrack");
+
+  const items = track.querySelectorAll(".tl-item");
+
+  const idx = Math.max(0, TIMELINE.findIndex(m => m.date === TODAY));
+
+  const anchor = items[idx];
+
+  if (anchor) todayLine.style.top = (anchor.offsetTop + anchor.offsetHeight / 2) + "px";
+
+}
+
+
+
+const TIMELINE = [
+
+  { date:"07-27", party:"wo", event:"递交立案材料", note:"已办", level:"green" },
+
+  { date:"08-14", party:"fy", event:"立案受理", note:"剩18天", level:"green" },
+
+  { date:"08-20", party:"wo", event:"举证期限届满", note:"剩12天·紧急", level:"red" },
+
+  { date:"09-10", party:"df", event:"提交答辩状", note:"剩33天", level:"amber" },
+
+  { date:"09-30", party:"fy", event:"开庭质证", note:"剩63天", level:"amber" },
+
+  { date:"10-22", party:"df", event:"可提起上诉", note:"剩85天", level:"amber" },
+
+  { date:"11-15", party:"wo", event:"申请执行", note:"剩105天", level:"green" },
+
+];
+
+</script>
+
+</body>
+
+</html>
+

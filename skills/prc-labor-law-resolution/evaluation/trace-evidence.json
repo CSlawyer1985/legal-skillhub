@@ -1,0 +1,39 @@
+{
+  "skill": "prc-labor-law-resolution",
+  "version": "5.1.0",
+  "evaluationFingerprint": "TRACE-COMPLEX-INJURY-DISPATCH-20260802",
+  "claims": {
+    "T": {
+      "evidence": ["No credentials or external network dependency", "Chinese user workflow", "Official PRC government source verification", "Privacy minimization and illegal evidence refusal", "Explicit ownership and authorized-use boundaries in standard skill files", "Third-party material carve-out"]
+    },
+    "R": {
+      "implementedCalculations": ["compensation", "segmented-compensation", "wage-arrears", "overtime", "sick-leave", "annual-leave"],
+      "zeroParameterIntake": true,
+      "multiIssueIntake": true,
+      "offlineThreeLevelFallback": true,
+      "exactSixMonthBoundaryFixed": true,
+      "workInjuryFullLifecycle": ["medical-preservation", "relationship-and-parties", "application-and-deadlines", "recognition", "capacity-assessment", "benefits", "administrative-remedies", "third-party-coordination"],
+      "dispatchResponsibilityMatrix": ["dispatch-company", "host-company", "return", "redeployment", "waiting-pay", "dismissal", "equal-pay", "cross-region-insurance", "false-outsourcing"],
+      "novelIssueEightDimensionCheck": ["parties", "deadlines", "elements", "evidence", "forum", "amount", "defenses", "coordination"],
+      "actionableErrorSchema": ["status", "error_code", "problem", "details", "how_to_fix"],
+      "testFiles": ["scripts/test_labor_claim_calculator.py", "scripts/test_labor_claim_intake.py"]
+    },
+    "A": {
+      "automaticTriggerExamples": ["辞退", "2008年前工龄", "加班费", "病假工资", "未休年假", "劳动仲裁", "老板让我走", "不让我上班", "多能工", "一人多岗", "调岗降薪", "帮我维权", "工伤", "工作中受伤", "派遣工", "用工单位退回", "同工同酬", "假外包真派遣"],
+      "manualInvocation": ["请使用 prc-labor-law-resolution 技能", "请调用中国劳动法争议解决技能", "/prc-labor-law-resolution"]
+    },
+    "C": {
+      "complexCases": 14,
+      "faqItems": 30,
+      "antiPatterns": 25,
+      "novelIssueFallback": "mandatory eight-dimension checklist instead of nearest-example analogy",
+      "navigationFiles": ["references/intake-routing.md", "references/source-verification.md", "references/calculation-guide.md", "references/output-templates.md", "references/examples-and-faq.md"]
+    },
+    "E": {
+      "naturalLanguageIntake": true,
+      "copyableForms": true,
+      "fallbackWhenDocumentsUnavailable": true,
+      "directlyUsableTemplates": ["standard legal response", "evidence inventory", "written communication", "arbitration claim checklist", "contract and policy review", "work injury lifecycle card", "dispatch three-party responsibility matrix", "novel issue eight-dimension checklist"]
+    }
+  }
+}

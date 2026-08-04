@@ -1,0 +1,84 @@
+name: belgian-gaap-compliance-suite
+version: "1.0.0"
+author: mtllr
+license: commercial
+platform:
+  - meshcore
+  - clawhub
+
+description: >
+  Complete Belgian GAAP accounting compliance suite covering the standardized
+  chart of accounts (PCMN), VAT settlement cycles, fiscal deductibility rules,
+  non-deductible expenses (DNA), administrative fines, year-end closing procedures,
+  Intervat VAT return filing, and annual accounts preparation. Built from hands-on
+  Belgian accounting practice — not theoretical summaries.
+
+languages:
+  - nl
+  - fr
+  - en
+
+tags:
+  - accounting
+  - belgian-gaap
+  - compliance
+  - vat
+  - pcmn
+  - fiscal
+
+pricing:
+  tier: premium
+  monthly_eur: 29
+  annual_eur: 249
+
+skills:
+  - id: belgian-gaap-pcmn
+    path: ~/.claude/skills/belgian-gaap-pcmn
+    description: Standardized chart of accounts (Plan Comptable Minimum Normalisé)
+
+  - id: belgian-gaap-vat
+    path: ~/.claude/skills/belgian-gaap-vat
+    description: VAT settlement cycle, accounting entries, periodic declarations
+
+  - id: belgian-gaap-deductibility
+    path: ~/.claude/skills/belgian-gaap-deductibility
+    description: Professional use vs fiscal deductibility distinction
+
+  - id: belgian-gaap-dna
+    path: ~/.claude/skills/belgian-gaap-dna
+    description: Non-deductible expenses (Dépenses Non Admises)
+
+  - id: belgian-gaap-fines
+    path: ~/.claude/skills/belgian-gaap-fines
+    description: Administrative fines, tax surcharges, SPF enforcement
+
+  - id: belgian-gaap-closing
+    path: ~/.claude/skills/belgian-gaap-closing
+    description: Year-end closing procedures (clôture comptable)
+
+  - id: belgian-gaap-intervat
+    path: ~/.claude/skills/belgian-gaap-intervat
+    description: Intervat quarterly/monthly VAT return filing
+
+  - id: belgian-gaap-annual-accounts
+    path: ~/.claude/skills/belgian-gaap-annual-accounts
+    description: Annual accounts preparation from PCMN ledger entries
+
+examples:
+  - title: "Record a restaurant business dinner"
+    description: >
+      Tests deductibility (69% deductible), DNA booking (31% non-deductible),
+      and VAT recovery (21% VAT, only on deductible portion).
+    input: "Record a business dinner at a restaurant for EUR 242 (incl. 21% VAT) with 3 clients."
+
+  - title: "Prepare Q4 VAT return"
+    description: >
+      End-to-end quarterly VAT declaration with Box 71/72 computation,
+      input/output netting, and Intervat XML generation.
+    input: "Prepare the Q4 2025 VAT return. Sales: EUR 150,000 (21%). Purchases: EUR 80,000 (21%)."
+
+  - title: "Year-end closing with provisions"
+    description: >
+      Full clôture comptable including inventory valuation, provisions for
+      doubtful debts, and deferred income recognition.
+    input: "Run year-end closing for FY 2025. There are EUR 12,000 in doubtful receivables."

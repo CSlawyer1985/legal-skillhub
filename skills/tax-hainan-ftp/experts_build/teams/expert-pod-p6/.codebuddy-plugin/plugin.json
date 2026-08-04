@@ -1,0 +1,123 @@
+{
+  "name": "expert-pod-p6",
+  "version": "1.0.0",
+  "description": "P6: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p6-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p6-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p6-lead",
+    "memberAgents": [
+      "tax-ecommerce-expert",
+      "tax-crossborder-expert",
+      "tax-hainan-ftp-expert"
+    ]
+  },
+  "displayName": {
+    "en": "电商与跨境贸易团",
+    "zh": "电商与跨境贸易团"
+  },
+  "profession": {
+    "en": "电商与跨境贸易团",
+    "zh": "电商与跨境贸易团"
+  },
+  "displayDescription": {
+    "en": "P6: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「电商与跨境贸易团」：由主理人协调 3 名专题专家，覆盖电商/出口退税/海南自贸港，提供跨域财税合规"
+  },
+  "avatar": "avatars/pod-p6-lead.svg",
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "我是「电商与跨境贸易团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 电商与跨境贸易团."
+  },
+  "plugin": "expert-pod-p6",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T2",
+      "zh": "T2优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p6-lead",
+      "displayName": {
+        "en": "跨境电商税务总监",
+        "zh": "跨境电商税务总监"
+      },
+      "profession": {
+        "en": "跨境电商税务总监",
+        "zh": "跨境电商税务总监"
+      },
+      "avatar": "avatars/pod-p6-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "tax-ecommerce-expert",
+      "displayName": {
+        "en": "tax-ecommerce",
+        "zh": "tax-ecommerce"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-ecommerce-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-crossborder-expert",
+      "displayName": {
+        "en": "tax-crossborder",
+        "zh": "tax-crossborder"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-crossborder-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-hainan-ftp-expert",
+      "displayName": {
+        "en": "tax-hainan-ftp",
+        "zh": "tax-hainan-ftp"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-hainan-ftp-expert.svg",
+      "role": "member"
+    }
+  ]
+}

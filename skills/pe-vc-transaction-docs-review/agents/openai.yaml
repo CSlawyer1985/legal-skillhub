@@ -1,0 +1,6 @@
+interface:
+  display_name: "[Gardner's Vault] PE/VC私募交易文件审阅"
+  short_description: "审阅人民币及美元融资文件，核验红线、跨文件冲突与市场采用比例"
+  default_prompt: "请使用 $pe-vc-transaction-docs-review 审阅我上传的未上市公司股权融资交易文件；先自动识别文件和版本，再一次性询问仍缺少的必要信息，并输出修改建议、修订后版本和主要问题清单。"
+policy:
+  allow_implicit_invocation: true

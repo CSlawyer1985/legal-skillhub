@@ -1,0 +1,2368 @@
+{
+  "version": 1,
+  "profile": {
+    "practice_areas": [],
+    "updated_at": "",
+    "identity": "",
+    "weekly_limit": 20
+  },
+  "accounts": [
+    {
+      "name": "最高人民法院",
+      "category": "法院",
+      "tags": [
+        "综合",
+        "权威发布"
+      ],
+      "note": "司法解释/指导性案例首发",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "山东高法",
+      "category": "法院",
+      "tags": [
+        "综合",
+        "案例"
+      ],
+      "note": "省高院，案例更新勤",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "上海一中院",
+      "category": "法院",
+      "tags": [
+        "案例",
+        "审判研究"
+      ],
+      "note": "类案裁判思路质量高",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "上海二中院",
+      "category": "法院",
+      "tags": [
+        "案例",
+        "审判研究"
+      ],
+      "note": "与一中院互补",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "最高人民检察院",
+      "category": "检察",
+      "tags": [
+        "综合",
+        "权威发布"
+      ],
+      "note": "检察政策/典型案例",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "人民法院报",
+      "category": "法律媒体",
+      "tags": [
+        "综合",
+        "新闻"
+      ],
+      "note": "行业动态",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法律读库",
+      "category": "法律媒体",
+      "tags": [
+        "实务",
+        "深度"
+      ],
+      "note": "实务文章转载精选",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "无讼",
+      "category": "法律媒体",
+      "tags": [
+        "实务",
+        "技能"
+      ],
+      "note": "律师实务技能",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "智合法律新媒体",
+      "category": "法律媒体",
+      "tags": [
+        "行业",
+        "律所管理"
+      ],
+      "note": "律所管理与行业观察",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "公司法权威解读",
+      "category": "实务自媒体",
+      "tags": [
+        "公司法",
+        "商事",
+        "案例"
+      ],
+      "note": "公司法修订后最系统的条文解读",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "商法通",
+      "category": "实务自媒体",
+      "tags": [
+        "商事",
+        "裁判规则"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "股权投资与并购",
+      "category": "实务自媒体",
+      "tags": [
+        "投融资",
+        "并购"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法务之家",
+      "category": "实务自媒体",
+      "tags": [
+        "公司法务",
+        "综合"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "公司控制权研究",
+      "category": "实务自媒体",
+      "tags": [
+        "股东纠纷",
+        "控制权"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "对赌实务",
+      "category": "实务自媒体",
+      "tags": [
+        "对赌",
+        "VC/PE"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法客帝国",
+      "category": "实务自媒体",
+      "tags": [
+        "民商事",
+        "执行",
+        "裁判规则"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "高杉LEGAL",
+      "category": "实务自媒体",
+      "tags": [
+        "民商事",
+        "实务",
+        "精选"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "麦读",
+      "category": "实务自媒体",
+      "tags": [
+        "法律图书",
+        "方法论"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "iCourt法秀",
+      "category": "实务自媒体",
+      "tags": [
+        "律师技能",
+        "AI",
+        "行业"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法律与实务",
+      "category": "实务自媒体",
+      "tags": [
+        "公司法",
+        "合同法",
+        "担保"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "新则",
+      "category": "实务自媒体",
+      "tags": [
+        "律所管理",
+        "职业发展"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "图解金融",
+      "category": "实务自媒体",
+      "tags": [
+        "金融",
+        "法律交叉"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "投行法库",
+      "category": "实务自媒体",
+      "tags": [
+        "IPO",
+        "并购",
+        "基金"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "建设工程法律评论",
+      "category": "实务自媒体",
+      "tags": [
+        "建设工程",
+        "裁判规则"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "建筑房地产法律圈",
+      "category": "实务自媒体",
+      "tags": [
+        "建筑",
+        "房地产",
+        "案例"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "地产与工程法律观察",
+      "category": "实务自媒体",
+      "tags": [
+        "地产",
+        "工程",
+        "双视角"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "建纬律师",
+      "category": "实务自媒体",
+      "tags": [
+        "建设工程",
+        "专业所"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "工程总承包法律观察",
+      "category": "实务自媒体",
+      "tags": [
+        "EPC",
+        "工程总承包"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "施工企业管理",
+      "category": "实务自媒体",
+      "tags": [
+        "施工",
+        "合同",
+        "合规"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "建工法务",
+      "category": "实务自媒体",
+      "tags": [
+        "建设工程",
+        "合同纠纷"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "建设工程法律实务",
+      "category": "实务自媒体",
+      "tags": [
+        "建设工程",
+        "司法解释"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "造价法律前线",
+      "category": "实务自媒体",
+      "tags": [
+        "工程造价",
+        "法律交叉"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "PPP法律实务",
+      "category": "实务自媒体",
+      "tags": [
+        "PPP",
+        "基础设施"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "房产建筑法律实务",
+      "category": "实务自媒体",
+      "tags": [
+        "房产",
+        "建筑"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "工程建设与法律",
+      "category": "实务自媒体",
+      "tags": [
+        "招投标",
+        "分包"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "地产法务圈",
+      "category": "实务自媒体",
+      "tags": [
+        "房地产",
+        "投融资"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "城市更新法律观察",
+      "category": "实务自媒体",
+      "tags": [
+        "城市更新",
+        "旧改"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑事辩护",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "辩护",
+        "实务"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "尚权刑辩",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "程序辩护"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "金牙大状",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "经典案例"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑事实务",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "办案指引"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑辩之声",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "辩护",
+        "社群"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑事诉讼法与司法制度",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "学术",
+        "实务"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑事法律圈",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "热点案件"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "辩护人",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "青年律师"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑法实务",
+      "category": "实务自媒体",
+      "tags": [
+        "刑法",
+        "条文解释"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "刑案汇览",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "典型案例"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "合规与刑辩",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事合规",
+        "交叉"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "证据科学",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "证据法"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "无罪研究",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "无罪案例"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "律师刑事",
+      "category": "实务自媒体",
+      "tags": [
+        "刑事",
+        "实务技能"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳动法库",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "HR合规"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "人力资源法律",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "HR",
+        "文书"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳达laboroot",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "裁审衔接"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "子非鱼说劳动法",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "深度分析"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳动法研究",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "学术"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳动法在线",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "案例速递"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳动法之家",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "知识库"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳动法宝网",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "法规查询"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "工伤法律实务",
+      "category": "实务自媒体",
+      "tags": [
+        "工伤",
+        "赔偿"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "裁员与解雇",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动合同",
+        "解除"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "用工合规指南",
+      "category": "实务自媒体",
+      "tags": [
+        "灵活用工",
+        "合规"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "劳动争议实务",
+      "category": "实务自媒体",
+      "tags": [
+        "劳动法",
+        "仲裁诉讼"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "执行复议与执行异议",
+      "category": "实务自媒体",
+      "tags": [
+        "执行",
+        "异议",
+        "复议"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "不良资产头条",
+      "category": "实务自媒体",
+      "tags": [
+        "不良资产",
+        "行业动态"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "强制执行实务",
+      "category": "实务自媒体",
+      "tags": [
+        "执行",
+        "查控",
+        "拍卖"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "资产界",
+      "category": "实务自媒体",
+      "tags": [
+        "不良资产",
+        "破产重整"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "保全部",
+      "category": "实务自媒体",
+      "tags": [
+        "金融债权",
+        "保全"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "执行法库",
+      "category": "实务自媒体",
+      "tags": [
+        "执行",
+        "法规汇编"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "执行一线",
+      "category": "实务自媒体",
+      "tags": [
+        "执行",
+        "基层实务"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "不良资产法律研究",
+      "category": "实务自媒体",
+      "tags": [
+        "不良资产",
+        "法律分析"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "NPL观察",
+      "category": "实务自媒体",
+      "tags": [
+        "不良资产",
+        "投资视角"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "破产法实务",
+      "category": "实务自媒体",
+      "tags": [
+        "破产重整",
+        "清算"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "失信与限高",
+      "category": "实务自媒体",
+      "tags": [
+        "信用惩戒",
+        "限制消费"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "诉讼保全与执行",
+      "category": "实务自媒体",
+      "tags": [
+        "保全",
+        "执行全流程"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "知产力",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "案例"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "知产宝",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "数据"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中国知识产权报",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "官方"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "知产前沿",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "前沿趋势"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "IPRdaily",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "全球视野"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "知识产权那点事",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "通俗"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "知产北京",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "北京法院"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "上海知识产权",
+      "category": "实务自媒体",
+      "tags": [
+        "知识产权",
+        "上海"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "商标法实务",
+      "category": "实务自媒体",
+      "tags": [
+        "商标",
+        "注册",
+        "侵权"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "版权观察",
+      "category": "实务自媒体",
+      "tags": [
+        "著作权",
+        "版权"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "专利法研究",
+      "category": "实务自媒体",
+      "tags": [
+        "专利",
+        "深度文章"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "商业秘密保护",
+      "category": "实务自媒体",
+      "tags": [
+        "商业秘密",
+        "反不正当竞争"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "家事法苑",
+      "category": "实务自媒体",
+      "tags": [
+        "婚姻家事",
+        "审判"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "承信全球家族办公室",
+      "category": "实务自媒体",
+      "tags": [
+        "财富传承",
+        "保险金信托"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "家族企业治理",
+      "category": "实务自媒体",
+      "tags": [
+        "家族企业",
+        "传承"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "财富管理法律研究",
+      "category": "实务自媒体",
+      "tags": [
+        "财富管理",
+        "高净值"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "婚姻法实务",
+      "category": "实务自媒体",
+      "tags": [
+        "离婚",
+        "财产分割",
+        "抚养权"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "继承法实务",
+      "category": "实务自媒体",
+      "tags": [
+        "遗嘱",
+        "继承",
+        "遗产"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "家事审判研究",
+      "category": "实务自媒体",
+      "tags": [
+        "家事审判",
+        "改革"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "婚家律师",
+      "category": "实务自媒体",
+      "tags": [
+        "婚姻家事",
+        "律师"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "家族信托法律",
+      "category": "实务自媒体",
+      "tags": [
+        "信托法",
+        "家族办公室"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "未成年人保护",
+      "category": "实务自媒体",
+      "tags": [
+        "未成年人",
+        "权益保护"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "涉外家事法",
+      "category": "实务自媒体",
+      "tags": [
+        "跨境婚姻",
+        "继承"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "行政法实务",
+      "category": "实务自媒体",
+      "tags": [
+        "行政法",
+        "行政诉讼"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "行政执法研究",
+      "category": "实务自媒体",
+      "tags": [
+        "行政执法",
+        "合规"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法治政府研究院",
+      "category": "实务自媒体",
+      "tags": [
+        "法治政府",
+        "政策研究"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "政府法律顾问",
+      "category": "实务自媒体",
+      "tags": [
+        "政府法律",
+        "服务"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "行政涉法研究",
+      "category": "实务自媒体",
+      "tags": [
+        "行政法",
+        "处罚许可"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法治指数",
+      "category": "实务自媒体",
+      "tags": [
+        "法治评估",
+        "量化"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "行政复议实务",
+      "category": "实务自媒体",
+      "tags": [
+        "行政复议",
+        "专题"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "信息公开诉讼",
+      "category": "实务自媒体",
+      "tags": [
+        "信息公开",
+        "争议"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "拆迁征收法律",
+      "category": "实务自媒体",
+      "tags": [
+        "征收补偿",
+        "拆迁"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "国家赔偿实务",
+      "category": "实务自媒体",
+      "tags": [
+        "行政赔偿",
+        "司法赔偿"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法律科技观察",
+      "category": "法律媒体",
+      "tags": [
+        "法律AI",
+        "科技趋势"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "理脉LegalMiner",
+      "category": "法律媒体",
+      "tags": [
+        "法律大数据",
+        "分析"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法天使",
+      "category": "法律媒体",
+      "tags": [
+        "合同数据库",
+        "AI合同"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "北大法宝",
+      "category": "法律媒体",
+      "tags": [
+        "法规检索",
+        "知识服务"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法信",
+      "category": "法律媒体",
+      "tags": [
+        "最高法出品",
+        "知识服务"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中国司法大数据研究院",
+      "category": "法律媒体",
+      "tags": [
+        "司法大数据",
+        "报告"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中国民商法律网",
+      "category": "学术",
+      "tags": [
+        "民商法",
+        "学术前沿"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法学学术前沿",
+      "category": "学术",
+      "tags": [
+        "法学",
+        "论文速递"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "比较法研究",
+      "category": "学术",
+      "tags": [
+        "比较法",
+        "跨国研究"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "燕大元照",
+      "category": "学术",
+      "tags": [
+        "法律出版",
+        "学术"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中国法律评论",
+      "category": "学术",
+      "tags": [
+        "法律评论",
+        "政策解读"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法制与社会发展",
+      "category": "学术",
+      "tags": [
+        "法学理论",
+        "期刊"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中国法学",
+      "category": "学术",
+      "tags": [
+        "法学",
+        "顶刊"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "民主与法制",
+      "category": "法律媒体",
+      "tags": [
+        "综合",
+        "新闻"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "律新社",
+      "category": "法律媒体",
+      "tags": [
+        "法律服务",
+        "行业媒体"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法眼观察",
+      "category": "法律媒体",
+      "tags": [
+        "法律热点",
+        "评论"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "大案",
+      "category": "法律媒体",
+      "tags": [
+        "大案要案",
+        "深度报道"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "财经法律圈",
+      "category": "法律媒体",
+      "tags": [
+        "财经",
+        "法律交叉"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "桂客留言",
+      "category": "法律媒体",
+      "tags": [
+        "律师",
+        "职业发展",
+        "行业"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "律商视点",
+      "category": "法律媒体",
+      "tags": [
+        "法律服务",
+        "行业洞察"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法律出版社",
+      "category": "法律媒体",
+      "tags": [
+        "法律图书",
+        "出版"
+      ],
+      "note": "",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "京法网事",
+      "category": "法院",
+      "tags": [
+        "北京高院",
+        "案例"
+      ],
+      "note": "北京高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "浙江天平",
+      "category": "法院",
+      "tags": [
+        "浙江高院",
+        "案例"
+      ],
+      "note": "浙江高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "江苏高院",
+      "category": "法院",
+      "tags": [
+        "江苏高院",
+        "案例"
+      ],
+      "note": "江苏高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "湖南高院",
+      "category": "法院",
+      "tags": [
+        "湖南高院",
+        "案例"
+      ],
+      "note": "湖南高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "湖北高院",
+      "category": "法院",
+      "tags": [
+        "湖北高院",
+        "案例"
+      ],
+      "note": "湖北高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "陕西高院",
+      "category": "法院",
+      "tags": [
+        "陕西高院",
+        "案例"
+      ],
+      "note": "陕西高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "贵州高院",
+      "category": "法院",
+      "tags": [
+        "贵州高院",
+        "案例"
+      ],
+      "note": "贵州高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "河北高院",
+      "category": "法院",
+      "tags": [
+        "河北高院",
+        "案例"
+      ],
+      "note": "河北高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "山西高院",
+      "category": "法院",
+      "tags": [
+        "山西高院",
+        "案例"
+      ],
+      "note": "山西高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "福建高院",
+      "category": "法院",
+      "tags": [
+        "福建高院",
+        "案例"
+      ],
+      "note": "福建高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "豫法阳光",
+      "category": "法院",
+      "tags": [
+        "河南高院",
+        "案例"
+      ],
+      "note": "河南高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "重庆高院",
+      "category": "法院",
+      "tags": [
+        "重庆高院",
+        "案例"
+      ],
+      "note": "重庆高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "四川高院",
+      "category": "法院",
+      "tags": [
+        "四川高院",
+        "案例"
+      ],
+      "note": "四川高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "云南高院",
+      "category": "法院",
+      "tags": [
+        "云南高院",
+        "案例"
+      ],
+      "note": "云南高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "广西高院",
+      "category": "法院",
+      "tags": [
+        "广西高院",
+        "案例"
+      ],
+      "note": "广西高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "辽宁高院",
+      "category": "法院",
+      "tags": [
+        "辽宁高院",
+        "案例"
+      ],
+      "note": "辽宁高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "吉林高法",
+      "category": "法院",
+      "tags": [
+        "吉林高院",
+        "案例"
+      ],
+      "note": "吉林高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "黑龙江省高级人民法院",
+      "category": "法院",
+      "tags": [
+        "黑龙江高院",
+        "案例"
+      ],
+      "note": "黑龙江高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "安徽高院",
+      "category": "法院",
+      "tags": [
+        "安徽高院",
+        "案例"
+      ],
+      "note": "安徽高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "江西法院",
+      "category": "法院",
+      "tags": [
+        "江西高院",
+        "案例"
+      ],
+      "note": "江西高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "内蒙古高院",
+      "category": "法院",
+      "tags": [
+        "内蒙古高院",
+        "案例"
+      ],
+      "note": "内蒙古高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "新疆高院",
+      "category": "法院",
+      "tags": [
+        "新疆高院",
+        "案例"
+      ],
+      "note": "新疆高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "甘肃高院",
+      "category": "法院",
+      "tags": [
+        "甘肃高院",
+        "案例"
+      ],
+      "note": "甘肃高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "青海高院",
+      "category": "法院",
+      "tags": [
+        "青海高院",
+        "案例"
+      ],
+      "note": "青海高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "宁夏高院",
+      "category": "法院",
+      "tags": [
+        "宁夏高院",
+        "案例"
+      ],
+      "note": "宁夏高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "海南高院",
+      "category": "法院",
+      "tags": [
+        "海南高院",
+        "案例"
+      ],
+      "note": "海南高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "津法之声",
+      "category": "法院",
+      "tags": [
+        "天津高院",
+        "案例"
+      ],
+      "note": "天津高院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "杭州中院",
+      "category": "法院",
+      "tags": [
+        "杭州中院",
+        "案例"
+      ],
+      "note": "杭州中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "南京V法院",
+      "category": "法院",
+      "tags": [
+        "南京中院",
+        "案例"
+      ],
+      "note": "南京中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "西安中院",
+      "category": "法院",
+      "tags": [
+        "西安中院",
+        "案例"
+      ],
+      "note": "西安中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "厦门中院",
+      "category": "法院",
+      "tags": [
+        "厦门中院",
+        "案例"
+      ],
+      "note": "厦门中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "济南中院",
+      "category": "法院",
+      "tags": [
+        "济南中院",
+        "案例"
+      ],
+      "note": "济南中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "武汉中院",
+      "category": "法院",
+      "tags": [
+        "武汉中院",
+        "案例"
+      ],
+      "note": "武汉中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "济宁中院",
+      "category": "法院",
+      "tags": [
+        "济宁中院",
+        "案例"
+      ],
+      "note": "济宁中院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "成渝金融法院",
+      "category": "法院",
+      "tags": [
+        "金融法院",
+        "案例"
+      ],
+      "note": "成渝金融法院官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "广东律师之家",
+      "category": "律协",
+      "tags": [
+        "广东律协",
+        "行业"
+      ],
+      "note": "广东律协官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "上海律协",
+      "category": "律协",
+      "tags": [
+        "上海律协",
+        "行业"
+      ],
+      "note": "上海律协官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "深圳律协",
+      "category": "律协",
+      "tags": [
+        "深圳律协",
+        "行业"
+      ],
+      "note": "深圳律协官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "广州律协",
+      "category": "律协",
+      "tags": [
+        "广州律协",
+        "行业"
+      ],
+      "note": "广州律协官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "金杜说法",
+      "category": "实务自媒体",
+      "tags": [
+        "金杜",
+        "公司商事"
+      ],
+      "note": "金杜律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中伦律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "中伦",
+        "公司商事"
+      ],
+      "note": "中伦律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "君合法律评论",
+      "category": "实务自媒体",
+      "tags": [
+        "君合",
+        "公司商事"
+      ],
+      "note": "君合律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "大成律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "大成",
+        "综合"
+      ],
+      "note": "大成律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "德恒律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "德恒",
+        "综合"
+      ],
+      "note": "德恒律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "汉坤律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "汉坤",
+        "知产"
+      ],
+      "note": "汉坤律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "京都律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "京都",
+        "刑事"
+      ],
+      "note": "京都律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "观韬律所",
+      "category": "实务自媒体",
+      "tags": [
+        "观韬",
+        "综合"
+      ],
+      "note": "观韬律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "瀛和律师机构",
+      "category": "实务自媒体",
+      "tags": [
+        "瀛和",
+        "综合"
+      ],
+      "note": "瀛和律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "炜衡律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "炜衡",
+        "综合"
+      ],
+      "note": "炜衡律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "国枫律师事务所",
+      "category": "实务自媒体",
+      "tags": [
+        "国枫",
+        "综合"
+      ],
+      "note": "国枫律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "天元律师",
+      "category": "实务自媒体",
+      "tags": [
+        "天元",
+        "综合"
+      ],
+      "note": "天元律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "天达共和法律观察",
+      "category": "实务自媒体",
+      "tags": [
+        "天达共和",
+        "综合"
+      ],
+      "note": "天达共和律所官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法学研究",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "法学研究杂志社",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中国法学杂志社",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "中国法学杂志社",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "中外法学编辑部",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "中外法学编辑部",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "政法论坛",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "政法论坛杂志社",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法学家杂志",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "法学家杂志",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "环球法律评论",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "环球法律评论杂志社",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "华政法学",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "法学月刊社",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "政治与法律编辑部",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "政治与法律编辑部",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "北大法律信息网",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "北大法律信息网",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "明德公法",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "公法"
+      ],
+      "note": "中国人民大学公法研究中心",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "博雅公法",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "公法"
+      ],
+      "note": "北京大学宪法与行政法研究中心",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "行政法学研究编辑部",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "行政法"
+      ],
+      "note": "行政法学研究杂志社",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法治日报",
+      "category": "法律媒体",
+      "tags": [
+        "综合",
+        "新闻"
+      ],
+      "note": "法治日报官方号",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "民主与法制周刊",
+      "category": "法律媒体",
+      "tags": [
+        "综合",
+        "新闻"
+      ],
+      "note": "民主与法制周刊",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "民主与法制时报",
+      "category": "法律媒体",
+      "tags": [
+        "综合",
+        "新闻"
+      ],
+      "note": "民主与法制时报",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "海蜂情报",
+      "category": "实务自媒体",
+      "tags": [
+        "公司商事",
+        "合规"
+      ],
+      "note": "关注政策法律对企业的影响",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法蝉",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "创新"
+      ],
+      "note": "法律人科技工具和成长创新方法论",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "大鱼私享会",
+      "category": "实务自媒体",
+      "tags": [
+        "商业思维",
+        "律所管理"
+      ],
+      "note": "新则创始人大鱼团队干货分享",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "觅法LawPlus",
+      "category": "实务自媒体",
+      "tags": [
+        "实务技能",
+        "学习"
+      ],
+      "note": "法律知识学习平台",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "超律志",
+      "category": "实务自媒体",
+      "tags": [
+        "青年律师",
+        "成长"
+      ],
+      "note": "年轻法律人抱团成长",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法律先生",
+      "category": "实务自媒体",
+      "tags": [
+        "综合",
+        "普法"
+      ],
+      "note": "不按常理说法的法律自媒体",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "D调魔法学园",
+      "category": "实务自媒体",
+      "tags": [
+        "法律英语",
+        "国际"
+      ],
+      "note": "高端职业教育跨域资源共享",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法影斑斓",
+      "category": "实务自媒体",
+      "tags": [
+        "法政文化",
+        "读书"
+      ],
+      "note": "最高法何帆主办，法政文化桃花源",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "律锥legalskill",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "AI",
+        "开源"
+      ],
+      "note": "开源法律技能社区",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法大大",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "AI",
+        "合同"
+      ],
+      "note": "AI合同助手，电子签名+法律科技",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "律秤网",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "AI",
+        "律师匹配"
+      ],
+      "note": "AI+持证律师服务平台",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "无讼科技",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "AI",
+        "天工系统"
+      ],
+      "note": "法律+互联网科技公司，法小淘/天工系统",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "熊猫AI法律",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "AI",
+        "知识图谱"
+      ],
+      "note": "高云团队打造，AI法律数智平台",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "法天使AI法务",
+      "category": "实务自媒体",
+      "tags": [
+        "法律科技",
+        "AI",
+        "合同审查"
+      ],
+      "note": "AI法务解决方案，合同审核+文书生成",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "翀霁法律研习社",
+      "category": "学术",
+      "tags": [
+        "学术",
+        "理论"
+      ],
+      "note": "法学理论研究平台",
+      "active": true,
+      "added_at": "2026-07-25"
+    },
+    {
+      "name": "璟律实务观察",
+      "category": "实务自媒体",
+      "tags": [
+        "综合",
+        "实务"
+      ],
+      "note": "法律实务观察",
+      "active": true,
+      "added_at": "2026-07-25"
+    }
+  ]
+}

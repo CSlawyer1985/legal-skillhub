@@ -1,0 +1,298 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "质押合同",
+  "contract_type_en": "pledge",
+  "description": "动产质押、权利质押等质押合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》物权编",
+    "《最高人民法院关于适用〈中华人民共和国民法典〉有关担保制度的解释》"
+  ],
+  "keywords_for_detection": [
+    "质押", "质权", "质押物", "出质", "质物", "动产质押",
+    "权利质押", "股权质押", "应收账款质押", "存单质押"
+  ],
+  "key_clauses": [
+    {
+      "name": "质押财产",
+      "required": true,
+      "keywords": ["质押财产", "质物", "出质财产", "动产", "权利"],
+      "check_points": [
+        {
+          "item": "财产明确",
+          "description": "质押财产的名称、数量、质量、状况是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "可质押性",
+          "description": "质押财产是否属于可质押范围",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属清晰",
+          "description": "出质人对质押财产享有处分权",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确质押财产信息，确保可质押、权属清晰"
+    },
+    {
+      "name": "质押财产交付",
+      "required": true,
+      "keywords": ["交付", "占有", "移交", "质物交付"],
+      "check_points": [
+        {
+          "item": "交付方式",
+          "description": "动产质押需交付质物，权利质押需交付权利凭证或登记",
+          "risk_level": "致命"
+        },
+        {
+          "item": "交付时间",
+          "description": "质押财产交付时间",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "动产质押必须交付质物，质权自出质人交付质押财产时设立"
+    },
+    {
+      "name": "被担保债权",
+      "required": true,
+      "keywords": ["被担保债权", "主债权", "债权数额", "担保范围"],
+      "check_points": [
+        {
+          "item": "债权明确",
+          "description": "被担保债权的种类、数额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "担保范围",
+          "description": "担保范围是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确被担保债权种类、数额、担保范围"
+    },
+    {
+      "name": "质押登记",
+      "required": false,
+      "keywords": ["质押登记", "登记", "出质登记", "质权登记"],
+      "check_points": [
+        {
+          "item": "登记要求",
+          "description": "权利质押通常需办理出质登记",
+          "risk_level": "重大"
+        },
+        {
+          "item": "登记机关",
+          "description": "不同权利质押的登记机关不同",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "权利质押应办理出质登记，股权质押在工商部门，应收账款质押在征信中心"
+    },
+    {
+      "name": "质押财产保管",
+      "required": true,
+      "keywords": ["保管", "占有", "维护", "保险", "孳息"],
+      "check_points": [
+        {
+          "item": "保管义务",
+          "description": "质权人负有妥善保管质押财产的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "孳息归属",
+          "description": "质押财产的孳息归属（质权人有权收取）",
+          "risk_level": "一般"
+        },
+        {
+          "item": "保管费用",
+          "description": "保管质押财产的费用由谁承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确质权人保管义务、孳息归属、保管费用承担"
+    },
+    {
+      "name": "质押财产返还",
+      "required": true,
+      "keywords": ["返还", "质物返还", "清偿", "债务履行"],
+      "check_points": [
+        {
+          "item": "返还条件",
+          "description": "债务人履行债务后质权人应返还质押财产",
+          "risk_level": "重大"
+        },
+        {
+          "item": "返还时限",
+          "description": "返还质押财产的时限",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确债务清偿后返还质押财产的义务和时限"
+    },
+    {
+      "name": "质权实现",
+      "required": true,
+      "keywords": ["实现", "拍卖", "变卖", "折价", "优先受偿"],
+      "check_points": [
+        {
+          "item": "实现条件",
+          "description": "债务人不履行到期债务或发生约定情形",
+          "risk_level": "重大"
+        },
+        {
+          "item": "实现方式",
+          "description": "协议折价、拍卖、变卖",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确质权实现条件、方式，约定实现时的通知程序"
+    },
+    {
+      "name": "流质条款",
+      "required": true,
+      "keywords": ["流质", "归属", "所有权转移", "禁止"],
+      "check_points": [
+        {
+          "item": "流质禁止",
+          "description": "不得约定债务人不履行债务时质押财产归债权人所有",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "禁止流质条款，只能依法就质押财产优先受偿"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "PLE001",
+      "name": "未交付质物",
+      "description": "动产质押未交付质物，质权未设立",
+      "severity": "高风险",
+      "suggestion": "动产质押必须实际交付质物，保留交付凭证",
+      "legal_basis": "《民法典》第429条"
+    },
+    {
+      "id": "PLE002",
+      "name": "未办理出质登记",
+      "description": "权利质押未办理出质登记，质权未设立",
+      "severity": "高风险",
+      "suggestion": "权利质押应及时办理出质登记",
+      "legal_basis": "《民法典》第443条、第445条"
+    },
+    {
+      "id": "PLE003",
+      "name": "质物不可质押",
+      "description": "质物属于禁止转让的财产，不能出质",
+      "severity": "高风险",
+      "suggestion": "确保质物可转让，不属于禁止流通物"
+    },
+    {
+      "id": "PLE004",
+      "name": "流质条款",
+      "description": "约定债务人不履行债务时质物归债权人所有，该条款无效",
+      "severity": "高风险",
+      "suggestion": "删除流质条款，只能约定依法优先受偿",
+      "legal_basis": "《民法典》第428条"
+    },
+    {
+      "id": "PLE005",
+      "name": "质权人保管不善",
+      "description": "质权人未妥善保管质物，造成质物毁损、灭失",
+      "severity": "中风险",
+      "suggestion": "明确质权人保管义务，约定保管不善的赔偿责任",
+      "legal_basis": "《民法典》第432条"
+    },
+    {
+      "id": "PLE006",
+      "name": "质物价值不足",
+      "description": "质物价值低于债权数额，不能充分担保债权",
+      "severity": "中风险",
+      "suggestion": "评估质物价值，合理确定质押率"
+    }
+  ],
+  "position_guidance": {
+    "pledgor": {
+      "name": "出质人",
+      "priority_checks": [
+        "质物价值",
+        "担保范围",
+        "返还条件",
+        "孳息归属"
+      ],
+      "key_concerns": [
+        "确保质物价值与债权匹配",
+        "限定担保范围",
+        "明确债务清偿后的返还",
+        "争取孳息归属"
+      ],
+      "avoid": [
+        "质物价值远高于债权",
+        "担保范围过宽",
+        "流质条款",
+        "放弃孳息"
+      ]
+    },
+    "pledgee": {
+      "name": "质权人",
+      "priority_checks": [
+        "质物交付",
+        "出质登记",
+        "质物保管",
+        "优先受偿"
+      ],
+      "key_concerns": [
+        "确保质物实际交付",
+        "权利质押办理登记",
+        "妥善保管质物",
+        "明确优先受偿权"
+      ],
+      "avoid": [
+        "未实际占有质物",
+        "未办理出质登记",
+        "接受流质条款",
+        "质押率过高"
+      ]
+    }
+  },
+  "legal_notes": {
+    "establishment": {
+      "description": "质权设立",
+      "movable": "动产质押：质权自出质人交付质押财产时设立",
+      "rights": "权利质押：质权自办理出质登记时设立（有权利凭证的，自交付权利凭证时设立）",
+      "legal_basis": "《民法典》第429条、第441条"
+    },
+    "pledgeable_rights": {
+      "description": "可出质的权利",
+      "list": [
+        "汇票、本票、支票",
+        "债券、存款单",
+        "仓单、提单",
+        "可以转让的基金份额、股权",
+        "可以转让的注册商标专用权、专利权、著作权等知识产权中的财产权",
+        "现有的以及将有的应收账款",
+        "法律、行政法规规定可以出质的其他财产权利"
+      ],
+      "legal_basis": "《民法典》第440条"
+    },
+    "registration_authority": {
+      "description": "权利质押登记机关",
+      "fund_shares": "基金份额、股权：证券登记结算机构或工商行政管理部门",
+      "ip": "知识产权：国家知识产权局、国家版权局等",
+      "receivables": "应收账款：中国人民银行征信中心",
+      "legal_basis": "《民法典》第443-445条"
+    },
+    "prohibition_clause": {
+      "description": "流质条款",
+      "rule": "质权人在债务履行期限届满前，与出质人约定债务人不履行到期债务时质押财产归债权人所有的，只能依法就质押财产优先受偿",
+      "effect": "流质条款无效，但不影响质押合同其他部分效力",
+      "legal_basis": "《民法典》第428条"
+    },
+    "custody": {
+      "description": "质物保管",
+      "rule": "质权人负有妥善保管质押财产的义务；因保管不善致使质押财产毁损、灭失的，应当承担赔偿责任",
+      "fruits": "质权人有权收取质押财产的孳息，但合同另有约定的除外",
+      "legal_basis": "《民法典》第430条、第432条"
+    }
+  }
+}

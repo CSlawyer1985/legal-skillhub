@@ -1,0 +1,280 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "电子商务平台服务合同",
+  "contract_type_en": "e-commerce",
+  "description": "电商平台入驻、店铺运营、网络零售、直播电商等电商服务合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国电子商务法》",
+    "《网络交易管理办法》"
+  ],
+  "keywords_for_detection": [
+    "电商", "平台", "入驻", "店铺", "商家", "消费者",
+    "网店", "运营", "推广", "佣金", "保证金"
+  ],
+  "key_clauses": [
+    {
+      "name": "平台服务内容",
+      "required": true,
+      "keywords": ["服务内容", "平台服务", "入驻服务"],
+      "check_points": [
+        {
+          "item": "服务明确",
+          "description": "平台提供的服务内容是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "店铺类型",
+          "description": "店铺类型（旗舰店/专卖店/专营店等）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确平台服务内容和店铺类型"
+    },
+    {
+      "name": "资质要求",
+      "required": true,
+      "keywords": ["资质", "营业执照", "许可证", "经营许可"],
+      "check_points": [
+        {
+          "item": "资质要求",
+          "description": "商家入驻资质要求",
+          "risk_level": "致命"
+        },
+        {
+          "item": "证照",
+          "description": "营业执照、经营许可证等是否齐全",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确入驻资质要求，确保商家证照齐全"
+    },
+    {
+      "name": "费用与结算",
+      "required": true,
+      "keywords": ["费用", "佣金", "技术服务费", "保证金", "结算"],
+      "check_points": [
+        {
+          "item": "佣金比例",
+          "description": "佣金/技术服务费比例",
+          "risk_level": "致命"
+        },
+        {
+          "item": "保证金",
+          "description": "保证金金额和退还条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "结算周期",
+          "description": "货款结算周期",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确佣金比例、保证金、结算周期"
+    },
+    {
+      "name": "商品质量与责任",
+      "required": true,
+      "keywords": ["商品质量", "质量保证", "正品保证", "假货"],
+      "check_points": [
+        {
+          "item": "质量保证",
+          "description": "商家对商品质量的保证",
+          "risk_level": "重大"
+        },
+        {
+          "item": "正品保证",
+          "description": "保证商品为正品",
+          "risk_level": "重大"
+        },
+        {
+          "item": "退换货",
+          "description": "退换货政策和费用承担",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确商品质量保证、退换货政策"
+    },
+    {
+      "name": "知识产权保护",
+      "required": true,
+      "keywords": ["知识产权", "品牌授权", "商标", "侵权"],
+      "check_points": [
+        {
+          "item": "授权证明",
+          "description": "品牌授权证明是否提供",
+          "risk_level": "重大"
+        },
+        {
+          "item": "侵权责任",
+          "description": "商品侵权（知识产权）的责任承担",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "要求提供品牌授权证明，明确侵权责任"
+    },
+    {
+      "name": "推广服务",
+      "required": false,
+      "keywords": ["推广", "广告", "流量", "推广费"],
+      "check_points": [
+        {
+          "item": "推广费用",
+          "description": "推广服务费用",
+          "risk_level": "重大"
+        },
+        {
+          "item": "推广效果",
+          "description": "推广效果保证",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确推广费用，推广效果通常不保证"
+    },
+    {
+      "name": "违规与处罚",
+      "required": true,
+      "keywords": ["违规", "处罚", "扣分", "关店", "违约金"],
+      "check_points": [
+        {
+          "item": "违规情形",
+          "description": "违规情形和处罚标准",
+          "risk_level": "重大"
+        },
+        {
+          "item": "处罚程序",
+          "description": "违规处罚的程序和申诉机制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确违规情形、处罚标准、申诉机制"
+    },
+    {
+      "name": "合同终止",
+      "required": true,
+      "keywords": ["终止", "退出", "关店", "清退"],
+      "check_points": [
+        {
+          "item": "终止条件",
+          "description": "合同终止条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "货款结算",
+          "description": "终止后货款结算",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保证金退还",
+          "description": "终止后保证金退还",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确终止条件、货款结算、保证金退还"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "EC001",
+      "name": "资质不符",
+      "description": "商家入驻资质不符，销售无证商品",
+      "severity": "高风险",
+      "suggestion": "核实商家资质，确保证照齐全有效"
+    },
+    {
+      "id": "EC002",
+      "name": "假货/侵权",
+      "description": "商家销售假冒商品或侵权商品",
+      "severity": "高风险",
+      "suggestion": "要求提供品牌授权证明，设置抽检机制",
+      "legal_basis": "《电子商务法》第5条"
+    },
+    {
+      "id": "EC003",
+      "name": "虚假宣传",
+      "description": "商家进行虚假宣传，误导消费者",
+      "severity": "高风险",
+      "suggestion": "明确禁止虚假宣传，设置违规处罚",
+      "legal_basis": "《电子商务法》第17条"
+    },
+    {
+      "id": "EC004",
+      "name": "佣金不透明",
+      "description": "佣金计算方式不透明，商家收益受损",
+      "severity": "中风险",
+      "suggestion": "明确佣金计算方式，约定费用明细"
+    },
+    {
+      "id": "EC005",
+      "name": "违规处罚过重",
+      "description": "平台对商家违规处罚过重，缺乏申诉机制",
+      "severity": "中风险",
+      "suggestion": "明确处罚标准，设置申诉机制"
+    },
+    {
+      "id": "EC006",
+      "name": "保证金扣押",
+      "description": "商家退出后保证金被扣押或延迟退还",
+      "severity": "中风险",
+      "suggestion": "明确保证金退还条件和时限"
+    }
+  ],
+  "position_guidance": {
+    "merchant": {
+      "name": "商家",
+      "priority_checks": [
+        "佣金比例",
+        "保证金",
+        "结算周期",
+        "违规处罚"
+      ],
+      "key_concerns": [
+        "争取合理的佣金比例",
+        "明确保证金退还条件",
+        "确保结算周期合理",
+        "了解违规处罚标准"
+      ],
+      "avoid": [
+        "佣金过高",
+        "保证金不退还",
+        "结算周期过长",
+        "违规处罚过重"
+      ]
+    },
+    "platform": {
+      "name": "平台",
+      "priority_checks": [
+        "商家资质",
+        "商品质量",
+        "知识产权",
+        "违规管理"
+      ],
+      "key_concerns": [
+        "核实商家资质",
+        "确保商品质量",
+        "保护知识产权",
+        "有效违规管理"
+      ],
+      "avoid": [
+        "商家资质不实",
+        "假货泛滥",
+        "虚假宣传",
+        "违规管理不力"
+      ]
+    }
+  },
+  "legal_notes": {
+    "platform_responsibility": {
+      "description": "平台责任",
+      "general": "平台对商家具有管理义务，须制定平台服务协议和交易规则",
+      "knowledge": "平台知道或应当知道商家利用平台侵害消费者合法权益，未采取必要措施的，承担连带责任",
+      "legal_basis": "《电子商务法》第5条、第38条"
+    },
+    "merchant_qualification": {
+      "description": "商家资质",
+      "business_license": "商家须取得营业执照",
+      "special_permit": "销售特定商品须取得相应经营许可"
+    }
+  }
+}

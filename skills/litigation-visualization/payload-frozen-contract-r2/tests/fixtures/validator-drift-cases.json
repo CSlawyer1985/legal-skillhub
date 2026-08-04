@@ -1,0 +1,64 @@
+[
+  {
+    "id": "handoff-to-spec-privacy-enum-drift",
+    "mutations": {
+      "privacy_authorization.processing_location": "local"
+    },
+    "expected_error_code": "PRIVACY_PROCESSING_LOCATION"
+  },
+  {
+    "id": "handoff-to-spec-party-prefix-drift",
+    "mutations": {
+      "privacy_authorization.allowed_processors": [
+        "codex"
+      ]
+    },
+    "expected_error_code": "PRIVACY_PROCESSORS"
+  },
+  {
+    "id": "handoff-to-spec-source-date-drift",
+    "mutations": {
+      "source_ledger.0.ingested_at": "2026-07-23T07:01:28Z"
+    },
+    "expected_error_code": "DATE_FORMAT"
+  },
+  {
+    "id": "handoff-to-spec-authorized-use-type-drift",
+    "mutations": {
+      "source_ledger.0.authorized_use": "local candidate contract validation"
+    },
+    "expected_error_code": "SOURCE_AUTHORIZED_USE"
+  },
+  {
+    "id": "handoff-to-spec-locator-prefix-drift",
+    "mutations": {
+      "source_ledger.0.locator_prefix": "L2-PLAN"
+    },
+    "expected_error_code": "LOCATOR_PREFIX"
+  },
+  {
+    "id": "handoff-to-spec-spatial-view-without-review",
+    "mutations": {
+      "route.requested_views": [
+        "case_process_flow",
+        "spatial_diagram"
+      ]
+    },
+    "expected_error_code": "ROUTE_VIEW"
+  },
+  {
+    "id": "handoff-fail-open-render",
+    "mutations": {
+      "route.capability_status": "supported",
+      "gates.render_allowed": true
+    },
+    "expected_error_code": "RENDER_GATE"
+  },
+  {
+    "id": "handoff-validator-hash-drift",
+    "mutations": {
+      "validator_compatibility.validate_spec_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "expected_error_code": "VALIDATOR_DRIFT"
+  }
+]

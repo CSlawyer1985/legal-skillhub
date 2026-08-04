@@ -1,0 +1,4 @@
+interface:
+  display_name: "品牌仿冒投诉与下架｜简诗 AI"
+  short_description: "发现并处理假网站、钓鱼站、商标侵权和抢注域名，整理证据、举报路径与预防动作，降低品牌和客户损失。"
+  default_prompt: "使用 $brand-protection-organizer 完成“品牌仿冒投诉与下架”任务，并给出可执行结果。"

@@ -1,0 +1,214 @@
+{
+  "schema": "gaotao.postapproval.mother-and-donor-vis/1.0",
+  "status": "ACTIVE-ROOT-APPROVED",
+  "authorization": {
+    "room_message_id": "1785217601999-codex",
+    "receipt_path": "<local-source-redacted>",
+    "receipt_sha256": "663954c52f4310b4f7c898d039296bc66aa3ccddfd91ebd130ce9eaa10e9e7fa"
+  },
+  "baseline_inventory": {
+    "summary_path": "<local-source-redacted>",
+    "summary_sha256": "1785f92de77649154a2d1759982bdfcf9273aaa867bfb842a2e34d2a7b61e9e9",
+    "tree_algorithm": "relpath+NUL+sha256+NUL+size+LF/sorted-posix/v1",
+    "sources": [
+      {
+        "id": "formal-mother-codex",
+        "path": "<local-source-redacted>",
+        "file_count": 35,
+        "tree_sha256": "37acd66b8763f9067b2c93e4973484f6efb2b9ec6755a69f711653e3b6320a23"
+      },
+      {
+        "id": "formal-mother-claude",
+        "path": "<local-source-redacted>",
+        "file_count": 35,
+        "tree_sha256": "37acd66b8763f9067b2c93e4973484f6efb2b9ec6755a69f711653e3b6320a23",
+        "role": "read-only-identical-mirror"
+      },
+      {
+        "id": "formal-mother-hermes",
+        "path": "<local-source-redacted>",
+        "file_count": 28,
+        "tree_sha256": "980fcce60311e006d8d1070e20d6e2d8045823b258e946049d1369ee807e8588",
+        "role": "read-only-version-divergence-control"
+      },
+      {
+        "id": "financial-lease-direct-geo",
+        "path": "<local-source-redacted>",
+        "file_count": 48,
+        "tree_sha256": "affd4429857ae5711428b9dab51a91ef545045d9763389b9d05aa46ef03be990"
+      },
+      {
+        "id": "financial-lease-subscription",
+        "path": "<local-source-redacted>",
+        "file_count": 78,
+        "tree_sha256": "9b3412676b93a2790ebb6a552020aacee7d09258446d8460109ddba27ff20c9c"
+      },
+      {
+        "id": "sales-contract",
+        "path": "<local-source-redacted>",
+        "file_count": 51,
+        "tree_sha256": "7f9c5ff12d8b1e65597a51fb3698e801c0cff324e42d29f8737428317d9f3e7b"
+      },
+      {
+        "id": "accepted-double-donor-r1.1",
+        "path": "<local-source-redacted>",
+        "file_count": 61,
+        "tree_sha256": "e1819a3a98448d691521a8c960594635d05b5399073722cb9a025772c3590a81",
+        "sha256sums_sha256": "89a86e5426f6a78b80b79c56b30a27078dfe12025434a4cbaf5faa54bfe1c984"
+      }
+    ]
+  },
+  "candidate_roots": [
+    {
+      "id": "mother-validator-remediation",
+      "version": "1.0.0-rc.4",
+      "path": "<local-source-redacted>",
+      "source_id": "formal-mother-codex"
+    },
+    {
+      "id": "financial-lease-direct-geo-vis",
+      "version": "1.1.0-rc.1",
+      "path": "<local-source-redacted>",
+      "source_id": "financial-lease-direct-geo"
+    },
+    {
+      "id": "financial-lease-subscription-vis",
+      "version": "1.1.0-rc.1",
+      "path": "<local-source-redacted>",
+      "source_id": "financial-lease-subscription"
+    },
+    {
+      "id": "sales-contract-vis",
+      "version": "1.1.0-rc.1",
+      "path": "<local-source-redacted>",
+      "source_id": "sales-contract"
+    }
+  ],
+  "mother_candidate_requirements": {
+    "preserve_existing_nine_document_structure": true,
+    "required_executable_layers": [
+      "adapter-contract-schema",
+      "candidate-orchestrator",
+      "drafting-contract-gate",
+      "nine-docx-registry-and-structure-gate",
+      "court-layout-and-real-table-gate",
+      "chinese-visible-layer-gate",
+      "privacy-and-provenance-gate",
+      "clean-input-production-runner-gate",
+      "frozen-07-gate",
+      "same-case-07-only-vis-gate",
+      "g9-red-green-regression-gate"
+    ],
+    "required_stage_order": [
+      "G0-source-and-license",
+      "G1-adapter-contract",
+      "G1.5-drafting-contract",
+      "G2-clean-input-and-privacy",
+      "G3-nine-docx-production",
+      "G4-pdf-and-all-page-render",
+      "G5-text-quality-and-consistency",
+      "G6-frozen-07",
+      "G7-optional-same-case-vis",
+      "G8-package-inventory-and-hash",
+      "G9-regression-armory"
+    ],
+    "fail_closed": true,
+    "candidate_only_no_install": true
+  },
+  "child_package_requirements": {
+    "copy_source_into_new_version_root": true,
+    "overwrite_source": false,
+    "nine_docx_main_chain_unchanged": true,
+    "vis_capability": {
+      "default_enabled": false,
+      "trigger": "on_request_after_text_pass",
+      "input": "same-case-independent-frozen-07-plus-A01-A09",
+      "outputs_per_case": {
+        "svg": 4,
+        "png": 4
+      },
+      "write_back_to_text_or_global_case_state": false,
+      "fail_closed_conditions": [
+        "text-failed",
+        "frozen-07-missing",
+        "frozen-07-hash-mismatch",
+        "cross-case-path-or-case-id",
+        "anchor-set-incomplete-or-mismatched",
+        "vis-disabled-with-artifacts"
+      ]
+    },
+    "required_package_entities": [
+      "SKILL.md",
+      "manifest.json",
+      "LICENSE-PROVENANCE.json",
+      "GPL-3.0",
+      "PRIVACY.md",
+      "GEO.md-or-existing-equivalent",
+      "geo-executable-selftest",
+      "nine-document-registry",
+      "drafting-contract",
+      "layout-chinese-privacy-validators",
+      "clean-input-runner",
+      "frozen-07-runner-and-validator",
+      "vis-generator-and-validator",
+      "g9-armory",
+      "SHA256SUMS.txt"
+    ]
+  },
+  "production_acceptance": {
+    "fresh_runs": [
+      "financial-lease-direct-geo-case01",
+      "financial-lease-subscription-direct-case01",
+      "financial-lease-subscription-sale-and-leaseback-case02",
+      "sales-contract-case003"
+    ],
+    "positive_chain": "clean-input->9-DOCX->9-PDF->all-page-PNG->TEXT-PASS->independent-frozen-07->same-case-4-SVG+4-PNG",
+    "required_negative_paths": [
+      "text-failure-blocks-freeze-and-vis",
+      "frozen-07-missing",
+      "frozen-07-tamper",
+      "cross-case-input",
+      "vis-disabled",
+      "nested-symlink",
+      "unlisted-extra-file",
+      "privacy-red-fixture",
+      "g9-not-replayed"
+    ],
+    "required_assertions": [
+      "source-trees-before-equal-after",
+      "nine-docx-and-nine-pdf-byte-identical-before-and-after-vis",
+      "all-docx-editable-ooxml",
+      "all-pdf-pages-rendered",
+      "visible-chinese-no-garbled-text-or-unnecessary-governance-english",
+      "court-documents-01-02-05-06-pass-layout",
+      "document-02-has-six-column-real-table-with-repeating-header-and-nonsplitting-body-rows",
+      "zero-symlink-final-package",
+      "sha256sums-exactly-covers-all-regular-files-except-itself",
+      "markdown-and-json-do-not-substitute-for-required-docx"
+    ]
+  },
+  "license_and_geo": {
+    "new_code_and_documents_license": "GPL-3.0",
+    "preserve_donor_rights_per_entity": true,
+    "do_not_relicense_subscription_or_cc_by_entities": true,
+    "geo_entities_and_selftests_retained": true,
+    "geo_activation_authorized": false,
+    "geo_public_projection_authorized": false,
+    "geo_release_authorized": false
+  },
+  "review_roles": {
+    "builder": "claude-code",
+    "technical_independent_review": "codex",
+    "governance_independent_review": "hermes",
+    "visual_review": "codex-plus-root-as-needed"
+  },
+  "prohibited": [
+    "network-provider-or-paid-call",
+    "source-root-write",
+    "in-place-version-overwrite",
+    "formal-mother-install-or-promotion",
+    "upload-or-external-transmission",
+    "public-release",
+    "court-submission"
+  ]
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 · 从 2049 个样本看法律 Skill · 学习中心</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>07 · 从 2049 个样本看法律 Skill</h1>
+  <p class="lead">本站收录的 2049 个法律 Skill 是一个罕见的语料库——它让我们第一次能<em>宏观地</em>看清"法律人正在用 AI 做什么、怎么做"。这一讲用数据说话。</p>
+
+  <h2>一、来源与语言：中文与英文几乎对半</h2>
+  <table>
+    <tr><th>来源</th><th>数量</th><th>主体语言</th><th>典型风格</th></tr>
+    <tr><td>CaseMark（美国）</td><td>882</td><td>英文</td><td>程序化 SOP：Intake→Workflow→Output Contract，结构整齐</td></tr>
+    <tr><td>腾讯 SkillHub（中文社区）</td><td>881</td><td>中文</td><td>人格化长 prompt：先设定"你是一名律师"，再写大段方法论</td></tr>
+    <tr><td>Awesome Legal Skills（中文译介）</td><td>224</td><td>中文（多源自英/法）</td><td>跨国法域、GDRP/RGPD 系，强调对抗式核查</td></tr>
+    <tr><td>元力法律</td><td>61</td><td>中文</td><td>深度工程化：八阶段工作流 + MCP 检索 + 验证闭环</td></tr>
+  </table>
+  <p>总计 <strong>中文 1003 / 英文 1046</strong>，几乎对半。这意味着你在本站能同时看到中美两种法律工作流的写法——这是任何单语 Skill 库都给不了的视角。</p>
+
+  <h2>二、两种风格的对照</h2>
+  <p>中文社区（尤其腾讯来源）写 Skill 有强烈的<strong>"角色扮演 + 方法论灌注"</strong>倾向：</p>
+  <pre>你是一名资深建设工程律师。请按照以下方法论审查施工合同……
+（随后是上千字的领域知识与方法论叙述）</pre>
+  <p>美国 CaseMark 则是<strong>"程序化 SOP"</strong>：</p>
+  <pre>## Intake
+Collect: contract type, governing law, client position…
+## Workflow
+1. Identify parties → 2. Scope obligations → …
+## Output Contract
+Each risk: clause ref + risk level + basis + recommendation</pre>
+  <p>两种没有绝对优劣：中文风格擅长把"律师怎么想"灌进去，适合需要专业判断的任务；美国风格擅长把"步骤怎么走"固化，适合需要稳定复现的任务。<strong>最好的法律 Skill 往往是两者的混合——用 SOP 锚定流程，用方法论灌注判断</strong>。</p>
+
+  <h2>三、法域分布：中国与美国是绝对主力</h2>
+  <table>
+    <tr><th>主法域</th><th>数量</th><th>启示</th></tr>
+    <tr><td>中国大陆</td><td>801</td><td>中文法律 Skill 生态已相当成熟</td></tr>
+    <tr><td>美国</td><td>608</td><td>程序法（FRCP/FRBP）和行业监管（SEC/FDA/EEOC）的 Skill 最密集</td></tr>
+    <tr><td>法域中立</td><td>405</td><td>通用方法论（计费、写作、检索），不绑定具体法律</td></tr>
+    <tr><td>欧盟</td><td>113</td><td>集中在 GDPR / AI Act 数据合规</td></tr>
+    <tr><td>跨境/国际</td><td>53</td><td>出口管制、数据出境、比较法</td></tr>
+    <tr><td>法国</td><td>26</td><td>多被中文译介覆盖，含 DPA 审查、IRAC/Gutachtenstil 方法论</td></tr>
+  </table>
+  <p>一个值得注意的空白：<strong>日本、韩国、新加坡、香港、东南亚的法域 Skill 数量极少</strong>（个位数）。随着这些法域的合规需求上升，这正是写 Skill 的机会区。</p>
+
+  <h2>四、技能形态：七成是"纯指令型"</h2>
+  <table>
+    <tr><th>形态</th><th>数量</th><th>占比</th></tr>
+    <tr><td>指令型（仅 SKILL.md）</td><td>1424</td><td>70%</td></tr>
+    <tr><td>代码包型（含脚本）</td><td>206</td><td>10%</td></tr>
+    <tr><td>知识包型（含 references）</td><td>173</td><td>8%</td></tr>
+    <tr><td>混合型</td><td>141</td><td>7%</td></tr>
+    <tr><td>工具封装型</td><td>93</td><td>5%</td></tr>
+  </table>
+  <p>大多数法律 Skill 还停留在"一段好的指令"。真正把法律工作工程化（带检索脚本、知识库、验证闭环）的是少数——而这少数恰恰是质量最高的那批。<strong>从"指令"走向"工程"，是法律 Skill 进化的主方向。</strong></p>
+
+  <h2>五、法律 Skill 写作十条军规（从语料提炼）</h2>
+  <ol>
+    <li><strong>description 是路由器</strong>，不是简介——写清做什么、何时用、何时不用。</li>
+    <li><strong>Intake 先于分析</strong>——先收集事实，再下判断；不直接跳结论。</li>
+    <li><strong>流程刚性 + 判断弹性</strong>——步骤锁死，判断给标准与空间。</li>
+    <li><strong>渐进式披露</strong>——SKILL.md 做导航，知识拆附属文件一层。</li>
+    <li><strong>输出契约具体到要素</strong>——每个风险点含哪几项，写死。</li>
+    <li><strong>禁止虚构</strong>——法条/案例/案号必须可检索验证。</li>
+    <li><strong>法域自觉</strong>——声明法域，跨域时退出。</li>
+    <li><strong>事实/规范/评价三层分离</strong>——别混着写。</li>
+    <li><strong>人工复核节点显式化</strong>——AI 给选项，人拍板。</li>
+    <li><strong>用评测证明价值</strong>——相对基线的可测量增量。</li>
+  </ol>
+  <p>这十条，前五条是"写得成"，后五条是"用得起"。本学习中心的前六讲，本质上都在展开这十条。</p>
+
+  <h2>结语：你的下一步</h2>
+  <p>学完七讲，你已经知道 Skill 是什么、怎么选、怎么写、跑在哪、怎么算好、怎么验证、从全貌看处于什么位置。接下来只有一件事——<strong>选一项你反复做的法律工作，把它封装成 Skill</strong>。2049 个样本就在<a class="case-link" href="../index.html">技能库</a>里等你参考；写完后，欢迎提交回来，让第 2050 个 Skill 带上你的方法论。</p>
+</article>
+<div id="footer"></div>
+<script src="../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
+</script>
+</body>
+</html>

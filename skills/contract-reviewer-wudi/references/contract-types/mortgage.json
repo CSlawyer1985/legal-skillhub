@@ -1,0 +1,294 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "抵押合同",
+  "contract_type_en": "mortgage",
+  "description": "不动产抵押、动产抵押、权利抵押等抵押合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》物权编",
+    "《最高人民法院关于适用〈中华人民共和国民法典〉有关担保制度的解释》"
+  ],
+  "keywords_for_detection": [
+    "抵押", "抵押权", "抵押物", "抵押财产", "抵押登记",
+    "不动产抵押", "动产抵押", "房产抵押", "土地抵押"
+  ],
+  "key_clauses": [
+    {
+      "name": "抵押财产",
+      "required": true,
+      "keywords": ["抵押财产", "抵押物", "房产", "土地", "设备", "车辆"],
+      "check_points": [
+        {
+          "item": "财产明确",
+          "description": "抵押财产的名称、数量、质量、状况、所在地是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属清晰",
+          "description": "抵押人对抵押财产享有处分权",
+          "risk_level": "致命"
+        },
+        {
+          "item": "可抵押性",
+          "description": "抵押财产是否属于可抵押范围",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确抵押财产信息，确保权属清晰、可抵押"
+    },
+    {
+      "name": "被担保债权",
+      "required": true,
+      "keywords": ["被担保债权", "主债权", "债权数额", "担保范围"],
+      "check_points": [
+        {
+          "item": "债权明确",
+          "description": "被担保债权的种类、数额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "担保范围",
+          "description": "担保范围是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确被担保债权种类、数额、担保范围"
+    },
+    {
+      "name": "抵押登记",
+      "required": true,
+      "keywords": ["抵押登记", "登记", "不动产登记", "动产抵押登记"],
+      "check_points": [
+        {
+          "item": "登记义务",
+          "description": "抵押登记由谁办理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "登记时限",
+          "description": "抵押登记办理时限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "登记效力",
+          "description": "不动产抵押未经登记不生效，动产抵押未经登记不得对抗善意第三人",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "不动产抵押必须办理登记，动产抵押建议办理登记"
+    },
+    {
+      "name": "抵押物价值",
+      "required": false,
+      "keywords": ["价值", "评估", "抵押率", "抵押价值"],
+      "check_points": [
+        {
+          "item": "价值确定",
+          "description": "抵押物价值是否确定或评估",
+          "risk_level": "一般"
+        },
+        {
+          "item": "抵押率",
+          "description": "抵押率是否合理（通常不超过70%）",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确抵押物价值或评估方式，合理确定抵押率"
+    },
+    {
+      "name": "抵押物保管",
+      "required": true,
+      "keywords": ["保管", "占有", "使用", "维护", "保险"],
+      "check_points": [
+        {
+          "item": "占有方式",
+          "description": "抵押物由谁占有（抵押人占有为原则）",
+          "risk_level": "一般"
+        },
+        {
+          "item": "保管义务",
+          "description": "抵押人保管抵押物的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保险",
+          "description": "抵押物保险要求",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确抵押人保管义务、保险要求，抵押权人为第一受益人"
+    },
+    {
+      "name": "抵押物处分限制",
+      "required": true,
+      "keywords": ["转让", "处分", "出租", "再抵押", "限制"],
+      "check_points": [
+        {
+          "item": "转让限制",
+          "description": "抵押期间转让抵押物的限制",
+          "risk_level": "重大"
+        },
+        {
+          "item": "再抵押",
+          "description": "是否允许再抵押",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "约定抵押物转让需抵押权人同意，所得价款提前清偿或提存"
+    },
+    {
+      "name": "抵押权实现",
+      "required": true,
+      "keywords": ["实现", "拍卖", "变卖", "折价", "优先受偿"],
+      "check_points": [
+        {
+          "item": "实现条件",
+          "description": "抵押权实现条件（债务人不履行到期债务）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "实现方式",
+          "description": "协议折价、拍卖、变卖",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确抵押权实现条件、方式，约定实现抵押权时的通知程序"
+    },
+    {
+      "name": "流押条款",
+      "required": true,
+      "keywords": ["流押", "流质", "归属", "所有权转移", "禁止"],
+      "check_points": [
+        {
+          "item": "流押禁止",
+          "description": "不得约定债务人不履行债务时抵押财产归债权人所有",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "禁止流押条款，只能依法就抵押财产优先受偿"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "MOR001",
+      "name": "未办理抵押登记",
+      "description": "不动产抵押未登记不生效，动产抵押未登记不得对抗善意第三人",
+      "severity": "高风险",
+      "suggestion": "不动产抵押必须办理登记，动产抵押建议办理登记",
+      "legal_basis": "《民法典》第402条、第403条"
+    },
+    {
+      "id": "MOR002",
+      "name": "抵押物权属不清",
+      "description": "抵押人对抵押物无处分权，抵押权存在瑕疵",
+      "severity": "高风险",
+      "suggestion": "核实抵押物权属，查询不动产登记簿或动产登记"
+    },
+    {
+      "id": "MOR003",
+      "name": "抵押物不可抵押",
+      "description": "抵押物属于禁止抵押的财产（如土地所有权、公益设施等）",
+      "severity": "高风险",
+      "suggestion": "确保抵押物属于可抵押财产范围",
+      "legal_basis": "《民法典》第399条"
+    },
+    {
+      "id": "MOR004",
+      "name": "流押条款",
+      "description": "约定债务人不履行债务时抵押物归债权人所有，该条款无效",
+      "severity": "高风险",
+      "suggestion": "删除流押条款，只能约定依法优先受偿",
+      "legal_basis": "《民法典》第401条"
+    },
+    {
+      "id": "MOR005",
+      "name": "抵押物价值不足",
+      "description": "抵押物价值低于债权数额，不能充分担保债权",
+      "severity": "中风险",
+      "suggestion": "评估抵押物价值，合理确定抵押率（通常不超过70%）"
+    },
+    {
+      "id": "MOR006",
+      "name": "抵押物被转让",
+      "description": "抵押人擅自转让抵押物，抵押权难以实现",
+      "severity": "中风险",
+      "suggestion": "约定抵押物转让需抵押权人同意，及时查询抵押物状态"
+    }
+  ],
+  "position_guidance": {
+    "mortgagor": {
+      "name": "抵押人",
+      "priority_checks": [
+        "抵押物价值",
+        "担保范围",
+        "处分限制",
+        "保险要求"
+      ],
+      "key_concerns": [
+        "确保抵押物价值与债权匹配",
+        "限定担保范围",
+        "限制转让限制过严",
+        "了解保险费用承担"
+      ],
+      "avoid": [
+        "抵押物价值远高于债权",
+        "担保范围过宽",
+        "禁止一切处分",
+        "承担过高保险费用"
+      ]
+    },
+    "mortgagee": {
+      "name": "抵押权人",
+      "priority_checks": [
+        "抵押登记",
+        "抵押物权属",
+        "抵押物价值",
+        "保险受益人"
+      ],
+      "key_concerns": [
+        "确保办理抵押登记",
+        "核实抵押物权属",
+        "评估抵押物价值",
+        "确保自己为第一受益人"
+      ],
+      "avoid": [
+        "未办理抵押登记",
+        "未核实权属",
+        "接受流押条款",
+        "抵押率过高"
+      ]
+    }
+  },
+  "legal_notes": {
+    "registration": {
+      "description": "抵押登记",
+      "real_estate": "不动产抵押：登记生效主义，未经登记抵押权不设立",
+      "movable": "动产抵押：登记对抗主义，未经登记不得对抗善意第三人",
+      "authority": "不动产：不动产登记中心；动产：中国人民银行征信中心动产融资统一登记公示系统",
+      "legal_basis": "《民法典》第402-403条"
+    },
+    "prohibited_property": {
+      "description": "禁止抵押的财产",
+      "list": [
+        "土地所有权",
+        "宅基地、自留地、自留山等集体所有土地的使用权（法律规定可以抵押的除外）",
+        "学校、幼儿园、医疗机构等为公益目的成立的非营利法人的教育设施、医疗卫生设施和其他公益设施",
+        "所有权、使用权不明或者有争议的财产",
+        "依法被查封、扣押、监管的财产"
+      ],
+      "legal_basis": "《民法典》第399条"
+    },
+    "prohibition_clause": {
+      "description": "流押条款",
+      "rule": "抵押权人在债务履行期限届满前，与抵押人约定债务人不履行到期债务时抵押财产归债权人所有的，只能依法就抵押财产优先受偿",
+      "effect": "流押条款无效，但不影响抵押合同其他部分效力",
+      "legal_basis": "《民法典》第401条"
+    },
+    "transfer": {
+      "description": "抵押物转让",
+      "rule": "抵押期间，抵押人可以转让抵押财产，当事人另有约定的除外。抵押财产转让的，抵押权不受影响",
+      "notice": "抵押人转让抵押财产的，应当及时通知抵押权人",
+      "legal_basis": "《民法典》第406条"
+    }
+  }
+}

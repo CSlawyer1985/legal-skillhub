@@ -1,0 +1,22 @@
+{
+  "source_key": "OneWave-AI__claude-skills",
+  "repo_url": "https://github.com/onewave-ai/claude-skills",
+  "commit": "27f8cdcea225e627a73de89b9a3d477af9e249da",
+  "source_relative_path": "compliance-checker/SKILL.md",
+  "source_skill_sha256": "0269f3247d30c32ea285648a82af10a2812e630240cb2400400362c2430da421",
+  "source_tree_sha256": "42ac1c66d0b3d148d192f46c1161fb3c9879308f509372b160a85388c31a3146",
+  "effective_license": "MIT",
+  "license_files": [
+    "LICENSE"
+  ],
+  "target_category": "business-operations",
+  "selected_rank": 596,
+  "public_branding_applied": true,
+  "product_display_name": "合规性审核与整改方案｜简诗 AI",
+  "product_slug": "compliance-checker-blueprint",
+  "productization": "简诗 AI canonical v1",
+  "product_summary": "对一个或多个法规框架进行深度合规审查，识别差距，产出有据可依的整改措施和认证准备指导。",
+  "original_product_slug": "compliance-checker",
+  "semantic_reslug_version": "1.0.2",
+  "semantic_reslug_reason": "依据“合规性审核与整改方案”的真实交付物设计英文语义，明确表达实施方案，不使用品牌机械前缀或随机编号。"
+}

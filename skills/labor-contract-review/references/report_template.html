@@ -1,0 +1,98 @@
+<!-- 设计参考：实际 HTML 由 scripts/build_report.py 依据 analysis.json 生成，本文件仅作样式与结构参考。 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #ffffff; --ink: #1f2329; --muted: #6b7280;
+    --line: #e5e7eb; --red: #d92d20; --orange: #f79009; --green: #079455; --blue: #2563eb;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.6; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 32px 24px 64px; }
+  header { background: linear-gradient(135deg, #2563eb, #1e40af); color: #fff; border-radius: 16px; padding: 28px 32px; margin-bottom: 24px; }
+  header.danger { background: linear-gradient(135deg, #d92d20, #9b1c1c); }
+  header h1 { margin: 0 0 8px; font-size: 24px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; opacity: .95; }
+  .meta div span { opacity: .8; margin-right: 6px; }
+  .overall { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 8px 16px;
+    border-radius: 999px; background: rgba(255,255,255,.18); font-weight: 600; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; margin-bottom: 20px; }
+  h2 { font-size: 18px; margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+  h2::before { content: ""; width: 4px; height: 18px; background: var(--blue); border-radius: 2px; }
+  .summary { color: var(--muted); }
+  .wage { font-size: 13px; color: #075985; background: #e0f2fe; border-radius: 8px; padding: 8px 12px; margin-top: 12px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .rcard { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; border-left: 4px solid var(--red); }
+  .rcard.mid { border-left-color: var(--orange); }
+  .rcard .t { font-weight: 600; margin-bottom: 4px; }
+  .rcard .d { font-size: 13px; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .b-high { background: #fee4e2; color: var(--red); }
+  .b-mid { background: #fef0c7; color: #b54708; }
+  .b-low { background: #e0f2fe; color: #075985; }
+  .b-ok { background: #d1fadf; color: var(--green); }
+  .quote { background: #f8fafc; border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; color: #374151; font-size: 12.5px; max-height: 90px; overflow: auto; }
+  .comment { margin-top: 8px; background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid var(--orange); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; color: #92400e; }
+  .comment b { color: #b45309; }
+  .emp { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid var(--green); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; color: #065f46; }
+  .emp b { color: #047857; }
+  .disclaimer { font-size: 12.5px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="{{HEADER_CLASS}}">
+    <h1>{{TITLE}}</h1>
+    <div class="meta">
+      <div><span>文件名</span>{{FILE_NAME}}</div>
+      <div><span>审查日期</span>{{REVIEW_DATE}}</div>
+      <div><span>条款数</span>{{CLAUSE_COUNT}}</div>
+    </div>
+    <div class="overall">总体风险评级：{{OVERALL_RATING}}</div>
+  </header>
+
+  <section>
+    <h2>一、总体结论</h2>
+    <p class="summary">{{OVERALL_SUMMARY}}</p>
+    {{WAGE_BLOCK}}
+  </section>
+
+  <section>
+    <h2>二、重点风险摘要</h2>
+    <div class="cards">{{RISK_CARDS}}</div>
+  </section>
+
+  <section>
+    <h2>三、逐条合规检查明细</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:36px">#</th>
+          <th style="width:190px">条款原文摘要</th>
+          <th style="width:84px">检查维度</th>
+          <th style="width:64px">结论</th>
+          <th style="width:60px">风险</th>
+          <th style="width:110px">法律依据</th>
+          <th>建议改正内容</th>
+          <th style="width:210px">给员工的建议</th>
+        </tr>
+      </thead>
+      <tbody>{{ROWS}}</tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="disclaimer"><strong>免责声明：</strong>{{DISCLAIMER}}</div>
+  </section>
+</div>
+</body>
+</html>

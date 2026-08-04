@@ -1,0 +1,10 @@
+{
+  "name": "review",
+  "label": "合同审查报告",
+  "description": "合同审查分析，无封面，宽行距适合逐条批注",
+  "doc_type": "review",
+  "default_preset": "redline",
+  "default_color_scheme": "B",
+  "default_font_provider": "noto",
+  "cover_fields": {}
+}

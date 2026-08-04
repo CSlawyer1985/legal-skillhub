@@ -1,0 +1,88 @@
+{
+  "donor_entity_audit": {
+    "added_relative_to_source": [
+      {
+        "new_sha256": "fa923766defa58d921b39d1b0c8d1a7d08438e3af54f5569d7ec515443b595a9",
+        "note": "r2新增（源无此文件）",
+        "path": "CHANGELOG.md"
+      }
+    ],
+    "donor_file_count": 51,
+    "missing_in_package": [],
+    "modified": [
+      {
+        "new_sha256": "1635c7e6fd39a32e912f46dd9e5c7a423e0d9e5cb750b0bf1d18e4c6efc2a851",
+        "old_sha256": "4930375b1dc00e8a7d568d41407031a6841f1a044a3fd17ee43e605648380d46",
+        "path": "SKILL.md"
+      },
+      {
+        "new_sha256": "77b02cf3e61c1e72881918bbdf5279a0fe40dabc5c294cd6dc23735b7ffbd0a3",
+        "old_sha256": "4802d4742191eab6252e40d533c57822c2bdf6dddc71b738efe34b382fb63ccc",
+        "path": "manifest.json"
+      }
+    ],
+    "schema": "gaotao.rc2r2.donor-entity-audit.v1",
+    "source_root": "<local-source-redacted>",
+    "statement": "donor 51件中49件逐字节不变；改动件与新增件逐项列明old/new SHA-256；原权利链保持不变，改动件为同一作者正典升级件",
+    "unchanged_count": 49
+  },
+  "entities": [
+    {
+      "license": "V1.0.1原权利链不变",
+      "modified": false,
+      "scope": "源V1.0.x逐字节未改动子集（49/51）",
+      "source_tree_sha256": "7f9c5ff12d8b1e65597a51fb3698e801c0cff324e42d29f8737428317d9f3e7b"
+    },
+    {
+      "license": "GPL-3.0",
+      "modified": false,
+      "scope": "v1.1-vis-module/与新根侧件（manifest-v1.1/LICENSE-PROVENANCE/GPL-3.0.txt）"
+    }
+  ],
+  "geo": {
+    "activation": false,
+    "entities_and_selftests": "retained",
+    "public_projection": false,
+    "release": false
+  },
+  "new_work_license": "GPL-3.0",
+  "rc2_additions": [
+    {
+      "author": "李时瑀律师",
+      "license": "GPL-3.0",
+      "path": "machine-gate/",
+      "provenance": "mother node6L（双席PASS 1785250259582-codex）字节内嵌，唯一分歧production-spec案链限定"
+    },
+    {
+      "license": "text-of-license",
+      "path": "GPL-3.0.txt",
+      "provenance": "GNU GPL-3.0完整官方文本35149B"
+    },
+    {
+      "license": "proprietary-local衍生升级（同一作者）",
+      "path": "SKILL.md",
+      "provenance": "V1.0.1源SKILL.md正典升级1.1.0-rc.2"
+    },
+    {
+      "license": "proprietary-local衍生升级（同一作者）",
+      "path": "manifest.json",
+      "provenance": "V1.0.1源manifest正典升级"
+    },
+    {
+      "license": "GPL-3.0",
+      "path": "v1.1-vis-module/tools/desensitize_sigs.json",
+      "provenance": "随包脱敏签名库36项(length,sha256)基线a97b1d6e"
+    },
+    {
+      "license": "GPL-3.0",
+      "path": "v1.1-vis-module/tools/amount_consistency_check.py",
+      "provenance": "node6K首闭AMT口径门（合同总价≠欠款余额）"
+    },
+    {
+      "license": "GPL-3.0",
+      "path": "CHANGELOG.md",
+      "provenance": "1.1.0-rc.2新增变更记录；源V1.0.1无此实体"
+    }
+  ],
+  "schema": "gaotao.license-provenance.v1"
+}

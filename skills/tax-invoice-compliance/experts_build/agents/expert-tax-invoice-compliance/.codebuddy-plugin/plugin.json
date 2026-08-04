@@ -1,0 +1,61 @@
+{
+  "name": "expert-tax-invoice-compliance",
+  "version": "1.0.0",
+  "description": "Tax compliance expert for tax-invoice-compliance. Routes to cloud MCP knowledge base and risk models.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/tax-invoice-compliance-expert.md"
+  ],
+  "expertType": "agent",
+  "agentName": "tax-invoice-compliance-expert",
+  "displayName": {
+    "en": "数电票合规与空壳虚开防范指引",
+    "zh": "数电票合规与空壳虚开防范指引"
+  },
+  "profession": {
+    "en": "Tax Compliance Expert",
+    "zh": "财税合规专家"
+  },
+  "displayDescription": {
+    "en": "Tax compliance expert for tax-invoice-compliance. Routes to cloud MCP knowledge base and risk models.",
+    "zh": "基于「数电票合规与空壳虚开防范指引」专题的财税合规专家，调用云端知识库与风险模型，为用户提供结构化结"
+  },
+  "avatar": "avatars/tax-invoice-compliance-expert.svg",
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "我是「数电票合规与空壳虚开防范指引」财税合规专家，请描述您的涉税诉求，我将调用云端知识库为您分析。",
+    "en": "I am the tax compliance expert for tax-invoice-compliance."
+  },
+  "plugin": "expert-tax-invoice-compliance",
+  "tags": [
+    {
+      "en": "Tax Compliance",
+      "zh": "税务合规"
+    },
+    {
+      "en": "Risk Control",
+      "zh": "风险防控"
+    },
+    {
+      "en": "Policy Advisory",
+      "zh": "政策咨询"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Analyze my tax compliance risk",
+      "zh": "分析我的税务合规风险"
+    },
+    {
+      "en": "What policy applies to my case",
+      "zh": "我的情形适用什么政策"
+    },
+    {
+      "en": "Help me structure a compliant plan",
+      "zh": "帮我做合规规划"
+    }
+  ]
+}

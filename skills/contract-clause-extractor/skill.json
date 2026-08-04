@@ -1,0 +1,37 @@
+{
+  "name": "Contract Clause Extractor",
+  "slug": "contract-clause-extractor",
+  "description": "Extract & classify key clauses from contract PDFs into a structured risk summary — with bilingual (CN/EN) support.",
+  "tags": ["contract", "legal", "clause-extraction", "risk-analysis", "pdf", "bilingual", "china"],
+  "license": "MIT-0",
+  "version": "1.0.0",
+  "scripts": {
+    "main": "scripts/contract-clause-extractor.sh",
+    "description": "CLI script implementing all workflow steps (ingest/segment/classify/risk/summarize/compare/bilingual/report)"
+  },
+  "schemas": {
+    "input": "schemas/input.schema.json",
+    "output": "schemas/output.schema.json"
+  },
+  "references": {
+    "risk_categories": "references/risk-categories.json"
+  },
+  "workflowSteps": [
+    { "step": 1, "name": "Contract Ingestion", "input": "contract-clause-extractor.sh ingest <file>", "output": "Parsed document with structural metadata" },
+    { "step": 2, "name": "Clause Segmentation", "input": "contract-clause-extractor.sh segment <file>", "output": "Indexed clause list with hierarchy" },
+    { "step": 3, "name": "Clause Classification", "input": "contract-clause-extractor.sh classify <file>", "output": "Clauses grouped into 12 standard categories" },
+    { "step": 4, "name": "Risk Annotation", "input": "contract-clause-extractor.sh risk <file>", "output": "Each clause tagged high/medium/low with explanation" },
+    { "step": 5, "name": "Hidden Risk Detection", "input": "contract-clause-extractor.sh risk <file>", "output": "Structural risk alerts for imbalanced terms" },
+    { "step": 6, "name": "Clause Summarization", "input": "contract-clause-extractor.sh summarize <file>", "output": "Structured extraction table with modification suggestions" },
+    { "step": 7, "name": "Multi-Contract Comparison", "input": "contract-clause-extractor.sh compare <f1> <f2>", "output": "Side-by-side diff table" },
+    { "step": 8, "name": "Bilingual Extraction (optional)", "input": "contract-clause-extractor.sh bilingual <f> <lang>", "output": "Bilingual table + terminology glossary" },
+    { "step": 9, "name": "Report Generation", "input": "contract-clause-extractor.sh report <file>", "output": "Comprehensive extraction report" }
+  ],
+  "firstSuccessPath": {
+    "steps": [
+      "Run: contract-clause-extractor.sh classify contract.pdf — extracts and classifies all clauses",
+      "Run: contract-clause-extractor.sh risk contract.pdf — annotates with risk levels",
+      "Run: contract-clause-extractor.sh summarize contract.pdf — see structured extraction table"
+    ]
+  }
+}

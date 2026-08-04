@@ -1,0 +1,48 @@
+{
+  "legal_issue": "并发延误下如何分配责任？",
+  "issue_type": "concurrent_delay",
+  "applicable_law": "Common_Law",
+  "dispute_info": {},
+  "legal_principles": [
+    "普通法下，并发延误的处理因法域而异",
+    "英国法：如果承包人延误和雇主延误同时发生，承包人无权获得EOT（Henry Boot原则）",
+    "美国法：按比例分配原则（Apportionment）",
+    "新加坡法：公平分配原则（延迟者承担原则）"
+  ],
+  "relevant_cases": [
+    "Henry Boot Construction v Alstom (2000): 承包人延误排除EOT权利",
+    "Walter Lilly v Giles (2012): 并发延误下按比例分配",
+    "Singapore High Court案例：公平分配原则"
+  ],
+  "contract_analysis": {
+    "clause_review": "待实施: 分析合同相关条款",
+    "compliance_check": "待实施: 检查是否符合适用法律",
+    "recommendations": [
+      "建议: 明确合同条款",
+      "建议: 与适用法律对齐"
+    ]
+  },
+  "evidence_requirements": {
+    "documentary_evidence": "合同文件、通信记录、同期记录",
+    "witness_testimony": "项目经理、工程师、专家证人",
+    "expert_evidence": "工期分析专家、法律专家",
+    "burden_of_proof": "承包人承担举证责任（证明延误事件和影响）"
+  },
+  "practical_tips": [
+    "建议: 明确合同适用的普通法法域（英国/美国/新加坡）",
+    "建议: 在合同中明确并发延误处理原则",
+    "建议: 使用关键路径法分析各延误事件的影响"
+  ],
+  "risk_warnings": [
+    "风险: 英国法下Henry Boot原则对承包人严格",
+    "风险: 不同普通法法域原则不同，需要当地律师意见",
+    "风险: 专家证人费用高"
+  ],
+  "recommendations": [
+    "建议1: 咨询当地律师（确保符合当地法律）",
+    "建议2: 收集完整证据（同期记录、通信记录）",
+    "建议3: 进行延误分析（使用ASCE 67-17认可的方法）",
+    "建议4: 考虑争议解决方式（仲裁/诉讼/友好解决）"
+  ],
+  "ZFCC_note": "本分析基于Andrew Burr理论和国际标准，具体案件请咨询专业律师。"
+}

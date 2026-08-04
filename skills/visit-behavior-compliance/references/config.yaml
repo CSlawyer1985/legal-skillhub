@@ -1,0 +1,47 @@
+# 拜访行为合规技能 - 运行时配置
+
+# 公司基本配置（可根据企业实际情况修改）
+company_name: "示例医药有限公司"
+company_short_name: "示例医药"
+default_province: "全国"
+
+# 费用合规阈值（单位：人民币元）
+gift_value_limit: 100           # 礼品价值上限（元/次/人）
+meal_cost_limit: 200            # 餐饮标准上限（元/人次）
+academic_material_limit: 200    # 学术资料价值上限（元/份）
+speaker_fee_per_hour: 3000      # 讲课费参考上限（元/小时）
+
+# 合规参考标准（技能引用依据）
+compliance_standards:
+  - name: "医药代表备案管理办法"
+    issuer: "国家药品监督管理局"
+    year: 2020
+    key_articles:
+      - "第五条：医药代表合规职责"
+      - "第七条：九项禁止行为"
+  - name: "九项准则"
+    issuer: "中国外商投资企业协会药品研制和开发行业委员会(RDPAC)"
+    year: 2021
+  - name: "反不正当竞争法"
+    issuer: "全国人民代表大会常务委员会"
+    year: 2019
+    key_articles:
+      - "第七条：商业贿赂禁止条款"
+  - name: "中华人民共和国刑法"
+    key_articles:
+      - "第一百六十三条：非国家工作人员受贿罪"
+      - "第一百六十四条：对非国家工作人员行贿罪"
+
+# 审批流程触发条件
+trigger_approval_for_yellow: true    # 黄灯行为是否默认提示需要报批
+require_crm_record: true             # 是否提示在CRM系统留痕
+
+# 输出配置
+output_language: "zh-CN"
+include_disclaimer: true             # 是否在输出末尾附合规声明
+include_law_reference: true          # 是否在判定中引用具体法规条款
+detail_level: "standard"            # 输出详细程度：brief / standard / detailed
+
+# 批量审核配置
+batch_mode_threshold: 3              # 超过几条记录时启用批量审核表格模式
+max_batch_records: 50                # 单次批量审核最大记录数

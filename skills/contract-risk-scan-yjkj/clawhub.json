@@ -1,0 +1,18 @@
+{
+  "name": "contract-risk-scan",
+  "version": "1.0.0",
+  "description": "Scan contracts for common risk clauses and potential issues. Use when the user asks about 合同风险、合同审查、条款风险、合同问题、帮我看合同、合同检查, or wants to identify problematic clauses in a contract draft.",
+  "author": "OpenClaw",
+  "license": "MIT",
+  "keywords": ["contract", "legal", "risk", "review", "条款", "合同"],
+  "category": "legal",
+  "homepage": "https://github.com/openclaw/skills/tree/main/contract-risk-scan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/skills.git"
+  },
+  "openclaw": {
+    "skill": true,
+    "minVersion": "2026.3.0"
+  }
+}

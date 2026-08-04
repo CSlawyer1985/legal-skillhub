@@ -1,0 +1,328 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "信托合同",
+  "contract_type_en": "trust",
+  "description": "资金信托、财产信托、家族信托等信托合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国信托法》",
+    "《信托公司管理办法》",
+    "《信托公司集合资金信托计划管理办法》"
+  ],
+  "keywords_for_detection": [
+    "信托", "信托合同", "委托人", "受托人", "受益人",
+    "信托财产", "信托目的", "信托期限", "信托计划"
+  ],
+  "key_clauses": [
+    {
+      "name": "信托目的",
+      "required": true,
+      "keywords": ["信托目的", "信托用途", "投资方向", "资金用途"],
+      "check_points": [
+        {
+          "item": "目的明确",
+          "description": "信托目的是否明确、合法",
+          "risk_level": "致命"
+        },
+        {
+          "item": "合法性",
+          "description": "信托目的不得违反法律法规或损害社会公共利益",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确信托目的，确保合法合规"
+    },
+    {
+      "name": "信托财产",
+      "required": true,
+      "keywords": ["信托财产", "信托资金", "委托财产", "信托资产"],
+      "check_points": [
+        {
+          "item": "财产明确",
+          "description": "信托财产的种类、数量、价值是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "财产独立性",
+          "description": "信托财产与受托人固有财产的隔离",
+          "risk_level": "致命"
+        },
+        {
+          "item": "财产转移",
+          "description": "信托财产转移方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确信托财产，确保信托财产独立性（破产隔离）"
+    },
+    {
+      "name": "受托人义务",
+      "required": true,
+      "keywords": ["受托人", "义务", "谨慎管理", "忠实义务"],
+      "check_points": [
+        {
+          "item": "谨慎义务",
+          "description": "受托人谨慎管理信托财产的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "忠实义务",
+          "description": "受托人忠实于受益人利益的义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "报告义务",
+          "description": "受托人定期报告义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "禁止自益",
+          "description": "受托人不得利用信托财产为自己谋利",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确受托人谨慎义务、忠实义务、报告义务"
+    },
+    {
+      "name": "信托期限",
+      "required": true,
+      "keywords": ["信托期限", "期限", "存续期", "到期"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "信托期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "延期条件",
+          "description": "信托期限延期条件",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确信托期限，约定延期条件"
+    },
+    {
+      "name": "受益人与受益权",
+      "required": true,
+      "keywords": ["受益人", "受益权", "受益比例", "受益分配"],
+      "check_points": [
+        {
+          "item": "受益人明确",
+          "description": "受益人是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "受益权内容",
+          "description": "受益权的内容和比例",
+          "risk_level": "重大"
+        },
+        {
+          "item": "受益权转让",
+          "description": "受益权是否可转让",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确受益人、受益权内容和比例"
+    },
+    {
+      "name": "信托收益分配",
+      "required": true,
+      "keywords": ["收益分配", "分配方式", "分配时间", "预期收益"],
+      "check_points": [
+        {
+          "item": "分配方式",
+          "description": "信托收益分配方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "分配时间",
+          "description": "信托收益分配时间",
+          "risk_level": "重大"
+        },
+        {
+          "item": "预期收益",
+          "description": "预期收益率是否合理，是否存在刚性兑付",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确收益分配方式和时间，注意刚性兑付禁止"
+    },
+    {
+      "name": "信托费用",
+      "required": true,
+      "keywords": ["信托费用", "管理费", "托管费", "手续费"],
+      "check_points": [
+        {
+          "item": "费用明确",
+          "description": "信托管理费、托管费等费用是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用合理",
+          "description": "费用标准是否合理",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确信托费用种类、标准、支付方式"
+    },
+    {
+      "name": "信托终止",
+      "required": true,
+      "keywords": ["信托终止", "终止条件", "清算", "财产返还"],
+      "check_points": [
+        {
+          "item": "终止条件",
+          "description": "信托终止条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "清算程序",
+          "description": "信托终止后的清算程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "财产归属",
+          "description": "信托终止后财产归属",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确信托终止条件、清算程序、财产归属"
+    },
+    {
+      "name": "风险揭示",
+      "required": true,
+      "keywords": ["风险", "风险揭示", "风险提示", "投资风险"],
+      "check_points": [
+        {
+          "item": "风险揭示",
+          "description": "是否充分揭示信托投资风险",
+          "risk_level": "重大"
+        },
+        {
+          "item": "适当性",
+          "description": "委托人是否符合合格投资者要求",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "充分揭示风险，确认委托人为合格投资者"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "TRU001",
+      "name": "刚性兑付",
+      "description": "信托合同约定保本保收益，违反监管规定",
+      "severity": "高风险",
+      "suggestion": "信托产品不得承诺保本保收益，需充分揭示风险",
+      "legal_basis": "《资管新规》第19条"
+    },
+    {
+      "id": "TRU002",
+      "name": "信托财产独立性不足",
+      "description": "信托财产与受托人固有财产混同，破产隔离失效",
+      "severity": "高风险",
+      "suggestion": "确保信托财产独立管理，单独建账",
+      "legal_basis": "《信托法》第16条"
+    },
+    {
+      "id": "TRU003",
+      "name": "受托人资质不符",
+      "description": "受托人不具备信托业务资质",
+      "severity": "高风险",
+      "suggestion": "确认受托人为持牌信托公司",
+      "legal_basis": "《信托法》第24条"
+    },
+    {
+      "id": "TRU004",
+      "name": "合格投资者不符",
+      "description": "委托人不符合合格投资者要求",
+      "severity": "高风险",
+      "suggestion": "核实委托人符合合格投资者标准（净资产≥1000万或金融资产≥300万）",
+      "legal_basis": "《资管新规》第5条"
+    },
+    {
+      "id": "TRU005",
+      "name": "信托目的违法",
+      "description": "信托目的违反法律法规或损害公共利益",
+      "severity": "高风险",
+      "suggestion": "确保信托目的合法合规",
+      "legal_basis": "《信托法》第11条"
+    },
+    {
+      "id": "TRU006",
+      "name": "受托人自益",
+      "description": "受托人利用信托财产为自己谋利，违反忠实义务",
+      "severity": "中风险",
+      "suggestion": "明确受托人忠实义务，禁止自益行为",
+      "legal_basis": "《信托法》第26条"
+    }
+  ],
+  "position_guidance": {
+    "settlor": {
+      "name": "委托人",
+      "priority_checks": [
+        "信托目的",
+        "信托财产",
+        "受托人资质",
+        "收益分配"
+      ],
+      "key_concerns": [
+        "确保信托目的合法",
+        "确认受托人资质",
+        "明确收益分配",
+        "了解风险揭示"
+      ],
+      "avoid": [
+        "接受刚性兑付承诺",
+        "信托财产不独立",
+        "受托人无资质",
+        "风险揭示不充分"
+      ]
+    },
+    "trustee": {
+      "name": "受托人",
+      "priority_checks": [
+        "信托财产独立",
+        "受益人明确",
+        "费用约定",
+        "风险揭示"
+      ],
+      "key_concerns": [
+        "确保信托财产独立",
+        "明确受益人",
+        "约定合理费用",
+        "充分揭示风险"
+      ],
+      "avoid": [
+        "承诺保本保收益",
+        "信托财产混同",
+        "忠实义务违反",
+        "报告义务缺失"
+      ]
+    }
+  },
+  "legal_notes": {
+    "independence": {
+      "description": "信托财产独立性",
+      "rule": "信托财产与委托人未设立信托的其他财产相区别，与受托人的固有财产相区别",
+      "effect": "受托人死亡或依法解散、被依法撤销、被宣告破产时，信托财产不属于其遗产或清算财产",
+      "legal_basis": "《信托法》第15-16条"
+    },
+    "qualified_investor": {
+      "description": "合格投资者",
+      "standard": "具有2年以上投资经历，且满足以下条件之一：家庭金融净资产不低于300万元；家庭金融资产不低于500万元；近3年本人年均收入不低于40万元",
+      "institution": "机构投资者：净资产不低于1000万元",
+      "legal_basis": "《资管新规》第5条"
+    },
+    "rigid_payment": {
+      "description": "刚性兑付禁止",
+      "rule": "资产管理业务不得承诺保本保收益，出现兑付困难时不得以任何形式垫资兑付",
+      "legal_basis": "《资管新规》第19条"
+    },
+    "trustee_qualification": {
+      "description": "受托人资质",
+      "rule": "信托公司须经中国银行保险监督管理委员会批准，取得金融许可证",
+      "legal_basis": "《信托公司管理办法》第3条"
+    }
+  }
+}

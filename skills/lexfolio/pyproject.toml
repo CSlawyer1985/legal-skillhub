@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "lexfolio"
+version = "1.7.0"
+description = "Legal-grade Markdown-to-PDF typesetting with CJK-aware layout"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.8"
+authors = [
+    {name = "GantianBro", email = "gantianbro@users.noreply.github.com"},
+]
+keywords = ["markdown", "pdf", "legal", "typesetting", "reportlab", "chinese-fonts"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Legal Industry",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Text Processing :: Fonts",
+]
+dependencies = [
+    "reportlab>=3.6.0",
+    "pyyaml>=5.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "ruff",
+]
+
+[project.scripts]
+lexfolio = "run:main"
+
+[project.urls]
+Homepage = "https://github.com/GantianBro/LexFolio"
+Repository = "https://github.com/GantianBro/LexFolio"
+Issues = "https://github.com/GantianBro/LexFolio/issues"
+
+[tool.setuptools]
+packages = ["engine"]
+py-modules = ["run"]
+
+[tool.setuptools.package-data]
+engine = ["../fonts/*.ttf", "../templates/*.json", "../theme.json"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]

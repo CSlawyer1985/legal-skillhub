@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>模板06 - 员工手册框架模板（含民主程序指引）</title>
+<style>
+  body { font-family: "SimSun", "宋体", serif; font-size: 14px; line-height: 1.8; margin: 0; padding: 10px; }
+  .page { width: 210mm; margin: 0 auto; padding: 15mm 20mm; background: white; }
+  h1 { text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 5px; }
+  .subtitle { text-align: center; font-size: 14px; color: #333; margin-bottom: 10px; text-indent: 0; }
+  h2 { font-size: 15px; font-weight: bold; margin-top: 18px; margin-bottom: 6px; border-bottom: 2px solid #333; padding-bottom: 4px; }
+  h3 { font-size: 14px; font-weight: bold; margin-top: 10px; margin-bottom: 4px; }
+  p { text-indent: 2em; margin: 4px 0; text-align: justify; }
+  .tip { background: #e8f5e9; border: 1px solid #4caf50; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+  .tip strong { color: #2e7d32; }
+  .warn { background: #fff3e0; border: 1px solid #ff9800; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+  .warn strong { color: #e65100; }
+  .danger { background: #ffebee; border: 1px solid #f44336; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+  .danger strong { color: #c62828; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+  td, th { border: 1px solid #333; padding: 4px 6px; font-size: 13px; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: bold; text-align: center; }
+  .toc { background: #fafafa; border: 1px solid #ccc; padding: 10px 15px; margin: 10px 0; }
+  .toc ol { margin: 4px 0; padding-left: 20px; }
+  .page-break { page-break-before: always; }
+  .footer { text-align: center; font-size: 12px; color: #666; margin-top: 20px; }
+  @media print { body { padding: 0; } .page { margin: 0; padding: 15mm 20mm; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>员 工 手 册</h1>
+  <p class="subtitle">（框架模板·完整版）</p>
+  <p class="subtitle" style="font-size:12px; color:#555;">【版本号：____年____版】　【生效日期：____年____月____日】</p>
+
+  <div class="danger">
+    <strong>⚠️ 法律红线（务必阅读）：</strong>根据《劳动合同法》第4条，用人单位制定、修改有关劳动报酬、工作时间、休息休假、劳动安全卫生、保险福利、职工培训、劳动纪律以及劳动定额管理等直接涉及劳动者切身利益的规章制度，<strong>必须经职工代表大会或全体职工讨论，提出方案和意见，与工会或职工代表平等协商确定</strong>。未履行"民主程序"的规章制度，不能作为用人单位管理劳动者的依据（最高人民法院劳动争议司法解释一 第50条）。
+  </div>
+
+  <div class="toc">
+    <p style="text-indent:0; font-weight:bold; margin-bottom:6px;">📋 本手册目录</p>
+    <ol>
+      <li>前言（致员工）</li>
+      <li>第一章　总则（手册效力、适用范围）</li>
+      <li>第二章　招聘与入职管理</li>
+      <li>第三章　劳动合同管理</li>
+      <li>第四章　考勤与休假管理</li>
+      <li>第五章　薪酬与福利</li>
+      <li>第六章　培训与发展</li>
+      <li>第七章　工作纪律与奖惩制度（⚡核心：违纪条款）</li>
+      <li>第八章　安全与保密</li>
+      <li>第九章　离职管理</li>
+      <li>第十章　争议处理与申诉</li>
+      <li>附：民主程序履行记录表</li>
+    </ol>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>前言 · 致全体员工</h2>
+  <p>亲爱的同事：</p>
+  <p>欢迎您加入____________________公司！本《员工手册》是公司与全体员工共同遵守的行为规范和工作准则，旨在营造公平、公正、透明的工作环境，保障员工和公司的合法权益。</p>
+  <p>本手册经职工代表大会（或全体职工）讨论，并与职工代表平等协商确定，对公司和全体员工具有约束力。请您认真阅读本手册，并严格遵守。</p>
+  <p>本手册未尽事宜，按国家有关法律法规及公司其他规章制度执行。公司保留对本手册的最终解释权和修订权，修订时将按照法定程序履行民主协商程序。</p>
+  <p>祝您在公司工作愉快、事业有成！</p>
+  <p style="text-align:right; text-indent:0; margin-top:20px;">____________________公司　　____年____月____日</p>
+
+  <h2>第一章　总则</h2>
+  <p><strong>第1条（制定依据）</strong>　本手册根据《中华人民共和国劳动法》《中华人民共和国劳动合同法》等法律法规，结合本公司实际情况制定。</p>
+  <p><strong>第2条（适用范围）</strong>　本手册适用于公司全体在职员工，包括全日制员工、非全日制员工（部分条款适用）。</p>
+  <p><strong>第3条（效力等级）</strong>　本手册与劳动合同具有同等法律效力。手册条款与劳动合同约定不一致的，以更有利于劳动者的条款为准。</p>
+  <p><strong>第4条（公示确认）</strong>　公司通过以下方式向员工公示本手册，员工签署《员工手册领取确认书》视为已充分阅读并理解本手册全部内容：</p>
+  <p style="text-indent:3em;">（一）入职时纸质手册发放 + 签字领取；</p>
+  <p style="text-indent:3em;">（二）公司内网/OA系统公示 + 员工登录确认；</p>
+  <p style="text-indent:3em;">（三）员工手册培训签到记录。</p>
+
+  <div class="page-break"></div>
+
+  <h2>第二章　招聘与入职管理</h2>
+  <p><strong>第5条（公平招聘）</strong>　公司招聘坚持平等、公开、竞争、择优原则，不因民族、种族、性别、宗教信仰、年龄、户籍等因素歧视任何应聘者。</p>
+  <p><strong>第6条（入职材料）</strong>　新员工入职须提供：身份证原件及复印件、学历证书、离职证明（应届生除外）、银行卡复印件、近期一寸照片。公司依法收集员工个人信息，仅用于人力资源管理目的。</p>
+  <p><strong>第7条（入职体检）</strong>　新员工须参加入职体检，体检项目须符合国家规定，不得包含孕检、婚育检查等歧视性项目。</p>
+
+  <h2>第三章　劳动合同管理</h2>
+  <p><strong>第8条（合同签订）</strong>　公司自用工之日起一个月内与员工签订书面劳动合同。劳动合同期限由双方协商确定，试用期按法律规定执行（《劳动合同法》第19条）。</p>
+  <p><strong>第9条（合同变更）</strong>　变更劳动合同（如调岗、调薪、变更工作地点）须经双方协商一致，并签订书面变更协议（《劳动合同法》第35条）。</p>
+  <p><strong>第10条（合同续签）</strong>　劳动合同期满前____天，公司通知员工是否续签。连续订立二次固定期限劳动合同的员工，有权提出订立无固定期限劳动合同（《劳动合同法》第14条）。</p>
+
+  <h2>第四章　考勤与休假管理</h2>
+  <p><strong>第11条（工作时间）</strong>　公司执行标准工时制度，每日工作8小时，每周工作40小时。具体上下班时间为：上午____:____～____:____，下午____:____～____:____。</p>
+  <p><strong>第12条（加班管理）</strong>　公司提倡高效工作，确需加班的，须提前在OA系统提交加班申请，经直属主管审批后执行。加班费按国家规定标准支付（《劳动法》第44条）。</p>
+  <p><strong>第13条（各类假期）</strong>　员工依法享有以下假期：</p>
+  <p style="text-indent:3em;">（一）<strong>法定节假日</strong>：全年11天（元旦1天、春节3天、清明节1天、劳动节1天、端午节1天、中秋节1天、国庆节3天）；</p>
+  <p style="text-indent:3em;">（二）<strong>带薪年休假</strong>：累计工作已满1年不满10年的，年休假5天；已满10年不满20年的，年休假10天；已满20年的，年休假15天（《职工带薪年休假条例》第3条）；</p>
+  <p style="text-indent:3em;">（三）<strong>病假</strong>：凭医疗机构出具的病假证明请病假，病假期间工资按国家规定及公司制度执行；</p>
+  <p style="text-indent:3em;">（四）<strong>婚假</strong>：____天（按当地规定执行，一般3天，晚婚假已取消）；</p>
+  <p style="text-indent:3em;">（五）<strong>产假/陪产假</strong>：女员工产假____天（国家标准98天，各地有延长，按当地规定），男员工陪产假____天；</p>
+  <p style="text-indent:3em;">（六）<strong>丧假</strong>：直系亲属（父母、配偶、子女）去世，给予____天丧假。</p>
+
+  <div class="page-break"></div>
+
+  <h2>第五章　薪酬与福利</h2>
+  <p><strong>第14条（薪资构成）</strong>　员工薪资由基本工资、岗位工资、绩效工资等部分构成。具体标准见劳动合同及公司薪酬制度。</p>
+  <p><strong>第15条（薪资发放）</strong>　公司每月____日（遇节假日提前）以银行转账方式支付员工上月工资。工资条以（□纸质　□电子邮件　□OA系统）形式告知员工。</p>
+  <p><strong>第16条（最低工资保障）</strong>　公司支付的工资不低于用人单位所在地最低工资标准。</p>
+  <p><strong>第17条（社会保险）</strong>　公司依法为员工缴纳养老、医疗、失业、工伤、生育保险和住房公积金。员工个人缴费部分由公司代扣代缴。</p>
+
+  <h2>第六章　培训与发展</h2>
+  <p><strong>第18条（入职培训）</strong>　新员工入职后参加公司组织的入职培训，内容包括：公司文化、规章制度、岗位职责、安全规范等。</p>
+  <p><strong>第19条（职业培训）</strong>　公司根据业务发展需要，为员工提供职业技能培训。培训费用（□由公司承担　□由员工承担　□按比例分担）。</p>
+  <p><strong>第20条（服务期约定）</strong>　如公司为员工提供专项培训费用进行专业技术培训，可与员工订立服务期协议。员工违反服务期约定的，应按约定向公司支付违约金（《劳动合同法》第22条）。违约金数额不得超过服务期尚未履行部分所应分摊的培训费用。</p>
+
+  <div class="page-break"></div>
+
+  <h2>第七章　工作纪律与奖惩制度（⚡核心章节）</h2>
+
+  <div class="warn">
+    <strong>⚠️ 违纪条款设计铁律：</strong><br>
+    ① 必须"具体、明确、可操作"——不能用"造成严重后果"等模糊表述；<br>
+    ② 必须区分"轻度违纪""中度违纪""严重违纪"三个层级；<br>
+    ③ "严重违纪"的认定须符合常理和司法实践，不能将轻微行为界定为"严重违纪"；<br>
+    ④ 所有违纪条款须经过民主程序，否则不能作为解除依据（《劳动合同法》第4条、第39条第2项）。
+  </div>
+
+  <p><strong>第21条（奖励制度）</strong>　员工有下列情形之一的，公司予以表彰和奖励：</p>
+  <p style="text-indent:3em;">（一）在年度考核中表现优异的；</p>
+  <p style="text-indent:3em;">（二）提出合理化建议，被公司采纳并产生显著效益的；</p>
+  <p style="text-indent:3em;">（三）在工作中做出突出贡献的；</p>
+  <p style="text-indent:3em;">（四）为公司挽回重大损失的。</p>
+
+  <p><strong>第22条（轻度违纪——可予书面警告）</strong>　员工有下列情形之一的，给予书面警告处分：</p>
+  <p style="text-indent:3em;">（一）一个月内迟到、早退累计达____次的；</p>
+  <p style="text-indent:3em;">（二）未经主管批准擅自离岗____分钟以上的；</p>
+  <p style="text-indent:3em;">（三）工作时间从事与工作无关的活动（如玩游戏、看视频等）的；</p>
+  <p style="text-indent:3em;">（四）违反公司着装规范或办公环境管理规定的；</p>
+  <p style="text-indent:3em;">（五）不服从主管合理工作安排的（未造成严重后果）。</p>
+
+  <p><strong>第23条（中度违纪——可予记过处分）</strong>　员工有下列情形之一的，给予记过处分：</p>
+  <p style="text-indent:3em;">（一）连续旷工____天，或一年内累计旷工达____天的；</p>
+  <p style="text-indent:3em;">（二）因失职行为给公司造成经济损失达人民币____元以上的；</p>
+  <p style="text-indent:3em;">（三）违反公司保密规定，泄露公司非核心商业秘密的；</p>
+  <p style="text-indent:3em;">（四）欺凌同事、在工作场所争吵斗殴（未造成严重后果）的；</p>
+  <p style="text-indent:3em;">（五）伪造、涂改考勤记录或委托他人代打卡的。</p>
+
+  <p><strong>第24条（严重违纪——可解除劳动合同，不支付经济补偿）</strong>　员工有下列情形之一的，公司可立即解除劳动合同，且不支付经济补偿（《劳动合同法》第39条）：</p>
+  <p style="text-indent:3em;">（一）在试用期间被证明不符合录用条件的；</p>
+  <p style="text-indent:3em;">（二）连续旷工达____天，或一年内累计旷工达____天的；</p>
+  <p style="text-indent:3em;">（三）严重失职，营私舞弊，给公司造成重大损害（经济损失达人民币____元以上）的；</p>
+  <p style="text-indent:3em;">（四）同时与其他用人单位建立劳动关系，对完成本公司工作任务造成严重影响，或者经公司提出，拒不改正的；</p>
+  <p style="text-indent:3em;">（五）以欺诈、胁迫的手段或者乘人之危，使公司在违背真实意思的情况下订立劳动合同（如提供虚假学历、工作经历）的；</p>
+  <p style="text-indent:3em;">（六）泄露公司核心商业秘密，或违反保密协议约定的；</p>
+  <p style="text-indent:3em;">（七）在工作场所酗酒、赌博、打架斗殴，造成严重后果的；</p>
+  <p style="text-indent:3em;">（八）被依法追究刑事责任的；</p>
+  <p style="text-indent:3em;">（九）严重违反公司安全操作规程，危及人身或财产安全的。</p>
+
+  <div class="tip">
+    <strong>✅ 合规提示：</strong>"严重违纪"的具体标准须在员工手册中明确规定，且须经民主程序。司法实践中，用人单位对"违纪事实"及"制度依据"承担举证责任。建议在员工手册中明确量化标准（如"造成经济损失5000元以上"而非"造成重大损失"）。
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>第八章　安全与保密</h2>
+  <p><strong>第25条（安全生产）</strong>　员工须严格遵守公司安全生产操作规程，正确使用劳动防护用品。发现安全隐患须立即报告。</p>
+  <p><strong>第26条（保密义务）</strong>　员工在职期间及离职后，均须保守公司商业秘密（包括但不限于技术信息、经营信息、客户信息）。违反保密义务的，公司可依法追究其法律责任。</p>
+  <p><strong>第27条（竞业限制）</strong>　对负有保密义务的员工，公司可在劳动合同或保密协议中约定竞业限制条款。竞业限制期限不得超过二年，且公司须在竞业限制期限内按月给予员工经济补偿（《劳动合同法》第23条、第24条）。</p>
+
+  <h2>第九章　离职管理</h2>
+  <p><strong>第28条（员工主动辞职）</strong>　员工提前三十日（试用期内提前三日）以书面形式通知公司，可以解除劳动合同。员工须按公司规定办理工作交接手续。</p>
+  <p><strong>第29条（离职交接）</strong>　员工离职时须完成以下交接：交还公司财物（电脑、工牌、文件等）、结清借款、移交工作资料、签署离职交接单。未完成交接造成公司损失的，公司可依法追偿。</p>
+  <p><strong>第30条（离职证明）</strong>　公司自解除或终止劳动合同之日起十五日内，为员工出具解除或终止劳动合同的证明，并办理社保关系转移手续（《劳动合同法》第50条）。</p>
+
+  <h2>第十章　争议处理与申诉</h2>
+  <p><strong>第31条（内部申诉）</strong>　员工对公司的处理决定有异议的，可在收到处理通知之日起____日内，向人力资源部提出书面申诉。公司将在____日内予以答复。</p>
+  <p><strong>第32条（劳动争议处理）</strong>　员工与公司发生劳动争议，可协商解决；协商不成的，可向公司所在地劳动争议调解组织申请调解，或向劳动争议仲裁委员会申请仲裁（《劳动争议调解仲裁法》第5条）。</p>
+
+  <div class="page-break"></div>
+
+  <h2>附：民主程序履行记录表（关键！）</h2>
+
+  <div class="danger">
+    <strong>⚠️ 没有这个，员工手册等于废纸！</strong>根据最高人民法院《关于审理劳动争议案件适用法律问题的解释（一）》第50条，用人单位依据《劳动合同法》第4条规定，通过民主程序制定的规章制度，不违反国家法律、行政法规及政策规定，并已向劳动者公示的，可以作为确定双方权利义务的依据。<br><br>
+    <strong>民主程序 = 职工代表大会/全体职工讨论 + 与工会/职工代表平等协商</strong>
+  </div>
+
+  <table>
+    <tr><th colspan="2" style="background:#333; color:white;">员工手册民主程序履行记录表</th></tr>
+    <tr><td style="width:140px; text-align:right;">制度名称</td><td>《________________公司员工手册》（____年版）</td></tr>
+    <tr><td style="text-align:right;">讨论日期</td><td>____年____月____日</td></tr>
+    <tr><td style="text-align:right;">讨论形式</td><td>□ 职工代表大会讨论　□ 全体职工大会讨论　□ 书面征求意见</td></tr>
+    <tr><td style="text-align:right;">参会人员签到</td><td>（附：职工代表大会/全体职工签到表，共____人参会）</td></tr>
+    <tr><td style="text-align:right;">讨论意见记录</td><td>（附：讨论会议纪要及员工意见汇总，共收集意见____条，采纳____条）</td></tr>
+    <tr><td style="text-align:right;">与工会/职工代表协商记录</td><td>（附：平等协商会议纪要，协商日期：____年____月____日）</td></tr>
+    <tr><td style="text-align:right;">公示方式</td><td>□ 纸质手册发放 + 签字领取　□ 公司内网/OA公示　□ 培训签到</td></tr>
+    <tr><td style="text-align:right;">公示日期</td><td>____年____月____日 至 ____年____月____日</td></tr>
+    <tr><td style="text-align:right;">员工确认签收记录</td><td>（附：《员工手册领取确认书》签收记录，共____人签收）</td></tr>
+    <tr><td style="text-align:right;">工会确认（盖章）</td><td style="height:50px;">（工会盖章处）________________</td></tr>
+    <tr><td style="text-align:right;">公司确认（盖章）</td><td style="height:50px;">（公司盖章处）________________</td></tr>
+  </table>
+
+  <p style="margin-top:15px;"><strong>附件清单（须一并存档）：</strong></p>
+  <p>1. 职工代表大会/全体职工讨论签到表及会议纪要；</p>
+  <p>2. 员工意见汇总及公司回复记录；</p>
+  <p>3. 与工会/职工代表平等协商的会议纪要；</p>
+  <p>4. 员工手册公示凭证（内网截图/OA公告截图）；</p>
+  <p>5. 《员工手册领取确认书》签收记录（全员覆盖）。</p>
+
+  <div class="footer">—— 模板06 结束 ——</div>
+</div>
+</body>
+</html>

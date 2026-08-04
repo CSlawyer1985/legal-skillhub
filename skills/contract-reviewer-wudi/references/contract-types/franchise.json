@@ -1,0 +1,347 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "特许经营合同",
+  "contract_type_en": "franchise",
+  "description": "商业特许经营、加盟连锁、品牌授权等特许经营合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《商业特许经营管理条例》",
+    "《商业特许经营备案管理办法》"
+  ],
+  "keywords_for_detection": [
+    "特许经营", "加盟", "连锁", "特许人", "被特许人", "加盟商",
+    "特许经营权", "加盟费", "特许权使用费", "品牌授权"
+  ],
+  "key_clauses": [
+    {
+      "name": "特许经营权授权",
+      "required": true,
+      "keywords": ["特许经营权", "授权", "许可", "商标", "商号"],
+      "check_points": [
+        {
+          "item": "授权内容",
+          "description": "授权使用的商标、商号、专利、专有技术等是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "授权范围",
+          "description": "授权地域范围、期限是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "授权性质",
+          "description": "独占/排他/普通许可是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确授权内容（商标、商号、专利、技术秘密）、地域范围、期限、性质"
+    },
+    {
+      "name": "特许经营费用",
+      "required": true,
+      "keywords": ["加盟费", "特许权使用费", "管理费", "保证金"],
+      "check_points": [
+        {
+          "item": "加盟费",
+          "description": "加盟费金额、支付时间是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "特许权使用费",
+          "description": "特许权使用费计算方式（固定/销售额比例）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保证金",
+          "description": "保证金金额、退还条件",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确加盟费（一次性）、特许权使用费（按月/季销售额的3-5%）、保证金"
+    },
+    {
+      "name": "合同期限与续约",
+      "required": true,
+      "keywords": ["合同期限", "期限", "续约", "续签", "优先续约"],
+      "check_points": [
+        {
+          "item": "合同期限",
+          "description": "合同期限是否明确（通常3-5年）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "续约条件",
+          "description": "续约条件和程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "优先续约权",
+          "description": "被特许人是否有优先续约权",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确合同期限（不少于3年）、续约条件、优先续约权"
+    },
+    {
+      "name": "特许人信息披露",
+      "required": true,
+      "keywords": ["信息披露", "备案", "商标注册", "两店一年"],
+      "check_points": [
+        {
+          "item": "备案情况",
+          "description": "特许人是否完成商务主管部门备案",
+          "risk_level": "重大"
+        },
+        {
+          "item": "两店一年",
+          "description": "特许人是否拥有2个直营店且经营超过1年",
+          "risk_level": "重大"
+        },
+        {
+          "item": "商标权",
+          "description": "授权商标是否已注册",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "特许人应披露备案情况、直营店情况、商标注册情况，符合'两店一年'要求"
+    },
+    {
+      "name": "经营指导与培训",
+      "required": true,
+      "keywords": ["培训", "指导", "运营支持", "技术支持"],
+      "check_points": [
+        {
+          "item": "开业前培训",
+          "description": "开业前培训内容和时长",
+          "risk_level": "重大"
+        },
+        {
+          "item": "持续支持",
+          "description": "持续经营指导和技术支持",
+          "risk_level": "重大"
+        },
+        {
+          "item": "培训费用",
+          "description": "培训费用是否包含在加盟费中",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确开业前培训、持续支持内容，培训费用是否另计"
+    },
+    {
+      "name": "产品与服务供应",
+      "required": true,
+      "keywords": ["产品供应", "原材料", "设备", "统一配送"],
+      "check_points": [
+        {
+          "item": "供应方式",
+          "description": "产品/原材料供应方式（统一配送/指定供应商/自行采购）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "价格约定",
+          "description": "供应价格是否高于市场价",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质量标准",
+          "description": "供应产品质量标准",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确供应方式、价格（不得明显高于市场价）、质量标准"
+    },
+    {
+      "name": "广告与促销",
+      "required": true,
+      "keywords": ["广告", "促销", "推广", "广告基金", "营销"],
+      "check_points": [
+        {
+          "item": "广告费",
+          "description": "是否收取广告基金/推广费",
+          "risk_level": "重大"
+        },
+        {
+          "item": "广告责任",
+          "description": "广告宣传和促销的责任分工",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确广告基金收取比例（通常销售额的1-3%）和用途"
+    },
+    {
+      "name": "区域保护",
+      "required": false,
+      "keywords": ["区域保护", "商圈保护", "独家经营"],
+      "check_points": [
+        {
+          "item": "保护范围",
+          "description": "区域保护的范围和距离",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保护期限",
+          "description": "区域保护期限",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确区域保护范围（如半径X公里或特定商圈内不开设第二家）"
+    },
+    {
+      "name": "竞业限制",
+      "required": true,
+      "keywords": ["竞业", "竞争", "同业", "竞业禁止"],
+      "check_points": [
+        {
+          "item": "合同期内竞业",
+          "description": "合同期内是否禁止从事竞争业务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "合同终止后竞业",
+          "description": "合同终止后竞业限制期限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "合同期内不得从事竞争业务，合同终止后竞业限制期限通常1-2年"
+    },
+    {
+      "name": "合同解除",
+      "required": true,
+      "keywords": ["解除", "终止", "退出", "冷静期"],
+      "check_points": [
+        {
+          "item": "冷静期",
+          "description": "被特许人单方解除权（冷静期）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "解除条件",
+          "description": "合同解除条件",
+          "risk_level": "重大"
+        },
+        {
+          "item": "解除后果",
+          "description": "合同解除后的后果处理",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "被特许人在合同订立后一定期限内（通常7-15日）可单方解除合同（冷静期）"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "F001",
+      "name": "特许人资质不符",
+      "description": "特许人不满足'两店一年'要求，或未备案，合同可能被解除",
+      "severity": "高风险",
+      "suggestion": "核实特许人是否拥有2个直营店且经营超过1年，是否完成商务备案",
+      "legal_basis": "《商业特许经营管理条例》第7条、第8条"
+    },
+    {
+      "id": "F002",
+      "name": "商标未注册",
+      "description": "授权商标未注册或注册类别不符，存在侵权风险",
+      "severity": "高风险",
+      "suggestion": "核实商标注册证书，确保注册类别覆盖经营业务"
+    },
+    {
+      "id": "F003",
+      "name": "无冷静期条款",
+      "description": "未约定被特许人冷静期，违反强制性规定",
+      "severity": "高风险",
+      "suggestion": "必须约定被特许人在合同订立后一定期限内可单方解除合同",
+      "legal_basis": "《商业特许经营管理条例》第12条"
+    },
+    {
+      "id": "F004",
+      "name": "强制供货价格过高",
+      "description": "特许人强制供应的产品/原材料价格明显高于市场价",
+      "severity": "中风险",
+      "suggestion": "约定供应价格不得高于市场价，或允许自行采购符合条件的原材料"
+    },
+    {
+      "id": "F005",
+      "name": "无区域保护",
+      "description": "未约定区域保护，特许人可在附近开设新店",
+      "severity": "中风险",
+      "suggestion": "争取区域保护条款，明确保护范围和期限"
+    },
+    {
+      "id": "F006",
+      "name": "竞业限制过长",
+      "description": "合同终止后竞业限制期限过长（超过2年）",
+      "severity": "中风险",
+      "suggestion": "竞业限制期限建议1-2年，过长可能被认定无效"
+    }
+  ],
+  "position_guidance": {
+    "franchisor": {
+      "name": "特许人（甲方）",
+      "priority_checks": [
+        "授权范围",
+        "费用收取",
+        "质量控制",
+        "竞业限制"
+      ],
+      "key_concerns": [
+        "明确授权内容和范围，防止越权使用",
+        "合理设置加盟费、特许权使用费、保证金",
+        "确保产品质量统一，控制供应渠道",
+        "设置竞业限制保护品牌和商业秘密",
+        "确保符合'两店一年'和备案要求"
+      ],
+      "avoid": [
+        "不满足'两店一年'要求",
+        "商标未注册",
+        "无冷静期条款",
+        "强制供货价格过高",
+        "竞业限制期限过长"
+      ]
+    },
+    "franchisee": {
+      "name": "被特许人/加盟商（乙方）",
+      "priority_checks": [
+        "特许人资质",
+        "商标权",
+        "区域保护",
+        "冷静期",
+        "供货价格"
+      ],
+      "key_concerns": [
+        "核实特许人'两店一年'和备案情况",
+        "核实商标注册情况",
+        "争取区域保护条款",
+        "确保有冷静期条款",
+        "限制供货价格，争取自行采购权",
+        "明确培训和支持内容"
+      ],
+      "avoid": [
+        "特许人资质不符",
+        "商标未注册",
+        "无区域保护",
+        "强制高价供货",
+        "过长的竞业限制",
+        "过高的广告基金"
+      ]
+    }
+  },
+  "legal_requirements": {
+    "two_stores_one_year": {
+      "description": "两店一年要求",
+      "requirement": "特许人应当拥有至少2个直营店，并且经营时间超过1年",
+      "legal_basis": "《商业特许经营管理条例》第7条"
+    },
+    "registration": {
+      "description": "商务备案",
+      "requirement": "特许人应当自首次订立特许经营合同之日起15日内向商务主管部门备案",
+      "legal_basis": "《商业特许经营管理条例》第8条"
+    },
+    "cooling_off": {
+      "description": "冷静期",
+      "requirement": "特许人和被特许人应当在特许经营合同中约定，被特许人在特许经营合同订立后一定期限内，可以单方解除合同",
+      "legal_basis": "《商业特许经营管理条例》第12条"
+    }
+  }
+}

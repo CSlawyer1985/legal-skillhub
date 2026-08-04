@@ -1,0 +1,272 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "保密协议",
+  "contract_type_en": "nda",
+  "description": "保密协议、NDA、保密承诺书等",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国反不正当竞争法》"
+  ],
+  "keywords_for_detection": [
+    "保密", "保密协议", "NDA", "机密", "商业秘密", "Confidentiality",
+    "保密承诺", "保密义务"
+  ],
+  "key_clauses": [
+    {
+      "name": "保密信息定义",
+      "required": true,
+      "keywords": ["保密信息", "机密信息", "商业秘密", "Confidential Information"],
+      "check_points": [
+        {
+          "item": "定义范围",
+          "description": "保密信息的定义范围是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "标识要求",
+          "description": "是否要求书面标识为保密",
+          "risk_level": "一般"
+        },
+        {
+          "item": "口头信息",
+          "description": "口头保密信息的处理",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确保密信息定义，建议采用'书面标识+口头确认'双重要求"
+    },
+    {
+      "name": "保密义务",
+      "required": true,
+      "keywords": ["保密义务", "不得披露", "不得使用", "妥善保管"],
+      "check_points": [
+        {
+          "item": "不披露义务",
+          "description": "不得向第三方披露的约定",
+          "risk_level": "致命"
+        },
+        {
+          "item": "不使用义务",
+          "description": "不得用于约定目的之外的约定",
+          "risk_level": "致命"
+        },
+        {
+          "item": "妥善保管",
+          "description": "保密信息的保管要求",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确：不得披露、不得超范围使用、妥善保管"
+    },
+    {
+      "name": "保密期限",
+      "required": true,
+      "keywords": ["保密期限", "保密期间", "持续保密"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "保密期限是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "期限合理性",
+          "description": "期限是否合理（通常2-5年，商业秘密可更长）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "一般保密信息2-3年，商业秘密可约定5年或更长"
+    },
+    {
+      "name": "保密信息例外",
+      "required": true,
+      "keywords": ["除外", "例外", "公开", "已知", "独立开发"],
+      "check_points": [
+        {
+          "item": "例外情形",
+          "description": "哪些信息不属于保密信息",
+          "risk_level": "重大"
+        },
+        {
+          "item": "公开信息",
+          "description": "已公开信息的处理",
+          "risk_level": "一般"
+        },
+        {
+          "item": "独立开发",
+          "description": "独立开发信息的处理",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确例外：已公开、接收前已知、独立开发、合法取得"
+    },
+    {
+      "name": "信息披露",
+      "required": false,
+      "keywords": ["披露", "法律法规要求", "政府机关", "法院"],
+      "check_points": [
+        {
+          "item": "法定披露",
+          "description": "法律法规要求披露时的程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "事先通知",
+          "description": "披露前是否需通知对方",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "约定：法律法规要求披露时，应事先通知对方并配合争取保密处理"
+    },
+    {
+      "name": "信息返还与销毁",
+      "required": true,
+      "keywords": ["返还", "销毁", "删除", "终止", "结束"],
+      "check_points": [
+        {
+          "item": "返还/销毁义务",
+          "description": "合同终止后是否需返还或销毁保密信息",
+          "risk_level": "重大"
+        },
+        {
+          "item": "备份处理",
+          "description": "备份信息的处理",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "约定：终止后返还或销毁保密信息，备份按保密义务继续保管"
+    },
+    {
+      "name": "知识产权",
+      "required": false,
+      "keywords": ["知识产权", "著作权", "专利", "所有权"],
+      "check_points": [
+        {
+          "item": "权利归属",
+          "description": "保密信息的知识产权归属",
+          "risk_level": "重大"
+        },
+        {
+          "item": "许可范围",
+          "description": "接收方获得的使用许可范围",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确：披露方保留所有权利，接收方仅获得有限的使用许可"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "损害赔偿"],
+      "check_points": [
+        {
+          "item": "违约金",
+          "description": "是否约定违约金",
+          "risk_level": "一般"
+        },
+        {
+          "item": "损害赔偿",
+          "description": "损害赔偿范围是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "约定违约金和损害赔偿，可约定惩罚性违约金"
+    },
+    {
+      "name": "争议解决",
+      "required": false,
+      "keywords": ["争议", "诉讼", "仲裁", "管辖"],
+      "check_points": [
+        {
+          "item": "管辖约定",
+          "description": "管辖法院或仲裁机构",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "建议约定披露方所在地法院管辖"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "D001",
+      "name": "保密信息定义过宽",
+      "description": "保密信息定义过于宽泛，可能导致接收方难以履行",
+      "severity": "中风险",
+      "suggestion": "保密信息定义应具体，建议采用'书面标识+口头确认'"
+    },
+    {
+      "id": "D002",
+      "name": "保密期限过长",
+      "description": "保密期限过长（如10年以上），可能被认定为不合理",
+      "severity": "中风险",
+      "suggestion": "一般信息2-3年，商业秘密5年，极重要信息可更长"
+    },
+    {
+      "id": "D003",
+      "name": "无例外条款",
+      "description": "未约定保密信息例外情形，对接受方不利",
+      "severity": "中风险",
+      "suggestion": "明确例外：已公开、接收前已知、独立开发"
+    },
+    {
+      "id": "D004",
+      "name": "未约定返还销毁",
+      "description": "未约定合同终止后保密信息的返还或销毁",
+      "severity": "中风险",
+      "suggestion": "约定终止后返还或销毁保密信息"
+    },
+    {
+      "id": "D005",
+      "name": "员工保密未约定",
+      "description": "未约定接收方员工的保密义务",
+      "severity": "中风险",
+      "suggestion": "约定接收方应对其员工保密，并承担员工泄密责任"
+    }
+  ],
+  "position_guidance": {
+    "disclosing_party": {
+      "name": "披露方（甲方）",
+      "priority_checks": [
+        "保密信息定义",
+        "保密期限",
+        "违约责任",
+        "信息返还"
+      ],
+      "key_concerns": [
+        "确保保密信息定义充分覆盖",
+        "争取较长的保密期限",
+        "约定明确的违约金",
+        "约定终止后的返还/销毁义务",
+        "约定员工保密责任"
+      ],
+      "avoid": [
+        "保密信息定义过窄",
+        "保密期限过短",
+        "违约金过低",
+        "无返还销毁约定"
+      ]
+    },
+    "receiving_party": {
+      "name": "接收方（乙方）",
+      "priority_checks": [
+        "保密信息定义",
+        "保密期限",
+        "例外条款",
+        "使用目的"
+      ],
+      "key_concerns": [
+        "限制保密信息定义范围",
+        "争取合理的保密期限",
+        "明确例外情形",
+        "明确使用目的和范围",
+        "限制员工责任范围"
+      ],
+      "avoid": [
+        "保密信息定义过宽",
+        "保密期限过长",
+        "无例外条款",
+        "承担员工个人泄密责任"
+      ]
+    }
+  }
+}

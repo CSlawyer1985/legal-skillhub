@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>民事起诉状</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 2.54cm 3.18cm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "宋体", "SimSun", "Noto Serif SC", serif;
+            font-size: 12pt;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .title {
+            text-align: center;
+            font-size: 22pt;
+            font-weight: bold;
+            font-family: "宋体", "SimSun", serif;
+            margin-bottom: 30pt;
+            letter-spacing: 4px;
+        }
+        .parties {
+            margin-bottom: 20pt;
+        }
+        .party {
+            margin-bottom: 12pt;
+            text-indent: 2em;
+        }
+        .party-label {
+            font-weight: bold;
+        }
+        .section-header {
+            font-weight: bold;
+            font-size: 14pt;
+            margin-top: 20pt;
+            margin-bottom: 12pt;
+        }
+        .content {
+            text-indent: 2em;
+            margin-bottom: 8pt;
+            text-align: justify;
+        }
+        .claims-list {
+            list-style: none;
+            padding-left: 2em;
+        }
+        .claims-list li {
+            margin-bottom: 6pt;
+            text-indent: 0;
+        }
+        .closing {
+            margin-top: 30pt;
+            text-indent: 2em;
+        }
+        .court-name {
+            margin-top: 8pt;
+            text-indent: 2em;
+            font-weight: bold;
+        }
+        .signature {
+            margin-top: 40pt;
+            text-align: right;
+            line-height: 2.2;
+        }
+        .signature p {
+            margin-bottom: 4pt;
+        }
+        .attachment {
+            margin-top: 20pt;
+            text-indent: 2em;
+            font-size: 11pt;
+        }
+        .attachment-list {
+            list-style: none;
+            padding-left: 2em;
+            font-size: 11pt;
+        }
+        .attachment-list li {
+            margin-bottom: 4pt;
+        }
+        /* 风险标注区块 */
+        .risk-section {
+            margin-top: 50pt;
+            padding: 20pt;
+            border: 2px solid #c0392b;
+            background-color: #fdf2f2;
+            border-radius: 4px;
+            page-break-before: always;
+        }
+        .risk-title {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 16pt;
+            letter-spacing: 2px;
+        }
+        .risk-subtitle {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #c0392b;
+            margin-top: 16pt;
+            margin-bottom: 8pt;
+            border-left: 4px solid #c0392b;
+            padding-left: 8pt;
+        }
+        .risk-item {
+            margin-bottom: 10pt;
+            text-indent: 2em;
+            text-align: justify;
+        }
+        .risk-level-high {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .risk-level-medium {
+            color: #e67e22;
+            font-weight: bold;
+        }
+        .risk-level-low {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .judge-focus {
+            background-color: #fff9e6;
+            border: 1px solid #f39c12;
+            padding: 15pt;
+            margin-top: 10pt;
+            border-radius: 4px;
+        }
+        .judge-focus-item {
+            margin-bottom: 12pt;
+        }
+        .judge-focus-question {
+            font-weight: bold;
+            margin-bottom: 4pt;
+        }
+        .judge-focus-suggestion {
+            color: #555;
+            font-size: 11pt;
+            text-indent: 2em;
+        }
+        .risk-divider {
+            border: none;
+            border-top: 1px dashed #c0392b;
+            margin: 16pt 0;
+        }
+        .risk-disclaimer {
+            text-align: center;
+            font-size: 10pt;
+            color: #999;
+            margin-top: 16pt;
+        }
+        @media print {
+            body {
+                padding: 0;
+            }
+            .risk-section {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">民事起诉状</div>
+
+    <div class="parties">
+        <div class="party">
+            <span class="party-label">原告：</span>{{PLAINTIFF_INFO}}
+        </div>
+        <div class="party">
+            <span class="party-label">被告：</span>{{DEFENDANT_INFO}}
+        </div>
+    </div>
+
+    <div class="section-header">诉讼请求</div>
+    <ol class="claims-list">
+        {{CLAIMS_LIST}}
+    </ol>
+
+    <div class="section-header">事实与理由</div>
+    <div class="content">{{FACTS_CONTENT}}</div>
+    <div class="content">{{REASONS_CONTENT}}</div>
+
+    <div class="section-header">证据清单</div>
+    <div class="content">{{EVIDENCE_LIST}}</div>
+
+    <div class="closing">此致</div>
+    <div class="court-name">{{COURT_NAME}}</div>
+
+    <div class="signature">
+        <p>起诉人：{{PLAINTIFF_SIGNATURE}}</p>
+        <p>{{DATE_YEAR}}年{{DATE_MONTH}}月{{DATE_DAY}}日</p>
+    </div>
+
+    <div class="attachment">附：</div>
+    <ul class="attachment-list">
+        <li>1. 本起诉状副本____份</li>
+        <li>2. 证据材料____份</li>
+        <li>3. 原告身份证明/营业执照复印件____份</li>
+    </ul>
+
+    <!-- ====== 风险标注区块（仅供承办律师参考，正式提交时删除） ====== -->
+    <div class="risk-section">
+        <div class="risk-title">本案核心风险点（仅供承办律师参考）</div>
+
+        <div class="risk-subtitle">一、诉讼主体风险</div>
+        <div class="risk-item">{{RISK_SUBJECT}}</div>
+
+        <div class="risk-subtitle">二、诉讼请求风险</div>
+        <div class="risk-item">{{RISK_CLAIMS}}</div>
+
+        <div class="risk-subtitle">三、事实认定风险</div>
+        <div class="risk-item">{{RISK_FACTS}}</div>
+
+        <div class="risk-subtitle">四、法律适用风险</div>
+        <div class="risk-item">{{RISK_LAW}}</div>
+
+        <div class="risk-subtitle">五、执行风险</div>
+        <div class="risk-item">{{RISK_EXECUTION}}</div>
+
+        <hr class="risk-divider">
+
+        <div class="risk-subtitle">法官可能重点关注的问题</div>
+        <div class="judge-focus">
+            {{JUDGE_FOCUS_ITEMS}}
+        </div>
+
+        <div class="risk-disclaimer">
+            ※ 以上风险分析基于类案检索结果和案情简介生成，仅供参考，不构成正式法律意见。<br>
+            ※ 正式提交法院前请删除本区块内容。
+        </div>
+    </div>
+
+</body>
+</html>

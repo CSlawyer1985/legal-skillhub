@@ -1,0 +1,22 @@
+{
+  "name": "billable-time",
+  "version": "0.2.0",
+  "description": "Draft cryptographically-stamped, audit-defensible time entries from Claude Code session logs. The tool never bills.",
+  "license": "AGPL-3.0",
+  "bin": {
+    "billable-time": "./draft-entries.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "sample": "node draft-entries.mjs --session ~/.claude/projects/-Users-stephanemacmini/ --matter ./examples/test-matter.yml --since 2026-05-15 --until 2026-05-17 --out out/sample-draft.md",
+    "sample:strict": "node draft-entries.mjs --session ~/.claude/projects/-Users-stephanemacmini/ --matter ./examples/test-matter-strict.yml --since 2026-05-15 --until 2026-05-17 --strict --out out/sample-draft-strict.md"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sboghossian/billable-time.git"
+  }
+}

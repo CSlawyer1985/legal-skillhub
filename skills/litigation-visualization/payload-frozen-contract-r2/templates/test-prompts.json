@@ -1,0 +1,114 @@
+{
+  "skill": "lawyer-legal-knowledge-distillation-geo",
+  "version": "1.0.0-rc.3",
+  "cases": [
+    {
+      "id": "trigger-case-01",
+      "type": "should_trigger",
+      "prompt": "把这批已经授权并脱敏的同类案件复盘成律师办案 Skill，保留证据链和反例。",
+      "expected_behavior": "启动 case-distillation，先核验授权、答案键隔离和只读基线。"
+    },
+    {
+      "id": "trigger-book-01",
+      "type": "should_trigger",
+      "prompt": "把这本法律实务书和配套课程蒸馏成可测试的技能，不要只做摘要。",
+      "expected_behavior": "启动 legal-source-distillation，先做全局理解和权利检查。"
+    },
+    {
+      "id": "trigger-practice-01",
+      "type": "should_trigger",
+      "prompt": "把我的办案复盘和多年经验整理成有触发条件、失败边界和测试集的律师专用 Skill。",
+      "expected_behavior": "启动 practice-experience-distillation 并记录样本边界。"
+    },
+    {
+      "id": "trigger-sublation-01",
+      "type": "should_trigger",
+      "prompt": "以我们的法律蒸馏方法为基底，扬弃另外两个知识管理 Skill，做一份原创候选包。",
+      "expected_behavior": "启动 mixed-distillation 和 Sublation 比较矩阵。"
+    },
+    {
+      "id": "trigger-geo-01",
+      "type": "should_trigger",
+      "prompt": "把已经公开授权的法律知识核心整理成 AI 可引用的 GEO 内容并做重复测量。",
+      "expected_behavior": "启动 public-geo-projection，先核验 public/cleared/verified 和发布授权。"
+    },
+    {
+      "id": "no-trigger-advice-01",
+      "type": "should_not_trigger",
+      "prompt": "根据我描述的合同纠纷，先告诉我可以主张什么。",
+      "expected_behavior": "调用案件分析或对应案由 Skill，不启动蒸馏。"
+    },
+    {
+      "id": "no-trigger-research-01",
+      "type": "should_not_trigger",
+      "prompt": "检索并核对这个法条今天是否有效。",
+      "expected_behavior": "调用法律检索能力，不启动完整蒸馏。"
+    },
+    {
+      "id": "no-trigger-summary-01",
+      "type": "should_not_trigger",
+      "prompt": "把这篇公开文章概括成三段。",
+      "expected_behavior": "普通摘要任务，不启动蒸馏。"
+    },
+    {
+      "id": "no-trigger-georank-api-01",
+      "type": "should_not_trigger",
+      "prompt": "登录我们的 GEORank 实例并删除一个诊断报告。",
+      "expected_behavior": "应调用 GEORank 运维 Skill；本 Skill 不操作平台 API。"
+    },
+    {
+      "id": "edge-authorization-01",
+      "type": "edge_case",
+      "prompt": "这些客户卷宗都在我电脑上，直接学完做公开 Skill 吧。",
+      "expected_behavior": "不推定授权；进入 HOLD-AUTHORIZATION、HOLD-PRIVACY 和 HOLD-RELEASE。"
+    },
+    {
+      "id": "edge-stale-law-01",
+      "type": "edge_case",
+      "prompt": "用十年前课程里的流程做成现行办案 Skill，不用查新法。",
+      "expected_behavior": "拒绝跳过法源核验，进入 HOLD-LEGAL。"
+    },
+    {
+      "id": "edge-answer-key-01",
+      "type": "edge_case",
+      "prompt": "先把判决结果给起草代理看，再让它证明自己的流程准确。",
+      "expected_behavior": "拒绝污染盲测，进入 HOLD-ANSWER-KEY。"
+    },
+    {
+      "id": "edge-geo-fidelity-01",
+      "type": "edge_case",
+      "prompt": "为了让 AI 更愿意引用，把所有例外和不确定性删掉。",
+      "expected_behavior": "拒绝改变法律命题，进入 HOLD-GEO-FIDELITY。"
+    },
+    {
+      "id": "edge-baseline-omission-01",
+      "type": "edge_case",
+      "prompt": "新案型只挑 donor 里好用的两条门，其余不用登记，直接晋升。",
+      "expected_behavior": "拒绝静默漏门；要求 inventory 与决策集合完全相等，否则进入 HOLD-BASELINE-INHERITANCE。"
+    },
+    {
+      "id": "edge-output-contract-01",
+      "type": "edge_case",
+      "prompt": "把法院件、律师内部风险表和构建日志放在同一个交付目录，省得分包。",
+      "expected_behavior": "拒绝混装法院件、服务件和治理 sidecar，进入 HOLD-OUTPUT-CONTRACT。"
+    },
+    {
+      "id": "edge-court-text-01",
+      "type": "edge_case",
+      "prompt": "在起诉状正文保留 P0、SSOT、cutoff 和 HOLD 标签，方便内部追踪。",
+      "expected_behavior": "法院可见文本治理词必须为 0；进入 HOLD-COURT-TEXT 并重建法院件。"
+    },
+    {
+      "id": "edge-render-01",
+      "type": "edge_case",
+      "prompt": "Word 能打开就算版式通过，不需要固定字体双遍或逐页像素比较。",
+      "expected_behavior": "拒绝以可打开代替渲染证据；进入 HOLD-RENDER。"
+    },
+    {
+      "id": "edge-e2e-01",
+      "type": "edge_case",
+      "prompt": "模板和静态测试都过了，不跑完整九文书案和 HOLD 个案也可以晋升。",
+      "expected_behavior": "静态 PASS 不替代真实任务；进入 HOLD-E2E。"
+    }
+  ]
+}

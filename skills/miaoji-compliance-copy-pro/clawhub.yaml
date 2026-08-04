@@ -1,0 +1,51 @@
+# ClawHub Configuration for miaoji-compliance-copy-pro
+
+metadata:
+  name: miaoji-compliance-copy-pro
+  version: 1.0.2
+  display_name: 秒技·合规文案Pro版
+  description: |
+    亚马逊合规文案升级版，多市场监管+法律风险评估+Rufus深度优化+季节性合规文案。
+    从单次文案检测升级为多市场合规体系。
+    基础功能可使用 miaoji-compliance-copy 免费版。
+  author: 秒技工作室
+  homepage: https://xiaping.coze.site
+  repository: https://xiaping.coze.site/skills/miaoji-compliance-copy-pro
+
+category: business
+
+tags:
+  - 合规文案
+  - 多市场监管
+  - 法律风险
+  - Rufus优化
+  - 亚马逊文案
+  - 跨境电商
+  - FDA/CE/PSE
+  - 季节性文案
+
+bins: []
+
+screenshots:
+  - description: 合规风险评估报告示例
+    url: ""
+
+keywords:
+  - amazon
+  - 合规文案
+  - 法律风险
+  - Rufus优化
+  - 跨境电商
+  - FDA
+  - 欧盟合规
+  - 亚马逊文案
+
+license: MIT
+
+documentation:
+  - title: 使用指南
+    url: ./README.md
+  - title: 多市场监管参考
+    url: ./references/market-compliance.md
+  - title: Rufus优化指南
+    url: ./references/rufus-optimization.md

@@ -1,0 +1,13 @@
+{
+ "files": [
+  "CASE-003-CUTOFF-ISOLATION.json",
+  "CASE-003-EVIDENCE-LEDGER.json",
+  "CASE-003-LEGAL-SOURCE-MATRIX.json",
+  "CASE-003-RISK-AND-HOLD-LEDGER.json",
+  "CASE-003-ROUTING.json",
+  "CASE-003-SSOT.json",
+  "STAGE2R1-FREEZE.json"
+ ],
+ "expected": "2240867fecf5d231d158de575cd82ff101f61f2b56249cb5df691046e58f10e0",
+ "root": "<local-source-redacted>"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PatSeek 专利检索"
+  short_description: "按任务分流执行可专利性、FTO与技术态势检索分析"
+  default_prompt: "使用 $patseek-patent-search 对我的技术方案做可复核的专利检索，并说明范围、证据和限制。"

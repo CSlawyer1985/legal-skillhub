@@ -1,0 +1,7 @@
+interface:
+  display_name: "企业 AI 合规审查｜郭亿易"
+  short_description: "企业 AI 合规审查：把输入转成可验收结果，适合企业法务、合规、IT 和 AI 团队"
+  default_prompt: "Use $guoyiyi-v019-azure-compliance to process AI 方案、数据流和行业约束 and deliver 合规风险矩阵、整改动作与审计证据清单."
+  icon_small: "./assets/icon-64.png"
+  icon_large: "./assets/icon-512.png"
+  brand_color: "#8CC62F"

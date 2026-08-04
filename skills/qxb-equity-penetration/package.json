@@ -1,0 +1,33 @@
+{
+  "name": "qxb-equity-penetration",
+  "version": "1.0.0",
+  "description": "启信宝企业股权穿透查询工具，支持直接股东和间接股东（含穿透路径）查询。",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "ts-node src/test.ts",
+    "pack": "node -e \"const fs=require('fs');const path=require('path');function cpr(s,d){if(fs.statSync(s).isDirectory()){fs.mkdirSync(d,{recursive:true});fs.readdirSync(s).forEach(f=>cpr(path.join(s,f),path.join(d,f)))}else{fs.copyFileSync(s,d)}}fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');['SKILL.md','package.json','tsconfig.json'].forEach(f=>fs.copyFileSync(f,'dist/'+f));['src','references'].forEach(d=>cpr(d,'dist/'+d))\"",
+    "publish:clawhub": "npm run pack && clawhub publish ./dist --slug qxb-equity-penetration --name \"企业股权穿透\" --version 1.0.2"
+  },
+  "keywords": [
+    "qixinbao",
+    "enterprise",
+    "equity",
+    "penetration",
+    "shareholder",
+    "skill",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}

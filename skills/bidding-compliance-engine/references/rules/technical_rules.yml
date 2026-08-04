@@ -1,0 +1,173 @@
+# 技术参数合规扫描规则
+# 覆盖审查表相关技术标准与品牌指定事项，共8条规则
+
+rules:
+  - rule_id: TECH_BRAND_LOCK
+    title: 技术参数指定唯一品牌型号
+    severity: high
+    description: 技术参数中指定唯一品牌/型号且无"或同等"替代选项
+    keywords:
+      - "品牌"
+      - "型号"
+      - "厂商"
+      - "制造商"
+    patterns:
+      - "采用.*品牌"
+      - "选用.*型号"
+      - "品牌为.*"
+      - "制造商.*指定"
+    exclusion_patterns:
+      - "或同等"
+      - "或相当于"
+      - "性能不低于"
+    category: technical_spec
+    suggestion: "修改为'XX品牌XX型号或同等品牌型号'或改为性能参数描述"
+    legal_basis: "《招标投标法实施条例》第三十二条第（三）项：招标人不得指定特定的品牌或产地"
+    check_item: "4.1"
+
+  - rule_id: TECH_PATENT_LOCK
+    title: 指定专利或专有技术
+    severity: high
+    description: 技术要求中指定特定专利或专有技术
+    keywords:
+      - "专利"
+      - "专有技术"
+      - "独家"
+    patterns:
+      - "采用.*专利"
+      - "使用.*专利技术"
+      - "须使用.*专有技术"
+    exclusion_patterns: []
+    category: technical_spec
+    suggestion: "除非专利技术是项目必需且无可替代，否则应允许等效技术方案"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "4.1"
+
+  - rule_id: TECH_PARAM_UNIQUE
+    title: 参数指标唯一指向某供应商
+    severity: high
+    description: 技术参数指标组合具有唯一指向性，仅一家供应商能满足
+    keywords:
+      - "参数"
+      - "指标"
+      - "配置"
+      - "规格"
+    patterns:
+      - ".*≥.*且.*≤.*"
+      - "精度不低于.*分辨率不低于.*"
+    exclusion_patterns:
+      - "或同等"
+      - "或相当"
+    category: technical_spec
+    suggestion: "检查参数组合是否仅一家可满足，适当放宽参数范围或增加'或同等'"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "4.2"
+
+  - rule_id: TECH_EXCLUDE_OR_EQUIVALENT
+    title: 明确排除同等品牌
+    severity: high
+    description: 招标文件明确排除或拒绝同等品牌/替代产品
+    keywords:
+      - "不接受替代"
+      - "不接受同等"
+      - "不接受其他品牌"
+      - "仅限"
+    patterns:
+      - "不接受.*替代"
+      - "不接受.*同等"
+      - "不接受.*其他品牌"
+      - "仅限.*品牌"
+    exclusion_patterns: []
+    category: technical_spec
+    suggestion: "删除排除同等品牌的条款，允许竞争性替代产品参与"
+    legal_basis: "《招标投标法实施条例》第三十二条第（三）项：招标人不得指定特定的品牌或产地"
+    check_item: "4.1"
+
+  - rule_id: TECH_VAGUE_STANDARD
+    title: 技术标准引用不明确
+    severity: low
+    description: 技术标准引用模糊，如仅写"符合国家相关标准"未指明具体标准号
+    keywords:
+      - "国家标准"
+      - "行业标准"
+      - "相关标准"
+    patterns:
+      - "符合国家.*标准"
+      - "符合相关.*标准"
+      - "按国家.*规定"
+    exclusion_patterns:
+      - "GB/T"
+      - "GB "
+      - "JGJ"
+      - "HJ"
+    category: technical_spec
+    suggestion: "明确引用具体的国家标准编号和名称，如'GB/T XXXXX-XXXX'"
+    legal_basis: "《招标投标法》第十九条：招标文件应当包括招标项目的技术要求；《标准化法》"
+    check_item: "4.2"
+
+  - rule_id: TECH_SAMPLE_BIAS
+    title: 样品要求偏向特定供应商
+    severity: medium
+    description: 样品/演示要求偏向特定供应商的产品特征
+    keywords:
+      - "样品"
+      - "演示"
+      - "测试"
+      - "试用"
+    patterns:
+      - "须提供.*样品"
+      - "须现场演示.*功能"
+    exclusion_patterns: []
+    category: technical_spec
+    suggestion: "样品和演示要求应公平、可比较，不应偏向特定供应商的产品特征"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人"
+    check_item: "4.4"
+
+  - rule_id: T_CERT_DIRECTION
+    title: 检测认证指向特定机构
+    severity: medium
+    description: 指定特定机构出具检测报告或认证证书，排除其他具有资质的检测机构
+    keywords:
+      - "检测机构"
+      - "指定检测"
+      - "检验机构"
+      - "认证机构"
+      - "第三方检测"
+    patterns:
+      - "须由.*机构出具.*检测报告"
+      - "检测报告须由.*出具"
+      - "须由.*指定.*机构检测"
+      - "仅认可.*机构.*检测"
+      - "须由.*认证机构"
+    exclusion_patterns:
+      - "或同等资质机构"
+      - "或具备资质的第三方"
+      - "具备CMA/CNAS资质"
+    category: technical_spec
+    suggestion: "检测认证不得指定特定机构，应允许具有相应资质的第三方检测机构出具报告"
+    legal_basis: "《招标投标法实施条例》第三十二条：招标人不得以不合理的条件限制、排斥潜在投标人；《认证认可条例》第九条"
+    check_item: "4.3"
+
+  - rule_id: T_STANDARD_VAGUE
+    title: 技术标准引用模糊升级
+    severity: medium
+    description: 引用已废止的国家标准或行业标准，或标准编号错误，可能导致技术要求不明确
+    keywords:
+      - "废止标准"
+      - "过期标准"
+      - "旧版标准"
+      - "标准编号"
+      - "已替代"
+    patterns:
+      - "GBJ.*"
+      - "TJ.*"
+      - "JGJ.*废止"
+      - "引用.*旧版.*标准"
+      - "按.*年版.*标准"
+    exclusion_patterns:
+      - "现行"
+      - "最新版"
+    category: technical_spec
+    suggestion: "应引用现行有效的国家标准或行业标准，检查标准编号是否为最新版本"
+    legal_basis: "《招标投标法》第十九条：招标文件应当包括招标项目的技术要求；《标准化法》第二十七条：禁止生产、销售、进口不符合强制性标准的产品"
+    check_item: "4.2"

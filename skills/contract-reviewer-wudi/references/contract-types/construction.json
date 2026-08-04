@@ -1,0 +1,407 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "建设工程合同",
+  "contract_type_en": "construction",
+  "description": "工程建设、施工承包、工程总承包等建设工程合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国建筑法》",
+    "《建设工程质量管理条例》",
+    "《房屋建筑和市政基础设施工程施工招标投标管理办法》"
+  ],
+  "keywords_for_detection": [
+    "建设工程", "施工", "承包", "工程总承包", "EPC", "包工包料",
+    "发包人", "承包人", "工程款", "竣工", "验收", "监理"
+  ],
+  "key_clauses": [
+    {
+      "name": "工程概况",
+      "required": true,
+      "keywords": ["工程名称", "工程地点", "工程内容", "承包范围"],
+      "check_points": [
+        {
+          "item": "工程基本信息",
+          "description": "工程名称、地点、内容是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "承包范围",
+          "description": "承包范围是否明确，与招标文件是否一致",
+          "risk_level": "致命"
+        },
+        {
+          "item": "工程规模",
+          "description": "建筑面积、结构类型、层数等是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确工程名称、地点、内容、承包范围，建议附工程量清单"
+    },
+    {
+      "name": "合同工期",
+      "required": true,
+      "keywords": ["工期", "开工日期", "竣工日期", "日历天"],
+      "check_points": [
+        {
+          "item": "工期明确",
+          "description": "开工日期、竣工日期、总工期是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "工期顺延",
+          "description": "工期顺延条件是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "节点工期",
+          "description": "关键节点工期是否约定",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确开工日期、竣工日期、总日历天数，约定工期顺延条件"
+    },
+    {
+      "name": "质量标准",
+      "required": true,
+      "keywords": ["质量标准", "合格", "优良", "国家标准", "验收标准"],
+      "check_points": [
+        {
+          "item": "质量目标",
+          "description": "工程质量标准是否明确（合格/优良）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "验收规范",
+          "description": "依据的验收规范是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确质量标准（合格或优良），列明依据的国家/行业验收规范"
+    },
+    {
+      "name": "合同价款",
+      "required": true,
+      "keywords": ["合同价款", "合同金额", "签约合同价", "暂估价"],
+      "check_points": [
+        {
+          "item": "合同价形式",
+          "description": "固定总价/固定单价/可调价格是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "金额明确",
+          "description": "合同总价是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "价格调整",
+          "description": "可调价格合同的调整条件和方法",
+          "risk_level": "重大"
+        },
+        {
+          "item": "暂估价",
+          "description": "暂估价项目的处理方式",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确合同价形式，固定总价需附工程量清单，可调价格需约定调整方法"
+    },
+    {
+      "name": "工程款支付",
+      "required": true,
+      "keywords": ["预付款", "进度款", "工程款支付", "结算", "审计"],
+      "check_points": [
+        {
+          "item": "预付款",
+          "description": "预付款比例、支付时间、扣回方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "进度款",
+          "description": "进度款支付节点、比例、审批程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "结算",
+          "description": "结算程序、时限、审计约定",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质保金",
+          "description": "质保金比例（通常3%）、退还时间",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确预付款（10-30%）、进度款节点、结算程序、质保金（3%，2年退还）"
+    },
+    {
+      "name": "材料设备供应",
+      "required": true,
+      "keywords": ["材料", "设备", "甲供", "乙供", "甲指乙供"],
+      "check_points": [
+        {
+          "item": "供应方式",
+          "description": "甲供/乙供/甲指乙供是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质量标准",
+          "description": "材料设备质量标准是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "进场验收",
+          "description": "材料设备进场验收程序",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确主要材料设备的供应方式、品牌、质量标准"
+    },
+    {
+      "name": "工程变更",
+      "required": true,
+      "keywords": ["变更", "工程变更", "设计变更", "签证", "索赔"],
+      "check_points": [
+        {
+          "item": "变更程序",
+          "description": "变更提出、审批、确认程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "变更价款",
+          "description": "变更价款确定方法",
+          "risk_level": "重大"
+        },
+        {
+          "item": "签证时限",
+          "description": "签证索赔的提出时限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确变更程序、价款确定方法（有相同项目按单价，无则协商），签证时限（通常14-28日）"
+    },
+    {
+      "name": "竣工验收",
+      "required": true,
+      "keywords": ["竣工验收", "竣工", "验收", "交付", "竣工图"],
+      "check_points": [
+        {
+          "item": "验收条件",
+          "description": "竣工验收条件是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "验收程序",
+          "description": "验收程序、参与方、时限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "竣工资料",
+          "description": "竣工资料清单和移交",
+          "risk_level": "重大"
+        },
+        {
+          "item": "工程移交",
+          "description": "工程移交条件和时间",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确验收条件、程序、时限（通常收到申请后28日内），竣工资料清单"
+    },
+    {
+      "name": "质量保修",
+      "required": true,
+      "keywords": ["保修", "质保", "缺陷责任期", "保修期", "质保金"],
+      "check_points": [
+        {
+          "item": "保修范围",
+          "description": "保修范围和内容是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保修期限",
+          "description": "保修期限是否符合法定要求",
+          "risk_level": "重大"
+        },
+        {
+          "item": "缺陷责任期",
+          "description": "缺陷责任期是否明确（通常2年）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保修责任",
+          "description": "保修责任和响应时间",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "法定保修期：地基基础和主体结构为设计年限，防水5年，其他2年；缺陷责任期通常2年"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "误期赔偿"],
+      "check_points": [
+        {
+          "item": "工期延误",
+          "description": "工期延误违约金（通常合同价0.5‰-1‰/天）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质量违约",
+          "description": "质量不合格的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "付款延误",
+          "description": "发包人逾期付款的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "违约金上限",
+          "description": "是否约定违约金上限（通常10%）",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "工期延误违约金建议0.5‰-1‰/天，上限10%；质量违约明确返工责任和费用承担"
+    },
+    {
+      "name": "工程分包",
+      "required": false,
+      "keywords": ["分包", "专业分包", "劳务分包", "转包"],
+      "check_points": [
+        {
+          "item": "分包约定",
+          "description": "是否允许分包，哪些可以分包",
+          "risk_level": "重大"
+        },
+        {
+          "item": "分包限制",
+          "description": "禁止转包、违法分包",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "约定允许分包的范围，禁止转包和主体结构分包"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "C001",
+      "name": "黑白合同",
+      "description": "备案合同与实际执行合同不一致，以备案合同为准",
+      "severity": "高风险",
+      "suggestion": "确保备案合同与实际执行合同一致，或明确以实际执行合同为准",
+      "legal_basis": "《建工司法解释》第21条"
+    },
+    {
+      "id": "C002",
+      "name": "无资质承包",
+      "description": "承包人未取得相应资质或超越资质等级，合同无效",
+      "severity": "高风险",
+      "suggestion": "核实承包人资质证书，确保与工程规模匹配",
+      "legal_basis": "《建工司法解释》第1条"
+    },
+    {
+      "id": "C003",
+      "name": "固定总价无清单",
+      "description": "固定总价合同未附工程量清单，结算时易产生争议",
+      "severity": "高风险",
+      "suggestion": "固定总价合同必须附详细工程量清单，作为合同附件"
+    },
+    {
+      "id": "C004",
+      "name": "进度款支付节点不清",
+      "description": "进度款支付节点不明确，导致工程款拖欠",
+      "severity": "高风险",
+      "suggestion": "明确进度款支付节点（如基础完成、主体结构每X层、竣工验收等）"
+    },
+    {
+      "id": "C005",
+      "name": "质保金比例过高",
+      "description": "质保金比例超过3%，或退还时间过长",
+      "severity": "中风险",
+      "suggestion": "质保金比例不超过3%，缺陷责任期满后14-28日内退还",
+      "legal_basis": "《建设工程质量保证金管理办法》第7条"
+    },
+    {
+      "id": "C006",
+      "name": "签证索赔时限过短",
+      "description": "签证索赔提出时限过短（如7日），承包人难以完成",
+      "severity": "中风险",
+      "suggestion": "签证索赔时限建议14-28日，重大变更可适当延长"
+    },
+    {
+      "id": "C007",
+      "name": "未约定价格调整",
+      "description": "可调价格合同未约定调整方法，材料价格大幅波动时无据可依",
+      "severity": "中风险",
+      "suggestion": "约定价格调整公式，如钢材、水泥价格波动超过±5%时调整"
+    }
+  ],
+  "position_guidance": {
+    "employer": {
+      "name": "发包人（甲方）",
+      "priority_checks": [
+        "承包范围",
+        "质量标准",
+        "工期约定",
+        "工程款支付节点"
+      ],
+      "key_concerns": [
+        "明确承包范围，避免漏项或重复",
+        "约定合理的质量标准和验收程序",
+        "设置合理的工期和节点工期",
+        "控制工程款支付节奏，与工程进度挂钩",
+        "保留质量保修和缺陷责任追偿权"
+      ],
+      "avoid": [
+        "承包人无资质或资质不符",
+        "固定总价无详细清单",
+        "进度款支付节点不清",
+        "质保金比例过高（超过5%）",
+        "未约定工期延误违约金"
+      ]
+    },
+    "contractor": {
+      "name": "承包人（乙方）",
+      "priority_checks": [
+        "合同价款形式",
+        "工程款支付",
+        "变更签证程序",
+        "工期顺延条件"
+      ],
+      "key_concerns": [
+        "争取可调价格或明确价格调整机制",
+        "明确预付款、进度款支付节点和比例",
+        "明确变更签证程序和时限",
+        "争取合理的工期顺延条件",
+        "限制质保金比例（3%以内）和退还时间"
+      ],
+      "avoid": [
+        "固定总价无清单",
+        "进度款支付节点过于靠后",
+        "签证索赔时限过短",
+        "质保金比例过高或退还时间过长",
+        "过高的工期延误违约金"
+      ]
+    }
+  },
+  "legal_limits": {
+    "quality_warranty_period": {
+      "description": "法定最低保修期限",
+      "periods": [
+        {"item": "基础设施工程、房屋建筑的地基基础工程和主体结构工程", "period": "设计文件规定的合理使用年限"},
+        {"item": "屋面防水工程、有防水要求的卫生间、房间和外墙面的防渗漏", "period": "5年"},
+        {"item": "供热与供冷系统", "period": "2个采暖期、供冷期"},
+        {"item": "电气管线、给排水管道、设备安装和装修工程", "period": "2年"}
+      ],
+      "legal_basis": "《建设工程质量管理条例》第40条"
+    },
+    "retention_money": {
+      "description": "质量保证金",
+      "max_ratio": "3%",
+      "defect_liability_period": "通常2年（最长不超过2年，防水5年）",
+      "legal_basis": "《建设工程质量保证金管理办法》第7条"
+    }
+  }
+}

@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "section": "当事人信息",
+    "role": "",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 2,
+    "section": "当事人信息",
+    "role": "",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 3,
+    "section": "当事人信息",
+    "role": "",
+    "label": "职业（填空）",
+    "original": " "
+  },
+  {
+    "id": 4,
+    "section": "当事人信息",
+    "role": "",
+    "label": "户籍地（填空）",
+    "original": " "
+  },
+  {
+    "id": 5,
+    "section": "当事人信息",
+    "role": "",
+    "label": "联系电话（填空）",
+    "original": " "
+  },
+  {
+    "id": 6,
+    "section": "当事人信息",
+    "role": "",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 7,
+    "section": "当事人信息",
+    "role": "",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 8,
+    "section": "当事人信息",
+    "role": "",
+    "label": "单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 9,
+    "section": "当事人信息",
+    "role": "",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 10,
+    "section": "当事人信息",
+    "role": "",
+    "label": "与自诉人的关系（填空）",
+    "original": " "
+  },
+  {
+    "id": 11,
+    "section": "当事人信息",
+    "role": "",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 12,
+    "section": "当事人信息",
+    "role": "",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 13,
+    "section": "当事人信息",
+    "role": "",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 14,
+    "section": "当事人信息",
+    "role": "",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 15,
+    "section": "当事人信息",
+    "role": "",
+    "label": "出生日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 16,
+    "section": "当事人信息",
+    "role": "",
+    "label": "联系电话（填空）",
+    "original": " "
+  },
+  {
+    "id": 17,
+    "section": "当事人信息",
+    "role": "",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 18,
+    "section": "当事人信息",
+    "role": "",
+    "label": "与自诉人的关系（填空）",
+    "original": " "
+  },
+  {
+    "id": 19,
+    "section": "当事人信息",
+    "role": "",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 20,
+    "section": "当事人信息",
+    "role": "",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 21,
+    "section": "当事人信息",
+    "role": "",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 22,
+    "section": "当事人信息",
+    "role": "",
+    "label": "户籍地（填空）",
+    "original": " "
+  },
+  {
+    "id": 23,
+    "section": "当事人信息",
+    "role": "",
+    "label": "联系电话（填空）",
+    "original": " "
+  },
+  {
+    "id": 24,
+    "section": "当事人信息",
+    "role": "",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 25,
+    "section": "当事人信息",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 26,
+    "section": "当事人信息",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 27,
+    "section": "事实与理由",
+    "role": "",
+    "label": "同意",
+    "original": "□"
+  },
+  {
+    "id": 28,
+    "section": "事实与理由",
+    "role": "",
+    "label": "不同意",
+    "original": "□"
+  },
+  {
+    "id": 29,
+    "section": "事实与理由",
+    "role": "",
+    "label": "暂不确定",
+    "original": "□"
+  },
+  {
+    "id": 30,
+    "section": "事实与理由",
+    "role": "",
+    "label": "同意",
+    "original": "□"
+  },
+  {
+    "id": 31,
+    "section": "事实与理由",
+    "role": "",
+    "label": "不同意",
+    "original": "□"
+  },
+  {
+    "id": 32,
+    "section": "事实与理由",
+    "role": "",
+    "label": "暂不确定",
+    "original": "□"
+  }
+]

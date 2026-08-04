@@ -1,0 +1,112 @@
+{
+  "tree_id": "EC-TS-002",
+  "title": "CEMS Data Quality Problems",
+  "entry_symptoms": ["CEMS error", "calibration drift", "data availability", "analyzer malfunction", "invalid emissions data", "substitute data"],
+  "metadata": {
+    "id": "EC-TS-002",
+    "title": "CEMS Data Quality Problems",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01",
+    "severity": "high",
+    "typical_impact": "Invalid emissions data, substitute data penalties, reduced data availability, regulatory non-compliance"
+  },
+  "description": "Five-step procedure for diagnosing and resolving CEMS data quality problems in cement plant continuous emission monitoring systems.",
+  "steps": [
+    {
+      "id": 1,
+      "question": "Which CEMS parameter is affected and what type of data quality issue is occurring?",
+      "description": "Identify the Data Quality Issue",
+      "action": "Determine which analyzer or parameter is affected. Check daily calibration error reports for drift exceedances. Review DAHS for flagged data or error codes. Compare CEMS readings to expected values based on process conditions.",
+      "check": [
+        "Determine which analyzer or parameter is affected (SO2, NOx, CO, THC, HCl, Hg, O2, flow, opacity)",
+        "Check daily calibration error reports for drift exceedances (>2.5% of span)",
+        "Review DAHS (Data Acquisition and Handling System) for flagged data or error codes",
+        "Compare CEMS readings to expected values based on process conditions",
+        "Check if issue is intermittent or continuous (time-series analysis)",
+        "Determine when the problem started and correlate with any maintenance or process changes"
+      ],
+      "expected_outcome": "Clear identification of which parameter, what type of issue, and when it started"
+    },
+    {
+      "id": 2,
+      "question": "What is the root cause of the analyzer malfunction?",
+      "description": "Diagnose Analyzer Problems",
+      "action": "Perform manual calibration check with certified cylinder gases. Check sample transport system. Verify probe condition and sample extraction. Inspect optical components for contamination.",
+      "check": [
+        "Perform manual calibration check with certified cylinder gases",
+        "Check sample transport system: heated lines for condensation, sample pump operation, filter condition",
+        "Verify probe condition and sample extraction (blockage, corrosion, misalignment)",
+        "Check for interference gases affecting analyzer response (cross-sensitivity)",
+        "Inspect optical components for contamination (lenses, mirrors, measurement cells)",
+        "Verify analyzer environmental conditions (shelter temperature, humidity)",
+        "Check electrical connections and communication between analyzer and DAHS"
+      ],
+      "expected_outcome": "Root cause of analyzer malfunction identified"
+    },
+    {
+      "id": 3,
+      "question": "Have repairs been completed and the analyzer recalibrated successfully?",
+      "description": "Implement Repairs and Recalibration",
+      "action": "Replace failed components. Clean optical components and sample pathways. Replace calibration gases if expired. Perform full recalibration per manufacturer procedure. Verify response time meets specification.",
+      "check": [
+        "Replace failed components (sample pump, filter, heated line, detector)",
+        "Clean optical components and sample pathways",
+        "Replace calibration gases if expired or suspect",
+        "Perform full recalibration per manufacturer procedure",
+        "Verify response time meets performance specification",
+        "Run calibration error test to confirm acceptable drift",
+        "Document all repairs and parts replaced"
+      ],
+      "expected_outcome": "Analyzer returned to proper operation and calibrated"
+    },
+    {
+      "id": 4,
+      "question": "Has the invalid data period been properly managed with substitute data procedures?",
+      "description": "Validate Data and Manage Missing Data",
+      "action": "Determine the period of invalid data. Apply substitute data procedures per 40 CFR 75 or permit requirements. Calculate impact on data availability percentage.",
+      "check": [
+        "Determine the period of invalid data (start and end timestamps)",
+        "Apply substitute data procedures per 40 CFR 75 or permit requirements",
+        "Calculate impact on data availability percentage",
+        "Determine if data availability will fall below 95% threshold",
+        "Document data validation decisions and substitute data methodology used",
+        "Update DAHS with corrected flags and data quality codes"
+      ],
+      "expected_outcome": "Data gaps properly managed with substitute data procedures applied"
+    },
+    {
+      "id": 5,
+      "question": "What preventive measures are needed to avoid repeat CEMS failures?",
+      "description": "Prevent Recurrence",
+      "action": "Update preventive maintenance schedule based on failure mode. Ensure adequate spare parts inventory. Review CEMS operator training. Consider adding redundant analyzers for critical parameters.",
+      "check": [
+        "Update preventive maintenance schedule based on failure mode",
+        "Ensure adequate spare parts inventory for CEMS components",
+        "Review CEMS operator training and troubleshooting procedures",
+        "Consider adding redundant analyzers for critical parameters",
+        "Implement daily CEMS performance review by qualified personnel",
+        "Schedule next QA/QC activity (CGA or RATA) to revalidate system performance"
+      ],
+      "expected_outcome": "Preventive measures in place to avoid repeat CEMS failures"
+    }
+  ],
+  "common_cems_issues": {
+    "calibration_drift": {
+      "causes": ["Dirty optics", "Aging detector", "Temperature fluctuation in shelter", "Contaminated calibration gas"],
+      "quick_fix": "Clean optics, verify cal gas, adjust shelter HVAC"
+    },
+    "low_data_availability": {
+      "causes": ["Frequent analyzer failures", "Extended maintenance periods", "DAHS communication loss", "Power interruptions"],
+      "quick_fix": "Improve PM schedule, add UPS, ensure spare analyzer available"
+    },
+    "biased_readings": {
+      "causes": ["Sample line leak (dilution)", "Probe partial blockage", "Interference gas", "Incorrect calibration gas concentration"],
+      "quick_fix": "Leak check sample system, clean probe, verify cal gas certificates"
+    },
+    "RATA_failure": {
+      "causes": ["Analyzer drift since last RATA", "Stratified flow at measurement location", "Reference method issues", "Changed process conditions"],
+      "quick_fix": "Recalibrate, evaluate sampling location, schedule re-RATA"
+    }
+  }
+}

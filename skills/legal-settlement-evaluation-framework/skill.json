@@ -1,0 +1,28 @@
+{
+  "name": "Legal Settlement Evaluation Framework",
+  "slug": "legal-settlement-evaluation-framework",
+  "version": "1.0.0",
+  "description": "Helps evaluate settlement options using exposure, evidence strength, litigation cost, non-monetary terms, timing, and uncertainty.",
+  "author": "Pearl Team (OpenClaw)",
+  "tags": [
+    "legal",
+    "settlement",
+    "litigation",
+    "risk",
+    "descriptive"
+  ],
+  "trigger_keywords": [
+    "settlement evaluation",
+    "litigation exposure",
+    "settlement matrix",
+    "case risk",
+    "legal-settlement-evaluation-framework",
+    "legal settlement evaluation framework"
+  ],
+  "language": "en",
+  "outputs": "markdown",
+  "requires_api": false,
+  "readiness": "stable",
+  "type": "descriptive",
+  "legal_disclaimer": "Informational workflow support only; not legal advice."
+}

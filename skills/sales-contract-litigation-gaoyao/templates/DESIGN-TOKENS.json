@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "preset_name": "compact_reference_guide",
+  "named_overrides": {
+    "cn_a4": {
+      "reason": "中国法院和律师工作底稿常用 A4；替代 preset 的 US Letter。",
+      "page_mm": [
+        210,
+        297
+      ],
+      "margins_mm": [
+        25.4,
+        25.4,
+        25.4,
+        25.4
+      ],
+      "header_footer_mm": [
+        12,
+        12
+      ]
+    },
+    "court_neutral": {
+      "reason": "L1 与法院口径 L2 使用黑白中性层级，不采用蓝色标题。",
+      "body_font": "Songti SC",
+      "heading_font": "Heiti SC",
+      "body_size_pt": 12,
+      "court_body_size_pt": 14,
+      "title_size_pt": 18,
+      "body_line_spacing": 1.25,
+      "court_line_spacing_pt": 26
+    }
+  },
+  "tables": {
+    "width_dxa": 8832,
+    "indent_dxa": 120,
+    "cell_margins_dxa": {
+      "top": 80,
+      "bottom": 80,
+      "start": 120,
+      "end": 120
+    },
+    "geometry": "fixed-dxa",
+    "header_fill": "F2F2F2",
+    "row_height": "auto"
+  },
+  "lists": {
+    "decimal_level_0": {
+      "marker_aligned_at_dxa": 280,
+      "text_indent_at_dxa": 560,
+      "hanging_dxa": 280,
+      "after_pt": 2
+    }
+  }
+}

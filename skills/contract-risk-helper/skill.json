@@ -1,0 +1,8 @@
+{
+  "name": "contract-risk-helper",
+  "version": "1.2.0",
+  "description": "Contract risk helper. Input Chinese or English contract text; identify common risky clauses, classify severity, and suggest negotiation or revision points. Boundary: preliminary risk spotting only, not a lawyer and not formal legal advice.",
+  "entry": "handler.py",
+  "author": "harrylabsj",
+  "license": "MIT-0"
+}

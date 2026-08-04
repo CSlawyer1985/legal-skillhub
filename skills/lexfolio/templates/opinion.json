@@ -1,0 +1,12 @@
+{
+  "name": "opinion",
+  "label": "法律意见书",
+  "description": "正式法律意见，含完整封面页，适用于对外出具的法律分析意见",
+  "doc_type": "opinion",
+  "default_preset": "standard",
+  "default_color_scheme": "B",
+  "default_font_provider": "noto",
+  "cover_fields": {
+    "show_confidential": true
+  }
+}

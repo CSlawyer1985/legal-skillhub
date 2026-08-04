@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    container_name: meilisearch-legal
+    ports:
+      - "127.0.0.1:7700:7700"
+    environment:
+      - MEILI_MASTER_KEY=masterKey
+    volumes:
+      - meilisearch-data:/data.ms
+    restart: unless-stopped
+
+volumes:
+  meilisearch-data:

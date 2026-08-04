@@ -1,0 +1,49 @@
+{
+  "name": "uplo-compliance",
+  "display_name": "UPLO Compliance — Cross-Domain Regulatory Intelligence",
+  "description": "AI-powered compliance intelligence spanning legal, financial, and government regulatory requirements. Unified search across compliance obligations, audit findings, and regulatory filings.",
+  "version": "1.0.0",
+  "author": "UPLO",
+  "tags": [
+    "compliance",
+    "regulatory",
+    "cross-domain",
+    "knowledge-management"
+  ],
+  "config": {
+    "agentdocs_url": {
+      "type": "string",
+      "required": true,
+      "description": "Your UPLO instance URL (e.g., https://app.uplo.ai)"
+    },
+    "api_key": {
+      "type": "string",
+      "required": true,
+      "secret": true,
+      "description": "Your UPLO MCP token"
+    }
+  },
+  "mcp": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@agentdocs1/mcp-server",
+      "--http"
+    ],
+    "env": {
+      "AGENTDOCS_URL": "${config.agentdocs_url}",
+      "API_KEY": "${config.api_key}",
+      "DEFAULT_PACKS": "legal,finance,government"
+    },
+    "transport": "http",
+    "url": "${config.agentdocs_url}/mcp"
+  },
+  "capabilities": [
+    "search_knowledge",
+    "search_with_context",
+    "get_policy",
+    "export_org_context",
+    "get_directives"
+  ],
+  "identity_patch": "identity-patch.md"
+}

@@ -1,0 +1,1738 @@
+[
+  {
+    "id": 1,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 2,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 3,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 4,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 5,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 6,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "负责人（填空）",
+    "original": " "
+  },
+  {
+    "id": 7,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "类型：有限责任公司",
+    "original": "□"
+  },
+  {
+    "id": 8,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "其他企业法人",
+    "original": "□"
+  },
+  {
+    "id": 9,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "社会服务机构",
+    "original": "□"
+  },
+  {
+    "id": 10,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "职务（填空）",
+    "original": " "
+  },
+  {
+    "id": 11,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "股份有限公司",
+    "original": "□"
+  },
+  {
+    "id": 12,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "上市公司",
+    "original": "□"
+  },
+  {
+    "id": 13,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "事业单位",
+    "original": "□"
+  },
+  {
+    "id": 14,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "社会团体",
+    "original": "□"
+  },
+  {
+    "id": 15,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "基金会",
+    "original": "□"
+  },
+  {
+    "id": 16,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "机关法人",
+    "original": "□"
+  },
+  {
+    "id": 17,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "农村集体经济组织法人",
+    "original": "□"
+  },
+  {
+    "id": 18,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 19,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "城镇农村的合作经济组织法人",
+    "original": "□"
+  },
+  {
+    "id": 20,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "法人",
+    "original": "□"
+  },
+  {
+    "id": 21,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "个人独资企业",
+    "original": "□"
+  },
+  {
+    "id": 22,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "合伙企业",
+    "original": "□"
+  },
+  {
+    "id": 23,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "不具有法人资格的专业服务机构",
+    "original": "□"
+  },
+  {
+    "id": 24,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "所有制性质：国有",
+    "original": "□"
+  },
+  {
+    "id": 25,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "（控股",
+    "original": "□"
+  },
+  {
+    "id": 26,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "参股",
+    "original": "□"
+  },
+  {
+    "id": 27,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "民营",
+    "original": "□"
+  },
+  {
+    "id": 28,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 29,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "代理权限：一般授权",
+    "original": "□"
+  },
+  {
+    "id": 30,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 31,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 32,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 33,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "负责人（填空）",
+    "original": " "
+  },
+  {
+    "id": 34,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "类型：有限责任公司",
+    "original": "□"
+  },
+  {
+    "id": 35,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "其他企业法人",
+    "original": "□"
+  },
+  {
+    "id": 36,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "社会服务机构",
+    "original": "□"
+  },
+  {
+    "id": 37,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "职务（填空）",
+    "original": " "
+  },
+  {
+    "id": 38,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "股份有限公司",
+    "original": "□"
+  },
+  {
+    "id": 39,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "上市公司",
+    "original": "□"
+  },
+  {
+    "id": 40,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "事业单位",
+    "original": "□"
+  },
+  {
+    "id": 41,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "社会团体",
+    "original": "□"
+  },
+  {
+    "id": 42,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "基金会",
+    "original": "□"
+  },
+  {
+    "id": 43,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "机关法人",
+    "original": "□"
+  },
+  {
+    "id": 44,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "农村集体经济组织法人",
+    "original": "□"
+  },
+  {
+    "id": 45,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 46,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "城镇农村的合作经济组织法人",
+    "original": "□"
+  },
+  {
+    "id": 47,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "法人",
+    "original": "□"
+  },
+  {
+    "id": 48,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "个人独资企业",
+    "original": "□"
+  },
+  {
+    "id": 49,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "合伙企业",
+    "original": "□"
+  },
+  {
+    "id": 50,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "不具有法人资格的专业服务机构",
+    "original": "□"
+  },
+  {
+    "id": 51,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "所有制性质：国有",
+    "original": "□"
+  },
+  {
+    "id": 52,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "（控股",
+    "original": "□"
+  },
+  {
+    "id": 53,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "参股",
+    "original": "□"
+  },
+  {
+    "id": 54,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "民营",
+    "original": "□"
+  },
+  {
+    "id": 55,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "商评字［20    ］第        号关于第        号       ",
+    "original": "商评字［20    ］第        号关于第        号         商标无效宣告请求裁定 / 无效宣告复审决定"
+  },
+  {
+    "id": 56,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "20        年商标法第        条、第        条、第   ",
+    "original": "20        年商标法第        条、第        条、第        条"
+  },
+  {
+    "id": 57,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "20        年        月         日",
+    "original": "20        年        月         日"
+  },
+  {
+    "id": 58,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "对诉争商标",
+    "original": "□"
+  },
+  {
+    "id": 59,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 60,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 61,
+    "section": "事实与理由",
+    "role": "",
+    "label": "事实与理由（完整表述）",
+    "original": "（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）"
+  },
+  {
+    "id": 62,
+    "section": "事实与理由",
+    "role": "",
+    "label": "诉讼提起主体：诉争商标权利人",
+    "original": "□"
+  },
+  {
+    "id": 63,
+    "section": "事实与理由",
+    "role": "",
+    "label": "是否有引证商标：是",
+    "original": "□"
+  },
+  {
+    "id": 64,
+    "section": "事实与理由",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 65,
+    "section": "事实与理由",
+    "role": "",
+    "label": "其他",
+    "original": "□"
+  },
+  {
+    "id": 66,
+    "section": "事实与理由",
+    "role": "",
+    "label": "申请日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 67,
+    "section": "事实与理由",
+    "role": "",
+    "label": "是否有引证商标（填空）",
+    "original": " "
+  },
+  {
+    "id": 68,
+    "section": "事实与理由",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 69,
+    "section": "事实与理由",
+    "role": "",
+    "label": "申请日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 70,
+    "section": "事实与理由",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 71,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 72,
+    "section": "事实与理由",
+    "role": "",
+    "label": "申请号（填空）",
+    "original": " "
+  },
+  {
+    "id": 73,
+    "section": "事实与理由",
+    "role": "",
+    "label": "（填空）",
+    "original": " "
+  },
+  {
+    "id": 74,
+    "section": "事实与理由",
+    "role": "",
+    "label": "申请号（填空）",
+    "original": " "
+  },
+  {
+    "id": 75,
+    "section": "事实与理由",
+    "role": "",
+    "label": "号（填空）",
+    "original": " "
+  },
+  {
+    "id": 76,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 77,
+    "section": "事实与理由",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 78,
+    "section": "事实与理由",
+    "role": "",
+    "label": "证据类型：",
+    "original": "□"
+  },
+  {
+    "id": 79,
+    "section": "事实与理由",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 80,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 81,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 82,
+    "section": "事实与理由",
+    "role": "",
+    "label": "评审程序申请人（填空）",
+    "original": " "
+  },
+  {
+    "id": 83,
+    "section": "事实与理由",
+    "role": "",
+    "label": "国家知识产权局案件编号（填空）",
+    "original": " "
+  },
+  {
+    "id": 84,
+    "section": "事实与理由",
+    "role": "",
+    "label": "是    受理法院（填空）",
+    "original": " "
+  },
+  {
+    "id": 85,
+    "section": "事实与理由",
+    "role": "",
+    "label": "案号（填空）",
+    "original": " "
+  },
+  {
+    "id": 86,
+    "section": "事实与理由",
+    "role": "",
+    "label": "评审程序申请人（填空）",
+    "original": " "
+  },
+  {
+    "id": 87,
+    "section": "事实与理由",
+    "role": "",
+    "label": "是    受理法院（填空）",
+    "original": " "
+  },
+  {
+    "id": 88,
+    "section": "事实与理由",
+    "role": "",
+    "label": "案号（填空）",
+    "original": " "
+  },
+  {
+    "id": 89,
+    "section": "事实与理由",
+    "role": "",
+    "label": "20    年        月         日，       法院    ",
+    "original": "20    年        月         日，       法院        案号         行政 / 民事判决 / 裁定书（如有单独提交）"
+  },
+  {
+    "id": 90,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 91,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 92,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 93,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 94,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 95,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 96,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 97,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 98,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 99,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 100,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 101,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 102,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 103,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 104,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 105,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 106,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 107,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 108,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 109,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 110,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 111,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 112,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 113,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 114,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 115,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 116,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 117,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 118,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 119,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 120,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 121,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 122,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 123,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 124,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 125,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 126,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 127,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 128,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 129,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 130,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 131,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 132,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 133,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 134,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "负责人（填空）",
+    "original": " "
+  },
+  {
+    "id": 135,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "类型：有限责任公司",
+    "original": "□"
+  },
+  {
+    "id": 136,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "其他企业法人",
+    "original": "□"
+  },
+  {
+    "id": 137,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "社会服务机构",
+    "original": "□"
+  },
+  {
+    "id": 138,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "职务（填空）",
+    "original": " "
+  },
+  {
+    "id": 139,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "股份有限公司",
+    "original": "□"
+  },
+  {
+    "id": 140,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "上市公司",
+    "original": "□"
+  },
+  {
+    "id": 141,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "事业单位",
+    "original": "□"
+  },
+  {
+    "id": 142,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "社会团体",
+    "original": "□"
+  },
+  {
+    "id": 143,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "基金会",
+    "original": "□"
+  },
+  {
+    "id": 144,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "机关法人",
+    "original": "□"
+  },
+  {
+    "id": 145,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "农村集体经济组织法人",
+    "original": "□"
+  },
+  {
+    "id": 146,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 147,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "城镇农村的合作经济组织法人",
+    "original": "□"
+  },
+  {
+    "id": 148,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "法人",
+    "original": "□"
+  },
+  {
+    "id": 149,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "个人独资企业",
+    "original": "□"
+  },
+  {
+    "id": 150,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "合伙企业",
+    "original": "□"
+  },
+  {
+    "id": 151,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "不具有法人资格的专业服务机构",
+    "original": "□"
+  },
+  {
+    "id": 152,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "所有制性质：国有",
+    "original": "□"
+  },
+  {
+    "id": 153,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "（控股",
+    "original": "□"
+  },
+  {
+    "id": 154,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "参股",
+    "original": "□"
+  },
+  {
+    "id": 155,
+    "section": "当事人信息",
+    "role": "第三人",
+    "label": "民营",
+    "original": "□"
+  },
+  {
+    "id": 156,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 157,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 158,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "代理权限：一般授权",
+    "original": "□"
+  },
+  {
+    "id": 159,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "特别授权",
+    "original": "□"
+  },
+  {
+    "id": 160,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 161,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 162,
+    "section": "事实与理由",
+    "role": "委托诉讼代理人",
+    "label": "事实与理由（完整表述）",
+    "original": "（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）"
+  },
+  {
+    "id": 163,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 164,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 165,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 166,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 167,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 168,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 169,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 170,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 171,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 172,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "证据类型：",
+    "original": "□"
+  },
+  {
+    "id": 173,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 174,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 175,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 176,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 177,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "20    年        月         日，       法院    ",
+    "original": "20    年        月         日，       法院        案号         行政 / 民事判决 / 裁定书（如有单独提交）"
+  },
+  {
+    "id": 178,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 179,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 180,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 181,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 182,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 183,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 184,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 185,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 186,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 187,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 188,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 189,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 190,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 191,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 192,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 193,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 194,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 195,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 196,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 197,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 198,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 199,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 200,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 201,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 202,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 203,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 204,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 205,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 206,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 207,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 208,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 209,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 210,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 211,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 212,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 213,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 214,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 215,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 216,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 217,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 218,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 219,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 220,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 221,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 222,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 223,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 224,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 225,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 226,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 227,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 228,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 229,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 230,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 231,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 232,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 233,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 234,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 235,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 236,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 237,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 238,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 239,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 240,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 241,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 242,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 243,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 244,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 245,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 246,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 247,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 248,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "",
+    "original": ""
+  }
+]

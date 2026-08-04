@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "id": "EC-KB-002",
+    "title": "CEMS Requirements for Cement Plants",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01"
+  },
+  "description": "Continuous Emission Monitoring System (CEMS) requirements including QA/QC procedures, data availability, and reporting obligations for cement manufacturing.",
+  "cems_overview": {
+    "required_monitors": {
+      "typical_cement_kiln_cems": [
+        {"pollutant": "SO2", "method": "40 CFR 60 Appendix B, PS-2 (UV fluorescence or NDIR)"},
+        {"pollutant": "NOx", "method": "40 CFR 60 Appendix B, PS-2 (chemiluminescence)"},
+        {"pollutant": "CO", "method": "40 CFR 60 Appendix B, PS-4A (NDIR or GFC)"},
+        {"pollutant": "THC", "method": "40 CFR 60 Appendix B, PS-8A (FID)"},
+        {"pollutant": "HCl", "method": "40 CFR 60 Appendix B, PS-18 (FTIR or laser)"},
+        {"pollutant": "Opacity/PM", "method": "40 CFR 60 Appendix B, PS-1 (opacity) or PS-11 (PM CEMS)"},
+        {"pollutant": "O2/CO2", "method": "40 CFR 60 Appendix B, PS-3 (paramagnetic or NDIR)"},
+        {"pollutant": "Flow", "method": "40 CFR 60 Appendix B, PS-6 (differential pressure, ultrasonic, or thermal)"},
+        {"pollutant": "Mercury", "method": "PS-12A (sorbent trap) or Appendix K"}
+      ]
+    },
+    "installation_requirements": {
+      "location": "Representative location in stack/duct per 40 CFR 60.13",
+      "access": "Safe and permanent access platforms required for all CEMS probes",
+      "sample_transport": "Heated sample lines maintained above dewpoint to prevent condensation",
+      "shelter": "Climate-controlled CEMS shelter for analyzers"
+    }
+  },
+  "qa_qc_requirements": {
+    "RATA": {
+      "full_name": "Relative Accuracy Test Audit",
+      "frequency": "Annual (or semi-annual if previous RATA failed criteria)",
+      "procedure": "Compare CEMS readings to EPA reference method results over 9+ test runs",
+      "acceptance_criteria": {
+        "relative_accuracy_percent": "<=20% (or <=10% for some pollutants)",
+        "bias_adjustment": "Apply bias adjustment factor if RA passes but bias test fails"
+      },
+      "consequences_of_failure": "Invalidates CEMS data, triggers corrective action and retest"
+    },
+    "CGA": {
+      "full_name": "Cylinder Gas Audit",
+      "frequency": "Quarterly (in quarters without RATA)",
+      "procedure": "Challenge analyzers with EPA protocol gases at low, mid, and high ranges",
+      "acceptance_criteria": "Within 15% of certified cylinder value",
+      "notes": "Can substitute CGA for one of the quarterly audits if RATA is done in that quarter"
+    },
+    "daily_calibration": {
+      "frequency": "Every 24 hours (automated in modern CEMS)",
+      "procedure": "Zero and span check using calibration gases",
+      "acceptance_criteria": {
+        "drift_limit_percent": "2.5% of span for calibration drift",
+        "action_if_exceeded": "Adjust analyzer, recalibrate, investigate root cause"
+      }
+    },
+    "cylinder_gas_audits_linearity": {
+      "frequency": "Quarterly or semi-annual as applicable",
+      "procedure": "Three-point linearity check (low, mid, high)",
+      "acceptance": "Within 5% of reference value at each level"
+    }
+  },
+  "data_availability": {
+    "minimum_requirement_percent": 95,
+    "calculation": "Valid data hours / Total unit operating hours x 100",
+    "excluded_periods": ["Calibration periods (limited)", "Scheduled CEMS maintenance (limited)"],
+    "substitute_data": {
+      "description": "When CEMS data is missing or invalid, substitute data procedures apply per 40 CFR 75 or permit conditions",
+      "methods": ["Maximum potential concentration", "90th percentile lookback", "Fuel-specific default emission factors"],
+      "penalty": "Substitute data is typically conservative (high values), creating incentive to maintain high data availability"
+    },
+    "consequences_of_low_availability": [
+      "Regulatory violation if below permit threshold",
+      "Substitute data inflates reported emissions",
+      "May trigger enforcement action or NOV",
+      "Can affect emission allowance calculations"
+    ]
+  },
+  "reporting": {
+    "quarterly_reports": {
+      "contents": ["Excess emission summary", "CEMS downtime summary", "Monitor data availability", "QA/QC test results"],
+      "due_date": "30 days after end of quarter (varies by permit)"
+    },
+    "annual_reports": {
+      "contents": ["Annual compliance certification", "RATA results", "Annual emission totals", "Deviation summary"],
+      "due_date": "Per Title V permit schedule (typically 60-90 days after year end)"
+    },
+    "electronic_reporting": {
+      "EPA_ECMPS": "Electronic Continuous Monitoring Plan System for acid rain affected units",
+      "CEDRI": "Compliance and Emissions Data Reporting Interface for NESHAP reporting",
+      "state_systems": "Many states have additional electronic reporting requirements"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "员工手册合规审核工具"
+  short_description: "用自然语言或上传文件完成员工手册合规审核工具，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-employee-relations-383 请帮我完成员工手册合规审核工具：逐条审核员工手册是否符合最新劳动法规+识别霸王条款+修改建议。"

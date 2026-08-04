@@ -1,0 +1,17 @@
+name: bid-compliance-due-diligence-v2
+slug: bid-compliance-due-diligence-v2
+version: 2.0.0
+author: 一线评标专家&ChesaraM
+description: >
+  招投标合规风险尽调技能（增强版）。对目标企业做招投标维度深度合规审查，
+  双轨交叉验证（IMA 双知识库 + WebSearch/WebFetch），输出结构化风控预警报告。
+  针对 LLM 推理能力优化：定性时序、相关性检索、分级容错取证、搜索熔断、法律标尺暂存、护栏前置。
+feedback:
+  channel: 微信公众号
+  account: 一线评标专家
+  note: 使用问题、误报反馈、实务建议，欢迎关注公众号「一线评标专家」留言交流
+tags:
+  - 招投标
+  - 合规尽调
+  - 风控
+  - 供应商审查

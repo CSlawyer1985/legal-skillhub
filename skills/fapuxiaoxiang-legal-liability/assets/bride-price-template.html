@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--
+  法普小象 · 彩礼返还分析器
+  Author: 张卓 (Zhang Zhuo) | Version 1.0 | © 2026
+  Data: 最高法院涉彩礼纠纷典型案例（第一、二、三批共13个）+ 法释〔2024〕1号
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>彩礼纠纷：退不退？退多少？</title>
+<meta property="og:title" content="彩礼纠纷：退不退？退多少？">
+<meta property="og:description" content="填8个问题，基于最高法13个真实彩礼判例，告诉你彩礼能退多少。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="法普小象">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--a:#534ab7;--al:#eeedfe;--g:#1d9e75;--gl:#e1f5ee;--c:#d85a30;--cl:#faece7;--am:#ef9f27;--aml:#faeeda;--bg:#f5f3ef;--ca:#fff;--t:#2c2c2a;--ts:#777;--b:#e0ded8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased}
+.ct{max-width:500px;margin:0 auto;padding:20px 16px 40px}
+.hd{text-align:center;padding:24px 0 16px}
+.hd .l{font-size:42px;display:block;margin-bottom:6px}
+.hd h1{font-size:20px;font-weight:700;margin-bottom:4px}
+.hd .s{font-size:13px;color:var(--ts)}
+.dc{background:var(--aml);border-radius:10px;padding:12px 14px;font-size:12px;color:#854f0b;line-height:1.6;margin-bottom:20px}
+.dc strong{display:block;margin-bottom:4px}
+.qb{background:var(--ca);border-radius:14px;padding:20px;margin-bottom:10px;border:1px solid var(--b)}
+.qb .qt{font-size:15px;font-weight:500;margin-bottom:10px}
+.qb .qn{display:inline-block;background:var(--a);color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:12px;font-weight:600;margin-right:8px}
+.ops{display:flex;flex-direction:column;gap:6px}
+.op{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid var(--b);cursor:pointer;font-size:14px;transition:all .15s;background:var(--ca)}
+.op:hover{border-color:var(--a)}
+.op.sel{border-color:var(--a);background:var(--al)}
+.op .rd{width:20px;height:20px;border-radius:50%;border:2px solid var(--b);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.op.sel .rd{border-color:var(--a);background:var(--a)}
+.op.sel .rd::after{content:'';width:8px;height:8px;border-radius:50%;background:#fff}
+.fe{display:none;margin-top:8px}
+.fe.s{display:block}
+.fe textarea{width:100%;box-sizing:border-box;padding:10px;border-radius:8px;border:.5px dashed var(--a);font-size:13px;font-family:inherit;min-height:46px;resize:vertical;background:#faf9ff}
+.btn{display:block;width:100%;padding:16px;font-size:17px;font-weight:600;color:#fff;background:var(--a);border:none;border-radius:14px;cursor:pointer;margin:16px 0;transition:all .15s}
+.btn:disabled{background:#ccc;cursor:not-allowed}
+.rs{display:none}
+.rc{background:var(--ca);border-radius:14px;overflow:hidden;border:1px solid var(--b);margin-bottom:16px}
+.rh{padding:24px 20px;text-align:center;color:#fff}
+.rh.safe{background:var(--g)}.rh.mid{background:var(--am)}.rh.risk{background:var(--c)}
+.rh .ri{font-size:48px;display:block;margin-bottom:8px}
+.rh .rt{font-size:20px;font-weight:700;margin-bottom:4px}
+.rh .rsb{font-size:13px;opacity:.9}
+.rb{padding:20px}
+.sb{margin-bottom:20px}
+.st{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sc{font-size:14px;line-height:1.8;color:#444}
+.cc{background:#f8f7fc;border-radius:10px;padding:14px 16px;margin-bottom:10px;border-left:3px solid var(--a)}
+.cc .ctt{font-size:13px;font-weight:600;color:var(--a);margin-bottom:6px}
+.cc .cd{font-size:13px;color:#555;line-height:1.7}
+.cc .cr{display:inline-block;margin-top:6px;font-size:12px;padding:3px 8px;border-radius:4px;font-weight:500}
+.cr.g{background:var(--gl);color:#0f6e56}.cr.c{background:var(--cl);color:#993c1d}.cr.a{background:var(--aml);color:#854f0b}
+.rb2{background:#f0eee8;border-radius:8px;height:32px;position:relative;margin:12px 0;overflow:hidden}
+.rb3{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600}
+.rb3.g{background:var(--g)}.rb3.a{background:var(--am)}.rb3.c{background:var(--c)}
+.rl{display:flex;justify-content:space-between;font-size:11px;color:var(--ts);margin-top:4px}
+.al{list-style:none;padding:0}
+.al li{padding:8px 0 8px 24px;position:relative;font-size:14px;line-height:1.7;border-bottom:.5px solid #f0eee8}
+.al li:last-child{border-bottom:none}
+.al li::before{content:'';position:absolute;left:4px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--a)}
+.rst{display:block;width:100%;padding:14px;font-size:14px;color:var(--ts);background:none;border:1px dashed var(--b);border-radius:10px;cursor:pointer;margin-top:10px}
+.ft{text-align:center;padding:20px 0;font-size:11px;color:#bbb}
+.tt{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:100px;font-size:13px;z-index:999;opacity:0;transition:opacity .3s}
+.tt.s{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="ct">
+  <div class="hd">
+    <span class="l">🐘</span>
+    <h1>彩礼纠纷：退不退？退多少？</h1>
+    <p class="s">法普小象 · 基于最高法典型案例及全国20+真实判例</p>
+  </div>
+
+  <div class="dc">
+    <strong>⚠️ 先说清楚</strong>
+    参考工具，不构成法律意见。依据法释〔2024〕1号《最高人民法院关于审理涉彩礼纠纷案件适用法律若干问题的规定》及三批最高人民法院典型案例设计。
+  </div>
+
+  <div id="questions">
+    <div class="qb" id="q1">
+      <div class="qt"><span class="qn">1</span>领结婚证了吗？</div>
+      <div class="ops">
+        <div class="op" data-value="yes"><span class="rd"></span>✅ 领了</div>
+        <div class="op" data-value="no"><span class="rd"></span>❌ 没领</div>
+      </div>
+      <div class="fe" data-q="1"><textarea placeholder="领证的情况有特别之处？来补充……"></textarea></div>
+    </div>
+
+    <div class="qb" id="q2">
+      <div class="qt"><span class="qn">2</span>从订婚/结婚到分手，在一起生活了多久？</div>
+      <div class="ops">
+        <div class="op" data-value="month"><span class="rd"></span>不到1个月</div>
+        <div class="op" data-value="few"><span class="rd"></span>1-3个月</div>
+        <div class="op" data-value="year"><span class="rd"></span>3-12个月</div>
+        <div class="op" data-value="long"><span class="rd"></span>1-2年</div>
+        <div class="op" data-value="vlong"><span class="rd"></span>2年以上</div>
+      </div>
+      <div class="fe" data-q="2"><textarea placeholder="以上都不完全符合？来补充……"></textarea></div>
+    </div>
+
+    <div class="qb" id="q3">
+      <div class="qt"><span class="qn">3</span>有孩子吗？（包括怀孕、流产）</div>
+      <div class="ops">
+        <div class="op" data-value="child"><span class="rd"></span>有孩子</div>
+        <div class="op" data-value="miscarry"><span class="rd"></span>怀过孕/流过产</div>
+        <div class="op" data-value="none"><span class="rd"></span>没有</div>
+      </div>
+      <div class="fe" data-q="3"><textarea placeholder="以上都不完全符合？来补充……"></textarea></div>
+    </div>
+
+    <div class="qb" id="q4">
+      <div class="qt"><span class="qn">4</span>彩礼一共给了多少钱？</div>
+      <input type="number" id="priceInput" placeholder="请填写金额（万元）" style="width:100%;box-sizing:border-box;padding:12px;border-radius:10px;border:.5px solid var(--b);font-size:16px;margin-bottom:8px">
+      <div class="ops">
+        <div class="op" data-value="normal"><span class="rd"></span>就这些现金</div>
+        <div class="op" data-value="extra"><span class="rd"></span><strong>另外还买了房/买了车</strong></div>
+      </div>
+      <div class="fe" data-q="4"><textarea placeholder="比如：16.6万现金+一辆车+三金……写清楚有助于准确分析"></textarea></div>
+    </div>
+
+    <div class="qb" id="q5">
+      <div class="qt"><span class="qn">5</span>这些钱里面有日常红包、520转账之类吗？</div>
+      <div class="ops">
+        <div class="op" data-value="no"><span class="rd"></span>没有，都是彩礼</div>
+        <div class="op" data-value="yes"><span class="rd"></span><strong>有，混在一起了</strong></div>
+      </div>
+      <div class="fe" data-q="5"><textarea placeholder="比如：给了6.6万彩礼，平时还转了520、1314的红包……"></textarea></div>
+    </div>
+
+    <div class="qb" id="q6">
+      <div class="qt"><span class="qn">6</span>这笔彩礼钱实际怎么花的？</div>
+      <div class="ops">
+        <div class="op" data-value="saved"><span class="rd"></span>对方收着，没怎么花</div>
+        <div class="op" data-value="dowry"><span class="rd"></span>买了嫁妆/办了婚礼</div>
+        <div class="op" data-value="used"><span class="rd"></span>用在共同生活开销了</div>
+      </div>
+      <div class="fe" data-q="6"><textarea placeholder="以上都不完全符合？来补充……"></textarea></div>
+    </div>
+
+    <div class="qb" id="q7">
+      <div class="qt"><span class="qn">7</span>是谁提的分手？</div>
+      <div class="ops">
+        <div class="op" data-value="man"><span class="rd"></span>男方提的</div>
+        <div class="op" data-value="woman"><span class="rd"></span>女方提的</div>
+        <div class="op" data-value="both"><span class="rd"></span>双方同意的</div>
+      </div>
+      <div class="fe" data-q="7"><textarea placeholder="分手原因？来补充……"></textarea></div>
+    </div>
+
+    <div class="qb" id="q8">
+      <div class="qt"><span class="qn">8</span>你们认识多久结的婚/定的婚？</div>
+      <div class="ops">
+        <div class="op" data-value="flash"><span class="rd"></span><strong>闪婚（认识不到1个月就订婚/结婚）</strong></div>
+        <div class="op" data-value="normal"><span class="rd"></span>接触了几个月</div>
+        <div class="op" data-value="long"><span class="rd"></span>认识一年以上才谈婚论嫁</div>
+      </div>
+      <div class="fe" data-q="8"><textarea placeholder="以上都不完全符合？来补充……"></textarea></div>
+    </div>
+  </div>
+
+  <button class="btn" id="analyzeBtn" disabled onclick="analyze()">请先回答完所有问题</button>
+
+  <div class="rs" id="resultSection">
+    <div id="resultContent"></div>
+    <button class="rst" onclick="resetAll()">🔄 重新分析</button>
+  </div>
+
+  <div class="ft">
+    法普小象 · 判例来源：最高法三批13个彩礼典型案例及法释〔2024〕1号<br>
+    © 2026 张卓 · All Rights Reserved
+  </div>
+</div>
+<div class="tt" id="toast"></div>
+
+<script>
+var a = {};
+
+document.querySelectorAll('.op').forEach(function(o){
+  o.addEventListener('click',function(){
+    var b = this.closest('.qb');
+    b.querySelectorAll('.op').forEach(function(x){x.classList.remove('sel')});
+    this.classList.add('sel');
+    b.classList.add('ans');
+    a[b.id] = this.dataset.value;
+    var fe = b.querySelector('.fe');
+    if(fe) fe.classList.add('s');
+    ck();
+  });
+});
+
+// Q4: Auto-select "就这些现金" when user fills in amount
+document.getElementById('priceInput').addEventListener('input', function(){
+  var q4 = document.getElementById('q4');
+  if(this.value && !q4.classList.contains('ans')){
+    var firstOp = q4.querySelector('.op[data-value="normal"]');
+    if(firstOp){
+      firstOp.classList.add('sel');
+      q4.classList.add('ans');
+      a.q4 = firstOp.dataset.value;
+      var fe = q4.querySelector('.fe');
+      if(fe) fe.classList.add('s');
+      ck();
+    }
+  }
+});
+
+function ck(){
+  var all = document.querySelectorAll('.qb[id^="q"]');
+  var ans = document.querySelectorAll('.qb[id^="q"].ans').length;
+  var btn = document.getElementById('analyzeBtn');
+  if(ans >= all.length){btn.disabled=false;btn.textContent='🔍 分析我的情况'}
+  else{btn.disabled=true;btn.textContent='还有'+(all.length-ans)+'题没答'}
+}
+
+function analyze(){
+  var s = calc();
+  var exs = [];
+  document.querySelectorAll('.fe.s textarea').forEach(function(t){if(t.value.trim())exs.push(t.value.trim())});
+  var price = parseFloat(document.getElementById('priceInput').value) || 0;
+
+  var cat = s>=5?'risk':(s>=-3?'mid':'safe');
+  render(s,cat,exs,price);
+
+  document.getElementById('questions').style.display='none';
+  document.getElementById('analyzeBtn').style.display='none';
+  document.getElementById('resultSection').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function calc(){
+  // Corrected algorithm based on 法释〔2024〕1号 + 30 court cases
+  var s=0;
+  
+  // Q1: Registered = protective (Art.5: generally no return)
+  if(a.q1==='yes') s-=3;  // 登记→保护因素
+  else s+=3;              // 未登记→风险因素(Art.6)
+  
+  // Q2: Cohabitation time = CORE FACTOR
+  if(a.q2==='month') s+=5;       // <1月
+  else if(a.q2==='few') s+=3;    // 1-3月  
+  else if(a.q2==='year') s+=1;   // 3-12月
+  // 'long' 1-2年 or 'vlong' 2年+ → neutral/negative
+  else if(a.q2==='vlong') s-=2;
+  
+  // Q3: Children = strongest protection
+  if(a.q3==='child') s-=6;        // 有孩子→基本不返
+  else if(a.q3==='miscarry') s-=2; // 流产→降低比例
+  
+  // Q4: Extra property (car/house as bride price)
+  if(a.q4==='extra') s+=1;
+  
+  // Q5: Mixed with daily spending (red packets etc = not bride price)
+  // Doesn't change return ratio, just clarifies what counts
+  
+  // Q6: How was money used
+  if(a.q6==='saved') s+=1;  // 没花→更容易返还
+  else if(a.q6==='used') s-=1;  // 花掉了→不太可能返还
+  
+  // Q7: Who initiated breakup (fault factor)
+  if(a.q7==='man') s-=1;      // 男方有过错→降低返还比例
+  else if(a.q7==='woman') s+=1; // 女方提→可能更倾向返还
+  
+  // Q8: Flash marriage
+  if(a.q8==='flash') s+=2;
+  
+  return s;
+}
+
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('s');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){t.classList.remove('s')},2000);
+}
+
+function render(score,cat,extras,price){
+  var cases = getCases(price,cat);
+  var cCards = cases.map(function(c){
+    return '<div class="cc"><div class="ctt">📋 '+c.title+'</div><div class="cd"><strong>'+c.court+'</strong><br>'+c.fact+'<br><span class="cr '+c.cls+'">'+c.result+'</span></div></div>';
+  }).join('');
+
+  var range = cat==='safe'?{label:'0%~15%',pct:8,cls:'g',desc:'大概率不用返还'}
+    :cat==='mid'?{label:'30%~60%',pct:40,cls:'a',desc:'部分返还'}
+    :{label:'75%~100%',pct:80,cls:'c',desc:'高比例返还或全额返还'};
+
+  var adv = cat==='safe'?[
+    '共同生活时间长且有孩子，法院基本不支持返还彩礼。不用太担心。',
+    '虽然没领证，但已有实质家庭关系的，法院倾向保护女方和孩子的权益。',
+    '如果有争议，保持冷静沟通。别主动提出"我退你多少"，等法院综合认定。'
+  ]:cat==='mid'?[
+    '你的情况属于中间地带——法院会综合共同生活时间、彩礼花在哪了、有没有过错等决定返还比例。',
+    '共同生活时间越长，返还比例越低。如果彩礼已经用于共同生活了，这部分也会扣减。',
+    '建议协商解决。如果起诉到法院，引用最高法典型案例作为参考会更有利。'
+  ]:[
+    '共同生活时间很短，法院倾向高比例返还或全额返还。建议尽快找律师评估具体情况。',
+    '如果对方是"闪婚闪离"且拒绝共同生活，法院可能认定为借婚姻索取财物，判全返。',
+    '保存好彩礼支付的证据（转账记录、证人证言），这些是法院认定的关键。'
+  ];
+
+  var html = '<div class="rc"><div class="rh '+cat+'"><span class="ri">'+(cat==='safe'?'✅':cat==='mid'?'⚠️':'🔴')+'</span><div class="rt">'+(cat==='safe'?'大概率不用返还':cat==='mid'?'可能需要部分返还':'高比例返还或全返')+'</div><div class="rsb">参考最高法彩礼典型案例裁判口径</div></div><div class="rb">';
+
+  if(extras.length>0){
+    html += '<div class="sb"><div class="st">📝 你补充的情况</div><div class="sc" style="background:#f0f7ff;padding:12px 14px;border-radius:8px;font-size:13px">'+extras.map(function(e){return '· '+e}).join('<br>')+'</div></div>';
+  }
+
+  html += '<div class="sb"><div class="st">⚖️ 与你情况相似的判例</div><div class="sc">参考最高法发布的涉彩礼纠纷典型案例：</div></div>'+cCards;
+
+  html += '<div class="sb"><div class="st">📊 预估返还区间</div><div class="sc"><div class="rb2"><div class="rb3 '+range.cls+'" style="width:'+range.pct+'%">'+range.label+'</div></div><div class="rl"><span>0% 不返</span><span>部分返还</span><span>全额返还</span></div><p style="margin-top:8px;font-size:13px;color:var(--ts)">'+range.desc+'</p></div></div>';
+
+  html += '<div class="sb"><div class="st">💡 建议处理</div><ul class="al">'+adv.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div>';
+
+  html += '<div style="background:#fffbe6;padding:14px 16px;text-align:center;border-radius:10px;margin-top:12px"><div style="font-size:13px;color:#666;margin-bottom:10px">测一下·你的彩礼能退多少？🐘</div><button onclick="saveLongImage()" style="background:#d85a30;color:white;border:none;padding:12px 32px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer">📸 生成长图发朋友圈</button></div>';
+
+  html += '</div></div>';
+  document.getElementById('resultContent').innerHTML = html;
+}
+
+function getCases(price,cat){
+  var list = [];
+
+  if(cat==='safe'){
+    list.push({title:'河南平顶山中院（2022）：未登记但同居3年+有孩',court:'河南省平顶山市中级人民法院',fact:'未登记，按习俗办婚礼，共同生活3年多，生育一子。法院驳回返还请求。',result:'0%·不返还。长期同居+已育子女，彩礼目的已实现。',cls:'g'});
+    list.push({title:'最高法第三批案例三：同居4年+有女儿',court:'最高人民法院典型案例',fact:'未登记，共同生活4年，生育一女，彩礼已部分用于家庭。',result:'0%·不返还。实质家庭关系已形成。',cls:'g'});
+    list.push({title:'辽宁昌图法院（2026）：同居3年+用于共同生活',court:'辽宁省昌图县人民法院',fact:'5万彩礼，同居近3年，彩礼已用于共同生活开销及治病。',result:'返还20%（1万）。共同生活时间越长，返还越少。',cls:'g'});
+    if(a.q1==='yes'){
+      list.push({title:'最高法第一批案例一：登记+生活1年多+终止妊娠',court:'最高人民法院典型案例',fact:'已登记，共同生活1年多，女方终止妊娠。彩礼18.8万。',result:'返还30%。时间超1年+终止妊娠，比例大幅降低。',cls:'g'});
+    }
+  }
+  else if(cat==='mid'){
+    if(a.q2==='year' || a.q2==='few'){
+      list.push({title:'新疆乌鲁木齐中院（2026）：同居数月',court:'乌鲁木齐市中级人民法院',fact:'未登记，短暂同居。彩礼6万。一审判返还60%，二审维持。',result:'返还60%。共同生活时间中等，部分返还。',cls:'a'});
+      list.push({title:'青海民和法院（2026）：同居3月+流产+家暴过错',court:'青海省民和回族自治县人民法院',fact:'同居3个月分手，男方有家暴过错，女方流产。彩礼30万。',result:'返还60%（18万）。过错方+流产→返还降低。',cls:'a'});
+      list.push({title:'安徽马鞍山法院（2024）：未登记同居',court:'安徽省马鞍山市花山区人民法院',fact:'未登记，短暂同居。彩礼包含"三金"费用。',result:'返还约55%。结合同居消耗和共同支出酌定。',cls:'a'});
+    }
+    if(a.q1==='yes'){
+      list.push({title:'最高法第一批案例一：登记1年+终止妊娠',court:'最高人民法院典型案例',fact:'已登记，生活1年多，终止妊娠，彩礼18.8万造成较重负担。',result:'返还30%。时间较长+终止妊娠→低比例。',cls:'a'});
+    }
+    list.push({title:'吉林辽源法院：未登记+短同居+有孩',court:'辽源市西安区人民法院',fact:'未登记，共同生活时间不长，但已生育一子。彩礼15万。',result:'酌减返还。有孩子→保护女方和孩子权益。',cls:'a'});
+  }
+  else{ // risk
+    if(a.q8==='flash' || a.q2==='month'){
+      list.push({title:'最高法第三批案例四：闪婚10天+拒绝同居',court:'最高人民法院典型案例',fact:'认识3天登记，仅10天对方离开并拒绝回头。彩礼20万。',result:'100%全返。法院认定拒绝共同生活。',cls:'c'});
+      list.push({title:'陕西城固法院（2025）：登记2个月',court:'陕西省城固县人民法院',fact:'登记结婚不到2个月协议离婚，彩礼18.8万，无共同消费。',result:'返还80%（15万）。登记后同居时间极短。',cls:'c'});
+      list.push({title:'四川法院（2026）：登记不足1月',court:'四川省某基层法院',fact:'登记不到1个月就分居，彩礼5.2万。扣除旅游等消费后调解。',result:'返还约77%（4万）。时间极短，扣除共同消费。',cls:'c'});
+    }
+    if(a.q1==='no' && a.q2==='few'){
+      list.push({title:'贵州高院典型案例（2025）：未登记+同居+嫁妆',court:'贵州省高级人民法院',fact:'未登记，办婚礼，彩礼10.68万。女方有陪嫁（冰箱沙发等）。',result:'返还时扣除嫁妆价值。嫁妆从彩礼中抵扣。',cls:'c'});
+    }
+    list.push({title:'最高法第一批案例三：登记<3月+高额彩礼',court:'最高人民法院典型案例',fact:'已登记但生活不足3月，彩礼106万（80万+26万五金）。',result:'返还75%（80万）。扣除筹备婚礼的共同消费。',cls:'c'});
+    list.push({title:'山东济南中院（2021）：借婚姻索取财物',court:'山东省济南市中级人民法院',fact:'结合感情基础、共同生活时间、离婚原因，认定借婚姻索取。',result:'全额返还。认定为借婚姻索取财物。',cls:'c'});
+    list.push({title:'浙江衢州中院（2023）：借婚姻索取财物',court:'浙江省衢州市中级人民法院',fact:'以彩礼为名不断索取财物，未用于共同生活，拒绝结婚。',result:'100%全部返还。民法典禁止借婚姻索取财物。',cls:'c'});
+  }
+
+  return list;
+}
+
+async function saveLongImage(){
+  showToast('正在生成朋友圈长图...');
+  try{
+    var rc = document.getElementById('resultContent');
+    var clone = rc.cloneNode(true);
+
+    var w = document.createElement('div');
+    w.style.cssText = 'position:fixed;left:-9999px;top:0;width:375px;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;padding:0;';
+
+    w.innerHTML = '<div style="background:#534ab7;padding:32px 20px 24px;text-align:center;color:white"><div style="font-size:36px;margin-bottom:8px">🐘</div><div style="font-size:20px;font-weight:700;margin-bottom:4px">彩礼纠纷：退不退？退多少？</div><div style="font-size:13px;opacity:.85">填8个问题 · 30秒出结果 · 基于全国20+真实判例</div></div><div id="longContent" style="padding:16px"></div><div style="background:#f8f7fc;padding:24px 20px;text-align:center;border-top:1px solid #eee"><div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px"><div id="qrContainer"></div><div style="text-align:left"><div style="font-size:14px;color:#534ab7;font-weight:600;margin-bottom:4px">🐘 法普小象</div><div style="font-size:12px;color:#666;line-height:1.6">长按扫码<br>立即测你的彩礼能退多少</div></div></div><div style="font-size:11px;color:#bbb">数据来源：最高法涉彩礼纠纷典型案例及法释〔2024〕1号 · 仅供参考不构成法律意见</div><div style="font-size:11px;color:#ccc;margin-top:4px">© 2026 张卓 · 法普小象</div></div>';
+    document.body.appendChild(w);
+    w.querySelector('#longContent').appendChild(clone);
+
+    new QRCode(w.querySelector('#qrContainer'),{text:'https://zz24-66-d6gwip8n67e9cf180-1448357696.tcloudbaseapp.com/bride-price/',width:130,height:130,colorDark:'#534ab7',colorLight:'#fff'});
+
+    await new Promise(function(r){setTimeout(r,300)});
+
+    var canvas = await html2canvas(w,{backgroundColor:'#fff',scale:2,useCORS:true,allowTaint:true});
+    document.body.removeChild(w);
+    var dataUrl = canvas.toDataURL('image/png');
+
+    var ov = document.createElement('div');
+    ov.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px';
+    ov.innerHTML = '<div style="color:white;font-size:16px;margin-bottom:12px;font-weight:500">👇 长按图片保存到相册</div><img src="'+dataUrl+'" style="max-width:95vw;max-height:65vh;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.4)"><div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;justify-content:center"><button id="btnCopyGo" style="padding:12px 24px;border-radius:10px;border:none;font-size:15px;font-weight:600;color:white;background:#534ab7;cursor:pointer">📋 复制文案·去发圈</button><button onclick="this.parentNode.parentNode.remove()" style="padding:10px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.3);font-size:13px;color:white;background:transparent;cursor:pointer">关闭</button></div>';
+    document.body.appendChild(ov);
+
+    document.getElementById('btnCopyGo').onclick = function(){
+      navigator.clipboard.writeText('我把彩礼情况测了一下，结果参考了最高法的真实判例，挺有意思的。你也来测测你的情况？🐘').then(function(){
+        showToast('文案已复制！打开微信朋友圈粘贴发图即可');
+      }).catch(function(){showToast('复制失败，请手动选择文字')});
+    };
+
+    showToast('长按图片即可保存');
+  }catch(e){showToast('生成失败，请重试');console.error(e)}
+}
+
+function resetAll(){
+  a={};
+  document.querySelectorAll('.op').forEach(function(o){o.classList.remove('sel')});
+  document.querySelectorAll('.qb').forEach(function(b){b.classList.remove('ans')});
+  document.querySelectorAll('.fe').forEach(function(f){f.classList.remove('s')});
+  document.querySelectorAll('.fe textarea').forEach(function(t){t.value=''});
+  document.getElementById('priceInput').value = '';
+  document.getElementById('questions').style.display='block';
+  document.getElementById('analyzeBtn').style.display='block';
+  document.getElementById('analyzeBtn').disabled=true;
+  document.getElementById('analyzeBtn').textContent='请先回答完所有问题';
+  document.getElementById('resultSection').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

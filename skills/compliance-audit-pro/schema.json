@@ -1,0 +1,26 @@
+{
+  "name": "compliance_audit_pro",
+  "description": "面向法律/财务/采购场景的合规审计引擎，自动提取风险条款、映射法规基线、生成审计底稿与澄清模板",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "document_content": {
+        "type": "string",
+        "description": "合同/招标文件/制度全文或核心条款文本"
+      },
+      "compliance_scope": {
+        "type": "string",
+        "description": "适用法规范围（如：数据安全法/政府采购法/等保2.0/GDPR/反商业贿赂/民法典）"
+      },
+      "risk_threshold": {
+        "type": "string",
+        "enum": ["low", "medium", "high", "strict"],
+        "description": "风险判定阈值（默认：high，strict适用于金融/政务等强监管行业）"
+      }
+    },
+    "required": ["document_content", "compliance_scope"],
+    "additionalProperties": false
+  },
+  "output_format": "markdown",
+  "strict_mode": true
+}

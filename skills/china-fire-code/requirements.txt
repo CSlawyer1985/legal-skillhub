@@ -1,0 +1,6 @@
+# 模式二基线（必装）：本地 PDF 按需抽取
+pymupdf>=1.23
+
+# 可选：最高精度 OCR（扫描件 / 文字层损坏时）。安装较大，按需。
+paddleocr
+paddlepaddle

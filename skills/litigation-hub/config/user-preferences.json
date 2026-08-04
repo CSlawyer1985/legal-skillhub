@@ -1,0 +1,6 @@
+{
+  "merge_strategy": "unified",
+  "rename": {
+    "enabled": true
+  }
+}

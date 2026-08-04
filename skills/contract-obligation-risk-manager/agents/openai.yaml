@@ -1,0 +1,4 @@
+interface:
+  display_name: "合同义务与履约风险官｜简诗 AI"
+  short_description: "提取合同义务、关键日期、履约偏差证据和人工复核问题"
+  default_prompt: "使用 $contract-obligation-risk-manager，整理合同义务、关键日期、履约偏差和人工复核清单。"

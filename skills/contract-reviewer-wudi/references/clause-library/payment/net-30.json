@@ -1,0 +1,17 @@
+{
+  "$schema": "clause-schema",
+  "category": "payment",
+  "name": "月结30天条款",
+  "applicable_types": [
+    "sales",
+    "distribution",
+    "commission",
+    "service"
+  ],
+  "clause_text": "买方应于每月【末】结算上一个自然月的应付账款，并于结算后【30】日内以银行转账方式支付。如付款日为国家法定节假日，则顺延至节假日后第一个工作日。逾期付款的，每逾期一日按逾期金额的万分之三支付违约金。",
+  "position_tips": {
+    "buyer": "争取60-90天账期，降低资金压力",
+    "seller": "争取30天以内，最好见票即付；约定逾期付款违约金"
+  },
+  "legal_reference": "《民法典》第674条"
+}

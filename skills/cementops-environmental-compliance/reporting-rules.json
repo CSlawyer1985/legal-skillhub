@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "id": "EC-RR-001",
+    "title": "Environmental Reporting Obligation Rules",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-13",
+    "note": "Federal timelines only. State permits may impose shorter deadlines — always check your specific permit."
+  },
+  "rules": [
+    {
+      "id": "ER-001",
+      "condition": "Emission limit exceedance (CEMS rolling average exceeds NESHAP limit)",
+      "keywords": ["exceedance", "exceedances", "exceeded limit", "above limit", "over limit", "emission limit", "neshap limit", "rolling average exceeded", "pm limit", "so2 limit", "nox limit", "hcl limit", "thc limit", "pm exceedance", "pm exceedances"],
+      "decision": "REPORT",
+      "federal_timeline": "Report excess emissions within 2 business days per §63.10(d)(5). Include in semi-annual deviation report.",
+      "cfr_reference": "§63.10(d)(5)",
+      "authority": "State permitting agency + EPA Region",
+      "message": "EMISSION LIMIT EXCEEDANCE — Report to permitting authority within 2 business days. Document: pollutant, duration, magnitude, cause, corrective action."
+    },
+    {
+      "id": "ER-002",
+      "condition": "CEMS data availability below 90%",
+      "keywords": ["data availability below 90", "availability 89", "availability 88", "availability 85", "data availability dropping", "cems downtime", "cems unavailable"],
+      "decision": "DOCUMENT",
+      "federal_timeline": "Report in next semi-annual compliance report. Implement corrective maintenance immediately.",
+      "cfr_reference": "40 CFR 75",
+      "authority": "State permitting agency",
+      "message": "CEMS DATA AVAILABILITY WARNING — Below 90% threshold. Substitute data rules apply. Prioritize CEMS repair. Document all downtime periods and reasons."
+    },
+    {
+      "id": "ER-003",
+      "condition": "CEMS data availability below 75% — emergency",
+      "keywords": ["data availability below 75", "availability 74", "availability 70", "availability 60", "cems down for days", "cems offline", "no cems data", "cems failed"],
+      "decision": "REPORT",
+      "federal_timeline": "Emergency — document immediately. Include in semi-annual report. Extended outage may require notification to permitting authority.",
+      "cfr_reference": "40 CFR 75",
+      "authority": "State permitting agency",
+      "message": "CEMS DATA AVAILABILITY EMERGENCY — Below 75%. All data during outage is substitute data. Facility compliance status is at risk. Emergency repair required."
+    },
+    {
+      "id": "ER-004",
+      "condition": "Failed RATA (Relative Accuracy Test Audit)",
+      "keywords": ["failed rata", "rata failure", "rata did not pass", "rata exceeded", "relative accuracy failed", "relative accuracy test", "rata failed"],
+      "decision": "REPORT",
+      "federal_timeline": "Data invalid back to last successful RATA. Substitute data applies for entire period. Report in semi-annual compliance report. Schedule retest within 30 days.",
+      "cfr_reference": "40 CFR 60 Appendix F",
+      "authority": "State permitting agency",
+      "message": "FAILED RATA — All CEMS data since last successful RATA is invalid. Substitute data procedures apply. Schedule retest. Quantify compliance exposure for the invalid data period."
+    },
+    {
+      "id": "ER-005",
+      "condition": "Bypass stack opened",
+      "keywords": ["bypass stack", "bypass open", "opened bypass", "bypass vent", "bypass damper open", "diverting to bypass", "divert to bypass", "bypass activated"],
+      "decision": "DOCUMENT",
+      "federal_timeline": "Log duration and reason in real time. Report all bypass events in semi-annual compliance report per §63.1348(b).",
+      "cfr_reference": "§63.1348(b)",
+      "authority": "State permitting agency",
+      "message": "BYPASS STACK EVENT — Log: start time, end time, duration, reason, estimated emissions during bypass. Bypass emissions are NOT exempt from compliance determination."
+    },
+    {
+      "id": "ER-006",
+      "condition": "Malfunction with excess emissions",
+      "keywords": ["malfunction", "equipment failure", "breakdown", "upset condition", "process upset", "equipment malfunction", "sudden failure"],
+      "decision": "REPORT",
+      "federal_timeline": "Report to permitting authority within 2 days per §63.1344(e). Document for affirmative defense immediately.",
+      "cfr_reference": "§63.1344(e)",
+      "authority": "State permitting agency + EPA Region",
+      "message": "MALFUNCTION WITH EMISSIONS — No malfunction exemption under current rule. Report within 2 days. Begin documenting for affirmative defense: maintenance records, operating logs, actions taken to minimize emissions, root cause analysis."
+    },
+    {
+      "id": "ER-007",
+      "condition": "Stack test failure",
+      "keywords": ["stack test failed", "performance test failed", "test results exceeded", "failed stack test", "stack test above limit", "compliance test failure"],
+      "decision": "REPORT",
+      "federal_timeline": "60-day retest required. Report results to state permitting agency per §63.1349(b).",
+      "cfr_reference": "§63.1349(b)",
+      "authority": "State permitting agency",
+      "message": "STACK TEST FAILURE — Schedule retest within 60 days. Report results to permitting authority. Review process conditions at time of test. Consider operational adjustments before retest."
+    },
+    {
+      "id": "ER-008",
+      "condition": "Notice of Violation received",
+      "keywords": ["nov received", "notice of violation", "received nov", "enforcement action", "violation notice", "compliance order"],
+      "decision": "REPORT",
+      "federal_timeline": "Respond within permit deadline, typically 15-30 days. Engage legal counsel for significant enforcement.",
+      "cfr_reference": "40 CFR 70",
+      "authority": "Issuing authority (state or EPA)",
+      "message": "NOV RECEIVED — Acknowledge receipt. Assess severity. Prepare response within deadline. Gather documentation: compliance history, corrective actions taken, maintenance records. Engage legal counsel if penalties are significant."
+    },
+    {
+      "id": "ER-009",
+      "condition": "Opacity exceedance (6-minute average above 20%)",
+      "keywords": ["opacity exceeded", "opacity above 20", "opacity violation", "opacity alarm", "visible emissions", "opacity reading high", "opacity reading", "opacity hit"],
+      "decision": "REPORT",
+      "federal_timeline": "Document immediately. Opacity uses 6-minute averages — any single exceedance above 20% is reportable per permit. Report per state-specific requirements.",
+      "cfr_reference": "§63.1349",
+      "authority": "State permitting agency",
+      "message": "OPACITY EXCEEDANCE — Unlike other pollutants, opacity compliance is based on 6-minute averages, NOT 30-day rolling. Any single 6-minute average above 20% is a deviation. Document immediately and report per permit."
+    },
+    {
+      "id": "ER-010",
+      "condition": "Hazardous waste fuel permit deviation",
+      "keywords": ["hazardous waste", "hazardous fuel", "bif violation", "rcra deviation", "waste fuel deviation", "hazardous waste fuel"],
+      "decision": "REPORT",
+      "federal_timeline": "Report within 24 hours to EPA RCRA and state agency per 40 CFR 266.",
+      "cfr_reference": "40 CFR 266",
+      "authority": "EPA RCRA + State hazardous waste agency",
+      "message": "HAZARDOUS WASTE FUEL DEVIATION — Report within 24 hours. BIF rules impose stricter requirements than standard NESHAP. Ensure trial burn conditions were maintained. Document feed rates, emission controls, and operating parameters."
+    }
+  ],
+  "modifiers": [
+    {
+      "id": "MOD-001",
+      "name": "during_startup",
+      "keywords": ["startup", "starting up", "kiln startup", "initial rotation", "warming up", "cold start", "bringing up"],
+      "effect": "Add to response: 'Document work practices followed during startup per §63.1346. No blanket startup exemption exists under current NESHAP Subpart LLL.'",
+      "cfr_reference": "§63.1346"
+    },
+    {
+      "id": "MOD-002",
+      "name": "bypass_open",
+      "keywords": ["bypass stack", "bypass open", "bypass vent", "bypass damper", "diverting", "bypass activated"],
+      "effect": "Add to response: 'Log bypass duration and reason per §63.1348(b). Include bypass event in semi-annual compliance report. Bypass emissions are uncontrolled and must be included in excess emissions calculations.'",
+      "cfr_reference": "§63.1348(b)"
+    },
+    {
+      "id": "MOD-003",
+      "name": "mercury_specific",
+      "keywords": ["mercury", "hg", "sorbent trap", "mercury limit"],
+      "effect": "Escalate: 'Mercury exceedance requires notification to EPA Region within 24 hours in addition to state reporting.'",
+      "cfr_reference": "§63.10(d)(5)"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "gaotao.six-package.package-manifest/v1",
+  "id": "litigation-visualization",
+  "display_name": "诉讼可视化Skill包",
+  "kind": "visualization",
+  "version": "2026-07-28-desktop-delivery-r1",
+  "author": "李时瑀律师",
+  "copyright": "Copyright (C) 2026 李时瑀律师",
+  "license_spdx": "MIT",
+  "contract": {
+    "path": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/artifacts/gaotao-six-package-desktop-delivery-20260728-codex/SIX-PACKAGE-DESKTOP-DELIVERY-CONTRACT.json",
+    "sha256": "beb58d9101884a44b525fb91878518a8aa3e3388c567153e91491a3e6599d4c6"
+  },
+  "source_ids": [
+    "mother-node6l",
+    "recovery-right-v1.0.4",
+    "litigation-visualization-legacy-cn",
+    "litigation-visualization-contract-r2"
+  ],
+  "source_snapshots": [
+    {
+      "id": "mother-node6l",
+      "path": "${HOME}/Desktop/实验/gaotao-mother-validator-remediation-1.0.0-r4-node6L-2026-07-28",
+      "file_count": 306,
+      "simple_tree_sha256": "d8a406d201ea7f9ef703a1eb87d48e16908de6f6afb6ba84e6b454c83cbc5767",
+      "size_bound_tree_sha256": "d314a6038621aa7471b9740708a5a750877a46b710dd4cf0b1b50f5574d44f21"
+    },
+    {
+      "id": "recovery-right-v1.0.4",
+      "path": "${HOME}/Desktop/追偿权纠纷诉讼Skill-桌面交付-2026-07-27/追偿权纠纷诉讼Skill-V1.0.4",
+      "file_count": 65,
+      "simple_tree_sha256": "47c3dcbead4af8558f66d87775287d35e5fe0786f3810a9a2e29f3b153cf8cd8",
+      "size_bound_tree_sha256": "50162913b2aab6a4f43be117f487efb68c9271be2e71cc3d3f827146d8800d83"
+    },
+    {
+      "id": "litigation-visualization-legacy-cn",
+      "path": "${HOME}/Documents/Codex/2026-07-21/ni-d/work/litigation-visualization-distill/build/litigation-visualization-cn",
+      "file_count": 21,
+      "simple_tree_sha256": "c01270c19dd07b87ac990d1d4cc1796e7682527c3f53350c896a46bee4cc8a48",
+      "size_bound_tree_sha256": "3fce8819d82d38a5ac066b4c3bdf570152bf1faf50e369b05cf5d55c1b23d091"
+    },
+    {
+      "id": "litigation-visualization-contract-r2",
+      "path": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/candidates/gaotao-litigation-visualization-extension/20260723-contract-r2-codex",
+      "file_count": 49,
+      "simple_tree_sha256": "fea4bfc8bae0779dee3bf91d59ccaa0cb878a1e4ddc5e995b278125c44c65652",
+      "size_bound_tree_sha256": "cb0e19978222c1b9190ec33203c2824359e132a8360cb05dbd507096725f55fa"
+    }
+  ],
+  "top_level_entities": [
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "AUTHOR.json",
+    "LICENSE-PROVENANCE.json",
+    "PACKAGE-MANIFEST.json",
+    "SHA256SUMS.txt",
+    "PACKAGE-RECEIPT.json"
+  ],
+  "layout": {
+    "payload": "payload*/与viz-engine/",
+    "evidence": "evidence/"
+  },
+  "nine_document_registry": null,
+  "vis_contract": {
+    "package_id": "litigation-visualization",
+    "license_spdx": "MIT",
+    "same_case_post_text_add_on_only": true,
+    "default_enabled": false,
+    "only_input": [
+      "same-case-independent-frozen-07",
+      "A01-A09 exact anchor set"
+    ],
+    "global_case_state_access": false,
+    "fail_closed_negatives": [
+      "frozen-07 missing",
+      "frozen-07 hash mismatch",
+      "cross-case input",
+      "anchor-set mismatch",
+      "VIS disabled"
+    ],
+    "license_fail_closed": "no GPL-only or third-party payload may enter the MIT package unless the per-entity ledger proves independent MIT relicensing authority"
+  },
+  "geo": null,
+  "authorization_boundary": {
+    "local_only": false,
+    "desktop_packaging": true,
+    "installation": false,
+    "formal_promotion": false,
+    "upload_or_external_transfer": true,
+    "public_release": true,
+    "geo_activation_or_projection": false,
+    "court_submission": false
+  },
+  "public_runner": {
+    "path": "tools/run_vis.py",
+    "gates": [
+      "explicit --enable-vis (default off)",
+      "TEXT-PASS receipt binding (case_id)",
+      "frozen-07 manifest hash",
+      "A01-A09 exact anchor set",
+      "cross-case/missing/tamper/anchor-mismatch/disabled → exit3 zero artifacts"
+    ],
+    "only_input": [
+      "same-case-frozen-07",
+      "A01-A09"
+    ],
+    "external_out_required": true
+  },
+  "non_executable_reference": [
+    "payload-legacy-skill/",
+    "payload-frozen-contract-r2/",
+    "viz-engine/recovery-gen_case_views.py",
+    "viz-engine/recovery-render_views.py"
+  ],
+  "github_publication": {
+    "repository": "Sven-Mirana/litigation-visualization-zh",
+    "visibility": "public",
+    "authorized_at": "2026-07-29"
+  }
+}

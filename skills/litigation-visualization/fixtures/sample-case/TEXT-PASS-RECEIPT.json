@@ -1,0 +1,6 @@
+{
+ "schema": "vis.text-pass-receipt/v1",
+ "case_id": "SAMPLE-01",
+ "result": "PASS",
+ "note": "合成自测样例（非真实案件）"
+}

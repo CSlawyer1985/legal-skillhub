@@ -1,0 +1,11 @@
+{
+  "author": "WPS",
+  "initials": "WP",
+  "organization": "浙江金道律师事务所",
+  "confirmed": true,
+  "internal_author": "浙江金道律师事务所龚家勇律师（微信：13967182079）",
+  "internal_note": "internal_author 仅作技能内部归属记录，不写入任何对外交付文件。",
+  "signature_lock": "LOCKED_TO_WPS",
+  "lock_rule": "龚家勇律师强制要求：批注人、修订人的 DOCX 修订署名必须统一为 WPS / WP，禁止使用任何其他名称（含真实审阅人姓名、AI 产品名等）。本配置 author/initials 不得修改；脚本层亦强制锁定为 WPS/WP，即使本文件被改动也不会采用其他名称。",
+  "lock_set_at": "2026-08-01"
+}

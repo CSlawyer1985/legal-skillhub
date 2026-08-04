@@ -1,0 +1,22 @@
+{
+ "schema": "gaotao.t2.necessary-english.v1",
+ "case_id": "CASE-02",
+ "policy": "显式且窄：仅列举盲稿实际使用且clean input实体存在的标识符token；禁动态派生",
+ "tokens": [
+  {
+   "token": "CNTJ",
+   "verified_in_clean_input": true,
+   "reason": "合同编号前缀"
+  },
+  {
+   "token": "QZ",
+   "verified_in_clean_input": true,
+   "reason": "合同编号段"
+  },
+  {
+   "token": "SF",
+   "verified_in_clean_input": true,
+   "reason": "合同编号段"
+  }
+ ]
+}

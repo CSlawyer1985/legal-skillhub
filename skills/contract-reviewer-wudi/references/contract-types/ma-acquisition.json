@@ -1,0 +1,373 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "股权收购协议",
+  "contract_type_en": "ma-acquisition",
+  "description": "股权收购、资产收购、公司并购等并购协议",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国公司法》",
+    "《上市公司收购管理办法》"
+  ],
+  "keywords_for_detection": [
+    "收购", "股权收购", "资产收购", "并购", "M&A", "转让股权",
+    "目标公司", "标的公司", "尽职调查", "交割"
+  ],
+  "key_clauses": [
+    {
+      "name": "交易主体",
+      "required": true,
+      "keywords": ["转让方", "受让方", "收购方", "出售方", "目标公司"],
+      "check_points": [
+        {
+          "item": "主体明确",
+          "description": "收购方、转让方、目标公司是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "主体资格",
+          "description": "各方是否具有签约和履约资格",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确交易各方主体信息，核实签约和履约资格"
+    },
+    {
+      "name": "标的股权",
+      "required": true,
+      "keywords": ["标的股权", "目标股权", "转让股权", "股权比例"],
+      "check_points": [
+        {
+          "item": "股权明确",
+          "description": "标的股权比例、出资额是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属清晰",
+          "description": "转让方对标的股权享有完整处分权",
+          "risk_level": "致命"
+        },
+        {
+          "item": "无瑕疵",
+          "description": "标的股权无质押、冻结等权利限制",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确标的股权比例，核实权属清晰、无权利限制"
+    },
+    {
+      "name": "交易价格",
+      "required": true,
+      "keywords": ["交易价格", "转让价款", "收购价款", "对价"],
+      "check_points": [
+        {
+          "item": "价格确定",
+          "description": "交易价格是否确定或计算方式是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "定价依据",
+          "description": "定价依据（评估报告/净资产/协商）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "调整机制",
+          "description": "是否有价格调整机制（如业绩对赌）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交易价格或定价方式，可约定价格调整机制"
+    },
+    {
+      "name": "支付方式",
+      "required": true,
+      "keywords": ["支付方式", "现金", "股权", "分期", "交割"],
+      "check_points": [
+        {
+          "item": "支付方式",
+          "description": "现金/股权/资产等支付方式",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付时间",
+          "description": "一次性支付/分期支付",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付条件",
+          "description": "各期款项支付条件",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确支付方式、时间、条件，通常分期支付（签约/交割/工商变更后）"
+    },
+    {
+      "name": "交割",
+      "required": true,
+      "keywords": ["交割", "股权交割", "资产交割", "交割日"],
+      "check_points": [
+        {
+          "item": "交割条件",
+          "description": "交割先决条件",
+          "risk_level": "致命"
+        },
+        {
+          "item": "交割程序",
+          "description": "交割程序和文件清单",
+          "risk_level": "重大"
+        },
+        {
+          "item": "交割日",
+          "description": "交割日确定",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交割条件（尽职调查、审批、无重大不利变化等）、程序、交割日"
+    },
+    {
+      "name": "尽职调查",
+      "required": true,
+      "keywords": ["尽职调查", "调查", "DD", "披露", "陈述保证"],
+      "check_points": [
+        {
+          "item": "尽调安排",
+          "description": "尽职调查的安排和期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "信息披露",
+          "description": "转让方信息披露义务",
+          "risk_level": "重大"
+        },
+        {
+          "item": "陈述保证",
+          "description": "转让方陈述与保证",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "约定尽职调查安排，转让方信息披露和陈述保证义务"
+    },
+    {
+      "name": "过渡期安排",
+      "required": true,
+      "keywords": ["过渡期", "期间", "损益", "维持"],
+      "check_points": [
+        {
+          "item": "过渡期定义",
+          "description": "过渡期定义（签约至交割）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "损益归属",
+          "description": "过渡期损益归属",
+          "risk_level": "重大"
+        },
+        {
+          "item": "经营限制",
+          "description": "过渡期目标公司经营限制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确过渡期、损益归属（通常归转让方）、经营限制"
+    },
+    {
+      "name": "审批与登记",
+      "required": true,
+      "keywords": ["审批", "批准", "登记", "工商变更", "反垄断"],
+      "check_points": [
+        {
+          "item": "审批要求",
+          "description": "需取得的审批（国资、行业监管、反垄断等）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "工商变更",
+          "description": "工商变更登记办理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用承担",
+          "description": "审批和登记费用承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确需取得的审批、工商变更办理、费用承担"
+    },
+    {
+      "name": "业绩承诺",
+      "required": false,
+      "keywords": ["业绩承诺", "对赌", "估值调整", "利润承诺"],
+      "check_points": [
+        {
+          "item": "承诺内容",
+          "description": "业绩承诺的具体内容",
+          "risk_level": "重大"
+        },
+        {
+          "item": "补偿机制",
+          "description": "业绩未达承诺的补偿机制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确业绩承诺指标、补偿计算公式、补偿方式"
+    },
+    {
+      "name": "竞业禁止",
+      "required": true,
+      "keywords": ["竞业禁止", "竞业限制", "不竞争", "保密"],
+      "check_points": [
+        {
+          "item": "竞业范围",
+          "description": "转让方竞业禁止范围",
+          "risk_level": "重大"
+        },
+        {
+          "item": "竞业期限",
+          "description": "竞业禁止期限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "补偿",
+          "description": "竞业禁止补偿",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确竞业范围、期限、地域，约定合理补偿"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "解约"],
+      "check_points": [
+        {
+          "item": "违约情形",
+          "description": "各方违约情形",
+          "risk_level": "重大"
+        },
+        {
+          "item": "违约金",
+          "description": "违约金或损害赔偿计算",
+          "risk_level": "重大"
+        },
+        {
+          "item": "解约权",
+          "description": "合同解除权",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确各方违约情形、违约金、解约权"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "MA001",
+      "name": "标的股权瑕疵",
+      "description": "标的股权存在质押、冻结、权属争议等瑕疵",
+      "severity": "高风险",
+      "suggestion": "尽职调查核实股权权属，要求转让方解除权利限制"
+    },
+    {
+      "id": "MA002",
+      "name": "审批未通过",
+      "description": "未取得必要审批（国资、行业监管、反垄断），交易无法完成",
+      "severity": "高风险",
+      "suggestion": "明确审批要求和责任，约定审批未通过的后果"
+    },
+    {
+      "id": "MA003",
+      "name": "尽职调查不充分",
+      "description": "尽职调查不充分，未发现目标公司重大问题",
+      "severity": "高风险",
+      "suggestion": "充分尽职调查，要求转让方完整披露，设置陈述保证条款"
+    },
+    {
+      "id": "MA004",
+      "name": "业绩承诺无法实现",
+      "description": "业绩承诺过高，无法实现，补偿机制不完善",
+      "severity": "高风险",
+      "suggestion": "合理设定业绩承诺，完善补偿机制，考虑股权回购"
+    },
+    {
+      "id": "MA005",
+      "name": "过渡期风险",
+      "description": "过渡期目标公司发生重大不利变化，价值减损",
+      "severity": "中风险",
+      "suggestion": "明确过渡期经营限制，重大不利变化的定义和处理"
+    },
+    {
+      "id": "MA006",
+      "name": "竞业禁止无效",
+      "description": "竞业禁止范围过广、期限过长，可能被认定无效",
+      "severity": "中风险",
+      "suggestion": "竞业范围、期限、地域应合理，约定补偿",
+      "legal_basis": "《劳动合同法》第24条"
+    }
+  ],
+  "position_guidance": {
+    "acquirer": {
+      "name": "收购方",
+      "priority_checks": [
+        "尽职调查",
+        "标的股权",
+        "交割条件",
+        "陈述保证"
+      ],
+      "key_concerns": [
+        "充分尽职调查",
+        "确保股权无瑕疵",
+        "设置交割先决条件",
+        "要求完整陈述保证",
+        "分期支付降低风险"
+      ],
+      "avoid": [
+        "尽职调查不充分",
+        "一次性支付全款",
+        "无交割条件",
+        "无陈述保证"
+      ]
+    },
+    "seller": {
+      "name": "转让方",
+      "priority_checks": [
+        "交易价格",
+        "支付方式",
+        "业绩承诺",
+        "竞业限制"
+      ],
+      "key_concerns": [
+        "争取合理价格",
+        "缩短支付周期",
+        "限制业绩承诺",
+        "限制竞业范围",
+        "明确责任上限"
+      ],
+      "avoid": [
+        "价格过低",
+        "业绩承诺过高",
+        "竞业限制过严",
+        "责任无上限"
+      ]
+    }
+  },
+  "legal_notes": {
+    "approval_requirements": {
+      "description": "审批要求",
+      "state_owned": "国有股权转让：需国资监管机构批准或备案",
+      "foreign_investment": "外商投资：需商务部门备案或审批",
+      "antitrust": "经营者集中：达到申报标准的需反垄断审查",
+      "industry": "特殊行业：金融、电信、能源等需行业监管审批",
+      "securities": "上市公司：需证监会核准或备案"
+    },
+    "due_diligence": {
+      "description": "尽职调查",
+      "scope": "财务、法律、业务、人力资源、环保等",
+      "importance": "尽职调查是发现风险、定价的重要依据"
+    },
+    "representations_warranties": {
+      "description": "陈述与保证",
+      "content": "转让方就目标公司状况、股权权属、财务状况等作出陈述和保证",
+      "survival": "陈述保证通常在交割后一定期限内继续有效",
+      "indemnity": "违反陈述保证应承担赔偿责任"
+    }
+  }
+}

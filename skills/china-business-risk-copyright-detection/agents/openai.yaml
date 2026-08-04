@@ -1,0 +1,4 @@
+interface:
+  display_name: "商品图片版权侵权风险检查｜简诗 AI"
+  short_description: "面向中国中小企业经营与协作团队完成商品图片版权侵权风险检查，交付可执行方案、检查点与风险清单。"
+  default_prompt: "使用 $china-business-risk-copyright-detection 完成“商品图片版权侵权风险检查”任务。"

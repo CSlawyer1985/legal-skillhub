@@ -1,0 +1,10 @@
+{
+ "files": [
+  "CASE-02-CAND-AFB4846167.ssot.v1.2-entity-rebind.json",
+  "CASE-02-doc-values-codex-l1-v2e.json",
+  "CASE-02-handoff.v2.json",
+  "CASE-02-manifest-codex-l1-v2e.json"
+ ],
+ "expected": "d35e8a83778f2bf511556505b42430b065bac4b55f393ed4a6cc3383cbf11712",
+ "root": "<local-source-redacted>"
+}

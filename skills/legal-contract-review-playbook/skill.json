@@ -1,0 +1,28 @@
+{
+  "name": "Legal Contract Review Playbook",
+  "slug": "legal-contract-review-playbook",
+  "version": "1.0.0",
+  "description": "Provides a structured contract review workflow covering parties, obligations, risk allocation, remedies, and negotiation notes.",
+  "author": "Pearl Team (OpenClaw)",
+  "tags": [
+    "legal",
+    "contracts",
+    "review",
+    "commercial",
+    "descriptive"
+  ],
+  "trigger_keywords": [
+    "contract review",
+    "agreement checklist",
+    "vendor contract",
+    "SaaS agreement",
+    "legal-contract-review-playbook",
+    "legal contract review playbook"
+  ],
+  "language": "en",
+  "outputs": "markdown",
+  "requires_api": false,
+  "readiness": "stable",
+  "type": "descriptive",
+  "legal_disclaimer": "Informational workflow support only; not legal advice."
+}

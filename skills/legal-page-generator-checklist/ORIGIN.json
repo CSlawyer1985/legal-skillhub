@@ -1,0 +1,22 @@
+{
+  "source_key": "kostja94__marketing-skills",
+  "repo_url": "https://github.com/kostja94/marketing-skills",
+  "commit": "70987bad4ebe9dce1f74858c1c64f3f8810f18e4",
+  "source_relative_path": "skills/pages/legal/legal/SKILL.md",
+  "source_skill_sha256": "6df1374f96ed7d63a36994d8849c763c23ca301e7acbef29651d6eec5b7b8b62",
+  "source_tree_sha256": "c6c87d30b1b72efd861f61ded4c6fe501986242bdc04b45b639651d257b1992a",
+  "effective_license": "MIT",
+  "license_files": [
+    "LICENSE"
+  ],
+  "target_category": "content-copy",
+  "selected_rank": 274,
+  "public_branding_applied": true,
+  "product_display_name": "软件服务上线法律页面清单｜简诗 AI",
+  "product_slug": "legal-page-generator-checklist",
+  "productization": "简诗 AI canonical v1",
+  "product_summary": "根据免费、订阅、企业、API或开发者产品类型规划隐私、条款等上线所需页面结构与内容要点，并提示专业审查边界。",
+  "original_product_slug": "legal-page-generator",
+  "semantic_reslug_version": "1.0.2",
+  "semantic_reslug_reason": "依据“软件服务上线法律页面清单”的真实交付物设计英文语义，明确表达检查清单，不使用品牌机械前缀或随机编号。"
+}

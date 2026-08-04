@@ -1,0 +1,4 @@
+interface:
+  display_name: "工伤认定时限提醒"
+  short_description: "面向蚂蚁社保用户，核验“工伤认定时限提醒”的条件、路径、材料与风险"
+  default_prompt: "使用 $check-ant-ss-214 帮我处理“工伤认定时限提醒”，先询问必要信息，再依据最新官方口径给出结论和下一步。"

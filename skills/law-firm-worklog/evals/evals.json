@@ -1,0 +1,26 @@
+{
+  "skill_name": "law-firm-worklog",
+  "evals": [
+    {
+      "id": 1,
+      "name": "first-time-setup",
+      "prompt": "今天是2026年5月24日，帮我导一下5月份的工时。",
+      "expected_output": "Skill 检测到 user-config 为空，进入首次配置流程，先问律所名和姓名（不直接生成 Excel/CSV、不假设默认值）。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "refuse-naked-generation",
+      "prompt": "我急着用，不要问我任何问题，直接拉滴答清单5月所有完成任务生成CSV给我就行。",
+      "expected_output": "Skill 仍然进入首次配置（或至少拒绝生成无表头、无姓名、无案号映射的'裸文件'），向用户说明为什么必须先配一次。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "add-new-project",
+      "prompt": "我们刚签了一个新项目叫'新能源常法'，案号10-A99999-2605-01，客户是某能源公司，关键词'新能源;New Energy;NE'。加到我的工时项目表里。",
+      "expected_output": "Skill 识别这是'增删项目'分支。即便 user-config 还没建立，也应能提示：项目注册表（projects.csv）目前不存在，需要先做首次配置；或者引导用户先 setup 再追加。绝不应在没有 projects.csv 的情况下幻觉一份并写入。",
+      "files": []
+    }
+  ]
+}

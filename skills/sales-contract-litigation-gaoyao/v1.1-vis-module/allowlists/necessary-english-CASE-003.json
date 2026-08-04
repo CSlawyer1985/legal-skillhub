@@ -1,0 +1,6 @@
+{
+ "schema": "gaotao.t2.necessary-english.v1",
+ "case_id": "CASE-003",
+ "policy": "显式且窄：本案盲稿全中文，无必要英文token",
+ "tokens": []
+}

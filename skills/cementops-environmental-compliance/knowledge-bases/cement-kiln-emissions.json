@@ -1,0 +1,161 @@
+{
+  "metadata": {
+    "id": "EC-KB-001",
+    "title": "Cement Kiln Emissions Regulations",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01"
+  },
+  "description": "Regulated pollutants, EPA NESHAP emission limits, and monitoring requirements for Portland cement manufacturing facilities.",
+  "regulatory_framework": {
+    "primary_regulation": "40 CFR 63 Subpart LLL - National Emission Standards for Hazardous Air Pollutants from the Portland Cement Manufacturing Industry",
+    "applicability": "All Portland cement plants with kilns (major and area sources)",
+    "also_applicable": [
+      "40 CFR 60 Subpart F - NSPS for Portland Cement Plants (PM from kilns)",
+      "40 CFR 60 Subpart Y - NSPS for Coal Preparation Plants",
+      "State Implementation Plans (SIPs) for criteria pollutants",
+      "Title V operating permits (40 CFR Part 70)"
+    ]
+  },
+  "regulated_pollutants": {
+    "particulate_matter_PM": {
+      "description": "Filterable PM from kiln/clinker cooler and other point sources",
+      "neshap_limit_kiln": "0.02 lb/ton clinker (or 2.0 mg/dscm for existing sources after 2013 amendments)",
+      "neshap_limit_clinker_cooler": "0.07 lb/ton clinker",
+      "monitoring": "CEMS (PM CEMS or opacity) or periodic stack testing (Method 5/5I)",
+      "control_technology": "Baghouse (fabric filter) is standard. ESP less common for new installations."
+    },
+    "sulfur_dioxide_SO2": {
+      "description": "From sulfur in raw materials and fuel",
+      "neshap_limit": "0.4 lb/ton clinker (or operating limit based on performance test)",
+      "monitoring": "SO2 CEMS required",
+      "control": "Primarily controlled by raw material selection. Spray dryer absorber or dry sorbent injection if needed."
+    },
+    "nitrogen_oxides_NOx": {
+      "description": "Thermal NOx from high flame temperature and fuel NOx from nitrogen in fuel",
+      "neshap_limit": "1.5 lb/ton clinker (existing sources) or state-specific limits",
+      "monitoring": "NOx CEMS required",
+      "control": ["Low-NOx burners", "Staged combustion in calciner", "SNCR (ammonia or urea injection)", "Mid-kiln firing"]
+    },
+    "carbon_monoxide_CO": {
+      "description": "Indicator of combustion efficiency",
+      "neshap_limit": "No explicit NESHAP limit but used as operating parameter for D/F control",
+      "monitoring": "CO CEMS typically required as operating parameter",
+      "notes": "CO excursions may trigger MACT bypass requirements for D/F compliance"
+    },
+    "hydrogen_chloride_HCl": {
+      "description": "From chloride in raw materials and fuels (especially alternative fuels)",
+      "neshap_limit": "3 ppmvd corrected to 7% O2",
+      "monitoring": "HCl CEMS or periodic testing",
+      "control": "Alkaline raw meal naturally absorbs most HCl. Dry sorbent injection for additional control."
+    },
+    "mercury_Hg": {
+      "description": "Trace mercury in raw materials (limestone, clay) and some fuels",
+      "neshap_limit": "21 lb/million tons clinker (existing sources)",
+      "monitoring": "Mercury CEMS or sorbent trap monitoring (Method 30B)",
+      "control": ["Activated carbon injection (ACI)", "Dust shuttle system (recirculating kiln dust)", "Raw material selection"]
+    },
+    "total_hydrocarbons_THC": {
+      "description": "Organic compounds from raw material organic content and incomplete combustion",
+      "neshap_limit": "24 ppmvd corrected to 7% O2 (or site-specific operating limit)",
+      "monitoring": "THC CEMS (FID or equivalent)",
+      "control": "Process optimization, raw material selection, organic content management"
+    },
+    "dioxins_furans_DF": {
+      "description": "PCDD/PCDF formed during combustion and in cooler temperature windows (200-400C)",
+      "neshap_limit": "0.2 ng TEQ/dscm corrected to 7% O2 (or temperature/CO operating limits)",
+      "monitoring": "Stack testing (Method 23) or compliance via operating parameter limits (temperature, CO)",
+      "control": ["Rapid quench of gases through 200-400C window", "Temperature control at baghouse inlet (<400F)", "CO minimization"]
+    }
+  },
+  "monitoring_methods": {
+    "stack_testing": {
+      "methods": {
+        "PM": "EPA Method 5 or 5I",
+        "SO2": "EPA Method 6 or 6C",
+        "NOx": "EPA Method 7 or 7E",
+        "CO": "EPA Method 10",
+        "HCl": "EPA Method 26A",
+        "Mercury": "EPA Method 29 or 30B",
+        "THC": "EPA Method 25A",
+        "D_F": "EPA Method 23"
+      },
+      "frequency": "As required by permit, typically every 2.5 or 5 years for performance tests"
+    }
+  },
+  "compliance_determination": {
+    "description": "How CEMS data translates to compliance status. Critical distinction: a single data point above the limit is NOT the same as a compliance violation.",
+    "averaging_periods": [
+      {
+        "pollutant": "PM",
+        "compliance_basis": "30-day rolling average of valid 6-minute CEMS data blocks",
+        "how_calculated": "Average of all valid 6-minute averages within a rolling 30-day operating window. Non-operating hours and substitute data periods are handled per 40 CFR 75.",
+        "single_block_exceedance": "A single 6-minute block above the limit does NOT constitute a compliance violation. It is one data point in the rolling average calculation.",
+        "when_violation_occurs": "When the 30-day rolling average exceeds 0.02 lb/ton clinker (kiln) or 0.07 lb/ton clinker (cooler).",
+        "reporting_trigger": "Document any 6-minute block exceeding 3x the limit as an operational anomaly. Report when the 30-day rolling average exceeds the limit.",
+        "common_confusion": "Operators frequently see a single high reading and panic. Three consecutive 6-minute blocks above the limit during startup does NOT mean you are in violation — check the 30-day rolling average."
+      },
+      {
+        "pollutant": "SO2",
+        "compliance_basis": "30-day rolling average",
+        "how_calculated": "Same as PM — rolling average of valid 6-minute CEMS data blocks over 30 operating days.",
+        "single_block_exceedance": "A single high SO2 reading is not a violation. Check the rolling average.",
+        "when_violation_occurs": "When the 30-day rolling average exceeds 0.4 lb/ton clinker.",
+        "reporting_trigger": "Report when rolling average exceeds limit."
+      },
+      {
+        "pollutant": "NOx",
+        "compliance_basis": "30-day rolling average",
+        "how_calculated": "Rolling average of valid 6-minute CEMS data blocks over 30 operating days.",
+        "single_block_exceedance": "Single high readings are not violations.",
+        "when_violation_occurs": "When the 30-day rolling average exceeds 1.5 lb/ton clinker (existing sources).",
+        "reporting_trigger": "Report when rolling average exceeds limit."
+      },
+      {
+        "pollutant": "HCl",
+        "compliance_basis": "30-day rolling average (if CEMS) or stack test",
+        "how_calculated": "If HCl CEMS installed: rolling average of 6-minute data. If no CEMS: compliance demonstrated by periodic stack test.",
+        "when_violation_occurs": "When 30-day rolling average exceeds 3 ppmvd @ 7% O2, or when stack test result exceeds the limit.",
+        "reporting_trigger": "Report when rolling average or test result exceeds limit."
+      },
+      {
+        "pollutant": "Mercury",
+        "compliance_basis": "30-day rolling average (sorbent trap) or stack test",
+        "how_calculated": "Sorbent trap method provides integrated samples. Rolling average calculated from trap results. Stack test (Method 30B) provides point-in-time compliance.",
+        "when_violation_occurs": "When 30-day rolling average exceeds 21 lb/million tons clinker (existing sources).",
+        "reporting_trigger": "Mercury exceedance requires notification to EPA Region within 24 hours in addition to standard reporting.",
+        "special_note": "Mercury has the most stringent notification requirements due to HAP status."
+      },
+      {
+        "pollutant": "THC",
+        "compliance_basis": "30-day rolling average",
+        "how_calculated": "Rolling average of valid 6-minute CEMS data blocks.",
+        "when_violation_occurs": "When 30-day rolling average exceeds 24 ppmvd @ 7% O2.",
+        "reporting_trigger": "Report when rolling average exceeds limit."
+      },
+      {
+        "pollutant": "D/F (Dioxins/Furans)",
+        "compliance_basis": "Stack test only — no continuous monitoring",
+        "how_calculated": "Compliance demonstrated by periodic stack test using Method 23. No rolling average applies.",
+        "when_violation_occurs": "When stack test result exceeds 0.2 ng TEQ/dscm @ 7% O2. Alternatively, compliance via operating parameter limits (temperature, CO).",
+        "reporting_trigger": "Report stack test failure. Retest within 60 days."
+      },
+      {
+        "pollutant": "Opacity",
+        "compliance_basis": "6-minute average — any single exceedance is reportable",
+        "how_calculated": "UNLIKE all other pollutants, opacity uses 6-minute averages directly for compliance. There is no 30-day rolling average.",
+        "when_violation_occurs": "When ANY single 6-minute average exceeds 20% opacity.",
+        "reporting_trigger": "Document and report immediately per permit requirements.",
+        "critical_distinction": "Opacity is the EXCEPTION to the rolling average rule. A single 6-minute reading above 20% IS a deviation."
+      }
+    ],
+    "key_distinctions": [
+      "6-minute CEMS data block above the limit ≠ compliance violation (except opacity)",
+      "30-day rolling average above the limit = compliance violation",
+      "Opacity is the exception: 6-minute averages are used directly for compliance",
+      "Substitute data rules apply when CEMS is down (40 CFR 75)",
+      "Missing data exceeding 10% of operating hours in a quarter = potential violation itself",
+      "During startup: CEMS data is still collected and counts toward rolling averages unless facility has approved alternative plan"
+    ]
+  }
+}

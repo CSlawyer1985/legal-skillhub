@@ -1,0 +1,27 @@
+name: opc-allinone
+display_name: 一人公司(OPC)全能助手
+version: 3.0.0
+description: 一人公司/个体工商户创业者政策、财税、法律、合规全场景助手。整合税法咨询、法规法条查询、财税案例检索、中国市场政策查询、深度网页研究、多引擎搜索、社保公积金查询、一人公司财务管家、一人公司法务风控九大能力于一个 Skill。
+author: OPC政策专家
+tags:
+  - 一人公司
+  - 财税
+  - 法律
+  - 政策
+  - 合规
+entry: SKILL.md
+scripts:
+  - scripts/social_security_query.py
+  - scripts/finance_guard.py
+  - scripts/legal_guard.py
+  - scripts/research-search.sh
+references:
+  - references/tax-rates.md
+  - references/tax-compliance-checklist.md
+  - references/research-methodology.md
+  - references/domestic-search.md
+  - references/international-search.md
+  - references/opc-legal-playbook.md
+changelog:
+  - "3.0.0: 合并原 9 个独立 Skill（china-tax-law / china-legal-query / case-research / policy-china / deep-research-cli / multi-search-engine / social-security-fund-query / solo-finance-guard / solo-legal-guard）为单一 OPC 全能助手"
+  - "social_security_query.py 去除 requests 第三方依赖，改为纯标准库实现"

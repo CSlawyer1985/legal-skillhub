@@ -1,0 +1,4 @@
+interface:
+  display_name: "批量工伤申报"
+  short_description: "用自然语言或上传文件完成批量工伤申报，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-batch-plus-0738 请帮我完成批量工伤申报：批量工伤事故登记→材料收集→工伤认定申请→进度跟踪→待遇申领。"

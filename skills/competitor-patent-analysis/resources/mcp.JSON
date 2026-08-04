@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "competitor-patent-analysis": {
+      "type": "sse",
+      "url": "http://mcp.baiten.cn/mcp/server/7RGAa4bCbUBmEkeN/mcp",
+      "timeout": 300,
+      "headers": {}
+    }
+  }
+}

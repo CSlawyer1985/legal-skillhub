@@ -1,0 +1,50 @@
+{
+  "name": "ccpa-compliance",
+  "version": "1.0.5",
+  "description": "美国加州消费者隐私法（CCPA/CPRA）合规检查、风险评估和文档生成工具。为加州市场提供全面的CCPA/CPRA合规解决方案。🎉 v1.0.5: 统一化CLI接口，多格式报告输出，跨法域联合检查。",
+  "author": "Wei Wu (wwumit)",
+  "license": "MIT",
+  "keywords": [
+    "CCPA",
+    "CPRA",
+    "加州合规",
+    "消费者隐私",
+    "compliance",
+    "data-protection",
+    "us-compliance"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://clawhub.ai/wwumit/ccpa-compliance"
+  },
+  "homepage": "https://clawhub.ai/wwumit/ccpa-compliance",
+  "features": [
+    "CCPA合规检查",
+    "消费者权利保障", 
+    "数据销售管理",
+    "服务提供商协议",
+    "合规文档生成",
+    "安全验证和审计",
+    "纯本地运行",
+    "零依赖安装"
+  ],
+  "regions": [
+    "California",
+    "US"
+  ],
+  "security": {
+    "network_access": "local_only",
+    "data_collection": "none", 
+    "external_dependencies": "none",  // ✅ 已更新：无外部依赖
+    "runtime_dependencies": "python_stdlib_only"  // ✅ 新增：仅使用Python标准库
+  },
+  "legal": {
+    "disclaimer": "此技能提供CCPA/CPRA合规指导，不构成法律意见。重要合规决策必须咨询专业律师。",
+    "jurisdiction": "California",
+    "applicable_law": "CCPA (AB-375) & CPRA"
+  },
+  "scripts": {
+    "check": "python scripts/ccpa-check.py",
+    "security_check": "python scripts/security_check_ccpa.py"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "aana-legal-safety-router",
+  "slug": "aana-legal-safety-router",
+  "version": "0.1.0",
+  "type": "instruction_only_skill",
+  "description": "AANA-grounded legal safety router instructions for preventing unauthorized legal advice, missing jurisdiction caveats, and unsupported legal claims.",
+  "entrypoint": "SKILL.md",
+  "bundled_code": false,
+  "installs_dependencies": false,
+  "executes_commands": false,
+  "writes_files": false,
+  "writes_event_files": false,
+  "persists_memory": false,
+  "requires_professional_referral_for_high_impact_legal_advice": true,
+  "requires_jurisdiction_caveats_for_legal_information": true,
+  "requires_redaction_for_private_legal_data": true,
+  "data_handling": {
+    "prefer_redacted_summaries": true,
+    "store_payloads_by_default": false,
+    "requires_redaction": true,
+    "forbidden_payload_content": [
+      "raw legal records",
+      "full court filings",
+      "contracts with private details",
+      "government IDs",
+      "immigration numbers",
+      "identity documents",
+      "private messages",
+      "medical records",
+      "financial records",
+      "API keys",
+      "bearer tokens",
+      "passwords",
+      "unrelated private data"
+    ]
+  },
+  "legal_safety_boundary": {
+    "must_not_create_attorney_client_relationship": true,
+    "must_distinguish_general_information_from_legal_advice": true,
+    "must_include_jurisdiction_caveat_or_ask_when_missing": true,
+    "must_not_invent_statutes_cases_deadlines_or_rights": true,
+    "must_not_guarantee_legal_outcomes": true,
+    "must_refer_high_impact_or_deadline_sensitive_matters": true,
+    "must_minimize_private_legal_data": true,
+    "may_not_facilitate_fraud_evasion_or_evidence_destruction": true
+  },
+  "aana_boundary": {
+    "checker_bundled": false,
+    "checker_required": false,
+    "allowed_checker_interfaces": [
+      "approved host tool configured by the user or administrator",
+      "approved in-memory API connector configured by the user or administrator",
+      "manual review"
+    ]
+  },
+  "schemas": [
+    "schemas/legal-safety-review.schema.json"
+  ],
+  "examples": [
+    "examples/redacted-legal-safety-review.json"
+  ]
+}

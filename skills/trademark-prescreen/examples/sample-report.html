@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商标预检测试报告 · 青松 / QINGSONG</title>
+<style>
+:root{--ok:#1e8e5a;--warn:#d98324;--bad:#c0392b;--brand:#1f5fd0;--ink:#1d2733;--muted:#6b7682;--line:#e4e8ee;--bg:#f5f7fa;--card:#fff}
+*{box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);margin:0;line-height:1.6;font-size:15px}
+.wrap{max-width:880px;margin:0 auto;padding:28px 22px 60px}
+.banner{background:linear-gradient(135deg,#1f5fd0,#5b8def);color:#fff;border-radius:12px;padding:18px 22px;margin-bottom:18px}
+.banner h1{margin:0 0 4px;font-size:22px}
+.banner .sub{opacity:.92;font-size:13px}
+.test-tag{display:inline-block;background:#ffd54a;color:#5a4500;font-weight:700;font-size:12px;padding:2px 10px;border-radius:20px;margin-left:8px;vertical-align:middle}
+h2{font-size:18px;margin:30px 0 12px;padding-left:10px;border-left:4px solid var(--brand)}
+h3{font-size:15px;margin:18px 0 8px;color:var(--brand)}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);margin:10px 0;font-size:13.5px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#eef3fb;font-weight:600;color:#2a3b52}
+.bar{display:inline-block;height:9px;width:90px;background:#eef1f5;border-radius:6px;overflow:hidden;vertical-align:middle}
+.bar>i{display:block;height:100%;border-radius:6px}
+.rate{font-weight:700;margin-left:8px;font-size:13px}
+.tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:5px;font-weight:600;white-space:nowrap}
+.t-reg{background:#e6f6ee;color:var(--ok)}.t-pend{background:#fff2dc;color:var(--warn)}
+.t-dead{background:#fdecea;color:var(--bad)}.t-own{background:#e6efff;color:var(--brand)}
+.t-ok{background:#eafaf1;color:var(--ok)}
+.callout{border-radius:9px;padding:12px 15px;margin:12px 0;font-size:14px}
+.callout.ok{background:#eafaf1;border:1px solid #b7e6c9}
+.callout.warn{background:#fff6ea;border:1px solid #f4d3a3}
+.callout.key{background:#eef4ff;border:1px solid #c3d6f7}
+.kpi{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.kpi div{flex:1;min-width:120px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.kpi b{display:block;font-size:24px;color:var(--brand)}
+.kpi span{font-size:12px;color:var(--muted)}
+.muted{color:var(--muted);font-size:12.5px}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.xref{font-size:12px;color:var(--muted)}
+.lvl{font-weight:700}
+.lvl.hi{color:var(--bad)}.lvl.h{color:#e0662b}.lvl.m{color:var(--warn)}.lvl.l{color:var(--ok)}.lvl.lo{color:#3a9868}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="banner">
+  <h1>商标预检分析报告<span class="test-tag">SKILL 测试运行</span></h1>
+  <div class="sub">标样：青松 / QINGSONG（测试用虚构标样） · 申请人：XX 智能科技有限公司（测试虚构） · 生成日期：2026-07-23</div>
+</div>
+
+<div class="callout key">
+  <b>测试说明：</b>本报告由 <code>trademark-prescreen</code> skill 实跑生成，用于验证产出效果。标样「青松 / QINGSONG」为技能示例中的<b>虚构测试标样</b>；检索到的在先商标均为<b>真实公开库数据</b>，仅用于演示分析逻辑。本报告是预检，非法律意见。
+</div>
+
+<h2>一、数据来源与交叉方法</h2>
+<p>本次采用<b>方案 A · 多源交叉预检</b>。每个标样跨 ≥3 源交叉核对，高冲突类补至 ≥4 源：</p>
+<table>
+  <tr><th>层级</th><th>数据源</th><th>本次使用</th></tr>
+  <tr><td>第1层 官方金标准</td><td>中国商标网 sbj.cnipa.gov.cn</td><td>最终裁定基准（建议正式申报前复核）</td></tr>
+  <tr><td>第2层 主力商业库</td><td>权大师 / 标库网 / 阿里云商标 / 路标网</td><td>阿里云商标、路标网、标库网（tmkoo）命中明细</td></tr>
+  <tr><td>第3层 申请人关联</td><td>企查查 / 天眼查 / 爱企查 / 启信宝</td><td>天眼查、爱企查、水滴信用核实多家同名企业主体</td></tr>
+  <tr><td>第4层 通用检索兜底</td><td>WebSearch</td><td>按"标样+第X类+注册号"补查</td></tr>
+</table>
+<p class="xref">交叉原则：≥2 独立源印证 = 高可信障碍；仅 1 源且无官方印证 = 待官方复核。</p>
+
+<div class="callout key">
+  <b>本次检索源状态摘要（透明度强制项 · V1.2.3）：</b>
+  <table>
+    <tr><th>数据源</th><th>状态</th><th>说明</th></tr>
+    <tr><td>中国商标网（官方金标准）</td><td>⚠️ 降级</td><td>网页端本次动态加载未返回明细，结论以商业库交叉为准，正式申报前须复核</td></tr>
+    <tr><td>权大师 / 标库网</td><td>✅ 成功</td><td>命中在先近似标明细</td></tr>
+    <tr><td>企查查 / 天眼查</td><td>✅ 成功</td><td>核实多家同名企业主体</td></tr>
+    <tr><td>WebSearch 兜底</td><td>✅ 成功</td><td>补查零散结果</td></tr>
+  </table>
+  <p class="xref"><b>置信度边界：</b>42 类（佛山青松）已 ≥2 源交叉核实；35 类"清松"仅单源，待官方复核；盲期（1–4 个月）内申请未覆盖。</p>
+</div>
+
+<h2>二、多源交叉验证表（关键冲突标）</h2>
+<table>
+  <tr><th>冲突标</th><th>类别</th><th>阿里云商标</th><th>路标网/标库网</th><th>企查查/天眼查</th><th>可信度</th></tr>
+  <tr><td>青松 67212329</td><td>42</td><td>✓ 已注册</td><td>—</td><td>✓ 佛山市青松科技（新三板）</td><td><span class="tag t-reg">高可信</span></td></tr>
+  <tr><td>青松 27536911</td><td>35</td><td>✓ 已驳回</td><td>—</td><td>✓ 杜桂香（个人）</td><td><span class="tag t-dead">高可信·先例</span></td></tr>
+  <tr><td>QINGSONG 88255534</td><td>35</td><td>✓ 待审中</td><td>—</td><td>✓ 成都善渔贸易</td><td><span class="tag t-pend">高可信·直接近似</span></td></tr>
+  <tr><td>清松 85172194</td><td>35</td><td>✓ 待审中</td><td>—</td><td>—</td><td><span class="tag t-pend">中（待复核）</span></td></tr>
+  <tr><td>青松 8853128</td><td>9</td><td>—</td><td>—</td><td>✓ 西安青松光电（爱企查）</td><td><span class="tag t-reg">高可信</span></td></tr>
+  <tr><td>TSINGSONG 青松商学院 79106224</td><td>41</td><td>✓ 待审中</td><td>—</td><td>✓ 北京青松在线教育（水滴信用）</td><td><span class="tag t-pend">高可信</span></td></tr>
+</table>
+
+<h2>三、各标样在先商标全景</h2>
+<h3>3.1 「青松」（纯文字）</h3>
+<table>
+  <tr><th>类</th><th>注册号</th><th>状态</th><th>申请人</th><th>核定商品/服务</th></tr>
+  <tr><td>9</td><td>8853128</td><td><span class="tag t-reg">已注册</span></td><td>西安青松光电技术有限公司</td><td>科学仪器（LED/显示设备）</td></tr>
+  <tr><td>35</td><td>27536911</td><td><span class="tag t-dead">已驳回</span></td><td>杜桂香（个人）</td><td>广告/替他人推销（纯文字被驳先例）</td></tr>
+  <tr><td>35</td><td>84105483</td><td><span class="tag t-reg">已注册</span></td><td>石家庄在鸿生物科技</td><td>"青松络"——三字组合（非纯"青松"）</td></tr>
+  <tr><td>35</td><td>12606135</td><td><span class="tag t-reg">已注册·续展</span></td><td>青松医药集团股份有限公司</td><td>"青松 GREENPINE"（兽药零售）</td></tr>
+  <tr><td>42</td><td>38161247</td><td><span class="tag t-dead">已销亡</span></td><td>季鹏（个人）</td><td>软件/SaaS（曾驳回复审）</td></tr>
+  <tr><td>42</td><td>67212329</td><td><span class="tag t-reg">已注册</span></td><td><b>佛山市青松科技股份有限公司</b></td><td>软件开发/SaaS/PaaS（知名同名企业）</td></tr>
+  <tr><td>42</td><td>15893483</td><td><span class="tag t-reg">已注册</span></td><td>青松健康科技(北京)</td><td>"青松护联网"软件类（2026-10 到期）</td></tr>
+  <tr><td>41</td><td>4338920</td><td><span class="tag t-dead">已终止</span></td><td>青松老年看护服务(北京)</td><td>"PINETREE;青松"教育（2018 到期）</td></tr>
+  <tr><td>41</td><td>51090154</td><td><span class="tag t-dead">已销亡</span></td><td>广州中焱生物科技</td><td>"青松 WWW.QINGSONG.ORG"教育</td></tr>
+</table>
+
+<h3>3.2 「QINGSONG」（拼音）</h3>
+<table>
+  <tr><th>类</th><th>注册号</th><th>状态</th><th>申请人</th><th>核定商品/服务</th></tr>
+  <tr><td>35</td><td>8408589</td><td><span class="tag t-reg">已注册·续展</span></td><td>西安青松生物科技有限公司</td><td>"QING SONG SHENG WU"</td></tr>
+  <tr><td>35</td><td>88255534</td><td><span class="tag t-pend">待审中·2025</span></td><td>成都善渔贸易有限公司</td><td>广告/广告设计/市场营销（同拼音同商品）</td></tr>
+  <tr><td>21</td><td>36117485</td><td><span class="tag t-reg">已注册</span></td><td>深圳市松信硅胶制品</td><td>厨房洁具</td></tr>
+  <tr><td>34</td><td>36120415</td><td><span class="tag t-reg">已注册</span></td><td>深圳市松信硅胶制品</td><td>烟草烟具</td></tr>
+  <tr><td>41</td><td>79107238</td><td><span class="tag t-pend">申请中·2024</span></td><td>北京青松在线教育科技</td><td>"青松商学院 TSINGSONG BUSINESS SCHOOL"</td></tr>
+</table>
+
+<h2>四、同音 / 近似风险</h2>
+<table>
+  <tr><th>风险词</th><th>关系</th><th>类别</th><th>状态</th><th>对本案威胁</th></tr>
+  <tr><td>清松</td><td>同音（qīng sōng）</td><td>35</td><td>85172194 待审中</td><td>高：同音+同类广告，可能互为引证</td></tr>
+  <tr><td>清松</td><td>同音</td><td>41</td><td>71699357 申请中</td><td>中：同类教育培训</td></tr>
+  <tr><td>TSINGSONG 青松商学院</td><td>含"青松"二字</td><td>35/41</td><td>79107238/79106224 待审中</td><td>高：含本标样+同类，直接近似</td></tr>
+</table>
+<div class="callout warn"><b>重点提示：</b>「青松」是多家真实存续企业的字号/商标（佛山市青松科技=新三板 Chainzone、西安青松光电、青松医药集团、北京青松在线教育等）。这些<b>同名不同主体</b>已在 9/35/42/41 类形成在先布局，审查时与本标样极易互为引证——这是本案最大变量。</div>
+
+<h2>五、经营范围 → 尼斯类别映射</h2>
+<table>
+  <tr><th>经营范围条目</th><th>映射类别</th></tr>
+  <tr><td>软件开发；网络技术服务；信息技术咨询服务</td><td><b>42</b>（科技服务）</td></tr>
+  <tr><td>广告设计、代理；市场营销策划</td><td><b>35</b>（广告销售）</td></tr>
+  <tr><td>互联网销售（除需许可的商品）</td><td><b>35</b>（电商运营）+ 对应商品类（暂无自营实体商品，暂不报）</td></tr>
+  <tr><td>（可下载软件/小程序，视产品线）</td><td><b>9</b>（计算机软件）</td></tr>
+  <tr><td>（网络通讯/数据传送，视产品）</td><td><b>38</b>（通讯）</td></tr>
+  <tr><td>（培训/在线出版，视业务）</td><td><b>41</b>（教育娱乐）—可选</td></tr>
+</table>
+<p class="muted">注：申请人未提供实体商品自营销售，故 25/3/16/21 等商品类暂不映射；第37类（维修）不在经营范围，不报。</p>
+
+<h2>六、推荐注册大类与注册率评估</h2>
+<table>
+  <tr><th>类</th><th>业务</th><th>在先障碍</th><th>注册率</th><th>判定</th></tr>
+  <tr>
+    <td><b>38</b><br>通讯</td><td>网络通讯/数据传送</td><td>未发现"青松"/"QINGSONG"有效在先</td>
+    <td><span class="bar"><i style="width:80%;background:var(--ok)"></i></span><span class="rate" style="color:var(--ok)">75–85%</span></td>
+    <td><span class="tag t-reg">推荐·第一优先</span></td>
+  </tr>
+  <tr>
+    <td><b>41</b><br>教育娱乐</td><td>培训/在线出版</td><td>"TSINGSONG青松商学院"待审中含本标；"清松"41申请中；纯文字无有效相同标</td>
+    <td><span class="bar"><i style="width:55%;background:var(--warn)"></i></span><span class="rate" style="color:var(--warn)">45–60%</span></td>
+    <td><span class="tag t-pend">可尝试</span></td>
+  </tr>
+  <tr>
+    <td><b>35</b><br>广告销售</td><td>广告/市场营销/电商</td><td>纯文字"青松"27536911已驳回；同音"清松"85172194待审；"QINGSONG"88255534待审（同拼音同商品）</td>
+    <td><span class="bar"><i style="width:22%;background:var(--bad)"></i></span><span class="rate" style="color:var(--bad)">20–30%</span></td>
+    <td><span class="tag t-dead">高风险·预期驳回</span></td>
+  </tr>
+  <tr>
+    <td><b>42</b><br>科技服务</td><td>软件开发/SaaS</td><td>佛山市青松科技 67212329 已注册；青松护联网 15893483 已注册</td>
+    <td><span class="bar"><i style="width:18%;background:var(--bad)"></i></span><span class="rate" style="color:var(--bad)">15–25%</span></td>
+    <td><span class="tag t-dead">高风险·同名企业占先</span></td>
+  </tr>
+  <tr>
+    <td><b>9</b><br>计算机软件</td><td>可下载APP/小程序</td><td>西安青松光电 8853128 已注册（科学仪器）</td>
+    <td><span class="bar"><i style="width:20%;background:var(--bad)"></i></span><span class="rate" style="color:var(--bad)">15–25%</span></td>
+    <td><span class="tag t-dead">高风险·同名企业占先</span></td>
+  </tr>
+</table>
+
+<h2>七、注册方案（三选一）</h2>
+<table>
+  <tr><th>维度</th><th>方案A · 精准确权型</th><th>方案B · 主营全覆盖型（推荐）</th><th>方案C · 品牌护城河型</th></tr>
+  <tr><td>定位</td><td>花小钱先占核心坑</td><td>覆盖主营+解决显著性</td><td>长期核心资产全防御</td></tr>
+  <tr><td>类别</td><td><b>38</b>（双标，无障碍）</td><td>A + 组合标攻 35/41 + 42/9 防御</td><td>B + 防御类 + 图形单注 + 马德里</td></tr>
+  <tr><td>件数</td><td>~2件</td><td>~6–8件</td><td>~12–18件</td></tr>
+  <tr><td>预算</td><td>¥800–1,200</td><td>¥3,000–5,000</td><td>¥7,000–12,000+</td></tr>
+</table>
+<div class="callout warn"><b>方案B 关键策略：</b>第9/35/42 类"青松"纯文字已被多家同名企业占先且纯文字显著弱，<b>必须用组合标</b>（青松 + 独创图形 + 英文变体如"QSONG"/"QINGSONG TECH"），预计通过率 +20–30 个百分点；第38类两标无障碍，立即先占。</div>
+
+<h2>八、近似度三维评估与五级风险评级</h2>
+<table>
+  <tr><th>冲突标</th><th>音</th><th>形</th><th>义</th><th>五级评级</th></tr>
+  <tr><td>QINGSONG 88255534（35类）</td><td>完全相同拼音</td><td>高度相似（仅大小写）</td><td>相同（均广告）</td><td><span class="lvl hi">极高 85–95</span></td></tr>
+  <tr><td>清松 85172194（35类）</td><td>同音（声调异）</td><td>形似（仅偏旁异）</td><td>相近（均品牌词）</td><td><span class="lvl hi">极高 80–90</span></td></tr>
+  <tr><td>青松 67212329（42类）</td><td>完全相同</td><td>完全相同文字</td><td>相同（均软件）</td><td><span class="lvl hi">极高 90–100</span></td></tr>
+  <tr><td>TSINGSONG青松商学院（35/41）</td><td>含"青松"读音</td><td>含"青松"文字</td><td>相近（均教育/商业）</td><td><span class="lvl h">高 65–80</span></td></tr>
+  <tr><td>青松 8853128（9类）</td><td>完全相同</td><td>完全相同</td><td>相同（均电子）</td><td><span class="lvl hi">极高 88–98</span></td></tr>
+</table>
+<p class="muted">⚠️ 评级为启发式参考，非官方近似查询结论；精确核定须以中国商标网 + 备案代理机构官方查询为准。</p>
+
+<h2>九、参考案例（公开判决 · 风险教育）</h2>
+<ul>
+  <li><b>新百伦 vs 纽巴伦</b>（上海知产法院 2020）：字形高度近似+同类，判赔 1000 万。</li>
+  <li><b>茶颜悦色 vs 茶颜观色</b>（长沙知产 2021）：文字高度近似+同类+装潢模仿，判赔 170 万。</li>
+  <li><b>小米 vs 小米生活</b>（北京知产 2019）：驰名商标跨类保护，判赔 5000 万。</li>
+</ul>
+<p class="muted">本案"青松"已被多家同业注册，若强行用纯文字易触发第30条驳回或第57条侵权，上述案例即为前车之鉴。</p>
+
+<h2>十、综合风险评估</h2>
+<div class="callout warn">
+  <b>风险1 · 同名企业密集占先（最高危）</b><br>佛山市青松科技（42类）、西安青松光电（9类）、青松医药（35类）等均已布局，"青松"纯文字在这些类近乎不可注册。
+</div>
+<div class="callout warn">
+  <b>风险2 · 通用词显著性弱</b><br>"青松"为自然物/褒义常用词，纯文字依《商标法》第11条易被驳；必须组合标。
+</div>
+<div class="callout warn">
+  <b>风险3 · 同音/含词引证</b><br>"清松"（同音）、"TSINGSONG 青松商学院"（含词）在 35/41 类待审，互为引证概率高。
+</div>
+
+<h2>十一、行动建议（分阶段）</h2>
+<h3>阶段一：优先确权（立即）</h3>
+<ul>
+  <li><b>青松 + QINGSONG 申请第38类（通讯）</b>——当前无有效障碍，注册率 75–85%，列为第一优先，尽早卡位。</li>
+</ul>
+<h3>阶段二：策略性申请（需专业处理）</h3>
+<ul>
+  <li><b>第35/42/9类</b>：<b>放弃纯文字"青松"</b>，改用<b>组合标（青松 + 独创图形 + 英文变体）</b>提升显著性，由代理机构做官方近似查询后提交。</li>
+  <li><b>第41类</b>：可尝试组合标，避开"TSINGSONG青松商学院"字样。</li>
+</ul>
+<h3>阶段三：驳回预案</h3>
+<ul>
+  <li>若被引证驳回，15 天内提复审，备使用证据证"第二含义"；或调整标样（如加前缀"XX青松"）。</li>
+</ul>
+
+<h2>十二、附录</h2>
+<p><b>类目释义：</b>9=计算机软件/电子设备；35=广告销售/电商；38=通讯/数据传送；41=教育娱乐；42=科技研发/SaaS。</p>
+<p><b>费用与周期：</b>官费约 270 元/类（≤10 商品项）；代理费 500–800 元/类；周期约 8–10 个月。</p>
+<div class="callout key">
+  <b>⚠️ 免责声明：</b>本报告为商标注册前<b>预检分析，非法律意见</b>。数据来自公开商标库，可能存在延迟/遗漏。正式申报前请以<b>中国商标网 sbj.cnipa.gov.cn</b> 复核，并委托备案商标代理机构做官方近似查询。
+</div>
+
+<div class="foot">
+  本报告由 trademark-prescreen skill 实跑生成（测试运行）· 标样为虚构示例，检索数据为真实公开库 · 仅供效果验证，非 SkillHub 正式交付
+</div>
+
+</div>
+</body>
+</html>

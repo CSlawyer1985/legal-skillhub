@@ -1,0 +1,21 @@
+name: gq-procurement-advisor
+slug: gq-procurement-advisor
+display_name: 国企采购合规实务助手
+emoji: ⚖️
+version: 1.1.0
+version_stage: GA
+author: "一线评标专家&ChesaraM"
+license: MIT-0
+agent_created: true
+description: 国企采购合规实务助手。当用户咨询国企采购合规、国有资金采购方式选择、53号文适用场景、招标文件审查、国企采购风险评估、非招标采购方式论证、采购需求编制时触发。典型触发语：国企采购、53号文、非招标采购、国有企业采购管理、询比采购、竞价采购、直接采购、国资委采购规定。不适用于政府采购（那是政府采购合规顾问的工作），不适用于纯工程建设项目招标的招投标法合规问题（那是投标合规顾问的工作）。
+changelog:
+- version: 1.1.0
+  date: '2026-07-25'
+  change: 引入置信度三级输出模式(A/B/C)、能力边界路由规则、FAQ速查表、工作流自检环节；精简知识库段落；基于TRACE评测R/C短板优化
+- version: 1.0.1
+  date: '2026-07-19'
+  change: 初版发布
+feedback:
+  channel: github
+  account: 项目仓库 Issues
+  note: 使用问题、误报反馈、实务建议，欢迎通过项目仓库提交 Issue 反馈

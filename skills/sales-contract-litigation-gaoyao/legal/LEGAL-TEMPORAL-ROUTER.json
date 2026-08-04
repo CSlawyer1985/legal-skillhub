@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-18T18:33:24.619Z",
+  "current_as_of": "2026-07-18",
+  "status": "PASS-DUAL-TEMPORAL-ROUTER-DESIGN",
+  "governing_principles": [
+    "cutoff决定可见信息范围，不直接决定实体法版本。",
+    "实体法版本由法律事实发生或持续时间、过渡规则和个案请求权共同决定。",
+    "程序法版本由具体程序行为发生时间及法定衔接规则决定。",
+    "retrospective-benchmark的独立起草冻结前，后见裁判、调解、撤诉、执行及历史工作成果正文保持隔离。",
+    "current_law_layer不得倒灌到历史cutoff层；历史层结论也不得未经复核直接用于production-intake。"
+  ],
+  "required_temporal_ssot_fields": [
+    "mode",
+    "intake_as_of",
+    "retrospective_cutoff",
+    "material_event_dates",
+    "contract_formation_date",
+    "delivery_dates",
+    "payment_due_dates",
+    "breach_dates",
+    "limitation_interrupt_dates",
+    "first_filing_date",
+    "procedural_action_date",
+    "law_version_as_of",
+    "applicable_source_ids",
+    "transition_rule",
+    "source_verified_at",
+    "answer_key_status"
+  ],
+  "mode_routes": [
+    {
+      "mode": "production-intake",
+      "default_layer": "current_law_layer",
+      "steps": [
+        "以当前收件时间建立intake_as_of并完成P0-1可读性和来源定位。",
+        "先检查在先裁判、调解、撤诉、仲裁、重复起诉、管辖和证据缺口。",
+        "按每个实体法律事实日期运行民法典时间效力规则；不得因当前起诉就当然全部适用当前实体法。",
+        "按起诉或程序行为发生日核验民事诉讼法及司法解释版本。",
+        "将每一结论绑定官方法源、条文、事实日期和证据locator。"
+      ],
+      "hard_holds": [
+        "HOLD-PRIOR-PROCEEDING",
+        "HOLD-READABILITY",
+        "HOLD-JURISDICTION",
+        "HOLD-LEGAL-TEMPORAL",
+        "HOLD-EVIDENCE-GAP"
+      ]
+    },
+    {
+      "mode": "retrospective-benchmark",
+      "default_layer": "cutoff_law_layer",
+      "steps": [
+        "先冻结首次起诉前cutoff、输入集、答案集locator和完整哈希。",
+        "在独立起草冻结前，不打开答案键或历史工作成果正文。",
+        "仅使用cutoff前可见事实与当时可获取法源建立SSOT、路由和L1/L2。",
+        "适用法仍按法律事实日期与当时过渡规则判断，不把cutoff日期机械等同于准据法日期。",
+        "独立产出冻结后方可按登记的unseal_at解封答案键进行反向核验。",
+        "反向核验结果进入benchmark comparison，不回写或污染已冻结盲态产物。"
+      ],
+      "hard_holds": [
+        "HOLD-CUTOFF-NOT-PRIMARY-VERIFIED",
+        "HOLD-ANSWER-KEY-NOT-ISOLATED",
+        "HOLD-POST-CUTOFF-CONTAMINATION",
+        "HOLD-LEGAL-BACKCAST",
+        "HOLD-EVIDENCE-GAP"
+      ]
+    }
+  ],
+  "effective_date_gates": [
+    {
+      "gate_id": "DATE-2021-01-01",
+      "event": "民法典及主要2020修正民事司法解释施行",
+      "source_ids": ["LAW-001", "LAW-002", "LAW-007", "LAW-008"],
+      "rule": "法律事实发生于、持续跨越或终结于该日前后时，逐项适用法释〔2020〕15号，不得整案一刀切。"
+    },
+    {
+      "gate_id": "DATE-2022-04-10",
+      "event": "民诉法解释2022修正施行",
+      "source_ids": ["LAW-005"],
+      "rule": "管辖与程序结论按程序行为日期及衔接规则核验。"
+    },
+    {
+      "gate_id": "DATE-2023-12-05",
+      "event": "民法典合同编通则司法解释施行",
+      "source_ids": ["LAW-003"],
+      "rule": "production-intake可用于现行合同解释；历史cutoff早于该日时不得写入盲态法源层。"
+    },
+    {
+      "gate_id": "DATE-2024-01-01",
+      "event": "2023年修正民事诉讼法施行",
+      "source_ids": ["LAW-004"],
+      "rule": "当前诉讼准备按现行版本核验；历史程序按当时版本处理。"
+    },
+    {
+      "gate_id": "DATE-2025-07-14",
+      "event": "67类起诉状答辩状示范文本全国推广",
+      "source_ids": ["LAW-010", "LAW-011"],
+      "rule": "只影响法院提交口径与要素结构，不改变实体权利义务。"
+    },
+    {
+      "gate_id": "DATE-2026-01-01",
+      "event": "第三次修正民事案件案由规定施行",
+      "source_ids": ["LAW-009"],
+      "rule": "当前案由路由按2026版；历史cutoff层使用当时案由版本。"
+    }
+  ],
+  "decision_rules": [
+    {
+      "rule_id": "TEMP-01",
+      "when": "法律事实全部发生于2021年1月1日后",
+      "then": "通常适用民法典及现行配套解释，但仍核验特别法和个案事件日期。"
+    },
+    {
+      "rule_id": "TEMP-02",
+      "when": "法律事实全部发生于2021年1月1日前",
+      "then": "先适用当时法律、司法解释；仅按法释〔2020〕15号的例外规则判断是否引用民法典。"
+    },
+    {
+      "rule_id": "TEMP-03",
+      "when": "法律事实从2021年1月1日前持续至其后",
+      "then": "标记为CROSS-2021并按法释〔2020〕15号第1条等逐项判断，不得整案默认现行法。"
+    },
+    {
+      "rule_id": "TEMP-04",
+      "when": "retrospective cutoff早于拟引用法源生效日",
+      "then": "该法源只可进入冻结后的benchmark comparison，不得进入盲态SSOT、L1或L2。"
+    },
+    {
+      "rule_id": "TEMP-05",
+      "when": "程序行为发生于2024年1月1日后",
+      "then": "核验2023年修正民事诉讼法及现行司法解释；早期程序另建historical-procedure-layer。"
+    },
+    {
+      "rule_id": "TEMP-06",
+      "when": "案由判断发生于2026年1月1日后",
+      "then": "使用2026版案由规定并按实际法律关系性质路由。"
+    }
+  ],
+  "prohibited_backcasting": [
+    "不得把2023年合同编通则解释第15条作为历史cutoff前已经可见的法源。",
+    "不得把2026版案由规定用于重写历史首次起诉时案由。",
+    "不得以2025年示范文本评价历史文书当时的格式合规性。",
+    "不得从答案键裁判结果反推诉请金额、事实认定或证据证明力。",
+    "不得把当前LPR、当前利率或当前司法政策套用于历史违约日期。"
+  ],
+  "release_conditions": [
+    "每案material_event_dates完整",
+    "法源版本和生效日来自官方来源",
+    "transition_rule可复核",
+    "retrospective cutoff与answer-key隔离已冻结",
+    "法源结论、事实与证据locator可追溯",
+    "无HOLD-LEGAL-TEMPORAL或HOLD-LEGAL-BACKCAST"
+  ]
+}

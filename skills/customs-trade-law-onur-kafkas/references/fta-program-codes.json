@@ -1,0 +1,150 @@
+{
+  "program_codes": {
+    "A": {
+      "name": "Generalized System of Preferences (GSP)",
+      "authority": "Title V, Trade Act of 1974",
+      "notes": "Beneficiary developing countries. Check current country/product eligibility — GSP periodically expires and is renewed."
+    },
+    "A+": {
+      "name": "GSP — Least-Developed Beneficiary Developing Country",
+      "authority": "Title V, Trade Act of 1974",
+      "notes": "Expanded GSP for least-developed countries. Broader product coverage than standard GSP."
+    },
+    "A*": {
+      "name": "GSP — Eligible but excluded for specific country",
+      "authority": "Title V, Trade Act of 1974",
+      "notes": "Product is GSP-eligible but excluded for the specific beneficiary country."
+    },
+    "AU": {
+      "name": "United States-Australia FTA (AUSFTA)",
+      "authority": "Pub. L. 108-286",
+      "countries": ["Australia"],
+      "effective": "2005-01-01"
+    },
+    "BH": {
+      "name": "United States-Bahrain FTA",
+      "authority": "Pub. L. 109-169",
+      "countries": ["Bahrain"],
+      "effective": "2006-08-01"
+    },
+    "CA": {
+      "name": "USMCA — Canada",
+      "authority": "Pub. L. 116-113 (USMCA Implementation Act)",
+      "countries": ["Canada"],
+      "effective": "2020-07-01",
+      "notes": "Replaced NAFTA. Requires USMCA certificate of origin."
+    },
+    "CL": {
+      "name": "United States-Chile FTA",
+      "authority": "Pub. L. 108-77",
+      "countries": ["Chile"],
+      "effective": "2004-01-01"
+    },
+    "CO": {
+      "name": "United States-Colombia TPA",
+      "authority": "Pub. L. 112-42",
+      "countries": ["Colombia"],
+      "effective": "2012-05-15"
+    },
+    "D": {
+      "name": "African Growth and Opportunity Act (AGOA)",
+      "authority": "Title I, Trade and Development Act of 2000",
+      "notes": "Sub-Saharan African countries. Check current beneficiary status — countries can be added/removed."
+    },
+    "E": {
+      "name": "Caribbean Basin Economic Recovery Act (CBERA)",
+      "authority": "Pub. L. 98-67",
+      "notes": "Caribbean Basin Initiative countries."
+    },
+    "IL": {
+      "name": "United States-Israel FTA",
+      "authority": "Pub. L. 99-47",
+      "countries": ["Israel"],
+      "effective": "1985-09-01",
+      "notes": "Also covers qualifying industrial zones (QIZ) in Jordan and Egypt."
+    },
+    "J": {
+      "name": "United States-Jordan FTA",
+      "authority": "Pub. L. 107-43",
+      "countries": ["Jordan"],
+      "effective": "2001-12-17"
+    },
+    "J+": {
+      "name": "United States-Jordan FTA (expanded)",
+      "authority": "Pub. L. 107-43",
+      "countries": ["Jordan"],
+      "notes": "Enhanced benefits under Jordan FTA."
+    },
+    "JO": {
+      "name": "United States-Jordan FTA",
+      "authority": "Pub. L. 107-43",
+      "countries": ["Jordan"],
+      "notes": "Alternate code for Jordan FTA."
+    },
+    "KR": {
+      "name": "United States-Korea FTA (KORUS)",
+      "authority": "Pub. L. 112-41",
+      "countries": ["Republic of Korea"],
+      "effective": "2012-03-15"
+    },
+    "MA": {
+      "name": "United States-Morocco FTA",
+      "authority": "Pub. L. 108-302",
+      "countries": ["Morocco"],
+      "effective": "2006-01-01"
+    },
+    "MX": {
+      "name": "USMCA — Mexico",
+      "authority": "Pub. L. 116-113 (USMCA Implementation Act)",
+      "countries": ["Mexico"],
+      "effective": "2020-07-01",
+      "notes": "Replaced NAFTA. Requires USMCA certificate of origin."
+    },
+    "OM": {
+      "name": "United States-Oman FTA",
+      "authority": "Pub. L. 109-283",
+      "countries": ["Oman"],
+      "effective": "2009-01-01"
+    },
+    "P": {
+      "name": "Dominican Republic-Central America FTA (CAFTA-DR)",
+      "authority": "Pub. L. 109-53",
+      "countries": ["Costa Rica", "Dominican Republic", "El Salvador", "Guatemala", "Honduras", "Nicaragua"],
+      "effective": "2006 (varies by country)"
+    },
+    "PA": {
+      "name": "United States-Panama TPA",
+      "authority": "Pub. L. 112-43",
+      "countries": ["Panama"],
+      "effective": "2012-10-31"
+    },
+    "PE": {
+      "name": "United States-Peru TPA",
+      "authority": "Pub. L. 110-138",
+      "countries": ["Peru"],
+      "effective": "2009-02-01"
+    },
+    "R": {
+      "name": "Caribbean Basin Trade Partnership Act (CBTPA)",
+      "authority": "Pub. L. 106-200",
+      "notes": "Enhanced preferences for apparel from CBERA-eligible countries."
+    },
+    "S": {
+      "name": "USMCA (general code)",
+      "authority": "Pub. L. 116-113",
+      "countries": ["Canada", "Mexico"],
+      "effective": "2020-07-01"
+    },
+    "SG": {
+      "name": "United States-Singapore FTA",
+      "authority": "Pub. L. 108-78",
+      "countries": ["Singapore"],
+      "effective": "2004-01-01"
+    }
+  },
+  "usage_notes": {
+    "decoding_special_column": "The 'special' field in HTS data lists program codes in parentheses, e.g., 'Free (A+,AU,BH,CL,CO,D,E,IL,JO,KR,MA,OM,P,PA,PE,S,SG)'. Each code indicates the preferential rate applies when goods originate from qualifying countries under that program.",
+    "verification_required": "Always verify current program eligibility. GSP and AGOA have expiration dates and may not be active. Country eligibility can change. Product-specific rules of origin must be met.",
+    "column_2_countries": "Column 2 (non-NTR) rates apply to: Cuba, North Korea, and potentially others designated by the President. These rates are significantly higher than Column 1."
+  }
+}

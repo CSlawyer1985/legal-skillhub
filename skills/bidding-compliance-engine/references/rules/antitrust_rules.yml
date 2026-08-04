@@ -1,0 +1,199 @@
+# 反垄断与特殊项目专项审查规则
+# 覆盖审查表"第十二、十三类事项"，共9条规则
+# 规则ID命名规范：AT_/SP_ 前缀 + 大写下划线，对应审查表编号
+
+rules:
+  # ===== 十二、反垄断与反不正当竞争合规性（12.1-12.4） =====
+  - rule_id: AT_BID_RIGGING
+    title: 禁止串通投标安排
+    severity: high
+    description: 招标文件是否设置防止串通投标的条款，是否明确串通投标的法律后果
+    keywords:
+      - "串通投标"
+      - "围标"
+      - "陪标"
+      - "串标"
+      - "防串通"
+    patterns:
+      - "不同投标人.*IP.*相同"
+      - "投标文件.*制作码.*一致"
+      - "不同投标人.*联系人.*相同"
+      - "视为.*串通投标"
+    exclusion_patterns: []
+    category: antitrust
+    suggestion: "应在招标文件中设置防止串通投标的条款，明确串通投标的认定标准和法律后果"
+    legal_basis: "《招标投标法》第五十三条：投标人相互串通投标的，中标无效；《招标投标法实施条例》第三十九条、第四十条"
+    check_item: "12.1"
+
+  - rule_id: AT_MONOPOLY_FORCE
+    title: 禁止强制垄断行为
+    severity: high
+    description: 招标文件是否存在强制实施垄断协议的内容，如限定转售价格、搭售等
+    keywords:
+      - "垄断"
+      - "搭售"
+      - "限定价格"
+      - "独家供应"
+      - "排他性"
+    patterns:
+      - "须同时采购.*"
+      - "须由.*独家供应"
+      - "不得采购.*其他品牌"
+      - "转售价格不得低于"
+      - "排他性.*供应"
+    exclusion_patterns: []
+    category: antitrust
+    suggestion: "删除强制搭售、限定转售价格、排他性供应等垄断条款，确保公平竞争"
+    legal_basis: "《反垄断法》第十七条：禁止具有市场支配地位的经营者从事搭售、限定交易等行为；《反垄断法》第十三条、第十四条"
+    check_item: "12.2"
+
+  - rule_id: AT_PRICE_INTERVENTION
+    title: 禁止违法干预价格
+    severity: high
+    description: 招标文件是否存在超越权限干预价格的行为，如设置最低限价等
+    keywords:
+      - "最低限价"
+      - "价格干预"
+      - "限价"
+      - "价格管控"
+      - "价格管制"
+    patterns:
+      - "投标报价不得低于.*"
+      - "最低投标限价"
+      - "报价.*不得低于.*成本"
+      - "设置最低投标限价"
+    exclusion_patterns:
+      - "不得低于成本价"
+    category: antitrust
+    suggestion: "不得设置最低投标限价干预价格竞争，可设置最高限价但不得设置最低限价"
+    legal_basis: "《招标投标法实施条例》第二十七条：招标人可以自行决定是否编制标底，招标人不得规定最低投标限价；《价格法》"
+    check_item: "12.3"
+
+  - rule_id: AT_TRADE_SECRET
+    title: 商业秘密保护
+    severity: medium
+    description: 招标文件是否要求投标人披露不必要的商业秘密，如核心技术、客户名单等
+    keywords:
+      - "商业秘密"
+      - "核心技术"
+      - "客户名单"
+      - "技术方案"
+      - "报价明细"
+    patterns:
+      - "须提供.*核心技术.*详细方案"
+      - "须提供.*客户名单"
+      - "须公开.*成本构成"
+      - "须提供.*技术路线.*细节"
+    exclusion_patterns:
+      - "合同约定保密"
+      - "保密协议"
+    category: antitrust
+    suggestion: "不得要求投标人披露不必要的商业秘密，确需提供的应签订保密协议并限定使用范围"
+    legal_basis: "《反不正当竞争法》第九条：商业秘密受法律保护；《招标投标法实施条例》第二十八条"
+    check_item: "12.4"
+
+  # ===== 十三、特殊项目专项审查（13.1-13.5） =====
+  - rule_id: SP_GOVERNMENT_PROCUREMENT
+    title: 政府采购合规性
+    severity: medium
+    description: 政府采购项目是否设置中小企业优惠措施，落实政府采购政策功能
+    keywords:
+      - "中小企业"
+      - "小微企业"
+      - "价格扣除"
+      - "优先采购"
+      - "预留份额"
+    patterns:
+      - "小微企业.*价格扣除"
+      - "中小企业.*优惠"
+      - "预留.*中小企业"
+      - "优先采购.*中小企业"
+    exclusion_patterns: []
+    category: special_project
+    suggestion: "政府采购项目应设置中小企业优惠措施，如小微企业价格扣除6%-10%、预留采购份额等"
+    legal_basis: "《政府采购法》第九条：政府采购应当有助于实现国家经济和社会发展政策目标；《政府采购促进中小企业发展管理办法》"
+    check_item: "13.1"
+
+  - rule_id: SP_INNOVATION_GREEN
+    title: 支持科技创新绿色发展
+    severity: low
+    description: 招标文件是否落实支持科技创新和绿色发展的政策目标
+    keywords:
+      - "绿色采购"
+      - "节能环保"
+      - "科技创新"
+      - "绿色建材"
+      - "低碳"
+    patterns:
+      - "绿色.*采购"
+      - "节能.*环保.*优先"
+      - "绿色建材"
+      - "低碳.*要求"
+    exclusion_patterns: []
+    category: special_project
+    suggestion: "鼓励在招标文件中落实科技创新和绿色发展政策，如优先采购节能环保产品"
+    legal_basis: "《政府采购法》第九条；《关于调整节能产品政府采购清单和环境标志产品政府采购清单的通知》"
+    check_item: "13.2"
+
+  - rule_id: SP_SAFETY_PRODUCTION
+    title: 安全生产与文明施工
+    severity: high
+    description: 安全生产费用不得作为竞争性报价，应按规定足额计取
+    keywords:
+      - "安全生产"
+      - "安全费用"
+      - "文明施工"
+      - "安全防护"
+      - "安全措施费"
+    patterns:
+      - "安全生产费.*可调整"
+      - "安全措施费.*竞争性报价"
+      - "安全费用.*自行考虑"
+      - "文明施工费.*竞价"
+    exclusion_patterns:
+      - "安全生产费.*不得低于"
+      - "安全生产费.*按标准计取"
+    category: special_project
+    suggestion: "安全生产费用应按规定标准足额计取，不得作为竞争性报价，不得删减"
+    legal_basis: "《建设工程安全生产管理条例》第二十二条：安全生产费用不得作为竞争性费用；《建筑工程安全防护、文明施工措施费用及使用管理规定》"
+    check_item: "13.3"
+
+  - rule_id: SP_CYBERSECURITY
+    title: 信息化/网络安全
+    severity: medium
+    description: 涉及信息化建设的项目是否明确网络安全合规要求
+    keywords:
+      - "网络安全"
+      - "信息安全"
+      - "等级保护"
+      - "数据安全"
+      - "个人信息保护"
+    patterns:
+      - "网络安全.*等级保护"
+      - "信息安全.*要求"
+      - "数据安全.*合规"
+      - "等保.*级"
+    exclusion_patterns: []
+    category: special_project
+    suggestion: "信息化项目应明确网络安全等级保护要求、数据安全合规要求和个人信息保护要求"
+    legal_basis: "《网络安全法》第二十一条：实行网络安全等级保护制度；《数据安全法》第二十七条；《个人信息保护法》"
+    check_item: "13.4"
+
+  - rule_id: SP_OTHER_VIOLATION
+    title: 其他潜在违规条款
+    severity: low
+    description: 兜底条款，覆盖其他可能违反公平竞争和合法合规原则的情形
+    keywords:
+      - "其他"
+      - "违规"
+      - "不合理"
+      - "歧视"
+    patterns:
+      - "其他.*不合理.*条件"
+      - "其他.*限制.*竞争"
+      - "其他.*歧视性.*条款"
+    exclusion_patterns: []
+    category: special_project
+    suggestion: "对可能违反公平竞争和合法合规原则的其他条款，应逐项审查其合法性和合理性"
+    legal_basis: "《招标投标法》第五条：招标投标活动应当遵循公开、公平、公正和诚实信用的原则；《公平竞争审查条例实施办法》"
+    check_item: "13.5"

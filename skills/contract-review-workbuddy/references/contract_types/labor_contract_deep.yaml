@@ -1,0 +1,330 @@
+rules:
+  - id: LCD001
+    category: subject_risk
+    name: "用人单位主体资格"
+    description: "用人单位应具备合法用工主体资格，依法设立并有效存续"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询用人单位企业信用信息、营业执照状态及是否存在经营异常"
+    legal_basis: "《劳动合同法》第2条、《民法典》第143条"
+    suggestion: "核实用人单位主体资格，要求提供营业执照和信用信息"
+    enabled: true
+
+  - id: LCD002
+    category: subject_risk
+    name: "劳动者主体资格"
+    description: "劳动者应年满16周岁且未达法定退休年龄，具备劳动能力"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查劳动者年龄是否满16周岁，是否已享受基本养老保险待遇"
+    legal_basis: "《劳动合同法》第2条、《劳动法》第15条"
+    suggestion: "核实劳动者年龄及退休状态，退休人员应签订劳务协议而非劳动合同"
+    enabled: true
+
+  - id: LCD003
+    category: subject_risk
+    name: "用工关系与实际主体不一致"
+    description: "劳动合同签约主体与实际用工主体不一致，存在劳务派遣或外包混淆风险"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查签约主体是否为实际用工单位，是否存在假外包真派遣情形"
+    legal_basis: "《劳动合同法》第58条、第59条、《劳务派遣暂行规定》第3条"
+    suggestion: "确保签约主体与实际用工单位一致，明确用工关系性质"
+    enabled: true
+
+  - id: LCD004
+    category: contract_term
+    name: "劳动合同类型选择"
+    description: "未明确劳动合同类型（固定期限/无固定期限/以完成一定工作任务为期限）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否明确约定劳动合同类型"
+    legal_basis: "《劳动合同法》第12条、第13条、第14条、第15条"
+    suggestion: "明确约定劳动合同类型，连续订立两次固定期限合同后应考虑无固定期限"
+    enabled: true
+
+  - id: LCD005
+    category: contract_term
+    name: "无固定期限劳动合同强制订立"
+    description: "符合法定情形下用人单位未与劳动者订立无固定期限劳动合同"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否存在连续工作满十年或连续订立两次固定期限合同等法定情形"
+    legal_basis: "《劳动合同法》第14条"
+    suggestion: "符合法定情形应订立无固定期限劳动合同，否则自应订立之日起支付二倍工资"
+    enabled: true
+
+  - id: LCD006
+    category: contract_term
+    name: "试用期约定违法"
+    description: "试用期期限超过法定上限或重复约定试用期"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查试用期期限是否符合法律规定（合同期3月-1年：≤1月；1年-3年：≤2月；3年以上：≤6月）"
+    legal_basis: "《劳动合同法》第19条"
+    suggestion: "调整试用期至法定上限内，同一用人单位与同一劳动者只能约定一次试用期"
+    enabled: true
+
+  - id: LCD007
+    category: contract_term
+    name: "试用期工资低于法定标准"
+    description: "试用期工资低于本单位相同岗位最低档工资或劳动合同约定工资的80%"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查试用期工资是否不低于约定工资80%且不低于当地最低工资标准"
+    legal_basis: "《劳动合同法》第20条、《劳动合同法实施条例》第15条"
+    suggestion: "调整试用期工资至法定标准以上"
+    enabled: true
+
+  - id: LCD008
+    category: remuneration
+    name: "劳动报酬约定不明"
+    description: "劳动报酬标准、支付方式、支付时间约定不明确"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否明确约定工资标准、构成、支付周期和支付日期"
+    legal_basis: "《劳动合同法》第17条、第18条、第30条"
+    suggestion: "明确约定工资标准（基本工资+绩效工资等构成）、支付周期和具体支付日期"
+    enabled: true
+
+  - id: LCD009
+    category: remuneration
+    name: "加班费计算基数约定不明"
+    description: "未约定加班费计算基数或约定基数低于法定标准"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定加班费计算基数，基数是否低于劳动合同约定的工资标准"
+    legal_basis: "《劳动法》第44条、《工资支付暂行规定》第13条"
+    suggestion: "明确约定加班费计算基数，建议以月工资总额为基数，且不得低于最低工资标准"
+    enabled: true
+
+  - id: LCD010
+    category: remuneration
+    name: "工资支付时间违法"
+    description: "工资支付周期超过一个月或未按月支付"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查工资支付周期是否超过一个月"
+    legal_basis: "《劳动法》第50条、《工资支付暂行规定》第7条"
+    suggestion: "确保工资至少按月支付，日结、周结或半月结也合法"
+    enabled: true
+
+  - id: LCD011
+    category: non_compete
+    name: "竞业限制人员范围不当"
+    description: "竞业限制人员超出法定范围（高级管理人员、高级技术人员和其他负有保密义务的人员）"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查被约定竞业限制的劳动者是否属于法定三类人员"
+    legal_basis: "《劳动合同法》第24条"
+    suggestion: "竞业限制仅适用于高级管理人员、高级技术人员和其他负有保密义务的人员"
+    enabled: true
+
+  - id: LCD012
+    category: non_compete
+    name: "竞业限制补偿金缺失"
+    description: "约定竞业限制但未约定经济补偿金或补偿金标准"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否约定竞业限制经济补偿金及支付标准"
+    legal_basis: "《劳动合同法》第23条、最高人民法院《关于审理劳动争议案件适用法律问题的解释（一）》第36条"
+    suggestion: "明确约定竞业限制补偿金标准，未约定的按劳动合同解除前12个月平均工资的30%且不低于当地最低工资"
+    enabled: true
+
+  - id: LCD013
+    category: non_compete
+    name: "竞业限制补偿金标准过低"
+    description: "竞业限制补偿金低于法定最低标准（前12个月平均工资30%且不低于当地最低工资）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查补偿金是否低于前12个月平均工资的30%且不低于当地最低工资标准"
+    legal_basis: "最高人民法院《关于审理劳动争议案件适用法律问题的解释（一）》第36条"
+    suggestion: "调整补偿金至法定最低标准以上，建议不低于平均工资的50%"
+    enabled: true
+
+  - id: LCD014
+    category: non_compete
+    name: "竞业限制期限超限"
+    description: "竞业限制期限超过二年法定上限"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查竞业限制期限是否超过二年"
+    legal_basis: "《劳动合同法》第24条"
+    suggestion: "竞业限制期限不得超过二年，超出部分无效"
+    enabled: true
+
+  - id: LCD015
+    category: non_compete
+    name: "竞业限制地域范围过宽"
+    description: "竞业限制地域范围约定过宽，超出合理业务范围"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查竞业限制地域范围是否与用人单位实际经营区域相匹配"
+    legal_basis: "《劳动合同法》第24条"
+    suggestion: "竞业限制地域应限定在实际经营区域和竞争业务覆盖范围内"
+    enabled: true
+
+  - id: LCD016
+    category: non_compete
+    name: "竞业限制违约金过高"
+    description: "竞业限制违约金金额过高，可能被认定显失公平"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查违约金金额是否与补偿金比例失衡，是否显失公平"
+    legal_basis: "《民法典》第585条、《劳动合同法》第23条"
+    suggestion: "违约金应与补偿金保持合理比例，建议不超过补偿金总额的3-5倍"
+    enabled: true
+
+  - id: LCD017
+    category: non_compete
+    name: "竞业限制补偿金支付时间违法"
+    description: "竞业限制补偿金在在职期间随工资发放而非离职后按月支付"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查补偿金支付时间是否为离职后按月支付"
+    legal_basis: "《劳动合同法》第23条、最高人民法院《关于审理劳动争议案件适用法律问题的解释（一）》第38条"
+    suggestion: "竞业限制补偿金应在解除或终止劳动合同后按月支付，在职期间随工资发放的不被认可"
+    enabled: true
+
+  - id: LCD018
+    category: non_compete
+    name: "用人单位单方解除竞业限制条款缺失"
+    description: "未约定用人单位在竞业限制期内单方解除竞业限制协议的权利及额外补偿"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查是否约定用人单位可单方解除竞业限制及额外支付三个月补偿金"
+    legal_basis: "最高人民法院《关于审理劳动争议案件适用法律问题的解释（一）》第39条"
+    suggestion: "约定用人单位可提前通知解除竞业限制，但需额外支付三个月补偿金"
+    enabled: true
+
+  - id: LCD019
+    category: training_service
+    name: "培训服务期约定缺失"
+    description: "用人单位提供专项培训但未约定服务期和违约金"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否提供专项培训费用及是否约定服务期"
+    legal_basis: "《劳动合同法》第22条、《劳动合同法实施条例》第16条"
+    suggestion: "提供专项培训时应签订服务期协议，明确服务期和违约金计算方式"
+    enabled: true
+
+  - id: LCD020
+    category: training_service
+    name: "服务期违约金超过培训费用"
+    description: "服务期违约金金额超过用人单位实际支出的培训费用"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查违约金是否超过实际培训费用，是否按服务期尚未履行部分分摊"
+    legal_basis: "《劳动合同法》第22条"
+    suggestion: "违约金不得超过培训费用，按服务期尚未履行部分所占比例分摊"
+    enabled: true
+
+  - id: LCD021
+    category: training_service
+    name: "岗前培训约定服务期"
+    description: "将岗前培训或入职培训约定为专项培训并设置服务期"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查培训性质是否属于专项技术培训而非职业培训或岗前培训"
+    legal_basis: "《劳动合同法》第22条、《劳动合同法实施条例》第16条"
+    suggestion: "岗前培训、入职培训、安全培训等不得约定服务期，仅专业技术培训可约定"
+    enabled: true
+
+  - id: LCD022
+    category: training_service
+    name: "服务期超过劳动合同期限"
+    description: "服务期长于劳动合同期限时未约定自动续延"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查服务期是否超过劳动合同期限及是否约定续延至服务期满"
+    legal_basis: "《劳动合同法实施条例》第17条"
+    suggestion: "劳动合同期满但服务期未到期的，劳动合同应续延至服务期满"
+    enabled: true
+
+  - id: LCD023
+    category: confidentiality
+    name: "保密义务约定缺失"
+    description: "未约定劳动者保密义务或保密范围不明确"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定保密义务、保密信息范围和保密期限"
+    legal_basis: "《劳动合同法》第23条、《反不正当竞争法》第9条"
+    suggestion: "明确约定保密义务、保密信息类型、保密期限和违反保密义务的责任"
+    enabled: true
+
+  - id: LCD024
+    category: confidentiality
+    name: "保密义务与竞业限制混淆"
+    description: "将法定保密义务与约定义务竞业限制混为一谈"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否区分法定保密义务（无需补偿）和约定竞业限制（需补偿）"
+    legal_basis: "《劳动合同法》第23条、第24条"
+    suggestion: "明确保密义务是法定义务无需补偿，竞业限制是约定义务必须支付补偿金"
+    enabled: true
+
+  - id: LCD025
+    category: termination
+    name: "用人单位单方解除条件违法"
+    description: "约定的用人单位单方解除条件超出法定情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查解除条件是否限于《劳动合同法》第39条（过失性辞退）、第40条（无过失性辞退）、第41条（经济性裁员）"
+    legal_basis: "《劳动合同法》第39条、第40条、第41条"
+    suggestion: "用人单位单方解除劳动合同仅限于法定情形，不得自行约定其他解除条件"
+    enabled: true
+
+  - id: LCD026
+    category: termination
+    name: "违法解除劳动合同赔偿金"
+    description: "未约定违法解除劳动合同的赔偿金或约定排除赔偿金"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否排除或限制违法解除赔偿金条款"
+    legal_basis: "《劳动合同法》第47条、第48条、第87条"
+    suggestion: "违法解除应支付二倍经济补偿标准的赔偿金，不得约定排除"
+    enabled: true
+
+  - id: LCD027
+    category: termination
+    name: "经济补偿金计算标准"
+    description: "经济补偿金计算基数或年限约定不明确"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查经济补偿金计算基数是否为解除前12个月平均工资，年限是否正确"
+    legal_basis: "《劳动合同法》第47条、《劳动合同法实施条例》第27条"
+    suggestion: "经济补偿金按工作年限每满一年支付一个月工资，基数包含奖金、津贴等"
+    enabled: true
+
+  - id: LCD028
+    category: termination
+    name: "解除劳动合同程序违法"
+    description: "解除劳动合同未履行法定程序（通知工会、书面通知等）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查是否约定解除程序包括通知工会、书面通知劳动者等"
+    legal_basis: "《劳动合同法》第43条、《工会法》第22条"
+    suggestion: "单方解除应事先通知工会，书面通知劳动者并说明理由"
+    enabled: true
+
+  - id: LCD029
+    category: termination
+    name: "不得解除情形保护缺失"
+    description: "未约定法定不得解除情形的保护（如孕期、工伤、医疗期等）"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "检查是否排除或限制《劳动合同法》第42条规定的不得解除情形"
+    legal_basis: "《劳动合同法》第42条"
+    suggestion: "不得解除情形（孕期、产期、哺乳期、工伤、医疗期等）不得约定排除"
+    enabled: true
+
+  - id: LCD030
+    category: termination
+    name: "劳动合同终止条件违法"
+    description: "约定的终止条件超出法定情形或约定合同到期自动终止"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查终止条件是否限于《劳动合同法》第44条法定情形"
+    legal_basis: "《劳动合同法》第44条、《劳动合同法实施条例》第13条"
+    suggestion: "劳动合同终止仅限于法定情形，不得约定其他终止条件"
+    enabled: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "上市公司合规咨询"
+  short_description: "核验数据库法规正文，并按披露结论检索同类公告及原文件"
+  default_prompt: "使用 $hegui-consult 查询该事项，先给出正式法规依据和适用分析；仅在法规支持披露义务时检索同类公告，并附经过验证的公告原文件。"

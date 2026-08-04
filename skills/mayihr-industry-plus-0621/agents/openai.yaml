@@ -1,0 +1,4 @@
+interface:
+  display_name: "房地产/中介用工合规专项方案"
+  short_description: "用自然语言或上传文件完成房地产/中介用工合规专项方案，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-industry-plus-0621 请帮我完成房地产/中介用工合规专项方案：针对房地产/中介行业特点→识别用工合规风险点+设计合规方案+特殊工时制适用+典型案例。"

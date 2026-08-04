@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张某某诉国家知识产权局商标行政纠纷案时间轴图谱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 1.2cm;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", "Microsoft JhengHei", sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #333;
+            background: #fff;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 1.2cm;
+            background: #fff;
+            position: relative;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* 标题样式 */
+        h1 {
+            font-size: 18pt;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 5pt;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8pt;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #34495e;
+            margin: 12pt 0 6pt 0;
+            padding-left: 8pt;
+            border-left: 4px solid #3498db;
+        }
+
+        h3 {
+            font-size: 12pt;
+            color: #555;
+            margin: 8pt 0 4pt 0;
+        }
+
+        /* 页面顶部信息 */
+        .page-header-info {
+            text-align: center;
+            margin-bottom: 12pt;
+            font-size: 10pt;
+            color: #7f8c8d;
+            padding: 5pt;
+            background: #f8f9fa;
+            border-radius: 3px;
+        }
+
+        /* 图例样式 */
+        .legend-section {
+            margin: 10pt 0;
+        }
+
+        .legend-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5pt;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12pt;
+            padding: 6pt 10pt;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 9pt;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 3pt;
+        }
+
+        .legend-icon {
+            font-size: 11pt;
+        }
+
+        .legend-color {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+
+        /* 阶段标题 */
+        .phase-title {
+            font-size: 11pt;
+            font-weight: bold;
+            color: #fff;
+            padding: 4pt 10pt;
+            margin: 10pt 0 6pt 0;
+            border-radius: 3px;
+        }
+
+        /* 时间轴样式 */
+        .timeline {
+            position: relative;
+            margin: 6pt 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 70pt;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #bdc3c7;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 6pt 0;
+            padding-left: 90pt;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            width: 60pt;
+            font-size: 8pt;
+            color: #7f8c8d;
+            text-align: right;
+            padding-right: 6pt;
+            line-height: 1.3;
+        }
+
+        .timeline-content {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 5pt 8pt;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .timeline-icon {
+            display: inline-block;
+            margin-right: 4pt;
+            font-size: 11pt;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 10pt;
+        }
+
+        .timeline-evidence {
+            font-size: 8pt;
+            color: #7f8c8d;
+            margin-top: 2pt;
+        }
+
+        /* 阶段配色 */
+        .phase-apply .timeline-content {
+            border-left: 3px solid #87CEEB;
+            background: #f0f8ff;
+        }
+
+        .phase-apply .timeline-content::before {
+            background: #87CEEB;
+        }
+
+        .phase-apply .phase-title {
+            background: #5dade2;
+        }
+
+        .phase-reject .timeline-content {
+            border-left: 3px solid #FF7F50;
+            background: #fff5ee;
+        }
+
+        .phase-reject .timeline-content::before {
+            background: #FF7F50;
+        }
+
+        .phase-reject .phase-title {
+            background: #e74c3c;
+        }
+
+        .phase-appeal .timeline-content {
+            border-left: 3px solid #FFD700;
+            background: #fffaf0;
+        }
+
+        .phase-appeal .timeline-content::before {
+            background: #FFD700;
+        }
+
+        .phase-appeal .phase-title {
+            background: #f39c12;
+            color: #fff;
+        }
+
+        .phase-litigation .timeline-content {
+            border-left: 3px solid #DDA0DD;
+            background: #faf5ff;
+        }
+
+        .phase-litigation .timeline-content::before {
+            background: #9370DB;
+        }
+
+        .phase-litigation .phase-title {
+            background: #9b59b6;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8pt 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4pt 6pt;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #3498db;
+            color: #fff;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .num-col { width: 35pt; text-align: center; }
+        .date-col { width: 65pt; font-size: 9pt; }
+        .event-col { font-size: 9pt; }
+        .evidence-col { width: 55pt; font-size: 8pt; }
+        .meaning-col { font-size: 9pt; }
+        .party-col { width: 45pt; text-align: center; }
+
+        /* 阶段表格 */
+        .phase-table th {
+            background: #34495e;
+            font-size: 10pt;
+        }
+
+        .phase-table td {
+            font-size: 10pt;
+        }
+
+        /* 争议焦点 */
+        .dispute-item {
+            background: #fff5f5;
+            border-left: 3px solid #e74c3c;
+            padding: 6pt 10pt;
+            margin: 6pt 0;
+        }
+
+        .dispute-title {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 10pt;
+            margin-bottom: 3pt;
+        }
+
+        .dispute-claim {
+            font-size: 9pt;
+            margin: 2pt 0;
+        }
+
+        .claim-label {
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+
+        /* 证据链 */
+        .evidence-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6pt;
+            margin: 8pt 0;
+        }
+
+        .evidence-item {
+            background: #e8f5e9;
+            border: 1px solid #81c784;
+            border-radius: 3px;
+            padding: 3pt 8pt;
+            font-size: 9pt;
+        }
+
+        /* 结果表格 */
+        .result-table th {
+            background: #2980b9;
+            font-size: 10pt;
+        }
+
+        .result-reject {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 9pt;
+        }
+
+        /* 总结框 */
+        .summary-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 4px;
+            padding: 8pt 12pt;
+            margin: 8pt 0;
+        }
+
+        .summary-title {
+            font-weight: bold;
+            color: #1565c0;
+            font-size: 10pt;
+            margin-bottom: 4pt;
+        }
+
+        .summary-box.danger {
+            background: #ffebee;
+            border-color: #c62828;
+        }
+
+        .summary-box.danger .summary-title {
+            color: #c62828;
+        }
+
+        /* 页脚 */
+        .page-footer {
+            position: absolute;
+            bottom: 1cm;
+            left: 1.2cm;
+            right: 1.2cm;
+            text-align: center;
+            font-size: 9pt;
+            color: #7f8c8d;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 6pt;
+        }
+
+        /* 打印优化 */
+        @media print {
+            body {
+                background: #fff;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* 信息表格 */
+        .info-table {
+            width: 100%;
+            margin: 8pt 0;
+            font-size: 10pt;
+        }
+
+        .info-table td {
+            padding: 3pt 6pt;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-table td:first-child {
+            width: 100pt;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* 两列布局 */
+        .two-col {
+            display: flex;
+            gap: 15pt;
+            margin: 8pt 0;
+        }
+
+        .two-col > div {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- 第一页：时间轴 -->
+    <div class="page">
+        <h1>张某某诉国家知识产权局商标行政纠纷案时间轴图谱</h1>
+
+        <div class="page-header-info">
+            案号：(2021)京行终7712号 | 案由：商标行政管理（商标） | 商标号：第22647284号"青岛春江" | 申请日期：2017年1月17日
+        </div>
+
+        <div class="legend-section">
+            <div class="legend-title">图例说明</div>
+            <div class="legend">
+                <div class="legend-item"><span class="legend-icon">📄</span> 文书/文件</div>
+                <div class="legend-item"><span class="legend-icon">✍️</span> 签署/生效</div>
+                <div class="legend-item"><span class="legend-icon">⏰</span> 法定期间</div>
+                <div class="legend-item"><span class="legend-icon">⚠️</span> 驳回/不利</div>
+                <div class="legend-item"><span class="legend-icon">📢</span> 申请/提交</div>
+                <div class="legend-item"><span class="legend-icon">⚖️</span> 诉讼/上诉</div>
+                <div class="legend-item"><span class="legend-icon">📋</span> 判决/决定</div>
+            </div>
+            <div class="legend" style="margin-top: 4pt;">
+                <div class="legend-item"><div class="legend-color" style="background: #87CEEB;"></div> 申请阶段</div>
+                <div class="legend-item"><div class="legend-color" style="background: #FF7F50;"></div> 驳回阶段</div>
+                <div class="legend-item"><div class="legend-color" style="background: #FFD700;"></div> 复审阶段</div>
+                <div class="legend-item"><div class="legend-color" style="background: #DDA0DD;"></div> 诉讼阶段</div>
+            </div>
+        </div>
+
+        <h2>案件时间轴</h2>
+
+        <div class="timeline">
+            <!-- 申请阶段 -->
+            <div class="phase-title phase-apply">申请阶段（2017年1月 - 2019年4月）</div>
+
+            <div class="timeline-item phase-apply">
+                <div class="timeline-date">2017-01-17</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">📄</span>
+                    <span class="timeline-title">申请注册"青岛春江"商标</span>
+                    <div class="timeline-evidence">证据：商标申请受理通知书 | 第22647284号，第30类</div>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-apply">
+                <div class="timeline-date">2017-11-13</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">✍️</span>
+                    <span class="timeline-title">商标局初步审定并公告</span>
+                    <div class="timeline-evidence">证据：商标初步审定公告第1610期</div>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-apply">
+                <div class="timeline-date">2017-11-13<br>~<br>2018-02-12</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">⏰</span>
+                    <span class="timeline-title">异议期（3个月）</span>
+                    <div class="timeline-evidence">第三方可在期间内提出异议</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <!-- 驳回阶段 -->
+            <div class="phase-title phase-reject">驳回阶段（2019年4月 - 6月）</div>
+
+            <div class="timeline-item phase-reject">
+                <div class="timeline-date">2019-04-12</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">⚠️</span>
+                    <span class="timeline-title">商标局作出驳回决定</span>
+                    <div class="timeline-evidence">证据：商标驳回通知书 | 理由：与引证商标构成近似</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <!-- 复审阶段 -->
+            <div class="phase-title phase-appeal">行政复审阶段（2019年6月 - 2020年6月）</div>
+
+            <div class="timeline-item phase-appeal">
+                <div class="timeline-date">2019-06-10</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">📢</span>
+                    <span class="timeline-title">向商标评审委员会申请复审</span>
+                    <div class="timeline-evidence">证据：驳回复审申请书</div>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-appeal">
+                <div class="timeline-date">2020-04-02</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">📄</span>
+                    <span class="timeline-title">商标评审委员会作出复审决定</span>
+                    <div class="timeline-evidence">证据：商评字[2020]第0000060578号 | 决定：驳回注册申请</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <!-- 一审程序 -->
+            <div class="phase-title phase-litigation">一审程序 - 北京知识产权法院（2020年6月 - 2021年8月）</div>
+
+            <div class="timeline-item phase-litigation">
+                <div class="timeline-date">2020-06-12</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">⚖️</span>
+                    <span class="timeline-title">向北京知识产权法院提起行政诉讼</span>
+                    <div class="timeline-evidence">证据：行政起诉状 | 案号：(2020)京73行初6324号</div>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-litigation">
+                <div class="timeline-date">2021-05-20</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">📋</span>
+                    <span class="timeline-title">一审判决：驳回诉讼请求</span>
+                    <div class="timeline-evidence">证据：(2020)京73行初6324号行政判决 | 维持行政决定</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <!-- 二审程序 -->
+            <div class="phase-title phase-litigation">二审程序 - 北京市高级人民法院（2021年8月 - 12月）</div>
+
+            <div class="timeline-item phase-litigation">
+                <div class="timeline-date">2021-08-09</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">⚖️</span>
+                    <span class="timeline-title">向北京市高级人民法院提起上诉</span>
+                    <div class="timeline-evidence">证据：上诉状 | 案号：(2021)京行终7712号</div>
+                </div>
+            </div>
+
+            <div class="timeline-item phase-litigation">
+                <div class="timeline-date">2021-12-16</div>
+                <div class="timeline-content">
+                    <span class="timeline-icon">📋</span>
+                    <span class="timeline-title">终审判决：驳回上诉，维持原判</span>
+                    <div class="timeline-evidence">证据：(2021)京行终7712号行政判决书 | 终审判决</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">第 1 页 / 共 3 页</div>
+    </div>
+
+    <!-- 第二页：事件明细表 -->
+    <div class="page">
+        <h1>张某某诉国家知识产权局商标行政纠纷案事件明细表</h1>
+
+        <div class="page-header-info">
+            案号：(2021)京行终7712号 | 商标号：第22647284号"青岛春江"
+        </div>
+
+        <h2>法律阶段划分</h2>
+        <table class="phase-table">
+            <thead>
+                <tr>
+                    <th>阶段</th>
+                    <th>时间区间</th>
+                    <th>状态</th>
+                    <th>时长</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: #e3f2fd;">
+                    <td>申请阶段</td>
+                    <td>2017-01-17 ~ 2019-04-12</td>
+                    <td>商标局审查中</td>
+                    <td>2年3个月</td>
+                </tr>
+                <tr style="background: #ffebee;">
+                    <td>驳回阶段</td>
+                    <td>2019-04-12 ~ 2019-06-10</td>
+                    <td>驳回决定生效</td>
+                    <td>2个月</td>
+                </tr>
+                <tr style="background: #fffde7;">
+                    <td>复审阶段</td>
+                    <td>2019-06-10 ~ 2020-06-12</td>
+                    <td>复审审查中</td>
+                    <td>12个月</td>
+                </tr>
+                <tr style="background: #f3e5f5;">
+                    <td>一审程序</td>
+                    <td>2020-06-12 ~ 2021-08-09</td>
+                    <td>司法审查中</td>
+                    <td>14个月</td>
+                </tr>
+                <tr style="background: #f3e5f5;">
+                    <td>二审程序</td>
+                    <td>2021-08-09 ~ 2021-12-16</td>
+                    <td>终审中</td>
+                    <td>4个月</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="summary-box">
+            <div class="summary-title">案件总时长统计</div>
+            <p><strong>从申请到终审判决：</strong>4年11个月（2017年1月17日 - 2021年12月16日）</p>
+            <p><strong>从驳回到终审判决：</strong>2年8个月（2019年4月12日 - 2021年12月16日）</p>
+        </div>
+
+        <h2>事件明细表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th class="num-col">序号</th>
+                    <th class="date-col">时间</th>
+                    <th class="event-col">事件</th>
+                    <th class="evidence-col">证据</th>
+                    <th class="meaning-col">法律意义</th>
+                    <th class="party-col">主体</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="num-col">1</td>
+                    <td class="date-col">2017-01-17</td>
+                    <td class="event-col">申请注册"青岛春江"商标（第22647284号，第30类）</td>
+                    <td class="evidence-col">判决书P2</td>
+                    <td class="meaning-col">确立商标注册申请法律关系</td>
+                    <td class="party-col">我方</td>
+                </tr>
+                <tr>
+                    <td class="num-col">2</td>
+                    <td class="date-col">2017-11-13</td>
+                    <td class="event-col">初步审定并公告</td>
+                    <td class="evidence-col">判决书P3</td>
+                    <td class="meaning-col">进入异议期</td>
+                    <td class="party-col">行政机关</td>
+                </tr>
+                <tr>
+                    <td class="num-col">3</td>
+                    <td class="date-col">2017-11-13<br>~<br>2018-02-12</td>
+                    <td class="event-col">异议期（3个月）</td>
+                    <td class="evidence-col">判决书P3</td>
+                    <td class="meaning-col">第三方异议权利期间</td>
+                    <td class="party-col">法律规定</td>
+                </tr>
+                <tr>
+                    <td class="num-col">4</td>
+                    <td class="date-col">2019-04-12</td>
+                    <td class="event-col">商标局作出驳回决定</td>
+                    <td class="evidence-col">判决书P3</td>
+                    <td class="meaning-col">驳回商标注册申请</td>
+                    <td class="party-col">行政机关</td>
+                </tr>
+                <tr>
+                    <td class="num-col">5</td>
+                    <td class="date-col">2019-06-10</td>
+                    <td class="event-col">申请驳回复审</td>
+                    <td class="evidence-col">判决书P3</td>
+                    <td class="meaning-col">行政复议救济</td>
+                    <td class="party-col">我方</td>
+                </tr>
+                <tr>
+                    <td class="num-col">6</td>
+                    <td class="date-col">2020-04-02</td>
+                    <td class="event-col">商标评审委员会作出复审决定</td>
+                    <td class="evidence-col">判决书P3</td>
+                    <td class="meaning-col">维持驳回决定</td>
+                    <td class="party-col">行政机关</td>
+                </tr>
+                <tr>
+                    <td class="num-col">7</td>
+                    <td class="date-col">2020-06-12</td>
+                    <td class="event-col">向北京知识产权法院提起行政诉讼</td>
+                    <td class="evidence-col">判决书P1</td>
+                    <td class="meaning-col">司法审查程序启动</td>
+                    <td class="party-col">我方</td>
+                </tr>
+                <tr>
+                    <td class="num-col">8</td>
+                    <td class="date-col">2021-05-20</td>
+                    <td class="event-col">一审判决：驳回诉讼请求</td>
+                    <td class="evidence-col">判决书P1</td>
+                    <td class="meaning-col">维持行政决定</td>
+                    <td class="party-col">法院</td>
+                </tr>
+                <tr>
+                    <td class="num-col">9</td>
+                    <td class="date-col">2021-08-09</td>
+                    <td class="event-col">向北京市高级人民法院提起上诉</td>
+                    <td class="evidence-col">判决书P1</td>
+                    <td class="meaning-col">二审程序启动</td>
+                    <td class="party-col">我方</td>
+                </tr>
+                <tr>
+                    <td class="num-col">10</td>
+                    <td class="date-col">2021-12-16</td>
+                    <td class="event-col">二审判决：驳回上诉，维持原判</td>
+                    <td class="evidence-col">判决书P1</td>
+                    <td class="meaning-col">终审裁判，驳回商标注册申请</td>
+                    <td class="party-col">法院</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-footer">第 2 页 / 共 3 页</div>
+    </div>
+
+    <!-- 第三页：其他内容 -->
+    <div class="page">
+        <h1>张某某诉国家知识产权局商标行政纠纷案综合分析</h1>
+
+        <div class="page-header-info">
+            案号：(2021)京行终7712号 | 案由：商标行政管理（商标） | 终审判决日期：2021年12月16日
+        </div>
+
+        <h2>一、争议焦点提炼 🔴</h2>
+
+        <div class="dispute-item">
+            <div class="dispute-title">🔴 核心争议焦点一：第1615607号引证商标的合法性</div>
+            <p class="dispute-claim"><span class="claim-label">我方主张：</span>引证商标已被撤销，不应作为驳回依据</p>
+            <p class="dispute-claim"><span class="claim-label">行政机关主张：</span>引证商标有效，构成近似商标</p>
+            <p class="dispute-claim"><span class="claim-label">法院认定：</span>引证商标在诉争商标申请日前有效，可以作为引证商标</p>
+        </div>
+
+        <div class="dispute-item">
+            <div class="dispute-title">🔴 核心争议焦点二：商标近似性认定</div>
+            <p class="dispute-claim"><span class="claim-label">我方主张：</span>"青岛春江"与"青岛啤酒"不构成近似</p>
+            <p class="dispute-claim"><span class="claim-label">行政机关主张：</span>两者构成近似商标</p>
+            <p class="dispute-claim"><span class="claim-label">法院认定：</span>构成使用在相同或类似商品上的近似商标</p>
+        </div>
+
+        <div class="dispute-item">
+            <div class="dispute-title">🔴 核心争议焦点三：引证商标状态变更的溯及力</div>
+            <p class="dispute-claim"><span class="claim-label">我方主张：</span>引证商标已被注销，不影响诉争商标注册</p>
+            <p class="dispute-claim"><span class="claim-label">法院认定：</span>引证商标在申请日时有效，驳回决定正确</p>
+        </div>
+
+        <div class="dispute-item" style="background: #fff8e1; border-left-color: #f39c12;">
+            <div class="dispute-title" style="color: #d35400;">⭐ 辅助争议点</div>
+            <p class="dispute-claim">• 第29359686号、第29359726号引证商标的效力认定</p>
+            <p class="dispute-claim">• 诉争商标指定使用商品与引证商标核定使用商品的类似性</p>
+        </div>
+
+        <h2>二、证据链完整性</h2>
+        <div class="evidence-list">
+            <div class="evidence-item">✓ 商标申请受理通知书</div>
+            <div class="evidence-item">✓ 商标初审公告</div>
+            <div class="evidence-item">✓ 驳回通知书</div>
+            <div class="evidence-item">✓ 复审申请书</div>
+            <div class="evidence-item">✓ 复审决定书（商评字[2020]第0000060578号）</div>
+            <div class="evidence-item">✓ 行政起诉状</div>
+            <div class="evidence-item">✓ 一审判决书（(2020)京73行初6324号）</div>
+            <div class="evidence-item">✓ 上诉状</div>
+            <div class="evidence-item">✓ 终审判决书（(2021)京行终7712号）</div>
+        </div>
+
+        <h2>三、案件结果分析</h2>
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>程序</th>
+                    <th>结果</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>商标审查</td>
+                    <td class="result-reject">驳回</td>
+                    <td>2019-04-12</td>
+                </tr>
+                <tr>
+                    <td>驳回复审</td>
+                    <td class="result-reject">驳回</td>
+                    <td>2020-04-02</td>
+                </tr>
+                <tr>
+                    <td>一审诉讼</td>
+                    <td class="result-reject">驳回诉讼请求</td>
+                    <td>2021-05-20</td>
+                </tr>
+                <tr>
+                    <td>二审诉讼</td>
+                    <td class="result-reject">驳回上诉，维持原判</td>
+                    <td>2021-12-16</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="summary-box danger">
+            <div class="summary-title">最终结果</div>
+            <p><strong>诉争商标注册申请被驳回，案件程序终结。</strong></p>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <h2>四、案件基本信息</h2>
+                <table class="info-table">
+                    <tbody>
+                        <tr>
+                            <td>案号</td>
+                            <td>(2021)京行终7712号</td>
+                        </tr>
+                        <tr>
+                            <td>案由</td>
+                            <td>商标行政管理（商标）</td>
+                        </tr>
+                        <tr>
+                            <td>诉争商标</td>
+                            <td>第22647284号"青岛春江"</td>
+                        </tr>
+                        <tr>
+                            <td>商标类别</td>
+                            <td>国际分类第30类</td>
+                        </tr>
+                        <tr>
+                            <td>申请日期</td>
+                            <td>2017年1月17日</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h2>五、程序信息</h2>
+                <table class="info-table">
+                    <tbody>
+                        <tr>
+                            <td>一审法院</td>
+                            <td>北京知识产权法院</td>
+                        </tr>
+                        <tr>
+                            <td>一审案号</td>
+                            <td>(2020)京73行初6324号</td>
+                        </tr>
+                        <tr>
+                            <td>二审法院</td>
+                            <td>北京市高级人民法院</td>
+                        </tr>
+                        <tr>
+                            <td>二审案号</td>
+                            <td>(2021)京行终7712号</td>
+                        </tr>
+                        <tr>
+                            <td>终审判决日期</td>
+                            <td>2021年12月16日</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <div class="summary-title">案件总结</div>
+            <p>本案为商标行政纠纷，申请人张某某就第22647284号"青岛春江"商标申请被驳回一事，历经商标审查、驳回复审、一审行政诉讼、二审行政诉讼，历时4年11个月，最终北京市高级人民法院作出终审判决，驳回上诉，维持原判，商标注册申请被驳回。</p>
+        </div>
+
+        <div class="page-footer">第 3 页 / 共 3 页</div>
+    </div>
+</body>
+</html>

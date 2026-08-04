@@ -1,0 +1,137 @@
+{
+  "name": "expert-pod-p1",
+  "version": "1.0.0",
+  "description": "P1: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p1-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p1-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p1-lead",
+    "memberAgents": [
+      "tax-individual-overseas-expert",
+      "tax-offshore-trust-expert",
+      "social-security-advisor-expert",
+      "tax-global-compliance-expert"
+    ]
+  },
+  "displayName": {
+    "en": "个人所得税与跨境财富团",
+    "zh": "个人所得税与跨境财富团"
+  },
+  "profession": {
+    "en": "个人所得税与跨境财富团",
+    "zh": "个人所得税与跨境财富团"
+  },
+  "displayDescription": {
+    "en": "P1: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「个人所得税与跨境财富团」：由主理人协调 4 名专题专家，覆盖境外所得/信托/CRS/移民税务合规，"
+  },
+  "avatar": "avatars/pod-p1-lead.svg",
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "我是「个人所得税与跨境财富团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 个人所得税与跨境财富团."
+  },
+  "plugin": "expert-pod-p1",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T2",
+      "zh": "T2优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p1-lead",
+      "displayName": {
+        "en": "私人财富税务总监",
+        "zh": "私人财富税务总监"
+      },
+      "profession": {
+        "en": "私人财富税务总监",
+        "zh": "私人财富税务总监"
+      },
+      "avatar": "avatars/pod-p1-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "tax-individual-overseas-expert",
+      "displayName": {
+        "en": "tax-individual-overseas",
+        "zh": "tax-individual-overseas"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-individual-overseas-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-offshore-trust-expert",
+      "displayName": {
+        "en": "tax-offshore-trust",
+        "zh": "tax-offshore-trust"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-offshore-trust-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "social-security-advisor-expert",
+      "displayName": {
+        "en": "social-security-advisor",
+        "zh": "social-security-advisor"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/social-security-advisor-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-global-compliance-expert",
+      "displayName": {
+        "en": "tax-global-compliance",
+        "zh": "tax-global-compliance"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-global-compliance-expert.svg",
+      "role": "member"
+    }
+  ]
+}

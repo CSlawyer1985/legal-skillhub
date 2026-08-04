@@ -1,0 +1,192 @@
+{
+  "mcpProtocol": "workbuddy-skill-linkage/v2",
+  "version": "3.0.0",
+  "description": "IP管理合规技能包 v3.0.0 - 技能间通信协议（独立技能架构）",
+  "architecture": "parent-skill-with-independent-sub-skills",
+  "parentSkill": {
+    "name": "ip-management-compliance",
+    "type": "parent-skill",
+    "description": "ISO 56005 知识产权全流程管控母技能（轻量化版）",
+    "endpoints": {
+      "dispatch": "/api/v2/dispatch",
+      "route": "/api/v2/route",
+      "aggregate": "/api/v2/aggregate"
+    }
+  },
+  "independentSubSkills": [
+    {
+      "name": "ip-mgmt-framework",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "4. IP management Framework",
+      "priority": "P0",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/framework/execute",
+        "report": "/api/v2/framework/report"
+      }
+    },
+    {
+      "name": "ip-mgmt-strategy",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "5. IP strategy",
+      "priority": "P1",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/strategy/execute",
+        "report": "/api/v2/strategy/report"
+      }
+    },
+    {
+      "name": "ip-mgmt-innovation",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "6.2-6.6 创新管理过程中的知识产权, Annex A 发明记录和披露",
+      "priority": "P1",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/innovation/execute",
+        "report": "/api/v2/innovation/report",
+        "stage-transition": "/api/v2/innovation/stage-transition"
+      }
+    },
+    {
+      "name": "ip-mgmt-tools",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "Tools and methods for patent information analysis",
+      "priority": "P2",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/tools/execute",
+        "recommend": "/api/v2/tools/recommend"
+      }
+    },
+    {
+      "name": "ip-mgmt-examination",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "附录B IP创造、获取和维护",
+      "priority": "P0",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/examination/execute",
+        "compliance-check": "/api/v2/examination/compliance-check"
+      }
+    },
+    {
+      "name": "ip-mgmt-risk",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "附录E IP风险管理的工具和方法",
+      "priority": "P0",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/risk/execute",
+        "fto": "/api/v2/risk/fto",
+        "alert": "/api/v2/risk/alert"
+      }
+    },
+    {
+      "name": "ip-mgmt-exploitation",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "附录F IP运用的工具和方法",
+      "priority": "P2",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/exploitation/execute",
+        "license": "/api/v2/exploitation/license",
+        "valuation": "/api/v2/exploitation/valuation"
+      }
+    },
+    {
+      "name": "ip-mgmt-audit",
+      "type": "independent-skill",
+      "parent": "ip-management-compliance",
+      "isoClause": "附录D IP评价的工具和方法",
+      "priority": "P1",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/audit/execute",
+        "evaluate": "/api/v2/audit/evaluate",
+        "review": "/api/v2/audit/review"
+      }
+    },
+    {
+      "name": "ip-mgmt-search",
+      "type": "shared-module",
+      "parent": "ip-management-compliance",
+      "isoClause": "Annex C. Tools and methods for IP search",
+      "priority": "P0",
+      "standalone": true,
+      "endpoints": {
+        "execute": "/api/v2/search/execute",
+        "bool": "/api/v2/search/bool",
+        "semantic": "/api/v2/search/semantic"
+      }
+    }
+  ],
+  "externalLinks": [
+    {
+      "name": "patent-infringement-guide",
+      "type": "external-skill",
+      "description": "专利侵权分析技能",
+      "linkageType": "bidirectional",
+      "protocols": ["skill-invoke", "data-exchange"],
+      "sharedData": [
+        "infringement-analysis",
+        "fto-report",
+        "avoidance-design"
+      ]
+    }
+  ],
+  "messageSchema": {
+    "request": {
+      "type": "object",
+      "properties": {
+        "from": { "type": "string", "description": "发送方技能名称" },
+        "to": { "type": "string", "description": "接收方技能名称" },
+        "action": { "type": "string", "description": "请求动作" },
+        "payload": { "type": "object", "description": "请求数据" },
+        "correlationId": { "type": "string", "description": "关联ID（链路追踪用）" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["from", "to", "action", "payload", "correlationId", "timestamp"]
+    },
+    "response": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string", "enum": ["success", "partial", "error"] },
+        "data": { "type": "object", "description": "响应数据" },
+        "errors": { "type": "array", "items": { "type": "string" } },
+        "correlationId": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["status", "correlationId", "timestamp"]
+    }
+  },
+  "dataExchangeFormats": {
+    "patent-application": {
+      "format": "xml",
+      "schema": "technical-scheme > features > feature",
+      "description": "技术方案结构化描述"
+    },
+    "risk-assessment": {
+      "format": "json",
+      "schema": "{riskId, category, probability, impact, level, treatment}",
+      "description": "风险评估结果"
+    },
+    "compliance-report": {
+      "format": "markdown",
+      "schema": "标准化合规检查报告格式",
+      "description": "合规检查报告"
+    },
+    "valuation-report": {
+      "format": "markdown",
+      "schema": "ISO 56005三维度价值评估报告",
+      "description": "专利价值评估报告"
+    }
+  }
+}

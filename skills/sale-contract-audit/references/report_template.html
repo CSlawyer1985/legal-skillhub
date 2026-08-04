@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>销售合同审核报告</title>
+    <style>
+:root{--primary:#2563eb;--primary-light:#3b82f6;--text-primary:#1f2937;--text-secondary:#6b7280;--bg-light:#f9fafb;--border:#e5e7eb;--risk-high:#dc2626;--risk-high-bg:#fef2f2;--risk-medium:#f59e0b;--risk-medium-bg:#fffbeb;--risk-low:#10b981;--risk-low-bg:#ecfdf5;--adv-bg:#eff6ff;--adv-border:#3b82f6;--white:#fff;--shadow:0 1px 3px rgba(0,0,0,0.1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.7;color:var(--text-primary);background:#f3f4f6;padding:20px}
+.report-container{max-width:900px;margin:0 auto;background:var(--white);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+.report-header{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:white;padding:30px 40px;text-align:center}
+.report-header h1{font-size:28px;font-weight:600;margin-bottom:15px;letter-spacing:2px}
+.report-meta{display:flex;justify-content:center;gap:30px;font-size:13px;opacity:0.9;flex-wrap:wrap}
+.report-content{padding:30px 40px}
+section{margin-bottom:32px}
+section h2{font-size:18px;font-weight:600;color:var(--text-primary);padding-bottom:10px;border-bottom:2px solid var(--primary);margin-bottom:20px}
+.summary-table{width:100%;border-collapse:collapse;font-size:13px}
+.summary-table th,.summary-table td{padding:10px 14px;text-align:left;border:1px solid var(--border)}
+.summary-table th{background:var(--primary);color:white;font-weight:600;text-align:center;font-size:12px}
+.summary-table tbody tr:nth-child(odd){background:var(--bg-light)}
+.summary-table tbody tr:hover{background:#f0f7ff}
+.summary-table td{color:var(--text-secondary)}
+.summary-table td:first-child{width:13%}
+.summary-table td:nth-child(2){width:14%}
+.risk-item{padding:14px 20px;margin-bottom:14px;border-radius:6px;border-left:4px solid var(--risk-high);background:var(--risk-high-bg)}
+.risk-item.medium{background:var(--risk-medium-bg);border-color:var(--risk-medium)}
+.risk-item.low{background:var(--risk-low-bg);border-color:var(--risk-low)}
+.risk-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.risk-level{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;text-transform:uppercase;background:var(--risk-high);color:white}
+.risk-level.medium{background:var(--risk-medium);color:white}
+.risk-level.low{background:var(--risk-low);color:white}
+.risk-title{font-weight:600;color:var(--text-primary);font-size:14px}
+.risk-clause{font-size:11px;color:#8b5cf6;margin-left:6px;white-space:nowrap}
+.risk-dimension{font-size:11px;color:var(--text-secondary);margin-left:auto}
+.risk-description{color:var(--text-secondary);font-size:13px;margin-top:4px}
+.suggestion-item{padding:14px 20px;margin-bottom:14px;background:var(--bg-light);border-radius:6px;border-left:3px solid var(--primary)}
+.suggestion-header{font-weight:600;color:var(--text-primary);margin-bottom:6px;font-size:14px}
+.suggestion-content{color:var(--text-secondary);font-size:13px}
+.suggestion-content ul{margin-left:18px;margin-top:4px}
+.suggestion-content li{margin-bottom:3px}
+.advantage-item{padding:9px 14px;margin-bottom:6px;background:var(--adv-bg);border-radius:4px;border-left:3px solid var(--adv-border);font-size:13px;color:var(--text-secondary)}
+.advantage-item strong{color:var(--primary)}
+.note-item{padding:9px 14px;margin-bottom:6px;background:#fefce8;border-radius:4px;border-left:3px solid #eab308;font-size:13px;color:var(--text-secondary)}
+.clause-item{margin-bottom:18px;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.clause-header{background:var(--bg-light);padding:11px 18px;font-weight:600;font-size:13px;border-bottom:1px solid var(--border)}
+.clause-content{padding:16px 18px;background:white;font-size:13px;line-height:1.8}
+.clause-content pre{white-space:pre-wrap;word-wrap:break-word;background:#f8f9fa;padding:14px;border-radius:4px;overflow-x:auto;font-size:12px}
+.conclusion-box{background:var(--bg-light);border-radius:8px;padding:20px;border:1px solid var(--border)}
+.conclusion-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.conclusion-label{font-size:16px;font-weight:600;color:var(--text-primary)}
+.conclusion-rating{padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600}
+.conclusion-rating.low{background:var(--risk-low-bg);color:var(--risk-low)}
+.conclusion-rating.medium{background:var(--risk-medium-bg);color:var(--risk-medium)}
+.conclusion-rating.high{background:var(--risk-high-bg);color:var(--risk-high)}
+.conclusion-content{color:var(--text-secondary);font-size:14px;line-height:1.8;margin-bottom:18px}
+.conclusion-content p{margin-bottom:10px}
+.conclusion-content ul{margin-left:18px}
+.conclusion-content li{margin-bottom:4px}
+.conclusion-signature{display:flex;gap:30px;padding-top:14px;border-top:1px dashed var(--border)}
+.signature-item{display:flex;align-items:center;gap:8px}
+.signature-label{font-size:12px;color:var(--text-secondary)}
+.signature-value{font-weight:600;color:var(--text-primary);font-size:13px}
+.report-footer{background:var(--bg-light);padding:18px 40px;text-align:center;color:var(--text-secondary);font-size:11px;border-top:1px solid var(--border)}
+@media print{body{background:white;padding:0}.report-container{box-shadow:none}.report-header{-webkit-print-color-adjust:exact;print-color-adjust:exact}.risk-item,.risk-level{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@media(max-width:768px){.report-header{padding:20px}.report-meta{flex-direction:column;gap:8px}.report-content{padding:20px}.summary-table{font-size:11px}.summary-table th,.summary-table td{padding:7px 8px}.conclusion-signature{flex-direction:column;gap:8px}}
+    </style>
+</head>
+<body>
+    <div class="report-container">
+
+        <header class="report-header">
+            <h1>销售合同审核报告</h1>
+            <div class="report-meta">
+                <span>审核日期：{{audit_date}}</span>
+                <span>合同名称：{{contract_name}}</span>
+                <span>审核视角：乙方（卖方）</span>
+            </div>
+        </header>
+
+        <div class="report-content">
+
+            <!-- 一、合同要点总结 -->
+            <section>
+                <h2>一、合同要点总结</h2>
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>类别</th>
+                            <th>项目</th>
+                            <th>内容</th>
+                            <th>乙方视角评价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>合同主体</td>
+                            <td>甲方（买方）</td>
+                            <td>{{party_a}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>合同主体</td>
+                            <td>乙方（卖方）</td>
+                            <td>{{party_b}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>合同标的</td>
+                            <td>标的名称</td>
+                            <td>{{subject}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>合同金额</td>
+                            <td>合同总价</td>
+                            <td>{{total_amount}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>付款条件</td>
+                            <td>付款方式</td>
+                            <td>{{payment_method}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>付款条件</td>
+                            <td>付款节点</td>
+                            <td>{{payment_terms}}</td>
+                            <td>{{payment_risk}}</td>
+                        </tr>
+                        <tr>
+                            <td>交付安排</td>
+                            <td>交付时间</td>
+                            <td>{{delivery_time}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>交付安排</td>
+                            <td>验收期</td>
+                            <td>{{acceptance_period}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>质保安排</td>
+                            <td>质保期</td>
+                            <td>{{warranty_period}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>合同期限</td>
+                            <td>生效条件</td>
+                            <td>{{effective_condition}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>合同期限</td>
+                            <td>终止条件</td>
+                            <td>{{termination_condition}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>争议解决</td>
+                            <td>管辖约定</td>
+                            <td>{{jurisdiction}}</td>
+                            <td>{{jurisdiction_risk}}</td>
+                        </tr>
+                        <tr>
+                            <td>违约责任</td>
+                            <td>甲方违约责任</td>
+                            <td>{{party_a_liability}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>违约责任</td>
+                            <td>乙方违约责任</td>
+                            <td>{{party_b_liability}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 二、潜在风险点 -->
+            <section>
+                <h2>二、潜在风险点（仅列出对乙方不利的条款）</h2>
+                {{risk_items}}
+            </section>
+
+            <!-- 三、修改建议 -->
+            <section>
+                <h2>三、修改建议</h2>
+                {{suggestion_items}}
+            </section>
+
+            <!-- 四、参考条款 -->
+            <section>
+                <h2>四、参考条款</h2>
+                {{reference_clauses}}
+            </section>
+
+            <!-- 五、审核结论 -->
+            <section>
+                <h2>五、审核结论</h2>
+                <div class="conclusion-box">
+                    <div class="conclusion-header">
+                        <span class="conclusion-label">综合风险评级</span>
+                        <span class="conclusion-rating {{risk_rating_class}}">{{risk_rating}}</span>
+                    </div>
+                    <div class="conclusion-content">
+                        <p><strong>整体评价：</strong>{{overall_evaluation}}</p>
+
+                        <p><strong>乙方优势条款（建议保留）：</strong></p>
+                        {{advantage_items}}
+
+                        <p><strong>可优化项（{{optimization_count}}项，均非签约前提）：</strong></p>
+                        <ul>
+                            {{optimization_items}}
+                        </ul>
+
+                        <p><strong>履约注意事项：</strong></p>
+                        {{performance_notes}}
+
+                        <p><strong>签约建议：</strong>{{signing_suggestion}}</p>
+                    </div>
+                    <div class="conclusion-signature">
+                        <div class="signature-item">
+                            <span class="signature-label">审核人：</span>
+                            <span class="signature-value">AI合同审核系统</span>
+                        </div>
+                        <div class="signature-item">
+                            <span class="signature-label">审核日期：</span>
+                            <span class="signature-value">{{audit_date}}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="report-footer">
+            <p>本报告仅供参考，不构成法律意见。具体合同条款的效力及风险需结合实际情况判断，建议咨询专业律师。</p>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,342 @@
+id: procurement_framework
+name: "采购框架协议"
+description: "采购框架协议审查规则集，涵盖主体资格、价格条款、交付条件、验收标准、违约责任等核心风险维度"
+created: "2026-07-20"
+version: "1.0"
+
+rules:
+  # ==================== 主体资格审查 ====================
+  - id: PF001
+    category: subject_risk
+    name: "采购方主体资格"
+    description: "采购方应具备合法有效的主体资格，未被列入经营异常名录或严重违法失信名单"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询采购方企业信用信息，核实营业执照是否有效、是否被列入经营异常名录"
+    legal_basis: "《民法典》第143条、《公司法》第15条、《公司法》第198条"
+    suggestion: "要求采购方提供营业执照副本、最新企业信用信息公示报告，核实主体资格合法性"
+    enabled: true
+
+  - id: PF002
+    category: subject_risk
+    name: "供应商主体资格"
+    description: "供应商应具备相应的经营资质和生产供应能力，特定行业需具备许可证"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示核实供应商的经营范围是否涵盖所供货物/服务，是否需要特殊资质"
+    legal_basis: "《民法典》第502条、《市场主体登记管理条例》第21条"
+    suggestion: "要求供应商提供营业执照、行业资质证书、质量管理体系证书等资质文件"
+    enabled: true
+
+  - id: PF003
+    category: subject_risk
+    name: "授权代表权限"
+    description: "签约代表应具有合法有效的授权委托书，授权范围应涵盖本协议签署事项"
+    severity: high
+    check_type: prompt_check
+    check_rule: "提示核实签约代表是否持有有效的授权委托书，授权范围是否包括签署本协议"
+    legal_basis: "《民法典》第170条、《民法典》第172条（表见代理）"
+    suggestion: "要求提供法定代表人身份证明及授权委托书，核实授权范围和期限"
+    enabled: true
+
+  - id: PF004
+    category: subject_risk
+    name: "经营范围合规性"
+    description: "协议所涉货物或服务应在双方经营范围内，不得违反国家限制或禁止性规定"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示核查协议标的物是否属于国家限制或禁止经营范畴，是否需要特许经营许可"
+    legal_basis: "《民法典》第153条、《行政许可法》第12条"
+    suggestion: "核实标的物是否需要进出口许可、特种经营许可等前置审批"
+    enabled: true
+
+  # ==================== 价格条款 ====================
+  - id: PF005
+    category: price_risk
+    name: "价格确定方式"
+    description: "框架协议应明确价格确定方式：固定价格、浮动价格或按订单确认"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "审查是否明确价格确定机制，固定价格需注明有效期，浮动价格需注明调价机制"
+    legal_basis: "《民法典》第510条、《民法典》第511条第（二）项"
+    suggestion: "建议明确：固定价格设有效期（如12个月），浮动价格设定触发条件和调价公式"
+    enabled: true
+
+  - id: PF006
+    category: price_risk
+    name: "价格调整机制"
+    description: "框架协议期限较长时，应设置合理的价格调整机制，避免价格锁定导致显失公平"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查协议期限超过6个月的是否设置了价格调整条款，调价触发条件是否合理"
+    legal_basis: "《民法典》第533条（情势变更）、《民法典》第543条"
+    suggestion: "建议约定：原材料价格波动超过±10%时可启动调价，或每年定期评审调整"
+    enabled: true
+
+  - id: PF007
+    category: price_risk
+    name: "价格含税条款"
+    description: "价格条款应明确是否含税、税率类型，以及税率变化时的处理方式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否注明价格是否含增值税、税率标准，是否约定税率政策变化时的处理方式"
+    legal_basis: "《增值税暂行条例》第1条、《民法典》第511条"
+    suggestion: "建议明确：含税价/不含税价、适用税率、税率变化时的价格调整计算公式"
+    enabled: true
+
+  - id: PF008
+    category: price_risk
+    name: "付款条件与账期"
+    description: "付款条件应明确约定付款方式、账期、发票要求，避免无限期拖延付款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否明确付款节点、账期天数（不超过60天为佳）、付款前置条件"
+    legal_basis: "《民法典》第626条、《民法典》第628条、《保障中小企业款项支付条例》第8条"
+    suggestion: "建议约定：验收合格后X日内付款，逾期按LPR的1.5倍计算利息"
+    enabled: true
+
+  - id: PF009
+    category: price_risk
+    name: "质保金条款"
+    description: "涉及货物采购的，应合理约定质保金比例和退还条件"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查质保金比例是否合理（通常不超过合同总额10%），退还条件是否明确"
+    legal_basis: "《民法典》第586条（定金规则类推）、《建设工程质量保证金管理办法》第7条（参考）"
+    suggestion: "建议质保金不超过5%，质保期届满无质量问题后30日内无息退还"
+    enabled: true
+
+  - id: PF010
+    category: price_risk
+    name: "违约金与定金竞合"
+    description: "违约金与定金条款不得同时适用，违约金比例应合理"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查违约金和定金条款是否并存，违约金比例是否超过实际损失30%（过高可请求调减）"
+    legal_basis: "《民法典》第588条（定金与违约金择一适用）、《民法典》第585条"
+    suggestion: "建议明确选择适用违约金或定金条款，违约金不超过合同总额30%"
+    enabled: true
+
+  # ==================== 交付条件 ====================
+  - id: PF011
+    category: delivery_risk
+    name: "交付方式与地点"
+    description: "应明确交付方式（自提/送货上门）和具体交付地点，影响风险转移"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "审查是否明确交付方式、具体地点（精确到门牌号），交付前的风险承担主体"
+    legal_basis: "《民法典》第603条、《民法典》第604条、《民法典》第511条第（三）项"
+    suggestion: "建议约定：供方送货至指定仓库，需方验收合格签收后风险转移"
+    enabled: true
+
+  - id: PF012
+    category: delivery_risk
+    name: "交付时间约定"
+    description: "框架协议下的具体交付时间应在订单中明确，框架协议本身应约定订单确认流程"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查框架协议是否约定订单提交方式、确认时限、每笔订单的交付周期"
+    legal_basis: "《民法典》第495条（预约合同）、《民法典》第628条"
+    suggestion: "建议约定：需方提前X日下单，供方X日内确认，确认后X日内交付"
+    enabled: true
+
+  - id: PF013
+    category: delivery_risk
+    name: "分批交付条款"
+    description: "大额采购允许分批交付的，应明确批次、数量和拒收条件"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查分批交付是否约定每批数量、时间，一批不合格是否影响后续批次"
+    legal_basis: "《民法典》第634条（分期付款类推适用）、《民法典》第610条"
+    suggestion: "建议约定：各批次独立交付验收，一批不合格不必然影响后续批次，但累计3批不合格可解除协议"
+    enabled: true
+
+  - id: PF014
+    category: delivery_risk
+    name: "包装与运输"
+    description: "应明确包装标准、运输方式、保险安排及费用承担"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查包装是否符合运输要求，运输费用和保险费由谁承担，是否约定保险险种"
+    legal_basis: "《民法典》第811条、《民法典》第603条第2款"
+    suggestion: "建议约定：供方负责包装和运输，包装符合作业标准，运输保险由供方承担"
+    enabled: true
+
+  - id: PF015
+    category: delivery_risk
+    name: "所有权与风险转移"
+    description: "应明确货物所有权转移时间和风险转移时间，避免争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查是否单独约定所有权保留条款，风险转移时点是否与交付地点一致"
+    legal_basis: "《民法典》第641条（所有权保留）、《民法典》第604条"
+    suggestion: "建议约定：需方付清全款前货物所有权归供方，风险自交付验收后转移"
+    enabled: true
+
+  - id: PF016
+    category: delivery_risk
+    name: "延迟交付责任"
+    description: "应明确延迟交付的违约责任，包括违约金比例和需方解除权"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否约定延迟交付违约金（建议每日0.1%-0.5%），是否约定超期解除权"
+    legal_basis: "《民法典》第585条、《民法典》第563条第（三）项"
+    suggestion: "建议约定：每延迟1日按货物总值0.2%支付违约金，延迟超15日需方有权解除该笔订单"
+    enabled: true
+
+  # ==================== 验收标准 ====================
+  - id: PF017
+    category: acceptance_risk
+    name: "验收标准与方法"
+    description: "应明确验收标准（国标/行标/合同约定）、验收方法（全检/抽检）和验收期限"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "审查验收标准是否具体可量化（如GB/T XXXX），验收方法是否合理，验收期限是否明确"
+    legal_basis: "《民法典》第510条、《民法典》第511条第（一）项、《产品质量法》第26条"
+    suggestion: "建议约定：按GB/T XXXX标准验收，到货后7日内完成外观验收，30日内完成性能验收"
+    enabled: true
+
+  - id: PF018
+    category: acceptance_risk
+    name: "异议期限与方式"
+    description: "应明确需方提出质量异议的期限和方式，避免权利丧失"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否约定外观瑕疵和隐蔽瑕疵的不同异议期限，异议是否需书面形式"
+    legal_basis: "《民法典》第621条、《民法典》第622条"
+    suggestion: "建议约定：外观瑕疵到货7日内提出，隐蔽瑕疵发现后15日内提出，书面通知供方"
+    enabled: true
+
+  - id: PF019
+    category: acceptance_risk
+    name: "验收不合格的处理"
+    description: "应约定货物验收不合格时的处理方式：修理、更换、退货、折价"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否约定不合格货物的处理选择权归属（需方选择还是供方选择）"
+    legal_basis: "《民法典》第582条、《民法典》第583条、《民法典》第617条"
+    suggestion: "建议约定：需方有权选择修理、更换或退货，供方承担由此产生的费用和损失"
+    enabled: true
+
+  - id: PF020
+    category: acceptance_risk
+    name: "第三方检测"
+    description: "对于技术复杂的货物，应约定第三方检测机构的选定和检测结果效力"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查是否约定双方对质量标准有争议时提交第三方检测，检测费用承担"
+    legal_basis: "《民事诉讼法》第79条（司法鉴定）、《民法典》第510条"
+    suggestion: "建议约定：争议时提交双方共同认可的CMA/CNA检测机构，检测费用由败诉方承担"
+    enabled: true
+
+  # ==================== 违约责任 ====================
+  - id: PF021
+    category: liability_risk
+    name: "违约责任对等性"
+    description: "违约责任条款应权利义务对等，不得仅单方加重对方责任"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "审查双方违约责任是否对等，是否仅一方承担高额违约金另一方违约无相应责任"
+    legal_basis: "《民法典》第496条（格式条款）、《民法典》第497条"
+    suggestion: "建议确保违约责任对等：逾期付款和逾期交付的违约金比例应一致"
+    enabled: true
+
+  - id: PF022
+    category: liability_risk
+    name: "违约金合理性"
+    description: "违约金约定应合理，过高可能被法院调减，过低则无法弥补损失"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查违约金计算基数和比例，总额是否超过合同总值的30%，是否区分根本违约和一般违约"
+    legal_basis: "《民法典》第585条第2款、《最高人民法院关于适用合同法若干问题的解释(二)》第29条"
+    suggestion: "建议：一般违约按日0.1%，根本违约按总额20%，并约定违约方承担维权费用（律师费、保全费）"
+    enabled: true
+
+  - id: PF023
+    category: liability_risk
+    name: "协议解除权"
+    description: "应明确约定双方解除协议的条件、程序和后果"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "审查是否约定法定解除之外的约定解除权，解除通知义务，解除后的结算条款"
+    legal_basis: "《民法典》第562条、《民法典》第563条、《民法典》第566条"
+    suggestion: "建议约定：严重违约30日内未补救可解除，解除后已完成订单按实结算，未交货部分终止"
+    enabled: true
+
+  - id: PF024
+    category: liability_risk
+    name: "损失赔偿范围"
+    description: "应明确损失赔偿范围，包括直接损失和可预见的间接损失"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否区分直接损失和间接损失，是否排除可得利益损失，"
+    legal_basis: "《民法典》第584条（可预见规则）、《民法典》第591条（减损规则）"
+    suggestion: "建议明确：赔偿范围包括实际损失和合同履行后可获得的利益，但以违约方预见到或应当预见到的损失为限"
+    enabled: true
+
+  - id: PF025
+    category: liability_risk
+    name: "知识产权侵权责任"
+    description: "供应商应保证所供货物不侵犯第三方知识产权，约定侵权赔偿责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否包含知识产权保证条款，侵权发生时的通知义务和赔偿安排"
+    legal_basis: "《民法典》第1165条、《专利法》第71条、《商标法》第63条"
+    suggestion: "建议约定：供方承担因知识产权侵权导致需方遭受的全部损失和维权费用"
+    enabled: true
+
+  - id: PF026
+    category: liability_risk
+    name: "保密义务与违约"
+    description: "应明确双方对商业秘密和技术信息的保密义务及违反后果"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查是否界定保密信息范围、保密期限（一般不低于协议终止后3年）、违反保密义务的赔偿"
+    legal_basis: "《民法典》第501条、《反不正当竞争法》第9条、《民法典》第584条"
+    suggestion: "建议约定：保密信息定义明确，保密期限不少于协议终止后3年，违反按实际损失赔偿"
+    enabled: true
+
+  # ==================== 特殊条款 ====================
+  - id: PF027
+    category: special_risk
+    name: "不可抗力条款"
+    description: "应明确不可抗力的范围、通知义务和对协议履行的影响"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查是否明确不可抗力定义（是否包含疫情、极端天气），通知期限（通常15日），后果处理"
+    legal_basis: "《民法典》第180条、《民法典》第590条"
+    suggestion: "建议约定：不可抗力发生后15日内书面通知，30日未消除可部分或全部解除"
+    enabled: true
+
+  - id: PF028
+    category: special_risk
+    name: "争议解决方式"
+    description: "应明确约定争议解决方式（诉讼/仲裁）和管辖地点"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查争议解决条款是否明确唯一（不得同时约定诉讼和仲裁），管辖地点是否有利"
+    legal_basis: "《民事诉讼法》第35条、《仲裁法》第4条、《仲裁法》第16条"
+    suggestion: "建议优先选择诉讼方式，约定由需方所在地人民法院管辖（便利原则）"
+    enabled: true
+
+  - id: PF029
+    category: special_risk
+    name: "协议期限与续签"
+    description: "应明确协议有效期限、自动续签条件和终止通知期限"
+    severity: high
+    check_type: prompt_check
+    check_rule: "审查固定期限还是无固定期限，自动续签是否有效（需明示同意），终止通知期限"
+    legal_basis: "《民法典》第563条第（一）项、《民法典》第502条"
+    suggestion: "建议约定：固定期限1年，届满前30日书面通知终止，未通知不自动续签（避免无限期锁定）"
+    enabled: true
+
+  - id: PF030
+    category: special_risk
+    name: "反商业贿赂条款"
+    description: "应包含反商业贿赂条款，明确禁止商业贿赂行为和违反后果"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "审查是否约定反商业贿赂承诺，违反时的解除权和赔偿责任"
+    legal_basis: "《反不正当竞争法》第7条、《民法典》第143条、《刑法》第164条"
+    suggestion: "建议约定：双方承诺遵守反商业贿赂法律法规，违反方承担违约金并赔偿损失，守约方有权解除协议"
+    enabled: true

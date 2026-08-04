@@ -1,0 +1,256 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "电信服务合同",
+  "contract_type_en": "telecom",
+  "description": "基础电信服务、增值电信服务、互联网接入服务等电信合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国电信条例》",
+    "《电信服务规范》"
+  ],
+  "keywords_for_detection": [
+    "电信", "通信", "宽带", "手机", "流量", "套餐",
+    "增值电信", "ICP", "ISP", "服务商", "运营商"
+  ],
+  "key_clauses": [
+    {
+      "name": "服务内容",
+      "required": true,
+      "keywords": ["服务内容", "套餐", "服务类型", "带宽", "速率"],
+      "check_points": [
+        {
+          "item": "服务类型",
+          "description": "服务类型是否明确（基础/增值/互联网接入）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "服务标准",
+          "description": "服务标准（带宽/速率）是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确服务类型和服务标准"
+    },
+    {
+      "name": "资费和计费",
+      "required": true,
+      "keywords": ["资费", "月租", "计费", "费用", "套餐费"],
+      "check_points": [
+        {
+          "item": "资费明确",
+          "description": "服务费用标准是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "计费方式",
+          "description": "计费方式（包月/按量/阶梯）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用调整",
+          "description": "费用调整条件和程序",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确资费标准、计费方式、费用调整机制"
+    },
+    {
+      "name": "服务期限",
+      "required": true,
+      "keywords": ["服务期限", "合同期限", "生效", "终止"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "服务期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "自动续约",
+          "description": "自动续约条款",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确服务期限和自动续约条款"
+    },
+    {
+      "name": "服务质量",
+      "required": true,
+      "keywords": ["服务质量", "SLA", "故障处理", "维护"],
+      "check_points": [
+        {
+          "item": "服务等级",
+          "description": "服务等级协议（SLA）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "故障处理",
+          "description": "故障响应和处理时限",
+          "risk_level": "重大"
+        },
+        {
+          "item": "赔偿机制",
+          "description": "服务未达标的赔偿机制",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确SLA、故障处理时限、赔偿机制"
+    },
+    {
+      "name": "用户权利",
+      "required": true,
+      "keywords": ["携号转网", "过户", "暂停", "销号"],
+      "check_points": [
+        {
+          "item": "携号转网",
+          "description": "携号转网权利",
+          "risk_level": "一般"
+        },
+        {
+          "item": "暂停服务",
+          "description": "暂停服务的条件和费用",
+          "risk_level": "重大"
+        },
+        {
+          "item": "退款",
+          "description": "退款条件和标准",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确携号转网、暂停服务、退款等用户权利"
+    },
+    {
+      "name": "号码与资源",
+      "required": false,
+      "keywords": ["号码", "资源", "IP地址", "域名"],
+      "check_points": [
+        {
+          "item": "号码归属",
+          "description": "号码资源归属（通常归运营商）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "资源使用",
+          "description": "IP地址等资源使用权限",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确号码和资源归属"
+    },
+    {
+      "name": "信息安全",
+      "required": true,
+      "keywords": ["信息安全", "内容监管", "违法内容", "用户数据"],
+      "check_points": [
+        {
+          "item": "内容责任",
+          "description": "用户发布违法内容的责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "数据保护",
+          "description": "用户数据保护义务",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确用户内容责任、运营商数据保护义务"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "TEL001",
+      "name": "服务标准不达标",
+      "description": "带宽/速率远低于约定标准",
+      "severity": "高风险",
+      "suggestion": "明确带宽/速率标准，约定不达标的赔偿机制",
+      "legal_basis": "《电信服务规范》"
+    },
+    {
+      "id": "TEL002",
+      "name": "自动续约无提示",
+      "description": "服务到期自动续约，用户不知情",
+      "severity": "中风险",
+      "suggestion": "约定到期前提示用户，赋予选择权"
+    },
+    {
+      "id": "TEL003",
+      "name": "费用不透明",
+      "description": "套餐外费用不透明，产生天价账单",
+      "severity": "高风险",
+      "suggestion": "明确套餐外计费标准，设置费用上限"
+    },
+    {
+      "id": "TEL004",
+      "name": "号码资源归属争议",
+      "description": "用户对号码归属产生争议",
+      "severity": "中风险",
+      "suggestion": "明确号码资源归属，通常号码归运营商所有"
+    },
+    {
+      "id": "TEL005",
+      "name": "用户数据泄露",
+      "description": "运营商泄露用户通信数据和个人信息",
+      "severity": "高风险",
+      "suggestion": "明确用户数据保护义务，约定泄露赔偿责任",
+      "legal_basis": "《个人信息保护法》"
+    }
+  ],
+  "position_guidance": {
+    "user": {
+      "name": "用户",
+      "priority_checks": [
+        "服务标准",
+        "资费标准",
+        "服务质量",
+        "退款机制"
+      ],
+      "key_concerns": [
+        "明确服务带宽/速率",
+        "了解所有费用",
+        "约定不达标的赔偿",
+        "了解退款条件"
+      ],
+      "avoid": [
+        "自动续约无提示",
+        "套餐外高费用",
+        "服务标准不明确",
+        "无赔偿机制"
+      ]
+    },
+    "operator": {
+      "name": "运营商",
+      "priority_checks": [
+        "号码归属",
+        "费用标准",
+        "用户责任",
+        "服务范围"
+      ],
+      "key_concerns": [
+        "明确号码归属",
+        "约定费用标准",
+        "用户内容责任",
+        "合理界定服务范围"
+      ],
+      "avoid": [
+        "服务标准过高",
+        "赔偿机制过宽",
+        "号码归属不明",
+        "退款条件过宽"
+      ]
+    }
+  },
+  "legal_notes": {
+    "service_standards": {
+      "description": "电信服务规范",
+      "bandwidth": "有线宽带：接入速率不低于标称速率的90%",
+      "mobile": "移动电话：通话建立时间不超过15秒",
+      "fault": "障碍修复时限：一般不超过24小时",
+      "legal_basis": "《电信服务规范》"
+    },
+    "number_portability": {
+      "description": "携号转网",
+      "rule": "用户有权在不改变号码的情况下选择不同的电信业务经营者",
+      "condition": "实名制用户方可办理携号转网"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国税务全业务办理指南与合规指引 · 办税路径自检</title>
+<style>
+  body{font-family:-apple-system,"Microsoft YaHei",sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#1f2933}
+  h1{font-size:20px;margin-bottom:8px}
+  .card{border:1px solid #e4e7eb;border-radius:10px;padding:16px;margin:12px 0;background:#fafbfc}
+  label{display:block;font-weight:600;margin:10px 0 4px}
+  select,textarea{width:100%;padding:8px;border:1px solid #cbd2d9;border-radius:6px;font-size:14px}
+  button{margin-top:14px;background:#2563eb;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-size:14px;cursor:pointer}
+  .tip{color:#7b8794;font-size:12px;margin-top:6px}
+</style>
+</head>
+<body>
+<h1>中国税务全业务办理指南与合规指引 · 办税路径自检</h1>
+<div class="card">
+  <label>选择办税场景</label>
+  <select id="scene">
+    <option>新办企业办税（新办纳税人套餐）</option>
+    <option>税务登记与信息确认</option>
+    <option>发票票种核定与领用</option>
+    <option>增值税/企业所得税/个税申报</option>
+    <option>出口退税备案与申报</option>
+    <option>税务注销与清税申报</option>
+    <option>税收优惠备案与延期申报</option>
+    <option>退税申请与纳税信用修复</option>
+  </select>
+  <label>补充描述（可选）</label>
+  <textarea id="desc" rows="3" placeholder="例如：我是小规模纳税人，想了解季度申报路径与资料"></textarea>
+  <button onclick="build()">生成深度分析提示词</button>
+  <p class="tip">本页为轻量体验版；复制下方提示词回对话，即可获取更有针对性的办税操作路径与表单填写要点。</p>
+  <textarea id="out" rows="5" readonly style="margin-top:10px"></textarea>
+</div>
+<script>
+function build(){
+  var s=document.getElementById('scene').value;
+  var d=document.getElementById('desc').value;
+  document.getElementById('out').value='请按【中国税务全业务办理指南与合规指引】给出操作路径：场景='+s+'；'+(d?('补充：'+d+'；'):'')+'请给出电子税务局菜单路径、所需资料、办理时限与常见易错点。';
+}
+</script>
+</body>
+</html>

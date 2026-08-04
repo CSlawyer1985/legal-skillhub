@@ -1,0 +1,261 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-30",
+  "author": "Josh Larkin, CementOps AI",
+  "notes": "Hazard classification system for cement plant operations. Categories map to 30 CFR Part 56 standards. Default risk scores: 1=low, 2=minor, 3=moderate, 4=serious, 5=imminent danger. Always err toward higher risk when uncertain.",
+  "categories": [
+    {
+      "id": "MECH",
+      "name": "Mechanical / Caught-In / Struck-By",
+      "subcategories": [
+        "rotating_equipment",
+        "conveyor_system",
+        "crusher",
+        "ball_mill",
+        "vertical_roller_mill",
+        "kiln_drive_girth_gear",
+        "id_fan",
+        "process_fan",
+        "pump",
+        "bucket_elevator",
+        "screw_conveyor",
+        "compressor"
+      ],
+      "keywords": ["guard", "pinch point", "nip point", "rotating", "moving parts", "caught", "crush", "entangle", "struck by", "conveyor", "belt", "pulley", "shaft", "gear", "sprocket", "chain", "coupling", "flywheel", "fan blade"],
+      "default_risk": 4,
+      "common_citations": ["56.14107(a)", "56.14107(b)", "56.14112", "56.14100(b)"],
+      "cement_specific_notes": "Conveyor guarding is the #1 citation area in cement. Head pulleys, tail pulleys, drive shafts, and return idlers on the hundreds of conveyors in a typical plant are constant targets. Kiln girth gear and trunnion areas are also high-risk."
+    },
+    {
+      "id": "FALL",
+      "name": "Fall Hazards",
+      "subcategories": [
+        "elevated_work_platform",
+        "floor_opening",
+        "ladder",
+        "scaffold",
+        "roof_work",
+        "preheater_tower",
+        "silo_top",
+        "kiln_hood",
+        "clinker_cooler_roof",
+        "conveyor_gallery",
+        "stairway",
+        "man_lift"
+      ],
+      "keywords": ["height", "edge", "opening", "fall", "harness", "guardrail", "ladder", "scaffold", "railing", "handrail", "tie-off", "lanyard", "elevated", "platform", "drop"],
+      "default_risk": 4,
+      "common_citations": ["56.15005", "56.15020", "56.11001", "56.11002", "56.11027"],
+      "cement_specific_notes": "Preheater towers (200-400 feet) are the highest fall hazard structures. Silo tops, kiln hood areas, and elevated conveyor galleries are also high-risk. Fall protection is needed above 6 feet without guardrails."
+    },
+    {
+      "id": "ELEC",
+      "name": "Electrical",
+      "subcategories": [
+        "lockout_tagout",
+        "exposed_wiring",
+        "grounding",
+        "arc_flash",
+        "mcc_room",
+        "transformer",
+        "switchgear",
+        "vfd_panel",
+        "junction_box",
+        "trailing_cable",
+        "ground_fault",
+        "lighting_circuit"
+      ],
+      "keywords": ["electrical", "voltage", "lockout", "energized", "shock", "arc flash", "loto", "breaker", "wiring", "cable", "conductor", "grounding", "panel", "switchgear", "mcc"],
+      "default_risk": 5,
+      "common_citations": ["56.12016", "56.12025", "56.12032", "56.12004"],
+      "cement_specific_notes": "Cement plants have extensive high-voltage distribution (4160V, 13.8kV). MCC rooms, substations, and VFD panels are everywhere. LOTO violations are almost always S&S. Arc flash incidents at MCC panels are the leading cause of electrical fatalities in heavy industry."
+    },
+    {
+      "id": "RESP",
+      "name": "Respiratory / Dust Exposure",
+      "subcategories": [
+        "crystalline_silica",
+        "cement_kiln_dust",
+        "calcium_oxide_quicklime",
+        "calcium_hydroxide_hydrated_lime",
+        "portland_cement_dust",
+        "calcium_sulfate_gypsum",
+        "coal_dust",
+        "pet_coke_dust",
+        "fly_ash"
+      ],
+      "keywords": ["dust", "respiratory", "mask", "silica", "exposure", "breathing", "particulate", "cement dust", "kiln dust", "lime dust", "calcium oxide", "respirable", "airborne", "dust cloud", "inhalation"],
+      "default_risk": 3,
+      "common_citations": ["56.5001", "56.5005", "56.5050"],
+      "cement_specific_notes": "Crystalline silica is the primary respiratory hazard in cement manufacturing. The PEL for respirable crystalline silica is 50 ug/m3 (TWA). Cement kiln dust (CKD) and quicklime (CaO) are also significant — CaO causes chemical burns to lungs and skin. MSHA conducts personal dust sampling during inspections."
+    },
+    {
+      "id": "CONF",
+      "name": "Confined Space",
+      "subcategories": [
+        "silo",
+        "bin",
+        "hopper",
+        "tank",
+        "preheater_cyclone",
+        "kiln_interior",
+        "clinker_cooler_interior",
+        "baghouse_hopper",
+        "mill_interior",
+        "duct",
+        "vessel"
+      ],
+      "keywords": ["confined", "entry", "permit", "atmosphere", "oxygen", "silo", "bin", "hopper", "tank", "vessel", "enter", "inside"],
+      "default_risk": 5,
+      "common_citations": ["56.5002", "56.5005"],
+      "cement_specific_notes": "Cement plants have more confined spaces per acre than almost any other industry. Silos (raw, clinker, cement, additives), preheater cyclones, kiln interior, mill interiors, baghouse hoppers, cooler compartments. Engulfment by material is a constant risk in silos and bins. Atmosphere can be oxygen-deficient or CO-enriched in enclosed spaces near the kiln."
+    },
+    {
+      "id": "THER",
+      "name": "Thermal / Burns",
+      "subcategories": [
+        "kiln_shell_hot_spot",
+        "clinker_contact",
+        "hot_surface",
+        "molten_material",
+        "refractory_work",
+        "steam_burn",
+        "preheater_buildup",
+        "kiln_hood_area",
+        "cooler_grate"
+      ],
+      "keywords": ["hot", "burn", "thermal", "temperature", "clinker", "kiln shell", "molten", "refractory", "steam", "heat", "red hot", "glowing", "hot spot"],
+      "default_risk": 4,
+      "common_citations": ["56.14100(a)", "56.15003", "56.15002"],
+      "cement_specific_notes": "Kiln flame temperature exceeds 1800 C. Clinker exits the kiln at 1300-1400 C. Kiln shell surface temperatures normally 250-350 C but hot spots can exceed 400 C (refractory failure). Quicklime reacts exothermically with water. Preheater buildup collapses are a major thermal/struck-by hazard."
+    },
+    {
+      "id": "MOBQ",
+      "name": "Mobile Equipment",
+      "subcategories": [
+        "front_end_loader",
+        "haul_truck",
+        "forklift",
+        "crane",
+        "man_lift",
+        "skid_steer",
+        "dozer",
+        "water_truck",
+        "vacuum_truck",
+        "telehandler"
+      ],
+      "keywords": ["truck", "loader", "forklift", "crane", "backing", "blind spot", "seatbelt", "rollover", "mobile equipment", "backup alarm", "reverse alarm", "horn", "ROPS", "struck by vehicle", "run over", "pedestrian"],
+      "default_risk": 4,
+      "common_citations": ["56.14100(b)", "56.14130(a)", "56.14131", "56.14132(a)", "56.9300"],
+      "cement_specific_notes": "Loaders operating in clinker storage, raw material stockpiles, and loading areas are the highest-risk mobile equipment. Haul trucks in quarry operations. Forklifts in packing/shipping. Pedestrian-vehicle interaction is the leading cause of fatalities at cement plants."
+    },
+    {
+      "id": "HSKP",
+      "name": "Housekeeping / Walking-Working Surfaces",
+      "subcategories": [
+        "material_spillage",
+        "dust_accumulation",
+        "walkway_obstruction",
+        "poor_lighting",
+        "slippery_surface",
+        "tripping_hazard",
+        "stairway_condition",
+        "tool_storage"
+      ],
+      "keywords": ["spill", "accumulation", "tripping", "housekeeping", "walkway blocked", "poor lighting", "slippery", "cluttered", "debris", "obstruction", "buildup on floor", "material on stairs"],
+      "default_risk": 2,
+      "common_citations": ["56.20003", "56.11001", "56.17001"],
+      "cement_specific_notes": "Housekeeping (56.20003) is the single most-cited MSHA standard industry-wide. Cement plants fight a constant battle with dust and material spillage. Inspectors know this — they still cite it. A strong housekeeping program with documented schedules and crew assignments is the best defense."
+    },
+    {
+      "id": "CHEM",
+      "name": "Chemical Exposure / Hazardous Materials",
+      "subcategories": [
+        "chromium_vi",
+        "hydrochloric_acid",
+        "sulfuric_acid",
+        "ammonia_scr_system",
+        "calcium_oxide_caustic",
+        "fuel_oil",
+        "hydraulic_fluid",
+        "coal_tar",
+        "solvents",
+        "battery_acid"
+      ],
+      "keywords": ["chemical", "acid", "caustic", "exposure", "spill", "leak", "hazmat", "sds", "msds", "corrosive", "toxic", "ammonia", "chromium", "fuel", "hydraulic oil", "chemical burn"],
+      "default_risk": 3,
+      "common_citations": ["56.20014", "56.5001", "56.16005", "56.20012"],
+      "cement_specific_notes": "Hexavalent chromium (Cr VI) in cement dust is a known carcinogen — PEL is 5 ug/m3. Ammonia used in SCR systems for NOx control. Hydrochloric acid and sulfuric acid used in labs and water treatment. Quicklime (CaO) is severely caustic when wet. SDS/MSDS availability is frequently cited."
+    },
+    {
+      "id": "NOIS",
+      "name": "Noise Exposure",
+      "subcategories": [
+        "mill_area",
+        "crusher_area",
+        "fan_area",
+        "compressor_room",
+        "blower_area",
+        "packing_plant",
+        "general_process"
+      ],
+      "keywords": ["noise", "hearing", "loud", "decibel", "hearing protection", "earplugs", "earmuffs", "audiogram", "hearing loss", "noise exposure", "too loud"],
+      "default_risk": 2,
+      "common_citations": ["56.5050", "56.5002(b)"],
+      "cement_specific_notes": "Ball mills, crushers, ID fans, and compressors routinely exceed 100 dB. The PEL is 90 dBA TWA. Hearing conservation program required when exposures exceed 85 dBA action level. MSHA conducts noise dosimetry during inspections. Common citation: no hearing conservation program or audiometric testing not current."
+    },
+    {
+      "id": "FIRE",
+      "name": "Fire / Explosion",
+      "subcategories": [
+        "coal_mill_fire",
+        "baghouse_fire",
+        "conveyor_belt_fire",
+        "electrical_fire",
+        "welding_fire",
+        "fuel_storage_fire",
+        "hydraulic_oil_fire",
+        "dust_explosion",
+        "transformer_fire"
+      ],
+      "keywords": ["fire", "flame", "smoke", "burning", "ignition", "explosion", "combustible", "extinguisher", "fire suppression", "sprinkler", "fire alarm", "smoldering", "hot work"],
+      "default_risk": 4,
+      "common_citations": ["56.4200", "56.4201", "56.4202", "56.4601"],
+      "cement_specific_notes": "Coal mill fires and baghouse fires are the most common fire events in cement plants. Belt fires from friction (seized rollers) are also frequent. Dust explosion risk exists in coal handling, pet coke handling, and any enclosed space with combustible dust accumulation. Hot work permits required for welding/cutting."
+    },
+    {
+      "id": "RIGG",
+      "name": "Rigging / Lifting / Cranes",
+      "subcategories": [
+        "overhead_crane",
+        "mobile_crane",
+        "chain_hoist",
+        "come_along",
+        "wire_rope_sling",
+        "synthetic_sling",
+        "shackle",
+        "spreader_bar"
+      ],
+      "keywords": ["crane", "hoist", "sling", "rigging", "wire rope", "shackle", "lifting", "load", "overhead", "suspended", "rigging inspection", "crane inspection", "load chart", "overloaded"],
+      "default_risk": 4,
+      "common_citations": ["56.14211", "56.14207", "56.16002"],
+      "cement_specific_notes": "Cement plants have numerous overhead cranes (mill buildings, preheater tower, kiln area) and use mobile cranes for major maintenance (kiln brick, mill relining). Rigging inspection and load-rated equipment are frequent citation areas. Never work under a suspended load."
+    },
+    {
+      "id": "PRES",
+      "name": "Pressure Vessels / Compressed Systems",
+      "subcategories": [
+        "air_receiver",
+        "hydraulic_accumulator",
+        "compressed_air_system",
+        "steam_system",
+        "pressure_relief",
+        "pneumatic_conveying"
+      ],
+      "keywords": ["pressure", "compressed", "air receiver", "hydraulic", "steam", "psi", "pressure relief", "overpressure", "burst", "rupture", "hissing", "leak under pressure", "pneumatic"],
+      "default_risk": 3,
+      "common_citations": ["56.13020", "56.13021", "56.13030"],
+      "cement_specific_notes": "Cement plants use extensive compressed air (instrument air, plant air, pneumatic conveying), hydraulic systems (crushers, presses, mobile equipment), and some have steam systems. Air receiver tanks require inspection and pressure relief valve testing. Hydraulic accumulator pre-charge inspections are often missed."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "agentbrain-studio-skills",
+  "owner": {
+    "name": "AgentBrainStudio",
+    "email": "agentbrain@studio.dev"
+  },
+  "description": "合同审查（民法典）。五维风险评估+12类缺失条款检测，风险标注+修订建议，支持docx/pdf/txt，输出结构化审查报告",
+  "description_zh": "基于民法典的合同智能审查。五维风险评估，12类缺失条款检测，风险标注+修订建议，输出结构化报告",
+  "description_en": "Civil Code-based contract review. 5-dimension risk assessment + 12 missing clause detection, risk labeling + amendment suggestions, structured report output.",
+  "version": "1.3.0",
+  "plugins": [
+    {
+      "name": "ai-contract-review",
+      "description": "合同审查（民法典）。基于《民法典》及最新司法解释逐条智能审查。五维风险评估（合法性/公平性/完整性/明确性/可执行性），12类缺失条款检测，风险等级标注+修订建议+替代条款。支持docx/pdf/txt，输出结构化审查报告。触发词：合同审查、审合同、民法典审查、合同风险检查、合同合规。",
+      "description_zh": "基于民法典的合同智能审查。五维风险评估+12类缺失条款检测，风险标注+修订建议，输出结构化报告",
+      "description_en": "Civil Code-based contract review. 5-dimension risk assessment + 12 missing clause detection, risk labeling + amendment suggestions, structured report output.",
+      "version": "1.3.0",
+      "author": {
+        "name": "AgentBrainStudio",
+        "email": "agentbrain@studio.dev"
+      },
+      "homepage": "https://github.com/agentbrain-studio/skills",
+      "repository": "https://github.com/agentbrain-studio/skills",
+      "license": "MIT",
+      "keywords": ["合同审查", "民法典", "法律风险", "合规", "合同法", "审查报告", "风险检测", "contract-review", "legal"],
+      "category": "productivity",
+      "strict": false,
+      "skills": ["./SKILL.md"]
+    }
+  ]
+}

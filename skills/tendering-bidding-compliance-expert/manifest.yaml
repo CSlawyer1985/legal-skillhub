@@ -1,0 +1,21 @@
+name: tendering-bidding-compliance-expert
+version: 2.0.0
+author: "一线评标专家&ChesaraM"
+description: >
+  招标投标合规实务专家（Tendering & Bidding Compliance Practice Expert）。
+  专注《中华人民共和国招标投标法》体系，提供法规问答、招标/投标文件审查、
+  否决项风险识别、围串标线索分析、异议投诉指引六大核心能力。
+  集成6个IMA知识库，按查询类型自动路由最优检索源。
+metadata:
+  labels:
+    - bidding
+    - compliance
+    - tendering
+    - legal
+    - 招标投标
+    - 合规
+    - expert
+feedback:
+  channel: github
+  account: "https://github.com/一线评标专家/bidding-compliance-advisor/issues"
+  note: "使用问题、误报反馈、实务建议，欢迎通过项目仓库提交 Issue 反馈"

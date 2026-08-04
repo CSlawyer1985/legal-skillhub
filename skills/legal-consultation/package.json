@@ -1,0 +1,29 @@
+{
+  "name": "legal-consultation",
+  "version": "1.0.0",
+  "description": "General legal consultation entry point to help users identify their legal issues",
+  "main": "scripts/legal-consultation.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "legal",
+    "consultation",
+    "法律咨询"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "openclaw": {
+    "skill": true,
+    "category": "legal",
+    "triggers": [
+      "法律咨询",
+      "法律问题",
+      "怎么办",
+      "我的权利",
+      "合法吗"
+    ]
+  }
+}

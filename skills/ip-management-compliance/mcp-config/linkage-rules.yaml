@@ -1,0 +1,695 @@
+# IP管理合规技能包 v2.9.0 - 联动触发规则（独立技能架构 + 审查指南跨体系联动）
+
+version: "3.0.0"
+description: 定义8个独立技能间、与外部技能间、以及与 patent-examination-guide 跨技能体系间的联动触发规则
+
+# ============================================================
+# 独立技能间联动规则
+# ============================================================
+
+internal-linkage-rules:
+
+  # 规则1：框架搭建 → 战略制定
+  - rule-id: LNK-001
+    name: "框架到战略自动推进"
+    trigger:
+      source-skill: ip-mgmt-framework
+      event: framework-complete
+      conditions:
+        - maturity-level: ">=L2"
+    action:
+      target-skill: ip-mgmt-strategy
+      method: auto-dispatch
+      payload-mapping:
+        diagnosis-report: framework-diagnosis
+    priority: high
+    description: "IP管理框架搭建完成后，自动推进至战略制定阶段"
+
+  # 规则2：战略制定 → 创新全流程
+  - rule-id: LNK-002
+    name: "战略目标分解到创新阶段"
+    trigger:
+      source-skill: ip-mgmt-strategy
+      event: strategy-confirmed
+      conditions:
+        - has-innovation-goals: true
+    action:
+      target-skill: ip-mgmt-innovation
+      method: auto-dispatch
+      payload-mapping:
+        strategic-goals: innovation-targets
+    priority: high
+    description: "IP战略确认后，将创新相关目标分解到创新各阶段"
+
+  # 规则3：创新阶段 → 风险管理
+  - rule-id: LNK-003
+    name: "创新阶段风险自动上报"
+    trigger:
+      source-skill: ip-mgmt-innovation
+      event: risk-identified
+      conditions:
+        - risk-level: ">=medium"
+    action:
+      target-skill: ip-mgmt-risk
+      method: risk-alert
+      payload-mapping:
+        risk-items: new-risks
+    priority: critical
+    description: "创新过程中识别到的中高风险自动上报至风险管理模块"
+
+  # 规则4：风险管理 → 合规检查
+  - rule-id: LNK-004
+    name: "FTO风险触发合规审查"
+    trigger:
+      source-skill: ip-mgmt-risk
+      event: fto-risk-detected
+      conditions:
+        - infringement-probability: ">=30%"
+    action:
+      target-skill: ip-mgmt-examination
+      method: compliance-check
+      payload-mapping:
+        risk-patents: examination-targets
+    priority: critical
+    description: "FTO分析发现侵权风险≥30%时，触发合规审查"
+
+  # 规则5：全流程 → 审计评估
+  - rule-id: LNK-005
+    name: "阶段完成触发绩效记录"
+    trigger:
+      source-skill: ip-mgmt-innovation
+      event: stage-complete
+      conditions:
+        - stage: "any"
+    action:
+      target-skill: ip-mgmt-audit
+      method: performance-record
+      payload-mapping:
+        stage-results: performance-data
+    priority: medium
+    description: "创新阶段完成时，自动记录绩效数据"
+
+  # 规则6：审计 → 框架优化
+  - rule-id: LNK-006
+    name: "审计发现驱动框架改进"
+    trigger:
+      source-skill: ip-mgmt-audit
+      event: non-conformity-found
+      conditions:
+        - severity: "major"
+        - clause: "5.*"
+    action:
+      target-skill: ip-mgmt-framework
+      method: improvement-trigger
+      payload-mapping:
+        audit-findings: improvement-input
+    priority: high
+    description: "管理框架相关重大不符合项触发框架改进"
+
+  # 规则7：审计 → 商业化调整
+  - rule-id: LNK-007
+    name: "价值评估驱动商业化决策"
+    trigger:
+      source-skill: ip-mgmt-audit
+      event: valuation-complete
+      conditions:
+        - low-value-patents: ">=5"
+    action:
+      target-skill: ip-mgmt-exploitation
+      method: disposal-review
+      payload-mapping:
+        valuation-results: portfolio-review-input
+    priority: medium
+    description: "价值评估发现低价值专利≥5件时，触发商业化处置审查"
+
+  # 规则8：工具方法 → 全流程支持
+  - rule-id: LNK-008
+    name: "工具需求自动推荐"
+    trigger:
+      source-skill: any
+      event: tool-needed
+    action:
+      target-skill: ip-mgmt-tools
+      method: recommend
+      payload-mapping:
+        requirement-description: tool-requirement
+    priority: low
+    description: "任意技能需要工具方法支持时，自动调用工具推荐"
+
+  # 规则9：审查合规指引（内部自调用，由 ELNK-003 迁移）
+  - rule-id: LNK-009
+    name: "审查合规指引联动"
+    trigger:
+      source-skill: ip-mgmt-examination
+      event: subject-matter-guidance-needed
+    action:
+      target-skill: ip-mgmt-examination
+      type: internal-skill-invoke
+      module: compliance-guidance
+    priority: medium
+    description: "需要客体判断指引时，直接调用 ip-mgmt-examination 技能的合规指引模块"
+
+  # 规则10：专利价值评价（内部自调用，由 ELNK-004 迁移）
+  - rule-id: LNK-010
+    name: "专利价值评价联动"
+    trigger:
+      source-skill: ip-mgmt-audit
+      event: patent-valuation-needed
+    action:
+      target-skill: ip-mgmt-audit
+      type: internal-skill-invoke
+      module: value-assessment
+      method: iso-56005-three-dimension
+    priority: high
+    description: "需要专利价值评价时，调用 ip-mgmt-audit 技能的ISO 56005三维度量化评价"
+
+# ============================================================
+# 外部技能联动规则
+# ============================================================
+
+external-linkage-rules:
+
+  # 规则E1：创新阶段 → 专利审查合规（可专利性评估）
+  - rule-id: ELNK-001
+    name: "可专利性评估联动"
+    trigger:
+      source-skill: ip-mgmt-innovation
+      event: patentability-assessment-needed
+      conditions:
+        - stage: "verify-concept"
+    action:
+      target-skill: ip-mgmt-examination
+      type: external-skill-invoke
+      module: patentability-assessment
+      mode: pre-assessment
+    priority: high
+    description: "验证概念阶段需要可专利性评估时，调用 ip-mgmt-examination 技能"
+
+  # 规则E2：风险管理 → 侵权分析
+  - rule-id: ELNK-002
+    name: "FTO侵权分析联动"
+    trigger:
+      source-skill: ip-mgmt-risk
+      event: infringement-analysis-needed
+    action:
+      target-skill: patent-infringement-guide
+      type: external-skill-invoke
+      module: infringement-analysis
+      input-format: xml
+    priority: critical
+    description: "需要详细侵权分析时，调用patent-infringement-guide技能"
+
+  # 规则E2.1：风险管理 → 专利检索（FTO检索）
+  - rule-id: ELNK-002a
+    name: "FTO专利检索联动"
+    trigger:
+      source-skill: ip-mgmt-risk
+      event: fto-search-required
+    action:
+      target-skill: ip-mgmt-search
+      type: internal-module-invoke
+      module: search_executor
+      search-type: fto
+      mcp-tool: patseek/search
+      engine: patseek
+    input-format: structured
+    output-format: json
+    priority: critical
+    description: "FTO分析需要专利检索支持时，调用ip-mgmt-search模块执行FTO检索（Step3: 专利文献检索）"
+
+  # 规则E2.2：风险管理 → 专利详情检索（无效检索）
+  - rule-id: ELNK-002b
+    name: "无效检索联动"
+    trigger:
+      source-skill: ip-mgmt-risk
+      event: invalidity-search-required
+    action:
+      target-skill: ip-mgmt-search
+      type: internal-module-invoke
+      module: search_executor
+      search-type: invalidity
+      mcp-tool: patseek/search
+      engine: patseek_details
+    input-format: patent_id
+    output-format: json
+    priority: high
+    description: "无效分析需要专利详情时，调用ip-mgmt-search模块执行专利详情检索（Step4: 稳定性评估）"
+
+  # 规则E2.3：三性检索 → 新颖性专项检索
+  - rule-id: ELNK-002c-1
+    name: "新颖性检索联动"
+    trigger:
+      source-skill: ip-mgmt-examination
+      event: novelty-search-required
+    action:
+      target-skill: ip-mgmt-search
+      type: internal-module-invoke
+      module: search_executor
+      search-type: novelty
+      mcp-tool: patseek/search
+      engine: patseek
+    input-format: structured
+    output-format: json
+    priority: critical
+    description: "三性评估-新颖性判断需要专利检索时，调用ip-mgmt-search执行新颖性专项检索（单独对比文件判断）"
+
+  # 规则E2.4：三性检索 → 创造性专项检索
+  - rule-id: ELNK-002c-2
+    name: "创造性检索联动"
+    trigger:
+      source-skill: ip-mgmt-examination
+      event: inventiveness-search-required
+    action:
+      target-skill: ip-mgmt-search
+      type: internal-module-invoke
+      module: search_executor
+      search-type: inventiveness
+      mcp-tool: patseek/search
+      engine: patseek
+      supplemental-engine: patseek_details
+    input-format: structured
+    output-format: json
+    priority: critical
+    description: "三性评估-创造性判断需要专利检索时，调用ip-mgmt-search执行创造性专项检索（多篇对比文件组合分析）"
+
+  # 规则E2.5：三性检索 → 实用性专项检索
+  - rule-id: ELNK-002c-3
+    name: "实用性检索联动"
+    trigger:
+      source-skill: ip-mgmt-examination
+      event: practicality-search-required
+    action:
+      target-skill: ip-mgmt-search
+      type: internal-module-invoke
+      module: search_executor
+      search-type: practicality
+      mcp-tool: patseek/search
+      engine: patseek
+      supplemental-engine: patseek
+    input-format: structured
+    output-format: json
+    priority: high
+    description: "三性评估-实用性判断需要专利检索时，调用ip-mgmt-search执行实用性专项检索（产业可实施性+自然规律验证）"
+
+  # 规则E2.6：三性检索 → 完整三性联合检索（一步触发）
+  - rule-id: ELNK-002c
+    name: "完整三性联合检索"
+    trigger:
+      source-skill: ip-mgmt-examination
+      event: patentability-search-required
+    conditions:
+      - search-scope: "full"   # 触发完整三性联合检索
+    action:
+      target-skill: ip-mgmt-search
+      type: parallel-invoke       # 三路并行检索
+      modules:
+        - module: search_executor
+          search-type: novelty
+          mcp-tool: patseek/search
+          engine: patseek
+          output-tag: novelty-results
+        - module: search_executor
+          search-type: inventiveness
+          mcp-tool: patseek/search
+          engine: patseek
+          supplemental-engine: patseek_details
+          output-tag: inventiveness-results
+        - module: search_executor
+          search-type: practicality
+          mcp-tool: patseek/search
+          engine: patseek
+          supplemental-engine: patseek
+          output-tag: practicality-results
+    input-format: structured
+    output-format: json
+    priority: critical
+    description: "三性评估需要完整专利检索时，调用ip-mgmt-search并行执行新颖性+创造性+实用性三路联合检索"
+    parallel-execution: true
+
+  # ELNK-003 已迁移至 internal-linkage-rules 作为 LNK-009（内部自调用）
+  # ELNK-004 已迁移至 internal-linkage-rules 作为 LNK-010（内部自调用）
+
+# ============================================================
+# 数据流转规则
+# ============================================================
+
+data-flow-rules:
+
+  - rule-id: DFLW-001
+    name: "阶段数据自动传递"
+    description: "创新阶段完成时，阶段数据自动传递至下一阶段"
+    sources:
+      - ip-mgmt-innovation
+    targets:
+      - ip-mgmt-risk
+      - ip-mgmt-audit
+    data-types:
+      - invention-disclosure
+      - assessment-results
+      - patent-applications
+    format: json
+
+  - rule-id: DFLW-002
+    name: "审计数据全局共享"
+    description: "审计评估结果全局共享给所有独立技能"
+    sources:
+      - ip-mgmt-audit
+    targets:
+      - all-sub-skills
+    data-types:
+      - audit-findings
+      - performance-metrics
+      - improvement-suggestions
+    format: json
+
+# ============================================================
+# 全局配置
+# ============================================================
+
+global-config:
+  default-priority: medium
+  auto-dispatch-enabled: true
+  max-chain-depth: 5
+  error-handling: stop-on-critical
+  logging-level: info
+  correlation-id-generator: uuid-v4
+  architecture-version: "v2.0-independent-skills"
+
+# ============================================================
+# IMA 知识库联动规则 (MCP 外部技能集成)
+# ============================================================
+
+ima-knowledge-linkage:
+  description: "通过标准 MCP 协议调用 IMA 知识库能力，为 IP 管理全流程提供法规检索支持"
+
+  # ---- MCP 服务信息 ----
+  # mcp-service: 已废弃
+  mcp-protocol: stdio
+  tools:
+    - ima_list_knowledge_bases
+    - ima_search_knowledge_bases
+    - ima_search_knowledge
+    - ima_get_knowledge_base_info
+    - ima_browse_knowledge_list
+
+  # ---- 独立技能 × IMA 知识库联动矩阵 ----
+  skill-ima-linkage-matrix:
+
+    # ip-mgmt-examination: 审查合规 → 实时法规检索
+    - rule-id: IMA-EXAM-001
+      name: "审查标准实时查询"
+      trigger-skill: ip-mgmt-examination
+      trigger-event: guidance-needed
+      conditions:
+        - guidance-type: ["实用新型客体", "GUI外观设计", "外观设计合案申请", "创造性判断", "新颖性判断"]
+      ima-tool: ima_search_knowledge
+      ima-kb-field: kb_id_from_context
+      query-template: "{guidance_type} 判断标准 {extra_context}"
+      output: 检索结果注入审查指引上下文
+      priority: high
+      description: "审查合规判断时，通过 IMA 知识库实时检索对应审查标准条款"
+
+    # ip-mgmt-risk: 风险分析 → 法规支持
+    - rule-id: IMA-RISK-001
+      name: "侵权风险法规支持检索"
+      trigger-skill: ip-mgmt-risk
+      trigger-event: infringement-analysis-required
+      conditions:
+        - analysis-type: ["FTO分析", "侵权判定", "等同侵权判断"]
+      ima-tool: ima_search_knowledge
+      query-template: "{analysis_type} 专利法 {specific_claims}"
+      output: 法规条文注入侵权分析报告
+      priority: critical
+      description: "FTO/侵权分析过程中，实时检索专利法及相关司法解释条文"
+
+    # ip-mgmt-audit: 价值评估 → 国标模板 + 法规支持
+    - rule-id: IMA-AUDIT-001
+      name: "专利价值评价法规支持"
+      trigger-skill: ip-mgmt-audit
+      trigger-event: valuation-standards-needed
+      conditions:
+        - valuation-dimension: ["文本撰写质量", "技术创新高度", "技术成熟度", "可维权性"]
+      ima-tool: ima_search_knowledge
+      query-template: "高质量专利评价报告 国标 {dimension} 评价维度"
+      output: 国标模板 + 评价维度法规 → 注入价值评估报告
+      priority: high
+      description: "专利价值评价时，通过 IMA 知识库检索对应评价维度的国标模板与法规依据"
+
+    # ip-mgmt-innovation: 创新管理 → 技术交底书模板检索
+    - rule-id: IMA-INNOV-001
+      name: "技术交底书法规支持"
+      trigger-skill: ip-mgmt-innovation
+      trigger-event: technical-documentation-needed
+      conditions:
+        - stage: ["create-concept", "develop-solution"]
+      ima-tool: ima_search_knowledge
+      query-template: "技术交底书 撰写要点 {tech_domain}"
+      output: 交底书模板 + 法规要求 → 输出结构化技术文档
+      priority: medium
+      description: "创新方案开发阶段，检索技术交底书模板与专利法相关要求"
+
+    # ip-mgmt-strategy: 战略制定 → 行业专利分析报告检索
+    - rule-id: IMA-STRAT-001
+      name: "IP战略行业情报支持"
+      trigger-skill: ip-mgmt-strategy
+      trigger-event: industry-intelligence-needed
+      conditions:
+        - strategy-phase: ["landscape-analysis", "competitive-analysis"]
+      ima-tool: ima_search_knowledge_bases
+      query-template: "专利分析 {industry} {year}"
+      output: 行业专利态势分析报告摘要 → 注入战略制定报告
+      priority: medium
+      description: "IP战略制定时，通过 IMA 知识库检索行业专利分析报告作为战略输入"
+
+  # ---- 联动优先级配置 ----
+  priority-config:
+    P0_ima_tasks:
+      - IMA-EXAM-001  # 客体判断
+      - IMA-RISK-001  # FTO/侵权分析
+    P1_ima_tasks:
+      - IMA-AUDIT-001  # 价值评价
+    P2_ima_tasks:
+      - IMA-INNOV-001
+      - IMA-STRAT-001
+
+# ============================================================
+# 版本历史
+# ============================================================
+
+changelog:
+  - version: "2.3.0"
+    date: "2026-04-04"
+    changes:
+      - "外部联动规则E1/E3/E4目标技能修正：专利评估功能 → ip-management-compliance 对应子技能"
+      - "ELNK-001 → ip-mgmt-examination（可专利性评估）"
+      - "ELNK-003 → ip-mgmt-examination（内部调用合规指引）"
+      - "ELNK-004 → ip-mgmt-audit（内部调用价值评价）"
+  - version: "2.1.0"
+    date: "2026-04-03"
+    changes:
+      - "新增 IMA 知识库 MCP 外部技能联动体系"
+      - "已迁移至 ima-mcp 直连"
+      - "定义 5 个 MCP 工具：列表/搜索知识库、搜索内容、获取详情、浏览目录"
+      - "为 ip-mgmt-examination/risk/audit/innovation/strategy 分别设计联动规则"
+  - version: "2.0.0"
+    date: "2026-04-02"
+    changes:
+      - "重构为独立技能架构"
+      - "8个子技能从内嵌模块转为独立用户技能"
+      - "更新skill ID命名（ip-framework-setup → ip-mgmt-framework）"
+      - "精简MCP联动规则"
+  - version: "1.0.0"
+    date: "2025-01-01"
+    changes:
+      - "初始版本（内嵌子技能架构）"
+
+# ============================================================
+# 跨技能体系联动规则：patent-examination-guide ↔ ip-management-compliance
+# ============================================================
+
+cross-skill-linkage-rules:
+  description: "审查指南实务技能与 ISO 56005 IP管理技能的跨体系联动规则"
+
+  # ---- 联动定位 ----
+  positioning:
+    patent-examination-guide: "法律适用层 —— 回答「审查指南怎么规定、怎么判断」"
+    ip-management-compliance: "体系管控层 —— 回答「如何系统化管理、如何合规运营」"
+
+  # ---- 共享基础设施 ----
+  shared-infrastructure:
+    ima-knowledge-base: "中国大陆知识产权 (ima-mcp)"
+    # ima-mcp: 已废弃（已迁移至 ima-mcp 直连）
+
+  # ---- 联动规则 ----
+  rules:
+
+    # 规则CL-001：三性评估联动
+    - rule-id: CL-001
+      name: "三性评估全流程联动"
+      trigger:
+        source-skill: ip-mgmt-examination
+        event: patentability-assessment-started
+      action:
+        target-skill: patent-exam-substantive
+        type: cross-skill-invoke
+        module: novelty-inventiveness-practicality
+        data-flow: "审查指南三性判断标准 → ISO标准化评估流程"
+      reverse:
+        source-skill: patent-exam-substantive
+        event: assessment-standard-needed
+        target-skill: ip-mgmt-examination
+        type: cross-skill-invoke
+        module: iso-patentability-framework
+        data-flow: "ISO评估框架 → 审查标准应用"
+      priority: critical
+      description: "三性评估时，审查指南提供具体判断标准，IP管理提供ISO标准化评估流程"
+
+    # 规则CL-002：OA答复联动
+    - rule-id: CL-002
+      name: "OA答复全流程联动"
+      trigger:
+        source-skill: ip-mgmt-examination
+        event: oa-response-needed
+      action:
+        target-skill: patent-exam-substantive
+        type: cross-skill-invoke
+        module: substantive-examination-procedure
+        data-flow: "审查指南程序规定+三性标准 → OA答复策略"
+      chain:
+        - step: 1
+          skill: patent-exam-substantive
+          output: "审查意见类型+审查指南依据"
+        - step: 2
+          skill: ip-mgmt-examination
+          output: "答复方案+争辩要点+修改建议"
+        - step: 3
+          skill: ip-mgmt-risk
+          output: "驳回风险等级+备选方案"
+      priority: critical
+      description: "OA答复时，审查指南提供审查标准和程序规定，IP管理提供答复策略和风险评估"
+
+    # 规则CL-003：无效应对联动
+    - rule-id: CL-003
+      name: "无效宣告应对联动"
+      trigger:
+        source-skill: ip-mgmt-risk
+        event: invalidity-defense-needed
+      action:
+        target-skill: patent-exam-reexamination
+        type: cross-skill-invoke
+        module: invalidation-rules-evidence
+        data-flow: "复审无效程序规则+证据规则 → 稳定性评估+应对策略"
+      chain:
+        - step: 1
+          skill: patent-exam-reexamination
+          output: "无效理由分析+程序规则+证据规则"
+        - step: 2
+          skill: ip-mgmt-risk
+          output: "稳定性等级+证据组合+修改方案"
+        - step: 3
+          skill: ip-mgmt-audit
+          output: "价值重评（是否值得抗辩）"
+      priority: critical
+      description: "无效应对时，审查指南提供程序和证据规则，IP管理提供稳定性评估和价值重评"
+
+    # 规则CL-004：客体判断联动
+    - rule-id: CL-004
+      name: "保护客体判断联动"
+      trigger:
+        source-skill: ip-mgmt-examination
+        event: subject-matter-assessment-needed
+      action:
+        target-skill: patent-exam-preliminary
+        type: cross-skill-invoke
+        module: preliminary-examination-standards
+        data-flow: "初审客体标准 → 合规检查清单"
+      priority: high
+      description: "保护客体判断时，审查指南提供初审标准，IP管理提供合规检查流程"
+
+    # 规则CL-005：国际布局联动
+    - rule-id: CL-005
+      name: "国际专利布局联动"
+      trigger:
+        source-skill: ip-mgmt-innovation
+        event: international-filing-strategy-needed
+      action:
+        target-skill: patent-exam-pct-national
+        type: cross-skill-invoke
+        module: pct-national-phase-procedures
+      alternative-target:
+        target-skill: patent-exam-design-intl
+        condition: "design-patent == true"
+        module: hague-agreement-procedures
+      priority: high
+      description: "国际布局时，审查指南提供PCT/海牙程序规定，IP管理提供布局决策框架"
+
+    # 规则CL-006：FTO审查标准联动
+    - rule-id: CL-006
+      name: "FTO分析审查标准联动"
+      trigger:
+        source-skill: ip-mgmt-risk
+        event: fto-examination-standard-needed
+      action:
+        target-skill: patent-exam-substantive
+        type: cross-skill-invoke
+        module: claim-interpretation-equivalents
+        data-flow: "权利要求解释+等同判断标准 → FTO分析"
+      priority: high
+      description: "FTO分析时，审查指南提供权利要求解释和等同判断标准"
+
+    # 规则CL-007：AI专利审查联动
+    - rule-id: CL-007
+      name: "AI专利可专利性联动"
+      trigger:
+        source-skill: ip-mgmt-innovation
+        event: ai-patent-assessment-needed
+      action:
+        target-skill: patent-exam-substantive
+        type: cross-skill-invoke
+        module: chapter9-ai-bigdata-provisions
+        data-flow: "第九章AI审查规定（含2026修改19示例） → 创新决策"
+      priority: high
+      description: "AI专利评估时，审查指南提供第九章专门规定，IP管理提供创新决策建议"
+
+    # 规则CL-008：价值评估联动
+    - rule-id: CL-008
+      name: "专利价值评估审查依据联动"
+      trigger:
+        source-skill: ip-mgmt-audit
+        event: valuation-examination-basis-needed
+      action:
+        target-skill: patent-exam-reexamination
+        type: cross-skill-invoke
+        module: invalidity-stability-rules
+        data-flow: "无效规则+稳定性因素 → 可维权性评价维度"
+      priority: medium
+      description: "价值评估时，审查指南提供无效规则和稳定性因素作为可维权性评价依据"
+
+  # ---- 联动优先级 ----
+  priority-config:
+    P0_critical:
+      - CL-001  # 三性评估
+      - CL-002  # OA答复
+      - CL-003  # 无效应对
+    P1_high:
+      - CL-004  # 客体判断
+      - CL-005  # 国际布局
+      - CL-006  # FTO审查标准
+      - CL-007  # AI专利
+    P2_medium:
+      - CL-008  # 价值评估
+
+  # ---- 版本历史 ----
+  changelog:
+    - version: "3.0.0"
+      date: "2026-04-09"
+      changes:
+        - "新增跨技能体系联动规则：patent-examination-guide ↔ ip-management-compliance"
+        - "8条联动规则（CL-001至CL-008）覆盖三性评估、OA答复、无效应对、客体判断、国际布局、FTO、AI专利、价值评估"
+        - "定义共享基础设施：知识库"
+        - "3级联动优先级配置"
+    - version: "3.1.0"
+      date: "2026-06-27"
+      changes:
+        - "ELNK-003/004 重分类为内部规则 LNK-009/010（内部自调用不应归类为外部联动）"
+        - "版本号同步至 v3.0.0（与 meta.yaml/SKILL.md 统一）"

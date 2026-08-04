@@ -1,0 +1,323 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "知识产权许可合同",
+  "contract_type_en": "ip-license",
+  "description": "专利许可、商标许可、著作权许可、技术许可等",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国专利法》",
+    "《中华人民共和国商标法》",
+    "《中华人民共和国著作权法》"
+  ],
+  "keywords_for_detection": [
+    "许可", "授权", "License", "专利许可", "商标许可", "著作权许可",
+    "技术许可", "实施许可", "独占许可", "排他许可", "普通许可"
+  ],
+  "key_clauses": [
+    {
+      "name": "许可标的",
+      "required": true,
+      "keywords": ["专利", "商标", "著作权", "技术", "知识产权", "专利号", "注册号"],
+      "check_points": [
+        {
+          "item": "标的明确",
+          "description": "许可的知识产权具体内容是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权利信息",
+          "description": "专利号/商标注册号/著作权登记号是否列明",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权利有效性",
+          "description": "知识产权是否有效，剩余保护期限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确许可标的（专利号、商标、作品名称）、权利有效性、剩余期限"
+    },
+    {
+      "name": "许可方式与范围",
+      "required": true,
+      "keywords": ["独占许可", "排他许可", "普通许可", "许可方式", "分许可"],
+      "check_points": [
+        {
+          "item": "许可方式",
+          "description": "独占/排他/普通许可是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "许可范围",
+          "description": "地域范围、使用领域、使用方式是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "分许可",
+          "description": "是否允许分许可",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确许可方式（独占/排他/普通）、地域范围、使用领域、是否允许分许可"
+    },
+    {
+      "name": "许可期限",
+      "required": true,
+      "keywords": ["许可期限", "授权期限", "有效期", "续展"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "许可期限是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "与权利期限关系",
+          "description": "许可期限是否超过知识产权剩余有效期",
+          "risk_level": "重大"
+        },
+        {
+          "item": "续展",
+          "description": "是否可续展及续展条件",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "许可期限不得超过知识产权剩余有效期，明确续展条件"
+    },
+    {
+      "name": "许可费用",
+      "required": true,
+      "keywords": ["许可费", "入门费", "提成费", "Royalty", "许可使用费"],
+      "check_points": [
+        {
+          "item": "费用类型",
+          "description": "固定费用/提成费/入门费+提成是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "计算方式",
+          "description": "提成费计算基数和比例",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付时间",
+          "description": "支付时间和方式",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确许可费类型（入门费+销售额提成）、提成比例（通常3-10%）、支付时间"
+    },
+    {
+      "name": "技术资料与培训",
+      "required": false,
+      "keywords": ["技术资料", "技术秘密", "Know-how", "培训", "技术支持"],
+      "check_points": [
+        {
+          "item": "资料交付",
+          "description": "技术资料交付内容和时间",
+          "risk_level": "重大"
+        },
+        {
+          "item": "培训",
+          "description": "技术培训内容和时长",
+          "risk_level": "一般"
+        },
+        {
+          "item": "后续支持",
+          "description": "后续技术支持",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确技术资料清单、培训内容、后续技术支持"
+    },
+    {
+      "name": "改进技术归属",
+      "required": true,
+      "keywords": ["改进", "改良", "后续开发", "新成果", "归属"],
+      "check_points": [
+        {
+          "item": "改进归属",
+          "description": "许可期间改进技术的归属",
+          "risk_level": "重大"
+        },
+        {
+          "item": "告知义务",
+          "description": "改进技术是否需告知对方",
+          "risk_level": "一般"
+        },
+        {
+          "item": "交叉许可",
+          "description": "改进技术是否需授权对方使用",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确改进技术归属（通常归改进方），是否需交叉许可"
+    },
+    {
+      "name": "权利维护",
+      "required": true,
+      "keywords": ["年费", "维持", "维权", "侵权", "无效"],
+      "check_points": [
+        {
+          "item": "年费缴纳",
+          "description": "专利年费由谁缴纳",
+          "risk_level": "重大"
+        },
+        {
+          "item": "侵权处理",
+          "description": "第三方侵权时的处理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "无效宣告",
+          "description": "专利被无效时的处理",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确年费缴纳责任、侵权维权责任、无效宣告时的处理"
+    },
+    {
+      "name": "保证与担保",
+      "required": true,
+      "keywords": ["保证", "担保", "权利保证", "不侵权"],
+      "check_points": [
+        {
+          "item": "权利保证",
+          "description": "许可方保证拥有完整权利",
+          "risk_level": "重大"
+        },
+        {
+          "item": "不侵权保证",
+          "description": "保证不侵犯第三方权利",
+          "risk_level": "重大"
+        },
+        {
+          "item": "担保责任",
+          "description": "侵权时的担保责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "许可方应保证拥有完整权利，不侵犯第三方权利，否则承担赔偿责任"
+    },
+    {
+      "name": "保密",
+      "required": true,
+      "keywords": ["保密", "技术秘密", "Know-how", "机密"],
+      "check_points": [
+        {
+          "item": "保密范围",
+          "description": "保密信息范围",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保密期限",
+          "description": "保密期限（通常长于许可期限）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保密信息范围、保密期限（通常许可终止后3-5年）"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "IP001",
+      "name": "许可权利瑕疵",
+      "description": "许可方非真正权利人，或权利已被质押、许可给他人",
+      "severity": "高风险",
+      "suggestion": "核实许可方权属证明，查询专利/商标登记状态，要求许可方出具权利保证"
+    },
+    {
+      "id": "IP002",
+      "name": "许可期限超过权利有效期",
+      "description": "许可期限超过专利/商标剩余有效期",
+      "severity": "高风险",
+      "suggestion": "许可期限不得超过知识产权剩余有效期"
+    },
+    {
+      "id": "IP003",
+      "name": "独占许可未备案",
+      "description": "专利独占许可未备案，不能对抗善意第三人",
+      "severity": "中风险",
+      "suggestion": "专利独占许可应在专利局备案",
+      "legal_basis": "《专利法实施细则》第14条"
+    },
+    {
+      "id": "IP004",
+      "name": "改进技术归属不清",
+      "description": "未约定许可期间改进技术的归属",
+      "severity": "中风险",
+      "suggestion": "明确改进技术归属，通常归改进方所有"
+    },
+    {
+      "id": "IP005",
+      "name": "分许可权不明确",
+      "description": "未明确是否允许分许可",
+      "severity": "中风险",
+      "suggestion": "明确是否允许分许可，如允许应约定分许可费用分配"
+    }
+  ],
+  "position_guidance": {
+    "licensor": {
+      "name": "许可方（甲方）",
+      "priority_checks": [
+        "许可方式",
+        "许可费用",
+        "改进技术归属",
+        "保密"
+      ],
+      "key_concerns": [
+        "选择适当的许可方式（独占许可费用最高但限制自身使用）",
+        "设计合理的许可费结构（入门费+提成）",
+        "保留改进技术的使用权或交叉许可权",
+        "确保被许可方保密义务",
+        "维护知识产权有效性"
+      ],
+      "avoid": [
+        "许可权利存在瑕疵",
+        "许可期限超过权利有效期",
+        "改进技术无偿归被许可方",
+        "过低的许可费"
+      ]
+    },
+    "licensee": {
+      "name": "被许可方（乙方）",
+      "priority_checks": [
+        "权利有效性",
+        "许可范围",
+        "不侵权保证",
+        "改进技术归属"
+      ],
+      "key_concerns": [
+        "核实知识产权有效性和剩余期限",
+        "争取独占或排他许可",
+        "明确许可地域和使用领域",
+        "要求许可方提供不侵权保证",
+        "改进技术归己方所有或可自由使用"
+      ],
+      "avoid": [
+        "许可权利存在瑕疵",
+        "普通许可（竞争者可获得相同许可）",
+        "许可范围过窄",
+        "改进技术无偿归许可方",
+        "无分许可权"
+      ]
+    }
+  },
+  "license_types": {
+    "exclusive": {
+      "name": "独占许可",
+      "description": "许可方和被许可方以外的任何第三方都不得实施该专利/使用商标",
+      "note": "许可方自己也不得实施（专利）或在核定商品上使用（商标）"
+    },
+    "sole": {
+      "name": "排他许可",
+      "description": "只有许可方和被许可方可以实施，第三方不得实施",
+      "note": "许可方保留自己实施的权利"
+    },
+    "simple": {
+      "name": "普通许可",
+      "description": "许可方可以许可多家实施",
+      "note": "被许可方无排他性，竞争者可获得相同许可"
+    }
+  }
+}

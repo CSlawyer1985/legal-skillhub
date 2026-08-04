@@ -1,0 +1,92 @@
+{
+ "schema": "gaotao.six-package.package-receipt/v2-two-layer",
+ "package_id": "litigation-visualization",
+ "contract": {
+  "path": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/artifacts/gaotao-six-package-desktop-delivery-20260728-codex/SIX-PACKAGE-DESKTOP-DELIVERY-CONTRACT.json",
+  "sha256": "beb58d9101884a44b525fb91878518a8aa3e3388c567153e91491a3e6599d4c6"
+ },
+ "root_authorization": [
+  "1785256236821-user（六包桌面打包）",
+  "1785285776260-user（批准C复制镜像，仅限本机r1续建复核）"
+ ],
+ "mirror_restore_receipt": {
+  "path": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/artifacts/gaotao-six-package-desktop-delivery-20260728-codex/ROOT-C-MIRROR-RESTORE-RECEIPT.json",
+  "sha256": "1005e1a08dd823d04d37b42c7b0944075552a5d08d18266886bba1acab9e38dd"
+ },
+ "builder": "claude-code",
+ "source_snapshots": [
+  {
+   "id": "mother-node6l",
+   "path": "${HOME}/Desktop/实验/gaotao-mother-validator-remediation-1.0.0-r4-node6L-2026-07-28",
+   "file_count": 306,
+   "simple_tree_sha256": "d8a406d201ea7f9ef703a1eb87d48e16908de6f6afb6ba84e6b454c83cbc5767",
+   "size_bound_tree_sha256": "d314a6038621aa7471b9740708a5a750877a46b710dd4cf0b1b50f5574d44f21"
+  },
+  {
+   "id": "recovery-right-v1.0.4",
+   "path": "${HOME}/Desktop/追偿权纠纷诉讼Skill-桌面交付-2026-07-27/追偿权纠纷诉讼Skill-V1.0.4",
+   "file_count": 65,
+   "simple_tree_sha256": "47c3dcbead4af8558f66d87775287d35e5fe0786f3810a9a2e29f3b153cf8cd8",
+   "size_bound_tree_sha256": "50162913b2aab6a4f43be117f487efb68c9271be2e71cc3d3f827146d8800d83"
+  },
+  {
+   "id": "litigation-visualization-legacy-cn",
+   "path": "${HOME}/Documents/Codex/2026-07-21/ni-d/work/litigation-visualization-distill/build/litigation-visualization-cn",
+   "file_count": 21,
+   "simple_tree_sha256": "c01270c19dd07b87ac990d1d4cc1796e7682527c3f53350c896a46bee4cc8a48",
+   "size_bound_tree_sha256": "3fce8819d82d38a5ac066b4c3bdf570152bf1faf50e369b05cf5d55c1b23d091"
+  },
+  {
+   "id": "litigation-visualization-contract-r2",
+   "path": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/candidates/gaotao-litigation-visualization-extension/20260723-contract-r2-codex",
+   "file_count": 49,
+   "simple_tree_sha256": "fea4bfc8bae0779dee3bf91d59ccaa0cb878a1e4ddc5e995b278125c44c65652",
+   "size_bound_tree_sha256": "cb0e19978222c1b9190ec33203c2824359e132a8360cb05dbd507096725f55fa"
+  }
+ ],
+ "payload_dirs": {
+  "payload-frozen-contract-r2": {
+   "simple_tree": "fea4bfc8bae0779dee3bf91d59ccaa0cb878a1e4ddc5e995b278125c44c65652",
+   "size_bound_tree": "cb0e19978222c1b9190ec33203c2824359e132a8360cb05dbd507096725f55fa",
+   "files": 49
+  },
+  "payload-legacy-skill": {
+   "simple_tree": "8e65958b01b5382350edfa2f8becde9f599d35a6d9f2e6fdc8a46df5d1d7e475",
+   "size_bound_tree": "59efd5c061a30d241b2e23be3632bafbe8a095cae5184898e79a06e0d986092d",
+   "files": 20
+  },
+  "viz-engine": {
+   "simple_tree": "b7cf4cae14230a8e1f364be4e372b0ae9b8e24a9c3427d994c2edbf3faef0eb5",
+   "size_bound_tree": "85f7a600cf07c7ed0c5e7f8973f688bb885471dfec89b5a36409c7209b54d5e2",
+   "files": 5
+  }
+ },
+ "evidence": {
+  "VIS-RUNNER-AS-RUN.json": {
+   "sha256": "50c447ef6e9c187aee484b92f19b28c4ba849bec62cb6b3c1a7f08743aa9586c",
+   "verdict": "PASS"
+  },
+  "VIZ-MIT-EVIDENCE-RECEIPT.json": {
+   "sha256": "29248692de52ab25caf0c847539d6542d91e80c46799667390bfb6713f370be2",
+   "verdict": "PASS"
+  },
+  "desensitize_scan_receipt_sha256": "45dc0cd75360b9798f532d20593d25bcda208979872ba1406ff8e18b6347310c"
+ },
+ "detached_receipt": {
+  "path": "${HOME}/Desktop/诉讼可视化Skill包-MIT-2026-07-28.zip.verification.json",
+  "schema": "gaotao.six-package.detached-receipt/v2-two-layer",
+  "binds": [
+   "本收据sha256",
+   "最终root双树",
+   "SHA256SUMS哈希",
+   "ZIP双构建/新鲜解包",
+   "授权边界"
+  ]
+ },
+ "boundary": "本地桌面交付；不含安装/晋升/上传外发/公开发布/GEO激活投影发布/法院提交",
+ "content_tree": {
+  "algorithm": "simple(relpath+NUL+sha256+LF, 排除PACKAGE-RECEIPT.json与SHA256SUMS.txt)",
+  "sha256": "60b7a26f54108b59d85866174964ece0cf2c57efa7479ea759e2091ca7224aa0",
+  "files": 89
+ }
+}

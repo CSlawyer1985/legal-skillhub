@@ -1,0 +1,282 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "金融衍生品合同",
+  "contract_type_en": "derivatives",
+  "description": "利率互换、外汇远期、期权、信用违约互换等金融衍生品合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《银行业金融机构衍生产品交易业务管理暂行办法》",
+    "《期货和衍生品法》"
+  ],
+  "keywords_for_detection": [
+    "衍生品", "衍生产品", "互换", "期权", "远期", "期货",
+    "利率互换", "外汇远期", "信用违约互换", "CDS", "IRS",
+    "ISDA", "主协议", "补充协议", "交易确认书"
+  ],
+  "key_clauses": [
+    {
+      "name": "主协议框架",
+      "required": true,
+      "keywords": ["主协议", "ISDA", "框架协议", "补充协议"],
+      "check_points": [
+        {
+          "item": "主协议版本",
+          "description": "ISDA主协议版本（1992/2002）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "附件",
+          "description": "附件（Schedule）的约定",
+          "risk_level": "重大"
+        },
+        {
+          "item": "信用支持文件",
+          "description": "信用支持附件（CSA）的约定",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确主协议版本、附件约定、信用支持安排"
+    },
+    {
+      "name": "交易确认书",
+      "required": true,
+      "keywords": ["交易确认书", "确认书", "交易条款", "产品条款"],
+      "check_points": [
+        {
+          "item": "产品类型",
+          "description": "衍生品产品类型是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "名义本金",
+          "description": "名义本金金额",
+          "risk_level": "致命"
+        },
+        {
+          "item": "交易期限",
+          "description": "交易期限",
+          "risk_level": "致命"
+        },
+        {
+          "item": "参考利率/汇率",
+          "description": "参考利率/汇率/指数",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确产品类型、名义本金、期限、参考利率/汇率"
+    },
+    {
+      "name": "支付条款",
+      "required": true,
+      "keywords": ["支付", "结算", "净额结算", "交割"],
+      "check_points": [
+        {
+          "item": "支付日",
+          "description": "支付日和支付频率",
+          "risk_level": "重大"
+        },
+        {
+          "item": "净额结算",
+          "description": "净额结算安排",
+          "risk_level": "重大"
+        },
+        {
+          "item": "结算货币",
+          "description": "结算货币",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确支付日、净额结算安排、结算货币"
+    },
+    {
+      "name": "违约事件",
+      "required": true,
+      "keywords": ["违约事件", "违约", "提前终止", "终止事件"],
+      "check_points": [
+        {
+          "item": "违约事件",
+          "description": "违约事件的定义",
+          "risk_level": "重大"
+        },
+        {
+          "item": "终止事件",
+          "description": "终止事件的定义",
+          "risk_level": "重大"
+        },
+        {
+          "item": "提前终止",
+          "description": "提前终止的程序和计算",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确违约事件、终止事件、提前终止程序"
+    },
+    {
+      "name": "信用支持",
+      "required": false,
+      "keywords": ["信用支持", "保证金", "抵押品", "CSA"],
+      "check_points": [
+        {
+          "item": "保证金要求",
+          "description": "初始保证金和变动保证金要求",
+          "risk_level": "重大"
+        },
+        {
+          "item": "抵押品类型",
+          "description": "可接受的抵押品类型",
+          "risk_level": "重大"
+        },
+        {
+          "item": "追加保证金",
+          "description": "追加保证金的触发条件",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保证金要求、抵押品类型、追加保证金条件"
+    },
+    {
+      "name": "净额结算协议",
+      "required": true,
+      "keywords": ["净额结算", "终止净额结算", "破产净额结算"],
+      "check_points": [
+        {
+          "item": "净额结算有效性",
+          "description": "净额结算协议的法律有效性",
+          "risk_level": "致命"
+        },
+        {
+          "item": "破产净额结算",
+          "description": "破产情形下净额结算的有效性",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "确保净额结算协议在破产情形下有效"
+    },
+    {
+      "name": "适当性评估",
+      "required": true,
+      "keywords": ["适当性", "风险评估", "投资者分类", "专业投资者"],
+      "check_points": [
+        {
+          "item": "投资者分类",
+          "description": "投资者是否为专业投资者",
+          "risk_level": "致命"
+        },
+        {
+          "item": "适当性评估",
+          "description": "是否进行适当性评估",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "确认投资者为专业投资者，进行适当性评估"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "DER001",
+      "name": "净额结算无效",
+      "description": "净额结算协议在破产情形下无效，面临樱桃采摘风险",
+      "severity": "高风险",
+      "suggestion": "确保净额结算协议符合法律要求，在破产情形下有效",
+      "legal_basis": "《期货和衍生品法》第35条"
+    },
+    {
+      "id": "DER002",
+      "name": "参考利率/汇率不明",
+      "description": "参考利率/汇率/指数不明确，产生争议",
+      "severity": "高风险",
+      "suggestion": "明确参考利率/汇率/指数的来源和计算方式"
+    },
+    {
+      "id": "DER003",
+      "name": "适当性评估缺失",
+      "description": "未对投资者进行适当性评估，违反监管规定",
+      "severity": "高风险",
+      "suggestion": "对投资者进行适当性评估，确认为专业投资者"
+    },
+    {
+      "id": "DER004",
+      "name": "保证金不足",
+      "description": "保证金不足，面临强制平仓风险",
+      "severity": "高风险",
+      "suggestion": "明确保证金要求和追加保证金条件，设置预警线"
+    },
+    {
+      "id": "DER005",
+      "name": "提前终止计算争议",
+      "description": "提前终止时的市场价值计算产生争议",
+      "severity": "中风险",
+      "suggestion": "明确提前终止的计算方法（市场报价法/损失法）"
+    },
+    {
+      "id": "DER006",
+      "name": "LIBOR替换风险",
+      "description": "合同参考LIBOR，LIBOR已停止发布",
+      "severity": "中风险",
+      "suggestion": "使用SOFR等替代参考利率，或约定LIBOR替换条款"
+    }
+  ],
+  "position_guidance": {
+    "buyer": {
+      "name": "买方/保护买方",
+      "priority_checks": [
+        "产品条款",
+        "信用支持",
+        "违约事件",
+        "净额结算"
+      ],
+      "key_concerns": [
+        "明确产品条款",
+        "确保信用支持充分",
+        "了解违约事件",
+        "确保净额结算有效"
+      ],
+      "avoid": [
+        "产品条款不明",
+        "信用支持不足",
+        "净额结算无效",
+        "适当性评估缺失"
+      ]
+    },
+    "seller": {
+      "name": "卖方/保护卖方",
+      "priority_checks": [
+        "保证金要求",
+        "提前终止",
+        "净额结算",
+        "信用支持"
+      ],
+      "key_concerns": [
+        "明确保证金要求",
+        "了解提前终止条件",
+        "确保净额结算有效",
+        "信用支持安排"
+      ],
+      "avoid": [
+        "保证金要求过高",
+        "提前终止条件过宽",
+        "净额结算无效",
+        "信用支持不足"
+      ]
+    }
+  },
+  "legal_notes": {
+    "netting": {
+      "description": "净额结算",
+      "rule": "金融衍生品交易的净额结算协议，在一方破产时有效",
+      "legal_basis": "《期货和衍生品法》第35条"
+    },
+    "isda": {
+      "description": "ISDA主协议",
+      "versions": "1992年版和2002年版",
+      "schedule": "附件（Schedule）对主协议进行修改和补充",
+      "csa": "信用支持附件（CSA）约定保证金要求"
+    },
+    "benchmark_reform": {
+      "description": "基准利率改革",
+      "libor": "LIBOR已于2023年6月停止发布",
+      "replacement": "替代参考利率：SOFR（美元）、SONIA（英镑）、EURIBOR（欧元）、SHIBOR（人民币）"
+    }
+  }
+}

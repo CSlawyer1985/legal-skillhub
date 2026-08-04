@@ -1,0 +1,22 @@
+{
+    "skill_name": "合同审查与起草",
+    "version": "1.0",
+    "author": "壹典法阅公众号",
+    "update_time": "2026-03-23",
+    "dependencies": ["python-docx"],
+    "trigger_commands": [
+        "审查合同",
+        "合同审查",
+        "起草合同",
+        "生成合同",
+        "导出合同审查修订版",
+        "创建Word版合同",
+        "查看本地合同模板",
+        "查看本地法规库"
+    ],
+    "resource_path": {
+        "contract_templates": "knowledge/contracts/",
+        "laws": "knowledge/laws/",
+        "rules": "rules/"
+    }
+}

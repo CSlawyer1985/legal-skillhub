@@ -1,0 +1,61 @@
+{
+  "civil_litigation": {
+    "title": "财产案件受理费",
+    "basis": "《诉讼费用交纳办法》第十六条",
+    "tiers": [
+      { "max_amount": 10000, "fee": 50, "note": "1万元以下：50元" },
+      { "min": 10000, "max_amount": 100000, "rate": 0.025, "min_fee": 50, "note": "1万-10万：2.5%" },
+      { "min": 100000, "max_amount": 200000, "rate": 0.02, "min_fee": 2300, "note": "10万-20万：2%" },
+      { "min": 200000, "max_amount": 500000, "rate": 0.015, "min_fee": 4300, "note": "20万-50万：1.5%" },
+      { "min": 500000, "max_amount": 1000000, "rate": 0.01, "min_fee": 8800, "note": "50万-100万：1%" },
+      { "min": 1000000, "max_amount": 2000000, "rate": 0.009, "min_fee": 13800, "note": "100万-200万：0.9%" },
+      { "min": 2000000, "max_amount": 5000000, "rate": 0.008, "min_fee": 22800, "note": "200万-500万：0.8%" },
+      { "min": 5000000, "max_amount": 10000000, "rate": 0.007, "min_fee": 46800, "note": "500万-1000万：0.7%" },
+      { "min": 10000000, "max_amount": 20000000, "rate": 0.006, "min_fee": 81800, "note": "1000万-2000万：0.6%" },
+      { "min": 20000000, "max_amount": 50000000, "rate": 0.005, "min_fee": 141800, "note": "2000万-5000万：0.5%" },
+      { "min": 50000000, "max_amount": 100000000, "rate": 0.004, "min_fee": 291800, "note": "5000万-1亿：0.4%" },
+      { "min": 100000000, "rate": 0.003, "min_fee": 491800, "note": "1亿以上：0.3%" }
+    ],
+    "half_case_note": "适用简易程序审理的案件，减半交纳案件受理费"
+  },
+  "labor_dispute": {
+    "title": "劳动争议仲裁",
+    "basis": "《劳动争议调解仲裁法》第五十三条",
+    "fee": 0,
+    "note": "劳动争议仲裁不收费",
+    "litigation_fee_note": "对仲裁裁决不服起诉的，按财产案件标准交纳"
+  },
+  "labor_litigation": {
+    "title": "劳动争议诉讼",
+    "basis": "《诉讼费用交纳办法》",
+    "note": "按财产案件标准，每件10元（普通程序）或5元（简易程序）",
+    "fee": 10,
+    "simple_fee": 5
+  },
+  "divorce": {
+    "title": "离婚案件",
+    "basis": "《诉讼费用交纳办法》第十三条",
+    "fee_range": "50-300元",
+    "note": "涉及财产分割超过20万元的部分，按0.5%交纳"
+  },
+  "intellectual_property": {
+    "title": "知识产权案件",
+    "basis": "《诉讼费用交纳办法》第十三条",
+    "tiers": [
+      { "max_amount": 10000, "fee": 50 },
+      { "min": 10000, "max_amount": 100000, "rate": 0.025 },
+      { "min": 100000, "rate": 0.02, "min_fee": 2300 }
+    ],
+    "note": "没有争议金额的，每件交纳500-1000元"
+  },
+  "administrative": {
+    "title": "行政案件",
+    "note": "商标、专利、海事行政案件每件100元；其他行政案件每件50元"
+  },
+  "time_estimate": {
+    "summary_procedure": { "title": "简易程序", "months": 3, "note": "3个月内审结，受理费减半" },
+    "ordinary_procedure": { "title": "普通程序", "months": 6, "note": "6个月内审结，经批准可延长6个月" },
+    "labor_arbitration": { "title": "劳动仲裁", "months": 2, "note": "45天内结案，可延长15天" },
+    "civil_arbitration": { "title": "商事仲裁", "months": 3, "note": "一般3-6个月，视仲裁机构而定" }
+  }
+}

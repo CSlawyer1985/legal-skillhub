@@ -1,0 +1,6 @@
+requests>=2.31.0
+typing>=3.7.4.3
+
+# Required configuration (for ClawHub metadata consistency)
+# api_key: Bearer Token for Mugua Legal API
+# base_url: Base endpoint of the Mugua Legal API service

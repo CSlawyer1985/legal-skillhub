@@ -1,0 +1,14 @@
+{
+  "$schema": "clause-schema",
+  "category": "delivery",
+  "name": "第三方验收条款",
+  "applicable_types": [
+    "construction",
+    "tech-service"
+  ],
+  "clause_text": "对于【___】（具体范围）部分的验收，应委托双方共同认可的具备相应资质的第三方机构进行，并以该机构的验收结论为最终结论。第三方验收费用由【委托方/受托方】承担，费用不超过人民币【___】元。",
+  "position_tips": {
+    "both": "第三方机构的选择标准要客观；费用承担方要明确；验收周期要合理"
+  },
+  "legal_reference": "《民法典》第626条"
+}

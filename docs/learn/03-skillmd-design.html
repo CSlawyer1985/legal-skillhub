@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 · 编写 SKILL.md · 学习中心</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>03 · 编写 SKILL.md</h1>
+  <p class="lead">SKILL.md 只有两部分：frontmatter（名片区）和正文（操作区）。写好的诀窍在于先理解 AI 怎么用它们——<strong>frontmatter 决定"会不会被调用"，正文决定"调用后做得好不好"</strong>。</p>
+
+  <h2>一、描述就是路由器</h2>
+  <p>AI 面对几百个 Skill 时，只看每个 Skill 的 <code>name</code> 和 <code>description</code> 来决定调用谁。<strong>description 不是产品简介，是调用条件</strong>。它必须同时回答两个问题：<em>做什么</em> 和 <em>什么时候用</em>。</p>
+  <table>
+    <tr><th>写法</th><th>示例</th><th>评价</th></tr>
+    <tr><td>坏</td><td>"一个合同审查助手"</td><td>AI 不知道什么场景该调用，也不会知道不该调用</td></tr>
+    <tr><td>一般</td><td>"审查合同风险"</td><td>有动作无场景，容易误触发（用户只是聊聊合同理论也会被触发）</td></tr>
+    <tr><td>好</td><td>"中国法律框架下的施工合同风险审查。当用户上传施工合同、EPC 合同，或要求审查工程价款、工期、变更、结算、违约条款时使用。不适用于商品房买卖合同审查。"</td><td>做什么 + 何时用 + 何时不用，三个要素齐全</td></tr>
+  </table>
+  <p>三个写作纪律：</p>
+  <ul>
+    <li><strong>用第三人称</strong>（"审查……"而不是"我来帮你审查……"）；</li>
+    <li><strong>写进具体触发词</strong>（用户嘴里会说的词：起诉状、尽调、批注、N+1——这些词直接决定召回率）；</li>
+    <li><strong>写不触发场景</strong>（"不适用于……"和触发条件同样重要，能避免一半的误用）。</li>
+  </ul>
+  <p>对比两个站内实例：<a class="case-link" href="../skill.html?f=construction-contract-review">construction-contract-review</a>（边界清晰）与 <a class="case-link" href="../skill.html?f=contract-review-assistant">contract-review-assistant</a>（边界宽泛）——把它们的 description 放在一起读，你会立刻理解路由器写法的差别。</p>
+
+  <h2>二、正文的九个标准件</h2>
+  <p>正文没有法定格式，但成熟的法律 Skill 几乎都包含以下部件中的大部分：</p>
+  <ol>
+    <li><strong>Intake（事实收集）</strong>——<em>先收集信息，再开始分析</em>。好的法律 Skill 绝不直接跳到结论。例如要求先确认：合同类型、我方立场、交易背景、重点关注。站内 <a class="case-link" href="../skill.html?f=fazhixing">家事尽调</a> 把 Intake 做到了极致（结构化要素采集清单）。</li>
+    <li><strong>Workflow（工作流程）</strong>——分几个阶段、每个阶段做什么。阶段顺序就是专业判断的固化。</li>
+    <li><strong>Decision Points（判断节点）</strong>——在哪些地方必须停下来判断、依据什么判断。这是律师经验和 AI 执行的分界面。</li>
+    <li><strong>Guardrails（护栏）</strong>——不许做什么：不虚构法条、不替客户做最终决策、不确定就标注。</li>
+    <li><strong>Output Contract（输出契约）</strong>——交付物的结构、格式、粒度。写清"每个风险点必须定位条款+说明理由+给出建议"。</li>
+    <li><strong>Verification（验证）</strong>——输出前自检什么：法条是否现行有效？引用条款编号是否与原文一致？</li>
+    <li><strong>异常处理</strong>——材料缺失、语言不符、超范围时怎么办。</li>
+    <li><strong>触发/不触发场景</strong>——与 description 呼应的正文级细化。</li>
+    <li><strong>示例</strong>——一个输入输出的样例，胜过三段抽象描述。</li>
+  </ol>
+
+  <h2>三、任务自由度：法律 Skill 最核心的设计决策</h2>
+  <p>同一项法律任务，可以写成三种"硬度"——这叫<strong>任务自由度</strong>，是法律 Skill 设计里最微妙的判断：</p>
+  <table>
+    <tr><th>自由度</th><th>写法</th><th>适合的法律任务</th><th>风险</th></tr>
+    <tr><td><strong>高</strong>（只给原则和判断标准）</td><td>"审查违约责任是否对等，综合考虑……"</td><td>法律分析、策略研判</td><td>输出不稳定，深浅不一</td></tr>
+    <tr><td><strong>中</strong>（给模板、伪代码、参数化流程）</td><td>"按以下六步审查；违约金口径默认 LPR 4 倍，可调整参数 X"</td><td>合同审查、尽调、检索</td><td>覆盖不全时容易教条</td></tr>
+    <tr><td><strong>低</strong>（给固定脚本、固定步骤、强制校验）</td><td>"必须调用 search_law.py 检索，输出必须包含条款编号+原文+来源，缺一项判不合格"</td><td>计算、格式处理、文书要素填充、合规检查</td><td>僵硬，遇例外就错</td></tr>
+  </table>
+  <p><strong>法律分析不能全部写成刚性流程，也不能全部留给模型自由发挥。</strong>实务中的黄金分割是：<em>流程刚性 + 判断弹性</em>——"必须走完这六步"（刚性），"每一步里怎么判断，给你标准和空间"（弹性）。站内两个典型对照：<a class="case-link" href="../skill.html?f=complaint-drafter">complaint-drafter</a>（极低自由度：在最高法 67 类官方模板上"填空而非重写"，连字体和留空都强制）与 <a class="case-link" href="../skill.html?f=civil-litigation-mindset">civil-litigation-mindset</a>（高自由度：只给诉讼思维框架）。</p>
+
+  <h2>四、渐进式披露：SKILL.md 只做导航</h2>
+  <p>SKILL.md 正文建议控制在 <strong>500 行以内</strong>。超出的内容按性质拆到附属文件，正文只留链接：</p>
+  <table>
+    <tr><th>内容</th><th>放哪</th><th>原因</th></tr>
+    <tr><td>触发条件、总流程、输出契约</td><td>SKILL.md</td><td>每次必用，必须在主文件</td></tr>
+    <tr><td>法规依据、审查标准、内部口径</td><td>references/</td><td>体量大，按需加载一层，不要多层嵌套</td></tr>
+    <tr><td>合同范本、文书样式</td><td>assets/ 或 templates/</td><td>调用时才读取</td></tr>
+    <tr><td>检索/计算/格式处理脚本</td><td>scripts/</td><td>可执行工具，附使用说明</td></tr>
+    <tr><td>输入输出示例</td><td>examples/ 或正文末尾</td><td>少量即可</td></tr>
+    <tr><td>测试用例</td><td>evals/</td><td>见第 06 讲</td></tr>
+  </table>
+  <div class="note"><b>一层原则</b>：附属文件直接从 SKILL.md 链接，references 里的文件不要再链向更深层的文件。每多一层，AI 漏读的概率就高一截。</div>
+  <p>站内知识库型的标杆：<a class="case-link" href="../skill.html?f=ad-compliance-consumer-rights-review-plus">ad-compliance-consumer-rights-review-plus</a>（SKILL.md 做导航，78 个附属文件分层承载法答网问答、标签合规锚点、理论库）——它的文件树就是"渐进式披露"的完整教案。</p>
+
+  <h2>五、自检清单</h2>
+  <p>写完 SKILL.md 后，逐条问自己：</p>
+  <ul>
+    <li>description 能让一个外行 AI 在 100 个 Skill 里准确选中它吗？</li>
+    <li>有没有写明"什么时候不要用"？</li>
+    <li>Intake 是否先于分析？还是直接跳到了结论？</li>
+    <li>判断标准写的是可操作口径（"超过 X 视为过高"），还是正确的废话（"注意合理性"）？</li>
+    <li>输出契约是否具体到"每个风险点必须包含哪几个要素"？</li>
+    <li>正文是否超过 500 行？超出的部分拆了吗？</li>
+    <li>有没有"不写 AI 也知道"的内容（法条原文、常识）？</li>
+  </ul>
+
+  <h2>下一讲</h2>
+  <p>SKILL.md 写好了，它需要什么环境才能跑起来？带脚本的、要联网的、要处理 Word 的，各有什么配套条件？→ <a class="case-link" href="./04-environment.html">04 · 工作环境与配套条件</a></p>
+</article>
+<div id="footer"></div>
+<script src="../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
+</script>
+</body>
+</html>

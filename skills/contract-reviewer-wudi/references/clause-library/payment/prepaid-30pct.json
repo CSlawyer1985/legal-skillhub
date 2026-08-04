@@ -1,0 +1,17 @@
+{
+  "$schema": "clause-schema",
+  "category": "payment",
+  "name": "预付30%货款条款",
+  "applicable_types": [
+    "sales",
+    "house-sale",
+    "tech-service",
+    "construction"
+  ],
+  "clause_text": "买方应于本合同签署之日起【5】个工作日内，向卖方支付合同总价的30%作为预付款，金额为人民币【___】元整。如买方逾期付款，每逾期一日按逾期金额的万分之三支付违约金。",
+  "position_tips": {
+    "buyer": "预付款比例越低越好，争取20%或更低；增加预付款退款保障条款",
+    "seller": "预付款比例越高越好，争取50%以上；明确预付款性质（抵扣/不退）"
+  },
+  "legal_reference": "《民法典》第626条"
+}

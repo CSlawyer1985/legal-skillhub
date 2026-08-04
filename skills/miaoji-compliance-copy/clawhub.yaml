@@ -1,0 +1,31 @@
+name: miaoji-compliance-copy
+version: 1.0.0
+tagline: "秒级合规清洗：粗糙文案→Rufus可读+合规安全"
+description: |
+  亚马逊产品文案合规检查与智能重写工具。输入粗糙文案，秒级输出3重保障文案：
+  去违规词、加场景词、Rufus搜索适配。适用于新品Listing编写、现有文案优化、合规自查。
+category: ecommerce
+tags:
+  - amazon
+  - listing
+  - 合规
+  - rufus
+  - 跨境电商
+  - 文案优化
+author: miaoji
+homepage: https://xiaping.coze.site
+repository: https://github.com/miaoji-studio/miaoji-compliance-copy
+issues: https://github.com/miaoji-studio/miaoji-compliance-copy/issues
+license: MIT
+keywords:
+  - amazon listing
+  - compliance check
+  - rufus optimization
+  - product copy rewrite
+  - 亚马逊文案
+  - 合规文案重写
+min_coze_version: "1.0.0"
+readme: README.md
+files:
+  - SKILL.md
+  - references/banned-words.md

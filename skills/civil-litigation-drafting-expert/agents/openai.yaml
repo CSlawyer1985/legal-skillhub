@@ -1,0 +1,4 @@
+interface:
+  display_name: "中国民事诉讼文书AI专家"
+  short_description: "识别民商事程序、选择文书、核验现行法并生成专业诉讼文书草稿"
+  default_prompt: "Use $civil-litigation-drafting-expert to identify the dispute and exact claims, run the request-level element intake, map facts and evidence to each claim or defense, audit gaps and relief conflicts, then draft a Chinese filing with current-law validation."

@@ -1,0 +1,330 @@
+rules:
+  - id: IPL001
+    category: subject_risk
+    name: "许可方主体资格"
+    description: "许可方应具备合法主体资格和处分权，应拥有所许可的知识产权的完整权利"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "提示查询许可方企业信用信息，核实其是否为知识产权的合法权利人或经合法授权有权许可的第三方"
+    legal_basis: "《民法典》第143条、《专利法》第12条、《商标法》第43条、《著作权法》第27条"
+    suggestion: "核实许可方主体资格和处分权，要求提供营业执照、专利证书/商标注册证/著作权登记证书等权属证明"
+    enabled: true
+
+  - id: IPL002
+    category: subject_risk
+    name: "被许可方主体资格"
+    description: "被许可方应具备合法主体资格，能够履行合同约定的义务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查被许可方营业执照，确认其经营范围包含许可知识产权的使用领域"
+    legal_basis: "《民法典》第143条"
+    suggestion: "核实被许可方主体资格，确认其经营范围、资质许可与合同约定使用方式一致"
+    enabled: true
+
+  - id: IPL003
+    category: subject_risk
+    name: "共有知识产权未经共有人同意"
+    description: "许可的知识产权为多人共有，未取得全体共有人同意即对外许可"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查知识产权是否为共有权利，如为共有需取得全体共有人书面同意"
+    legal_basis: "《专利法》第14条、《著作权法》第14条"
+    suggestion: "如知识产权为共有，要求取得全体共有人书面同意或依据共有人协议执行"
+    enabled: true
+
+  - id: IPL004
+    category: scope_risk
+    name: "授权性质约定不明"
+    description: "未明确约定许可类型为独占许可、排他许可还是普通许可，导致双方权利义务边界不清"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定许可性质（独占/排他/普通），不同性质对应不同的权利范围"
+    legal_basis: "《民法典》第862条、《最高人民法院关于审理技术合同纠纷案件适用法律若干问题的解释》第25条"
+    suggestion: "明确约定许可类型：独占许可（排除第三方+许可方）、排他许可（仅排除第三方）、普通许可（不排除任何人）"
+    enabled: true
+
+  - id: IPL005
+    category: scope_risk
+    name: "授权范围过窄影响使用"
+    description: "授权范围过于狭窄，限制了被许可方对知识产权的合理使用"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查许可使用的权利范围是否覆盖被许可方实际需求的使用方式"
+    legal_basis: "《民法典》第862条"
+    suggestion: "根据使用需求明确列出许可的具体权利：制造权、使用权、销售权、许诺销售权、进口权等的适用范围"
+    enabled: true
+
+  - id: IPL006
+    category: scope_risk
+    name: "授权范围过宽导致权利丧失"
+    description: "授权范围过宽可能导致许可方自身丧失对知识产权的控制"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查授权范围条款是否赋予被许可方超出预期的权利"
+    legal_basis: "《民法典》第862条、《专利法》第12条"
+    suggestion: "合理限定授权范围，保留许可方对知识产权的控制权，必要时设置使用限制条款"
+    enabled: true
+
+  - id: IPL007
+    category: scope_risk
+    name: "许可知识产权的明确性"
+    description: "未明确约定许可的具体知识产权（如专利号、商标号、作品登记信息）"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否列明许可的知识产权清单（专利号/商标注册号/作品登记号）"
+    legal_basis: "《民法典》第862条、《专利法》第12条、《商标法》第43条"
+    suggestion: "明确列明许可的知识产权清单（专利号、商标注册号、登记号等），附清单作为合同附件"
+    enabled: true
+
+  - id: IPL008
+    category: territory_risk
+    name: "地域限制约定缺失"
+    description: "未约定许可使用的地域范围，可能导致被许可方超地域使用或许可方权利受损"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定许可使用的地域范围（如中国大陆、全球等）"
+    legal_basis: "《民法典》第862条、《对外贸易法》"
+    suggestion: "明确约定许可使用的地域范围，界定可使用/禁止使用的地理区域"
+    enabled: true
+
+  - id: IPL009
+    category: territory_risk
+    name: "地域限制超出法定范围"
+    description: "地域限制条款试图限制法定允许的区域，可能构成不合理限制"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查地域限制是否违反反垄断法规定（如分割市场、限制竞争）"
+    legal_basis: "《反垄断法》第17条、《民法典》第153条"
+    suggestion: "地域限制应合理，避免构成市场分割或不合理竞争限制，不得违法限制被许可方的出口权"
+    enabled: true
+
+  - id: IPL010
+    category: territory_risk
+    name: "出口权限制"
+    description: "未约定或不当限制被许可方对含许可知识产权产品的出口权利"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定被许可方产品可出口的地域范围"
+    legal_basis: "《对外贸易法》第14条、《反垄断法》第17条"
+    suggestion: "明确被许可方的出口权利范围，避免不当限制出口地域构成反垄断风险"
+    enabled: true
+
+  - id: IPL011
+    category: territory_risk
+    name: "地域与知识产权有效性"
+    description: "约定许可地域超出知识产权受保护的司法管辖区，导致许可无效"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查许可地域是否在相应知识产权受法律保护的司法管辖区内"
+    legal_basis: "《专利法》第11条、《商标法》第56条、《著作权法》第10条"
+    suggestion: "核查知识产权在各司法管辖区的有效性，确保许可地域不超出权利保护范围"
+    enabled: true
+
+  - id: IPL012
+    category: sublicense_risk
+    name: "转授权条款缺失"
+    description: "未约定是否允许被许可方转授权，权利义务不明确"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定被许可方是否有权向第三方转授权"
+    legal_basis: "《民法典》第862条、第863条"
+    suggestion: "明确约定被许可方是否有转授权权限及条件：如有，应约定需要许可方书面同意"
+    enabled: true
+
+  - id: IPL013
+    category: sublicense_risk
+    name: "未经许可方同意擅自转授权"
+    description: "未经许可方书面同意擅自向第三方转授权，构成违约"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否约定转授权须经许可方书面同意，并限定转授权条件"
+    legal_basis: "《民法典》第862条、《专利法》第12条"
+    suggestion: "约定明确禁止未经许可方的书面同意进行转授权，对违约转授权约定严格违约责任"
+    enabled: true
+
+  - id: IPL014
+    category: sublicense_risk
+    name: "转授权后原许可方控制力不足"
+    description: "转授权后原许可方对被转授权第三方的控制力不足"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查转授权条款是否约定被许可方对次被许可方的行为承担责任"
+    legal_basis: "《民法典》第862条"
+    suggestion: "约定转授权需经许可方同意，且被许可方应对次被许可方的行为承担连带责任"
+    enabled: true
+
+  - id: IPL015
+    category: sublicense_risk
+    name: "转授权费用分配约定不明"
+    description: "转授权产生的费用分配方式未约定，可能导致争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查是否约定转授权费用的分配方式（归许可方/归被许可方/按比例分配）"
+    legal_basis: "《民法典》第862条"
+    suggestion: "明确约定转授权费用的分配方式，或约定转授权收益归属于原许可方"
+    enabled: true
+
+  - id: IPL016
+    category: sublicense_risk
+    name: "分许可与再许可混淆"
+    description: "合同中混用分许可与再许可概念，导致法律关系不清"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否混淆了分许可与再许可的法律概念"
+    legal_basis: "《民法典》第862条"
+    suggestion: "统一使用'转授权'概念并明确其法律含义，避免混用分许可与再许可"
+    enabled: true
+
+  - id: IPL017
+    category: improvement_risk
+    name: "改进成果归属约定缺失"
+    description: "未约定基于许可知识产权产生的改进成果的归属"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定改进成果的知识产权归属"
+    legal_basis: "《民法典》第862条、第863条、《最高人民法院关于审理技术合同纠纷案件适用法律若干问题的解释》第18条"
+    suggestion: "明确约定改进成果的归属：归改进方/归许可方/双方共有，并约定改进成果的告知义务"
+    enabled: true
+
+  - id: IPL018
+    category: improvement_risk
+    name: "单方改进归属不公平"
+    description: "改进成果单方归许可方所有，被许可方进行改进后无法获得合理回报"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查改进成果归属条款是否显失公平"
+    legal_basis: "《民法典》第6条（公平原则）、第151条（显失公平）"
+    suggestion: "合理约定改进成果归属，可约定改进方享有改进成果知识产权但需向对方提供非独占许可"
+    enabled: true
+
+  - id: IPL019
+    category: improvement_risk
+    name: "改进成果定义不清"
+    description: "改进成果的定义和范围不明确，何为'改进'存在争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否明确界定何为'改进'（如衍生技术、变种技术、应用创新等）"
+    legal_basis: "《民法典》第862条"
+    suggestion: "明确定义改进成果的范围，包括衍生技术、改进产品、应用场景扩展等具体类型"
+    enabled: true
+
+  - id: IPL020
+    category: improvement_risk
+    name: "改进成果的回授权缺失"
+    description: "被许可方改进成果未约定回授权（grant-back）许可给许可方"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定被许可方改进成果需回授权给许可方"
+    legal_basis: "《民法典》第862条"
+    suggestion: "约定被许可方改进成果应回授权给许可方，明确回授权的性质（独占/非独占）和范围"
+    enabled: true
+
+  - id: IPL021
+    category: improvement_risk
+    name: "改进成果的使用限制"
+    description: "改进成果的使用限制约定不明，改进方能否自由使用改进成果不明确"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否明确改进方对改进成果的使用权利"
+    legal_basis: "《民法典》第862条"
+    suggestion: "明确改进方对改进成果的使用权利范围，包括使用方式、使用地域、使用期限等"
+    enabled: true
+
+  - id: IPL022
+    category: fee_risk
+    name: "许可费用计算方式不明"
+    description: "许可费用的计算方式（一次性/按销售额提成/按件计费/混合）约定不明确"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定许可费用的计算方式、支付时间和支付方式"
+    legal_basis: "《民法典》第862条、第863条"
+    suggestion: "明确约定许可费用计算方式（入门费+提成费/一次性买断/按件计费等），约定提成费的计算基数和比例"
+    enabled: true
+
+  - id: IPL023
+    category: fee_risk
+    name: "提成费计算基数不合理"
+    description: "提成费的计算基数约定不合理（如按总销售额而非净销售额计算）"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查提成费的计算基数是否合理，是否扣除税费、退货等"
+    legal_basis: "《民法典》第6条（公平原则）"
+    suggestion: "明确提成费计算基数（净销售额），约定扣除项目（税费、退货、折扣等），并约定审计权"
+    enabled: true
+
+  - id: IPL024
+    category: fee_risk
+    name: "最低许可费条款缺失"
+    description: "未约定最低许可费或最低使用量，许可方收益无法保障"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定最低许可费或最低使用量保证"
+    legal_basis: "《民法典》第862条"
+    suggestion: "约定最低许可费或最低使用量，确保许可方最低收益，并约定未达标的处理方式"
+    enabled: true
+
+  - id: IPL025
+    category: term_risk
+    name: "许可期限超过知识产权有效期"
+    description: "许可期限超过知识产权的法定保护期限，超出部分无效"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查许可期限是否超过知识产权的法定保护期限（发明专利20年/实用新型10年/商标10年续展/著作权作者终生加50年）"
+    legal_basis: "《专利法》第42条、《商标法》第39条、《著作权法》第23条"
+    suggestion: "确保许可期限不超过知识产权法定保护期限，约定到期后的续期或终止条件"
+    enabled: true
+
+  - id: IPL026
+    category: term_risk
+    name: "许可期限与知识产权有效性维持"
+    description: "未约定知识产权有效性维持义务，知识产权被无效后许可费争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定许可方维持知识产权有效性的义务"
+    legal_basis: "《专利法》第47条、《商标法》第47条"
+    suggestion: "约定许可方维持知识产权有效性的义务，约定知识产权被无效后的许可费处理方式"
+    enabled: true
+
+  - id: IPL027
+    category: term_risk
+    name: "合同终止后权利义务处理"
+    description: "未约定合同终止后双方的权利义务处理方式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定合同终止后的权利义务处理（如库存处理、停止使用、保密义务等）"
+    legal_basis: "《民法典》第558条"
+    suggestion: "约定合同终止后的处理方式：库存销售宽限期、停止使用义务、保密义务继续有效等"
+    enabled: true
+
+  - id: IPL028
+    category: compliance_risk
+    name: "违反反垄断法规定"
+    description: "许可条款可能构成滥用知识产权排除、限制竞争的行为"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查许可条款是否包含反垄断法禁止的行为（如搭售、限制转售价格、不合理限制等）"
+    legal_basis: "《反垄断法》第17条、第22条、《最高人民法院关于审理侵犯商业秘密民事案件适用法律若干问题的规定》"
+    suggestion: "审查许可条款是否构成垄断协议或滥用市场支配地位，避免搭售、限制转售价格等违法条款"
+    enabled: true
+
+  - id: IPL029
+    category: compliance_risk
+    name: "备案登记义务未履行"
+    description: "专利/商标许可合同未依法办理备案登记，影响对抗第三人效力"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定许可合同备案登记义务（专利许可/商标许可需备案）"
+    legal_basis: "《专利法实施细则》第14条、《商标法》第43条、《民法典》第862条"
+    suggestion: "约定许可合同应在法定期限内办理备案登记，明确备案义务主体和期限"
+    enabled: true
+
+  - id: IPL030
+    category: compliance_risk
+    name: "涉外许可未办理登记"
+    description: "涉外知识产权许可合同未依法办理外汇、商务等登记手续"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查涉外许可合同是否需办理外汇登记、技术进口/出口登记等手续"
+    legal_basis: "《对外贸易法》第14条、《外汇管理条例》、《技术合同认定登记管理办法》"
+    suggestion: "涉外许可合同应依法办理技术进口/出口登记、外汇登记等手续，确保合同合法有效"
+    enabled: true

@@ -1,0 +1,296 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "买卖合同",
+  "contract_type_en": "sales",
+  "description": "货物买卖、商品销售、采购合同等",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "买卖", "销售", "采购", "供货", "货物", "产品", "商品",
+    "买方", "卖方", "供应商", "采购商"
+  ],
+  "key_clauses": [
+    {
+      "name": "标的物",
+      "required": true,
+      "keywords": ["货物", "产品", "商品", "标的物", "规格", "型号"],
+      "check_points": [
+        {
+          "item": "名称规格",
+          "description": "货物名称、规格、型号是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "质量标准",
+          "description": "质量标准是否明确（国标/行标/企标）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "数量",
+          "description": "数量是否明确",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确货物名称、规格、型号、数量、质量标准，建议附技术规格书"
+    },
+    {
+      "name": "价款",
+      "required": true,
+      "keywords": ["价款", "单价", "总价", "金额", "含税"],
+      "check_points": [
+        {
+          "item": "价格明确",
+          "description": "单价、总价是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "含税说明",
+          "description": "是否含税（增值税）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "价格调整",
+          "description": "是否允许价格调整",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确单价、总价、是否含税，约定价格调整条件"
+    },
+    {
+      "name": "交付",
+      "required": true,
+      "keywords": ["交付", "交货", "送货", "运输", "发货"],
+      "check_points": [
+        {
+          "item": "交付时间",
+          "description": "交付时间是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "交付地点",
+          "description": "交付地点是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "运输方式",
+          "description": "运输方式及费用承担",
+          "risk_level": "重大"
+        },
+        {
+          "item": "风险转移",
+          "description": "风险转移时点",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交付时间、地点、运输方式、费用承担、风险转移时点"
+    },
+    {
+      "name": "验收",
+      "required": true,
+      "keywords": ["验收", "检验", "收货", "签收"],
+      "check_points": [
+        {
+          "item": "验收标准",
+          "description": "验收标准是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "验收期限",
+          "description": "验收期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "异议处理",
+          "description": "质量异议的处理程序",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确验收标准、期限（如收货后7日）、异议处理程序"
+    },
+    {
+      "name": "付款",
+      "required": true,
+      "keywords": ["付款", "支付", "结算", "账期"],
+      "check_points": [
+        {
+          "item": "付款时间",
+          "description": "付款时间是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "付款方式",
+          "description": "付款方式（电汇/承兑等）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "付款条件",
+          "description": "付款与交付/验收的关联",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确付款时间、方式、条件，建议验收合格后付款"
+    },
+    {
+      "name": "质量保证",
+      "required": true,
+      "keywords": ["质量", "质保", "保修", "三包"],
+      "check_points": [
+        {
+          "item": "质保期限",
+          "description": "质保期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质保范围",
+          "description": "质保范围是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "售后服务",
+          "description": "售后服务承诺",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确质保期限（通常1年）、范围、售后服务内容"
+    },
+    {
+      "name": "知识产权",
+      "required": false,
+      "keywords": ["知识产权", "商标", "专利", "侵权"],
+      "check_points": [
+        {
+          "item": "权利保证",
+          "description": "卖方是否保证不侵犯第三方知识产权",
+          "risk_level": "重大"
+        },
+        {
+          "item": "侵权责任",
+          "description": "侵权责任的承担",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "卖方应保证货物不侵犯第三方知识产权，否则承担赔偿责任"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "迟延交付"],
+      "check_points": [
+        {
+          "item": "迟延交付",
+          "description": "迟延交付的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "质量违约",
+          "description": "质量不合格的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "迟延付款",
+          "description": "迟延付款的违约责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确迟延交付、质量不合格、迟延付款的违约金或赔偿标准"
+    },
+    {
+      "name": "所有权保留",
+      "required": false,
+      "keywords": ["所有权保留", "所有权转移", "风险转移"],
+      "check_points": [
+        {
+          "item": "所有权保留",
+          "description": "是否约定所有权保留条款",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "卖方可约定：货款付清前，货物所有权归卖方"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "S001",
+      "name": "质量标准不明",
+      "description": "未约定质量标准或约定模糊，如'合格'、'优质'",
+      "severity": "高风险",
+      "suggestion": "明确质量标准：国标GB/T XXX、行标、或附技术规格书"
+    },
+    {
+      "id": "S002",
+      "name": "验收期限过长",
+      "description": "验收期限过长或未约定，导致质量问题发现过晚",
+      "severity": "中风险",
+      "suggestion": "约定合理的验收期限（通常7-15日），外观瑕疵当场提出"
+    },
+    {
+      "id": "S003",
+      "name": "付款条件不利",
+      "description": "买方：验收前付全款；卖方：交付后账期过长",
+      "severity": "中风险",
+      "suggestion": "买方：争取验收合格后付款；卖方：争取预付款或缩短账期"
+    },
+    {
+      "id": "S004",
+      "name": "风险转移不清",
+      "description": "未明确风险转移时点，货物损毁责任不清",
+      "severity": "中风险",
+      "suggestion": "明确风险转移：交付时/运输途中/签收时"
+    },
+    {
+      "id": "S005",
+      "name": "质保条款缺失",
+      "description": "未约定质保期限和范围",
+      "severity": "中风险",
+      "suggestion": "明确质保期限、范围、售后响应时间"
+    }
+  ],
+  "position_guidance": {
+    "buyer": {
+      "name": "买方（甲方）",
+      "priority_checks": [
+        "质量标准",
+        "验收条款",
+        "付款条件",
+        "质保条款"
+      ],
+      "key_concerns": [
+        "明确质量标准和验收程序",
+        "争取验收合格后付款",
+        "约定合理的质保期限",
+        "明确迟延交付的违约金",
+        "要求知识产权保证"
+      ],
+      "avoid": [
+        "验收前付全款",
+        "质量标准模糊",
+        "验收期限过短",
+        "无质保约定"
+      ]
+    },
+    "seller": {
+      "name": "卖方（乙方）",
+      "priority_checks": [
+        "交付条款",
+        "付款条件",
+        "验收期限",
+        "违约责任"
+      ],
+      "key_concerns": [
+        "明确交付时间、地点、运输方式",
+        "争取预付款或发货前付款",
+        "限制验收期限（不宜过长）",
+        "限制质量异议期",
+        "约定所有权保留"
+      ],
+      "avoid": [
+        "验收合格后付款（无预付款）",
+        "过长的质保期",
+        "过高的违约金",
+        "验收期限过长"
+      ]
+    }
+  }
+}

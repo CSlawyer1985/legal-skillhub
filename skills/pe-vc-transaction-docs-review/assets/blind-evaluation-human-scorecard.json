@@ -1,0 +1,18 @@
+{
+  "scenario_id": "",
+  "reviewer": "",
+  "reviewer_role": "",
+  "reviewed_at": "",
+  "scores": {
+    "legal_correctness": null,
+    "issue_recall": null,
+    "false_positive_control": null,
+    "drafting_quality": null,
+    "client_side_consistency": null,
+    "source_discipline": null
+  },
+  "scale": "0-5 for each dimension",
+  "critical_failure": false,
+  "critical_failure_reason": "",
+  "notes": ""
+}

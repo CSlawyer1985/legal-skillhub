@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "contracts": [
+    {
+      "artifact_class": "court_submission",
+      "audience": "court",
+      "source_ssot": "verified-knowledge://matter-ssot",
+      "allowed_fields": ["party-role", "procedural-request", "verified-fact", "evidence-reference", "legal-authority"],
+      "redaction_policy": {
+        "private_case_payload": false,
+        "absolute_paths": false,
+        "governance_metadata_visible": false
+      },
+      "language": "zh-CN",
+      "write_back": false,
+      "promotion_gate": ["domain-baseline-pass", "court-visible-text-pass", "render-pass", "e2e-pass"],
+      "render_gate": {
+        "applicable": true,
+        "fixed_font_double_render": true,
+        "page_pixel_hash_match": true,
+        "sparse_page_count": 0,
+        "ooxml_editable": true,
+        "external_relationship_count": 0
+      },
+      "failure_state": "HOLD-COURT-TEXT"
+    },
+    {
+      "artifact_class": "professional_service",
+      "audience": "authorized-lawyer-or-client",
+      "source_ssot": "verified-knowledge://matter-ssot",
+      "allowed_fields": ["risk", "strategy", "evidence-gap", "human-decision-point", "source-reference"],
+      "redaction_policy": {
+        "private_case_payload": false,
+        "absolute_paths": false,
+        "governance_metadata_visible": false
+      },
+      "language": "zh-CN",
+      "write_back": false,
+      "promotion_gate": ["domain-baseline-pass", "privacy-pass", "legal-pass", "e2e-pass"],
+      "render_gate": {
+        "applicable": false,
+        "fixed_font_double_render": false,
+        "page_pixel_hash_match": false,
+        "sparse_page_count": 0,
+        "ooxml_editable": false,
+        "external_relationship_count": 0
+      },
+      "failure_state": "HOLD-OUTPUT-CONTRACT"
+    }
+  ]
+}

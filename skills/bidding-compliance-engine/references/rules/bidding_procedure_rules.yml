@@ -1,0 +1,351 @@
+# 招标程序合规审查规则
+# 覆盖审查表"第二部分 合法合规性审查"中第八、九类事项，共16条规则
+# 规则ID命名规范：BP_ 前缀 + 大写下划线，对应审查表编号
+
+rules:
+  # ===== 八、招标条件与文件编制合规性（8.1-8.8） =====
+  - rule_id: BP_SAMPLE_TEXT
+    title: 示范文本使用
+    severity: medium
+    description: 招标文件是否依据标准示范文本编制，有无删除强制性条款
+    keywords:
+      - "示范文本"
+      - "标准文件"
+      - "格式文本"
+      - "标准招标文件"
+      - "删除"
+      - "修改条款"
+    patterns:
+      - "删除.*强制性条款"
+      - "删减.*条款"
+      - "本招标文件.*修改了.*标准"
+      - "未采用.*示范文本"
+    exclusion_patterns:
+      - "依据.*标准招标文件"
+      - "按照.*示范文本"
+    category: bidding_procedure
+    suggestion: "应依据行业标准招标文件示范文本编制，不得删除其中的强制性条款"
+    legal_basis: "《招标投标法》第十九条；《标准施工招标文件》使用说明；《房屋建筑和市政基础设施工程施工招标投标管理办法》"
+    check_item: "8.1"
+
+  - rule_id: BP_PREQUAL_METHOD
+    title: 资格审查方式合规
+    severity: medium
+    description: 资格预审/资格后审选择是否符合项目特点和法定要求
+    keywords:
+      - "资格审查"
+      - "资格预审"
+      - "资格后审"
+      - "合格制"
+      - "有限数量制"
+    patterns:
+      - "采用资格预审"
+      - "采用资格后审"
+      - "资格审查方式.*预审"
+      - "合格制审查"
+      - "有限数量制"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "应根据项目特点选择资格审查方式，技术复杂或规模较大的项目可采用资格预审"
+    legal_basis: "《招标投标法实施条例》第十五条、第十六条、第十七条；《招标投标法》第十八条"
+    check_item: "8.2"
+
+  - rule_id: BP_BID_SPLITTING
+    title: 规避招标/化整为零
+    severity: high
+    description: 是否存在将项目分割规避招标，或将必须招标的项目化整为零
+    keywords:
+      - "分期"
+      - "分标段"
+      - "分项"
+      - "化整为零"
+      - "规避招标"
+      - "拆分"
+    patterns:
+      - "分.*标段.*分别招标"
+      - "分.*期.*实施"
+      - "项目.*拆分"
+      - "合同.*分割"
+      - "分项采购.*均低于"
+    exclusion_patterns:
+      - "依法"
+      - "独立项目"
+    category: bidding_procedure
+    suggestion: "不得将必须招标的项目化整为零或以其他方式规避招标，应按项目整体规模判断是否须招标"
+    legal_basis: "《招标投标法》第四条：任何单位和个人不得将依法必须进行招标的项目化整为零或者以其他任何方式规避招标"
+    check_item: "8.3"
+
+  - rule_id: BP_INVITE_BID
+    title: 邀请招标合规性
+    severity: high
+    description: 邀请招标是否符合法定条件，是否向三家以上特定法人或组织发出投标邀请
+    keywords:
+      - "邀请招标"
+      - "邀请投标"
+      - "定向招标"
+      - "特定投标人"
+    patterns:
+      - "邀请招标"
+      - "邀请.*家.*投标"
+      - "向.*发出投标邀请书"
+      - "定向邀请"
+    exclusion_patterns:
+      - "公开招标"
+    category: bidding_procedure
+    suggestion: "邀请招标须符合法定条件，且应向3家以上具备能力、资信良好的特定法人或组织发出邀请"
+    legal_basis: "《招标投标法》第十一条：国务院发展计划部门确定的国家重点项目和省、自治区、直辖市人民政府确定的地方重点项目不适宜公开招标的，经批准可邀请招标；《招标投标法实施条例》第八条"
+    check_item: "8.4"
+
+  - rule_id: BP_TENDER_CONTENT
+    title: 招标文件内容完整性
+    severity: medium
+    description: 招标文件是否包含招标公告、投标人须知、评标办法、合同条款、技术要求、图纸等必备内容
+    keywords:
+      - "招标公告"
+      - "投标人须知"
+      - "评标办法"
+      - "合同条款"
+      - "技术要求"
+      - "图纸"
+      - "工程量清单"
+    patterns:
+      - "招标文件.*不含.*"
+      - "缺少.*招标公告"
+      - "缺少.*评标办法"
+      - "缺少.*合同条款"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "招标文件应包含招标公告、投标人须知、评标办法、合同条款、技术要求、图纸等必备内容"
+    legal_basis: "《招标投标法》第十九条：招标文件应当包括招标项目的技术要求、对投标人资格审查的标准、投标报价要求和评标标准等所有实质性要求和条件以及拟签订合同的主要条款"
+    check_item: "8.5"
+
+  - rule_id: BP_BID_PERIOD
+    title: 招标文件发售期
+    severity: medium
+    description: 招标文件发售期是否满足不少于5日的法定要求
+    keywords:
+      - "发售期"
+      - "发售时间"
+      - "获取招标文件"
+      - "购买招标文件"
+    patterns:
+      - "招标文件发售.*至.*共.*天"
+      - "获取招标文件.*期限.*天"
+      - "发售期.*天"
+    exclusion_patterns:
+      - "不少于5日"
+      - "不少于5个工作日"
+    category: bidding_procedure
+    suggestion: "招标文件发售期不得少于5日，应确保潜在投标人有充足时间获取招标文件"
+    legal_basis: "《招标投标法实施条例》第十六条：招标文件发售期不得少于5日"
+    check_item: "8.6"
+
+  - rule_id: BP_BIDDER_QUALIFY
+    title: 投标人资质条件设定
+    severity: high
+    description: 投标人资质条件是否以法律法规和项目实际需要为依据，而非人为设置不合理条件
+    keywords:
+      - "资质条件"
+      - "投标人资格"
+      - "资格要求"
+      - "准入条件"
+    patterns:
+      - "投标人须具备.*资质"
+      - "资格要求.*须.*"
+      - "投标人.*须具有.*条件"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "投标人资质条件应以法律法规和项目实际需要为依据，不得设置与项目无关的资格条件"
+    legal_basis: "《招标投标法》第十八条：招标人可以根据招标项目本身的要求，在招标公告或投标邀请书中对潜在投标人提出资质要求；《招标投标法实施条例》第三十二条"
+    check_item: "8.7"
+
+  - rule_id: BP_BIDDER_NUM
+    title: 投标人数量合规
+    severity: high
+    description: 资格预审后投标人是否不少于3家，不足3家时应重新招标
+    keywords:
+      - "投标人数量"
+      - "不少于3家"
+      - "不足3家"
+      - "有效投标人"
+    patterns:
+      - "通过资格预审.*不足.*家"
+      - "有效投标人.*不足.*家"
+      - "投标人少于.*家"
+      - "不足3家.*重新招标"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "资格预审后或投标截止时投标人不足3家的，应依法重新招标"
+    legal_basis: "《招标投标法》第二十八条：投标人少于三个的，招标人应当依照本法重新招标；《招标投标法实施条例》第十九条"
+    check_item: "8.8"
+
+  # ===== 九、评标程序与废标条款（9.1-9.8） =====
+  - rule_id: BP_EVAL_METHOD
+    title: 评标方法合规
+    severity: medium
+    description: 评标方法选择是否符合项目特点和法定要求，如经评审的最低投标价法、综合评估法等
+    keywords:
+      - "评标方法"
+      - "综合评估法"
+      - "最低投标价法"
+      - "经评审的最低价"
+      - "合理低价法"
+    patterns:
+      - "采用.*评标方法"
+      - "评标方法.*综合评估"
+      - "评标方法.*最低投标价"
+      - "合理低价法"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "评标方法应根据项目特点选择：具有通用技术的项目可采用经评审的最低投标价法，技术复杂项目可采用综合评估法"
+    legal_basis: "《招标投标法》第四十一条：《评标委员会和评标方法暂行规定》第二十九条、第三十条"
+    check_item: "9.1"
+
+  - rule_id: BP_COMMITTEE_FORM
+    title: 评标委员会组建
+    severity: high
+    description: 评标委员会专家抽取方式、人数、专业结构是否合规
+    keywords:
+      - "评标委员会"
+      - "评标专家"
+      - "专家抽取"
+      - "专业结构"
+      - "招标人代表"
+    patterns:
+      - "评标委员会.*由.*组成"
+      - "评标专家.*由.*抽取"
+      - "招标人代表.*不超过"
+      - "评标委员会.*人"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "评标委员会由招标人代表和有关技术、经济等方面专家组成，成员人数为5人以上单数，其中技术、经济等方面专家不得少于成员总数的三分之二"
+    legal_basis: "《招标投标法》第三十七条：评标委员会由招标人代表和有关技术、经济等方面专家组成，成员人数为5人以上单数；《招标投标法实施条例》第四十六条"
+    check_item: "9.2"
+
+  - rule_id: BP_EVAL_CRITERIA
+    title: 评标标准明确性
+    severity: medium
+    description: 评分细则是否明确、可操作，是否存在模糊或自由裁量空间过大的条款
+    keywords:
+      - "评分细则"
+      - "评标标准"
+      - "评分方法"
+      - "评分因素"
+      - "细化标准"
+    patterns:
+      - "评分.*由评委.*综合"
+      - "评分.*视.*情况"
+      - "评标标准.*另行确定"
+      - "评分细则.*未明确"
+    exclusion_patterns:
+      - "\\d+分"
+      - "量化"
+    category: bidding_procedure
+    suggestion: "评分细则应明确、量化、可操作，减少评标委员会自由裁量空间"
+    legal_basis: "《招标投标法实施条例》第五十五条：招标文件应当包括评标标准和方法；《评标委员会和评标方法暂行规定》第二十九条"
+    check_item: "9.3"
+
+  - rule_id: BP_PRICE_WEIGHT
+    title: 价格评审权重
+    severity: medium
+    description: 价格权重是否符合法定要求，价格分值设置是否合理
+    keywords:
+      - "价格权重"
+      - "价格分"
+      - "价格评审"
+      - "报价评审"
+      - "价格占比"
+    patterns:
+      - "价格.*权重.*%"
+      - "价格.*分值.*%"
+      - "报价.*评分.*占"
+      - "商务.*价格.*占比"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "货物项目价格分值权重一般不低于30%，服务项目一般不低于10%，工程项目应合理设置"
+    legal_basis: "《评标委员会和评标方法暂行规定》第二十八条；《政府采购货物和服务招标投标管理办法》第五十五条"
+    check_item: "9.4"
+
+  - rule_id: BP_PERSONNEL_QUALIFY
+    title: 评标人员资格
+    severity: high
+    description: 评标专家资格条件是否合规，是否存在应回避而未回避的情形
+    keywords:
+      - "评标专家"
+      - "专家资格"
+      - "回避"
+      - "利益冲突"
+      - "专家库"
+    patterns:
+      - "评标专家.*须.*"
+      - "与投标人.*有利害关系"
+      - "应当回避"
+      - "专家.*抽取"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "评标专家应从省级以上人民政府有关部门提供的专家名册或招标代理机构的专家库中确定，与投标人有利害关系的应回避"
+    legal_basis: "《招标投标法》第三十七条：《招标投标法实施条例》第四十六条、第四十七条"
+    check_item: "9.5"
+
+  - rule_id: BP_ABNORMAL_LOW
+    title: 异常低价处置规则
+    severity: medium
+    description: 是否明确异常低价识别和处理程序，防止低价恶性竞争
+    keywords:
+      - "异常低价"
+      - "低于成本"
+      - "恶意低价"
+      - "低价投标"
+      - "异常报价"
+    patterns:
+      - "报价低于.*为.*废标"
+      - "低于成本价"
+      - "异常低价.*处理"
+      - "报价明显低于其他"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "应明确异常低价的识别标准和处理程序，对可能低于成本的报价应要求投标人作出书面说明"
+    legal_basis: "《评标委员会和评标方法暂行规定》第二十七条：评标委员会发现投标人的报价明显低于其他投标报价，应当要求该投标人作出书面说明"
+    check_item: "9.6"
+
+  - rule_id: BP_ABNORMAL_BID
+    title: 异常投标情形预设
+    severity: medium
+    description: 是否明确串通投标等异常情形的认定标准和处理程序
+    keywords:
+      - "串通投标"
+      - "围标"
+      - "陪标"
+      - "异常投标"
+      - "弄虚作假"
+    patterns:
+      - "串通投标.*认定"
+      - "视为.*串通投标"
+      - "不同投标人.*同一"
+      - "投标文件.*异常一致"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "应明确串通投标等异常情形的认定标准，如不同投标人投标文件由同一单位编制等"
+    legal_basis: "《招标投标法实施条例》第三十九条、第四十条：关于串通投标的认定；《招标投标法》第五十三条"
+    check_item: "9.7"
+
+  - rule_id: BP_DISQUALIFY_SCOPE
+    title: 否决投标条款合规
+    severity: high
+    description: 废标/否决投标条款是否限于法定情形，是否存在扩大化设置
+    keywords:
+      - "否决投标"
+      - "废标"
+      - "无效标"
+      - "拒绝投标"
+      - "投标无效"
+    patterns:
+      - "有下列情形之一的.*否决投标"
+      - "废标条件.*"
+      - "以下情形.*投标无效"
+      - "视为.*废标"
+    exclusion_patterns: []
+    category: bidding_procedure
+    suggestion: "否决投标条款应限于法定情形，不得随意扩大废标范围"
+    legal_basis: "《招标投标法实施条例》第五十一条：评标委员会应当否决其投标的情形；《招标投标法》第四十二条"
+    check_item: "9.8"

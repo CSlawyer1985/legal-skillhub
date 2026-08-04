@@ -1,0 +1,52 @@
+{
+  "skill_name": "smart-contract-reviewer",
+  "version": "1.0.0",
+  "description_zh": "智能合同审查助手 - 自动提取条款、识别风险、生成审查报告",
+  "default_language": "zh-CN",
+  "supported_formats": ["pdf", "docx", "txt", "md"],
+  "risk_levels": {
+    "high": "🔴 高风险",
+    "medium": "🟡 中风险",
+    "low": "🟢 低风险"
+  },
+  "risk_thresholds": {
+    "high_risk_count_for_overall_high": 3,
+    "high_risk_count_for_overall_medium": 1,
+    "medium_risk_count_for_overall_medium": 3
+  },
+  "review_standpoint_options": ["甲方", "乙方", "中立第三方"],
+  "default_laws": ["民法典", "反不正当竞争法", "个人信息保护法"],
+  "report_output": {
+    "format": "markdown",
+    "filename_pattern": "review-report-{contract_name}-{date}.md",
+    "include_legal_basis": true,
+    "include_modification_suggestions": true
+  },
+  "contract_types": [
+    "采购合同",
+    "销售合同",
+    "租赁合同",
+    "技术服务合同",
+    "保密协议",
+    "竞业限制协议",
+    "借款合同",
+    "建设工程合同",
+    "知识产权许可合同",
+    "其他"
+  ],
+  "clause_patterns": {
+    "party_info": ["甲方", "乙方", "统一社会信用代码", "法定代表人"],
+    "price_payment": ["价款", "总金额", "支付方式", "付款节点", "发票"],
+    "performance": ["履行期限", "交付时间", "验收标准"],
+    "breach": ["违约责任", "违约金", "赔偿"],
+    "dispute": ["争议解决", "管辖法院", "仲裁机构", "适用法律"],
+    "confidentiality": ["保密", "保密信息", "保密期限"],
+    "ip": ["知识产权", "专利权", "著作权"],
+    "termination": ["解除", "终止", "解除条件"],
+    "force_majeure": ["不可抗力"]
+  },
+  "validation": {
+    "min_report_lines": 30,
+    "required_sections": ["基本信息", "风险评估", "关键条款", "修改建议", "综合建议"]
+  }
+}

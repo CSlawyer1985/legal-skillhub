@@ -1,0 +1,13 @@
+{
+  "$schema": "clause-schema",
+  "category": "general",
+  "name": "完整协议条款（Entire Agreement）",
+  "applicable_types": [
+    "all"
+  ],
+  "clause_text": "本合同及其所有附件（如有）、补充协议（如有）构成双方就本合同标的达成的完整协议，并取代双方此前就同一事项所作的任何要约、承诺、意向书、会议纪要、口头或书面协议。本合同各条款的标题仅为方便阅读，不影响条款的解释。",
+  "position_tips": {
+    "both": "此条款有效防止对方主张之前有过约定的争议；应注意将所有约定写入书面合同"
+  },
+  "legal_reference": "《民法典》第470条（合同条款的解释）"
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <!-- 背景 -->
+  <rect width="200" height="200" rx="30" fill="url(#bg)"/>
+  <!-- 盾牌外框 -->
+  <path d="M40 50 L100 20 L160 50 L160 110 Q160 170 100 190 Q40 170 40 110 Z" fill="#2c3e6b" stroke="#c9a84c" stroke-width="2.5"/>
+  <!-- 盾牌内部浅色区域 -->
+  <path d="M55 62 L100 38 L145 62 L145 108 Q145 155 100 173 Q55 155 55 108 Z" fill="#3a5199" opacity="0.6"/>
+  <!-- 文档图标 -->
+  <rect x="75" y="60" width="50" height="65" rx="3" fill="#e8e0d0" stroke="#c9a84c" stroke-width="1.5"/>
+  <!-- 文档折角 -->
+  <path d="M125 60 L125 75 L110 75 L110 60 Z" fill="#d4c9b0" stroke="#c9a84c" stroke-width="1"/>
+  <!-- 文字线条 -->
+  <line x1="85" y1="85" x2="115" y2="85" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+  <line x1="85" y1="95" x2="115" y2="95" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+  <line x1="85" y1="105" x2="105" y2="105" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+  <line x1="85" y1="115" x2="110" y2="115" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+  <!-- 锁图标 -->
+  <circle cx="100" cy="85" r="8" fill="#c9a84c"/>
+  <rect x="93" y="83" width="14" height="12" rx="2" fill="#c9a84c"/>
+  <!-- 锁定标记 -->
+  <path d="M96 88 L100 92 L104 88" stroke="#1a1a2e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- 标题文字 -->
+  <text x="100" y="175" text-anchor="middle" fill="#c9a84c" font-family="serif" font-size="12" font-weight="bold">合同脱敏</text>
+</svg>

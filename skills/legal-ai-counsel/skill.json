@@ -1,0 +1,17 @@
+{
+  "name": "legal-ai-counsel",
+  "description": "法律AI助手 - 中国场景民事/劳动法律辅助工具，提供合同风险扫描、劳动纠纷补偿估算、诉讼成本计算、法律文书骨架生成。当前版本为 Free Starter，适合初步风险筛查和结构化辅助，不替代执业律师的正式法律意见。",
+  "version": "1.0.0",
+  "author": "Harry",
+  "tags": ["legal", "china", "contract", "labor-dispute", "law", "civil-law"],
+  "safety": {
+    "no_diagnosis": false,
+    "no_treatment": false,
+    "disclaimer_required": true,
+    "high_risk_keyword_detection": true
+  },
+  "modules": {
+    "handler": "handler.py"
+  },
+  "entry": "handler.py"
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "clause-schema",
+  "category": "general",
+  "name": "准据法条款（中华人民共和国法律）",
+  "applicable_types": [
+    "all"
+  ],
+  "clause_text": "本合同的订立、效力、解释、履行、变更、解除及争议解决，均适用中华人民共和国（不含港澳台地区）法律，并按中华人民共和国法律解释。",
+  "position_tips": {
+    "both": "涉外商事合同可约定适用外国法或国际惯例；国内合同必须约定中国法"
+  },
+  "legal_reference": "《民法典》第467条（涉外合同的法律适用）"
+}

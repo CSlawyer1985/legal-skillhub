@@ -1,0 +1,528 @@
+{
+  "version": "1.7.0",
+  "project": "lexfolio",
+  "description": "Legal document Markdown to PDF typesetting engine theme config",
+
+  "color": {
+    "scheme": "B",
+    "schemes": {
+      "A": {
+        "name": "深蓝 + 靛蓝",
+        "tagline": "信任与智能",
+        "primary":   "#0F2B46",
+        "secondary": "#1B4F72",
+        "accent":    "#7B68EE"
+      },
+      "B": {
+        "name": "深青蓝 + 琥珀",
+        "tagline": "数据流动与法律温度",
+        "primary":   "#0D4F4F",
+        "secondary": "#1A8A8A",
+        "accent":    "#C4890E"
+      },
+      "C": {
+        "name": "石墨黑 + 钴蓝",
+        "tagline": "极简智性",
+        "primary":   "#0047AB",
+        "secondary": "#2A2A2A",
+        "accent":    "#E8C547"
+      }
+    },
+    "neutral": {
+      "text":       "#1A1A1A",
+      "text_light": "#666666",
+      "bg_subtle":  "#F5F7FA",
+      "bg_table":   "#F0F2F5",
+      "border":     "#D0D5DD"
+    }
+  },
+
+  "font": {
+    "provider": "noto",
+    "providers": {
+      "noto": {
+        "body": {
+          "regular": "fonts/NotoSerifSC-Regular.ttf",
+          "bold":    "fonts/NotoSerifSC-Bold.ttf"
+        },
+        "heading": {
+          "regular": "fonts/NotoSansSC-Medium.ttf",
+          "bold":    "fonts/NotoSansSC-Bold.ttf",
+          "light":   "fonts/NotoSansSC-Light.ttf"
+        },
+        "quote": {
+          "regular": "fonts/NotoSerifSC-Regular.ttf"
+        },
+        "latin": {
+          "regular": "fonts/EBGaramond-Regular.ttf",
+          "bold":    "fonts/EBGaramond-Bold.ttf",
+          "italic":  "fonts/EBGaramond-Italic.ttf"
+        }
+      },
+      "founder": {
+        "body": {
+          "regular": "fonts/NotoSerifSC-Regular.ttf",
+          "bold":    "fonts/NotoSerifSC-Bold.ttf"
+        },
+        "heading": {
+          "regular": "fonts/NotoSansSC-Medium.ttf",
+          "bold":    "fonts/NotoSansSC-Bold.ttf",
+          "light":   "fonts/NotoSansSC-Light.ttf"
+        },
+        "quote": {
+          "regular": "fonts/NotoSerifSC-Regular.ttf"
+        },
+        "latin": {
+          "regular": "fonts/EBGaramond-Regular.ttf",
+          "bold":    "fonts/EBGaramond-Bold.ttf",
+          "italic":  "fonts/EBGaramond-Italic.ttf"
+        }
+      }
+    }
+  },
+
+  "typography": {
+    "body": {
+      "font_size_pt": 10.5,
+      "line_height_pt": 22,
+      "first_line_indent_chars": 2,
+      "space_before_pt": 3,
+      "space_after_pt": 3,
+      "cjk_latin_spacing_pt": 2
+    },
+    "heading_1": {
+      "font_size_pt": 15,
+      "line_height_pt": 24,
+      "space_before_pt": 20,
+      "space_after_pt": 8
+    },
+    "heading_2": {
+      "font_size_pt": 13,
+      "line_height_pt": 21,
+      "space_before_pt": 16,
+      "space_after_pt": 6
+    },
+    "heading_3": {
+      "font_size_pt": 11,
+      "line_height_pt": 18,
+      "space_before_pt": 12,
+      "space_after_pt": 4
+    },
+    "quote": {
+      "font_size_pt": 9.5,
+      "line_height_pt": 16,
+      "left_indent_pt": 21,
+      "right_indent_pt": 18,
+      "space_before_pt": 8,
+      "space_after_pt": 8
+    },
+    "quote_law": {
+      "font_size_pt": 9.5,
+      "line_height_pt": 18,
+      "left_indent_pt": 28,
+      "right_indent_pt": 24,
+      "space_before_pt": 10,
+      "space_after_pt": 10
+    },
+    "opinion": {
+      "space_before_pt": 10,
+      "space_after_pt": 3,
+      "bar_height_pt": 1
+    },
+    "meta": {
+      "font_size_pt": 9,
+      "line_height_pt": 14,
+      "space_before_pt": 2,
+      "space_after_pt": 2
+    },
+    "header_footer": {
+      "font_size_pt": 8,
+      "header_enabled": true,
+      "footer_enabled": true,
+      "show_on_first_page": false,
+      "separator_height_pt": 0.5,
+      "separator_color": "border",
+      "footer_format": "intl",
+      "header_right": "ref_no"
+    },
+    "widow_orphan": {
+      "widows": 2,
+      "orphans": 2
+    },
+    "punctuation_compression": {
+      "enabled": true,
+      "ratio": 0.8
+    }
+  },
+
+  "page": {
+    "size": "A4",
+    "width_mm": 210,
+    "height_mm": 297,
+    "margin_top_mm": 30,
+    "margin_bottom_mm": 30,
+    "margin_left_mm": 28,
+    "margin_right_mm": 28
+  },
+
+  "brand_rules": {
+    "allowed_positions": [
+      "title_decoration_line",
+      "table_header_background",
+      "quote_left_border",
+      "header_separator",
+      "footer_page_slash",
+      "cover_decoration_lines",
+      "opinion_top_bar"
+    ],
+    "title_line_height_pt": 2,
+    "title_line_width_ratio": 0.6,
+    "quote_border_width_pt": 3,
+    "header_separator_height_pt": 0.5,
+    "cover_line_height_pt": 1,
+    "opinion_bar_height_pt": 1
+  },
+
+  "table": {
+    "style": "three_line",
+    "top_line_pt": 0.75,
+    "header_line_pt": 0.5,
+    "bottom_line_pt": 0.75,
+    "vertical_lines": false,
+    "cell_borders": false,
+    "header_bg_opacity": 0.10,
+    "zebra_even_color": "#F8F9FB",
+    "header_font_weight": "bold",
+    "cell_padding_vertical_pt": 8,
+    "cell_padding_horizontal_pt": 8,
+    "table_spacing_before_pt": 12,
+    "table_spacing_after_pt": 12,
+    "font_size_pt": 10.5,
+    "line_height_pt": 16
+  },
+
+  "footnote": {
+    "font_size_pt": 8,
+    "line_height_pt": 12,
+    "separator_line_pt": 0.5,
+    "separator_width_ratio": 0.33
+  },
+
+  "cover": {
+    "firm_name_cn": "",
+    "firm_name_en": "",
+    "confidential_text": "PRIVILEGED & CONFIDENTIAL",
+    "draft_text": "DRAFT",
+    "title_font_size_pt": 20,
+    "firm_font_size_pt": 18,
+    "meta_font_size_pt": 10
+  },
+
+  "i18n": {
+    "footer_page_prefix":  "\u7b2c ",
+    "footer_page_suffix":  " \u9875",
+    "footer_total_prefix": "\u5171 ",
+    "footer_total_suffix": " \u9875",
+    "meta_addressee_label": "\u81f4\uff1a",
+    "meta_author_label":    "\u51fa\u5177\u5f8b\u5e08\uff1a",
+    "meta_date_label":      "\u65e5\u671f\uff1a"
+  },
+
+  "typography_presets": {
+    "standard": {
+      "label": "标准排版",
+      "category": "通用",
+      "description": "均衡的默认排版参数，适用于一般法律文档",
+      "overrides": {}
+    },
+    "executive": {
+      "label": "高管快览",
+      "category": "备忘录",
+      "description": "大字号紧凑行距，适合决策层快速阅读要点",
+      "overrides": {
+        "typography": {
+          "body": {
+            "font_size_pt": 13,
+            "line_height_pt": 24,
+            "space_before_pt": 4,
+            "space_after_pt": 4
+          },
+          "heading_1": {
+            "font_size_pt": 17,
+            "line_height_pt": 26,
+            "space_before_pt": 22,
+            "space_after_pt": 10
+          },
+          "heading_2": {
+            "font_size_pt": 15,
+            "line_height_pt": 24,
+            "space_before_pt": 18,
+            "space_after_pt": 8
+          },
+          "heading_3": {
+            "font_size_pt": 13,
+            "line_height_pt": 20,
+            "space_before_pt": 14,
+            "space_after_pt": 6
+          }
+        },
+        "page": {
+          "margin_top_mm": 25,
+          "margin_bottom_mm": 25,
+          "margin_right_mm": 32
+        }
+      }
+    },
+    "mobile": {
+      "label": "移动友好",
+      "category": "备忘录",
+      "description": "宽边距短行宽，优化小屏阅读体验",
+      "overrides": {
+        "typography": {
+          "body": {
+            "font_size_pt": 10,
+            "line_height_pt": 19,
+            "space_before_pt": 2,
+            "space_after_pt": 2
+          },
+          "heading_1": {
+            "font_size_pt": 14,
+            "line_height_pt": 22,
+            "space_before_pt": 16,
+            "space_after_pt": 6
+          },
+          "heading_2": {
+            "font_size_pt": 12,
+            "line_height_pt": 19,
+            "space_before_pt": 12,
+            "space_after_pt": 4
+          },
+          "heading_3": {
+            "font_size_pt": 11,
+            "line_height_pt": 18,
+            "space_before_pt": 10,
+            "space_after_pt": 3
+          }
+        },
+        "page": {
+          "margin_left_mm": 38,
+          "margin_right_mm": 38
+        },
+        "color": {
+          "neutral": {
+            "text": "#333333"
+          }
+        }
+      }
+    },
+    "editorial": {
+      "label": "品牌编辑",
+      "category": "备忘录",
+      "description": "大标题配合品牌色装饰线，杂志风格排版",
+      "overrides": {
+        "typography": {
+          "body": {
+            "font_size_pt": 12,
+            "line_height_pt": 24,
+            "space_before_pt": 4,
+            "space_after_pt": 4
+          },
+          "heading_1": {
+            "font_size_pt": 20,
+            "line_height_pt": 30,
+            "space_before_pt": 24,
+            "space_after_pt": 10
+          },
+          "heading_2": {
+            "font_size_pt": 15,
+            "line_height_pt": 24,
+            "space_before_pt": 18,
+            "space_after_pt": 8
+          },
+          "heading_3": {
+            "font_size_pt": 13,
+            "line_height_pt": 20,
+            "space_before_pt": 14,
+            "space_after_pt": 6
+          }
+        },
+        "page": {
+          "margin_left_mm": 50,
+          "margin_right_mm": 50
+        },
+        "brand_rules": {
+          "title_line_height_pt": 2.5
+        }
+      }
+    },
+    "academic": {
+      "label": "高端学术",
+      "category": "法律意见",
+      "description": "衬线正文左对齐，宽右页边距，学术论文风格",
+      "overrides": {
+        "typography": {
+          "body": {
+            "font_size_pt": 12,
+            "line_height_pt": 23,
+            "first_line_indent_chars": 0,
+            "alignment": "left",
+            "space_before_pt": 3,
+            "space_after_pt": 3
+          },
+          "heading_1": {
+            "font_size_pt": 15,
+            "line_height_pt": 24,
+            "space_before_pt": 20,
+            "space_after_pt": 8
+          },
+          "heading_2": {
+            "font_size_pt": 13,
+            "line_height_pt": 21,
+            "space_before_pt": 16,
+            "space_after_pt": 6
+          },
+          "heading_3": {
+            "font_size_pt": 11.5,
+            "line_height_pt": 18,
+            "space_before_pt": 12,
+            "space_after_pt": 4
+          }
+        },
+        "page": {
+          "margin_right_mm": 44
+        }
+      }
+    },
+    "deep": {
+      "label": "深度导航",
+      "category": "法律意见",
+      "description": "强化标题层级对比，适合长篇多层级法律意见书",
+      "overrides": {
+        "typography": {
+          "body": {
+            "font_size_pt": 10.5,
+            "line_height_pt": 22,
+            "space_before_pt": 3,
+            "space_after_pt": 3
+          },
+          "heading_1": {
+            "font_size_pt": 18,
+            "line_height_pt": 28,
+            "space_before_pt": 28,
+            "space_after_pt": 12
+          },
+          "heading_2": {
+            "font_size_pt": 14,
+            "line_height_pt": 22,
+            "space_before_pt": 20,
+            "space_after_pt": 8
+          },
+          "heading_3": {
+            "font_size_pt": 12,
+            "line_height_pt": 19,
+            "space_before_pt": 14,
+            "space_after_pt": 6
+          }
+        },
+        "page": {
+          "margin_top_mm": 32,
+          "margin_left_mm": 30,
+          "margin_right_mm": 30
+        },
+        "table": {
+          "header_bg_opacity": 0.15,
+          "font_size_pt": 10,
+          "line_height_pt": 15
+        }
+      }
+    },
+    "matrix": {
+      "label": "条款对比",
+      "category": "合同审查",
+      "description": "横排A4紧凑表格，适合条款逐项对比分析",
+      "overrides": {
+        "page": {
+          "size": "A4_landscape",
+          "width_mm": 297,
+          "height_mm": 210,
+          "margin_top_mm": 20,
+          "margin_bottom_mm": 20,
+          "margin_left_mm": 25,
+          "margin_right_mm": 25
+        },
+        "typography": {
+          "body": {
+            "font_size_pt": 10,
+            "line_height_pt": 14,
+            "space_before_pt": 2,
+            "space_after_pt": 2
+          },
+          "heading_1": {
+            "font_size_pt": 14,
+            "line_height_pt": 22,
+            "space_before_pt": 16,
+            "space_after_pt": 6
+          },
+          "heading_2": {
+            "font_size_pt": 12,
+            "line_height_pt": 18,
+            "space_before_pt": 12,
+            "space_after_pt": 4
+          },
+          "heading_3": {
+            "font_size_pt": 11,
+            "line_height_pt": 16,
+            "space_before_pt": 10,
+            "space_after_pt": 3
+          }
+        },
+        "table": {
+          "cell_padding_vertical_pt": 3,
+          "cell_padding_horizontal_pt": 5,
+          "header_bg_opacity": 0.12,
+          "font_size_pt": 9.5,
+          "line_height_pt": 14
+        }
+      }
+    },
+    "redline": {
+      "label": "修订注释",
+      "category": "合同审查",
+      "description": "宽松行距大字号，适合合同逐条审查批注",
+      "overrides": {
+        "typography": {
+          "body": {
+            "font_size_pt": 11,
+            "line_height_pt": 23,
+            "space_before_pt": 4,
+            "space_after_pt": 4
+          },
+          "heading_1": {
+            "font_size_pt": 15,
+            "line_height_pt": 24,
+            "space_before_pt": 20,
+            "space_after_pt": 8
+          },
+          "heading_2": {
+            "font_size_pt": 13,
+            "line_height_pt": 21,
+            "space_before_pt": 16,
+            "space_after_pt": 6
+          },
+          "heading_3": {
+            "font_size_pt": 12,
+            "line_height_pt": 19,
+            "space_before_pt": 12,
+            "space_after_pt": 4
+          }
+        },
+        "table": {
+          "cell_padding_vertical_pt": 5,
+          "cell_padding_horizontal_pt": 8,
+          "font_size_pt": 10.5,
+          "line_height_pt": 16
+        }
+      }
+    }
+  }
+}

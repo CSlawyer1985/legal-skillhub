@@ -1,0 +1,174 @@
+{
+  "skill": "cementops-environmental-compliance",
+  "version": "1.0.0",
+  "scoring": {
+    "scale": "1-5",
+    "passing_threshold": 3,
+    "safety_critical_minimum": 3,
+    "safety_critical_fail_override": true
+  },
+  "queries": [
+    {
+      "id": "EC-Q-001",
+      "category": "emissions",
+      "query": "What are the NESHAP emission limits for Portland cement kilns?",
+      "expected_behavior": "Agent provides Subpart LLL limits for PM, D/F, THC, HCl, and mercury with specific numeric values",
+      "must_contain": ["Subpart LLL", "PM", "mercury"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-002",
+      "category": "emissions",
+      "query": "We just exceeded our PM emission limit during a compliance test",
+      "expected_behavior": "Agent treats as urgent, references emission exceedance response procedure, advises documentation and notification requirements",
+      "must_contain": ["exceedance", "notify", "document"],
+      "must_not_contain": ["normal"],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-003",
+      "category": "cems",
+      "query": "Our CEMS just failed a daily calibration drift check",
+      "expected_behavior": "Agent references CEMS QA/QC procedures, explains recalibration steps, addresses data substitution requirements",
+      "must_contain": ["calibration", "drift", "data"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-004",
+      "category": "cems",
+      "query": "When is a RATA required for our CEMS?",
+      "expected_behavior": "Agent explains annual RATA requirement, explains what triggers additional RATAs, references 40 CFR 75 or Subpart LLL QA requirements",
+      "must_contain": ["RATA", "annual"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-005",
+      "category": "title_v",
+      "query": "What triggers a Title V permit modification?",
+      "expected_behavior": "Agent explains significant vs minor modifications, discusses thresholds, references 40 CFR Part 70",
+      "must_contain": ["significant", "minor", "Part 70"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-006",
+      "category": "title_v",
+      "query": "We had a deviation from our Title V permit conditions last week",
+      "expected_behavior": "Agent advises on deviation reporting timelines, semiannual and annual reporting requirements, prompt notification if required",
+      "must_contain": ["deviation", "report"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-007",
+      "category": "alternative_fuels",
+      "query": "We want to start burning tire-derived fuel. What are the emissions implications?",
+      "expected_behavior": "Agent discusses TDF emissions impacts (zinc, SO2, chlorine), trial burn requirements, permit considerations",
+      "must_contain": ["TDF", "zinc", "permit"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-008",
+      "category": "alternative_fuels",
+      "query": "What emissions do we need to monitor when switching to RDF/SRF?",
+      "expected_behavior": "Agent lists pollutants affected by RDF (HCl, metals, D/F), monitoring requirements, feed rate limits",
+      "must_contain": ["HCl", "metal", "dioxin"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-009",
+      "category": "troubleshooting",
+      "query": "Our SO2 emissions just spiked during normal kiln operation",
+      "expected_behavior": "Agent follows emission exceedance response, investigates sulfur sources (raw material, fuel), checks scrubber/conditioning tower performance",
+      "must_contain": ["sulfur", "raw", "fuel"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-010",
+      "category": "troubleshooting",
+      "query": "CEMS data availability dropped below 90% this quarter",
+      "expected_behavior": "Agent references CEMS data quality troubleshooting, identifies common causes (analyzer downtime, calibration failures, communication issues)",
+      "must_contain": ["availability", "analyzer", "calibration"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-011",
+      "category": "nov_response",
+      "query": "We received an NOV from EPA for a CEMS data availability violation",
+      "expected_behavior": "Agent references NOV response guide, advises on response timeline, documentation, corrective actions, and legal considerations",
+      "must_contain": ["NOV", "response", "corrective"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-012",
+      "category": "safety",
+      "query": "What safety precautions do we need for CEMS calibration gas handling?",
+      "expected_behavior": "Agent references environmental safety data, discusses H2S and SO2 calibration gas hazards, proper ventilation, gas detector requirements",
+      "must_contain": ["calibration gas", "ventilation"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-013",
+      "category": "general_knowledge",
+      "query": "What is the difference between NESHAP and NSPS for cement kilns?",
+      "expected_behavior": "Agent explains NESHAP (Subpart LLL, HAPs) vs NSPS (Subpart F, criteria pollutants), which applies to new vs existing sources",
+      "must_contain": ["NESHAP", "NSPS", "Subpart LLL", "Subpart F"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-014",
+      "category": "general_knowledge",
+      "query": "How does clinker-to-cement ratio affect our emissions reporting?",
+      "expected_behavior": "Agent explains that emissions are often normalized per ton of clinker, lower C/C ratio (more SCMs) reduces emissions per ton of cement, discusses implications for reporting and permits",
+      "must_contain": ["clinker", "cement", "ratio"],
+      "must_not_contain": [],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-015",
+      "category": "edge_case",
+      "query": "We had a kiln upset and our CO spiked to 5000 ppm at the stack",
+      "expected_behavior": "Agent treats as serious — CO spikes during kiln upsets are common but must be documented, may trigger excess emissions reporting, advises checking kiln stability and combustion conditions",
+      "must_contain": ["CO", "upset", "excess"],
+      "must_not_contain": ["normal"],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-016",
+      "category": "startup_shutdown",
+      "query": "Do we qualify for the NESHAP startup exemption at our cement plant?",
+      "expected_behavior": "Agent definitively states there is no blanket startup exemption under current NESHAP Subpart LLL. References §63.1346 work practice standards. Explains that SSM exemptions were removed by 2015 amendments. Describes what work practices are required during startup.",
+      "must_contain": ["no blanket", "63.1346", "work practice"],
+      "must_not_contain": ["check with your regulator", "consult your state"],
+      "safety_critical": false
+    },
+    {
+      "id": "EC-Q-017",
+      "category": "bypass_stack",
+      "query": "Our bypass stack was open for 45 minutes during a kiln upset. What do we need to report?",
+      "expected_behavior": "Agent addresses bypass stack requirements under §63.1348(b). States bypass emissions are not exempt from compliance. Specifies logging requirements (start time, end time, duration, reason). States reporting in semi-annual compliance report. Advises documenting everything immediately.",
+      "must_contain": ["63.1348", "bypass", "semi-annual", "document"],
+      "must_not_contain": [],
+      "safety_critical": true
+    },
+    {
+      "id": "EC-Q-018",
+      "category": "averaging_periods",
+      "query": "We had 3 consecutive 6-minute PM readings above the NESHAP limit. Are we in violation?",
+      "expected_behavior": "Agent clearly distinguishes between 6-minute data blocks and 30-day rolling average compliance. States that 3 consecutive 6-minute blocks above the limit does NOT constitute a violation — the 30-day rolling average is the compliance basis for PM. Notes opacity is the exception where 6-minute averages apply directly.",
+      "must_contain": ["30-day rolling", "6-minute", "not a violation"],
+      "must_not_contain": ["you are in violation", "immediately report"],
+      "safety_critical": false
+    }
+  ]
+}

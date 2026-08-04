@@ -1,0 +1,2 @@
+# wealth-calculator.py - 无外部依赖，仅需Python 3.7+
+# 使用标准库：argparse, json, sys

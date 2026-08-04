@@ -1,0 +1,4 @@
+interface:
+  display_name: "蚂蚁社保｜股权激励递延纳税资格核验"
+  short_description: "股权激励递延纳税资格核验，按当前有效官方口径给出结论与行动步骤"
+  default_prompt: "请使用 @check-ant-ss-545 帮我处理“股权激励递延纳税资格核验”，先核验地区、身份、年月和官方依据。"

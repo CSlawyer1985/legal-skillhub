@@ -1,0 +1,31 @@
+{
+  "name": "complaint-draft",
+  "version": "1.0.0",
+  "description": "Generate civil complaint document frameworks based on case facts",
+  "main": "scripts/complaint-drafter.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "complaint",
+    "lawsuit",
+    "legal",
+    "起诉状"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "openclaw": {
+    "skill": true,
+    "category": "legal",
+    "triggers": [
+      "起诉状",
+      "起诉书",
+      "怎么起诉",
+      "民事起诉",
+      "我要起诉",
+      "写诉状"
+    ]
+  }
+}

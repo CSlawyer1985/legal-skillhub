@@ -1,0 +1,14 @@
+# Contract Cleaner Configuration Example
+# Copy this file to config.yaml and fill in your actual API credentials.
+
+provider: anthropic
+model: claude-3-5-sonnet-20241022
+api_key: your-api-key-here
+base_url: https://api.anthropic.com
+api_version: "2023-06-01"
+
+# Alternative: DeepSeek
+# provider: deepseek
+# model: deepseek-chat
+# api_key: your-deepseek-key-here
+# base_url: https://api.deepseek.com

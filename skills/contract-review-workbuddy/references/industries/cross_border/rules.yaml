@@ -1,0 +1,667 @@
+rules:
+  # ==================== INCOTERMS 贸易术语 ====================
+  - id: CB001
+    category: incoterms
+    name: "贸易术语版本未标注"
+    description: "INCOTERMS 术语未标注适用版本，可能导致买卖双方对风险转移点理解不一致"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查 INCOTERMS 术语是否标注版本（如 INCOTERMS 2020），未标注版本视为不完整"
+    legal_basis: "《国际贸易术语解释通则2020》(ICC Publication 723)"
+    suggestion: "明确标注 INCOTERMS 版本和具体术语，如 FOB Shanghai INCOTERMS 2020"
+    enabled: true
+
+  - id: CB002
+    category: incoterms
+    name: "FOB 术语下装运港指定不当"
+    description: "FOB 术语下未明确指定装运港或指定港口条件不满足装运要求"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查 FOB 术语后是否明确指定装运港名称，且该港口应具备相应装卸条件"
+    legal_basis: "《国际贸易术语解释通则2020》FOB 条款"
+    suggestion: "明确指定具体装运港（如 FOB Shanghai Port INCOTERMS 2020），并确认港口具备相应装卸能力"
+    enabled: true
+
+  - id: CB003
+    category: incoterms
+    name: "CIF 术语下保险范围约定不明"
+    description: "CIF 术语下未明确保险险别和保险金额，可能导致货物在运输途中损失无法获得充分赔偿"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查 CIF 术语下是否明确保险险别（如 ICC A/B/C 条款）和保险金额（通常为 CIF 价 110%）"
+    legal_basis: "《国际贸易术语解释通则2020》CIF 条款"
+    suggestion: "明确保险险别和最低保险金额，如 CIF Los Angeles INCOTERMS 2020, 投保 ICC(A) 条款，保险金额为 CIF 价 110%"
+    enabled: true
+
+  - id: CB004
+    category: incoterms
+    name: "DDP 术语下进口清关责任不清"
+    description: "DDP 术语下卖方承担进口清关义务，但未明确约定进口许可证获取责任和关税承担方式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查 DDP 术语下是否明确进口许可证、进口关税及其他进口税费的承担方"
+    legal_basis: "《国际贸易术语解释通则2020》DDP 条款"
+    suggestion: "明确约定进口许可证获取责任、进口关税及其他税费的承担方式，并确认卖方具备目的国进口资质"
+    enabled: true
+
+  - id: CB005
+    category: incoterms
+    name: "EXW 术语下装货义务约定不明"
+    description: "EXW 术语下未明确卖方是否负责装货，可能导致货物交接时产生争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查 EXW 术语下是否明确卖方是否负责装货及相关费用承担"
+    legal_basis: "《国际贸易术语解释通则2020》EXW 条款"
+    suggestion: "明确约定卖方是否负责装货，如 EXW Seller's Factory (loaded) INCOTERMS 2020"
+    enabled: true
+
+  - id: CB006
+    category: incoterms
+    name: "FCA 术语下交货地点指定不当"
+    description: "FCA 术语下未明确指定交货地点，可能导致风险转移点不明确"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查 FCA 术语后是否明确指定具体交货地点（如港口、机场、仓库等）"
+    legal_basis: "《国际贸易术语解释通则2020》FCA 条款"
+    suggestion: "明确指定具体交货地点，如 FCA Shanghai Pudong Airport INCOTERMS 2020"
+    enabled: true
+
+  - id: CB007
+    category: incoterms
+    name: "贸易术语与运输方式不匹配"
+    description: "使用的 INCOTERMS 术语与实际运输方式不匹配（如使用 FOB 但实际为空运）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查 INCOTERMS 术语是否与实际运输方式匹配（FOB/CIF/CFR 仅适用于海运和内河运输）"
+    legal_basis: "《国际贸易术语解释通则2020》"
+    suggestion: "根据实际运输方式选择匹配的贸易术语，空运应使用 FCA、CPT 或 CIP 等"
+    enabled: true
+
+  - id: CB008
+    category: incoterms
+    name: "多式联运术语使用不当"
+    description: "涉及多式联运时使用仅适用于单一运输方式的术语"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查涉及多式联运的合同是否使用 FCA、CPT、CIP、DAP、DPU、DDP 等多式联运术语"
+    legal_basis: "《国际贸易术语解释通则2020》"
+    suggestion: "多式联运应使用适用于任何运输方式的术语（FCA、CPT、CIP、DAP、DPU、DDP）"
+    enabled: true
+
+  # ==================== 海关合规 ====================
+  - id: CB009
+    category: customs
+    name: "商品 HS 编码归类不当"
+    description: "未明确商品 HS 编码或 HS 编码归类错误，可能导致关税计算错误或海关处罚"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确商品 HS 编码，且 HS 编码应与商品实际描述一致"
+    legal_basis: "《中华人民共和国海关法》第四十二条、《商品名称及编码协调制度》"
+    suggestion: "明确商品 HS 编码，必要时委托专业报关行进行归类确认"
+    enabled: true
+
+  - id: CB010
+    category: customs
+    name: "原产地规则约定不明"
+    description: "未明确货物原产地及原产地证书要求，可能影响关税优惠待遇"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确货物原产地、原产地证书类型（如 FORM E、FORM F 等）及出具机构"
+    legal_basis: "《中华人民共和国进出口货物原产地条例》、《海关法》第四十一条"
+    suggestion: "明确约定货物原产地、所需原产地证书类型及出具机构，确保享受相应关税优惠"
+    enabled: true
+
+  - id: CB011
+    category: customs
+    name: "进出口许可证责任不清"
+    description: "未明确进出口许可证的获取责任方，可能导致货物无法通关"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确进出口许可证的获取责任方及未能取得许可证的违约责任"
+    legal_basis: "《中华人民共和国对外贸易法》第十九条、《货物进出口管理条例》"
+    suggestion: "明确约定进出口许可证的获取责任方、办理时限及未能取得的违约责任"
+    enabled: true
+
+  - id: CB012
+    category: customs
+    name: "海关估价方法约定不明"
+    description: "未明确海关估价方法，可能导致完税价格争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确成交价格是否包含佣金、特许权使用费等应计入完税价格的费用"
+    legal_basis: "《中华人民共和国海关法》第五十五条、《海关审定进出口货物完税价格办法》"
+    suggestion: "明确成交价格构成，确保包含所有应计入完税价格的费用"
+    enabled: true
+
+  - id: CB013
+    category: customs
+    name: "出口管制合规缺失"
+    description: "未约定出口管制合规义务，可能导致违反出口管制法规"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否包含出口管制合规条款，明确受控物项范围及合规义务"
+    legal_basis: "《中华人民共和国出口管制法》第二条、第十八条"
+    suggestion: "增加出口管制合规条款，明确受控物项范围、最终用户及最终用途限制"
+    enabled: true
+
+  - id: CB014
+    category: customs
+    name: "跨境电商综合税缴纳责任不清"
+    description: "跨境电商零售进口未明确综合税（关税、增值税、消费税）的缴纳责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查跨境电商合同是否明确综合税的缴纳责任方及计算方式"
+    legal_basis: "《关于跨境电子商务零售进口税收政策的通知》（财关税〔2016〕18号）"
+    suggestion: "明确约定跨境电商综合税的缴纳责任方、计算方式及申报义务"
+    enabled: true
+
+  - id: CB015
+    category: customs
+    name: "保税仓货物监管约定不明"
+    description: "使用保税仓但未明确货物监管责任及库存管理要求"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确保税仓货物的监管责任、库存盘点及损耗处理方式"
+    legal_basis: "《中华人民共和国海关法》第三十八条、《保税仓库管理办法》"
+    suggestion: "明确保税仓货物监管责任、库存盘点周期、损耗处理及出库申报义务"
+    enabled: true
+
+  - id: CB016
+    category: customs
+    name: "报关单据要求不明确"
+    description: "未明确报关所需单据的种类、格式及提交时限"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确报关所需单据清单（如商业发票、装箱单、提单、原产地证等）及提交时限"
+    legal_basis: "《中华人民共和国海关法》第二十四条"
+    suggestion: "明确报关单据清单、格式要求、提交时限及单据不符的违约责任"
+    enabled: true
+
+  - id: CB017
+    category: customs
+    name: "海关稽查配合义务缺失"
+    description: "未约定海关稽查时的配合义务及责任分担"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定海关稽查时的配合义务、费用承担及责任分担方式"
+    legal_basis: "《中华人民共和国海关稽查条例》"
+    suggestion: "增加海关稽查配合条款，明确配合义务、费用承担及因稽查产生额外税费的承担方式"
+    enabled: true
+
+  - id: CB018
+    category: customs
+    name: "跨境电商退货通关约定不明"
+    description: "未明确退货商品的通关流程及税费处理方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确退货商品的通关流程、退运申报及已征税款退还处理"
+    legal_basis: "《中华人民共和国海关法》第六十三条、《关于跨境电子商务零售进口商品退货有关监管事宜的公告》"
+    suggestion: "明确退货商品通关流程、退运申报义务及已征税款退还处理方式"
+    enabled: true
+
+  # ==================== 跨境支付 ====================
+  - id: CB019
+    category: payment
+    name: "外汇管制合规缺失"
+    description: "未约定外汇管制合规义务，可能导致跨境支付违规"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否包含外汇管制合规条款，明确跨境支付应符合外汇管理规定"
+    legal_basis: "《中华人民共和国外汇管理条例》第十二条、第二十二条"
+    suggestion: "增加外汇管制合规条款，明确跨境支付应符合国内外汇管理规定"
+    enabled: true
+
+  - id: CB020
+    category: payment
+    name: "支付方式与风险控制不匹配"
+    description: "选择的支付方式与交易风险不匹配（如对新客户使用赊销 OA）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同约定的支付方式（L/C、T/T、D/P、D/A、OA 等）是否与交易风险相匹配"
+    legal_basis: "《跟单信用证统一惯例》（UCP600）、《托收统一规则》（URC522）"
+    suggestion: "根据客户信用状况选择合适的支付方式，高风险交易建议使用信用证或预付货款"
+    enabled: true
+
+  - id: CB021
+    category: payment
+    name: "信用证软条款风险"
+    description: "信用证中包含软条款（如客检条款），可能导致受益人无法获得付款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查信用证条款是否包含软条款（如买方检验证书、装船前检验等）"
+    legal_basis: "《跟单信用证统一惯例》（UCP600）第4条"
+    suggestion: "删除或修改信用证软条款，确保信用证独立性和单据化条件"
+    enabled: true
+
+  - id: CB022
+    category: payment
+    name: "汇率风险分担机制缺失"
+    description: "未约定汇率波动风险分担机制，可能导致汇率损失"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定汇率波动风险分担机制（如汇率锁定、汇率区间保护等）"
+    legal_basis: "《中华人民共和国外汇管理条例》"
+    suggestion: "增加汇率风险分担条款，约定汇率锁定、汇率区间保护或汇率损失分担比例"
+    enabled: true
+
+  - id: CB023
+    category: payment
+    name: "跨境支付平台合规性缺失"
+    description: "使用未经批准的跨境支付平台，可能导致资金安全风险"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同约定的跨境支付平台是否具备合法资质（如持有支付业务许可证）"
+    legal_basis: "《非金融机构支付服务管理办法》、《跨境支付服务管理办法》"
+    suggestion: "选择具备合法资质的跨境支付平台，并核实其支付业务许可证"
+    enabled: true
+
+  - id: CB024
+    category: payment
+    name: "付款节点与货物控制权脱节"
+    description: "付款节点与货物控制权转移不匹配，可能导致付款后无法取得货物"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查付款节点是否与货物控制权转移（如提单交付）相匹配"
+    legal_basis: "《联合国国际货物销售合同公约》第58条"
+    suggestion: "将付款节点与货物控制权转移挂钩，如凭单付款、货到付款等"
+    enabled: true
+
+  - id: CB025
+    category: payment
+    name: "反洗钱合规义务缺失"
+    description: "未约定反洗钱合规义务，可能导致违反反洗钱法规"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否包含反洗钱合规条款，明确交易背景真实性审查义务"
+    legal_basis: "《中华人民共和国反洗钱法》第三条、《金融机构反洗钱规定》"
+    suggestion: "增加反洗钱合规条款，明确交易背景真实性审查义务及可疑交易报告机制"
+    enabled: true
+
+  - id: CB026
+    category: payment
+    name: "跨境人民币结算约定不明"
+    description: "使用跨境人民币结算但未明确结算流程及合规要求"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确跨境人民币结算的具体流程、申报要求及合规义务"
+    legal_basis: "《跨境贸易人民币结算试点管理办法》（中国人民银行公告〔2009〕第10号）"
+    suggestion: "明确跨境人民币结算流程、申报要求及合规义务"
+    enabled: true
+
+  - id: CB027
+    category: payment
+    name: "第三方支付平台资金安全约定缺失"
+    description: "使用第三方支付平台但未明确资金安全保障措施"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确第三方支付平台的资金安全保障措施及风险分担机制"
+    legal_basis: "《非银行支付机构网络支付业务管理办法》"
+    suggestion: "明确第三方支付平台的资金安全保障措施、备付金管理及风险分担机制"
+    enabled: true
+
+  # ==================== 外贸合同 ====================
+  - id: CB028
+    category: foreign_trade
+    name: "合同主体资质审查缺失"
+    description: "未对合同主体进行资质审查，可能导致与无资质主体签约"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否要求对方提供营业执照、进出口经营权证明等资质文件"
+    legal_basis: "《中华人民共和国对外贸易法》第九条、《对外贸易经营者备案登记办法》"
+    suggestion: "要求对方提供营业执照、进出口经营权证明等资质文件，并核实其有效性"
+    enabled: true
+
+  - id: CB029
+    category: foreign_trade
+    name: "商品质量标准约定不明"
+    description: "未明确商品质量标准，可能导致交货质量争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确商品质量标准（如国家标准、行业标准、企业标准或双方约定标准）"
+    legal_basis: "《中华人民共和国产品质量法》第二十六条、《联合国国际货物销售合同公约》第35条"
+    suggestion: "明确商品质量标准、检验方法、检验机构及质量异议期"
+    enabled: true
+
+  - id: CB030
+    category: foreign_trade
+    name: "包装标识要求不明确"
+    description: "未明确包装标识要求，可能导致货物在目的国无法清关"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确包装标识要求（如原产地标识、成分标识、警示标识等）"
+    legal_basis: "《中华人民共和国产品质量法》第二十七条、《进出口商品检验法》"
+    suggestion: "明确包装标识要求，确保符合目的国法律法规要求"
+    enabled: true
+
+  - id: CB031
+    category: foreign_trade
+    name: "知识产权担保缺失"
+    description: "未约定知识产权担保条款，可能导致侵权纠纷"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否包含知识产权担保条款，明确卖方对货物知识产权的担保责任"
+    legal_basis: "《联合国国际货物销售合同公约》第42条、《中华人民共和国对外贸易法》第二十九条"
+    suggestion: "增加知识产权担保条款，明确卖方对货物知识产权的担保范围及免责情形"
+    enabled: true
+
+  - id: CB032
+    category: foreign_trade
+    name: "不可抗力条款缺失"
+    description: "未约定不可抗力条款，可能导致突发事件下责任分担不明"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否包含不可抗力条款，明确不可抗力的定义、范围及法律后果"
+    legal_basis: "《中华人民共和国民法典》第一百八十条、第五百九十条"
+    suggestion: "增加不可抗力条款，明确不可抗力的定义、范围、通知义务及责任分担"
+    enabled: true
+
+  - id: CB033
+    category: foreign_trade
+    name: "争议解决方式约定不明"
+    description: "未明确争议解决方式，可能导致争议解决成本增加"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确争议解决方式（诉讼或仲裁）、管辖机构及适用法律"
+    legal_basis: "《中华人民共和国民事诉讼法》第三十四条、《中华人民共和国仲裁法》"
+    suggestion: "明确争议解决方式、管辖机构（或仲裁机构）及适用法律"
+    enabled: true
+
+  - id: CB034
+    category: foreign_trade
+    name: "法律适用条款缺失"
+    description: "未约定合同适用法律，可能导致法律适用争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确约定适用的法律（如中国法律、第三国法律或国际公约）"
+    legal_basis: "《中华人民共和国涉外民事关系法律适用法》第四十一条"
+    suggestion: "明确约定合同适用的法律，建议选择熟悉的法律体系"
+    enabled: true
+
+  - id: CB035
+    category: foreign_trade
+    name: "货物风险转移约定不明"
+    description: "未明确货物风险转移时点，可能导致损失承担争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确货物风险转移时点（通常与贸易术语一致）"
+    legal_basis: "《联合国国际货物销售合同公约》第六十七条"
+    suggestion: "明确货物风险转移时点，确保与贸易术语约定一致"
+    enabled: true
+
+  - id: CB036
+    category: foreign_trade
+    name: "检验期限和异议期约定不明"
+    description: "未明确检验期限和异议期，可能导致丧失质量异议权"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确货物检验期限和质量异议期"
+    legal_basis: "《联合国国际货物销售合同公约》第三十八条、第三十九条"
+    suggestion: "明确货物检验期限和质量异议期，确保在合理期限内提出质量异议"
+    enabled: true
+
+  - id: CB037
+    category: foreign_trade
+    name: "违约金约定过高或过低"
+    description: "违约金约定过高或过低，可能导致违约金调整或无法弥补损失"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同约定的违约金是否合理（一般不超过实际损失的30%）"
+    legal_basis: "《中华人民共和国民法典》第五百八十五条"
+    suggestion: "合理约定违约金金额，建议与实际损失相当，避免过高或过低"
+    enabled: true
+
+  # ==================== 代理协议 ====================
+  - id: CB038
+    category: agency
+    name: "代理权限范围约定不明"
+    description: "未明确代理权限范围，可能导致代理人超越权限行事"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查代理协议是否明确代理权限范围（如独家代理、一般代理、总代理等）"
+    legal_basis: "《中华人民共和国民法典》第一百六十二条、第一百六十三条"
+    suggestion: "明确代理权限范围、代理区域、代理期限及代理权限的限制"
+    enabled: true
+
+  - id: CB039
+    category: agency
+    name: "代理商出口退税约定不明"
+    description: "代理出口未明确出口退税归属，可能导致退税款争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查代理协议是否明确出口退税的归属及分配方式"
+    legal_basis: "《出口货物劳务增值税和消费税管理办法》"
+    suggestion: "明确出口退税的归属及分配方式，避免退税款争议"
+    enabled: true
+
+  - id: CB040
+    category: agency
+    name: "代理商佣金计算方式不明"
+    description: "未明确佣金计算方式，可能导致佣金支付争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查代理协议是否明确佣金计算方式（如按销售额比例、按利润比例等）及支付条件"
+    legal_basis: "《中华人民共和国民法典》第九百六十一条"
+    suggestion: "明确佣金计算方式、支付条件、支付时间及佣金调整机制"
+    enabled: true
+
+  - id: CB041
+    category: agency
+    name: "独家代理竞业限制缺失"
+    description: "独家代理协议未约定竞业限制，可能导致委托人利益受损"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查独家代理协议是否包含竞业限制条款，限制代理人代理竞争产品"
+    legal_basis: "《中华人民共和国民法典》"
+    suggestion: "增加竞业限制条款，明确代理人不得代理竞争产品的范围及期限"
+    enabled: true
+
+  - id: CB042
+    category: agency
+    name: "代理协议终止后义务缺失"
+    description: "未约定代理协议终止后的义务，可能导致商业秘密泄露"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查代理协议是否约定协议终止后的保密义务、竞业限制及客户资料返还"
+    legal_basis: "《中华人民共和国民法典》第五百零一条"
+    suggestion: "增加协议终止后义务条款，明确保密义务、竞业限制及客户资料返还"
+    enabled: true
+
+  - id: CB043
+    category: agency
+    name: "代理商对外签约权限不清"
+    description: "未明确代理商是否具有对外签约权限，可能导致表见代理风险"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查代理协议是否明确代理商对外签约的权限及限制"
+    legal_basis: "《中华人民共和国民法典》第一百七十条、第一百七十二条"
+    suggestion: "明确代理商对外签约的权限范围，避免表见代理风险"
+    enabled: true
+
+  - id: CB044
+    category: agency
+    name: "代理出口收汇责任不清"
+    description: "代理出口未明确收汇责任，可能导致委托人无法收回货款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查代理协议是否明确收汇责任、收汇时限及未能收汇的违约责任"
+    legal_basis: "《中华人民共和国外汇管理条例》、《出口收汇核销管理办法》"
+    suggestion: "明确收汇责任、收汇时限及未能收汇的违约责任"
+    enabled: true
+
+  # ==================== 物流合同 ====================
+  - id: CB045
+    category: logistics
+    name: "承运人资质审查缺失"
+    description: "未审查承运人资质，可能导致货物损失无法获得赔偿"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查物流合同是否要求承运人提供运输资质证明（如无船承运业务经营资格证、国际货运代理资质等）"
+    legal_basis: "《中华人民共和国国际海运条例》、《国际货物运输代理业管理规定》"
+    suggestion: "要求承运人提供运输资质证明，并核实其有效性"
+    enabled: true
+
+  - id: CB046
+    category: logistics
+    name: "货物运输保险约定不明"
+    description: "未明确货物运输保险责任，可能导致货物损失无法获得赔偿"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确货物运输保险的投保责任、保险险别及保险金额"
+    legal_basis: "《中华人民共和国保险法》、《海商法》"
+    suggestion: "明确货物运输保险的投保责任、保险险别及保险金额"
+    enabled: true
+
+  - id: CB047
+    category: logistics
+    name: "货物交付签收程序不规范"
+    description: "未明确货物交付签收程序，可能导致货物交付争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确货物交付签收程序、签收人及签收凭证"
+    legal_basis: "《中华人民共和国民法典》第八百三十二条"
+    suggestion: "明确货物交付签收程序、签收人及签收凭证要求"
+    enabled: true
+
+  - id: CB048
+    category: logistics
+    name: "运输延误责任约定不明"
+    description: "未明确运输延误责任，可能导致延误损失无法获得赔偿"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确运输延误的责任、赔偿标准及免责情形"
+    legal_basis: "《中华人民共和国民法典》第八百三十二条"
+    suggestion: "明确运输延误的责任、赔偿标准及免责情形"
+    enabled: true
+
+  - id: CB049
+    category: logistics
+    name: "危险品运输特殊要求缺失"
+    description: "运输危险品但未约定特殊要求，可能导致安全事故"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确危险品的包装、标识、运输及应急处置要求"
+    legal_basis: "《危险货物道路运输规则》、《国际海运危险货物规则》"
+    suggestion: "明确危险品的包装、标识、运输及应急处置要求"
+    enabled: true
+
+  - id: CB050
+    category: logistics
+    name: "仓储保管责任约定不明"
+    description: "未明确仓储保管责任，可能导致货物损毁责任争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确仓储保管责任、保管条件及损耗标准"
+    legal_basis: "《中华人民共和国民法典》第九百零四条、第九百一十一条"
+    suggestion: "明确仓储保管责任、保管条件、损耗标准及赔偿标准"
+    enabled: true
+
+  - id: CB051
+    category: logistics
+    name: "多式联运经营人责任约定不明"
+    description: "多式联运未明确经营人责任，可能导致责任分担争议"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确多式联运经营人的责任形式（统一责任制或网状责任制）"
+    legal_basis: "《联合国国际货物多式联运公约》、《海商法》"
+    suggestion: "明确多式联运经营人的责任形式、责任限额及索赔时效"
+    enabled: true
+
+  - id: CB052
+    category: logistics
+    name: "物流信息追踪义务缺失"
+    description: "未约定物流信息追踪义务，可能导致货物状态不透明"
+    severity: low
+    check_type: prompt_check
+    check_rule: "检查物流合同是否约定物流信息追踪义务及信息提供方式"
+    legal_basis: "《中华人民共和国民法典》"
+    suggestion: "增加物流信息追踪条款，明确信息提供方式及更新频率"
+    enabled: true
+
+  - id: CB053
+    category: logistics
+    name: "目的港无人提货责任不清"
+    description: "未明确目的港无人提货的责任，可能导致滞港费损失"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确目的港无人提货的责任、费用承担及货物处置方式"
+    legal_basis: "《中华人民共和国海商法》第八十六条、第八十八条"
+    suggestion: "明确目的港无人提货的责任、费用承担及货物处置方式"
+    enabled: true
+
+  - id: CB054
+    category: logistics
+    name: "集装箱超期使用费约定不明"
+    description: "未明确集装箱超期使用费（滞箱费）的承担，可能导致高额费用"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查物流合同是否明确集装箱免费使用期、超期使用费标准及承担方"
+    legal_basis: "《中华人民共和国民法典》"
+    suggestion: "明确集装箱免费使用期、超期使用费标准及承担方"
+    enabled: true
+
+  # ==================== 跨境电商特殊合规 ====================
+  - id: CB055
+    category: cross_border_ecommerce
+    name: "跨境电商平台规则合规缺失"
+    description: "未约定遵守跨境电商平台规则，可能导致店铺处罚"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否约定遵守跨境电商平台规则（如 Amazon、eBay、速卖通等平台规则）"
+    legal_basis: "《中华人民共和国电子商务法》"
+    suggestion: "增加跨境电商平台规则合规条款，明确平台规则遵守义务"
+    enabled: true
+
+  - id: CB056
+    category: cross_border_ecommerce
+    name: "跨境电商数据合规缺失"
+    description: "未约定数据保护义务，可能导致违反数据保护法规"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否包含数据保护条款，明确个人信息收集、使用及跨境传输的合规要求"
+    legal_basis: "《中华人民共和国个人信息保护法》、《中华人民共和国数据安全法》"
+    suggestion: "增加数据保护条款，明确个人信息保护义务及跨境数据传输合规要求"
+    enabled: true
+
+  - id: CB057
+    category: cross_border_ecommerce
+    name: "跨境电商消费者权益保护缺失"
+    description: "未约定消费者权益保护义务，可能导致违反消费者保护法规"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确消费者权益保护义务（如退换货、产品责任等）"
+    legal_basis: "《中华人民共和国消费者权益保护法》、《中华人民共和国电子商务法》"
+    suggestion: "明确消费者权益保护义务，包括退换货、产品责任及投诉处理"
+    enabled: true
+
+  - id: CB058
+    category: cross_border_ecommerce
+    name: "跨境电商知识产权合规缺失"
+    description: "未约定知识产权保护义务，可能导致侵权纠纷"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否包含知识产权保护条款，明确侵权责任及免责情形"
+    legal_basis: "《中华人民共和国商标法》、《中华人民共和国专利法》、《中华人民共和国电子商务法》"
+    suggestion: "增加知识产权保护条款，明确侵权责任、通知-删除机制及免责情形"
+    enabled: true
+
+  - id: CB059
+    category: cross_border_ecommerce
+    name: "跨境电商税务合规缺失"
+    description: "未约定税务合规义务，可能导致税务违规"
+    severity: high
+    check_type: prompt_check
+    check_rule: "检查合同是否明确税务合规义务（如 VAT/GST 注册、申报及缴纳）"
+    legal_basis: "《中华人民共和国税收征收管理法》、《关于跨境电子商务综合试验区零售出口货物税收政策的通知》"
+    suggestion: "明确税务合规义务，包括 VAT/GST 注册、申报及缴纳责任"
+    enabled: true
+
+  - id: CB060
+    category: cross_border_ecommerce
+    name: "跨境电商物流追踪与异常处理缺失"
+    description: "未约定物流追踪及异常处理机制，可能导致货物损失"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "检查合同是否明确物流追踪义务及异常情况（丢失、损坏、延误）处理机制"
+    legal_basis: "《中华人民共和国电子商务法》"
+    suggestion: "明确物流追踪义务及异常情况处理机制，包括通知时限、赔偿标准"
+    enabled: true

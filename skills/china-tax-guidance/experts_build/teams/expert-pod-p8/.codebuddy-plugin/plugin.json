@@ -1,0 +1,151 @@
+{
+  "name": "expert-pod-p8",
+  "version": "1.0.0",
+  "description": "P8: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p8-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p8-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p8-lead",
+    "memberAgents": [
+      "tax-vat-law-expert",
+      "tax-policy-knowledge-expert",
+      "china-tax-guidance-expert",
+      "tax-social-insurance-expert",
+      "tax-advisory-practice-expert"
+    ]
+  },
+  "displayName": {
+    "en": "企业全税种合规团",
+    "zh": "企业全税种合规团"
+  },
+  "profession": {
+    "en": "企业全税种合规团",
+    "zh": "企业全税种合规团"
+  },
+  "displayDescription": {
+    "en": "P8: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「企业全税种合规团」：由主理人协调 5 名专题专家，覆盖全税种日常合规/办税指引，提供跨域财税合规结"
+  },
+  "avatar": "avatars/pod-p8-lead.svg",
+  "categoryId": "11-SecurityCompliance",
+  "defaultInitPrompt": {
+    "zh": "我是「企业全税种合规团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 企业全税种合规团."
+  },
+  "plugin": "expert-pod-p8",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T1",
+      "zh": "T1优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p8-lead",
+      "displayName": {
+        "en": "企业税务合规总监",
+        "zh": "企业税务合规总监"
+      },
+      "profession": {
+        "en": "企业税务合规总监",
+        "zh": "企业税务合规总监"
+      },
+      "avatar": "avatars/pod-p8-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "tax-vat-law-expert",
+      "displayName": {
+        "en": "tax-vat-law",
+        "zh": "tax-vat-law"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-vat-law-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-policy-knowledge-expert",
+      "displayName": {
+        "en": "tax-policy-knowledge",
+        "zh": "tax-policy-knowledge"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-policy-knowledge-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "china-tax-guidance-expert",
+      "displayName": {
+        "en": "china-tax-guidance",
+        "zh": "china-tax-guidance"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/china-tax-guidance-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-social-insurance-expert",
+      "displayName": {
+        "en": "tax-social-insurance",
+        "zh": "tax-social-insurance"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-social-insurance-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-advisory-practice-expert",
+      "displayName": {
+        "en": "tax-advisory-practice",
+        "zh": "tax-advisory-practice"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-advisory-practice-expert.svg",
+      "role": "member"
+    }
+  ]
+}

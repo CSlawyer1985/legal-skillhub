@@ -1,0 +1,50 @@
+{
+  "unilateral_modification": {
+    "title": "Unilateral Modification Clause",
+    "description": "One party can modify contract terms without the other's consent",
+    "pattern": "(either party|either of the parties|[A-Z][a-z]+ [A-Z][a-z]+).*?(may|can|shall have the right to|is permitted to).*?(amend|modify|alter|change|vary|revise).*?(this agreement|the agreement|these terms).*?(without|without requiring|without obtaining|without needing).*?(consent|approval|agreement).*?(of the other party|from the other party)",
+    "risk_level": "HIGH",
+    "suggestion": "Require mutual agreement for any modifications to ensure fairness",
+    "reference": "Contract Law Principle of Mutuality and Good Faith"
+  },
+  "automatic_renewal": {
+    "title": "Automatic Renewal Without Notice",
+    "description": "Contract renews automatically without requiring advance notice for non-renewal",
+    "pattern": "(automatically|automatic).*?(renew|extend|continue).*?(unless|until).*?(notice|notification).*?(given|provided|delivered).*?(\\d+).*?(day|days|month|months).*?(prior|before|in advance)",
+    "risk_level": "HIGH", 
+    "suggestion": "Add required notice period (typically 30-60 days) for non-renewal",
+    "reference": "Consumer Protection Laws and Contract Fairness Principles"
+  },
+  "excessive_liability": {
+    "title": "Excessive Liability Exposure",
+    "description": "Unlimited or excessive liability exposure without reasonable caps",
+    "pattern": "(liability|responsible|liable).*?(for|to).*?(all|any|every|any and all|direct|indirect|consequential|special|punitive|exemplary).*?(damages|losses|expenses|costs).*?(without limit|unlimited|uncapped|no cap)",
+    "risk_level": "HIGH",
+    "suggestion": "Add reasonable liability caps (e.g., fees paid, insurance coverage amounts)",
+    "reference": "Standard Contract Risk Allocation Practices"
+  },
+  "unilateral_termination": {
+    "title": "Unilateral Termination Rights",
+    "description": "One party can terminate without cause or with minimal notice",
+    "pattern": "(either party|either of the parties|[A-Z][a-z]+ [A-Z][a-z]+).*?(may|can|shall have the right to|is permitted to).*?(terminate|end|cancel).*?(this agreement|the agreement).*?(at any time|without cause|without reason).*?(with|upon).*?(\\d+).*?(day|days|week|weeks|month|months).*?(notice|notification)",
+    "risk_level": "MEDIUM",
+    "suggestion": "Balance termination rights with reasonable notice periods or mutual agreement requirements",
+    "reference": "Fair Contract Termination Principles"
+  },
+  "broad_indemnification": {
+    "title": "Overly Broad Indemnification",
+    "description": "One party required to indemnify for overly broad scope including their own negligence",
+    "pattern": "(indemnify|indemnification|hold harmless).*?(and|&).*?(defend).*?(against|for).*?(all|any|every).*?(claims|demands|actions|suits|proceedings).*?(arising out of|related to|in connection with).*?(negligence|willful misconduct|breach)",
+    "risk_level": "HIGH",
+    "suggestion": "Limit indemnification to third-party claims arising from indemnifying party's gross negligence or willful misconduct",
+    "reference": "Standard Indemnification Principles and Insurance Requirements"
+  },
+  "jurisdiction_shopping": {
+    "title": "Unfair Jurisdiction and Venue",
+    "description": "Requires litigation in inconvenient or unfavorable jurisdiction",
+    "pattern": "(governing law|jurisdiction|venue).*?(shall be|is|will be).*?(the courts of|the state|the province|the country).*?[A-Z][a-z]+.*?(exclusive|sole|only).*?(jurisdiction|venue|forum)",
+    "risk_level": "MEDIUM",
+    "suggestion": "Consider neutral jurisdiction or mutual agreement on dispute resolution forum",
+    "reference": "Forum Non Conveniens and Fair Forum Selection Principles"
+  }
+}

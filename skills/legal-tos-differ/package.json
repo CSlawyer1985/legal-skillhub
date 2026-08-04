@@ -1,0 +1,13 @@
+{
+  "name": "legal-tos-differ",
+  "version": "1.0.0",
+  "description": "Fetches and semantically diffs Terms of Service documents",
+  "main": "handler.js",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-fetch": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

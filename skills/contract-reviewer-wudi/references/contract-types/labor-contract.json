@@ -1,0 +1,348 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "劳动合同",
+  "contract_type_en": "labor-contract",
+  "description": "用人单位与劳动者签订的劳动合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国劳动法》",
+    "《中华人民共和国劳动合同法》",
+    "《中华人民共和国社会保险法》"
+  ],
+  "keywords_for_detection": [
+    "劳动合同", "用人单位", "劳动者", "试用期", "工资", "社保",
+    "工作时间", "休息休假", "劳动保护", "解除合同"
+  ],
+  "key_clauses": [
+    {
+      "name": "合同主体信息",
+      "required": true,
+      "keywords": ["用人单位", "劳动者", "身份证", "地址"],
+      "check_points": [
+        {
+          "item": "用人单位信息",
+          "description": "单位名称、地址、法定代表人是否完整",
+          "risk_level": "致命"
+        },
+        {
+          "item": "劳动者信息",
+          "description": "姓名、身份证号、地址是否完整",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "确保双方主体信息完整准确"
+    },
+    {
+      "name": "合同期限",
+      "required": true,
+      "keywords": ["合同期限", "固定期限", "无固定期限", "试用期"],
+      "check_points": [
+        {
+          "item": "期限类型",
+          "description": "固定期限/无固定期限/以完成一定工作任务为期限",
+          "risk_level": "致命"
+        },
+        {
+          "item": "起止日期",
+          "description": "合同起止日期是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "试用期",
+          "description": "试用期约定是否合法",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "试用期不得超过法定期限（合同期3月-1年：试用≤1月；1-3年：≤2月；3年以上：≤6月）"
+    },
+    {
+      "name": "工作内容与地点",
+      "required": true,
+      "keywords": ["工作内容", "工作岗位", "工作地点"],
+      "check_points": [
+        {
+          "item": "工作岗位",
+          "description": "岗位名称是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "工作地点",
+          "description": "工作地点是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "调岗机制",
+          "description": "是否约定调岗条件和程序",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "工作地点建议明确到城市，约定调岗需协商一致"
+    },
+    {
+      "name": "工作时间与休息休假",
+      "required": true,
+      "keywords": ["工作时间", "工时", "休息", "休假", "加班"],
+      "check_points": [
+        {
+          "item": "工时制度",
+          "description": "标准工时/不定时/综合计算工时",
+          "risk_level": "重大"
+        },
+        {
+          "item": "工作时间",
+          "description": "每日/每周工作时间是否合法",
+          "risk_level": "重大"
+        },
+        {
+          "item": "加班约定",
+          "description": "加班审批程序和加班费计算",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "标准工时每日不超过8小时，每周不超过44小时；加班需支付150%-300%工资"
+    },
+    {
+      "name": "劳动报酬",
+      "required": true,
+      "keywords": ["工资", "劳动报酬", "薪酬", "发放"],
+      "check_points": [
+        {
+          "item": "工资标准",
+          "description": "工资数额是否明确（不低于当地最低工资）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "发放时间",
+          "description": "工资发放日期是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "工资构成",
+          "description": "基本工资、绩效、奖金等构成是否清晰",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "工资不得低于当地最低工资标准，每月至少支付一次"
+    },
+    {
+      "name": "社会保险",
+      "required": true,
+      "keywords": ["社会保险", "社保", "五险一金", "养老", "医疗"],
+      "check_points": [
+        {
+          "item": "社保缴纳",
+          "description": "是否约定缴纳社会保险",
+          "risk_level": "致命"
+        },
+        {
+          "item": "缴纳基数",
+          "description": "缴纳基数是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "必须缴纳五险，公积金建议缴纳；不得约定不缴社保"
+    },
+    {
+      "name": "劳动保护与条件",
+      "required": true,
+      "keywords": ["劳动保护", "劳动条件", "安全", "职业危害"],
+      "check_points": [
+        {
+          "item": "劳动保护",
+          "description": "是否提供必要劳动保护",
+          "risk_level": "重大"
+        },
+        {
+          "item": "职业危害",
+          "description": "有毒有害岗位是否告知",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "有毒有害岗位必须如实告知，提供相应防护措施"
+    },
+    {
+      "name": "合同解除与终止",
+      "required": true,
+      "keywords": ["解除", "终止", "辞职", "辞退", "经济补偿"],
+      "check_points": [
+        {
+          "item": "解除条件",
+          "description": "解除条件是否符合法律规定",
+          "risk_level": "重大"
+        },
+        {
+          "item": "提前通知",
+          "description": "提前通知期限是否合法",
+          "risk_level": "重大"
+        },
+        {
+          "item": "经济补偿",
+          "description": "经济补偿约定是否合法",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "解除条件必须符合《劳动合同法》规定，不得随意约定违约金"
+    },
+    {
+      "name": "竞业限制",
+      "required": false,
+      "keywords": ["竞业", "竞业限制", "竞业禁止", "保密"],
+      "check_points": [
+        {
+          "item": "限制范围",
+          "description": "竞业限制范围是否合理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "限制期限",
+          "description": "是否超过2年",
+          "risk_level": "重大"
+        },
+        {
+          "item": "补偿金",
+          "description": "竞业限制补偿金是否约定",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "竞业限制期限不得超过2年，必须支付补偿金（通常≥离职前12个月平均工资的30%）"
+    },
+    {
+      "name": "培训与服务期",
+      "required": false,
+      "keywords": ["培训", "服务期", "专项培训", "培训费用"],
+      "check_points": [
+        {
+          "item": "培训费用",
+          "description": "专项培训费用是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "服务期",
+          "description": "服务期约定是否合理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "违约金",
+          "description": "违约金是否超过培训费用",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "服务期违约金不得超过未履行部分分摊的培训费用"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "L001",
+      "name": "试用期违法",
+      "description": "试用期超过法定期限，或试用期工资低于法定标准（≥转正工资80%且≥最低工资）",
+      "severity": "高风险",
+      "suggestion": "严格遵守试用期期限和工资标准"
+    },
+    {
+      "id": "L002",
+      "name": "不缴社保",
+      "description": "约定不缴纳社会保险，或让员工放弃社保",
+      "severity": "高风险",
+      "suggestion": "必须依法缴纳社保，员工放弃社保的约定无效"
+    },
+    {
+      "id": "L003",
+      "name": "违法约定违约金",
+      "description": "除服务期和竞业限制外，约定其他违约金",
+      "severity": "高风险",
+      "suggestion": "《劳动合同法》仅允许服务期和竞业限制约定违约金"
+    },
+    {
+      "id": "L004",
+      "name": "工资低于最低工资",
+      "description": "约定工资低于当地最低工资标准",
+      "severity": "高风险",
+      "suggestion": "工资不得低于当地最低工资标准"
+    },
+    {
+      "id": "L005",
+      "name": "竞业限制无补偿",
+      "description": "约定竞业限制但不支付补偿金",
+      "severity": "高风险",
+      "suggestion": "竞业限制必须支付补偿金，否则员工可不受约束"
+    },
+    {
+      "id": "L006",
+      "name": "加班工资不明确",
+      "description": "未约定加班费或约定低于法定标准",
+      "severity": "中风险",
+      "suggestion": "明确加班费计算基数和倍数（平日150%、休息日200%、法定假日300%）"
+    }
+  ],
+  "position_guidance": {
+    "employer": {
+      "name": "用人单位（甲方）",
+      "priority_checks": [
+        "试用期合法性",
+        "竞业限制约定",
+        "保密条款",
+        "知识产权归属"
+      ],
+      "key_concerns": [
+        "确保试用期约定合法",
+        "核心岗位约定竞业限制和保密义务",
+        "明确职务成果知识产权归公司",
+        "约定合理的规章制度适用",
+        "注意解除合同的法定程序"
+      ],
+      "avoid": [
+        "违法约定违约金",
+        "不缴社保",
+        "试用期超过法定期限",
+        "竞业限制不支付补偿"
+      ]
+    },
+    "employee": {
+      "name": "劳动者（乙方）",
+      "priority_checks": [
+        "工资标准",
+        "社保缴纳",
+        "工作时间",
+        "解除条件"
+      ],
+      "key_concerns": [
+        "确保工资不低于最低工资",
+        "确认社保缴纳基数和比例",
+        "注意加班费和调休约定",
+        "解除合同的提前通知期",
+        "竞业限制的范围和补偿"
+      ],
+      "avoid": [
+        "放弃社保的约定",
+        "不合理的违约金",
+        "过长的竞业限制期限",
+        "模糊的工资构成"
+      ]
+    }
+  },
+  "legal_limits": {
+    "probation_period": {
+      "description": "试用期法定上限",
+      "limits": [
+        {"contract_min": "3个月", "contract_max": "1年", "probation_max": "1个月"},
+        {"contract_min": "1年", "contract_max": "3年", "probation_max": "2个月"},
+        {"contract_min": "3年", "contract_max": null, "probation_max": "6个月"}
+      ]
+    },
+    "probation_salary": {
+      "description": "试用期工资下限",
+      "formula": "max(转正工资 × 80%, 当地最低工资)"
+    },
+    "working_hours": {
+      "description": "标准工时",
+      "daily_max": "8小时",
+      "weekly_max": "44小时"
+    },
+    "overtime_pay": {
+      "description": "加班费倍数",
+      "normal": "150%",
+      "rest_day": "200%",
+      "holiday": "300%"
+    }
+  }
+}

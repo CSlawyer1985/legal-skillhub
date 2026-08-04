@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<!--
+  法普小象 · 被辞退能赔多少钱计算器
+  Author: 张卓 (Zhang Zhuo) | Version 1.0 | © 2026
+  Data: 人民法院案例库23个劳动争议典型案例
+  Legal: 劳动合同法(2012修正) + 法释〔2020〕26号 + 法释〔2025〕12号
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>被辞退能赔多少钱？</title>
+<meta property="og:title" content="被辞退能赔多少钱？">
+<meta property="og:description" content="填6个问题，基于劳动合同法+最高法院案例库，算算你能拿多少赔偿。N/N+1/2N一算便知。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="法普小象">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--a:#534ab7;--al:#eeedfe;--g:#1d9e75;--gl:#e1f5ee;--c:#d85a30;--cl:#faece7;--am:#ef9f27;--aml:#faeeda;--bg:#f5f3ef;--ca:#fff;--t:#2c2c2a;--ts:#777;--b:#e0ded8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased}
+.ct{max-width:500px;margin:0 auto;padding:20px 16px 40px}
+.hd{text-align:center;padding:24px 0 16px}
+.hd .l{font-size:42px;display:block;margin-bottom:6px}
+.hd h1{font-size:20px;font-weight:700;margin-bottom:4px}
+.hd .s{font-size:13px;color:var(--ts)}
+.dc{background:var(--aml);border-radius:10px;padding:10px 16px;font-size:13px;color:#854f0b;line-height:1.5;margin-bottom:20px;word-break:keep-all;display:flex;align-items:center;gap:4px}
+.qb{background:var(--ca);border-radius:14px;padding:20px;margin-bottom:10px;border:1px solid var(--b);display:none}
+.qb.active{display:block}
+.qb .qt{font-size:15px;font-weight:500;margin-bottom:10px}
+.qb .qt .num{display:inline-block;background:var(--a);color:#fff;width:22px;height:22px;text-align:center;line-height:22px;border-radius:50%;font-size:12px;margin-right:6px;vertical-align:middle}
+.op{display:flex;flex-direction:column;gap:8px}
+.op label{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--b);border-radius:10px;font-size:14px;cursor:pointer;transition:all .2s}
+.op label:active{transform:scale(.98)}
+.op label input{display:none}
+.op label.sel{border-color:var(--a);background:var(--al);font-weight:500}
+.op label.sel::after{content:"✓";margin-left:auto;color:var(--a);font-weight:700}
+.ext{display:none;margin-top:10px;padding:10px 14px;background:#fafafa;border:1px dashed var(--b);border-radius:8px;font-size:13px;color:var(--ts)}
+.ext textarea{width:100%;border:1px solid var(--b);border-radius:6px;padding:8px 10px;font-size:13px;font-family:inherit;resize:none;margin-top:6px;min-height:44px}
+.ext.show{display:block}
+.pb{margin:20px 0 10px;display:flex;justify-content:space-between;align-items:center}
+.pb .bar{flex:1;height:4px;background:var(--b);border-radius:2px;margin:0 12px;overflow:hidden}
+.pb .bar .fi{height:100%;background:var(--a);border-radius:2px;transition:width .3s;width:0%}
+.pb .i,.pb .c{font-size:12px;color:var(--ts);white-space:nowrap}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-align:center;transition:all .2s;margin-top:12px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.primary{background:var(--a);color:#fff}
+.btn.primary:active{transform:scale(.98)}
+.btn.primary:not(:disabled):hover{background:#483da0}
+.btn.outline{background:var(--ca);color:var(--a);border:1px solid var(--a)}
+.btn.outline:active{transform:scale(.98)}
+.rs{display:none}
+.rs.active{display:block}
+.rs .bd{background:var(--ca);border-radius:14px;padding:24px 20px;border:1px solid var(--b);margin-top:20px}
+.rs .bd h2{font-size:18px;font-weight:700;margin-bottom:4px}
+.rs .bd .r{display:inline-block;padding:3px 12px;border-radius:100px;font-size:12px;font-weight:600;margin-bottom:14px}
+.rs .bd .r.g{background:var(--gl);color:var(--g)}
+.rs .bd .r.a{background:var(--aml);color:#854f0b}
+.rs .bd .r.c{background:var(--cl);color:var(--c)}
+.rs .bd .amt{font-size:32px;font-weight:800;margin-bottom:4px}
+.rs .bd .amt .unit{font-size:16px;font-weight:400;color:var(--ts)}
+.rs .bd .desc{font-size:13px;color:var(--ts);margin-bottom:16px;line-height:1.5}
+.rs .bd .law{background:var(--al);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--a);margin-bottom:16px}
+.rs .bd .case{background:#fafafa;border-radius:10px;padding:14px;margin-bottom:12px;font-size:13px}
+.rs .bd .case .ctitle{font-weight:600;margin-bottom:4px}
+.rs .bd .case .cinfo{color:var(--ts);font-size:12px;line-height:1.5}
+.rs .bd .case .cresult{margin-top:6px;font-size:12px}
+.rs .bd .case .cresult .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.rs .bd .case .cresult .tag.g{background:var(--gl);color:var(--g)}
+.rs .bd .case .cresult .tag.a{background:var(--aml);color:#854f0b}
+.rs .bd .case .cresult .tag.c{background:var(--cl);color:var(--c)}
+.rs .actions{display:flex;gap:10px;margin-top:16px}
+.rs .actions .btn{flex:1;margin:0;font-size:13px;padding:12px}
+.rs .tip{background:var(--ca);border-radius:14px;padding:20px;border:1px solid var(--b);margin-top:14px}
+.rs .tip h3{font-size:14px;font-weight:700;margin-bottom:10px;color:var(--a)}
+.rs .tip .step{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.rs .tip .step .sn{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--a);color:#fff;font-size:13px;font-weight:700;flex-shrink:0}
+.rs .tip .step .sn.warn{background:var(--c)}
+.rs .tip .step .sn.ok{background:var(--g)}
+.rs .tip .step .sc{font-size:13px;line-height:1.5}
+.rs .tip .step .sc strong{display:block;margin-bottom:2px}
+.rs .tip .step .sc .hint{color:var(--ts);font-size:12px}
+.overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.85);z-index:999;justify-content:center;align-items:center;flex-direction:column}
+.overlay.show{display:flex}
+.overlay img{max-width:90%;max-height:80%;border-radius:10px}
+.overlay .hint{color:#fff;font-size:14px;margin-top:16px;text-align:center}
+.overlay .hint .close{color:rgba(255,255,255,.6);font-size:13px;margin-top:8px;cursor:pointer}
+#qrContainer img{display:block;margin:0 auto}
+#longImg{width:100%;max-width:500px}
+</style>
+</head>
+<body>
+
+<div class="ct" id="app">
+
+<div class="hd">
+  <span class="l">🐘</span>
+  <h1>被辞退能赔多少钱？</h1>
+  <p class="s">法普小象 · 基于劳动合同法及最高法院典型案例</p>
+</div>
+
+<div class="dc">
+  <strong>⚠️</strong> 结果仅供参考，不构成法律意见。
+</div>
+
+<div id="questions"></div>
+
+<div class="pb" id="progressBar" style="display:none">
+  <span class="i">已答 <span id="done">0</span>/6</span>
+  <div class="bar"><div class="fi" id="progFill"></div></div>
+  <span class="c"><span id="pct">0</span>%</span>
+</div>
+
+<button class="btn primary" id="analyzeBtn" disabled style="margin-top:16px">请先回答完所有问题</button>
+
+<div class="rs" id="result">
+  <div class="bd" id="resultContent"></div>
+
+  <div class="tip" id="actionsTip">
+    <h3>💡 你可以马上做的3件事</h3>
+    <div class="step">
+      <div class="sn">1</div>
+      <div class="sc">
+        <strong>保存证据</strong>
+        解除通知书拍照 · 考勤记录导出 · 银行流水截12个月
+      </div>
+    </div>
+    <div class="step">
+      <div class="sn warn">2</div>
+      <div class="sc">
+        <strong>别乱签字</strong>
+        写"个人原因"别签 · 写"无争议"别签 · 签协议看清金额
+      </div>
+    </div>
+    <div class="step">
+      <div class="sn ok">3</div>
+      <div class="sc">
+        <strong>维权渠道</strong>
+        12333咨询 → 劳动仲裁（免费）→ 法院（时效1年）
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div style="text-align:center;padding:24px 0 8px;font-size:12px;color:#999">
+  🐘 法普小象 · © 2026 张卓
+</div>
+
+<!-- Overlay for long image -->
+<div class="overlay" id="overlay">
+  <img id="longImg" src="" alt="长图">
+  <div class="hint">
+    👇 长按图片保存到相册，发朋友圈
+    <div class="close" onclick="document.getElementById('overlay').classList.remove('show')">点击关闭</div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════
+// 法律数据库
+// ═══════════════════════════════════
+
+// 人民法院案例库 + 各地案例
+var CASES = [
+  // ── 违法解除 → 2N ──
+  {id:'c1',type:'c',title:'指导案例179号：聂美兰诉北京林氏兄弟文化公司案',court:'最高人民法院指导案例179号',year:2019,
+   fact:'双方签了"合作经营协议"，但实际接受公司管理、按月领工资。公司以合作到期为由终止。',
+   result:'认定存在劳动关系，公司违法解除应支付2N赔偿金。',tag:'违法解除→2N'},
+  {id:'c2',type:'c',title:'王某诉北京某文化传媒公司案',court:'人民法院案例库 (2024-18-2-490-001)',year:2024,
+   fact:'主播被公司以"合作关系"为由任意解约，实际接受公司管理。',
+   result:'认定劳动关系，公司构成违法解除，应支付赔偿金。',tag:'违法解除→2N'},
+  {id:'c3',type:'c',title:'王某仙诉某幼儿园、陈某劳动争议案',court:'人民法院案例库 (2024-18-2-490-003)',year:2024,
+   fact:'教师公开接受幼儿表达喜爱的小额零食，幼儿园以"违规收受礼品"为由开除。',
+   result:'不构成严重违纪，开除违法，单位支付赔偿金。',tag:'违法解除→2N'},
+  {id:'c4',type:'c',title:'杨某诉某科技公司案',court:'人民法院案例库 (2020)粤民再330号',year:2020,
+   fact:'残疾人员工在医疗期内被违法解除劳动合同，公司已支付赔偿金。',
+   result:'除赔偿金外，还应支付医疗期病假工资及医疗补助费。',tag:'医疗期被辞→2N+病假工资'},
+  {id:'c5',type:'c',title:'北京某制药公司诉李某某案',court:'人民法院案例库 (2017)京01民终4436号',year:2017,
+   fact:'公司以违规为名解除，但员工行为未达到规章制度中"严重违纪"的程度。',
+   result:'解除违法，应按比例原则审查处罚合理性，支付2N赔偿金。',tag:'处罚过重→2N'},
+  {id:'c6',type:'c',title:'上海某公司诉王某案',court:'人民法院案例库 (2020)沪02民终10692号',year:2020,
+   fact:'员工因直系亲属死亡请假被拒，公司以擅自离岗为由开除。',
+   result:'解除违法。直系亲属死亡请假符合公序良俗，公司应赔偿2N。',tag:'合情合理→2N'},
+  // ── 合法解除 → N ──
+  {id:'c7',type:'g',title:'张某诉上海某国际货代公司案',court:'人民法院案例库 (2021)沪01民终10455号',year:2021,
+   fact:'劳动合同到期终止，公司依法不续签。',
+   result:'到期不续签属于合法终止，公司只需支付N，无需2N。',tag:'合同到期→N'},
+  {id:'c8',type:'g',title:'北京某贸易公司诉王某案',court:'人民法院案例库 (2021)京02民终12085号',year:2021,
+   fact:'双方签了《解除劳动合同协议书》，公司附条件支付经济补偿金。',
+   result:'解除协议有效，公司应按约定支付经济补偿N。',tag:'协商解除→N'},
+  // ── 不能胜任/医疗期满 → N+1 ──
+  {id:'c9',type:'a',title:'指导案例18号：中兴通讯诉王鹏案',court:'最高人民法院指导案例18号',year:2013,
+   fact:'员工在考核中居于末位，公司以"不能胜任工作"为由解除。',
+   result:'末位≠不能胜任，公司不能据此解除。如需合法解除应走培训或调岗程序，否则需付2N。',tag:'不能胜任≠直接开除'},
+  {id:'c10',type:'g',title:'末位淘汰解除违法案',court:'人民法院案例库（最高法指导案例）',year:2020,
+   fact:'某房产公司销售冠军因季度末位被开除，公司主张"不能胜任"。',
+   result:'末位淘汰违法，判赔2N+奖金损失9.7万元。',tag:'末位淘汰→违法'},
+  // ── 被迫辞职 → N ──
+  {id:'c11',type:'g',title:'司法解释(二)第19条：约定不缴社保无效',court:'法释〔2025〕12号',year:2025,
+   fact:'用人单位与劳动者约定不用缴纳社保费。',
+   result:'约定无效。劳动者以未缴社保为由主张被迫辞职的，应支付经济补偿N。',tag:'不缴社保→可被迫辞职拿N'},
+];
+
+// 各地社平工资参考 (2025年数据，实际操作中建议确认当地标准)
+var SOCIAL_AVG = {
+  '北京':15770,'上海':15561,'广州':12547,'深圳':14131,
+  '杭州':13115,'南京':12387,'成都':10725,'武汉':10772,
+  '西安':11231,'重庆':10668,'郑州':10201,'长沙':10716,
+  '沈阳':10151,'青岛':11324,'苏州':12758,'昆明':10390,
+  '合肥':11267,'福州':10954,'厦门':11724,'天津':11569
+};
+
+// ═══════════════════════════════════
+// 问题定义
+// ═══════════════════════════════════
+
+var QS = [
+  {
+    id:'q1',q:'公司是怎么让你走的？',
+    opts:[
+      {v:'fire',l:'直接开除了我（没给理由/理由不认可）'},
+      {v:'layoff',l:'公司说裁员/经营困难/架构调整'},
+      {v:'consent',l:'协商一致解除'},
+      {v:'expire',l:'合同到期公司不续签'},
+      {v:'incompetent',l:'说我不胜任/能力不行/医疗期满'},
+      {v:'resign',l:'因个人原因主动辞职'},
+    ]
+  },
+  {
+    id:'q2',q:'你在这家公司干了多久？',
+    opts:[
+      {v:'m3',l:'不到6个月'},
+      {v:'m6',l:'6个月到1年'},
+      {v:'y3',l:'1年到3年'},
+      {v:'y5',l:'3年到5年'},
+      {v:'y10',l:'5年到10年'},
+      {v:'y15',l:'10年到15年'},
+      {v:'y20',l:'15年以上'},
+    ]
+  },
+  {
+    id:'q3',q:'过去12个月平均月收入多少？（税前，含奖金加班费）',
+    opts:[
+      {v:'l5',l:'5000元以下'},
+      {v:'l10',l:'5000~10000元'},
+      {v:'l20',l:'10000~20000元'},
+      {v:'l30',l:'20000~30000元'},
+      {v:'l50',l:'30000~50000元'},
+      {v:'h50',l:'50000元以上'},
+      {v:'number',l:'我不知道具体多少，让我填个数→'},
+    ],
+    hasInput:true
+  },
+  {
+    id:'q4',q:'公司提前30天通知你了吗？',
+    opts:[
+      {v:'yes',l:'提前30天通知了'},
+      {v:'no',l:'没有，当天通知当天走'},
+      {v:'pay',l:'给了1个月工资代替通知（代通知金）'},
+    ]
+  },
+  {
+    id:'q5',q:'你目前属于下列哪种情况？',
+    opts:[
+      {v:'normal',l:'以上都不是'},
+      {v:'preg',l:'怀孕期/产期/哺乳期'},
+      {v:'sick',l:'医疗期（生病治疗期间）'},
+      {v:'injury',l:'工伤/职业病治疗期间'},
+    ]
+  },
+  {
+    id:'q6',q:'你签了什么文件？',
+    opts:[
+      {v:'nothing',l:'还没签任何文件'},
+      {v:'personal',l:'签了"因个人原因辞职"'},
+      {v:'mutual',l:'签了《协商解除劳动合同协议书》'},
+      {v:'notice',l:'只收到了《解除劳动合同通知书》'},
+      {v:'no',l:'公司没给我任何书面文件'},
+    ]
+  },
+];
+
+// ═══════════════════════════════════
+// 渲染
+// ═══════════════════════════════════
+
+var a = {}; // answers
+
+function renderQuestions(){
+  var html='',idx=0;
+  QS.forEach(function(q,i){
+    var optsHtml='';
+    q.opts.forEach(function(o){
+      optsHtml += '<label onclick="sel(\''+q.id+'\',\''+o.v+'\',this)"><input type="radio" name="'+q.id+'">'+o.l+'</label>';
+    });
+    var extHtml='';
+    if(q.hasInput){
+      extHtml='<div class="ext" id="ext_'+q.id+'"><div style="font-size:12px;color:var(--ts)">填上你的月工资（税前，单位：元）</div><textarea placeholder="请填写具体数字，如 15000" oninput="extInput(\''+q.id+'\',this.value)"></textarea></div>';
+    }else{
+      extHtml='<div class="ext" id="ext_'+q.id+'"><textarea placeholder="补充说明：如果有其他情况，请写在这里" oninput="extInput(\''+q.id+'\',this.value)"></textarea></div>';
+    }
+    html += '<div class="qb" id="qb_'+i+'"><div class="qt"><span class="num">'+(i+1)+'</span>'+q.q+'</div><div class="op">'+optsHtml+'</div>'+extHtml+'</div>';
+  });
+  document.getElementById('questions').innerHTML = html;
+  document.getElementById('progressBar').style.display='flex';
+  // 显示第一题
+  var firstQ = document.querySelector('.qb');
+  if(firstQ) firstQ.classList.add('active');
+}
+
+var sel = function(qid,val,el){
+  // deselect others
+  var labels=el.parentElement.querySelectorAll('label');
+  for(var i=0;i<labels.length;i++) labels[i].classList.remove('sel');
+  el.classList.add('sel');
+  a[qid]=val;
+  // show ext if hasInput
+  var ext=document.getElementById('ext_'+qid);
+  if(ext) ext.classList.add('show');
+  updateProgress();
+  // 自动切到下一题
+  var qb=el.closest('.qb');
+  if(qb){
+    var next=qb.nextElementSibling;
+    while(next && !next.classList.contains('qb')) next=next.nextElementSibling;
+    if(next) next.classList.add('active');
+  }
+};
+
+var extInput = function(qid,val){
+  if(val) a[qid+'_ext']=val;
+};
+
+function updateProgress(){
+  var n=0;
+  for(var k in a){
+    if(k.match(/^q\d+$/) && !k.match(/_ext$/)) n++;
+  }
+  var pct=Math.round(n/6*100);
+  if(pct>100) pct=100;
+  document.getElementById('done').textContent=n;
+  document.getElementById('pct').textContent=pct;
+  document.getElementById('progFill').style.width=pct+'%';
+
+  if(n>=6){
+    document.getElementById('analyzeBtn').disabled=false;
+    document.getElementById('analyzeBtn').textContent='🔍 算算我能拿多少钱';
+  }else{
+    document.getElementById('analyzeBtn').disabled=true;
+    document.getElementById('analyzeBtn').textContent='请先回答完所有问题（'+n+'/6）';
+  }
+}
+
+// ═══════════════════════════════════
+// 计算逻辑
+// ═══════════════════════════════════
+
+function calcYears(val){
+  var m={m3:0.5,m6:1,y3:2,y5:4,y10:7.5,y15:12.5,y20:18};
+  return m[val]||1;
+}
+
+function calcSalary(val){
+  var m={l5:3500,l10:7500,l20:15000,l30:25000,l50:40000,h50:60000};
+  return m[val]||7500;
+}
+
+function calc(){
+  var r={type:'N',n:0,base:0,total:0,msg:'',cases:[],isProtected:false};
+
+  // 工作年限N
+  var years=calcYears(a.q2);
+  r.n=years;
+
+  // 工资基数
+  var salary=calcSalary(a.q3);
+  if(a.q3_ext) salary=parseFloat(a.q3_ext)||salary;
+  r.base=salary;
+
+  // 判断解除类型
+  var reason=a.q1;
+  var notice=a.q4;
+  var special=a.q5;
+  var signed=a.q6;
+
+  // 特殊保护期 - 基本可以认定违法解除
+  if(special==='preg'||special==='sick'||special==='injury'){
+    r.isProtected=true;
+  }
+
+  // ⭐ 优先判断：特殊保护期 → 2N
+  if(r.isProtected){
+    r.type='2N';
+    r.total=salary*years*2;
+    r.msg='你在特殊保护期内被辞退，基本可认定为违法解除。公司应当支付2N赔偿金。';
+    r.cases=[CASES[3],CASES[4]];
+    return r;
+  }
+
+  // ⭐ 优先判断：直接开除 → 2N（不管是否签了个人原因辞职）
+  if(reason==='fire'){
+    r.type='2N';
+    r.total=salary*years*2;
+    r.msg='公司没有合法理由直接开除，属于违法解除劳动合同。应按2N标准支付赔偿金。';
+    r.cases=[CASES[0],CASES[1],CASES[2],CASES[5]];
+    return r;
+  }
+
+  // 签了"因个人原因辞职"的后果（在fire之后判断，避免冲突）
+  if(reason==='resign'||signed==='personal'){
+    r.type='不适用';
+    r.msg='签了"因个人原因辞职"，通常拿不到经济补偿。但如果有特殊情况（公司拖欠工资、不缴社保等），可主张被迫辞职的经济补偿。';
+    r.cases=[CASES[10]];
+    return r;
+  }
+
+  // 不能胜任/医疗期满 → N+1（没提前通知的话）
+  if(reason==='incompetent'){
+    if(notice==='no'||notice==='pay'){
+      r.type='N+1';
+      r.total=salary*(years+1);
+      r.msg='公司以不能胜任/医疗期满为由解除，属于法定解除。未提前30天通知，应支付N+1。注意：公司不能仅凭"末位"直接开除。';
+      r.cases=[CASES[8],CASES[9]];
+    }else{
+      r.type='N';
+      r.total=salary*years;
+      r.msg='公司提前30天通知了，属于合法的法定解除。只需支付N（经济补偿）。';
+      r.cases=[CASES[8]];
+    }
+    return r;
+  }
+
+  // 协商一致 / 合同到期 → N
+  if(reason==='consent'||reason==='expire'){
+    r.type='N';
+    r.total=salary*years;
+    r.msg='协商解除或合同到期不续签，属于合法解除。公司应支付N（经济补偿）。';
+    r.cases=[CASES[6],CASES[7]];
+    return r;
+  }
+
+  // 裁员 → N
+  if(reason==='layoff'){
+    r.type='N';
+    r.total=salary*years;
+    r.msg='公司以裁员/经营困难为由解除，属于法定的经济性裁员。应支付N。如果认为公司以裁员为借口违法开除，可主张2N。';
+    r.cases=[CASES[6],CASES[7]];
+    return r;
+  }
+
+  return r;
+}
+
+// ═══════════════════════════════════
+// 显示结果
+// ═══════════════════════════════════
+
+function render(r){
+  var html='';
+
+  if(r.type!=='不适用'){
+    var cls='g';
+    var tag='大概率能拿到';
+    if(r.type==='2N'){
+      cls='c';tag='违法解除·可主张2N';
+    }else if(r.type==='N+1'){
+      cls='a';tag='法定解除·可主张N+1';
+    }
+
+    html+='<h2>你的赔偿预判</h2>';
+    html+='<div class="r '+cls+'">'+tag+'</div>';
+    html+='<div class="amt">'+(r.total>0?r.total.toLocaleString():'0')+'<span class="unit"> 元</span></div>';
+    html+='<div class="desc">'+r.msg+'</div>';
+    if(r.type==='N+1'||r.type==='N'){
+      html+='<div class="law">📖 《劳动合同法》第47条 · 人民法院案例库<br>N='+Math.round(r.n)+'年 × 月均'+r.base.toLocaleString()+'元 = '+(r.base*Math.round(r.n)).toLocaleString()+'元'+(r.type==='N+1'?'<br>+1 = '+r.base.toLocaleString()+'元（代通知金）':'')+'</div>';
+    }
+    if(r.type==='2N'){
+      html+='<div class="law">📖 《劳动合同法》第87条 · 人民法院案例库<br>2N = 2 × '+Math.round(r.n)+'年 × 月均'+r.base.toLocaleString()+'元</div>';
+    }
+
+    // 案例
+    html+='<div style="margin-top:16px"><strong style="font-size:14px">📚 参考案例</strong></div>';
+    for(var i=0;i<r.cases.length;i++){
+      var c=r.cases[i];
+      html+='<div class="case"><div class="ctitle">'+c.title+'</div><div class="cinfo">'+c.court+' · '+c.fact+'</div><div class="cresult"><span class="tag '+c.type+'">'+c.tag+'</span> '+c.result+'</div></div>';
+    }
+
+  }else{
+    html+='<h2>你的赔偿预判</h2>';
+    html+='<div class="r" style="background:var(--aml);color:#854f0b">⚠️ 一般拿不到经济补偿</div>';
+    html+='<div class="amt">0<span class="unit"> 元</span></div>';
+    html+='<div class="desc">'+r.msg+'</div>';
+    if(r.cases&&r.cases.length>0){
+      html+='<div style="margin-top:16px"><strong style="font-size:14px">📚 参考案例</strong></div>';
+      for(var i=0;i<r.cases.length;i++){
+        var c=r.cases[i];
+        html+='<div class="case"><div class="ctitle">'+c.title+'</div><div class="cinfo">'+c.court+' · '+c.fact+'</div><div class="cresult"><span class="tag '+c.type+'">'+c.tag+'</span> '+c.result+'</div></div>';
+      }
+    }
+  }
+
+  document.getElementById('resultContent').innerHTML=html;
+  document.getElementById('result').classList.add('active');
+
+  // scroll to result
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══════════════════════════════════
+// 分析
+// ═══════════════════════════════════
+
+document.getElementById('analyzeBtn').onclick=function(){
+  var r=calc();
+  render(r);
+};
+
+// ═══════════════════════════════════
+// 生成长图
+// ═══════════════════════════════════
+
+function genLongImage(){
+  var el=document.getElementById('result');
+  html2canvas(el,{scale:2,backgroundColor:'#f5f3ef',useCORS:true,allowTaint:true})
+    .then(function(canvas){
+      var dataUrl=canvas.toDataURL('image/png');
+      document.getElementById('longImg').src=dataUrl;
+      document.getElementById('overlay').classList.add('show');
+    });
+}
+
+// ═══════════════════════════════════
+// 初始化
+// ═══════════════════════════════════
+
+renderQuestions();
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "赠与合同",
+  "contract_type_en": "gift",
+  "description": "一般赠与、附义务赠与、公益赠与等赠与合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "赠与", "赠与人", "受赠人", "赠与财产", "无偿", "捐赠", "公益"
+  ],
+  "key_clauses": [
+    {
+      "name": "赠与财产",
+      "required": true,
+      "keywords": ["赠与财产", "标的物", "财产", "物品", "金额"],
+      "check_points": [
+        {
+          "item": "财产明确",
+          "description": "赠与财产的名称、数量、质量、价值是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "权属清晰",
+          "description": "赠与人对赠与财产享有处分权",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确赠与财产信息，确保赠与人有权处分"
+    },
+    {
+      "name": "赠与性质",
+      "required": true,
+      "keywords": ["无偿", "附义务", "附条件", "公益", "慈善"],
+      "check_points": [
+        {
+          "item": "性质明确",
+          "description": "一般赠与/附义务赠与/公益赠与是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "附义务",
+          "description": "附义务赠与的义务内容",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确赠与性质，附义务赠与应详细约定义务内容"
+    },
+    {
+      "name": "财产交付",
+      "required": true,
+      "keywords": ["交付", "转移", "过户", "登记", "占有"],
+      "check_points": [
+        {
+          "item": "交付时间",
+          "description": "财产交付时间",
+          "risk_level": "重大"
+        },
+        {
+          "item": "交付方式",
+          "description": "动产交付/不动产过户/权利转移",
+          "risk_level": "重大"
+        },
+        {
+          "item": "登记",
+          "description": "需登记的财产是否约定办理登记",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交付时间、方式，需登记的财产应约定办理过户登记"
+    },
+    {
+      "name": "赠与撤销",
+      "required": true,
+      "keywords": ["撤销", "任意撤销", "法定撤销", "穷困抗辩"],
+      "check_points": [
+        {
+          "item": "任意撤销权",
+          "description": "赠与人任意撤销权的限制（公证/公益/道德义务性质）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "法定撤销",
+          "description": "受赠人严重侵害赠与人等法定撤销情形",
+          "risk_level": "一般"
+        },
+        {
+          "item": "穷困抗辩",
+          "description": "赠与人经济状况显著恶化时的穷困抗辩权",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确撤销权限制，公益赠与和道德义务性质赠与不可任意撤销"
+    },
+    {
+      "name": "瑕疵担保",
+      "required": false,
+      "keywords": ["瑕疵", "担保", "质量保证", "不承担责任"],
+      "check_points": [
+        {
+          "item": "瑕疵责任",
+          "description": "赠与人是否承担瑕疵担保责任",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "一般赠与不承担瑕疵担保责任，附义务赠与在附义务限度内承担"
+    },
+    {
+      "name": "费用承担",
+      "required": false,
+      "keywords": ["费用", "税费", "过户费", "公证费"],
+      "check_points": [
+        {
+          "item": "税费",
+          "description": "赠与产生的税费由谁承担",
+          "risk_level": "一般"
+        },
+        {
+          "item": "其他费用",
+          "description": "过户费、公证费等由谁承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确赠与产生的税费和其他费用由谁承担"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "GIF001",
+      "name": "赠与人无权处分",
+      "description": "赠与人对赠与财产无处分权，赠与无效",
+      "severity": "高风险",
+      "suggestion": "核实赠与人对赠与财产享有所有权或处分权"
+    },
+    {
+      "id": "GIF002",
+      "name": "未办理过户登记",
+      "description": "不动产或需登记的财产未办理过户，所有权未转移",
+      "severity": "高风险",
+      "suggestion": "不动产赠与应及时办理过户登记，动产应实际交付",
+      "legal_basis": "《民法典》第209条、第224条"
+    },
+    {
+      "id": "GIF003",
+      "name": "任意撤销风险",
+      "description": "一般赠与在财产权利转移前可被赠与人任意撤销",
+      "severity": "中风险",
+      "suggestion": "重要赠与建议办理公证，公证赠与不可任意撤销",
+      "legal_basis": "《民法典》第658条"
+    },
+    {
+      "id": "GIF004",
+      "name": "附义务赠与义务不明",
+      "description": "附义务赠与的义务内容不明确，履行时产生争议",
+      "severity": "中风险",
+      "suggestion": "附义务赠与应详细约定义务内容、履行标准、履行期限"
+    },
+    {
+      "id": "GIF005",
+      "name": "税费承担不明",
+      "description": "赠与产生的税费（如个人所得税、契税）由谁承担未约定",
+      "severity": "中风险",
+      "suggestion": "明确赠与产生的各项税费和费用由谁承担"
+    }
+  ],
+  "position_guidance": {
+    "donor": {
+      "name": "赠与人",
+      "priority_checks": [
+        "财产权属",
+        "撤销权",
+        "税费承担"
+      ],
+      "key_concerns": [
+        "确保对赠与财产有处分权",
+        "了解任意撤销权的限制",
+        "考虑经济状况恶化时的穷困抗辩权",
+        "明确税费承担"
+      ],
+      "avoid": [
+        "无权处分",
+        "重大赠与未公证（如希望保留撤销权则为优势）",
+        "未考虑税费负担",
+        "附义务赠与义务约定不明"
+      ]
+    },
+    "donee": {
+      "name": "受赠人",
+      "priority_checks": [
+        "财产交付",
+        "过户登记",
+        "撤销权限制",
+        "瑕疵担保"
+      ],
+      "key_concerns": [
+        "确保财产实际交付或过户",
+        "重要赠与应办理公证防止撤销",
+        "了解瑕疵担保责任有限",
+        "附义务赠与明确义务内容"
+      ],
+      "avoid": [
+        "未办理过户登记",
+        "重要赠与未公证",
+        "接受有瑕疵财产无约定",
+        "附义务赠与义务过重"
+      ]
+    }
+  },
+  "legal_notes": {
+    "revocation": {
+      "description": "任意撤销权",
+      "rule": "赠与人在赠与财产的权利转移之前可以撤销赠与，但具有救灾、扶贫、助残等公益、道德义务性质的赠与合同或经过公证的赠与合同除外",
+      "legal_basis": "《民法典》第658条"
+    },
+    "legal_revocation": {
+      "description": "法定撤销权",
+      "grounds": [
+        "受赠人严重侵害赠与人或赠与人近亲属的合法权益",
+        "受赠人对赠与人有扶养义务而不履行",
+        "受赠人不履行赠与合同约定的义务"
+      ],
+      "period": "自知道或应当知道撤销事由之日起1年内行使",
+      "legal_basis": "《民法典》第663条"
+    },
+    "impoverishment": {
+      "description": "穷困抗辩权",
+      "rule": "赠与人的经济状况显著恶化，严重影响其生产经营或家庭生活的，可以不再履行赠与义务",
+      "legal_basis": "《民法典》第666条"
+    },
+    "warranty": {
+      "description": "瑕疵担保",
+      "general": "一般赠与：赠与人不承担瑕疵担保责任",
+      "with_obligation": "附义务赠与：赠与人在附义务的限度内承担与出卖人相同的责任",
+      "intentional": "赠与人故意不告知瑕疵或保证无瑕疵，造成受赠人损失的，应当承担赔偿责任",
+      "legal_basis": "《民法典》第662条"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# 采购合同审核 Skill 依赖（v2）
+# 已升级为纯标准库方案，零外部依赖
+#
+# 旧版依赖（不再需要）：
+# - python-docx（已替换为 zipfile + xml.etree.ElementTree）
+# - PyPDF2（已替换为正则表达式提取）
+#
+# 仅需 Python 3.7+ 即可运行
+# 无需 pip install 任何包

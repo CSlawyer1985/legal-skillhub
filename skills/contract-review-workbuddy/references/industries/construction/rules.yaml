@@ -1,0 +1,706 @@
+rules:
+  # ============================================================
+  # 施工合同合规规则 (Construction Contract Compliance Rules)
+  # ============================================================
+
+  - id: CON001
+    category: construction_qualification
+    name: "承包方资质不符"
+    description: "承包方不具备与工程规模相适应的施工资质等级"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查承包方企业资质等级是否与工程规模匹配，是否存在超越资质等级承揽工程的情形"
+    legal_basis: "《建筑法》第13条、第26条"
+    suggestion: "核实承包方主体资格和资质等级，要求提供建筑业企业资质证书原件，并在住建部门官网核验"
+    enabled: true
+
+  - id: CON002
+    category: construction_qualification
+    name: "资质证书过期或失效"
+    description: "承包方建筑业企业资质证书已过有效期或处于暂扣、吊销状态"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查资质证书有效期及状态，确认在合同履行期间持续有效"
+    legal_basis: "《建筑法》第13条；《建筑业企业资质管理规定》第16条"
+    suggestion: "要求提供最新资质证书，通过全国建筑市场监管公共服务平台核验有效性"
+    enabled: true
+
+  - id: CON003
+    category: construction_qualification
+    name: "安全生产许可证缺失"
+    description: "建筑施工企业未取得安全生产许可证或许可证已过期"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查建筑施工企业是否持有有效的安全生产许可证"
+    legal_basis: "《安全生产许可证条例》第2条；《建筑法》第47条"
+    suggestion: "要求提供安全生产许可证原件，核验有效期覆盖整个施工期间"
+    enabled: true
+
+  - id: CON004
+    category: construction_qualification
+    name: "项目经理资格不符"
+    description: "项目经理不具备相应注册建造师资格或未在本单位注册"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查项目经理的注册建造师证书等级、专业类别及注册单位"
+    legal_basis: "《建筑法》第14条；《注册建造师管理规定》第5条"
+    suggestion: "要求提供项目经理注册建造师证书、社保缴纳证明，确认人证合一"
+    enabled: true
+
+  - id: CON005
+    category: construction_qualification
+    name: "特种作业人员无证上岗"
+    description: "建筑电工、架子工、起重信号工等特种作业人员未持有效操作资格证书"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查特种作业人员是否持有住建主管部门颁发的有效操作资格证"
+    legal_basis: "《建设工程安全生产管理条例》第25条"
+    suggestion: "要求承包方提供特种作业人员名册及资格证书复印件，约定人证合一条款"
+    enabled: true
+
+  - id: CON006
+    category: bidding_compliance
+    name: "应招标未招标"
+    description: "依法必须招标的工程项目未通过招标方式确定承包人"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查项目是否属于依法必须招标的工程建设项目范围"
+    legal_basis: "《招标投标法》第3条；《必须招标的工程项目规定》第2-4条"
+    suggestion: "对照发改委16号令核查项目性质，属于必须招标的应依法组织招标"
+    enabled: true
+
+  - id: CON007
+    category: bidding_compliance
+    name: "招标方式不当"
+    description: "依法应当公开招标的项目采用邀请招标方式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查项目是否具备邀请招标的法定条件及审批手续"
+    legal_basis: "《招标投标法》第11条；《招标投标法实施条例》第8条"
+    suggestion: "确认邀请招标是否经项目审批部门核准，否则应公开招标"
+    enabled: true
+
+  - id: CON008
+    category: bidding_compliance
+    name: "串通投标风险"
+    description: "存在围标、串标或陪标等违反招投标公平竞争原则的情形"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查不同投标文件是否存在异常一致或规律性差异"
+    legal_basis: "《招标投标法》第32条；《招标投标法实施条例》第39-41条"
+    suggestion: "建立投标回避制度，采用电子招标，加强评标环节串标识别"
+    enabled: true
+
+  - id: CON009
+    category: bidding_compliance
+    name: "低于成本价中标"
+    description: "中标价格低于企业成本价，存在低价抢标后偷工减料风险"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查中标价是否低于成本价，是否设有成本警戒线"
+    legal_basis: "《招标投标法》第33条、第41条"
+    suggestion: "在招标文件中设定成本警戒线，要求异常低价投标人提供成本说明"
+    enabled: true
+
+  - id: CON010
+    category: bidding_compliance
+    name: "招标文件排斥潜在投标人"
+    description: "招标文件设置不合理条件排斥或限制潜在投标人"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查招标文件是否存在歧视性条款或与合同履行无关的条件"
+    legal_basis: "《招标投标法》第18条、第20条；《招标投标法实施条例》第32条"
+    suggestion: "审查招标文件条件设置是否与项目具体特点相适应，避免歧视性条款"
+    enabled: true
+
+  - id: CON011
+    category: contract_formation
+    name: "合同主体不适格"
+    description: "发包人不具备发包资格或承包人不具备相应资质"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查发包人是否为项目合法建设单位，承包人是否具备相应资质"
+    legal_basis: "《建筑法》第19条；《民法典》第788条"
+    suggestion: "核实发包人项目审批文件，承包人资质证书，确保合同主体适格"
+    enabled: true
+
+  - id: CON012
+    category: contract_formation
+    name: "合同形式不合法"
+    description: "建设工程合同未采用书面形式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否以书面形式订立"
+    legal_basis: "《建筑法》第15条；《民法典》第789条"
+    suggestion: "建设工程合同必须采用书面形式，口头约定存在重大法律风险"
+    enabled: true
+
+  - id: CON013
+    category: contract_formation
+    name: "阴阳合同"
+    description: "就同一工程签订两份以上内容不一致的合同"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否存在另行签订背离中标合同实质性内容的协议"
+    legal_basis: "《招标投标法》第46条；《民法典》第793条"
+    suggestion: "另行签订的合同不得背离中标合同实质性内容，否则以中标合同为准"
+    enabled: true
+
+  - id: CON014
+    category: contract_formation
+    name: "合同未备案"
+    description: "依法应当备案的建设工程合同未办理备案手续"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否按规定向建设行政主管部门备案"
+    legal_basis: "《房屋建筑和市政基础设施工程施工招标投标管理办法》第47条"
+    suggestion: "及时办理合同备案，备案合同作为结算工程价款的依据"
+    enabled: true
+
+  - id: CON015
+    category: contract_content
+    name: "工程范围约定不明"
+    description: "合同对工程范围、承包内容约定不清晰"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定工程范围、建筑面积、结构形式等"
+    legal_basis: "《民法典》第795条"
+    suggestion: "工程范围应结合施工图纸、工程量清单、技术规范等附件明确约定"
+    enabled: true
+
+  - id: CON016
+    category: contract_content
+    name: "工期约定不合理"
+    description: "合同工期明显低于合理工期或未约定工期调整机制"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同工期是否符合定额工期，是否压缩定额工期30%以上"
+    legal_basis: "《建设工程质量管理条例》第10条"
+    suggestion: "压缩定额工期不得超过20%，超过的应在招标文件中明示增加赶工费用"
+    enabled: true
+
+  - id: CON017
+    category: contract_content
+    name: "质量标准约定不明"
+    description: "合同未明确工程质量标准或标准之间存在矛盾"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定工程质量标准、验收规范及质量等级"
+    legal_basis: "《建筑法》第58条；《建设工程质量管理条例》第28条"
+    suggestion: "明确约定执行的国家标准、行业标准及质量创优目标"
+    enabled: true
+
+  - id: CON018
+    category: contract_content
+    name: "工程造价约定风险"
+    description: "合同对工程造价风险范围约定不合理或风险费用未计取"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否合理约定材料价格波动、人工费调整等风险分担"
+    legal_basis: "《建设工程工程量清单计价规范》第3.2.1条"
+    suggestion: "明确材料价格波动超过一定幅度时的调整方法，合理分担风险"
+    enabled: true
+
+  - id: CON019
+    category: contract_content
+    name: "工程款支付条款不利"
+    description: "工程款支付比例过低或支付节点设置不合理"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查工程预付款、进度款、结算款支付比例是否符合行业惯例"
+    legal_basis: "《建设工程价款结算暂行办法》第13-14条"
+    suggestion: "预付款不低于10%，进度款支付比例不低于60%，不高于90%"
+    enabled: true
+
+  - id: CON020
+    category: contract_content
+    name: "竣工验收条款缺失"
+    description: "合同未明确竣工验收条件、程序及验收标准"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定竣工验收的组织方式、验收标准及验收资料要求"
+    legal_basis: "《建设工程质量管理条例》第16条；《民法典》第799条"
+    suggestion: "明确竣工验收条件、验收程序、验收资料清单及验收不合格的处理"
+    enabled: true
+
+  - id: CON021
+    category: contract_content
+    name: "质量保修条款不合规"
+    description: "合同约定的质量保修期低于法定最低保修期"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同约定的保修期是否低于《建设工程质量管理条例》规定的最低保修期"
+    legal_basis: "《建设工程质量管理条例》第39-40条"
+    suggestion: "基础设施、地基基础、主体结构按设计年限保修；防水5年；供热供冷2个周期；电气管线2年"
+    enabled: true
+
+  - id: CON022
+    category: contract_content
+    name: "安全事故责任约定不当"
+    description: "合同对施工现场安全事故责任划分不明确或违法转嫁安全责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否合理划分建设单位和施工单位的安全责任"
+    legal_basis: "《建设工程安全生产管理条例》第21条、第24条"
+    suggestion: "明确各方安全责任，不得通过合同免除建设单位法定安全责任"
+    enabled: true
+
+  - id: CON023
+    category: contract_content
+    name: "农民工工资支付条款缺失"
+    description: "合同未约定农民工工资专户、工资保证金或代发制度"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否落实农民工工资支付保障措施"
+    legal_basis: "《保障农民工工资支付条例》第24-32条"
+    suggestion: "约定农民工工资专户、总包代发、工资保证金等制度"
+    enabled: true
+
+  - id: CON024
+    category: contract_content
+    name: "工程变更管理条款缺失"
+    description: "合同未约定工程变更的审批程序、计价原则及工期调整方法"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否建立工程变更的提出、审批、实施及计价机制"
+    legal_basis: "《建设工程价款结算暂行办法》第9条"
+    suggestion: "明确变更审批权限、计价依据（合同已有按合同、类似价格参照、无则协商）"
+    enabled: true
+
+  - id: CON025
+    category: contract_content
+    name: "不可抗力条款不完整"
+    description: "合同对不可抗力的范围、通知义务及损失分担约定不完整"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否明确不可抗力的定义、通知期限及损失分担原则"
+    legal_basis: "《民法典》第180条、第590条"
+    suggestion: "明确不可抗力范围、48小时通知义务、工程本身损失由发包人承担"
+    enabled: true
+
+  - id: CON026
+    category: contract_content
+    name: "违约责任不对等"
+    description: "合同约定的违约责任明显不对等，一方责任过重"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同双方违约责任是否对等，违约金比例是否合理"
+    legal_basis: "《民法典》第585条"
+    suggestion: "违约金应双向对等，约定违约金不超过实际损失的30%"
+    enabled: true
+
+  - id: CON027
+    category: contract_content
+    name: "争议解决条款无效"
+    description: "合同约定的争议解决方式违反专属管辖规定"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查争议解决条款是否违反建设工程合同专属管辖规定"
+    legal_basis: "《民事诉讼法》第34条；《民诉法解释》第28条"
+    suggestion: "建设工程合同纠纷适用不动产所在地专属管辖，不得约定其他法院管辖"
+    enabled: true
+
+  # ============================================================
+  # 分包合同合规规则 (Subcontract Compliance Rules)
+  # ============================================================
+
+  - id: CON028
+    category: subcontract_compliance
+    name: "违法分包"
+    description: "将工程分包给不具备相应资质的单位或主体结构分包"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查分包行为是否属于违法分包情形"
+    legal_basis: "《建筑法》第29条；《建设工程质量管理条例》第78条"
+    suggestion: "主体结构必须由总包自行完成，分包单位应具备相应资质，不得二次分包"
+    enabled: true
+
+  - id: CON029
+    category: subcontract_compliance
+    name: "转包风险"
+    description: "承包单位将承包的工程全部转给他人或肢解后分别转包"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否存在转包行为，即承包人不履行合同约定，全部工程转给他人施工"
+    legal_basis: "《建筑法》第28条；《建设工程质量管理条例》第78条"
+    suggestion: "承包人必须自行完成工程主体结构，项目经理及关键管理人员必须到位"
+    enabled: true
+
+  - id: CON030
+    category: subcontract_compliance
+    name: "分包单位资质不符"
+    description: "分包单位不具备相应的专业资质或劳务资质"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查分包单位是否具备与分包工程相匹配的专业承包或劳务分包资质"
+    legal_basis: "《建筑法》第13条、第29条"
+    suggestion: "专业分包应具备相应专业资质，分包工程不得超过总造价的30%"
+    enabled: true
+
+  - id: CON031
+    category: subcontract_compliance
+    name: "分包未经建设单位认可"
+    description: "总包合同未约定或未经建设单位认可的分包"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查分包是否在施工合同中约定或取得建设单位书面认可"
+    legal_basis: "《建筑法》第29条"
+    suggestion: "总包合同应明确分包范围，合同未约定的分包应取得建设单位书面同意"
+    enabled: true
+
+  - id: CON032
+    category: subcontract_compliance
+    name: "分包合同与总包合同冲突"
+    description: "分包合同约定的质量标准、工期等与总包合同不一致"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查分包合同主要条款是否与总包合同保持一致"
+    legal_basis: "《民法典》第791条"
+    suggestion: "分包合同质量标准不得低于总包合同，工期应满足总包合同节点要求"
+    enabled: true
+
+  - id: CON033
+    category: subcontract_compliance
+    name: "分包工程款支付风险"
+    description: "分包合同未约定工程款支付与总包收款挂钩的条款"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查分包合同是否约定工程款支付以发包人支付为前提"
+    legal_basis: "《民法典》第791条"
+    suggestion: "可约定分包工程款支付以发包人支付为前提，降低总包垫资风险"
+    enabled: true
+
+  - id: CON034
+    category: subcontract_compliance
+    name: "分包安全责任约定不清"
+    description: "分包合同未明确安全生产管理职责及事故责任分担"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查分包合同是否明确总包和分包的安全管理职责"
+    legal_basis: "《建设工程安全生产管理条例》第24条"
+    suggestion: "总包对施工现场安全负总责，分包不服从管理导致事故的承担主要责任"
+    enabled: true
+
+  - id: CON035
+    category: subcontract_compliance
+    name: "劳务分包资质风险"
+    description: "劳务承包方不具备施工劳务资质或超越资质承揽"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查劳务承包方是否持有施工劳务资质或专业作业资质"
+    legal_basis: "《建筑业企业资质管理规定》第5条"
+    suggestion: "劳务承包方应具备施工劳务资质，不得将劳务再分包给个人"
+    enabled: true
+
+  - id: CON036
+    category: subcontract_compliance
+    name: "挂靠经营风险"
+    description: "实际施工人借用有资质的建筑施工企业名义承揽工程"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否存在借用资质承揽工程的情形，项目经理是否实际到位"
+    legal_basis: "《建筑法》第26条；《建设工程质量管理条例》第25条"
+    suggestion: "核实实际施工人与承包单位的劳动关系、社保关系，防范挂靠风险"
+    enabled: true
+
+  - id: CON037
+    category: subcontract_compliance
+    name: "分包合同备案缺失"
+    description: "分包合同未按规定向建设行政主管部门备案"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查分包合同是否及时向建设主管部门备案"
+    legal_basis: "《房屋建筑和市政基础设施工程施工分包管理办法》第10条"
+    suggestion: "分包合同签订后7个工作日内办理备案，作为分包合法性的证明"
+    enabled: true
+
+  # ============================================================
+  # 材料采购合规规则 (Material Procurement Compliance Rules)
+  # ============================================================
+
+  - id: CON038
+    category: material_procurement
+    name: "建筑材料不符合强制性标准"
+    description: "采购的建筑材料、构配件不符合设计文件或国家强制性标准"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查材料采购合同是否明确约定材料执行标准及质量要求"
+    legal_basis: "《建筑法》第59条；《建设工程质量管理条例》第29条"
+    suggestion: "明确材料执行的国家标准、行业标准，约定材料进场复检制度"
+    enabled: true
+
+  - id: CON039
+    category: material_procurement
+    name: "甲供材料责任不清"
+    description: "甲供材料的质量责任、交货时间、验收程序约定不明确"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查甲供材料条款是否明确质量责任、交货批次、现场验收及保管责任"
+    legal_basis: "《民法典》第803条；《建设工程质量管理条例》第14条"
+    suggestion: "明确甲供材料进场验收标准、不合格处理、工期顺延及保管责任"
+    enabled: true
+
+  - id: CON040
+    category: material_procurement
+    name: "材料价格波动风险"
+    description: "材料采购合同未约定价格调整机制，材料价格大幅波动风险大"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查材料采购合同是否约定价格波动超过一定幅度时的调整方法"
+    legal_basis: "《建设工程工程量清单计价规范》第3.2.3条"
+    suggestion: "约定材料价格波动超过5%时调整超出部分价差，合理分担市场风险"
+    enabled: true
+
+  - id: CON041
+    category: material_procurement
+    name: "材料供应商资质风险"
+    description: "材料供应商不具备相应生产资质或产品未通过认证"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查材料供应商是否具备相应生产许可证或产品强制性认证"
+    legal_basis: "《建设工程质量管理条例》第14条；《产品质量法》第13条"
+    suggestion: "要求供应商提供生产许可证、产品合格证、检测报告等资质文件"
+    enabled: true
+
+  - id: CON042
+    category: material_procurement
+    name: "材料验收程序缺失"
+    description: "材料采购合同未约定进场验收程序及不合格材料处理方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定材料进场验收程序、抽检比例及不合格处理"
+    legal_basis: "《建设工程质量管理条例》第29条"
+    suggestion: "明确材料进场验收程序、见证取样送检制度及不合格材料退场机制"
+    enabled: true
+
+  - id: CON043
+    category: material_procurement
+    name: "材料知识产权风险"
+    description: "采购的材料侵犯他人知识产权"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查材料采购合同是否约定知识产权保证条款"
+    legal_basis: "《民法典》第1185条"
+    suggestion: "要求供应商提供知识产权保证，约定侵权责任承担方式"
+    enabled: true
+
+  - id: CON044
+    category: material_procurement
+    name: "材料环保合规风险"
+    description: "建筑材料不符合国家环保标准或室内环境污染控制要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查材料是否满足国家有害物质限量标准及环保要求"
+    legal_basis: "《民用建筑工程室内环境污染控制标准》GB 50325"
+    suggestion: "明确材料环保等级要求，约定室内环境检测及不合格处理"
+    enabled: true
+
+  - id: CON045
+    category: material_procurement
+    name: "材料供应进度风险"
+    description: "材料采购合同未约定供货周期、逾期交货违约责任"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否明确材料供货周期、批次及逾期交货责任"
+    legal_basis: "《民法典》第601条"
+    suggestion: "明确供货周期、批次数量、逾期违约金及工期延误责任"
+    enabled: true
+
+  - id: CON046
+    category: material_procurement
+    name: "材料质量保修责任"
+    description: "材料采购合同未约定质量保证期及质量缺陷处理"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定材料质量保证期及质量缺陷的责任承担"
+    legal_basis: "《建设工程质量管理条例》第39-41条"
+    suggestion: "明确材料质量保证期不低于工程整体保修期，约定质量缺陷处理程序"
+    enabled: true
+
+  # ============================================================
+  # 工程安全与质量管理规则 (Safety & Quality Management)
+  # ============================================================
+
+  - id: CON047
+    category: safety_quality
+    name: "施工组织设计缺失"
+    description: "合同未约定施工组织设计编制审批程序"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定施工组织设计编制、审批及报审程序"
+    legal_basis: "《建设工程安全生产管理条例》第26条"
+    suggestion: "明确施工组织设计编制要求、审批流程及专家论证范围"
+    enabled: true
+
+  - id: CON048
+    category: safety_quality
+    name: "危险性工程专项方案"
+    description: "深基坑、高大模板等危险性工程未约定专项施工方案编制"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定危险性较大分部分项工程专项方案编制及专家论证"
+    legal_basis: "《建设工程安全生产管理条例》第26条；《危险性较大的分部分项工程安全管理规定》"
+    suggestion: "明确危险性较大工程清单、专项方案编制要求及专家论证程序"
+    enabled: true
+
+  - id: CON049
+    category: safety_quality
+    name: "工程质量检测条款缺失"
+    description: "合同未约定工程质量检测机构及检测费用承担"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定工程质量检测机构资质及检测费用承担"
+    legal_basis: "《建设工程质量检测管理办法》第12条"
+    suggestion: "明确检测机构资质要求、见证取样比例及检测费用承担方式"
+    enabled: true
+
+  - id: CON050
+    category: safety_quality
+    name: "安全事故应急预案缺失"
+    description: "合同未约定生产安全事故应急救援预案编制及演练"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定安全事故应急预案编制、演练及应急救援器材配置"
+    legal_basis: "《建设工程安全生产管理条例》第48-49条"
+    suggestion: "明确应急预案编制要求、演练频次及应急救援器材配置"
+    enabled: true
+
+  - id: CON051
+    category: safety_quality
+    name: "工伤保险及意外险条款"
+    description: "合同未约定工伤保险及建筑意外伤害保险的投保义务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定工伤保险缴纳及建筑意外伤害险投保"
+    legal_basis: "《建筑法》第48条；《建设工程安全生产管理条例》第38条"
+    suggestion: "明确工伤保险强制投保、危险作业人员意外险投保及费用承担"
+    enabled: true
+
+  - id: CON052
+    category: safety_quality
+    name: "文明施工条款缺失"
+    description: "合同未约定文明施工、扬尘治理及环境保护措施"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定文明施工标准、扬尘治理措施及环保要求"
+    legal_basis: "《大气污染防治法》第69条；《建设工程安全生产管理条例》第30条"
+    suggestion: "明确六个100%扬尘治理要求、噪声控制标准及环保措施费用"
+    enabled: true
+
+  # ============================================================
+  # 工程结算与保修规则 (Settlement & Warranty)
+  # ============================================================
+
+  - id: CON053
+    category: settlement_warranty
+    name: "工程结算期限约定不明"
+    description: "合同未约定工程结算报送及审核期限"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定结算报送时间、审核期限及逾期默认条款"
+    legal_basis: "《建设工程价款结算暂行办法》第14条"
+    suggestion: "明确结算报送时间、审核期限（如28天），逾期未答复视为认可"
+    enabled: true
+
+  - id: CON054
+    category: settlement_warranty
+    name: "工程款优先受偿权条款"
+    description: "合同未提示建设工程价款优先受偿权"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否提示承包人享有工程款优先受偿权"
+    legal_basis: "《民法典》第807条"
+    suggestion: "提示承包人工程款优先受偿权，期限为18个月"
+    enabled: true
+
+  - id: CON055
+    category: settlement_warranty
+    name: "质量保证金条款不合规"
+    description: "质量保证金比例过高或返还期限过长"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查质量保证金比例是否超过工程结算总额的3%，返还期限是否合理"
+    legal_basis: "《建设工程质量保证金管理办法》第6-7条"
+    suggestion: "保证金比例不超过3%，缺陷责任期不超过2年，到期及时返还"
+    enabled: true
+
+  - id: CON056
+    category: settlement_warranty
+    name: "工程保修金条款缺失"
+    description: "合同未约定工程保修金的预留比例及返还方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定保修金预留比例、返还条件及返还时间"
+    legal_basis: "《建设工程质量管理条例》第39-40条"
+    suggestion: "明确保修金预留比例（通常3-5%）、返还条件及分期返还安排"
+    enabled: true
+
+  - id: CON057
+    category: settlement_warranty
+    name: "竣工结算争议处理"
+    description: "合同未约定工程结算争议的处理机制"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定结算争议的协商、调解、审计或诉讼解决方式"
+    legal_basis: "《建设工程价款结算暂行办法》第18条"
+    suggestion: "约定争议协商期限、第三方调解、造价鉴定程序及诉讼管辖"
+    enabled: true
+
+  # ============================================================
+  # 合同履行与变更管理 (Performance & Change Management)
+  # ============================================================
+
+  - id: CON058
+    category: contract_performance
+    name: "工程签证管理缺失"
+    description: "合同未约定工程签证的办理程序、签证人员及权限"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定工程签证的提出、审批程序及有权签字人"
+    legal_basis: "《建设工程价款结算暂行办法》第14条"
+    suggestion: "明确签证办理时限、有权签字人、签证计价原则及逾期失效条款"
+    enabled: true
+
+  - id: CON059
+    category: contract_performance
+    name: "工期索赔条款缺失"
+    description: "合同未约定工期索赔的提出期限及处理程序"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定工期索赔的提出期限（如28天）及处理程序"
+    legal_basis: "《民法典》第803-804条"
+    suggestion: "明确索赔提出期限、证据要求、审批程序及逾期失权条款"
+    enabled: true
+
+  - id: CON060
+    category: contract_performance
+    name: "合同解除条款不完整"
+    description: "合同未约定合同解除的法定情形及解除后的处理"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定合同解除条件、解除程序及已完工程结算"
+    legal_basis: "《民法典》第806条；《建筑法》第58条"
+    suggestion: "明确发包人解除权（质量不合格、工期严重延误等）、解除后结算及退场"
+    enabled: true
+
+  - id: CON061
+    category: contract_performance
+    name: "工程保险条款缺失"
+    description: "合同未约定建筑工程一切险及第三者责任险的投保"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定工程保险的投保险种、保险金额及费用承担"
+    legal_basis: "《建筑法》第48条"
+    suggestion: "明确建筑工程一切险、第三者责任险的投保义务及费用承担"
+    enabled: true
+
+  - id: CON062
+    category: contract_performance
+    name: "合同转让限制缺失"
+    description: "合同未约定合同权利义务转让的限制条件"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定合同转让需经对方同意的限制"
+    legal_basis: "《民法典》第791条"
+    suggestion: "明确合同转让需经对方书面同意，禁止转让给不具备资质的单位"
+    enabled: true

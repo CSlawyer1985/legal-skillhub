@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "ip_no": "CN202310123456.X",
+    "title": "一种智能温控系统",
+    "type": "patent",
+    "sub_type": "invention",
+    "country": "CN",
+    "filing_date": "2023-01-15",
+    "grant_date": "2023-08-20",
+    "next_fee_date": "2026-08-20",
+    "status": "专利权维持",
+    "owner": "张三科技",
+    "inventor": "",
+    "notes": "",
+    "created_at": "2026-07-13 06:37:31",
+    "updated_at": "2026-07-13 06:37:31"
+  },
+  {
+    "id": 2,
+    "ip_no": "US12345678B2",
+    "title": "Method for data processing",
+    "type": "patent",
+    "sub_type": "invention",
+    "country": "US",
+    "filing_date": "2022-06-10",
+    "grant_date": "2023-12-05",
+    "next_fee_date": "2025-06-05",
+    "status": "Patented Case",
+    "owner": "Innovation Inc.",
+    "inventor": "",
+    "notes": "",
+    "created_at": "2026-07-13 06:37:31",
+    "updated_at": "2026-07-13 06:37:31"
+  }
+]

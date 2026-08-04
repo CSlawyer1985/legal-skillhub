@@ -1,0 +1,13 @@
+{
+  "name": "labor-law-advisor",
+  "version": "1.0.0",
+  "description": "劳动法律咨询助手，内置《劳动合同法》《劳动争议调解仲裁法》等四部法律全文，支持条款引用、权益分析、维权路径指导和文书生成。",
+  "author": "Jeff",
+  "tags": ["labor-law", "legal", "employment", "dispute", "china"],
+  "references": [
+    "references/劳动合同法.md",
+    "references/劳动合同法实施条例.md",
+    "references/劳动争议调解仲裁法.md",
+    "references/工伤保险条例.md"
+  ]
+}

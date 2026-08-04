@@ -1,0 +1,116 @@
+{
+  "sections": [
+    {
+      "section": "I",
+      "title": "Live Animals; Animal Products",
+      "chapters": [1, 2, 3, 4, 5]
+    },
+    {
+      "section": "II",
+      "title": "Vegetable Products",
+      "chapters": [6, 7, 8, 9, 10, 11, 12, 13, 14]
+    },
+    {
+      "section": "III",
+      "title": "Animal or Vegetable Fats and Oils",
+      "chapters": [15]
+    },
+    {
+      "section": "IV",
+      "title": "Prepared Foodstuffs; Beverages, Spirits and Vinegar; Tobacco",
+      "chapters": [16, 17, 18, 19, 20, 21, 22, 23, 24]
+    },
+    {
+      "section": "V",
+      "title": "Mineral Products",
+      "chapters": [25, 26, 27]
+    },
+    {
+      "section": "VI",
+      "title": "Products of the Chemical or Allied Industries",
+      "chapters": [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
+    },
+    {
+      "section": "VII",
+      "title": "Plastics and Articles Thereof; Rubber and Articles Thereof",
+      "chapters": [39, 40]
+    },
+    {
+      "section": "VIII",
+      "title": "Raw Hides and Skins, Leather, Furskins and Articles Thereof",
+      "chapters": [41, 42, 43]
+    },
+    {
+      "section": "IX",
+      "title": "Wood and Articles of Wood; Cork; Basketware",
+      "chapters": [44, 45, 46]
+    },
+    {
+      "section": "X",
+      "title": "Pulp of Wood; Paper and Paperboard",
+      "chapters": [47, 48, 49]
+    },
+    {
+      "section": "XI",
+      "title": "Textiles and Textile Articles",
+      "chapters": [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    },
+    {
+      "section": "XII",
+      "title": "Footwear, Headgear, Umbrellas; Prepared Feathers",
+      "chapters": [64, 65, 66, 67]
+    },
+    {
+      "section": "XIII",
+      "title": "Articles of Stone, Plaster, Cement; Ceramic Products; Glass",
+      "chapters": [68, 69, 70]
+    },
+    {
+      "section": "XIV",
+      "title": "Natural or Cultured Pearls, Precious Stones, Precious Metals",
+      "chapters": [71]
+    },
+    {
+      "section": "XV",
+      "title": "Base Metals and Articles of Base Metal",
+      "chapters": [72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83]
+    },
+    {
+      "section": "XVI",
+      "title": "Machinery and Mechanical Appliances; Electrical Equipment",
+      "chapters": [84, 85],
+      "notes": "Note 1: Section XVI does not cover articles of Section XVII. Note 3: Composite machines classified by principal function."
+    },
+    {
+      "section": "XVII",
+      "title": "Vehicles, Aircraft, Vessels and Associated Transport Equipment",
+      "chapters": [86, 87, 88, 89]
+    },
+    {
+      "section": "XVIII",
+      "title": "Optical, Photographic, Measuring, Medical Instruments; Clocks",
+      "chapters": [90, 91, 92]
+    },
+    {
+      "section": "XIX",
+      "title": "Arms and Ammunition; Parts and Accessories Thereof",
+      "chapters": [93]
+    },
+    {
+      "section": "XX",
+      "title": "Miscellaneous Manufactured Articles",
+      "chapters": [94, 95, 96]
+    },
+    {
+      "section": "XXI",
+      "title": "Works of Art, Collectors' Pieces and Antiques",
+      "chapters": [97]
+    },
+    {
+      "section": "XXII",
+      "title": "Special Classification Provisions",
+      "chapters": [98, 99],
+      "notes": "Chapter 98: Special import provisions. Chapter 99: Temporary legislation (Section 201/232/301 surcharges, trade remedies)."
+    }
+  ]
+}

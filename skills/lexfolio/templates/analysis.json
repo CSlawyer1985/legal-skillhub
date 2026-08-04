@@ -1,0 +1,10 @@
+{
+  "name": "analysis",
+  "label": "法律分析意见",
+  "description": "深度法律分析，无封面，强化标题层级，适合长篇多层级分析",
+  "doc_type": "analysis",
+  "default_preset": "deep",
+  "default_color_scheme": "B",
+  "default_font_provider": "noto",
+  "cover_fields": {}
+}

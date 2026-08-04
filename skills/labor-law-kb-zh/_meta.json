@@ -1,0 +1,31 @@
+{
+  "name": "labor-law-kb-zh",
+  "displayName": "劳动法常见知识科普",
+  "version": "1.0.0",
+  "description": "整理劳动合同、试用期、加班、离职、竞业限制等常见劳动法知识点和材料清单。",
+  "author": "ikun",
+  "license": "MIT",
+  "category": "knowledge",
+  "tags": [
+    "劳动法",
+    "知识科普",
+    "劳动合同",
+    "离职"
+  ],
+  "keywords": [
+    "劳动法",
+    "劳动合同",
+    "试用期",
+    "离职",
+    "加班",
+    "赔偿"
+  ],
+  "platforms": [
+    "openclaw",
+    "skillhub",
+    "claude-code",
+    "cursor"
+  ],
+  "language": "zh-CN",
+  "minAgentVersion": "0.1.0"
+}

@@ -1,0 +1,10 @@
+{
+ "files": [
+  "CASE-01-CAND-131478A240.ssot.v1.5-l1-freeze.json",
+  "CASE-01-doc-values-codex-l1-v3.json",
+  "CASE-01-handoff.v5-release.json",
+  "CASE-01-manifest-codex-l1-v3.json"
+ ],
+ "expected": "024105ca8e7af10ebf8d8bb3c00ec9f2d8be68b5e3391bc5cd3ace4fe62e3ac5",
+ "root": "<local-source-redacted>"
+}

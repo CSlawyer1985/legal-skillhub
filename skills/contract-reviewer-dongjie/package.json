@@ -1,0 +1,9 @@
+{
+  "name": "contract-reviewer-dongjie",
+  "version": "0.1.0",
+  "description": "A contract analysis skill that extracts clauses, risks, obligations, and negotiation points.",
+  "main": "main.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {}
+}

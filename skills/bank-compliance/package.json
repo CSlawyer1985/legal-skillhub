@@ -1,0 +1,38 @@
+{
+  "name": "bank-compliance-review",
+  "version": "1.0.0",
+  "description": "AI-powered bank compliance review assistant - screen marketing materials, KYC documents, AML alerts, and CBIRC compliance checks through structured workflow",
+  "main": "SKILL.md",
+  "scripts": {
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": [
+    "bank",
+    "compliance",
+    "KYC",
+    "AML",
+    "CBIRC",
+    "regulatory",
+    "合规审查",
+    "反洗钱",
+    "KYC筛查",
+    "银行合规"
+  ],
+  "author": "gechengling",
+  "license": "MIT",
+  "skill": {
+    "type": "conversation",
+    "triggers": [
+      "合规审查",
+      "合规审核",
+      "监管合规",
+      "KYC筛查",
+      "反洗钱",
+      "合规检查",
+      "监管报告",
+      "材料合规",
+      "宣传合规",
+      "合规风险"
+    ]
+  }
+}

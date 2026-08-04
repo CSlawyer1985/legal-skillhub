@@ -1,0 +1,125 @@
+{
+  "authorization_basis": "1785256236821-user",
+  "entities": [
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "root 1785256236821（权利人再许可GPL-3.0-only整包）；专有donor实体=root直接授权，独立权利证明未在本机建立，外发前须另行建立（external_distribution_gate）",
+      "original-license": "proprietary-local donor子集＋GPL-3.0新写",
+      "path-or-scope": "payload/",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "f5b90d667c010fba84b2e58bec3e751ac7a7d22de6696476b2eb4e2ff0f75c09",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "新写实体GPL-3.0原生",
+      "original-license": "text-of-license(GPL-3.0)",
+      "path-or-scope": "LICENSE",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "新写实体GPL-3.0原生",
+      "original-license": "新写",
+      "path-or-scope": "SKILL.md",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "c75df6b620a2eb83052afa17948282a099345b3a2f3c8fe2ae6c021cb74f533b",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "新写实体GPL-3.0原生",
+      "original-license": "新写",
+      "path-or-scope": "README.md",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "6a3b6b9823e92ab61de2a960792bcebbf3a317a3a2a4cce022ef049e2a209034",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "新写实体GPL-3.0原生",
+      "original-license": "新写",
+      "path-or-scope": "NOTICE",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "a1a896106d9f9a35cd8c13f1bef884ea6fc78877fa4a34eb973acbb6acc8207d",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "新写实体GPL-3.0原生",
+      "original-license": "新写",
+      "path-or-scope": "AUTHOR.json",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "afe5c64ebec93a3d3afafe67a4a2e883ddd25dc8c7a0afbec71de5b1f8537d0f",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "沿革记录保留；整包目标许可以root 1785256236821为准",
+      "original-license": "见payload/LICENSE-PROVENANCE.json donor_entity_audit（45/48、75/78、49/51逐实体old/new sha）",
+      "path-or-scope": "payload内部逐donor细账",
+      "source-root": "<local-source-redacted>",
+      "source-sha256": "f5b90d667c010fba84b2e58bec3e751ac7a7d22de6696476b2eb4e2ff0f75c09",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "验证产物66文件；脱敏口径（全包脱敏扫描收据）",
+      "original-license": "GPL-3.0-only（新产出）",
+      "path-or-scope": "evidence/",
+      "source-root": "本包E2E/总验现场产出",
+      "source-sha256": "a84f395ef07b6ba17b149cfa83e0548374aea42b277fd5683e5428d5561f1377",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "交付元数据",
+      "original-license": "新写",
+      "path-or-scope": "DESENSITIZE-SCAN-RECEIPT.json",
+      "source-root": "本包构建",
+      "source-sha256": "e2c17a34dd5b679b904caa7b02e49005893d3b2c837a69b6258cb835095774c0",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "交付元数据",
+      "original-license": "新写",
+      "path-or-scope": "PACKAGE-MANIFEST.json",
+      "source-root": "本包构建",
+      "source-sha256": "de2e87ef62256fee67ea0549e500083f3687599fbef200062519229afcdc035e",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "交付元数据（双层收据内层）",
+      "original-license": "新写",
+      "path-or-scope": "PACKAGE-RECEIPT.json",
+      "source-root": "本包构建",
+      "source-sha256": "自指/后封实体（哈希见重封后SUMS与外置detached receipt）",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "交付元数据（全册（覆盖除自身外全部））",
+      "original-license": "新写",
+      "path-or-scope": "SHA256SUMS.txt",
+      "source-root": "本包构建",
+      "source-sha256": "自指/后封实体（哈希见重封后SUMS与外置detached receipt）",
+      "target-license": "GPL-3.0-only"
+    },
+    {
+      "author": "李时瑀律师",
+      "compatibility-or-relicense-basis": "交付元数据（逐实体权利账本身）",
+      "original-license": "新写",
+      "path-or-scope": "LICENSE-PROVENANCE.json",
+      "source-root": "本包构建",
+      "source-sha256": "自指/后封实体（哈希见重封后SUMS与外置detached receipt）",
+      "target-license": "GPL-3.0-only"
+    }
+  ],
+  "external_distribution_gate": "independent rights proof required before any upload, external transfer or public release",
+  "independent_rights_proof_status": "not-established-locally for proprietary donor entities",
+  "schema": "gaotao.six-package.license-provenance/v1"
+}

@@ -1,0 +1,191 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "SOX Compliance Checker",
+    "description": "Enterprise-grade Sarbanes-Oxley Assessment Platform",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health Check",
+        "description": "Health check endpoint",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sox/assess": {
+      "post": {
+        "summary": "Sox Assessment",
+        "description": "Perform SOX compliance assessment",
+        "operationId": "sox_assessment_api_sox_assess_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SOXAssessmentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "summary": "Options Sox Assess",
+        "description": "Handle CORS preflight requests",
+        "operationId": "options_sox_assess_api_sox_assess_options",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ControlInput": {
+        "properties": {
+          "controlId": {
+            "type": "string",
+            "title": "Controlid"
+          },
+          "compliant": {
+            "type": "boolean",
+            "title": "Compliant"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "controlId",
+          "compliant"
+        ],
+        "title": "ControlInput"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "SOXAssessmentRequest": {
+        "properties": {
+          "tier": {
+            "type": "string",
+            "title": "Tier",
+            "description": "Assessment tier: basic, standard, or enterprise"
+          },
+          "controls": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/ControlInput"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Controls",
+            "description": "Controls by section"
+          },
+          "sessionId": {
+            "type": "string",
+            "title": "Sessionid",
+            "description": "Unique session identifier"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tier",
+          "controls",
+          "sessionId"
+        ],
+        "title": "SOXAssessmentRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

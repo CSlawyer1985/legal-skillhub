@@ -1,0 +1,583 @@
+[
+  {
+    "id": 1,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 2,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 3,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "出生日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 4,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "工作单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 5,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "职务（填空）",
+    "original": " "
+  },
+  {
+    "id": 6,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 7,
+    "section": "当事人信息",
+    "role": "原告",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 8,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "有",
+    "original": "□"
+  },
+  {
+    "id": 9,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 10,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "代理权限：一般授权",
+    "original": "□"
+  },
+  {
+    "id": 11,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "特别授权",
+    "original": "□"
+  },
+  {
+    "id": 12,
+    "section": "当事人信息",
+    "role": "委托诉讼代理人",
+    "label": "无",
+    "original": "□"
+  },
+  {
+    "id": 13,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "性别：男",
+    "original": "□"
+  },
+  {
+    "id": 14,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "女",
+    "original": "□"
+  },
+  {
+    "id": 15,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "出生日期（填空）",
+    "original": " "
+  },
+  {
+    "id": 16,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "工作单位（填空）",
+    "original": " "
+  },
+  {
+    "id": 17,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "职务（填空）",
+    "original": " "
+  },
+  {
+    "id": 18,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "）（填空）",
+    "original": " "
+  },
+  {
+    "id": 19,
+    "section": "当事人信息",
+    "role": "被告",
+    "label": "证件类型（填空）",
+    "original": " "
+  },
+  {
+    "id": 20,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "诉讼请求（完整表述）",
+    "original": "（可完整表述诉讼请求；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）"
+  },
+  {
+    "id": 21,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "无财产",
+    "original": "□"
+  },
+  {
+    "id": 22,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "有财产",
+    "original": "□"
+  },
+  {
+    "id": 23,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "）房屋明细：归属：原告",
+    "original": "□"
+  },
+  {
+    "id": 24,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 25,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "其他",
+    "original": "□"
+  },
+  {
+    "id": 26,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "）汽车明细：归属：原告",
+    "original": "□"
+  },
+  {
+    "id": 27,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 28,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "其他",
+    "original": "□"
+  },
+  {
+    "id": 29,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "）存款明细：归属：原告",
+    "original": "□"
+  },
+  {
+    "id": 30,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 31,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "其他",
+    "original": "□"
+  },
+  {
+    "id": 32,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "无债务",
+    "original": "□"
+  },
+  {
+    "id": 33,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "有债务",
+    "original": "□"
+  },
+  {
+    "id": 34,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "承担主体：原告",
+    "original": "□"
+  },
+  {
+    "id": 35,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 36,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "其他",
+    "original": "□"
+  },
+  {
+    "id": 37,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "承担主体：原告",
+    "original": "□"
+  },
+  {
+    "id": 38,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 39,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "其他",
+    "original": "□"
+  },
+  {
+    "id": 40,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "无此问题",
+    "original": "□"
+  },
+  {
+    "id": 41,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "有此问题",
+    "original": "□"
+  },
+  {
+    "id": 42,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "归属：原告",
+    "original": "□"
+  },
+  {
+    "id": 43,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 44,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "归属：原告",
+    "original": "□"
+  },
+  {
+    "id": 45,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 46,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "无此问题",
+    "original": "□"
+  },
+  {
+    "id": 47,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "有此问题",
+    "original": "□"
+  },
+  {
+    "id": 48,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "抚养费承担主体：原告",
+    "original": "□"
+  },
+  {
+    "id": 49,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 50,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "无此问题",
+    "original": "□"
+  },
+  {
+    "id": 51,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "有此问题",
+    "original": "□"
+  },
+  {
+    "id": 52,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "探望权行使主体：原告",
+    "original": "□"
+  },
+  {
+    "id": 53,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "被告",
+    "original": "□"
+  },
+  {
+    "id": 54,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "无此问题",
+    "original": "□"
+  },
+  {
+    "id": 55,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "离婚损害赔偿",
+    "original": "□"
+  },
+  {
+    "id": 56,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "离婚经济补偿",
+    "original": "□"
+  },
+  {
+    "id": 57,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "离婚经济帮助",
+    "original": "□"
+  },
+  {
+    "id": 58,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 59,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 60,
+    "section": "诉讼请求",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 61,
+    "section": "诉前保全",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 62,
+    "section": "诉前保全",
+    "role": "",
+    "label": "是（填空）",
+    "original": " "
+  },
+  {
+    "id": 63,
+    "section": "诉前保全",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 64,
+    "section": "事实与理由",
+    "role": "",
+    "label": "事实与理由（完整表述）",
+    "original": "（可完整表述纠纷涉及的事实与理由；为方便、准确梳理要点，相关内容请在下方要素式表格中填写）"
+  },
+  {
+    "id": 65,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 66,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 67,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 68,
+    "section": "事实与理由",
+    "role": "",
+    "label": "",
+    "original": ""
+  },
+  {
+    "id": 69,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "了解",
+    "original": "□"
+  },
+  {
+    "id": 70,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "不了解",
+    "original": "□"
+  },
+  {
+    "id": 71,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "了解",
+    "original": "□"
+  },
+  {
+    "id": 72,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "不了解",
+    "original": "□"
+  },
+  {
+    "id": 73,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "了解",
+    "original": "□"
+  },
+  {
+    "id": 74,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "不了解",
+    "original": "□"
+  },
+  {
+    "id": 75,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "了解",
+    "original": "□"
+  },
+  {
+    "id": 76,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "不了解",
+    "original": "□"
+  },
+  {
+    "id": 77,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "了解",
+    "original": "□"
+  },
+  {
+    "id": 78,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "不了解",
+    "original": "□"
+  },
+  {
+    "id": 79,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "了解",
+    "original": "□"
+  },
+  {
+    "id": 80,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "不了解",
+    "original": "□"
+  },
+  {
+    "id": 81,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "是",
+    "original": "□"
+  },
+  {
+    "id": 82,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "否",
+    "original": "□"
+  },
+  {
+    "id": 83,
+    "section": "对纠纷解决方式的意愿",
+    "role": "",
+    "label": "暂不确定，想要了解更多内容",
+    "original": "□"
+  }
+]

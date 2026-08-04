@@ -1,0 +1,285 @@
+{
+  "_metadata": {
+    "template_version": "2.0",
+    "created_date": "2026-05-10",
+    "skill_name": "checking-cn-patent-format",
+    "description": "专利申请文件审查Agent标准化输出格式"
+  },
+
+  "output_format_specification": {
+    "type": "JSON_ARRAY",
+    "description": "所有Agent必须输出一个JSON数组，数组的每个元素代表一条审查意见",
+
+    "item_schema": {
+      "type": "object",
+      "required_fields": [
+        "section",
+        "context",
+        "action_type",
+        "issue",
+        "suggestion"
+      ],
+      "conditional_required_fields": {
+        "replace": ["old_text", "new_text"],
+        "delete": ["old_text"]
+      },
+      "optional_fields": [
+        "paragraph_index",
+        "claim_number",
+        "highlight_text",
+        "old_text",
+        "new_text",
+        "occurrence",
+        "rule_id",
+        "severity",
+        "figure_id"
+      ],
+      "field_definitions": {
+        "section": {
+          "type": "string",
+          "enum": ["摘要", "权利要求书", "说明书", "说明书附图", "摘要附图", "全文"],
+          "description": "问题所在的文档章节名称"
+        },
+        "paragraph_index": {
+          "type": "integer_or_null",
+          "description": "highlight_text或old_text所在段落在该章节中的索引（从0开始），无法确定时填null"
+        },
+        "claim_number": {
+          "type": "integer_or_null",
+          "description": "权利要求序号（仅权利要求书相关问题填写），否则填null"
+        },
+        "context": {
+          "type": "string",
+          "max_length": 200,
+          "constraint": "VERBATIM_COPY_FROM_DOCUMENT",
+          "description": "锚定文本，必须是文档中实际存在的文本片段（逐字复制），摘要附图section例外：可填写简要描述。禁止构造或改写。长度不得超过200字符。禁止包含换行符。"
+        },
+        "highlight_text": {
+          "type": "string_or_null",
+          "max_length": 200,
+          "constraint": "SAME_AS_CONTEXT_OR_SUBSET",
+          "description": "高亮显示的文本，通常与context相同或是其子集。用于批注时高亮标记的部分。comment类型时强烈建议填写。"
+        },
+        "old_text": {
+          "type": "string_or_null",
+          "constraint": "MUST_BE_SUBSTRING_OF_CONTEXT",
+          "description": "需要替换/删除的文本，必须是context的子串。replace/delete类型时必填。禁止跨段落，禁止包含换行符。"
+        },
+        "new_text": {
+          "type": "string_or_null",
+          "constraint": "NO_NEWLINES",
+          "description": "替换后的文本。replace类型时必填。禁止包含换行符。"
+        },
+        "action_type": {
+          "type": "string",
+          "enum": ["comment", "replace", "delete"],
+          "default": "comment",
+          "description": "建议的操作类型：comment=添加批注, replace=替换文本, delete=删除文本"
+        },
+        "occurrence": {
+          "type": "integer_or_null",
+          "min_value": 1,
+          "description": "当old_text在context中出现超过1次时，指定修改第几次出现（从1开始）。未指定时默认修改第一次出现。高频词建议改用comment类型。"
+        },
+        "issue": {
+          "type": "string",
+          "max_length": 500,
+          "description": "问题描述，应清晰说明违反了哪条规则以及具体问题是什么。禁止包含ASCII控制字符和emoji。"
+        },
+        "suggestion": {
+          "type": "string",
+          "max_length": 1000,
+          "description": "修改建议，提供具体的、可操作的改进方案。修改方向必须与issue诊断一致。禁止包含ASCII控制字符和emoji。"
+        }
+      }
+    }
+  },
+
+  "context_anchoring_rules": {
+    "core_principle": "Context必须是文档extracted_text中的verbatim copy（逐字复制），摘要附图section例外：可填写简要描述",
+
+    "forbidden_patterns": [
+      {
+        "pattern": "描述性/解释性文字",
+        "examples": [
+          "摘要附图图5（源文件：image1.png）",
+          "说明书附图中声明7张图但实际仅有4张图片文件",
+          "权利要求书第1条出现非法组件CPU"
+        ],
+        "reason": "这类文本是Agent自行构造的总结性描述，不是文档原文"
+      },
+      {
+        "pattern": "包含技术参数的文本",
+        "examples": [
+          "image1.png (150 DPI)",
+          "分辨率不足：96 DPI < 300 DPI"
+        ],
+        "reason": "技术参数是分析结果，不应出现在context中"
+      },
+      {
+        "pattern": "超过200字符的长文本",
+        "reason": "超长context会导致批注匹配失败"
+      },
+      {
+        "pattern": "包含换行符(\\n)的文本",
+        "reason": "换行符会导致review_adder.py匹配失败"
+      },
+      {
+        "pattern": "概括性陈述",
+        "examples": [
+          "该处存在多个问题",
+          "如图所示不符合要求"
+        ],
+        "reason": "过于模糊，无法精确定位"
+      },
+      {
+        "pattern": "原文不存在的标点符号",
+        "examples": [
+          "context末尾自行添加的句号'。'",
+          "context中自行添加的逗号'，'"
+        ],
+        "reason": "即使只差一个标点符号，review_adder.py也无法匹配"
+      }
+    ],
+
+    "recommended_strategies_by_agent_group": {
+      "摘要审查（Agent 1-2）": {
+        "priority_1": "使用摘要中包含问题的具体文本片段",
+        "priority_2": "使用摘要开头或结尾的关键句",
+        "note": "摘要通常较短，context选取相对容易"
+      },
+
+      "权利要求书审查（Agent 3-8）": {
+        "priority_1": "使用包含违规用语的最小文本片段",
+        "priority_2": "使用权利要求序号+关键内容",
+        "note": "old_text应只包含需要修改的最小文本，禁止将整句作为old_text"
+      },
+
+      "说明书审查（Agent 9-10）": {
+        "priority_1": "使用包含问题的最小文本片段",
+        "priority_2": "使用章节标题或关键术语",
+        "note": "说明书较长，context应精确锚定到问题所在段落"
+      },
+
+      "全文审查（Agent 11-12）": {
+        "priority_1": "使用需要对比的两个章节中某一方的原文",
+        "priority_2": "使用术语或标记编号",
+        "note": "仅报告跨章节一致性问题，context应锚定到其中一个章节的原文"
+      },
+
+      "附图审查（Agent 13）": {
+        "priority_1": "使用图号文本（如'图1'、'图2'）",
+        "priority_2": "使用附图说明中的原句",
+        "priority_3": "使用章节标题",
+        "note": "摘要附图section可使用简要描述作为context；说明书附图需使用文档实际文本。禁止使用'摘要附图图1（源文件：image1.png）'等构造文本"
+      }
+    }
+  },
+
+  "quality_validation_checklist": {
+    "pre_submission_checks": [
+      {
+        "check_id": "QV-001",
+        "check_name": "JSON格式有效性",
+        "method": "使用json.loads()解析，确保无语法错误"
+      },
+      {
+        "check_id": "QV-002",
+        "check_name": "数组类型验证",
+        "method": "确认根元素是list类型"
+      },
+      {
+        "check_id": "QV-003",
+        "check_name": "必填字段完整性",
+        "method": "逐条检查5个必填字段 + 条件必填字段"
+      },
+      {
+        "check_id": "QV-004",
+        "check_name": "Context长度限制",
+        "method": "len(context) <= 200"
+      },
+      {
+        "check_id": "QV-005",
+        "check_name": "Context无换行符",
+        "method": "'\\n' not in context and '\\r' not in context"
+      },
+      {
+        "check_id": "QV-006",
+        "check_name": "old_text是context的子串",
+        "method": "old_text in context (replace/delete类型)"
+      },
+      {
+        "check_id": "QV-007",
+        "check_name": "new_text无换行符",
+        "method": "'\\n' not in new_text (replace类型)"
+      },
+      {
+        "check_id": "QV-008",
+        "check_name": "issue/suggestion无控制字符",
+        "method": "无ASCII控制字符(0x00-0x1F)和emoji"
+      },
+      {
+        "check_id": "QV-009",
+        "check_name": "Context来源验证（可选）",
+        "method": "检查context是否出现在extracted_text中"
+      }
+    ],
+
+    "auto_fix_capabilities": [
+      {
+        "issue": "CONTEXT_TOO_LONG",
+        "auto_fix": true,
+        "fix_method": "截断至197字符并追加'...'"
+      },
+      {
+        "issue": "CONTEXT_CONTAINS_NEWLINE",
+        "auto_fix": true,
+        "fix_method": "替换所有\\n为空格（注意：应拆分为多条审查意见）"
+      },
+      {
+        "issue": "CONTROL_CHARS_IN_ISSUE",
+        "auto_fix": true,
+        "fix_method": "移除ASCII控制字符"
+      }
+    ]
+  },
+
+  "example_valid_output": [
+    {
+      "section": "权利要求书",
+      "paragraph_index": 2,
+      "claim_number": 1,
+      "context": "所述排油口",
+      "highlight_text": "所述",
+      "old_text": "所述排油口",
+      "new_text": "排油口",
+      "action_type": "replace",
+      "issue": "'排油口'首次出现不应使用'所述'，缺少引用基础",
+      "suggestion": "将'所述排油口'改为'排油口'"
+    },
+    {
+      "section": "摘要附图",
+      "paragraph_index": null,
+      "claim_number": null,
+      "context": "摘要附图来源异常",
+      "highlight_text": null,
+      "old_text": null,
+      "new_text": null,
+      "action_type": "comment",
+      "issue": "摘要附图标记为'图5'，但说明书附图中不存在图5（仅有图1-图3），违反了摘要附图必须来自说明书附图的约束",
+      "suggestion": "将摘要附图修改为说明书附图中实际存在的图片之一"
+    },
+    {
+      "section": "说明书",
+      "paragraph_index": 15,
+      "claim_number": null,
+      "context": "本发明公开了一种山茶油双螺杆低温冷榨设备",
+      "highlight_text": "本发明",
+      "old_text": null,
+      "new_text": null,
+      "action_type": "comment",
+      "issue": "说明书中使用了'本发明'，建议改为'本发明的实施例'或'根据一个或多个实施例'",
+      "suggestion": "请使用Word查找替换功能，将说明书中的'本发明'统一替换为'本发明的实施例'"
+    }
+  ]
+}

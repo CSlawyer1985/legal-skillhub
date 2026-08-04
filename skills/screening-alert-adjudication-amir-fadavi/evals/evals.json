@@ -1,0 +1,40 @@
+{
+  "skill_name": "screening-alert-adjudication",
+  "evals": [
+    {
+      "id": 1,
+      "name": "hispanic_name_role_mismatch_FP2",
+      "prompt": "I have a screening hit I need to adjudicate. Our system flagged a customer 'Jose Andrea' as a potential match against 'José Andrea Coronado Mendoza' on the OFAC SDN List (individual). The system gave a match score of 71. The customer signed up as an individual — no DOB or other identifiers were collected. Can you tell me if this is a true positive, false positive, or needs escalation?",
+      "expected_outcome": "FP via FP-2 (name-role mismatch — anchor surname Coronado/Mendoza absent from screened name)",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "vessel_vs_individual_type_mismatch_FP1",
+      "prompt": "Adjudicate this alert: screened party is a vessel named 'M/V MARIA ELENA' (IMO 9123456). Our screening system matched it against 'Maria Elena Vasquez Rodriguez' on the OFAC SDN List, which is an individual entry from Colombia. Is this a true positive, false positive, or escalate?",
+      "expected_outcome": "FP via FP-1 (type mismatch — vessel vs individual)",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "full_triangulation_TP2",
+      "prompt": "Please adjudicate this screening hit. Screened individual: Igor Sechin, DOB 1960-09-07, place of birth Leningrad (now St. Petersburg), Russia. Matched against 'Igor Ivanovich Sechin' on the OFAC SDN List, listed as Russian national, born 1960-09-07 in Leningrad, USSR. List entry includes role as CEO of Rosneft. Multiple Rank A sources document this is the same person. Provide your determination.",
+      "expected_outcome": "TP via TP-2 (full triangulation — anchor name + DOB + city POB all match)",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "common_name_no_context_escalate",
+      "prompt": "Screening alert: our system flagged a new customer named 'Mohammed Ahmed' against 'Mohammed Ahmed' on the UN Consolidated Sanctions List (individual). The customer provided just the name on the application — no DOB, no ID, no nationality, no address. The UN entry has full biographic details (DOB 1965-04-12, Yemeni national, multiple addresses in Sana'a). What's your determination?",
+      "expected_outcome": "Escalate — name-only screened side, no identifiers to corroborate, no Tier 3 gating satisfied",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "DOB_hard_contradiction_FP3",
+      "prompt": "Adjudicate: screened individual 'Viktor Andreevich Yanukovych', DOB 1985-06-20, Ukrainian national. Matched against 'Viktor Fedorovych Yanukovych' on the EU consolidated sanctions list, DOB 1950-07-09, Ukrainian national. Same surname spelling, both Ukrainian. Determination?",
+      "expected_outcome": "FP via FP-3 (DOB differs by 35 years, no same-day-month carve-out applies, both full DOBs)",
+      "files": []
+    }
+  ]
+}

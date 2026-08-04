@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "id": "EC-KB-004",
+    "title": "Alternative Fuels Emissions Impact",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01"
+  },
+  "description": "Impact of alternative fuels on cement kiln emissions, trial burn requirements, and regulatory considerations for co-processing.",
+  "alternative_fuels_overview": {
+    "common_af_types": [
+      "Tire-derived fuel (TDF) - whole and shredded",
+      "Solvents and liquid hazardous waste fuels",
+      "Plastics and refuse-derived fuel (RDF)",
+      "Biomass (wood waste, agricultural waste)",
+      "Used oil",
+      "Sewage sludge / biosolids",
+      "Carpet and textile waste",
+      "Construction and demolition waste"
+    ],
+    "regulatory_framework": {
+      "non_hazardous_AF": "Generally subject to existing NESHAP Subpart LLL limits. May need permit modification for new AF.",
+      "hazardous_waste_AF": "Subject to 40 CFR 266 Subpart H (BIF rules) or 40 CFR 63 Subpart EEE (RCRA MACT). More stringent limits and monitoring.",
+      "key_distinction": "Whether the AF is classified as a solid waste or fuel under NHSM (Non-Hazardous Secondary Materials) rules (40 CFR 241)"
+    }
+  },
+  "emissions_by_fuel_type": {
+    "tire_derived_fuel": {
+      "pollutant_concerns": {
+        "zinc": "Tires contain 1-2% zinc by weight. Most zinc incorporates into clinker. Minimal air emissions but monitor clinker zinc content.",
+        "SO2": "Sulfur content in tires (1-2%) can increase SO2 if raw material absorption capacity is exceeded",
+        "PM": "Generally no increase if baghouse is properly operated",
+        "NOx": "May decrease slightly due to lower flame temperature with TDF",
+        "metals": "Wire in steel-belted tires adds iron; chromium, lead within typical raw material ranges"
+      },
+      "feed_considerations": {
+        "maximum_substitution": "Typically 20-30% heat substitution in kiln (whole tires via mid-kiln)",
+        "feed_location": "Mid-kiln (whole tires), kiln hood (shredded), or calciner (shredded)"
+      }
+    },
+    "solvents_liquid_waste": {
+      "pollutant_concerns": {
+        "THC": "Volatile organics in solvents can increase THC if not completely combusted",
+        "HCl": "Chlorinated solvents (methylene chloride, trichloroethylene) are major HCl sources",
+        "metals": "Some waste solvents contain heavy metals depending on source",
+        "CO": "Proper atomization and combustion air critical to avoid CO spikes",
+        "D_F": "Chlorine + organic carbon + combustion conditions can form dioxins/furans"
+      },
+      "feed_considerations": {
+        "Cl_limit": "Total chlorine input typically limited to 0.015-0.020% of clinker weight to avoid kiln buildup and HCl exceedances",
+        "feed_location": "Main burner (liquid lance) or calciner",
+        "storage_handling": "Flammable liquid storage regulations (NFPA 30) apply"
+      }
+    },
+    "plastics_RDF": {
+      "pollutant_concerns": {
+        "HCl": "PVC-containing plastics are significant chlorine source",
+        "CO": "Incomplete combustion of large plastic pieces if residence time is insufficient",
+        "metals": "Depending on plastic type, may contain cadmium, lead (pigments, stabilizers)",
+        "THC": "Volatile components may release before reaching combustion zone"
+      },
+      "feed_considerations": {
+        "size_reduction": "Must be shredded to <25-50mm for adequate burnout",
+        "PVC_screening": "Screen or limit PVC content to control chlorine input"
+      }
+    },
+    "biomass": {
+      "pollutant_concerns": {
+        "moisture": "High moisture biomass reduces flame temperature and may increase CO",
+        "NOx": "Biomass generally has lower NOx impact than fossil fuels",
+        "PM": "Increased ash content may affect PM if not properly controlled",
+        "biogenic_CO2": "Biomass CO2 considered carbon-neutral for greenhouse gas reporting"
+      },
+      "feed_considerations": {
+        "moisture_limit": "Typically <20% moisture for direct firing, higher moisture requires pre-drying",
+        "maximum_substitution": "Can achieve 30-50% heat substitution with proper preparation"
+      }
+    }
+  },
+  "trial_burn_requirements": {
+    "when_required": "When introducing a new alternative fuel that may affect emissions, especially hazardous waste fuels",
+    "process": [
+      "Submit trial burn plan to regulatory agency",
+      "Receive approval and any conditions",
+      "Conduct trial burn with comprehensive emissions testing",
+      "Submit trial burn report with test results",
+      "Apply for permanent permit modification if successful"
+    ],
+    "typical_test_parameters": [
+      "All NESHAP-regulated pollutants (PM, SO2, NOx, HCl, Hg, THC, D/F)",
+      "Metals (Sb, As, Ba, Be, Cd, Cr, Co, Cu, Pb, Mn, Ni, Se, Ag, Tl, V, Zn)",
+      "DRE (Destruction and Removal Efficiency) for hazardous waste - must achieve 99.99%",
+      "Operating parameters (feed rate, temperature, O2) to establish compliance ranges"
+    ],
+    "duration": "Typically 3-10 days of testing at various feed rates"
+  }
+}

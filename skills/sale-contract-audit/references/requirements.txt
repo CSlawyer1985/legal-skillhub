@@ -1,0 +1,5 @@
+# 销售合同审核Skill依赖
+# 安装命令: pip install -r requirements.txt
+
+python-docx>=0.8.11
+PyPDF2>=3.0.0

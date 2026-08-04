@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 · 评测和迭代 · 学习中心</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>06 · 评测和迭代</h1>
+  <p class="lead">法律人最容易接受的一个观点是：<strong>"写完"不等于"能用"——通过评测才算写完。</strong>这一讲把"我觉得这个 Skill 不错"变成"我知道这个 Skill 好多少"。</p>
+
+  <h2>一、一个反直觉的事实</h2>
+  <p>很多看起来写得很好的 Skill，在评测中相对于"什么都不装"的基础模型<em>没有任何提升</em>，甚至因为塞了太多规则而表现更差。所以请记住这个公式：</p>
+  <blockquote><strong>Skill 的价值 = 相对基础模型的可测量增量</strong>——不在于你写了多少规则，而在于它让输出变好了多少。</blockquote>
+
+  <h2>二、一个最小评测集的结构</h2>
+  <p>给自己的 Skill 建一个 <code>evals/</code> 目录，至少包含以下用例：</p>
+  <table>
+    <tr><th>用例类型</th><th>数量</th><th>作用</th><th>法律 Skill 示例</th></tr>
+    <tr><td>正常用例</td><td>3</td><td>典型场景能不能做好</td><td>一份标准买卖合同，要求审查</td></tr>
+    <tr><td>边界用例</td><td>2</td><td>极端情况会不会崩</td><td>只有 2 页的合同；中英文混排合同</td></tr>
+    <tr><td>不应触发</td><td>2</td><td>防止误调用</td><td>用户只是问"什么叫违约金"（理论咨询，不该启动审查流程）</td></tr>
+    <tr><td>对抗用例</td><td>1</td><td>压力测试</td><td>合同里埋一个虚构法条引用，看 Skill 会不会跟着编</td></tr>
+  </table>
+  <p>每个用例四要素：<strong>真实用户 Prompt + 必要的输入文件 + 预期输出 + 可验证的断言</strong>（Assertions）。断言要具体："输出必须包含风险等级分级""每个风险点必须定位到条款编号""不得出现'建议加强沟通'这类空话"。</p>
+  <pre>contract-review/
+├── SKILL.md
+└── evals/
+    ├── evals.json        ← 用例与断言
+    └── files/            ← 输入材料（虚构的测试合同）</pre>
+
+  <h2>三、怎么跑评测</h2>
+  <p>每个用例跑两遍：<strong>装 Skill</strong> 一遍，<strong>不装 Skill（基线）</strong> 一遍。比较四个指标：</p>
+  <ol>
+    <li><strong>断言通过率</strong>——装 Skill 的版本到底多过了几条断言？</li>
+    <li><strong>任务完成质量</strong>——结构、深度、口径是否符合输出契约？</li>
+    <li><strong>Token 消耗</strong>——提升值不值这个成本？</li>
+    <li><strong>执行时间</strong>——律师等不等得起？</li>
+  </ol>
+  <div class="note"><b>干净上下文纪律</b>：每次评测必须从全新会话启动。写 Skill 时残留的对话上下文会掩盖 Skill 本身的缺陷——你以为是 Skill 会了，其实是它"记得"。</div>
+
+  <h2>四、版本迭代：评测驱动修改</h2>
+  <p>评测暴露问题后，修改遵循"对症下药"：</p>
+  <table>
+    <tr><th>评测发现</th><th>病因</th><th>改法</th></tr>
+    <tr><td>该触发不触发</td><td>description 缺触发词</td><td>把用户原话写进 description</td></tr>
+    <tr><td>不该触发乱触发</td><td>没写不触发场景</td><td>补"不适用于……"</td></tr>
+    <tr><td>输出结构不稳</td><td>输出契约太粗</td><td>把"每个风险点必须含四要素"写死</td></tr>
+    <tr><td>分析太浅</td><td>自由度过高</td><td>把判断标准从形容词改成口径（"超过 X 视为过高"）</td></tr>
+    <tr><td>经常跑题/漏步骤</td><td>正文太长太散</td><td>拆附属文件，正文只留导航（渐进式披露）</td></tr>
+    <tr><td>偶尔编法条</td><td>缺验证动作</td><td>加"引用前必须检索原文"的强制步骤</td></tr>
+  </table>
+  <p>每改一版，重跑整个评测集——<strong>新旧两版盲测对比</strong>，提升才合并。这就是"一次版本改进记录"，是你的 Skill 走向成熟的证据链。</p>
+
+  <h2>五、法律 Skill 特有的评测点</h2>
+  <ul>
+    <li><strong>虚构检测</strong>：输出中的法条引用逐条抽查是否真实存在；</li>
+    <li><strong>时效检测</strong>：引用已修订法条的旧版本内容，看 Skill 是否发现；</li>
+    <li><strong>法域检测</strong>：给一个香港法域的问题，看它是否拒绝用大陆法回答；</li>
+    <li><strong>保密检测</strong>：检查示例和输出模板里有没有残留真实客户信息。</li>
+  </ul>
+
+  <h2>下一讲</h2>
+  <p>最后一讲：把视野拉高——从本站 2049 个真实样本里，能看出法律 Skill 的哪些规律？→ <a class="case-link" href="./07-corpus-insights.html">07 · 从 2049 个样本看法律 Skill</a></p>
+</article>
+<div id="footer"></div>
+<script src="../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
+</script>
+</body>
+</html>

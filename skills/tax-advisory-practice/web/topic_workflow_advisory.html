@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>税务师事务所合规规则包 · 合规工作流</title>
+<style>
+:root {
+    --ok:#16a34a; --bad:#dc2626; --warn:#d97706; --info:#2563eb;
+    --bg:#f6f8fb; --card:#fff; --bd:#e5e9f0; --txt:#1f2937; --sub:#6b7280; --brand:#2563eb;
+    --step-bg:#f0f4ff; --step-active:#2563eb;
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--txt); line-height:1.6; }
+.wrap { max-width:960px; margin:0 auto; padding:20px 16px 60px; }
+h1 { font-size:20px; margin:8px 0 4px; }
+.sub { color:var(--sub); font-size:13px; margin-bottom:14px; }
+.card { background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:16px 18px; margin-bottom:16px; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+.card h2 { font-size:16px; margin:0 0 10px; }
+.badge { font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:var(--brand); }
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px; }
+@media (max-width:680px){ .grid{grid-template-columns:1fr;} }
+label { display:block; font-size:12.5px; color:var(--sub); margin-bottom:3px; }
+label b { color:var(--txt); font-weight:600; }
+input,select { width:100%; padding:8px 10px; border:1px solid var(--bd); border-radius:8px; font-size:14px; background:#fff; }
+input:focus,select:focus { outline:none; border-color:var(--brand); }
+.hint { font-size:11px; color:var(--sub); margin-top:2px; }
+button { background:var(--brand); color:#fff; border:none; border-radius:9px; padding:11px 22px; font-size:15px; cursor:pointer; }
+button:hover { opacity:.92; }
+.btn.secondary { background:var(--bd); color:var(--txt); }
+.btn.primary { background:linear-gradient(135deg,#2563eb,#7c3aed); }
+.btn-row { display:flex; gap:10px; justify-content:space-between; margin-top:14px; flex-wrap:wrap; }
+.progress { display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+.step { flex:1; min-width:80px; text-align:center; font-size:11px; padding:8px 4px; border-radius:8px; background:var(--step-bg); color:var(--sub); cursor:pointer; }
+.step.active { background:var(--step-active); color:#fff; font-weight:600; }
+.step.done { background:#dcfce7; color:var(--ok); }
+.step-panel { display:none; }
+.step-panel.active { display:block; }
+.ind-input { margin-bottom:12px; }
+.ind-section { margin-bottom:14px; }
+.op-tag { color:var(--brand); font-size:11px; font-weight:600; }
+.checkbox-wrap { display:flex; align-items:center; gap:8px; cursor:pointer; font-size:14px; }
+.checkbox-wrap input { width:18px; height:18px; }
+.check-label { color:var(--txt); }
+.rk-item { display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:#fff5f5; margin-bottom:6px; font-size:13px; }
+.rk-name { font-weight:600; flex:1; }
+.rk-extra { margin:-4px 0 10px 0; padding-left:2px; }
+.risk-trigger { font-size:12px; color:var(--sub); }
+.risk-sugg { font-size:12px; color:#b45309; background:#fffbeb; border-radius:6px; padding:6px 8px; margin-top:4px; }
+.pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:11px; font-weight:600; flex-shrink:0; }
+.pill.ok { background:#dcfce7; color:var(--ok); }
+.pill.bad { background:#fee2e2; color:var(--bad); }
+.pill.warn { background:#fef3c7; color:var(--warn); }
+.summary-box { padding:14px; border-radius:10px; margin-top:10px; }
+.summary-box.pass { background:#f0fdf4; border:1px solid #bbf7d0; }
+.summary-box.fail { background:#fef2f2; border:1px solid #fecaca; }
+.summary-box.warn { background:#fffbeb; border:1px solid #fde68a; }
+.summary-title { font-size:16px; font-weight:700; margin-bottom:6px; }
+.summary-detail { font-size:13px; color:var(--sub); }
+.ind-result { padding:10px 12px; border:1px solid var(--bd); border-radius:10px; margin-bottom:8px; }
+.ind-result .ind-key { font-weight:600; }
+.ind-result .ind-meta { font-size:12px; color:var(--sub); }
+.biz-item { display:flex; align-items:center; gap:8px; padding:10px 12px; border-radius:8px; background:#f8fafc; margin-bottom:6px; font-size:13px; cursor:pointer; border:1px solid transparent; }
+.biz-item:hover { border-color:var(--brand); background:#f0f4ff; }
+.biz-key { background:var(--brand); color:#fff; font-size:10px; padding:2px 6px; border-radius:4px; flex-shrink:0; }
+.biz-name { font-weight:600; flex:1; }
+.biz-toggle { color:var(--sub); font-weight:700; }
+.biz-detail { flex-basis:100%; margin-top:8px; padding-top:8px; border-top:1px dashed var(--bd); }
+.biz-rules { font-size:12px; color:var(--sub); margin-bottom:8px; }
+.biz-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.biz-actions .btn { padding:7px 14px; font-size:13px; }
+.qa-card { background:var(--card); border:1px solid var(--bd); border-radius:12px; padding:16px 18px; margin-bottom:16px; }
+.tab-nav { display:flex; gap:0; margin-bottom:12px; border-bottom:2px solid var(--bd); flex-wrap:wrap; }
+.tab-item { flex:1; min-width:90px; text-align:center; padding:9px 6px; font-size:13px; color:var(--sub); cursor:pointer; border-bottom:2px solid transparent; }
+.tab-item.active { color:var(--brand); font-weight:700; border-bottom-color:var(--brand); }
+.prompt-row { display:flex; align-items:center; gap:10px; padding:9px 12px; margin-bottom:6px; border-radius:8px; background:#fff; border:1px solid var(--bd); cursor:pointer; }
+.prompt-row:hover { background:#f0f4ff; border-color:var(--brand); }
+.prompt-text { font-size:13px; flex:1; line-height:1.55; }
+.copy-btn { flex-shrink:0; padding:5px 14px; font-size:12px; border:1px solid var(--bd); border-radius:6px; background:#f8fafc; color:var(--sub); cursor:pointer; }
+.copy-btn:hover { border-color:var(--brand); color:var(--brand); background:#eef2ff; }
+.qa-example { border:1px solid var(--bd); border-radius:10px; margin-bottom:10px; overflow:hidden; }
+.qa-q { background:#f8fafc; padding:10px 12px; font-weight:600; font-size:13.5px; }
+.qa-a { padding:10px 12px; font-size:13px; }
+.foot { font-size:11px; color:var(--sub); margin-top:10px; }
+.toast { position:fixed; top:20px; right:20px; background:#1e293b; color:#fff; padding:12px 20px; border-radius:10px; font-size:13px; z-index:9999; transform:translateX(120%); transition:transform .25s; }
+.toast.show { transform:translateX(0); }
+.consent-mask { position:fixed; inset:0; background:rgba(15,23,42,.55); display:none; align-items:center; justify-content:center; z-index:999; padding:16px; }
+.consent-box { background:#fff; border-radius:14px; max-width:540px; width:100%; padding:22px 24px; box-shadow:0 20px 60px rgba(0,0,0,.25); }
+.consent-box h3 { margin:0 0 10px; font-size:17px; color:var(--txt); }
+.consent-box p { font-size:13px; color:var(--sub); line-height:1.6; margin:0 0 10px; }
+.consent-box ul { margin:0 0 14px; padding-left:18px; font-size:12.5px; color:var(--sub); line-height:1.75; }
+.consent-box .consent-btns { display:flex; flex-wrap:wrap; gap:10px; }
+.consent-box .consent-btns .btn { flex:1; min-width:150px; }
+.consent-check { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--sub); margin:0 0 14px; cursor:pointer; }
+.consent-check input { width:16px; height:16px; cursor:pointer; }
+.tier-hint { font-size:11px; color:var(--brand); margin-top:3px; }
+.kb-banner { background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 100%); border:1px solid #c7d2fe; border-radius:10px; padding:10px 16px; margin:12px 0 20px; font-size:12px; line-height:1.6; }
+.kb-banner .kb-title { font-weight:700; color:var(--brand); }
+.kb-banner .kb-link { color:var(--brand); text-decoration:underline; cursor:pointer; font-weight:600; }
+.kb-banner .kb-link:hover { color:#1d4ed8; }
+.kb-banner .kb-cta { color:#6b7280; margin-top:2px; }
+.kb-banner .kb-cta b { color:var(--brand); font-weight:700; }
+.deep-card { border:1px solid #c7d2fe; background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 100%); }
+.deep-card h2 { color:var(--brand); }
+.deep-note { font-size:12.5px; color:#374151; line-height:1.7; margin-bottom:10px; }
+.deep-note b { color:var(--brand); }
+.deep-prompt { width:100%; min-height:200px; padding:12px 14px; border:1px solid var(--bd); border-radius:10px; font-size:13px; line-height:1.65; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--txt); background:#fff; resize:vertical; }
+.deep-prompt:focus { outline:none; border-color:var(--brand); }
+.deep-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+.deep-actions .btn { padding:10px 18px; font-size:14px; }
+.deep-hint { font-size:11.5px; color:var(--sub); margin-top:8px; }
+.loop-title-bar { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.loop-title-bar .lt-badge { font-size:10.5px; padding:3px 10px; border-radius:999px; background:var(--brand); color:#fff; font-weight:700; letter-spacing:.5px; }
+.loop-title-bar .lt-title { font-size:14.5px; font-weight:700; color:var(--txt); }
+.loop-pipeline { display:flex; align-items:stretch; gap:0; flex-wrap:wrap; }
+.loop-step { flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center; padding:8px 4px; position:relative; }
+.loop-step:not(:last-child)::after { content:""; position:absolute; top:18px; right:-6px; width:10px; height:2px; background:var(--brand); opacity:.35; z-index:0; }
+.loop-step .ls-icon { width:32px; height:32px; border-radius:50%; background:#fff; border:2px solid var(--brand); display:flex; align-items:center; justify-content:center; font-size:14px; margin-bottom:5px; z-index:1; box-shadow:0 2px 6px rgba(37,99,235,.15); }
+.loop-step .ls-num { font-size:9px; color:var(--brand); font-weight:700; margin-bottom:1px; }
+.loop-step .ls-name { font-size:11px; font-weight:700; color:var(--txt); line-height:1.3; }
+.loop-step .ls-desc { font-size:9.5px; color:var(--sub); line-height:1.3; margin-top:2px; max-width:90px; }
+@media (max-width:680px){
+    .loop-pipeline { flex-direction:column; gap:6px; }
+    .loop-step:not(:last-child)::after { content:""; position:absolute; right:16px; top:-4px; width:2px; height:10px; background:var(--brand); opacity:.35; }
+    .loop-step { flex-direction:row; gap:8px; text-align:left; align-items:center; padding:6px 8px; background:#fff; border-radius:8px; border:1px solid #e2e8f0; }
+    .loop-step .ls-icon { margin-bottom:0; }
+}
+/* 特色工具 widget */
+.widget-wrap { display:flex; flex-direction:column; gap:14px; }
+.widget-card { border:1px solid var(--bd); border-radius:12px; padding:14px 16px; background:#fff; }
+.wc-head { display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; }
+.wc-icon { font-size:22px; }
+.wc-title { font-weight:700; font-size:15px; }
+.wc-intro { font-size:12px; color:var(--sub); margin-top:2px; }
+.wc-fields { display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px; margin-bottom:12px; }
+@media (max-width:680px){ .wc-fields{grid-template-columns:1fr;} }
+.wc-field label { font-size:12px; color:var(--sub); display:block; margin-bottom:3px; }
+.wc-field .unit { color:var(--brand); font-size:11px; }
+.wc-result { margin-top:12px; padding:12px; border-radius:10px; background:#f0fdf4; border:1px solid #bbf7d0; }
+.wc-result.warn { background:#fffbeb; border-color:#fde68a; }
+.wc-result .wc-out { display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px dashed var(--bd); font-size:13.5px; }
+.wc-result .wc-out:last-child { border-bottom:none; }
+.wc-result .wc-out b { color:var(--brand); }
+.wc-result .wc-concl { margin-top:8px; font-weight:700; font-size:14px; }
+.wc-table { overflow-x:auto; }
+.wc-table table { width:100%; border-collapse:collapse; font-size:12.5px; }
+.wc-table th, .wc-table td { border:1px solid var(--bd); padding:7px 9px; text-align:left; vertical-align:top; }
+.wc-table th { background:#f1f5f9; font-weight:700; }
+.wc-table td.dim { background:#f8fafc; font-weight:600; color:var(--txt); white-space:nowrap; }
+.wc-table.highlight th { background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; }
+.wc-textarea { width:100%; min-height:120px; margin:10px 0; padding:10px; border:1px solid var(--bd); border-radius:8px; font-size:13px; font-family:Consolas,Menlo,monospace; resize:vertical; box-sizing:border-box; }
+.wc-hint-block { margin:6px 0 2px; font-size:12px; color:var(--sub); }
+.wc-fmt { background:#f8fafc; border:1px dashed var(--bd); border-radius:8px; padding:7px 10px; margin-bottom:6px; }
+.wc-warn { margin-top:10px; padding:8px 10px; border-radius:8px; background:#fffbeb; border:1px solid #fde68a; color:#92400e; font-size:12.5px; }
+.wc-project .wc-fields { grid-template-columns:repeat(2,1fr); }
+.wc-project details { margin-top:10px; font-size:12.5px; color:var(--sub); }
+.wc-project summary { cursor:pointer; color:var(--brand); }
+.wc-project ul { margin:6px 0 0; padding-left:18px; }
+.wc-project textarea.wc-textarea { background:#fff; }
+.wc-diff { margin-top:8px; font-size:12px; color:var(--sub); background:#f8fafc; border-radius:8px; padding:8px 10px; }
+.wc-checklist { display:flex; flex-direction:column; gap:8px; }
+.wc-check { display:flex; align-items:flex-start; gap:8px; padding:9px 11px; border:1px solid var(--bd); border-radius:9px; cursor:pointer; font-size:13px; }
+.wc-check:hover { background:#f0f4ff; border-color:var(--brand); }
+.wc-check input { width:18px; height:18px; margin-top:2px; }
+.wc-ck-label { font-weight:600; flex:1; }
+.wc-hint { display:block; font-size:11px; color:var(--sub); font-weight:400; margin-top:2px; }
+.wc-ledger table { width:100%; border-collapse:collapse; font-size:12px; margin-bottom:10px; }
+.wc-ledger th, .wc-ledger td { border:1px solid var(--bd); padding:6px 8px; }
+.wc-ledger th { background:#f1f5f9; font-weight:700; }
+.wc-ledger td[contenteditable="true"] { background:#fffef0; min-width:70px; }
+.wc-list { margin:0; padding-left:18px; font-size:13px; }
+.wc-list li { margin-bottom:6px; }
+.wc-text { font-size:13px; color:var(--txt); }
+/* 全流程链路 process */
+.wc-process { display:flex; flex-direction:column; gap:16px; }
+.pc-group { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fcfdff; }
+.pc-group-h { font-weight:700; color:var(--brand); margin-bottom:8px; font-size:14px; }
+.pc-stage { border-left:3px solid #cbd5e1; padding:6px 0 6px 12px; margin-bottom:8px; }
+.pc-stage-h { font-weight:600; margin-bottom:4px; }
+.pc-acts { margin:0 0 4px 0; padding-left:16px; font-size:12.5px; }
+.pc-delivs { font-size:12px; color:var(--sub); }
+.pc-deliv { display:inline-block; background:#eef2ff; border-radius:6px; padding:2px 7px; margin:2px 4px 0 0; }
+/* 案例 cases */
+.wc-cases { display:flex; flex-direction:column; gap:10px; }
+.case-card { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fff; }
+.case-h { font-weight:700; margin-bottom:6px; }
+.case-tag { font-size:11px; background:#e0f2fe; color:#0369a1; border-radius:6px; padding:2px 7px; margin-left:6px; }
+.case-f { font-size:12.5px; margin-bottom:4px; line-height:1.5; }
+/* 协同 cross / 监管 reg2026 */
+.wc-cross, .wc-reg { display:flex; flex-direction:column; gap:12px; }
+.cross-sec { border:1px solid var(--bd); border-radius:10px; padding:10px 12px; background:#fcfdff; }
+.cross-h { font-weight:700; color:var(--brand); margin-bottom:6px; font-size:13.5px; }
+.cross-ex { border:1px dashed #93c5fd; border-radius:10px; padding:10px 12px; background:#f0f9ff; }
+.cross-ex-h { font-weight:700; color:#0369a1; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <div class="kb-banner">
+        <div class="kb-title">根据 tax-policy-knowledge 财税知识库与技能矩阵生成</div>
+        <span class="kb-link" onclick="copyKbLink()">🔗 点击查看并复制链接</span>
+        <div class="kb-cta">觉得好用请点 ★ 收藏 | 有需求建议可加企鹅号 <b>1817694478</b> 或在评论区留言 | 有你的关注与支持是我们功能升级持续更新的最大动力！</div>
+    </div>
+
+    <h1>📋 税务师事务所合规规则包</h1>
+    <div class="sub">税务师事务所（涉税专业服务/三级复核/执业质量/执业风险/业务承接）合规规则 <span class="badge">v1.0.0</span></div>
+
+    <div class="progress" id="progressBar">
+        <div class="step active" data-step="0">① 基础信息</div><div class="step" data-step="1">② 合规指标自检</div><div class="step" data-step="2">③ 涉税风险扫描</div><div class="step" data-step="3">④ 专题特色工具</div><div class="step" data-step="4">⑤ 政策问答</div>
+    </div>
+
+    <div class="step-panel active" id="step0">
+<div class="card"><h2>① 基础信息</h2><div class="sub">填写企业基本数据（本地保存，不上传，仅用于本次自检）</div><div class="grid"><div><label>企业名称</label><input id="q_company" placeholder="如 北京XX有限公司"/></div><div><label>统一社会信用代码</label><input id="q_credit_code" placeholder="如 91110108MA0XXXXXXX"/></div><div><label>注册地址</label><input id="q_address" placeholder="如 北京市XX区"/></div><div><label>成立时间</label><input id="q_reg_date" type="date"/></div></div><div class="btn-row"><button class="btn primary" onclick="loadSampleData()">📂 加载示例数据（自动体验全流程）</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div></div>
+</div>
+
+<div class="step-panel" id="step1">
+<div class="card"><h2>② 合规指标自检</h2><div class="sub">填写企业实际情况，系统将自动对照判定标准给出是否达标</div><div class="ind-section"><div class="ind-input" data-key="has_practice_license"><label><b>涉税专业服务所资质有效</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_has_practice_license"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务监管办法（58号令）</div></div><div class="ind-input" data-key="three_level_review"><label><b>执行三级复核制度</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_three_level_review"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务规范</div></div><div class="ind-input" data-key="engagement_letter"><label><b>业务委托协议签署</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_engagement_letter"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务规范</div></div><div class="ind-input" data-key="staff_qualification"><label><b>税务师执业资格</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_staff_qualification"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：税务师制度</div></div><div class="ind-input" data-key="workpaper_completeness"><label><b>工作底稿完整</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_workpaper_completeness"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务规范</div></div><div class="ind-input" data-key="confidentiality"><label><b>客户信息保密</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_confidentiality"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务规范</div></div><div class="ind-input" data-key="independence"><label><b>独立性声明</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_independence"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务规范</div></div><div class="ind-input" data-key="report_signing"><label><b>报告双签</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_report_signing"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：涉税专业服务规范</div></div><div class="ind-input" data-key="liability_insurance"><label><b>执业责任保险</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_liability_insurance"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：税务师事务所管理</div></div><div class="ind-input" data-key="continuing_edu"><label><b>继续教育完成</b></label><label class="checkbox-wrap"><input type="checkbox" id="i_continuing_edu"/><span class="check-label">已落实 / 满足条件</span></label><div class="hint">政策依据：税务师制度</div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn" onclick="runIndicatorCheck()">🔍 立即自检</button></div></div><div id="indicatorResult" style="display:none"></div>
+</div>
+
+<div class="step-panel" id="step2">
+<div class="card"><h2>③ 涉税风险扫描</h2><div class="sub">基于指标检验结果，自动识别高风险项并给出整改建议</div><div id="riskReportResult"><p style="color:var(--sub)">请先完成指标自检后查看风险报告（也可直接点击下方「常见风险清单」预览）</p></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div>
+</div>
+
+<div class="step-panel" id="step3">
+<div class="card"><h2>④ 专题特色工具</h2><div class="sub">本专题独有可交互工具：测算 / 比对 / 判定 / 模板生成，结果可直接纳入合规报告</div><div class="widget-wrap"><div class="widget-card" data-kind="checklist" data-mod="review"><div class="wc-head"><span class="wc-icon">✅</span><div><div class="wc-title">三级复核制度自检</div><div class="wc-intro">涉税专业服务须执行三级复核，逐项确认后方可签发报告</div></div></div><div class="wc-checklist"><label class="wc-check"><input type="checkbox" data-ck="0"/><span class="wc-ck-label">项目承接</span></label><label class="wc-check"><input type="checkbox" data-ck="1"/><span class="wc-ck-label">底稿审核</span></label><label class="wc-check"><input type="checkbox" data-ck="2"/><span class="wc-ck-label">报告签发</span></label></div><button class="btn" onclick="runChecklist('review')">🔍 判定</button><div class="wc-result" id="wc_review" style="display:none" data-ok="✅ 已完成三级复核，报告可签发" data-no="⚠️ 尚有复核环节未完成，不得签发报告"></div></div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn secondary" onclick="nextStep()">下一步 →</button></div>
+</div>
+
+<div class="step-panel" id="step4">
+<div class="qa-card"><h2>⑤ 政策问答（结果示例 + 常用提示词）</h2><div class="sub">常用咨询提示词推荐 · 一键复制返回 Agent 对话框粘贴问答</div><div class="tab-nav" id="qaTabNav"><div class="tab-item active" data-tab="examples">📌 结果示例</div><div class="tab-item active" data-tab="cat0">📋 资质合规</div><div class="tab-item" data-tab="cat1">📝 服务规范</div><div class="tab-item" data-tab="cat2">🔍 风险稽查</div><div class="tab-item" data-tab="cat3">🛠️ 实操落地</div></div><div id="qaTabContent"><div class="tab-content" data-tab="examples" style="display:block"><div class="qa-example"><div class="qa-q">❓ 税务师事务所没有做三级复核就直接出报告，会有什么后果？</div><div class="qa-a"><ol><li>三级复核是涉税专业服务的强制要求，所有涉税报告须经过项目经理初审、部门经理复审、机构负责人终审，缺一级都属于执业质量不达标。</li><li>未执行复核会被税务机关在信用积分（TSC）中扣分，并可能被责令限期改正、记入诚信档案；情节严重可依据《涉税专业服务监管办法》（58号令）予以约谈或公告。</li><li>若因未复核导致报告出现重大差错或虚假，事务所和相关税务师还要承担民事赔偿乃至行政、刑事责任。</li><li>建议立刻补建复核台账，把每一级的审核人、日期、意见留痕，作为执业质量证据保存。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 我所在的事务所和委托方有亲戚关系，还能不能接这个涉税鉴证业务？</div><div class="qa-a"><ol><li>不能隐瞒。与委托方存在利益关联属于独立性受损风险，必须事前书面披露利害关系并评估是否承接。</li><li>如果利害关系可能影响客观公正，应当拒绝承接或将该项目分配给无利害关系的团队，并签署独立性声明留档。</li><li>依据《涉税专业服务规范》和职业道德要求，未披露利害关系被查实可能被认定为独立性受损，影响信用积分并面临监管处理。</li><li>实操上，承接前让项目组全员填写独立性调查问卷，由机构负责人统一审核签字，从源头杜绝。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 业务约定书是不是随便写写就行，不签会有问题吗？</div><div class="qa-a"><ol><li>不签约定书就承接业务本身就不合规。依据《民法典》委托合同相关规定和涉税专业服务规范，承接涉税业务须签署书面委托协议。</li><li>约定书要明确服务范围、双方权责、收费、保密条款、报告使用限制和争议解决方式，避免事后扯皮。</li><li>范围写不清容易出现越权执业——比如约定只做代理申报，却顺手出了鉴证结论，就超出了委托边界。</li><li>建议用标准模板，签约前由法务或机构负责人过一遍关键条款，再根据项目微调。</li></ol></div></div><div class="qa-example"><div class="qa-q">❓ 工作底稿到底要记到什么程度，保存多久才够？</div><div class="qa-a"><ol><li>底稿要能完整还原执业过程，包括资料接收、分析计算、复核意见和结论依据，做到外人看了也能判断你是怎么得出报告的。</li><li>底稿不完整会导致无法证明执业质量，一旦被稽查或产生纠纷，事务所拿不出证据就要承担不利后果。</li><li>涉税专业服务底稿应按规定归档保存，一般不少于十年，电子底稿要备份且防篡改。</li><li>建议按项目建目录，把委托协议、取证单、计算表、三级复核记录统一编号装订，结案即归档。</li></ol></div></div></div><div class="tab-content" data-tab="cat0" style="display:block"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">我们事务所做土地增值税清算鉴证，需要哪些执业资质才不算越权？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">税务师事务所的行政登记（58号令）和税务师执业资格年检，具体要怎么办理？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">分所和总所共用一套执业资质可以吗，报告上盖哪个章才合规？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">新招的税务师还没完成当年继续教育学时，能不能先在报告上签字？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">事务所执业责任保险快到期了，续保不及时会有什么合规风险？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat1" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">承接一个税务合规计划项目，业务约定书里必须写清楚哪些内容？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">三级复核到底审什么，项目经理、部门经理、机构负责人各自看什么？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">税务鉴证报告为什么必须税务师和机构负责人双签，少一个签行不行？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">给客户做完代理记账，工作底稿最少要保存几年，丢了会怎样？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">服务过程中发现客户有历史偷税嫌疑，我作为中介机构该不该主动披露？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat2" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">什么情况会被认定为出具虚假涉税报告，后果有多严重？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">税务师和委托方公司股东是亲戚，这种利害关系不披露算不算独立性受损？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">客户资料在内部传递时怎么管，才不算泄露商业秘密和涉税信息？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">代理申报时按客户要求多列成本，事务所要承担什么连带责任？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">税务机关对涉税专业服务机构的信用积分（TSC）是怎么扣分和修复的？</div><div class="copy-btn">复制</div></div></div><div class="tab-content" data-tab="cat3" style="display:none"><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">帮我生成一份标准版税务鉴证业务约定书模板，可以直接给客户用。</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">把三级复核做成可勾选的清单，每一级列哪些必查项？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">针对底稿不完整这个风险，给我一套工作底稿归档检查表。</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">事务所怎么做一年一次的合规自查，从哪些指标开始查？</div><div class="copy-btn">复制</div></div><div class="prompt-row" onclick="copyPrompt(this)"><div class="prompt-text">给我一个执业责任保险投保和续保的提醒清单，别再漏保。</div><div class="copy-btn">复制</div></div></div></div></div><div class="btn-row"><button class="btn secondary" onclick="prevStep()">← 上一步</button><button class="btn" onclick="generateReport()">📋 生成合规自查报告</button></div>
+</div>
+
+
+
+    <div class="card" style="margin-top:10px">
+        <h2>⚠️ 常见风险清单（预设预览）</h2>
+        <div class="sub">以下为本专题典型风险项及整改建议，完整风险评估需完成指标自检后生成</div>
+        <div id="staticRisks">
+            <div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">越权执业</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：超资质范围承接业务</div><div class="risk-sugg">💡 整改建议：承接业务前先核对机构行政登记范围和税务师执业资格，超出资质或资格不符的项目一律不接，必要时转介绍有资质的机构。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">底稿不完整</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：底稿缺失导致无法证明执业质量</div><div class="risk-sugg">💡 整改建议：按项目建立底稿清单并随进度归档，把取证单、计算表、复核记录统一编号装订，结案即归档，避免事后补不了。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">出具虚假报告</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：与委托方串通出具虚假税务报告</div><div class="risk-sugg">💡 整改建议：坚守客观独立，拒绝按客户不合理要求篡改数据；建立报告多级复核与异常数据复核机制，从源头堵住虚假报告。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">独立性受损</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：与委托方存在利益关联未披露</div><div class="risk-sugg">💡 整改建议：承接前让项目组全员填写独立性调查问卷，发现与委托方有利害关系须书面披露并回避，由机构负责人统一审核留档。</div></div><div class="rk-item"><span class="pill warn" data-level="高">高</span><span class="rk-name">客户信息泄露</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：泄露客户涉税信息</div><div class="risk-sugg">💡 整改建议：客户资料按最小必要原则访问，内部传递加密、外发脱敏，签订保密协议并对员工做保密培训，离职即回收权限。</div></div><div class="rk-item"><span class="pill warn" data-level="中">中</span><span class="rk-name">未投保责任险</span></div><div class="rk-extra"><div class="risk-trigger">⚠️ 触发：执业责任保险到期未续</div><div class="risk-sugg">💡 整改建议：在日历中设置执业责任保险到期前30天提醒，提前比对保额与业务规模，到期前完成续保并把保单扫描存档备查。</div></div>
+        </div>
+    </div>
+
+    <div class="card loop-card">
+  <h2>🔄 专题闭环示例</h2>
+  <div class="loop-title-bar">
+    <span class="lt-badge">CLOSED-LOOP</span>
+    <span class="lt-title">专题闭环示例 · 涉税鉴证报告合规闭环</span>
+  </div>
+  <div class="loop-pipeline"><div class="loop-step"><div class="ls-icon">💬</div><div class="ls-num">①</div><div class="ls-name">问答</div><div class="ls-desc">客户问：我们公司要做企业所得税汇算清缴鉴证，你们事务所接这个业务需要满足什么条件？系统即时提示需具备有效资质、签约约定书并安排有执业资格的税务师。</div></div><div class="loop-step"><div class="ls-icon">📊</div><div class="ls-num">②</div><div class="ls-name">结果</div><div class="ls-desc">页面给出承接前自检结果：资质有效、约定书模板已生成、签字税务师资格核验通过，仅&#x27;工作底稿完整性&#x27;待补，提示先建底稿清单再开工。</div></div><div class="loop-step"><div class="ls-icon">🔍</div><div class="ls-num">③</div><div class="ls-name">溯源</div><div class="ls-desc">每项结论后附政策来源，如《涉税专业服务监管办法》（58号令）、《民法典》委托合同、《涉税专业服务规范》三级复核条款，点击可展开原文要点。</div></div><div class="loop-step"><div class="ls-icon">📁</div><div class="ls-num">④</div><div class="ls-name">案例</div><div class="ls-desc">展示同业警示案例：某所未执行三级复核即签发鉴证报告，被税务机关扣减信用积分并公告，强调复核留痕的重要性。</div></div><div class="loop-step"><div class="ls-icon">🤝</div><div class="ls-num">⑤</div><div class="ls-name">辅导</div><div class="ls-desc">根据薄弱项推送辅导：底稿归档检查表、独立性声明模板、执业责任险续保提醒清单，引导逐项补齐。</div></div><div class="loop-step"><div class="ls-icon">⭐</div><div class="ls-num">⑥</div><div class="ls-name">评价</div><div class="ls-desc">客户对本次服务打分并勾选&#x27;是否已双签、是否保密到位&#x27;，评价回流为事务所合规健康度指标。</div></div><div class="loop-step"><div class="ls-icon">📄</div><div class="ls-num">⑦</div><div class="ls-name">报告</div><div class="ls-desc">最终生成《涉税鉴证合规工作流报告》，汇总资质、复核、保密、保险等状态与整改建议，可作为内部质控和外部报备留存。</div></div></div>
+<div class="foot">上述七步全部在本页工作流中承载：问答触发自检、结果即时呈现、溯源可查政策、案例警示、辅导推送、评价回流、报告归档，形成从承接到达成的合规闭环。</div></div>
+
+
+    <div class="card"><h2>🔗 业务类型工作流入口</h2><div class="sub">点击展开各业务类型，跳转专属自检或复制专属提示词</div><div class="biz-grid"><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">selfcheck</span><span class="biz-name">事务所合规自检</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：indicators</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">quality_review</span><span class="biz-name">三级复核</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：review</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div><div class="biz-item" onclick="toggleBiz(this)"><span class="biz-key">risk_scan</span><span class="biz-name">执业风险扫描</span><span class="biz-toggle">▾</span><div class="biz-detail" style="display:none"><div class="biz-rules">关联规则：risks</div><div class="biz-actions"><button class="btn secondary" onclick="event.stopPropagation();goToStep(2)">跳转到指标自检</button><button class="btn" onclick="event.stopPropagation();copyBizPrompt(this)">复制专属提示词</button></div></div></div></div></div>
+
+    <div class="card deep-card"><h2>💬 复制提示词 · 获取 AI 深度分析与报告</h2><div class="deep-note">本页自检为<b>轻量体验版</b>，结果仅供初步筛查。复制下方提示词粘贴到 Agent 对话框，即可由 AI 结合最新政策，为您生成<b>更有针对性、更详细</b>的合规分析报告、分优先级整改方案与落地模板。<br>👉 在 Agent 对话框说出「打开本专题自检页」，也会自动弹出本页可点击链接。</div><textarea id="deepPrompt" class="deep-prompt" readonly></textarea><div class="deep-actions"><button class="btn" onclick="copyDeepPrompt()">📋 复制提示词去 AI 深度分析</button><button class="btn secondary" onclick="refreshDeepPrompt()">🔄 按当前结果刷新</button></div><div class="deep-hint">提示：先填写指标并运行自检，再点「按当前结果刷新」，提示词会自动带入你的真实不达标项与风险项，分析更精准。</div></div>
+
+    <div class="foot">本工作流默认在本地完成计算；如您勾选"同意"，本次填写的税务指标数值（不含任何企业身份信息）将加密发送至云端用于规则判定，服务端不留存。内容依据公开税收政策与判定标准，仅供参考；具体操作请以最新法规及主管税务机关要求为准。</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="consent-mask" id="consentMask">
+  <div class="consent-box">
+    <h3>数据发送知情同意</h3>
+    <p>在开始税务自检前，请确认以下数据发送说明：</p>
+    <ul>
+      <li><b>将发送的数据</b>：仅本次填写的税务指标数值（如研发费用占比、人员比例等），<b>不含</b>企业名称、统一社会信用代码、注册地址、成立时间等身份信息。</li>
+      <li><b>用途</b>：经 HTTPS 加密连接发送至云端无状态自评服务，用于规则判定并即时返回结果。</li>
+      <li><b>不留存</b>：该服务不留存您提交的数据，亦不与任何身份关联。</li>
+      <li><b>匿名访问</b>：本次访问不关联任何账号或身份；为调用云端服务自动签发的临时密钥仅存于本次浏览器会话（关闭标签页即失效），不跨会话留存，也不写入本地持久存储。</li>
+    </ul>
+    <label class="consent-check"><input type="checkbox" id="consentChk"/> 我已阅读并同意上述数据发送说明</label>
+    <div class="consent-btns">
+      <button class="btn secondary" onclick="closeConsent()">取消</button>
+      <button class="btn primary" onclick="agreeConsent()">同意并自检</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = "https://mcp.aitaxs.top/api/v1";
+// ===== 统一注册 + API Key 安全鉴权（与 Python 客户端一致） =====
+// 安全约束（防止匿名调用泄露信息）：
+//  1) 匿名访问：不关联任何账号/身份，仅用于调用无状态自评服务；
+//  2) 知情同意门控：未获用户显式同意(CONSENTED)前，绝不发卡、绝不调用，杜绝静默匿名访问；
+//  3) 密钥会话级：key 仅存于 sessionStorage（关闭标签页即失效），不跨会话持久化，缩小 XSS 窃取窗口。
+const AUTH_LS_KEY = "tax_policy_mcp_api_key";
+const AUTH_LS_CID = "tax_policy_mcp_client_id";
+function _consentOk(){ return (typeof CONSENTED !== "undefined") && !!CONSENTED; }
+function _webClientId(){
+  let cid = sessionStorage.getItem(AUTH_LS_CID);
+  if(!cid){ cid = "tax-web-" + Math.random().toString(36).slice(2,10) + Date.now().toString(36); sessionStorage.setItem(AUTH_LS_CID, cid); }
+  return cid;
+}
+async function _ensureApiKey(){
+  // 防御纵深：未获知情同意前绝不匿名发卡/调用
+  if(!_consentOk()) return null;
+  let key = sessionStorage.getItem(AUTH_LS_KEY);
+  if(key) return key;
+  try{
+    const res = await fetch(API + "/auth/register", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ name:"tax-policy-web-"+_webClientId().slice(0,8), user_id:"auto", device_id:_webClientId() })
+    });
+    if(res.ok){ const d = await res.json(); if(d && d.api_key){ sessionStorage.setItem(AUTH_LS_KEY, d.api_key); return d.api_key; } }
+  }catch(e){ console.warn("API Key 注册失败：", e); }
+  return null;
+}
+async function apiFetch(path, init){ init = init || {}; init.headers = init.headers || {};
+  const key = await _ensureApiKey();
+  if(key) init.headers["Authorization"] = "Bearer " + key;
+  init.headers["X-Client-Id"] = _webClientId();
+  if(init.body && typeof init.body === "string" && !init.headers["Content-Type"]) init.headers["Content-Type"] = "application/json";
+  return fetch(API + path, init);
+}
+const TOPIC = "advisory";
+const RULES = {"topic": "advisory", "title": "税务师事务所合规规则包", "version": "1.0.0", "updated": "2026-07-23", "version_note": "v1.0.0 涉税专业服务/三级复核/执业质量/执业风险/业务承接规则", "desc": "税务师事务所（涉税专业服务/三级复核/执业质量/执业风险/业务承接）合规规则", "web_page": "https://skillhub.cn/skills/tax-advisory-practice", "bizTypes": {"selfcheck": {"name": "事务所合规自检", "rules": ["indicators"], "version": "1.0.0"}, "quality_review": {"name": "三级复核", "rules": ["review"], "version": "1.0.0"}, "risk_scan": {"name": "执业风险扫描", "rules": ["risks"], "version": "1.0.0"}}, "review": {"three_level_review": ["项目承接", "底稿审核", "报告签发"], "note": "涉税专业服务须执行三级复核：项目经理初审→部门经理复审→机构负责人终审"}, "indicators": [{"key": "has_practice_license", "name": "涉税专业服务所资质有效", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务监管办法（58号令）", "desc": "从事涉税专业服务的机构须取得执业资质"}, {"key": "three_level_review", "name": "执行三级复核制度", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务规范", "desc": "所有涉税报告须经过三级复核"}, {"key": "engagement_letter", "name": "业务委托协议签署", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务规范", "desc": "承接业务须签署委托协议"}, {"key": "staff_qualification", "name": "税务师执业资格", "type": "bool_pass", "threshold": true, "policy": "税务师制度", "desc": "签字税务师须取得执业资格并年检"}, {"key": "workpaper_completeness", "name": "工作底稿完整", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务规范", "desc": "底稿须完整记录执业过程和依据"}, {"key": "confidentiality", "name": "客户信息保密", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务规范", "desc": "不得泄露客户商业秘密和涉税信息"}, {"key": "independence", "name": "独立性声明", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务规范", "desc": "与委托方无利益冲突"}, {"key": "report_signing", "name": "报告双签", "type": "bool_pass", "threshold": true, "policy": "涉税专业服务规范", "desc": "报告须由税务师和机构负责人双签"}, {"key": "liability_insurance", "name": "执业责任保险", "type": "bool_pass", "threshold": true, "policy": "税务师事务所管理", "desc": "须购买执业责任保险"}, {"key": "continuing_edu", "name": "继续教育完成", "type": "bool_pass", "threshold": true, "policy": "税务师制度", "desc": "税务师每年须完成规定继续教育学时"}], "risks": [{"code": "ADV-R01", "name": "越权执业", "level": "高", "trigger": "超资质范围承接业务", "suggestion": "承接业务前先核对机构行政登记范围和税务师执业资格，超出资质或资格不符的项目一律不接，必要时转介绍有资质的机构。"}, {"code": "ADV-R02", "name": "底稿不完整", "level": "高", "trigger": "底稿缺失导致无法证明执业质量", "suggestion": "按项目建立底稿清单并随进度归档，把取证单、计算表、复核记录统一编号装订，结案即归档，避免事后补不了。"}, {"code": "ADV-R03", "name": "出具虚假报告", "level": "高", "trigger": "与委托方串通出具虚假税务报告", "suggestion": "坚守客观独立，拒绝按客户不合理要求篡改数据；建立报告多级复核与异常数据复核机制，从源头堵住虚假报告。"}, {"code": "ADV-R04", "name": "独立性受损", "level": "高", "trigger": "与委托方存在利益关联未披露", "suggestion": "承接前让项目组全员填写独立性调查问卷，发现与委托方有利害关系须书面披露并回避，由机构负责人统一审核留档。"}, {"code": "ADV-R05", "name": "客户信息泄露", "level": "高", "trigger": "泄露客户涉税信息", "suggestion": "客户资料按最小必要原则访问，内部传递加密、外发脱敏，签订保密协议并对员工做保密培训，离职即回收权限。"}, {"code": "ADV-R06", "name": "未投保责任险", "level": "中", "trigger": "执业责任保险到期未续", "suggestion": "在日历中设置执业责任保险到期前30天提醒，提前比对保额与业务规模，到期前完成续保并把保单扫描存档备查。"}], "qa_prompts": {"资质合规": {"icon": "📋", "prompts": ["我们事务所做土地增值税清算鉴证，需要哪些执业资质才不算越权？", "税务师事务所的行政登记（58号令）和税务师执业资格年检，具体要怎么办理？", "分所和总所共用一套执业资质可以吗，报告上盖哪个章才合规？", "新招的税务师还没完成当年继续教育学时，能不能先在报告上签字？", "事务所执业责任保险快到期了，续保不及时会有什么合规风险？"]}, "服务规范": {"icon": "📝", "prompts": ["承接一个税务合规计划项目，业务约定书里必须写清楚哪些内容？", "三级复核到底审什么，项目经理、部门经理、机构负责人各自看什么？", "税务鉴证报告为什么必须税务师和机构负责人双签，少一个签行不行？", "给客户做完代理记账，工作底稿最少要保存几年，丢了会怎样？", "服务过程中发现客户有历史偷税嫌疑，我作为中介机构该不该主动披露？"]}, "风险稽查": {"icon": "🔍", "prompts": ["什么情况会被认定为出具虚假涉税报告，后果有多严重？", "税务师和委托方公司股东是亲戚，这种利害关系不披露算不算独立性受损？", "客户资料在内部传递时怎么管，才不算泄露商业秘密和涉税信息？", "代理申报时按客户要求多列成本，事务所要承担什么连带责任？", "税务机关对涉税专业服务机构的信用积分（TSC）是怎么扣分和修复的？"]}, "实操落地": {"icon": "🛠️", "prompts": ["帮我生成一份标准版税务鉴证业务约定书模板，可以直接给客户用。", "把三级复核做成可勾选的清单，每一级列哪些必查项？", "针对底稿不完整这个风险，给我一套工作底稿归档检查表。", "事务所怎么做一年一次的合规自查，从哪些指标开始查？", "给我一个执业责任保险投保和续保的提醒清单，别再漏保。"]}}, "qa_examples": [{"q": "税务师事务所没有做三级复核就直接出报告，会有什么后果？", "a": "<ol><li>三级复核是涉税专业服务的强制要求，所有涉税报告须经过项目经理初审、部门经理复审、机构负责人终审，缺一级都属于执业质量不达标。<\/li><li>未执行复核会被税务机关在信用积分（TSC）中扣分，并可能被责令限期改正、记入诚信档案；情节严重可依据《涉税专业服务监管办法》（58号令）予以约谈或公告。<\/li><li>若因未复核导致报告出现重大差错或虚假，事务所和相关税务师还要承担民事赔偿乃至行政、刑事责任。<\/li><li>建议立刻补建复核台账，把每一级的审核人、日期、意见留痕，作为执业质量证据保存。<\/li><\/ol>"}, {"q": "我所在的事务所和委托方有亲戚关系，还能不能接这个涉税鉴证业务？", "a": "<ol><li>不能隐瞒。与委托方存在利益关联属于独立性受损风险，必须事前书面披露利害关系并评估是否承接。<\/li><li>如果利害关系可能影响客观公正，应当拒绝承接或将该项目分配给无利害关系的团队，并签署独立性声明留档。<\/li><li>依据《涉税专业服务规范》和职业道德要求，未披露利害关系被查实可能被认定为独立性受损，影响信用积分并面临监管处理。<\/li><li>实操上，承接前让项目组全员填写独立性调查问卷，由机构负责人统一审核签字，从源头杜绝。<\/li><\/ol>"}, {"q": "业务约定书是不是随便写写就行，不签会有问题吗？", "a": "<ol><li>不签约定书就承接业务本身就不合规。依据《民法典》委托合同相关规定和涉税专业服务规范，承接涉税业务须签署书面委托协议。<\/li><li>约定书要明确服务范围、双方权责、收费、保密条款、报告使用限制和争议解决方式，避免事后扯皮。<\/li><li>范围写不清容易出现越权执业——比如约定只做代理申报，却顺手出了鉴证结论，就超出了委托边界。<\/li><li>建议用标准模板，签约前由法务或机构负责人过一遍关键条款，再根据项目微调。<\/li><\/ol>"}, {"q": "工作底稿到底要记到什么程度，保存多久才够？", "a": "<ol><li>底稿要能完整还原执业过程，包括资料接收、分析计算、复核意见和结论依据，做到外人看了也能判断你是怎么得出报告的。<\/li><li>底稿不完整会导致无法证明执业质量，一旦被稽查或产生纠纷，事务所拿不出证据就要承担不利后果。<\/li><li>涉税专业服务底稿应按规定归档保存，一般不少于十年，电子底稿要备份且防篡改。<\/li><li>建议按项目建目录，把委托协议、取证单、计算表、三级复核记录统一编号装订，结案即归档。<\/li><\/ol>"}], "loop_example": {"title": "专题闭环示例 · 涉税鉴证报告合规闭环", "items": [{"tag": "①问答", "text": "客户问：我们公司要做企业所得税汇算清缴鉴证，你们事务所接这个业务需要满足什么条件？系统即时提示需具备有效资质、签约约定书并安排有执业资格的税务师。"}, {"tag": "②结果", "text": "页面给出承接前自检结果：资质有效、约定书模板已生成、签字税务师资格核验通过，仅'工作底稿完整性'待补，提示先建底稿清单再开工。"}, {"tag": "③溯源", "text": "每项结论后附政策来源，如《涉税专业服务监管办法》（58号令）、《民法典》委托合同、《涉税专业服务规范》三级复核条款，点击可展开原文要点。"}, {"tag": "④案例", "text": "展示同业警示案例：某所未执行三级复核即签发鉴证报告，被税务机关扣减信用积分并公告，强调复核留痕的重要性。"}, {"tag": "⑤辅导", "text": "根据薄弱项推送辅导：底稿归档检查表、独立性声明模板、执业责任险续保提醒清单，引导逐项补齐。"}, {"tag": "⑥评价", "text": "客户对本次服务打分并勾选'是否已双签、是否保密到位'，评价回流为事务所合规健康度指标。"}, {"tag": "⑦报告", "text": "最终生成《涉税鉴证合规工作流报告》，汇总资质、复核、保密、保险等状态与整改建议，可作为内部质控和外部报备留存。"}], "foot": "上述七步全部在本页工作流中承载：问答触发自检、结果即时呈现、溯源可查政策、案例警示、辅导推送、评价回流、报告归档，形成从承接到达成的合规闭环。"}, "sample_data": {"has_practice_license": true, "three_level_review": true, "engagement_letter": true, "staff_qualification": true, "workpaper_completeness": false, "confidentiality": true, "independence": true, "report_signing": true, "liability_insurance": true, "continuing_edu": true}};
+const WIDGETS = {"advisory": {"review": {"kind": "checklist", "title": "三级复核制度自检", "intro": "涉税专业服务须执行三级复核，逐项确认后方可签发报告", "from": "three_level_review", "conclusion_ok": "✅ 已完成三级复核，报告可签发", "conclusion_no": "⚠️ 尚有复核环节未完成，不得签发报告", "_mod": "review"}}};
+const TOTAL_STEPS = 5;
+const HAS_IND = true;
+let STEP = 0;
+const WIDGET_RESULTS = {};
+
+function toastMsg(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 3000);
+}
+
+function updateProgress() {
+    document.querySelectorAll("#progressBar .step").forEach((el, i) => {
+        el.classList.toggle("active", i === STEP);
+        el.classList.toggle("done", i < STEP);
+    });
+    document.querySelectorAll(".step-panel").forEach((el, i) => {
+        el.classList.toggle("active", i === STEP);
+    });
+}
+
+function nextStep() { if (STEP < TOTAL_STEPS - 1) { STEP++; updateProgress(); } }
+function prevStep() { if (STEP > 0) { STEP--; updateProgress(); } }
+function goToStep(i) { STEP = i; updateProgress(); }
+document.querySelectorAll("#progressBar .step").forEach(el => {
+    el.addEventListener("click", () => goToStep(parseInt(el.dataset.step)));
+});
+
+let CONSENTED = false;  // 是否已完成知情同意
+
+function showConsentModal() { const m = document.getElementById("consentMask"); if (m) m.style.display = "flex"; }
+function closeConsent() { const m = document.getElementById("consentMask"); if (m) m.style.display = "none"; }
+function agreeConsent() {
+    const chk = document.getElementById("consentChk");
+    if (chk && !chk.checked) { toastMsg("请先勾选同意数据发送说明"); return; }
+    CONSENTED = true; closeConsent(); runIndicatorCheck();
+}
+
+// 仅采集指标数值（RULES.indicators），绝不携带 q_* 身份字段
+function collectMetrics() {
+    const m = {};
+    (RULES.indicators || []).forEach(ind => {
+        const input = document.getElementById("i_" + ind.key);
+        if (!input) return;
+        if (ind.type === "bool_pass") m[ind.key] = input.checked;
+        else { const v = parseFloat(input.value); m[ind.key] = isNaN(v) ? null : v; }
+    });
+    return m;
+}
+
+
+async function runIndicatorCheck() {
+    if (!HAS_IND) { toastMsg("本专题无逐指标自检，已为你展开风险清单"); goToStep(riskStepIndex()); return; }
+    if (!CONSENTED) { showConsentModal(); return; }
+    const metrics = collectMetrics();
+    try {
+        const r = await apiFetch("/topic_selfcheck", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ topic: TOPIC, metrics })
+        });
+        if (!r.ok) throw new Error("自检失败：" + (await r.json()).error);
+        const data = await r.json();
+        LAST_SELFCHECK = data;
+        renderIndicatorResult(data);
+        const riskEl = document.getElementById("riskReportResult");
+        if (riskEl) renderRiskResult(data, riskEl);
+        toastMsg("✅ 自检完成");
+    } catch(e) { toastMsg("⚠️ " + e.message); console.error(e); }
+}
+
+function riskStepIndex() {
+    const panels = Array.from(document.querySelectorAll(".step-panel"));
+    const risk = panels.find(p => p.querySelector("#riskReportResult"));
+    return panels.indexOf(risk);
+}
+
+function renderIndicatorResult(data) {
+    const container = document.getElementById("indicatorResult");
+    if (!container) return;
+    const summary = data.summary || {};
+    const indicators = data.indicators || [];
+    const sc = summary.overall === "达标" ? "pass" : (summary.overall === "部分达标" ? "warn" : "fail");
+    let h = '<div class="summary-box ' + sc + '">';
+    h += '<div class="summary-title">' + (summary.overall || "未知") + '</div>';
+    h += '<div class="summary-detail">共 ' + (summary.total_indicators||0) + ' 项指标，不达标 ' + (summary.failed||0) + ' 项，提示 ' + (summary.warned||0) + ' 项</div>';
+    h += '</div>';
+    indicators.forEach(ind => {
+        const pass = ind.pass;
+        const pillClass = pass === true ? "ok" : (pass === false ? "bad" : "warn");
+        const passText = pass === true ? "✅ 达标" : (pass === false ? "❌ 不达标" : "⚠️ 待确认");
+        h += '<div class="ind-result">';
+        h += '<span class="ind-key">' + ind.name + '</span> <span class="pill ' + pillClass + '">' + passText + '</span>';
+        h += '<div class="ind-meta">' + (ind.policy||"") + (ind.note ? " | " + ind.note : "") + '</div>';
+        h += '</div>';
+    });
+    container.innerHTML = h;
+    container.style.display = "block";
+}
+
+function findRiskSuggestion(name) {
+    const list = RULES.risks || [];
+    for (const r of list) {
+        if (r.name === name) return { trigger: r.trigger || "", suggestion: r.suggestion || "" };
+    }
+    return { trigger: "", suggestion: "" };
+}
+
+function renderRiskResult(data, container) {
+    const risks = data.risks || [];
+    const suggestions = data.suggestions || [];
+    let h = "";
+    if (risks.length === 0 && suggestions.length === 0) {
+        h = '<p style="color:var(--ok);font-weight:600">✅ 当前输入数据未发现明显风险项</p>';
+    } else {
+        risks.forEach(r => {
+            const lv = r.level || "中";
+            const extra = findRiskSuggestion(r.name || "");
+            h += '<div class="rk-item" style="border-left:3px solid ' + (lv==="高"?"var(--bad)":"var(--warn)") + '">';
+            h += '<span class="pill ' + (lv==="高"?"bad":"warn") + '">' + lv + '</span>';
+            h += '<span class="rk-name">' + (r.name||"") + '</span></div>';
+            if (extra.trigger) h += '<div class="rk-extra"><div class="risk-trigger">⚠️ 触发：' + extra.trigger + '</div></div>';
+            if (extra.suggestion) h += '<div class="rk-extra"><div class="risk-sugg">💡 整改建议：' + extra.suggestion + '</div></div>';
+        });
+        suggestions.forEach(s => {
+            h += '<div style="padding:8px 12px;background:#f0f9ff;border-radius:8px;margin-bottom:6px;font-size:13px">💡 ' + s + '</div>';
+        });
+    }
+    container.innerHTML = h;
+}
+
+function switchQATab(tabName) {
+    document.querySelectorAll("#qaTabNav .tab-item").forEach(t => t.classList.toggle("active", t.dataset.tab === tabName));
+    document.querySelectorAll("#qaTabContent .tab-content").forEach(t => t.style.display = t.dataset.tab === tabName ? "block" : "none");
+}
+document.querySelectorAll("#qaTabNav .tab-item").forEach(t => {
+    t.addEventListener("click", () => switchQATab(t.dataset.tab));
+});
+
+function copyPrompt(row) {
+    const text = row.querySelector(".prompt-text").textContent;
+    navigator.clipboard.writeText(text).then(() => toastMsg("✅ 提示词已复制"));
+}
+
+function resetWorkflow() {
+    STEP = 0;
+    document.querySelectorAll("input[type='text'],input[type='number'],input[type='date'],select").forEach(el => el.value = "");
+    document.querySelectorAll("input[type='checkbox']").forEach(el => el.checked = false);
+    updateProgress();
+    const res = document.getElementById("indicatorResult");
+    if (res) res.style.display = "none";
+    const risk = document.getElementById("riskReportResult");
+    if (risk) risk.innerHTML = '<p style="color:var(--sub)">请先完成指标自检后查看风险报告</p>';
+}
+
+/* ---------- 专题特色工具：测算/判定/比对/生成 ---------- */
+function fmtVal(v, fmt) {
+    if (fmt === "money") {
+        const n = parseFloat(v); if (isNaN(n)) return "—";
+        return "¥" + n.toLocaleString("zh-CN", {minimumFractionDigits:2, maximumFractionDigits:2});
+    }
+    if (fmt === "pct") {
+        const n = parseFloat(v); if (isNaN(n)) return "—";
+        return (n*100).toFixed(2) + "%";
+    }
+    return (v === undefined || v === null) ? "—" : String(v);
+}
+
+function runCalc(modKey) {
+    const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][modKey]) || {};
+    if (!spec.compute) return;
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const f = {};
+    card.querySelectorAll("[data-f]").forEach(el => {
+        const raw = el.value;
+        if (el.tagName === "SELECT") { f[el.dataset.f] = raw; return; }
+        const num = (raw === "" || raw === null) ? 0 : Number(raw);
+        f[el.dataset.f] = isNaN(num) ? raw : num;
+    });
+    const m = (RULES[TOPIC] && RULES[TOPIC][modKey]) || {};
+    let res;
+    try {
+        const fkeys = Object.keys(f);
+        const fn = new Function(...fkeys, "m", spec.compute);
+        res = fn(...fkeys.map(k => f[k]), m);
+    } catch(e) { toastMsg("⚠️ 计算异常：" + e.message); return; }
+    WIDGET_RESULTS[modKey] = res;
+    let h = "";
+    (spec.outs || []).forEach(o => {
+        const v = res[o.key];
+        const show = (o.fmt === "text") ? String(v) : fmtVal(v, o.fmt);
+        h += '<div class="wc-out"><span>' + o.label + '</span><b>' + show + '</b></div>';
+    });
+    const box = document.getElementById("wc_" + modKey);
+    box.innerHTML = h;
+    box.className = "wc-result";
+    box.style.display = "block";
+    toastMsg("✅ " + spec.title + " 已测算");
+}
+
+function runChecklist(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const boxes = card.querySelectorAll('input[type="checkbox"]');
+    let checked = 0;
+    boxes.forEach(b => { if (b.checked) checked++; });
+    const box = document.getElementById("wc_" + modKey);
+    const ok = (checked === boxes.length);
+    box.innerHTML = '<div class="wc-concl">' + (ok ? box.dataset.ok : box.dataset.no) + '</div>'
+        + '<div class="wc-out"><span>已确认项</span><b>' + checked + ' / ' + boxes.length + '</b></div>';
+    box.className = "wc-result" + (ok ? "" : " warn");
+    box.style.display = "block";
+    WIDGET_RESULTS[modKey] = { ok: ok, checked: checked, total: boxes.length };
+    toastMsg(ok ? "✅ 判定通过" : "⚠️ 尚有未确认项");
+}
+
+function escHtml(s){ var d=document.createElement('div'); d.textContent=(s==null?'':s); return d.innerHTML; }
+
+function runHours(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const ta = document.getElementById("hc_" + modKey);
+    const raw = (ta ? ta.value : "").trim();
+    if (!raw) { toastMsg("⚠️ 请先粘贴工时打卡记录"); return; }
+    const lines = raw.split(/\r?\n/).filter(x => x.trim());
+    const rows = [];
+    let skipped = 0;
+    for (const ln of lines) {
+        const cols = ln.split(/[,，\t]/).map(s => s.trim());
+        if (cols.length < 3) { skipped++; continue; }
+        if (/^(日期|人员|设备|项目|工时)/.test(cols[0]) && /工时|项目/.test(ln)) { skipped++; continue; }
+        const date = cols[0], who = cols[1], proj = cols[2];
+        const hrs = parseFloat(cols[3]);
+        if (isNaN(hrs)) { skipped++; continue; }
+        rows.push({date, who, proj, hrs});
+    }
+    if (!rows.length) { toastMsg("⚠️ 未解析到有效记录（需含 日期,人员/设备,项目,工时）"); return; }
+    const byProj = {}, byWho = {};
+    let totalH = 0;
+    const anomalies = [];
+    for (const r of rows) {
+        byProj[r.proj] = (byProj[r.proj] || 0) + r.hrs;
+        byWho[r.who] = (byWho[r.who] || 0) + r.hrs;
+        totalH += r.hrs;
+        if (r.hrs > 24 || r.hrs < 0) anomalies.push("异常工时：" + r.date + " " + r.who + "=" + r.hrs);
+        if (!r.proj || r.proj === "-") anomalies.push("缺项目编号：" + r.date + " " + r.who);
+    }
+    let ph = "<div class='wc-out'><span>总工时</span><b>" + totalH.toFixed(1) + " 小时</b></div>";
+    ph += "<div class='wc-table'><table><tr><th>项目</th><th>总工时</th><th>占比</th></tr>";
+    Object.keys(byProj).sort((a,b)=>byProj[b]-byProj[a]).forEach(p => {
+        ph += "<tr><td>" + escHtml(p) + "</td><td>" + byProj[p].toFixed(1) + "</td><td>" + (byProj[p]/totalH*100).toFixed(1) + "%</td></tr>";
+    });
+    ph += "</table></div>";
+    let wh = "<div class='wc-table'><table><tr><th>人员/设备</th><th>总工时</th></tr>";
+    Object.keys(byWho).sort((a,b)=>byWho[b]-byWho[a]).forEach(w => {
+        wh += "<tr><td>" + escHtml(w) + "</td><td>" + byWho[w].toFixed(1) + "</td></tr>";
+    });
+    wh += "</table></div>";
+    let anHtml = anomalies.length ? "<div class='wc-warn'>⚠️ 异常 " + anomalies.length + " 条：" + anomalies.slice(0,8).map(escHtml).join("；") + (anomalies.length>8?"…":"") + "</div>" : "<div class='wc-out'><span>异常检查</span><b>未发现问题</b></div>";
+    const box = document.getElementById("wc_" + modKey);
+    box.innerHTML = ph + wh + anHtml + "<button class='btn secondary' onclick=\"exportHours('" + modKey + "')\">⬇️ 导出工时汇总 CSV</button>";
+    box.className = "wc-result";
+    box.style.display = "block";
+    WIDGET_RESULTS[modKey] = {totalH: totalH, byProj: byProj, byWho: byWho, anomalies: anomalies};
+    toastMsg("✅ 已读取 " + rows.length + " 条记录，跳过 " + skipped + " 行");
+}
+
+function exportHours(modKey) {
+    const r = WIDGET_RESULTS[modKey];
+    if (!r) { toastMsg("⚠️ 请先分析"); return; }
+    let csv = "项目,总工时,占比\n";
+    Object.keys(r.byProj).forEach(p => { csv += '"' + p + '",' + r.byProj[p].toFixed(1) + ',"' + (r.byProj[p]/r.totalH*100).toFixed(1) + '%"\n'; });
+    csv += "\n人员或设备,总工时\n";
+    Object.keys(r.byWho).forEach(w => { csv += '"' + w + '",' + r.byWho[w].toFixed(1) + '\n'; });
+    const blob = new Blob(["﻿"+csv], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "研发工时汇总_" + modKey + ".csv";
+    a.click();
+    toastMsg("⬇️ 工时汇总 CSV 已导出");
+}
+
+function genProject(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const vals = {};
+    card.querySelectorAll("[data-pf]").forEach(el => { vals[el.dataset.pf] = el.value.trim(); });
+    const get = k => vals[k] || "（待填）";
+    const txt =
+        "【研发项目立项书】\n"
+        + "项目名称：" + get("项目名称") + "\n"
+        + "项目编号：" + get("项目编号") + "\n"
+        + "所属领域：" + get("所属领域") + "\n"
+        + "立项日期：" + get("立项日期") + "    负责人：" + get("负责人") + "\n"
+        + "研发周期：" + get("研发周期") + "\n"
+        + "参与人员：" + get("参与人员") + "\n"
+        + "主要设备：" + get("主要设备") + "\n"
+        + "预算总额：" + get("预算总额(元)") + " 元\n"
+        + "—— 创新目标 ——\n" + get("创新目标") + "\n"
+        + "—— 技术路线 ——\n" + get("技术路线") + "\n"
+        + "—— 阶段里程碑 ——\n" + get("阶段里程碑") + "\n"
+        + "—— 预期成果 ——\n" + get("预期成果") + "\n"
+        + "（本立项书由财税合规技能自动生成，须加盖企业公章与有权部门签批后归档）\n";
+    const ta = document.getElementById("proj_" + modKey);
+    ta.value = txt;
+    WIDGET_RESULTS[modKey] = {project: txt};
+    toastMsg("📝 立项书已生成，可复制归档");
+}
+
+function copyProj(modKey) {
+    const ta = document.getElementById("proj_" + modKey);
+    if (!ta || !ta.value) { toastMsg("⚠️ 请先生成立项书"); return; }
+    navigator.clipboard.writeText(ta.value).then(() => toastMsg("📋 立项书已复制"));
+}
+
+function toggleBiz(el) {
+    const detail = el.querySelector(".biz-detail");
+    if (detail.style.display === "none") detail.style.display = "block";
+    else detail.style.display = "none";
+}
+
+function copyBizPrompt(el) {
+    const name = el.closest(".biz-item").querySelector(".biz-name").textContent;
+    const text = "请按【" + name + "】业务类型，结合本专题指标与风险，给出合规操作指引与风险提示。";
+    navigator.clipboard.writeText(text).then(() => toastMsg("✅ 专属提示词已复制"));
+}
+
+function exportLedger(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    const table = card.querySelector("table");
+    let csv = "";
+    table.querySelectorAll("tr").forEach(tr => {
+        const cells = Array.from(tr.querySelectorAll("th,td")).map(c => '"' + c.textContent.replace(/"/g,'""') + '"');
+        csv += cells.join(",") + "\n";
+    });
+    const blob = new Blob(["\ufeff" + csv], {type:"text/csv;charset=utf-8"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "研发辅助账_" + modKey + ".csv";
+    a.click();
+    toastMsg("⬇️ 辅助账 CSV 已导出");
+}
+
+function copySteps(modKey) {
+    const card = document.querySelector('.widget-card[data-mod="'+modKey+'"]');
+    let text = "【ESOP 落地步骤清单】\n";
+    card.querySelectorAll(".wc-check").forEach((c, i) => {
+        const done = c.querySelector("input").checked ? "[x]" : "[ ]";
+        text += (i+1) + ". " + done + " " + c.querySelector(".wc-ck-label").textContent.trim() + "\n";
+    });
+    navigator.clipboard.writeText(text).then(() => toastMsg("📋 落地清单已复制"));
+}
+
+function loadSampleData() {
+    const sample = RULES.sample_data || {};
+    if (!HAS_IND || Object.keys(sample).length === 0) {
+        toastMsg("本专题以案例测算与政策对比为主，已为你展开风险清单与闭环示例");
+        goToStep(riskStepIndex());
+        return;
+    }
+    let filled = 0;
+    (RULES.indicators || []).forEach(ind => {
+        const input = document.getElementById("i_" + ind.key);
+        if (!input) return;
+        const v = sample[ind.key];
+        if (v === undefined) return;
+        if (ind.type === "bool_pass") input.checked = !!v;
+        else input.value = v;
+        filled++;
+    });
+    toastMsg("📂 已加载示例数据（" + filled + " 项），正在自动自检…");
+    goToStep(STEP + 1 < TOTAL_STEPS ? stepIndexOf("ind") : STEP);
+    setTimeout(() => { runIndicatorCheck(); }, 400);
+}
+
+function stepIndexOf(kind) {
+    const panels = Array.from(document.querySelectorAll(".step-panel"));
+    if (kind === "ind") {
+        const idx = panels.findIndex(p => p.querySelector(".ind-section"));
+        return idx >= 0 ? idx : STEP;
+    }
+    return STEP;
+}
+
+// ===== 深度分析提示词：将本页自检结果固化为可复制提示词，供用户粘贴到 Agent 对话框获取更有针对性报告 =====
+let LAST_SELFCHECK = null;
+
+function buildDeepPrompt() {
+    const title = (RULES.title || TOPIC) || "本专题";
+    const companyEl = document.getElementById("q_company");
+    const company = (companyEl && companyEl.value) ? companyEl.value : "（企业名称）";
+    let s = "我是「" + company + "」的财税/合规负责人。我刚在《" + title + "》合规自检交互页完成轻量自检，请基于以下结果，结合最新财税政策与监管口径，为我生成一份【有针对性的深度合规分析报告】：\n\n";
+    const d = LAST_SELFCHECK;
+    if (d && d.summary) {
+        const sum = d.summary;
+        s += "【自检结果摘要】\n";
+        s += "· 整体判定：" + (sum.overall || "未知") + "；共 " + (sum.total_indicators || 0) + " 项指标，不达标 " + (sum.failed || 0) + " 项，提示 " + (sum.warned || 0) + " 项。\n";
+        const inds = (d.indicators || []).filter(function (i) { return i.pass !== true; });
+        if (inds.length) {
+            s += "· 不达标 / 待确认指标：\n";
+            inds.forEach(function (i) { s += "  - " + i.name + (i.note ? "（" + i.note + "）" : "") + "\n"; });
+        }
+        const risks = d.risks || [];
+        if (risks.length) {
+            s += "· 风险项：\n";
+            risks.forEach(function (r) { s += "  - " + (r.name || "") + "（等级：" + (r.level || "中") + "）\n"; });
+        }
+        const sugg = d.suggestions || [];
+        if (sugg.length) { s += "· 系统补充建议：" + sugg.join("；") + "\n"; }
+    } else {
+        s += "（我尚未在页内运行自检。请先结合本专题常见风险与我方业务实际给出分析框架；\n  本专题特征：" + ((RULES.desc || "").slice(0, 80)) + "）\n";
+    }
+    const wk = Object.keys(WIDGET_RESULTS);
+    if (wk.length) {
+        s += "\n【专题特色工具测算结果】\n";
+        wk.forEach(function (k) {
+            const r = WIDGET_RESULTS[k];
+            const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][k]) || {};
+            s += "· " + (spec.title || k) + "：";
+            if (spec.outs) { s += (spec.outs).map(function (o) { return o.label + "=" + fmtVal(r[o.key], o.fmt); }).join("；") + "\n"; }
+            else if (r && typeof r === "object" && ("ok" in r)) { s += (r.ok ? "判定通过" : "判定未通过(" + r.checked + "/" + r.total + ")") + "\n"; }
+            else { s += "已测算\n"; }
+        });
+    }
+    s += "\n【请输出】\n";
+    s += "① 逐条问题定性与政策依据（注明文件名称与适用条款）；\n";
+    s += "② 按风险等级（高/中/低）输出分优先级整改方案、责任部门与时间表；\n";
+    s += "③ 涉税风险敞口评估与潜在稽查 / 补税后果提示；\n";
+    s += "④ 可落地操作模板、合同 / 凭证要点与对外沟通话术；\n";
+    s += "⑤ 标注需由执业税务师 / 律师进一步确认的事项。\n";
+    return s;
+}
+
+function refreshDeepPrompt() {
+    const ta = document.getElementById("deepPrompt");
+    if (ta) { ta.value = buildDeepPrompt(); }
+}
+
+function copyDeepPrompt() {
+    const ta = document.getElementById("deepPrompt");
+    if (!ta) return;
+    if (!ta.value) { ta.value = buildDeepPrompt(); }
+    navigator.clipboard.writeText(ta.value).then(function () {
+        toastMsg("✅ 深度分析提示词已复制，粘贴到 Agent 对话框即可生成针对性报告");
+    });
+}
+
+function generateReport() {
+    const company = document.getElementById("q_company") ? document.getElementById("q_company").value : "";
+    const resEl = document.getElementById("indicatorResult");
+    const riskEl = document.getElementById("riskReportResult");
+    let report = "【" + (RULES.title||TOPIC) + " 合规自查报告】\n";
+    if (company) report += "企业：" + company + "\n";
+    report += "生成时间：" + new Date().toLocaleString() + "\n\n";
+    if (resEl && resEl.style.display !== "none") {
+        report += "一、指标自检\n" + resEl.innerText.replace(/\n+/g,"\n").trim() + "\n\n";
+    }
+    if (riskEl && riskEl.innerText.trim()) {
+        report += "二、风险与整改建议\n" + riskEl.innerText.trim() + "\n\n";
+    }
+    // 纳入特色工具结果
+    const wk = Object.keys(WIDGET_RESULTS);
+    if (wk.length) {
+        report += "三、专题特色工具结果\n";
+        wk.forEach(k => {
+            const r = WIDGET_RESULTS[k];
+            const spec = (WIDGETS[TOPIC] && WIDGETS[TOPIC][k]) || {};
+            report += "· " + (spec.title || k) + "：";
+            if (spec.outs) {
+                report += (spec.outs).map(o => o.label + "=" + fmtVal(r[o.key], o.fmt)).join("；") + "\n";
+            } else if (r && typeof r === "object" && "ok" in r) {
+                report += (r.ok ? "判定通过" : "判定未通过(" + r.checked + "/" + r.total + ")") + "\n";
+            } else {
+                report += "已测算\n";
+            }
+        });
+        report += "\n";
+    }
+    // 四、主要政策文件依据
+    if (RULES.policy_lib && RULES.policy_lib.length) {
+        report += "四、主要政策文件依据\n";
+        RULES.policy_lib.slice(1).forEach(function(r){ report += "· " + r[0] + "：" + r[1] + "（" + r[2] + "）\n"; });
+        report += "\n";
+    }
+    // 五、企业落地路线图
+    if (RULES.landing_roadmap && RULES.landing_roadmap.length) {
+        report += "五、企业落地路线图\n";
+        RULES.landing_roadmap.slice(1).forEach(function(r){ report += "· " + r[0] + "（" + r[1] + "）：" + r[2] + "\n"; });
+        report += "\n";
+    }
+    report += "---\n根据 tax-policy-knowledge 财税知识库与技能矩阵生成\n企鹅号 1817694478（欢迎留言与关注）\n";
+    navigator.clipboard.writeText(report).then(() => toastMsg("📋 报告已复制，可粘贴保存"));
+}
+
+function copyKbLink() {
+    const link = "https://skillhub.cn/skills/tax-policy-knowledge";
+    navigator.clipboard.writeText(link).then(() => {
+        toastMsg("🔗 链接已复制");
+        window.open(link, "_blank");
+    });
+}
+
+updateProgress();
+refreshDeepPrompt();
+</script>
+</body>
+</html>

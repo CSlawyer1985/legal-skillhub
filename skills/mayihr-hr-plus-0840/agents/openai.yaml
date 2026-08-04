@@ -1,0 +1,4 @@
+interface:
+  display_name: "股权激励计划税务筹划"
+  short_description: "用自然语言或上传文件完成股权激励计划税务筹划，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-hr-plus-0840 请帮我完成股权激励计划税务筹划：期权/限制性股票/股票增值权的税务处理+个人所得税优化+企业所得税扣除。"

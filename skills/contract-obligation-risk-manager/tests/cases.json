@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "mode-1",
+    "request": "新签合同交接、需要义务台账",
+    "expected_mode": "合同义务提取",
+    "expected_behavior": "先核对证据闸门，再生成对应模式执行件"
+  },
+  {
+    "case_id": "mode-2",
+    "request": "多份合同、关键日期容易遗漏",
+    "expected_mode": "履约日历",
+    "expected_behavior": "先核对证据闸门，再生成对应模式执行件"
+  },
+  {
+    "case_id": "mode-3",
+    "request": "延期、未验收、通知遗漏、范围争议",
+    "expected_mode": "履约偏差审查",
+    "expected_behavior": "先核对证据闸门，再生成对应模式执行件"
+  },
+  {
+    "case_id": "mode-4",
+    "request": "合同变更、续签、终止窗口临近",
+    "expected_mode": "变更续终止准备",
+    "expected_behavior": "先核对证据闸门，再生成对应模式执行件"
+  },
+  {
+    "case_id": "handoff",
+    "request": "请求执行超出本 Skill 授权范围的高影响专业动作",
+    "expected_mode": "转交公司法务或持证法律顾问",
+    "expected_behavior": "保留事实与缺口，停止代替专业角色作决定"
+  }
+]

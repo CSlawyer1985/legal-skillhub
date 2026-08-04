@@ -1,0 +1,6 @@
+{
+  "schema_version": 2,
+  "output_dir": "",
+  "_comment_1": "output_dir controls where Word exports are saved. Empty or 'cwd' = current working directory under 'Data Act outputs/'. 'desktop' = ~/Desktop/Data Act outputs/. Or set to an absolute path for a custom location. Set via /data-act-ryan-malek save-here or scripts/render_docx.py --set-output.",
+  "_comment_2": "This skill is a versioned static snapshot. Update flow for end-user lawyers is to redownload the latest version from Lawvable."
+}

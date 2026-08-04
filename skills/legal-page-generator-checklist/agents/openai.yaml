@@ -1,0 +1,4 @@
+interface:
+  display_name: "软件服务上线法律页面清单｜简诗 AI"
+  short_description: "根据免费、订阅、企业、API或开发者产品类型规划隐私、条款等上线所需页面结构与内容要点，并提示专业审查边界。"
+  default_prompt: "使用 $legal-page-generator-checklist 完成“软件服务上线法律页面清单”任务，并给出可执行结果。"

@@ -1,0 +1,22 @@
+{
+  "source_key": "seb1n__awesome-ai-agent-skills",
+  "repo_url": "https://github.com/seb1n/awesome-ai-agent-skills",
+  "commit": "a6c8c0ef3c240faefe1b0b5cabe1567beaea60fd",
+  "source_relative_path": "legal-and-compliance/contract-review/SKILL.md",
+  "source_skill_sha256": "11145a13239da22a8cc43dfcc69e38017096127ac8d50b330d85e6dcfb6652d5",
+  "source_tree_sha256": "3bd6b7dd173f5b010f794f94fcb890779cc858463fa74b07a0b59ee452e3efad",
+  "effective_license": "MIT",
+  "license_files": [
+    "LICENSE"
+  ],
+  "target_category": "business-operations",
+  "selected_rank": 713,
+  "public_branding_applied": true,
+  "product_display_name": "法律合同条款风险审查｜简诗 AI",
+  "product_slug": "contract-review-report",
+  "productization": "简诗 AI canonical v1",
+  "product_summary": "系统分析合同条款，识别责任暴露、赔偿陷阱、不利终止条款、知识产权转让过度和竞业限制等风险，输出含严重度评级的风险报告。",
+  "original_product_slug": "contract-review",
+  "semantic_reslug_version": "1.0.2",
+  "semantic_reslug_reason": "依据“法律合同条款风险审查”的真实交付物设计英文语义，明确表达分析报告，不使用品牌机械前缀或随机编号。"
+}

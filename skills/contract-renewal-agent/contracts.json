@@ -1,0 +1,18 @@
+{
+  "contracts": {
+    "17d51167": {
+      "id": "17d51167",
+      "name": "Acme Contract",
+      "counterparty": "Acme Corp",
+      "contract_type": "Service",
+      "start_date": "2024-01-01",
+      "expiration_date": "2025-12-31",
+      "notice_window_days": 30,
+      "annual_value": 50000.0,
+      "status": "expired",
+      "days_until_expiry": -129,
+      "notes": "Critical vendor",
+      "created_at": "2026-05-09T17:01:10.661237"
+    }
+  }
+}

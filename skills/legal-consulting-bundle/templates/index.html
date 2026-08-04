@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalConsult AI — 中国法律咨询AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .skill-card { transition: all 0.2s; }
+        .skill-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .skill-card.active { border-color: #2563eb; background: #eff6ff; }
+        .loading { display: none; }
+        .loading.show { display: flex; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div>
+                <h1 class="text-xl font-bold text-gray-900">⚖️ LegalConsult AI</h1>
+                <p class="text-sm text-gray-500">中国法律咨询AI技能套装</p>
+            </div>
+            <div class="flex items-center gap-2">
+                {% if llm_configured %}
+                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">🤖 LLM模式</span>
+                {% else %}
+                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">📝 模板模式</span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8">
+        <!-- Skills Grid -->
+        <section class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">选择服务类型</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="skills-grid">
+                {% for key, skill in skills.items() %}
+                <div class="skill-card bg-white border-2 border-gray-200 rounded-xl p-4 cursor-pointer"
+                     data-skill="{{ key }}" onclick="selectSkill('{{ key }}')">
+                    <div class="text-2xl mb-2">{{ skill.icon }}</div>
+                    <div class="font-semibold text-gray-800">{{ skill.name }}</div>
+                    <div class="text-xs text-gray-500 mt-1">{{ skill.description }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Consultation Form -->
+        <section class="bg-white rounded-xl border border-gray-200 p-6" id="consult-section">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">
+                <span id="selected-icon">📋</span>
+                <span id="selected-name">合同审查</span>
+            </h2>
+            <form id="consult-form" onsubmit="submitConsult(event)">
+                <input type="hidden" name="skill_type" id="skill_type" value="contract_review">
+                <textarea name="question" id="question" rows="6"
+                    class="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="请描述您的法律问题或粘贴合同条款..." required></textarea>
+                <div class="flex justify-between items-center mt-3">
+                    <p class="text-xs text-gray-400">⚠️ AI分析仅供参考，不构成正式法律意见</p>
+                    <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+                        开始分析
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Loading -->
+        <div class="loading justify-center items-center py-8" id="loading">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <span class="ml-3 text-gray-600">AI正在分析...</span>
+        </div>
+
+        <!-- Result -->
+        <section class="bg-white rounded-xl border border-gray-200 p-6 mt-6 hidden" id="result-section">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold text-gray-800">📋 分析结果</h2>
+                <button onclick="copyResult()" class="text-sm text-blue-600 hover:text-blue-800">📋 复制</button>
+            </div>
+            <div id="result-content" class="prose prose-sm max-w-none text-gray-700 whitespace-pre-wrap"></div>
+            <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between text-xs text-gray-400">
+                <span id="result-meta"></span>
+                <span id="result-time"></span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-200 mt-12 py-6 text-center text-xs text-gray-400">
+        LegalConsult AI v0.1.0 | 中国法律咨询AI技能套装 | 法律依据：民法典·劳动合同法·公司法
+    </footer>
+
+    <script>
+        const skills = {{ skills | tojson }};
+        let currentSkill = 'contract_review';
+
+        function selectSkill(key) {
+            currentSkill = key;
+            document.getElementById('skill_type').value = key;
+            document.getElementById('selected-icon').textContent = skills[key].icon;
+            document.getElementById('selected-name').textContent = skills[key].name;
+            document.getElementById('question').placeholder = skills[key].description + '...';
+            
+            document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('active'));
+            document.querySelector(`[data-skill="${key}"]`).classList.add('active');
+        }
+
+        async function submitConsult(e) {
+            e.preventDefault();
+            const question = document.getElementById('question').value.trim();
+            if (!question) return;
+
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('result-section').classList.add('hidden');
+
+            try {
+                const formData = new FormData();
+                formData.append('skill_type', currentSkill);
+                formData.append('question', question);
+
+                const resp = await fetch('/api/consult', { method: 'POST', body: formData });
+                const data = await resp.json();
+
+                if (data.success) {
+                    document.getElementById('result-content').textContent = data.answer;
+                    document.getElementById('result-meta').textContent = 
+                        `${data.skill_name} | ${data.llm_mode ? 'LLM模式' : '模板模式'}`;
+                    document.getElementById('result-time').textContent = 
+                        new Date(data.generated_at).toLocaleString('zh-CN');
+                    document.getElementById('result-section').classList.remove('hidden');
+                }
+            } catch (err) {
+                alert('请求失败: ' + err.message);
+            } finally {
+                document.getElementById('loading').classList.remove('show');
+            }
+        }
+
+        function copyResult() {
+            const text = document.getElementById('result-content').textContent;
+            navigator.clipboard.writeText(text).then(() => alert('已复制到剪贴板'));
+        }
+
+        // Init first skill as active
+        selectSkill('contract_review');
+    </script>
+</body>
+</html>

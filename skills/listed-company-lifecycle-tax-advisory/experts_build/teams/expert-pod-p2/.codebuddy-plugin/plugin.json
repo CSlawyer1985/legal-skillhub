@@ -1,0 +1,179 @@
+{
+  "name": "expert-pod-p2",
+  "version": "1.0.0",
+  "description": "P2: cross-domain tax compliance pod coordinated by a lead agent.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/pod-p2-lead.md"
+  ],
+  "expertType": "team",
+  "agentName": "pod-p2-lead",
+  "teamInfo": {
+    "leadAgent": "pod-p2-lead",
+    "memberAgents": [
+      "tax-restructuring-expert",
+      "tax-capital-reduction-expert",
+      "tax-equity-governance-expert",
+      "tax-esop-platform-expert",
+      "tax-ipo-tax-expert",
+      "tax-ipo-governance-expert",
+      "tax-listed-advisory-expert"
+    ]
+  },
+  "displayName": {
+    "en": "资本运作与重组团",
+    "zh": "资本运作与重组团"
+  },
+  "profession": {
+    "en": "资本运作与重组团",
+    "zh": "资本运作与重组团"
+  },
+  "displayDescription": {
+    "en": "P2: cross-domain tax compliance pod coordinated by a lead agent.",
+    "zh": "「资本运作与重组团」：由主理人协调 7 名专题专家，覆盖并购/减资/股权激励/IPO 税务合规，提供"
+  },
+  "avatar": "avatars/pod-p2-lead.svg",
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "我是「资本运作与重组团」主理人，请描述您的跨域财税诉求，我将协调专题专家为您服务。",
+    "en": "I am the lead of 资本运作与重组团."
+  },
+  "plugin": "expert-pod-p2",
+  "tags": [
+    {
+      "en": "Cross-domain",
+      "zh": "跨域协同"
+    },
+    {
+      "en": "Compliance",
+      "zh": "合规闭环"
+    },
+    {
+      "en": "T2",
+      "zh": "T2优先"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Coordinate experts for my case",
+      "zh": "协调专家处理我的事项"
+    },
+    {
+      "en": "What pod handles my scenario",
+      "zh": "我的场景归哪个团"
+    },
+    {
+      "en": "Full-process compliance plan",
+      "zh": "全流程合规方案"
+    }
+  ],
+  "members": [
+    {
+      "id": "pod-p2-lead",
+      "displayName": {
+        "en": "资本交易税务总监",
+        "zh": "资本交易税务总监"
+      },
+      "profession": {
+        "en": "资本交易税务总监",
+        "zh": "资本交易税务总监"
+      },
+      "avatar": "avatars/pod-p2-lead.svg",
+      "role": "lead"
+    },
+    {
+      "id": "tax-restructuring-expert",
+      "displayName": {
+        "en": "tax-restructuring",
+        "zh": "tax-restructuring"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-restructuring-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-capital-reduction-expert",
+      "displayName": {
+        "en": "tax-capital-reduction",
+        "zh": "tax-capital-reduction"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-capital-reduction-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-equity-governance-expert",
+      "displayName": {
+        "en": "tax-equity-governance",
+        "zh": "tax-equity-governance"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-equity-governance-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-esop-platform-expert",
+      "displayName": {
+        "en": "tax-esop-platform",
+        "zh": "tax-esop-platform"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-esop-platform-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-ipo-tax-expert",
+      "displayName": {
+        "en": "tax-ipo-tax",
+        "zh": "tax-ipo-tax"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-ipo-tax-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-ipo-governance-expert",
+      "displayName": {
+        "en": "tax-ipo-governance",
+        "zh": "tax-ipo-governance"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-ipo-governance-expert.svg",
+      "role": "member"
+    },
+    {
+      "id": "tax-listed-advisory-expert",
+      "displayName": {
+        "en": "tax-listed-advisory",
+        "zh": "tax-listed-advisory"
+      },
+      "profession": {
+        "en": "Tax Compliance Expert",
+        "zh": "财税合规专家"
+      },
+      "avatar": "avatars/tax-listed-advisory-expert.svg",
+      "role": "member"
+    }
+  ]
+}

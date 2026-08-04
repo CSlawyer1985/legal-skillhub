@@ -1,0 +1,17 @@
+Title: ⚖️ Legal Intake Pilot (UPL-Safe Triage)
+
+Description:
+Law Firms: Stop losing Potential New Clients (PNCs) to hold music and manual intake delays.
+
+The Legal Intake Pilot is a high-security AI agent built to handle the first 5 minutes of any legal inquiry. Unlike generic chatbots, it is hardened with ThumbGate to strictly prevent the Unauthorized Practice of Law (UPL). It qualifies leads, flags conflicts, and checks the statute of limitations—all while keeping your logs HIPAA-compliant.
+
+Benefits:
+- ✅ **UPL Shielded:** Built-in rules stop the agent from giving legal advice or promising results.
+- ✅ **Conflict Flagging:** Detects opposing parties before the consult ever happens.
+- ✅ **HIPAA Ready:** Automatic redaction of sensitive patient/client data in logs.
+- ✅ **CRM Integrated:** Pushes qualified leads directly to Clio, MyCase, or Litify.
+- ✅ **Statute Alert:** Flags high-risk cases that are nearing the filing deadline.
+
+Price Suggestion: $197 (One-time) or $69/mo
+
+Tags: Law Firm, Legal Tech, Intake, Triage, UPL, ThumbGate

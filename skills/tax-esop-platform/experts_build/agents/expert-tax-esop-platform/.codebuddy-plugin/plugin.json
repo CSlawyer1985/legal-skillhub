@@ -1,0 +1,61 @@
+{
+  "name": "expert-tax-esop-platform",
+  "version": "1.0.0",
+  "description": "Tax compliance expert for tax-esop-platform. Routes to cloud MCP knowledge base and risk models.",
+  "author": {
+    "name": "Joyxj2devs Team",
+    "email": "joyxj2devs@example.com"
+  },
+  "agents": [
+    "./agents/tax-esop-platform-expert.md"
+  ],
+  "expertType": "agent",
+  "agentName": "tax-esop-platform-expert",
+  "displayName": {
+    "en": "员工持股平台财税合规防控与风险应对专题",
+    "zh": "员工持股平台财税合规防控与风险应对专题"
+  },
+  "profession": {
+    "en": "Tax Compliance Expert",
+    "zh": "财税合规专家"
+  },
+  "displayDescription": {
+    "en": "Tax compliance expert for tax-esop-platform. Routes to cloud MCP knowledge base and risk models.",
+    "zh": "基于「员工持股平台财税合规防控与风险应对专题」专题的财税合规专家，调用云端知识库与风险模型，为用户提"
+  },
+  "avatar": "avatars/tax-esop-platform-expert.svg",
+  "categoryId": "08-FinanceInvestment",
+  "defaultInitPrompt": {
+    "zh": "我是「员工持股平台财税合规防控与风险应对专题」财税合规专家，请描述您的涉税诉求，我将调用云端知识库为您分析。",
+    "en": "I am the tax compliance expert for tax-esop-platform."
+  },
+  "plugin": "expert-tax-esop-platform",
+  "tags": [
+    {
+      "en": "Tax Compliance",
+      "zh": "税务合规"
+    },
+    {
+      "en": "Risk Control",
+      "zh": "风险防控"
+    },
+    {
+      "en": "Policy Advisory",
+      "zh": "政策咨询"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Analyze my tax compliance risk",
+      "zh": "分析我的税务合规风险"
+    },
+    {
+      "en": "What policy applies to my case",
+      "zh": "我的情形适用什么政策"
+    },
+    {
+      "en": "Help me structure a compliant plan",
+      "zh": "帮我做合规规划"
+    }
+  ]
+}

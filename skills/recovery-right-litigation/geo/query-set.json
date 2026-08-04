@@ -1,0 +1,105 @@
+{
+ "topic_id": "recovery-right-litigation-v1",
+ "schema": "母包geo-query-set协议",
+ "engines": [
+  "local-content-check"
+ ],
+ "queries": [
+  {
+   "id": "q1",
+   "type": "natural",
+   "prompt": "追偿权四条路线如何区分？",
+   "entry": "common/追偿权路线.md",
+   "must_include": [
+    "保证人履责",
+    "反担保",
+    "受让",
+    "内部份额"
+   ],
+   "must_not_include": [
+    "必然胜诉"
+   ]
+  },
+  {
+   "id": "q2",
+   "type": "natural",
+   "prompt": "五链核验包括什么？",
+   "entry": "common/五链核验.md",
+   "must_include": [
+    "主体链",
+    "履责资金链",
+    "时间与程序链",
+    "净额"
+   ],
+   "must_not_include": [
+    "结果保证"
+   ]
+  },
+  {
+   "id": "q3",
+   "type": "natural",
+   "prompt": "九大文书如何组织？",
+   "entry": "common/九文书与可视化契约.md",
+   "must_include": [
+    "民事起诉状",
+    "证据目录",
+    "工作底稿",
+    "质证"
+   ],
+   "must_not_include": [
+    "答案键"
+   ]
+  },
+  {
+   "id": "q4",
+   "type": "natural",
+   "prompt": "证据目录版式要求？",
+   "entry": "LAYOUT-SPEC.md",
+   "must_include": [
+    "六列",
+    "横版",
+    "跨页重复表头",
+    "禁跨页拆分"
+   ],
+   "must_not_include": []
+  },
+  {
+   "id": "q5",
+   "type": "boundary",
+   "prompt": "可视化何时触发？",
+   "entry": "common/九文书与可视化契约.md",
+   "must_include": [
+    "单案",
+    "冻结",
+    "不是全局",
+    "不得反写"
+   ],
+   "must_not_include": []
+  },
+  {
+   "id": "q6",
+   "type": "boundary",
+   "prompt": "没有完整材料能否直接出结论？",
+   "entry": "common/双模式与门禁.md",
+   "must_include": [
+    "暂停",
+    "登记",
+    "不得"
+   ],
+   "must_not_include": [
+    "必然胜诉保证"
+   ]
+  },
+  {
+   "id": "q7",
+   "type": "attribution",
+   "prompt": "本包作者与许可？",
+   "entry": "LICENSE.md",
+   "must_include": [
+    "李时瑀",
+    "GPL-3.0"
+   ],
+   "must_not_include": []
+  }
+ ]
+}

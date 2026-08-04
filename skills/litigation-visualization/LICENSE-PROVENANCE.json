@@ -1,0 +1,197 @@
+{
+ "schema": "gaotao.six-package.license-provenance/v1",
+ "authorization_basis": "1785256236821-user",
+ "independent_rights_proof_status": "not-established-locally for proprietary donor entities",
+ "external_distribution_gate": "independent rights proof required before any upload, external transfer or public release",
+ "entities": [
+  {
+   "path-or-scope": "viz-engine/mother-build_t4.py",
+   "source-root": "${HOME}/Desktop/实验/gaotao-mother-validator-remediation-1.0.0-r4-node6L-2026-07-28/tools/build_t4.py",
+   "source-sha256": "aefe84ed02020aa8d2c3b987b156eb95aa6b08fa31362bb4f85c5007fd4a164a",
+   "original-license": "GPL-3.0",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821（权利人本人对可视化独立包选定MIT）；逐实体MIT再许可授权=权利人直接声明；无第三方内容",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "viz-engine/mother-render_t4.py",
+   "source-root": "${HOME}/Desktop/实验/gaotao-mother-validator-remediation-1.0.0-r4-node6L-2026-07-28/tools/render_t4.py",
+   "source-sha256": "6447260c9f966dda4b937c17a359021e9be5eece56172c1949c5872ee81c2f49",
+   "original-license": "GPL-3.0",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821（权利人本人对可视化独立包选定MIT）；逐实体MIT再许可授权=权利人直接声明；无第三方内容",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "viz-engine/recovery-gen_case_views.py",
+   "source-root": "${HOME}/Desktop/追偿权纠纷诉讼Skill-桌面交付-2026-07-27/追偿权纠纷诉讼Skill-V1.0.4/tools/gen_case_views.py",
+   "source-sha256": "cf236d5d2e720e18d839a1526974d05defacba1b4434520e8f129ea1cefdcdd1",
+   "original-license": "GPL-3.0（V1.0.4包内）",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821（权利人本人对可视化独立包选定MIT）；逐实体MIT再许可授权=权利人直接声明；无第三方内容",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "viz-engine/recovery-render_views.py",
+   "source-root": "${HOME}/Desktop/追偿权纠纷诉讼Skill-桌面交付-2026-07-27/追偿权纠纷诉讼Skill-V1.0.4/tools/render_views.py",
+   "source-sha256": "ef4a39238c1d040941eb61d69f34fd9abb3729abf0c89972b95846e048ae9de2",
+   "original-license": "GPL-3.0（V1.0.4包内）",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821（权利人本人对可视化独立包选定MIT）；逐实体MIT再许可授权=权利人直接声明；无第三方内容",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "payload-legacy-skill/",
+   "source-root": "${HOME}/Documents/Codex/2026-07-21/ni-d/work/litigation-visualization-distill/build/litigation-visualization-cn",
+   "source-sha256": "c01270c19dd07b87ac990d1d4cc1796e7682527c3f53350c896a46bee4cc8a48",
+   "original-license": "候选期未单独declared（作者本人作品）",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821；权利人本人作品逐实体MIT再许可；零案件事实（allowed_import_scope合规）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "payload-frozen-contract-r2/",
+   "source-root": "${HOME}/Documents/Codex/2026-05-25/sublation-skill-hermes-agent-cron-hermes/candidates/gaotao-litigation-visualization-extension/20260723-contract-r2-codex",
+   "source-sha256": "fea4bfc8bae0779dee3bf91d59ccaa0cb878a1e4ddc5e995b278125c44c65652",
+   "original-license": "候选合同donor（作者本人作品）",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821；权利人本人作品逐实体MIT再许可；零案件事实（allowed_import_scope合规）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "LICENSE",
+   "source-root": "${HOME}/Desktop/诉讼可视化Skill包-MIT-2026-07-28",
+   "source-sha256": "675909952f35a3e7c16d48a8bc49d5705d40c3b248d2fbb11e7f6bc32ca51aac",
+   "original-license": "text-of-license(MIT)",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "新写实体MIT原生",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "SKILL.md",
+   "source-root": "${HOME}/Desktop/诉讼可视化Skill包-MIT-2026-07-28",
+   "source-sha256": "d6cea49ebd0e0221af80c9eab0fe2f6988bf350bd1c4821dcef84494bbc09e3d",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "新写实体MIT原生",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "README.md",
+   "source-root": "${HOME}/Desktop/诉讼可视化Skill包-MIT-2026-07-28",
+   "source-sha256": "e3d8734ce828c6316de257fd769b7bf6836f69bbe82dce39b56abd86701ea1c9",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "新写实体MIT原生",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "NOTICE",
+   "source-root": "${HOME}/Desktop/诉讼可视化Skill包-MIT-2026-07-28",
+   "source-sha256": "b0fbeedb5797efc30fd582a65537c737c7d1b0bcb1c3b626697520a3ced3ae14",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "新写实体MIT原生",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "AUTHOR.json",
+   "source-root": "${HOME}/Desktop/诉讼可视化Skill包-MIT-2026-07-28",
+   "source-sha256": "7de613cef9468873d4a0df34840f2aabd701bd9ecaa5fc0f3f9c2f8ad4b68c7b",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "新写实体MIT原生",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "tools/run_vis.py",
+   "source-root": "本包新写",
+   "source-sha256": "8f1f688c08a4cf9507af677927bd0f5520bf1a0accdde62ffab694fbf38bcb01",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "MIT原生（唯一公开runner）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "fixtures/sample-case/",
+   "source-root": "${HOME}/Desktop/实验/gaotao-mother-validator-remediation-1.0.0-r4-node6L-2026-07-28/fixtures/vis-sample-07.md",
+   "source-sha256": "c1e7b75d241eeb5a89d003a9c792fcd8e6bf26bf17d9b74b5c097a88bd94db4a",
+   "original-license": "GPL-3.0（mother合成自测样例，作者本人作品）",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "root 1785256236821权利人MIT再许可；合成数据零真实案件事实",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "viz-engine/README-ENGINE.md",
+   "source-root": "本包新写",
+   "source-sha256": "6f9cd2a4ac3d9389177a2c5bc060fb646fde6dacb75494af9333e37d0a8bceee",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "参考件边界标记（payload快照零接触）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "REFERENCE-PAYLOADS.md",
+   "source-root": "本包新写",
+   "source-sha256": "d3766d75a8e82f11cecd2f0eedebd56874ece6631706fe0915831efdc7debbc4",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "参考件边界标记（payload快照零接触）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "evidence/",
+   "source-root": "本包E2E/总验现场产出",
+   "source-sha256": "1e6fa9be599ecf5045da299f621e6fecbb877625df3650c78df97d608be5c75b",
+   "original-license": "MIT（新产出）",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "验证产物2文件；脱敏口径（全包脱敏扫描收据）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "DESENSITIZE-SCAN-RECEIPT.json",
+   "source-root": "本包构建",
+   "source-sha256": "45dc0cd75360b9798f532d20593d25bcda208979872ba1406ff8e18b6347310c",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "交付元数据",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "PACKAGE-MANIFEST.json",
+   "source-root": "本包构建",
+   "source-sha256": "7d4044a96761179408afc7a4a338c22d5d478123e3dcb5046a23e59e2ad891bc",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "交付元数据",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "PACKAGE-RECEIPT.json",
+   "source-root": "本包构建",
+   "source-sha256": "自指/后封实体（哈希见重封后SUMS与外置detached receipt）",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "交付元数据（双层收据内层）",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "SHA256SUMS.txt",
+   "source-root": "本包构建",
+   "source-sha256": "自指/后封实体（哈希见重封后SUMS与外置detached receipt）",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "交付元数据（全册（覆盖除自身外全部））",
+   "author": "李时瑀律师"
+  },
+  {
+   "path-or-scope": "LICENSE-PROVENANCE.json",
+   "source-root": "本包构建",
+   "source-sha256": "自指/后封实体（哈希见重封后SUMS与外置detached receipt）",
+   "original-license": "新写",
+   "target-license": "MIT",
+   "compatibility-or-relicense-basis": "交付元数据（逐实体权利账本身）",
+   "author": "李时瑀律师"
+  }
+ ]
+}

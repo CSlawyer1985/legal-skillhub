@@ -1,0 +1,7 @@
+{
+  "type": "generic",
+  "url": "https://crm.yourcompany.com/api/leads",
+  "headers": {
+    "Authorization": "Bearer YOUR_TOKEN"
+  }
+}

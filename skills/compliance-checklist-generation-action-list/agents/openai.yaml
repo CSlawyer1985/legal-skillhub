@@ -1,0 +1,4 @@
+interface:
+  display_name: "合规框架检查清单生成｜简诗 AI"
+  short_description: "为SOC2、HIPAA、PCI-DSS和GDPR等主要合规框架生成结构化检查清单，映射控制项与要求，评估准备度并输出优先修复计划。"
+  default_prompt: "使用 $compliance-checklist-generation-action-list 完成“合规框架检查清单生成”任务，并给出可执行结果。"

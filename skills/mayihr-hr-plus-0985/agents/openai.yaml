@@ -1,0 +1,4 @@
+interface:
+  display_name: "企业合规培训年度计划"
+  short_description: "用自然语言或上传文件完成企业合规培训年度计划，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-hr-plus-0985 请帮我完成企业合规培训年度计划：按岗位/层级设计劳动法/数据合规/反腐倡廉等年度培训计划。"

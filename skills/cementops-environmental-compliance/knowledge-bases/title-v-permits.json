@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "id": "EC-KB-003",
+    "title": "Title V Permitting for Cement Plants",
+    "version": "1.0.0",
+    "domain": "environmental-compliance",
+    "last_updated": "2026-04-01"
+  },
+  "description": "Title V operating permit requirements, compliance obligations, deviation reporting, and permit modification processes for cement manufacturing facilities.",
+  "title_v_overview": {
+    "authority": "Clean Air Act Title V (40 CFR Part 70 - federal, Part 71 - federal implementation)",
+    "applicability": "Major sources of criteria pollutants (>100 tpy for attainment areas, lower thresholds for nonattainment) or HAPs (>10 tpy single HAP or >25 tpy combined HAPs)",
+    "cement_plant_status": "Virtually all cement plants are Title V major sources due to NOx, SO2, and PM emissions"
+  },
+  "permit_contents": {
+    "emission_limits": "All applicable federal, state, and local emission limits consolidated in one permit",
+    "monitoring_requirements": "CEMS, stack testing, parametric monitoring, and recordkeeping requirements",
+    "reporting_requirements": "Quarterly and annual compliance reports, deviation reports, excess emissions reports",
+    "compliance_schedule": "Timeline for achieving compliance with any new requirements",
+    "general_provisions": "Permit duration (5 years), renewal process, fee requirements, permit shield provisions"
+  },
+  "compliance_certifications": {
+    "annual_certification": {
+      "requirement": "Responsible official must certify compliance status with all permit terms annually",
+      "content": "Identify each permit term, state compliance status (continuous compliance, intermittent compliance, or deviation), describe any deviations",
+      "due_date": "Per permit schedule, typically within 60-90 days of anniversary or calendar year end",
+      "signature": "Must be signed by responsible official (plant manager or corporate officer with authority)"
+    }
+  },
+  "deviation_reporting": {
+    "definition": "Any departure from a permit condition, including emission limit exceedance, monitoring failure, or failure to meet an operating parameter",
+    "prompt_reporting": {
+      "timeframe": "Typically within 2-10 days of discovery (varies by state and severity)",
+      "method": "Written notification to permitting authority",
+      "content": "Date/time, description of deviation, cause, corrective action taken, duration"
+    },
+    "semi_annual_reporting": {
+      "requirement": "Comprehensive deviation report submitted every 6 months",
+      "content": "All deviations during the period, whether previously reported or not"
+    },
+    "emergency_provisions": {
+      "criteria": ["Event caused by factors beyond reasonable control", "Event was not caused by operator negligence or poor maintenance", "All reasonable steps were taken to minimize emissions", "Proper notification was made"],
+      "notes": "Emergency defense does not excuse the violation but may mitigate penalties"
+    }
+  },
+  "permit_modifications": {
+    "minor_modification": {
+      "triggers": "Changes that do not increase emissions beyond permitted levels or add new regulated pollutants",
+      "process": "Application to permitting authority, typically 30-60 day review",
+      "examples": ["Operational flexibility changes", "Adding equivalent monitoring methods", "Administrative changes"]
+    },
+    "significant_modification": {
+      "triggers": "Changes that establish or revise emission limits, add emission sources, or change monitoring methods",
+      "process": "Public notice and comment period, EPA review, typically 6-18 months",
+      "examples": ["New emission unit", "Alternative fuel trial (if not pre-authorized)", "Relaxation of emission limit"]
+    },
+    "administrative_amendment": {
+      "triggers": "Corrections of typographical errors, change of ownership information, similar administrative updates",
+      "process": "Typically 60-day notification, no public review needed"
+    }
+  },
+  "permit_renewal": {
+    "timeline": "Submit renewal application at least 12 months before expiration (varies by state)",
+    "application_shield": "Timely and complete renewal application allows continued operation under expired permit terms",
+    "content": "Updated emission inventory, compliance history, any proposed changes"
+  }
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>smart-contract-reviewer - AI 智能合同审查助手</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { margin: 0; background: #000; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  .slide { display: none; width: 100vw; height: 100vh; }
+  .slide.active { display: flex; }
+  .nav-btn { position: fixed; top: 50%; transform: translateY(-50%); z-index: 100; cursor: pointer; }
+  .nav-left { left: 2rem; }
+  .nav-right { right: 2rem; }
+  .risk-high { color: #EF4444; }
+  .risk-mid { color: #F59E0B; }
+  .risk-low { color: #10B981; }
+</style>
+</head>
+<body>
+
+<!-- Slide 1: 封面 -->
+<div id="slide-1" class="slide active bg-black flex-col justify-center items-center text-white">
+  <div class="text-6xl font-bold mb-4">📋 smart-contract-reviewer</div>
+  <div class="text-2xl text-gray-300 mb-8">AI 智能合同审查助手</div>
+  <div class="text-lg text-gray-400 mt-16">按 ← → 翻页 | 基于《民法典》合同编</div>
+</div>
+
+<!-- Slide 2: 痛点 -->
+<div id="slide-2" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">合同审查的<span class="text-red-500">三大痛点</span></div>
+  <div class="grid grid-cols-3 gap-8 w-full max-w-5xl">
+    <div class="bg-gray-900 p-8 rounded-2xl text-center">
+      <div class="text-6xl mb-4">⏳</div>
+      <div class="text-2xl font-bold mb-2">耗时</div>
+      <div class="text-gray-400">标准合同审查<br>需 1-2 小时</div>
+    </div>
+    <div class="bg-gray-900 p-8 rounded-2xl text-center">
+      <div class="text-6xl mb-4">💰</div>
+      <div class="text-2xl font-bold mb-2">昂贵</div>
+      <div class="text-gray-400">律师审查费<br>¥500~3000/份</div>
+    </div>
+    <div class="bg-gray-900 p-8 rounded-2xl text-center">
+      <div class="text-6xl mb-4">⚠️</div>
+      <div class="text-2xl font-bold mb-2">遗漏</div>
+      <div class="text-gray-400">依赖个人经验<br>易遗漏风险条款</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3: 解决方案 -->
+<div id="slide-3" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">AI <span class="text-blue-400">智能审查</span></div>
+  <div class="space-y-6 w-full max-w-3xl">
+    <div class="flex items-center gap-4">
+      <span class="text-green-400 text-2xl">✅</span>
+      <span class="text-xl">自动提取 10+ 类关键条款</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-green-400 text-2xl">✅</span>
+      <span class="text-xl">三级风险分级（高/中/低）</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-green-400 text-2xl">✅</span>
+      <span class="text-xl">具体修改建议（含替换措辞）</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-green-400 text-2xl">✅</span>
+      <span class="text-xl">自动关联法律依据（《民法典》条款）</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-green-400 text-2xl">✅</span>
+      <span class="text-xl">5-10 分钟完成初步审查</span>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4: 风险分级 -->
+<div id="slide-4" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">三级<span class="text-yellow-400">风险分级</span>体系</div>
+  <div class="space-y-8 w-full max-w-4xl">
+    <div class="bg-red-900 bg-opacity-30 p-6 rounded-xl border border-red-500">
+      <div class="text-3xl font-bold text-red-400 mb-2">🔴 高风险</div>
+      <div class="text-lg text-gray-200">可能导致合同无效、重大经济损失、丧失核心权利</div>
+      <div class="text-sm text-gray-400 mt-2">例："放弃法定解除权"条款 → 无效</div>
+    </div>
+    <div class="bg-yellow-900 bg-opacity-30 p-6 rounded-xl border border-yellow-500">
+      <div class="text-3xl font-bold text-yellow-400 mb-2">🟡 中风险</div>
+      <div class="text-lg text-gray-200">条款表述不完善、保护不充分、需要补充约定</div>
+      <div class="text-sm text-gray-400 mt-2">例：验收标准模糊 → 易引发争议</div>
+    </div>
+    <div class="bg-green-900 bg-opacity-30 p-6 rounded-xl border border-green-500">
+      <div class="text-3xl font-bold text-green-400 mb-2">🟢 低风险</div>
+      <div class="text-lg text-gray-200">表述可优化、建议调整但不影响核心权益</div>
+      <div class="text-sm text-gray-400 mt-2">例：通知方式未明确 → 建议补充</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 5: 工作流程 -->
+<div id="slide-5" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">四步<span class="text-purple-400">工作流</span></div>
+  <div class="space-y-6 w-full max-w-3xl">
+    <div class="flex items-center gap-6">
+      <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+      <div>
+        <div class="text-2xl font-bold">合同接收与预处理</div>
+        <div class="text-gray-400">支持 PDF/DOCX/TXT/MD/腾讯文档链接</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+      <div>
+        <div class="text-2xl font-bold">条款提取与结构化</div>
+        <div class="text-gray-400">逐条提取，识别 10+ 类关键条款</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+      <div>
+        <div class="text-2xl font-bold">风险识别与评估</div>
+        <div class="text-gray-400">法律效力/商业/合规/表述/可执行性 五维分析</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold">4</div>
+      <div>
+        <div class="text-2xl font-bold">生成审查报告 + 修改建议</div>
+        <div class="text-gray-400">Markdown 格式，含具体替换措辞 + 法律依据</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 6: 量化对比 -->
+<div id="slide-6" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">量化<span class="text-green-400">对比</span></div>
+  <table class="w-full max-w-4xl text-lg">
+    <thead>
+      <tr class="border-b border-gray-700">
+        <th class="text-left pb-4 text-gray-400 font-normal">维度</th>
+        <th class="text-center pb-4 text-gray-400 font-normal">传统方式</th>
+        <th class="text-center pb-4 text-green-400 font-normal">本 Skill</th>
+        <th class="text-center pb-4 text-blue-400 font-normal">提升</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-b border-gray-800">
+        <td class="py-4">审查速度</td>
+        <td class="text-center text-gray-300">1-2 小时</td>
+        <td class="text-center text-green-400">5-10 分钟</td>
+        <td class="text-center text-blue-400 font-bold">12x</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="py-4">成本</td>
+        <td class="text-center text-gray-300">¥500~3000</td>
+        <td class="text-center text-green-400">¥0</td>
+        <td class="text-center text-blue-400 font-bold">100%</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="py-4">风险覆盖</td>
+        <td class="text-center text-gray-300">依赖经验</td>
+        <td class="text-center text-green-400">12 维系统检查</td>
+        <td class="text-center text-blue-400 font-bold">更全</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="py-4">修改建议</td>
+        <td class="text-center text-gray-300">专业但慢</td>
+        <td class="text-center text-green-400">具体替换措辞</td>
+        <td class="text-center text-blue-400 font-bold">接近</td>
+      </tr>
+      <tr>
+        <td class="py-4">法律依据</td>
+        <td class="text-center text-gray-300">手动标注</td>
+        <td class="text-center text-green-400">自动关联法条</td>
+        <td class="text-center text-blue-400 font-bold">5x</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Slide 7: 适用场景 -->
+<div id="slide-7" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">适用<span class="text-teal-400">场景</span></div>
+  <div class="grid grid-cols-2 gap-6 w-full max-w-4xl">
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <div class="text-2xl font-bold text-green-400 mb-2">✅ 推荐使用</div>
+      <ul class="text-lg text-gray-300 space-y-2 mt-4">
+        <li>• 企业法务初筛（大批量合同）</li>
+        <li>• 中小企业自查（无专职法务）</li>
+        <li>• 律师助理工作（生成初版意见）</li>
+        <li>• 商务人员自检（签约前快速检查）</li>
+      </ul>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-xl">
+      <div class="text-2xl font-bold text-red-400 mb-2">⚠️ 不推荐</div>
+      <ul class="text-lg text-gray-300 space-y-2 mt-4">
+        <li>• 重大/复杂合同（>¥1000万）</li>
+        <li>• 诉讼/仲裁相关合同</li>
+        <li>• 需要正式法律意见书</li>
+        <li>• 涉及特殊行业监管</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mt-8 text-gray-500 text-center">⚠️ 本 Skill 输出不构成正式法律意见，重大合同请咨询执业律师</div>
+</div>
+
+<!-- Slide 8: 技术架构 -->
+<div id="slide-8" class="slide bg-black flex-col justify-center items-center text-white px-20">
+  <div class="text-5xl font-bold mb-12 text-center">技术<span class="text-indigo-400">架构</span></div>
+  <div class="grid grid-cols-3 gap-6 w-full max-w-5xl">
+    <div class="bg-gray-900 p-6 rounded-xl text-center">
+      <div class="text-4xl mb-2">📄</div>
+      <div class="text-xl font-bold mb-2">输入层</div>
+      <div class="text-gray-400 text-sm">PDF/DOCX/TXT<br>Markdown<br>腾讯文档链接</div>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-xl text-center">
+      <div class="text-4xl mb-2">🧠</div>
+      <div class="text-xl font-bold mb-2">分析层</div>
+      <div class="text-gray-400 text-sm">条款提取<br>风险识别引擎<br>法律依据匹配</div>
+    </div>
+    <div class="bg-gray-900 p-6 rounded-xl text-center">
+      <div class="text-4xl mb-2">📊</div>
+      <div class="text-xl font-bold mb-2">输出层</div>
+      <div class="text-gray-400 text-sm">Markdown 报告<br>修改建议清单<br>风险分级汇总</div>
+    </div>
+  </div>
+  <div class="mt-10 text-gray-500">基于《民法典》合同编（2021.1.1 生效）及现行司法解释</div>
+</div>
+
+<!-- Slide 9: 结束 -->
+<div id="slide-9" class="slide bg-black flex-col justify-center items-center text-white">
+  <div class="text-6xl font-bold mb-8">🎯 开始使用</div>
+  <div class="text-2xl text-gray-300 mb-4">触发词：<span class="text-blue-400">"审查合同"</span> / <span class="text-blue-400">"review contract"</span></div>
+  <div class="text-2xl text-gray-300 mb-12">上传合同 → 确认立场 → 获取报告</div>
+  <div class="text-lg text-gray-500">smart-contract-reviewer v1.0.0 | 评测得分：11/12（🟡 专业层）</div>
+</div>
+
+<script>
+let current = 1;
+const total = 9;
+
+function show(n) {
+  document.getElementById('slide-' + current).classList.remove('active');
+  current = Math.max(1, Math.min(n, total));
+  document.getElementById('slide-' + current).classList.add('active');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') show(current + 1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') show(current - 1);
+});
+
+// 点击导航
+document.body.insertAdjacentHTML('beforeend', `
+  <div class="nav-btn nav-left text-white text-5xl opacity-30 hover:opacity-100 transition" onclick="show(current-1)">‹</div>
+  <div class="nav-btn nav-right text-white text-5xl opacity-30 hover:opacity-100 transition" onclick="show(current+1)">›</div>
+`);
+</body>
+</html>

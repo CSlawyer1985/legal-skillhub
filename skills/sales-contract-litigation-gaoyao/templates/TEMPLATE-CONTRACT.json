@@ -1,0 +1,242 @@
+{
+  "court_profile_id": "COURT-PROFILE-SALES-2025-GENERIC",
+  "documents": [
+    {
+      "audience": "人民法院",
+      "filing_status": "HOLD-NOT-FOR-FILING",
+      "id": "L1-01",
+      "layer": "L1",
+      "markdown": "templates/markdown/01-民事起诉状.md",
+      "required_gates": [
+        "P0-1",
+        "P0-2",
+        "P0-3",
+        "P0-4"
+      ],
+      "required_law_source_ids": [
+        "LAW-001",
+        "LAW-002",
+        "LAW-004",
+        "LAW-005",
+        "LAW-008",
+        "LAW-009",
+        "LAW-010"
+      ],
+      "stem": "01-民事起诉状",
+      "title": "民事起诉状"
+    },
+    {
+      "audience": "人民法院",
+      "filing_status": "HOLD-NOT-FOR-FILING",
+      "id": "L1-02",
+      "layer": "L1",
+      "markdown": "templates/markdown/02-证据目录.md",
+      "required_gates": [
+        "P0-1",
+        "P0-2",
+        "P0-3",
+        "P0-4"
+      ],
+      "required_law_source_ids": [
+        "LAW-006",
+        "LAW-010"
+      ],
+      "stem": "02-证据目录",
+      "title": "证据目录"
+    },
+    {
+      "audience": "承办律师与客户",
+      "filing_status": "INTERNAL-WORK-PRODUCT",
+      "id": "L2-01",
+      "layer": "L2",
+      "markdown": "templates/markdown/03-合同审查方案.md",
+      "required_gates": [
+        "P0-1",
+        "P0-2",
+        "P0-3"
+      ],
+      "required_law_source_ids": [
+        "LAW-001",
+        "LAW-002",
+        "LAW-003",
+        "LAW-007",
+        "LAW-008"
+      ],
+      "stem": "03-合同审查方案",
+      "title": "合同审查方案"
+    },
+    {
+      "audience": "承办律师与客户",
+      "filing_status": "INTERNAL-WORK-PRODUCT",
+      "id": "L2-02",
+      "layer": "L2",
+      "markdown": "templates/markdown/04-材料缺失清单.md",
+      "required_gates": [
+        "P0-1",
+        "P0-3"
+      ],
+      "required_law_source_ids": [
+        "LAW-006"
+      ],
+      "stem": "04-材料缺失清单",
+      "title": "材料缺失清单"
+    },
+    {
+      "audience": "人民法院",
+      "filing_status": "LAWYER-REVIEW-REQUIRED",
+      "id": "L2-03",
+      "layer": "L2",
+      "markdown": "templates/markdown/05-代理词.md",
+      "required_gates": [
+        "P0-1",
+        "P0-2",
+        "P0-3",
+        "P0-4"
+      ],
+      "required_law_source_ids": [
+        "LAW-001",
+        "LAW-002",
+        "LAW-003",
+        "LAW-004",
+        "LAW-005",
+        "LAW-006",
+        "LAW-007",
+        "LAW-008"
+      ],
+      "stem": "05-代理词",
+      "title": "代理词"
+    },
+    {
+      "audience": "委托人或承办律师",
+      "filing_status": "LAWYER-REVIEW-REQUIRED",
+      "id": "L2-04",
+      "layer": "L2",
+      "markdown": "templates/markdown/06-法律意见书.md",
+      "required_gates": [
+        "P0-1",
+        "P0-2",
+        "P0-3"
+      ],
+      "required_law_source_ids": [
+        "LAW-001",
+        "LAW-002",
+        "LAW-003",
+        "LAW-004",
+        "LAW-005",
+        "LAW-006",
+        "LAW-007",
+        "LAW-008",
+        "LAW-009"
+      ],
+      "stem": "06-法律意见书",
+      "title": "法律意见书"
+    },
+    {
+      "audience": "承办律师团队",
+      "filing_status": "INTERNAL-WORK-PRODUCT",
+      "id": "L2-05",
+      "layer": "L2",
+      "markdown": "templates/markdown/07-诉讼案件办案方案工作底稿.md",
+      "required_gates": [
+        "P0-1",
+        "P0-2",
+        "P0-3",
+        "P0-4"
+      ],
+      "required_law_source_ids": [
+        "LAW-001",
+        "LAW-002",
+        "LAW-004",
+        "LAW-005",
+        "LAW-006",
+        "LAW-008",
+        "LAW-009",
+        "LAW-010"
+      ],
+      "stem": "07-诉讼案件办案方案工作底稿",
+      "title": "诉讼案件办案方案工作底稿"
+    },
+    {
+      "audience": "承办律师团队",
+      "filing_status": "INTERNAL-WORK-PRODUCT",
+      "id": "L2-06",
+      "layer": "L2",
+      "markdown": "templates/markdown/08-质证预案.md",
+      "required_gates": [
+        "P0-1",
+        "P0-3"
+      ],
+      "required_law_source_ids": [
+        "LAW-006"
+      ],
+      "stem": "08-质证预案",
+      "title": "质证预案"
+    },
+    {
+      "audience": "承办律师团队",
+      "filing_status": "DISABLED-NO-OPPONENT-EVIDENCE",
+      "id": "GATE-01",
+      "layer": "GATE",
+      "markdown": "templates/markdown/09-条件性正式质证意见生成门.md",
+      "required_gates": [
+        "P0-1",
+        "P0-3",
+        "FORMAL-CROSS-GATE"
+      ],
+      "required_law_source_ids": [
+        "LAW-006"
+      ],
+      "stem": "09-条件性正式质证意见生成门",
+      "title": "条件性正式质证意见生成门"
+    }
+  ],
+  "editable_format": "markdown",
+  "formal_cross": {
+    "cross_plan_allowed": true,
+    "formal_opinion_generation_allowed": false,
+    "gate_template_status": "DISABLED-NO-OPPONENT-EVIDENCE",
+    "opponent_evidence_received": false
+  },
+  "generated_at": "2026-07-20T05:52:51Z",
+  "modes": [
+    "production-intake",
+    "retrospective-benchmark"
+  ],
+  "platform_profile": "markdown-only-lite",
+  "release": {
+    "desktop_package_independent_acceptance": "PENDING",
+    "external_publish_authorized": false,
+    "install_authorized": false,
+    "local_desktop_package_authorized": true,
+    "local_geo_layer_authorized": true,
+    "production_promotion_authorized": false,
+    "stage11_independent_acceptance": "ACCEPT-WITH-NONBLOCKING-OBSERVATIONS"
+  },
+  "schema_version": "1.0",
+  "scope": "买卖合同纠纷起诉与诉讼准备",
+  "source_binding": {
+    "case_applicability_status": "HOLD-REQUIRES-SSOT-FACT-DATE-MAPPING",
+    "law_source_ids": [
+      "LAW-001",
+      "LAW-002",
+      "LAW-003",
+      "LAW-004",
+      "LAW-005",
+      "LAW-006",
+      "LAW-007",
+      "LAW-008",
+      "LAW-009",
+      "LAW-010",
+      "LAW-011",
+      "LAW-012"
+    ],
+    "matrix": "Stage7b CURRENT-LAW-SOURCE-MATRIX",
+    "temporal_rule": "cutoff controls information visibility; applicable law requires fact-date and procedural-date routing"
+  },
+  "upstream_freezes": {
+    "stage7a_freeze_sha256": "e6359a7a2f18e0102fca251f7a55053c59af649b5b93a16ddc2c1d111454e599",
+    "stage7b_freeze_sha256": "df26b2de274d077d081b08b0fb1a4e9637aedb62d9ce2263d74fea2eedea660c",
+    "stage7b_payload_scope_sha256": "9a47ae22853f2a120d34da8d3f071ef0f9b4c351fc65892839bb895f2b132a9e"
+  },
+  "version": "1.0.1"
+}

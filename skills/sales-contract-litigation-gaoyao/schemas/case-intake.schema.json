@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gaoyao:sales-contract-litigation:case-intake:0.1",
+  "title": "买卖合同纠纷逐案接收",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["matter_code", "mode", "scope", "materials", "signals", "gates"],
+  "properties": {
+    "matter_code": {"type": "string", "pattern": "^MATTER-[A-Z0-9][A-Z0-9-]{1,31}$"},
+    "mode": {"enum": ["production-intake", "retrospective-benchmark"]},
+    "scope": {"const": "sales-contract-filing-and-preparation"},
+    "opponent_evidence_received": {"type": "boolean"},
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["material_id", "sha256", "readability", "set"],
+        "properties": {
+          "material_id": {"type": "string", "pattern": "^MAT-[0-9]{3,}$"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "readability": {"enum": ["pass", "hold-ocr", "hold-conversion", "hold-missing-pages"]},
+          "set": {"enum": ["input", "answer-closed", "hindsight-closed", "work-product-closed"]},
+          "logical_locator": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "signals": {
+      "type": "object",
+      "additionalProperties": {"type": "boolean"},
+      "properties": {
+        "sale_agreement_verified": {"type": "boolean"},
+        "delivery_or_acceptance_verified": {"type": "boolean"},
+        "price_or_payment_schedule_verified": {"type": "boolean"},
+        "installment_terms_verified": {"type": "boolean"},
+        "title_retention_verified": {"type": "boolean"},
+        "reconciliation_verified": {"type": "boolean"},
+        "quality_or_quantity_dispute_present": {"type": "boolean"},
+        "guarantee_or_security_present": {"type": "boolean"},
+        "competing_cause_signals_present": {"type": "boolean"}
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["P0-1", "P0-2", "P0-3", "P0-4"],
+      "properties": {
+        "P0-1": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "P0-2": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "P0-3": {"enum": ["PASS", "HOLD", "FAIL"]},
+        "P0-4": {"enum": ["PASS", "HOLD", "FAIL"]}
+      }
+    },
+    "retrospective": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cutoff": {"type": ["string", "null"]},
+        "cutoff_primary_verified": {"type": "boolean"},
+        "answer_key_isolated": {"type": "boolean"},
+        "draft_freeze_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "answer_key_unsealed_at": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

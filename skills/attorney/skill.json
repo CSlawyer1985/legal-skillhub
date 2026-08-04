@@ -1,0 +1,51 @@
+{
+  "name": "attorney",
+  "version": "1.0.0",
+  "description": "A comprehensive AI agent skill for navigating situations that require or may require an attorney. Covers when to hire, finding the right specialist, consultation preparation, fee structures, working effectively with legal representation, and knowing when to change attorneys.",
+  "author": "AGIstack",
+  "license": "MIT-0",
+  "homepage": "https://clawhub.ai",
+  "keywords": [
+    "attorney", "lawyer", "legal", "law", "litigation", "consultation",
+    "legal fees", "retainer", "legal advice", "find a lawyer",
+    "legal representation", "legal matter", "court", "dispute"
+  ],
+  "files": {
+    "skill.md": "skill.md",
+    "heartbeat.md": "heartbeat.md",
+    "examples.md": "examples.md"
+  },
+  "capabilities": {
+    "need_assessment": "Evaluates whether a legal situation requires professional representation",
+    "attorney_matching": "Identifies the correct legal specialty and what to look for in candidates",
+    "consultation_prep": "Prepares complete documentation and questions for attorney consultations",
+    "fee_understanding": "Explains all legal fee structures and what to clarify before signing",
+    "client_effectiveness": "Helps clients work efficiently with their attorneys to maximize value",
+    "matter_monitoring": "Tracks deadlines, progress, and communications throughout a legal matter"
+  },
+  "triggers": [
+    "attorney", "lawyer", "legal help", "need a lawyer", "find an attorney",
+    "legal advice", "legal matter", "legal dispute", "hire a lawyer",
+    "legal consultation", "legal fees", "retainer", "legal representation",
+    "attorney fees", "law firm", "legal issue", "do I need a lawyer",
+    "legal problem", "litigation", "lawsuit", "legal document"
+  ],
+  "heartbeat": {
+    "immediate": "Assess any new legal situation and identify urgent deadlines",
+    "weekly": "Active matter status check and upcoming deadline review",
+    "pre_meeting": "Prepare questions and documents before every attorney contact",
+    "on_document": "Decode any received legal document and identify required response",
+    "annual": "Legal housekeeping review of estate, contracts, and ongoing matters"
+  },
+  "audience": [
+    "Anyone facing a legal situation who is unsure whether they need an attorney",
+    "People preparing for their first attorney consultation",
+    "Clients wanting to work more efficiently with existing legal representation",
+    "Small business owners navigating legal matters without in-house counsel",
+    "Anyone who has received legal papers and does not know what to do"
+  ],
+  "openclaw": {
+    "primaryEnv": null,
+    "requires": {}
+  }
+}

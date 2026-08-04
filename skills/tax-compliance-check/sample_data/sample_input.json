@@ -1,0 +1,54 @@
+{
+  "company": {
+    "name": "星海实业有限公司",
+    "taxpayer_type": "一般纳税人",
+    "industry": "批发和零售业",
+    "period": "2025年度"
+  },
+  "facts": {
+    "vat": {
+      "output_invoice_amount": 11000000,
+      "declared_sales": 10000000,
+      "abnormal_invoices": false,
+      "non_deductible_items": ["集体福利采购"],
+      "non_deductible_transferred": false,
+      "export_involved": false,
+      "export_separated": false,
+      "invoice_compliant": true
+    },
+    "cit": {
+      "revenue": 10000000,
+      "salary_total": 2000000,
+      "meal_entertainment": 200000,
+      "advertising": 2000000,
+      "welfare": 1600000,
+      "union_fund": 30000,
+      "education_fund": 100000,
+      "rd_expense": 500000,
+      "rd_super_deduction_applied": false,
+      "related_party_transactions": false,
+      "tp_doc_prepared": false,
+      "preferential_applied": true
+    },
+    "iit": {
+      "salary_withheld": true,
+      "shareholder_loan_unpaid": true,
+      "service_fee_paid": 0,
+      "service_fee_withheld": true,
+      "year_end_bonus_optimized": true
+    },
+    "stamp": {
+      "contracts_signed": ["采购合同", "借款合同"],
+      "stamp_paid": false,
+      "capital_account_stamped": true
+    },
+    "invoice": {
+      "fake_invoice_risk": false,
+      "invoice_compliant": true
+    },
+    "filing": {
+      "late_filing": true,
+      "late_payment": false
+    }
+  }
+}

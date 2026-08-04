@@ -1,0 +1,248 @@
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+知识共享 署名-非商业性使用-禁止演绎 4.0 国际许可协议
+(CC BY-NC-ND 4.0)
+
+Copyright (c) 2026 游初 (You Chu). All Rights Reserved.
+版权所有 © 2026 游初 (You Chu)。保留一切权利。
+
+================================================================================
+LICENSE SUMMARY / 许可摘要
+================================================================================
+
+This work ("app-compliance-review" — the Plugin package for APP个人信息保护合规检查技能,
+including all skill files, law library references, article anchors, checklist,
+APK analysis scripts, report templates, remediation templates, and LICENSE) is
+licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
+International License (the "License" or "CC BY-NC-ND 4.0").
+
+本作品（"app-compliance-review"——APP个人信息保护合规检查技能插件包，包括其全部
+技能文件、法规依据库、条文锚定表、检查清单、APK分析脚本、报告模板、整改清单模板、
+LICENSE 等）依据《知识共享 署名-非商业性使用-禁止演绎 4.0 国际许可协议》
+（"CC BY-NC-ND 4.0"，下称"本许可"）授权。
+
+Full legal code / 许可全文:
+    https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+Human-readable summary / 通俗摘要:
+    https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh
+    https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+In case of any discrepancy between this document and the Creative Commons
+legal code, the legal code shall prevail.
+
+若本文件与 Creative Commons 许可全文存在歧义，以许可全文为准。
+
+--------------------------------------------------------------------------------
+You are FREE to / 您可以自由地：
+--------------------------------------------------------------------------------
+
+  Share / 分享 — copy and redistribute the material in this Work in any medium
+  or format, subject to the terms below.
+
+  以任何媒介或格式原样复制、发行本作品，须遵守下列条款。
+
+--------------------------------------------------------------------------------
+Under the FOLLOWING TERMS / 应遵守以下条款：
+--------------------------------------------------------------------------------
+
+  1. Attribution / 署名
+     You must give appropriate credit to the original author ("游初 / You Chu"),
+     provide a link to this License, and indicate if changes were made (but see
+     the NoDerivatives clause below — no adapted material may be distributed).
+
+     您必须给予适当署名（"游初 / You Chu"），提供指向本许可的链接，并注明是否作出
+     修改（但禁止演绎条款禁止您公开分发任何修改版本，详见下文）。
+
+  2. NonCommercial / 非商业性使用
+     You may NOT use this Work for commercial purposes. "Commercial purposes"
+     include, but are not limited to:
+
+     - Selling, sublicensing, renting, leasing, or offering the Work for a fee;
+     - Bundling the Work with any paid product, service, or subscription;
+     - Deploying the Work as part of a paid SaaS / API / hosted platform;
+     - Using the Work to render fee-charging legal services, consulting, or
+       training courses (whether internal or external);
+     - Using the Work in any activity primarily intended for or directed
+       toward commercial advantage or monetary compensation.
+
+     您不得将本作品用于商业目的。"商业目的"包括但不限于：
+
+     - 出售、再许可、租赁、出租或以付费方式提供本作品；
+     - 将本作品与任何付费产品、服务或订阅捆绑分发；
+     - 将本作品部署为付费 SaaS / API / 托管平台的组成部分；
+     - 使用本作品提供收费法律服务、咨询或培训课程（无论对内对外）；
+     - 任何主要以商业利益或金钱回报为目的的活动。
+
+  3. NoDerivatives / 禁止演绎
+     If you remix, transform, or build upon the Work, you may NOT distribute
+     the modified material. Private, non-distributed adaptation for personal
+     study is permitted; any public redistribution of adapted material is
+     strictly prohibited without prior written permission from the Author.
+
+     若您对本作品进行混合、转换或基于其创作，您不得分发修改后的材料。
+     仅用于个人学习的非公开修改允许；未经作者事先书面许可，严禁公开再分发
+     任何修改版本、翻译版本、节选版本或衍生版本。
+
+  4. No Additional Restrictions / 无附加限制
+     You may not apply legal terms or technological measures that legally
+     restrict others from doing anything the License permits.
+
+     您不得适用法律条款或采取技术措施，从而在法律上限制他人做本许可允许的事情。
+
+================================================================================
+COMMERCIAL LICENSING / 商业授权
+================================================================================
+
+For any use that falls outside the scope of CC BY-NC-ND 4.0 — including but
+not limited to commercial deployment, bundled resale, SaaS integration, paid
+consulting services incorporating this Work, or the creation and distribution
+of derivative works — you MUST obtain a separate commercial license from the
+Author before such use.
+
+任何超出 CC BY-NC-ND 4.0 授权范围的使用——包括但不限于商业化部署、捆绑转售、
+SaaS 集成、以本作品为核心的付费咨询服务、创作并分发衍生作品等——**必须**在使用
+之前另行取得作者签发的商业许可协议。
+
+Commercial license inquiries: / 商业授权咨询联系方式：
+
+    Author / 作者:   游初 (You Chu)
+    WeChat / 微信:   Cyruswcx
+    Email / 邮箱:    994559732@qq.com
+
+The Author reserves the exclusive right to grant commercial licenses on
+customized terms (including but not limited to enterprise licenses, OEM
+licenses, resale licenses, and academic institutional licenses). Any use of
+this Work for commercial purposes without a valid, written commercial license
+constitutes a material breach of this License and copyright infringement.
+
+作者保留就本作品签发商业许可的专有权利（包括但不限于企业授权、OEM 授权、
+转售授权、高校/研究机构团体授权等）。任何未取得有效书面商业许可即将本作品用于
+商业目的的行为，均构成对本许可的实质性违反和对著作权的侵犯。
+
+================================================================================
+ADDITIONAL TERMS / 附加条款
+================================================================================
+
+The following additional terms supplement the CC BY-NC-ND 4.0 License and
+apply to all use of this Work. In the event of any conflict between these
+additional terms and the CC BY-NC-ND 4.0 License, these additional terms
+shall govern to the maximum extent permitted by law.
+
+以下附加条款作为 CC BY-NC-ND 4.0 许可的补充，适用于对本作品的一切使用。若附加
+条款与 CC BY-NC-ND 4.0 许可存在冲突，在法律允许的最大范围内以附加条款为准。
+
+1. AI Training Prohibition / 禁止用于 AI 模型训练
+
+   You may NOT use this Work, in whole or in part, as training data,
+   fine-tuning data, embedding corpus, RAG knowledge base source, prompt
+   engineering material, or any other input for developing, training,
+   fine-tuning, evaluating, or benchmarking any machine learning model,
+   large language model, or artificial intelligence system, whether for
+   commercial or non-commercial purposes, WITHOUT the Author's prior
+   written consent.
+
+   未经作者事先书面同意，您不得将本作品的全部或任何部分用作训练数据、
+   微调数据、向量库素材、RAG 知识库来源、提示词工程材料或任何其他输入，
+   以开发、训练、微调、评估或基准测试任何机器学习模型、大语言模型或人工智能
+   系统，无论用于商业或非商业目的。
+
+   Note: This restriction does not prohibit end-users from **invoking** this
+   Skill through their own agentic AI runtime (e.g., QoderWork, Cursor, Claude
+   Code, etc.) for personal, non-commercial APP compliance review; it only
+   prohibits ingesting the Work into model weights, embeddings, or fine-tuning
+   pipelines.
+
+   注：本条款不禁止终端用户在自己的 agentic AI 运行时（如 QoderWork、Cursor、
+   Claude Code 等）中调用本 skill 进行个人、非商业的APP合规审查；仅禁止
+   将本作品灌入模型权重、向量嵌入或微调管道。
+
+2. Redistribution to Paid Platforms Prohibition / 禁止再分发到收费平台
+
+   You may NOT upload, submit, or otherwise distribute this Work, in whole
+   or in part, to any commercial marketplace, paid content repository, or
+   subscription-gated platform (including but not limited to skill/plugin
+   marketplaces of commercial AI IDEs, paywalled document platforms, and
+   paid course platforms), whether or not the Work itself is offered for a
+   fee on such platform.
+
+   您不得将本作品的全部或任何部分上传、提交或以其他方式分发至任何商业市场、
+   付费内容库或订阅制平台（包括但不限于商业 AI IDE 的技能/插件市场、付费文档
+   平台、付费课程平台），无论本作品在该平台上是否单独收费。
+
+3. Enterprise / Governmental Use Prohibition / 企业与行政机关使用限制
+
+   Use of this Work by any legal person for internal enterprise legal
+   operations, government administrative enforcement, judicial adjudication,
+   or professional service delivery constitutes commercial use and requires
+   a separate written enterprise license from the Author. Individual employees
+   or officers using the Work purely for personal skill development on their
+   own time are exempt.
+
+   任何法人主体将本作品用于企业内部法务运营、行政机关执法办案、司法审判活动或
+   专业服务交付的场景，均构成商业使用，须另行取得作者签发的书面企业授权协议。
+   企业员工或行政机关工作人员在个人业余时间纯粹为提升个人技能而使用本作品
+   的除外。
+
+4. Academic Citation / 学术引用规范
+
+   Academic use for classroom teaching, personal study, non-commercial
+   research, and scholarly publication is permitted under the base CC
+   BY-NC-ND 4.0 terms, provided that any citation in academic works uses
+   the following recommended format:
+
+   本作品在课堂教学、个人学习、非商业性学术研究、学术出版中的使用受基础
+   CC BY-NC-ND 4.0 条款保护，学术引用时建议采用如下格式：
+
+       游初. app-compliance-review: APP个人信息保护合规检查技能 [Plugin Package].
+       Version 1.0.0. 2026.
+       Available at: <github.com/Youchu-lawhub>
+
+5. No Endorsement / 禁止背书
+
+   The name "游初" / "You Chu" and any trademarks, logos, or trade dress
+   associated with this Work may NOT be used to endorse, promote, or imply
+   affiliation with any product, service, publication, or organization
+   without the Author's prior written consent.
+
+   未经作者事先书面同意，不得使用"游初" / "You Chu"之名义或与本作品相关的任何
+   商标、标识、装潢，为任何产品、服务、出版物或组织背书、推广或暗示关联关系。
+
+6. Reservation of Rights / 权利保留
+
+   All rights not expressly granted to you under this License are reserved
+   by the Author. Nothing in this License shall be construed as a waiver
+   of the Author's moral rights, right of attribution, or right of integrity.
+
+   本许可未明确授予您的一切权利均由作者保留。本许可任何条款均不应解释为对作者
+   署名权、修改权、保护作品完整权等著作人身权的放弃。
+
+================================================================================
+DISCLAIMER / 免责声明
+================================================================================
+
+THIS WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THIS WORK OR THE USE OR OTHER DEALINGS IN THIS WORK.
+
+本作品按"现状"提供，作者不作任何明示或默示担保，包括但不限于对适销性、特定
+用途适用性和非侵权性的担保。作者对因本作品或本作品的使用、其他交易而产生的
+任何主张、损害或其他责任概不承担，无论该等责任源于合同、侵权或其他事由。
+
+This Skill package is NOT legal advice. It is a compliance review framework
+for AI-assisted APP personal information protection assessment. Outputs
+generated with the assistance of this Skill must be independently verified
+by a qualified legal professional before being relied upon in any real-world
+compliance decision, regulatory response, or legal proceeding. The legal
+references cited in this Work are based on verification as of the date of
+publication; laws and regulations are subject to ongoing amendment.
+
+本技能包不构成任何法律意见，仅作为面向 AI 辅助APP个人信息保护合规审查的分析
+框架工具。在本技能包辅助下生成的任何输出，在被用于真实合规决策、监管应对或
+法律事务之前，必须经执业资格法律专业人士独立核实。本作品引用的法律法规依据
+基于发布之日的核验结果，法律法规持续修订更新。
+
+================================================================================
+END OF LICENSE / 许可协议结束
+================================================================================

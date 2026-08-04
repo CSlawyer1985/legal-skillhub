@@ -1,0 +1,2 @@
+# 专利年费监控+IP资产台账 依赖
+# coze_workload_identity 已预装，无需额外依赖

@@ -1,0 +1,139 @@
+{
+  "_description": "法院文书期限规则库。当 court-sms 识别到文书类型时，自动查表生成对应的日历 + 系统通知 + QQ 邮件提醒。",
+  "_usage": "由 court_deadline_reminder.py 在文书归档完成后自动读取、匹配、设置提醒。",
+  "_extend": "新增文书类型在此 JSON 中追加条目即可，无需改代码。",
+
+  "rules": [
+    {
+      "id": "appeal_civil_judgment",
+      "match": { "document_type": "判决书", "tags": ["民事", "行政"] },
+      "deadline": { "value": 15, "unit": "日", "description": "提起上诉" },
+      "reminders": [
+        { "before_days": 2, "level": "warning", "label": "上诉期限还剩2天" },
+        { "before_days": 0, "level": "critical", "label": "上诉期限今天截止" }
+      ],
+      "calendar": { "title": "⏰ 上诉截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "appeal_criminal_judgment",
+      "match": { "document_type": "判决书", "tags": ["刑事"] },
+      "deadline": { "value": 10, "unit": "日", "description": "提起上诉（刑事）" },
+      "reminders": [
+        { "before_days": 2, "level": "warning", "label": "上诉期限还剩2天" },
+        { "before_days": 0, "level": "critical", "label": "上诉期限今天截止" }
+      ],
+      "calendar": { "title": "⏰ 上诉截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "appeal_civil_ruling",
+      "match": { "document_type": "裁定书", "tags": ["民事", "行政"] },
+      "deadline": { "value": 10, "unit": "日", "description": "对裁定提起上诉" },
+      "reminders": [
+        { "before_days": 2, "level": "warning", "label": "上诉期限还剩2天" },
+        { "before_days": 0, "level": "critical", "label": "上诉期限今天截止" }
+      ],
+      "calendar": { "title": "⏰ 上诉截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "appeal_criminal_ruling",
+      "match": { "document_type": "裁定书", "tags": ["刑事"] },
+      "deadline": { "value": 5, "unit": "日", "description": "对裁定提起上诉（刑事）" },
+      "reminders": [
+        { "before_days": 2, "level": "warning", "label": "上诉期限还剩2天" },
+        { "before_days": 0, "level": "critical", "label": "上诉期限今天截止" }
+      ],
+      "calendar": { "title": "⏰ 上诉截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "preservation_freeze",
+      "match": { "document_type": "裁定书", "tags": ["冻结", "银行存款"] },
+      "deadline": { "value": 365, "unit": "日", "description": "冻结期满，需申请续冻" },
+      "reminders": [
+        { "before_days": 30, "level": "critical", "label": "⛔ 银行存款冻结将到期！请立即申请续冻！" },
+        { "before_days": 14, "level": "warning", "label": "银行存款冻结将在14天后到期" },
+        { "before_days": 7, "level": "warning", "label": "银行存款冻结将在7天后到期" },
+        { "before_days": 0, "level": "critical", "label": "⛔⛔ 银行存款冻结今日到期！如未续冻，冻结效力消灭！" }
+      ],
+      "calendar": { "title": "⛔ 续冻截止：{case_type}", "all_day": true },
+      "note": "保全类必须提前处理，不可等到最后一天！建议在收到裁定后立即在日历中标注。"
+    },
+    {
+      "id": "preservation_seal",
+      "match": { "document_type": "裁定书", "tags": ["查封", "不动产"] },
+      "deadline": { "value": 1095, "unit": "日", "description": "查封期满，需申请续封" },
+      "reminders": [
+        { "before_days": 30, "level": "critical", "label": "⛔ 不动产查封将到期！请立即申请续封！" },
+        { "before_days": 14, "level": "warning", "label": "不动产查封将在14天后到期" },
+        { "before_days": 7, "level": "warning", "label": "不动产查封将在7天后到期" },
+        { "before_days": 0, "level": "critical", "label": "⛔⛔ 不动产查封今日到期！如未续封，查封效力消灭！" }
+      ],
+      "calendar": { "title": "⛔ 续封截止：{case_type}", "all_day": true },
+      "note": "查封续期必须提前30天申请，到期待处理将导致查封失效！"
+    },
+    {
+      "id": "evidence_deadline",
+      "match": { "document_type": "举证通知书" },
+      "deadline": { "value": 15, "unit": "日", "description": "举证期限届满" },
+      "reminders": [
+        { "before_days": 5, "level": "warning", "label": "举证期限还剩5天" },
+        { "before_days": 1, "level": "critical", "label": "举证期限仅剩1天！" }
+      ],
+      "calendar": { "title": "📝 举证截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "defense_deadline",
+      "match": { "document_type": "起诉状" },
+      "deadline": { "value": 15, "unit": "日", "description": "提交答辩状" },
+      "reminders": [
+        { "before_days": 3, "level": "warning", "label": "答辩期限还剩3天" },
+        { "before_days": 0, "level": "critical", "label": "答辩期限今天截止！" }
+      ],
+      "calendar": { "title": "📬 答辩截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "enforcement_deadline",
+      "match": { "document_type": "生效法律文书", "tags": ["判决书", "裁定书", "调解书"] },
+      "deadline": { "value": 730, "unit": "日", "description": "申请强制执行" },
+      "reminders": [
+        { "before_days": 30, "level": "critical", "label": "⚠️ 强制执行申请期限还剩30天" },
+        { "before_days": 7, "level": "critical", "label": "⚠️ 强制执行申请期限仅剩7天！" }
+      ],
+      "calendar": { "title": "⚡ 执行申请截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "retrial_deadline",
+      "match": { "document_type": "判决书", "tags": ["生效", "再审"] },
+      "deadline": { "value": 180, "unit": "日", "description": "申请再审" },
+      "reminders": [
+        { "before_days": 30, "level": "warning", "label": "再审申请期限还剩30天" },
+        { "before_days": 7, "level": "critical", "label": "再审申请期限仅剩7天！" }
+      ],
+      "calendar": { "title": "🔄 再审申请截止：{case_type}", "all_day": true }
+    },
+    {
+      "id": "jurisdiction_appeal",
+      "match": { "document_type": "裁定书", "tags": ["管辖权异议"] },
+      "deadline": { "value": 10, "unit": "日", "description": "对管辖权异议裁定上诉" },
+      "reminders": [
+        { "before_days": 2, "level": "warning", "label": "管辖权异议上诉期限还剩2天" },
+        { "before_days": 0, "level": "critical", "label": "管辖权异议上诉期限今天截止！" }
+      ],
+      "calendar": { "title": "🏛️ 管辖权异议上诉截止", "all_day": true }
+    },
+    {
+      "id": "fee_payment",
+      "match": { "document_type": "受理通知书" },
+      "deadline": { "value": 7, "unit": "日", "description": "缴纳诉讼费" },
+      "reminders": [
+        { "before_days": 3, "level": "warning", "label": "诉讼费缴纳还剩3天" },
+        { "before_days": 1, "level": "critical", "label": "⚠️ 诉讼费缴纳仅剩1天！逾期按撤诉处理！" }
+      ],
+      "calendar": { "title": "📋 缴纳诉讼费截止", "all_day": true }
+    }
+  ],
+
+  "matching_logic": {
+    "description": "匹配优先级：按 rules 数组顺序逐条匹配，首次命中即停止。document_type 必须完全匹配，tags 中任一关键词在文书标题或正文中出现即视为匹配。",
+    "example": "文书标题='民事裁定书（冻结）' → document_type='裁定书' + tags['民事','冻结'] → 命中 preservation_freeze"
+  }
+}

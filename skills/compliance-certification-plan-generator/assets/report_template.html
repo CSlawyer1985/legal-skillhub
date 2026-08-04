@@ -1,0 +1,1909 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智能家居无线网关 合规认证计划报告 V3.7</title>
+  <!-- html2canvas + jsPDF（独立版，支持自定义页面尺寸） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    /* ===== CSS 变量 ===== */
+    :root {
+      --blue-dark: #0a2e6e;
+      --blue-main: #1565c0;
+      --blue-light: #1e88e5;
+      --blue-pale: #e3f0ff;
+      --text-dark: #1e2d45;
+      --text-mid: #374869;
+      --text-muted: #546e8a;
+      --border: #d0e3f8;
+      --bg: #f0f4f9;
+      --white: #ffffff;
+      --radius: 14px;
+      --shadow: 0 4px 20px rgba(21,101,192,.10);
+      --transition: .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ===== 全局重置 ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; scroll-behavior: smooth; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.75;
+    }
+
+    /* ===== 顶部导航 ===== */
+    .topbar {
+      background: linear-gradient(135deg, #0a2e6e 0%, #1565c0 60%, #1e88e5 100%);
+      color: #fff;
+      padding: 0 40px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 16px rgba(10,46,110,.4);
+    }
+    .topbar .brand { font-size: 1rem; font-weight: 700; letter-spacing: .04em; opacity: .95; }
+    .topbar .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .topbar .meta-badges { display: flex; gap: 8px; }
+    .topbar .badge {
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-size: .75rem;
+      letter-spacing: .03em;
+    }
+
+    /* ===== PDF下载按钮（导航栏内） ===== */
+    .btn-pdf-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.5);
+      color: #fff;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: .03em;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+    .btn-pdf-nav:hover { background: rgba(255,255,255,.38); }
+    .btn-pdf-nav .icon { font-size: .9rem; }
+
+    /* ===== 悬浮PDF按钮 ===== */
+    .fab-pdf {
+      position: fixed;
+      right: 28px;
+      bottom: 40px;
+      z-index: 990;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .fab-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 16px rgba(10,46,110,.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .fab-btn:hover { transform: translateY(-3px) scale(1.07); box-shadow: 0 8px 24px rgba(10,46,110,.4); }
+    .fab-btn.pdf { background: linear-gradient(135deg,#e53935,#c62828); color: #fff; }
+    .fab-btn.top { background: linear-gradient(135deg,#1565c0,#0a2e6e); color: #fff; font-size: 1rem; }
+    .fab-label { font-size: .68rem; color: var(--text-muted); font-weight: 600; }
+
+    /* ===== PDF 进度遮罩 ===== */
+    .pdf-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(10,30,70,.65);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .pdf-overlay.active { display: flex; }
+    .pdf-modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 44px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+      min-width: 280px;
+    }
+    .pdf-modal .pdf-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .pdf-modal h3 { font-size: 1.05rem; color: var(--blue-dark); margin-bottom: 8px; }
+    .pdf-modal p { font-size: .85rem; color: var(--text-muted); }
+    .pdf-spinner {
+      width: 40px; height: 40px;
+      border: 4px solid #e3ecf8;
+      border-top-color: var(--blue-light);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 16px auto 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ===== 封面 ===== */
+    .cover {
+      background: linear-gradient(160deg, #0a2e6e 0%, #1565c0 50%, #1e88e5 100%);
+      color: #fff;
+      padding: 80px 40px 68px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    /* V3.4 新增：封面叠加半透明遮罩，确保文字在任何背景下都清晰可读 */
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(10,46,110,0.55) 0%, rgba(21,101,192,0.35) 50%, rgba(30,136,229,0.45) 100%);
+      pointer-events: none;
+    }
+    .cover-inner {
+      position: relative;
+      animation: coverFadeUp .9s ease both;
+    }
+    @keyframes coverFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cover .tip-badge {
+      display: inline-block;
+      background: rgba(255,220,80,.22);
+      border: 1px solid rgba(255,220,80,.55);
+      color: #ffe57f;
+      border-radius: 20px;
+      padding: 4px 18px;
+      font-size: .8rem;
+      margin-bottom: 20px;
+      letter-spacing: .05em;
+    }
+    .cover h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-shadow: 0 2px 8px rgba(0,0,0,.35);
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+    .cover .meta-grid {
+      display: inline-grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 12px 36px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 16px;
+      padding: 20px 36px;
+      text-align: left;
+    }
+    .cover .meta-item { display: flex; flex-direction: column; }
+    .cover .meta-label { font-size: .72rem; opacity: .7; letter-spacing: .08em; text-transform: uppercase; }
+    .cover .meta-value { font-size: .95rem; font-weight: 600; margin-top: 2px; }
+
+    /* ===== 进度条（封面下方） ===== */
+    .progress-bar-wrap {
+      background: rgba(255,255,255,.12);
+      border-radius: 0;
+      height: 4px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ffe57f, #64b5f6);
+      width: 0;
+      animation: progressLoad 1.4s .4s ease forwards;
+    }
+    @keyframes progressLoad { to { width: 100%; } }
+
+    /* ===== 目录 ===== */
+    .toc-section {
+      background: var(--white);
+      max-width: 1100px;
+      margin: 32px auto 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 36px;
+    }
+    .toc-section h2 { font-size: 1rem; font-weight: 700; color: var(--blue-main); margin-bottom: 16px; letter-spacing: .05em; }
+    .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; }
+    .toc-list a { color: var(--blue-main); text-decoration: none; font-size: .88rem; transition: color .2s, padding-left .2s; display: block; padding: 3px 0; }
+    .toc-list a:hover { color: var(--blue-dark); padding-left: 6px; }
+
+    /* ===== 主容器 ===== */
+    .container {
+      max-width: 1100px;
+      margin: 24px auto 60px;
+      padding: 0 16px;
+    }
+
+    /* ===== 章节卡片（带进入动画） ===== */
+    .section-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease, box-shadow .25s;
+    }
+    .section-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-card:hover {
+      box-shadow: 0 8px 32px rgba(21,101,192,.15);
+    }
+    .section-header {
+      background: linear-gradient(90deg, #1565c0 0%, #1e88e5 100%);
+      color: #fff;
+      padding: 17px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-header .sec-num {
+      background: rgba(255,255,255,.25);
+      border-radius: 8px;
+      padding: 2px 10px;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+    .section-header h2 { font-size: 1.1rem; font-weight: 700; letter-spacing: .04em; }
+    .section-body { padding: 26px 28px; }
+
+    /* ===== 子章节 ===== */
+    .sub-section { margin-bottom: 30px; }
+    .sub-section:last-child { margin-bottom: 0; }
+    .sub-title {
+      font-size: .98rem;
+      font-weight: 700;
+      color: #0d47a1;
+      border-left: 4px solid var(--blue-light);
+      padding-left: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* ===== 正文 ===== */
+    .prose { font-size: .9rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+    .prose strong { color: #0d47a1; }
+
+    /* ===== 策略列表 ===== */
+    .strategy-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .strategy-list li {
+      background: #f0f6ff;
+      border-left: 4px solid var(--blue-light);
+      border-radius: 0 8px 8px 0;
+      padding: 9px 14px;
+      font-size: .88rem;
+      color: #2c3e6b;
+      transition: background .2s;
+    }
+    .strategy-list li:hover { background: #ddeeff; }
+    .strategy-list li strong { color: #0d47a1; }
+
+    /* ===== 表格 ===== */
+    .table-wrap { overflow-x: auto; margin: 10px 0; border-radius: 10px; box-shadow: 0 1px 8px rgba(21,101,192,.07); }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    thead tr { background: linear-gradient(90deg, #1565c0, #1e88e5); color: #fff; }
+    thead th {
+      padding: 11px 13px;
+      text-align: left;
+      font-weight: 600;
+      white-space: nowrap;
+      letter-spacing: .03em;
+    }
+    tbody tr { border-bottom: 1px solid #e3ecf8; transition: background .15s; }
+    tbody tr:nth-child(even) { background: #f5f9ff; }
+    tbody tr:hover { background: #ddeeff; }
+    tbody td { padding: 9px 13px; vertical-align: middle; line-height: 1.55; }
+    .badge-m { display: inline-block; background: #e53935; color: #fff; border-radius: 4px; padding: 1px 7px; font-size: .72rem; font-weight: 700; }
+    .badge-r { display: inline-block; background: var(--blue-light); color: #fff; border-radius: 4px; padding: 1px 7px; font-size: .72rem; font-weight: 700; }
+    .badge-h { display: inline-block; background: #f44336; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: .72rem; font-weight: 700; }
+    .badge-med { display: inline-block; background: #fb8c00; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: .72rem; font-weight: 700; }
+    .badge-l { display: inline-block; background: #43a047; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: .72rem; font-weight: 700; }
+    .badge-pri-h { display: inline-block; background: var(--blue-main); color: #fff; border-radius: 4px; padding: 1px 7px; font-size: .72rem; }
+    .badge-pri-m { display: inline-block; background: #26a69a; color: #fff; border-radius: 4px; padding: 1px 7px; font-size: .72rem; }
+    td strong { color: #0d47a1; }
+
+    /* ===== 阶段卡片 ===== */
+    .phase-card {
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border:1px solid var(--border);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .phase-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(21,101,192,.13); }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 20px;
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .phase-1 .phase-header { background: linear-gradient(90deg,#1565c0,#42a5f5); color:#000; }
+    .phase-2 .phase-header { background: linear-gradient(90deg,#f9a825,#ffca28); color: #3e2e00; }
+    .phase-3 .phase-header { background: linear-gradient(90deg,#e65100,#ff8f00); color:#000; }
+    .phase-4 .phase-header { background: linear-gradient(90deg,#c62828,#ef5350); color:#000; }
+    .phase-5 .phase-header { background: linear-gradient(90deg,#2e7d32,#66bb6a); color:#000; }
+    .phase-body { padding: 16px 20px 8px; background: var(--white); }
+    .milestone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px 0 8px;
+      padding: 10px 16px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      border-left: 4px solid #43a047;
+      font-size: .88rem;
+      font-weight: 600;
+      color: #1b5e20;
+    }
+
+    /* ===== 甘特图 ===== */
+    .gantt-wrap {
+      background: #f7faff;
+      border-radius: var(--radius);
+      padding: 0;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+    }
+    .gantt-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+      font-size: .82rem;
+    }
+    .gantt-table .g-head-row th {
+      background: linear-gradient(90deg, #0d2d6a 0%, #1565c0 100%);
+      color: #fff;
+      padding: 10px 8px;
+      font-weight: 600;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.15);
+      white-space: nowrap;
+      letter-spacing: .03em;
+    }
+    .gantt-table .g-head-row th:first-child { text-align: left; padding-left: 16px; min-width: 180px; }
+    .gantt-table .g-head-row th.month-col { min-width: 56px; font-size: .75rem; }
+    .gantt-table tbody tr { border-bottom: 1px solid #e3ecf8; transition: background .15s; }
+    .gantt-table tbody tr:hover { background: #eaf3ff; }
+    .gantt-table .g-label {
+      padding: 8px 14px;
+      font-weight: 600;
+      color: #0d47a1;
+      white-space: nowrap;
+      background: #f0f6ff;
+      border-right: 2px solid #c5d9f5;
+    }
+    .gantt-table .g-label.g-phase-label {
+      font-size: .86rem;
+      font-weight: 700;
+      color: #000;
+      padding: 8px 14px;
+      border-right: 2px solid rgba(255,255,255,.25);
+    }
+    .gantt-table .g-label.sub-label {
+      padding-left: 26px;
+      font-weight: 500;
+      font-size: .8rem;
+      color: #2c5282;
+      background: #f7fbff;
+    }
+    .gantt-table .g-cell {
+      padding: 5px 3px;
+      text-align: center;
+      border-right: 1px solid #e8f0fb;
+      position: relative;
+    }
+
+    /* 甘特条形动画 */
+    .g-bar {
+      display: block;
+      height: 17px;
+      border-radius: 4px;
+      width: 0;
+      transition: width .8s cubic-bezier(.4,0,.2,1);
+    }
+    .g-bar.animated {
+      width: 100%;
+    }
+    .g-bar.g-bar-half.animated {
+      width: 55%;
+    }
+    .g-bar-full  { opacity: .88; }
+    .g-bar-half  { opacity: .72; }
+
+    .g-milestone-cell {
+      color: #1b5e20;
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1;
+      animation: milestoneGlow 1.5s 1.5s ease both;
+    }
+    @keyframes milestoneGlow {
+      0%   { text-shadow: 0 0 0 rgba(67,160,71,0); transform: scale(1); }
+      50%  { text-shadow: 0 0 12px rgba(67,160,71,.8); transform: scale(1.6); }
+      100% { text-shadow: 0 0 0 rgba(67,160,71,0); transform: scale(1); }
+    }
+
+    /* 各阶段颜色 */
+    .ph1 { color: #1e88e5; }
+    .ph2 { color: #f9a825; }
+    .ph3 { color: #e65100; }
+    .ph4 { color: #c62828; }
+    .ph5 { color: #2e7d32; }
+    /* 阶段标题行背景 */
+    .gantt-table .row-ph1 { background: linear-gradient(90deg,#1565c0,#42a5f5); }
+    .gantt-table .row-ph2 { background: linear-gradient(90deg,#f9a825,#ffca28); }
+    .gantt-table .row-ph3 { background: linear-gradient(90deg,#e65100,#ff8f00); }
+    .gantt-table .row-ph4 { background: linear-gradient(90deg,#c62828,#ef5350); }
+    .gantt-table .row-ph5 { background: linear-gradient(90deg,#2e7d32,#66bb6a); }
+
+    .gantt-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 10px 16px;
+      background: #f0f6ff;
+      border-top: 1px solid var(--border);
+      border-radius: 0 0 var(--radius) var(--radius);
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+    .gantt-legend-item { display: flex; align-items: center; gap: 6px; }
+    .g-leg-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+    .g-leg-m { font-size: 1rem; }
+
+    /* ===== 预算卡片 ===== */
+    .budget-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .budget-card {
+      border-radius: 12px;
+      padding: 20px 20px 16px;
+      border: 1px solid #c5d9f5;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .budget-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(21,101,192,.15); }
+    .budget-card::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .budget-card.bc-base::before { background: var(--blue-light); }
+    .budget-card.bc-std::before  { background: var(--blue-main); }
+    .budget-card.bc-full::before { background: var(--blue-dark); }
+    .budget-card .bc-label { font-size: .78rem; color: var(--text-muted); margin-bottom: 6px; }
+    .budget-card .bc-price { font-size: 1.45rem; font-weight: 800; color: #0d47a1; line-height: 1.2; }
+    .budget-card .bc-note  { font-size: .75rem; color: #78909c; margin-top: 8px; }
+
+    /* ===== 预算饼图 ===== */
+    .pie-chart-wrap {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      background: #f0f6ff;
+      border-radius: 12px;
+      padding: 22px 28px;
+      margin: 16px 0;
+    }
+    .pie-svg { flex-shrink: 0; }
+    .pie-legend { display: flex; flex-direction: column; gap: 9px; }
+    .pie-legend-item { display: flex; align-items: center; gap: 10px; font-size: .84rem; }
+    .pie-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+
+    /* 饼图扇区动画延迟 */
+    .pie-sector.animated-0 { transition-delay: .2s; }
+    .pie-sector.animated-1 { transition-delay: .55s; }
+    .pie-sector.animated-2 { transition-delay: .85s; }
+    .pie-sector.animated-3 { transition-delay: 1.1s; }
+    .pie-sector.animated-4 { transition-delay: 1.3s; }
+
+    /* ===== 风险卡片 ===== */
+    .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .risk-card {
+      border-radius: 10px;
+      padding: 15px 17px;
+      border-left: 5px solid;
+      background: var(--white);
+      box-shadow: 0 1px 6px rgba(21,101,192,.08);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .risk-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(21,101,192,.14); }
+    .risk-card.risk-h { border-color: #e53935; background: #fff5f5; }
+    .risk-card.risk-m { border-color: #fb8c00; background: #fff8f0; }
+    .risk-card .risk-type { font-size: .72rem; font-weight: 700; letter-spacing: .06em; margin-bottom: 4px; }
+    .risk-card.risk-h .risk-type { color: #c62828; }
+    .risk-card.risk-m .risk-type { color: #e65100; }
+    .risk-card .risk-desc { font-size: .85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+    .risk-card .risk-mitigation { font-size: .8rem; color: var(--text-muted); }
+    .risk-card .risk-mitigation::before { content: "💡 "; }
+
+    /* ===== 时间线 ===== */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: "";
+      position: absolute; left: 11px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--blue-light), #a5d6a7);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .tl-item.visible { opacity: 1; transform: translateX(0); }
+    .tl-item::before {
+      content: "";
+      position: absolute; left: -25px; top: 7px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--blue-main);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--blue-main);
+    }
+    .tl-item .tl-date  { font-size: .75rem; color: #78909c; font-weight: 600; }
+    .tl-item .tl-title { font-size: .9rem;  font-weight: 700; color: #0d47a1; }
+    .tl-item .tl-note  { font-size: .8rem;  color: var(--text-muted); }
+
+    /* ===== 警示框 ===== */
+    .alert-box {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+      border-radius: 0 8px 8px 0;
+      padding: 13px 16px;
+      font-size: .86rem;
+      color: #5d4037;
+      margin: 14px 0;
+    }
+    .alert-box strong { color: #e65100; }
+
+    /* ===== 附录 ===== */
+    .appendix-header {
+      background: linear-gradient(90deg, #0a2e6e, #1565c0);
+      color: #fff;
+      padding: 17px 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .appendix-header h2 { font-size: 1.05rem; font-weight: 700; }
+
+    /* ===== 页脚 ===== */
+    footer {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,.65);
+      text-align: center;
+      padding: 24px 16px;
+      font-size: .78rem;
+      letter-spacing: .03em;
+    }
+    footer span { color: rgba(255,255,255,.88); font-weight: 600; }
+
+    /* ===== 动画工具类 ===== */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 768px) {
+      .topbar { padding: 0 16px; }
+      .topbar .meta-badges { display: none; }
+      .cover { padding: 52px 16px 44px; }
+      .cover h1 { font-size: 1.45rem; }
+      .cover .meta-grid { grid-template-columns: 1fr 1fr; gap: 10px 18px; padding: 16px 20px; }
+      .container { padding: 0 8px; }
+      .section-body { padding: 16px 14px; }
+      .budget-cards { grid-template-columns: 1fr; }
+      .risk-grid { grid-template-columns: 1fr; }
+      .toc-list { grid-template-columns: 1fr; }
+      .pie-chart-wrap { flex-direction: column; }
+      .fab-pdf { right: 16px; bottom: 24px; }
+    }
+
+    /* ===== PDF打印样式 ===== */
+    @media print {
+      .topbar, .fab-pdf, .btn-pdf-nav, .pdf-overlay { display: none !important; }
+      body { background: #fff; font-size: 12px; }
+      .cover { padding: 40px 24px; }
+      .cover h1 { font-size: 1.5rem; }
+      .section-card {
+        box-shadow: none !important;
+        border:1px solid #ccc;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 16px;
+      }
+      .gantt-table { min-width: 100%; font-size: .72rem; }
+      .g-bar { width: 100% !important; }
+      .g-bar.g-bar-half { width: 55% !important; }
+      .budget-cards { grid-template-columns: repeat(3, 1fr); }
+      .tl-item { opacity: 1 !important; transform: none !important; }
+      .phase-card { page-break-inside: avoid; }
+    }
+
+    /* ===== PDF专用覆盖样式 ===== */
+    .pdf-rendering .topbar,
+    .pdf-rendering .fab-pdf,
+    .pdf-rendering .btn-pdf-nav,
+    .pdf-rendering .pdf-overlay { display: none !important; }
+    .pdf-rendering .section-card {
+      opacity: 1 !important;
+      transform: none !important;
+      page-break-inside: avoid;
+    }
+    .pdf-rendering .g-bar {
+      width: 100% !important;
+    }
+    .pdf-rendering .g-bar.g-bar-half {
+      width: 55% !important;
+    }
+    .pdf-rendering .tl-item {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .pdf-rendering .fade-in-up {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* ===== PDF A4 专属样式（V3.5封面z-index分层版）===== */
+    #pdf-print-area {
+      /* 正常模式下无特殊限制 */
+    }
+    .pdf-rendering #pdf-print-area {
+      width: 900px;           /* 略微加宽，给甘特图更多空间 */
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 14px;
+      background: #fff;
+    }
+    /* 修复：封面z-index分层，背景在下层，文字在上层 */
+    .pdf-rendering .cover {
+      padding: 52px 36px 44px;
+      position: relative;
+      z-index: 0;
+    }
+    /* 封面背景渐变 → 图层 z-index: -2（最底层）*/
+    .pdf-rendering .cover::before {
+      z-index: -2 !important;
+      opacity: 1 !important;
+    }
+    .pdf-rendering .cover-overlay {
+      z-index: -1 !important;
+      background: linear-gradient(160deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.35) 100%) !important;
+    }
+    /* 封面所有文字内容 → 图层 z-index: 2（最顶层）*/
+    .pdf-rendering .cover-inner {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .pdf-rendering .cover .tip-badge,
+    .pdf-rendering .cover h1,
+    .pdf-rendering .cover .meta-grid,
+    .pdf-rendering .cover .meta-item,
+    .pdf-rendering .cover .meta-label,
+    .pdf-rendering .cover .meta-value {
+      color: #fff !important;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7) !important;
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .pdf-rendering .cover h1 {
+      font-size: 1.65rem;
+      font-weight: 900 !important;
+    }
+    .pdf-rendering .toc-section {
+      max-width: 100%;
+      margin: 18px 0 0;
+      border-radius: 8px;
+    }
+    .pdf-rendering .container {
+      max-width: 100%;
+      margin: 16px 0 50px;
+      padding: 0;
+    }
+    .pdf-rendering .section-body {
+      padding: 18px 24px;
+    }
+    /* 修复⑤：1.1法规体系概述排版 */
+    .pdf-rendering .sub-section {
+      margin-bottom: 26px;
+    }
+    .pdf-rendering .prose {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .pdf-rendering .sub-title {
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+    }
+    /* 修复④：甘特图在PDF中取消fixed布局，让列宽自适应 */
+    .pdf-rendering .gantt-table {
+      min-width: unset !important;
+      width: 100% !important;
+      font-size: 0.78rem;
+      table-layout: auto;
+    }
+    .pdf-rendering .gantt-table .g-head-row th:first-child {
+      min-width: 150px;
+      width: 150px;
+      white-space: nowrap;
+    }
+    .pdf-rendering .gantt-table .g-head-row th.month-col {
+      min-width: 52px;
+      font-size: 0.7rem;
+      padding: 8px 4px;
+    }
+    .pdf-rendering .gantt-wrap {
+      overflow-x: visible;
+    }
+    .pdf-rendering .g-label {
+      font-size: 0.75rem;
+      padding: 6px 10px;
+    }
+    .pdf-rendering .g-label.g-phase-label {
+      font-size: 0.78rem;
+    }
+    .pdf-rendering .g-label.sub-label {
+      font-size: 0.72rem;
+      padding-left: 20px;
+    }
+    .pdf-rendering .g-cell {
+      padding: 3px 2px;
+    }
+    .pdf-rendering .g-bar {
+      height: 14px;
+    }
+    .pdf-rendering .g-milestone-cell {
+      font-size: 1.25rem;
+    }
+    /* 预算卡片在PDF中保持3列 */
+    .pdf-rendering .budget-cards {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    /* 风险卡片2列 */
+    .pdf-rendering .risk-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    /* 表格字体缩小 */
+    .pdf-rendering table {
+      font-size: 0.82rem;
+    }
+    .pdf-rendering tbody td, .pdf-rendering thead th {
+      padding: 8px 10px;
+    }
+    /* 页脚 */
+    .pdf-rendering footer {
+      padding: 18px;
+    }
+    /* 封面进度条在PDF中隐藏 */
+    .pdf-rendering .progress-bar-wrap {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- PDF 进度遮罩 -->
+<div class="pdf-overlay" id="pdfOverlay">
+  <div class="pdf-modal">
+    <div class="pdf-icon">📄</div>
+    <h3>正在生成文件…</h3>
+    <p class="overlay-text">请稍候，正在处理</p>
+    <div class="pdf-spinner"></div>
+  </div>
+</div>
+
+<!-- 顶部导航 -->
+<nav class="topbar">
+  <div class="brand">🛡️ 合规认证计划生成器 · 技能示例报告</div>
+  <div class="topbar-right">
+    <div class="meta-badges">
+      <span class="badge">SOP-CCP-2024-01</span>
+      <span class="badge">V3.7</span>
+      <span class="badge">2026-05-24</span>
+    </div>
+    <button class="btn-pdf-nav" onclick="downloadPDF()" style="margin-right:8px;">
+      <span class="icon">⬇</span> 下载 PDF
+    </button>
+    <button class="btn-pdf-nav" onclick="downloadPNG()" style="background:#43a047;">
+      <span class="icon">⬇</span> 下载 PNG
+    </button>
+  </div>
+</nav>
+
+<!-- ========== PDF打印区域开始（topbar/fab/overlay 不在此范围内）========== -->
+<div id="pdf-print-area">
+
+<!-- 封面 -->
+<div class="cover" id="cover">
+  <div class="cover-overlay"></div>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill"></div></div>
+  <div class="cover-inner" style="padding-top:24px;">
+    <div class="tip-badge">📋 技能示例输出 — 演示合规认证计划生成器的报告效果</div>
+    <h1>《智能家居无线网关<br>合规认证计划报告》</h1>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">产品名称</span>
+        <span class="meta-value">智能家居无线网关</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">型号</span>
+        <span class="meta-value">SGW-Pro 3000</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">报告版本</span>
+        <span class="meta-value">V3.7</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">编制日期</span>
+        <span class="meta-value">2026年5月24日</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">目标市场</span>
+        <span class="meta-value">中国大陆 + 欧盟</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">保密等级</span>
+        <span class="meta-value">内部使用</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 目录 -->
+<div class="toc-section fade-in-up">
+  <h2>📑 报告目录</h2>
+  <ul class="toc-list">
+    <li><a href="#sec1">一、适用法规标准及清单</a></li>
+    <li><a href="#sec2">二、认证路线图</a></li>
+    <li><a href="#sec3">三、时间节点与预算</a></li>
+    <li><a href="#appendix">附录：风险登记册 / 里程碑日历 / 参考文献</a></li>
+  </ul>
+</div>
+
+<div class="container">
+
+  <!-- ==================== 第一部分 ==================== -->
+  <div class="section-card" id="sec1">
+    <div class="section-header">
+      <span class="sec-num">一</span>
+      <h2>适用法规标准及清单</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- 1.1 概述 -->
+      <div class="sub-section">
+        <div class="sub-title">1.1 法规体系概述</div>
+        <p class="prose">
+          智能家居无线网关作为集成 <strong>Wi-Fi 6、Zigbee、蓝牙5.2</strong> 多无线通信能力的复合型 IoT 产品，在中国大陆市场受工业和信息化部（工信部）及国家认证认可监督管理委员会（CNCA）双重监管；在欧盟市场则需满足《无线电设备指令》RED（2014/53/EU）、《低压指令》LVD（2014/35/EU）及 RoHS 指令（2011/65/EU+2015/863/EU 修订版）等核心法规体系。此外，作为网络连接设备，该产品还需符合中欧双方日益严格的网络安全合规要求。
+        </p>
+        <p class="prose"><strong>监管框架总览：</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>市场</th><th>监管机构</th><th>主要法规框架</th><th>市场准入要求</th></tr></thead>
+            <tbody>
+              <tr><td>中国大陆</td><td>CNCA、工信部SRRC</td><td>CCC强制认证 + SRRC型号核准</td><td>无证不得销售</td></tr>
+              <tr><td>欧盟</td><td>各成员国NCA</td><td>CE指令体系（RED+LVD+RoHS）</td><td>加贴CE标识</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 1.2 强制性 -->
+      <div class="sub-section">
+        <div class="sub-title">1.2 强制性认证标准清单</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>序号</th><th>标准编号</th><th>标准名称</th><th>版本/年份</th><th>适用市场</th><th>涉及内容</th><th>备注</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>GB 4943.1-2022</td><td>音视频、信息技术和通信技术设备 第1部分：安全要求</td><td>2022</td><td>中国大陆</td><td>电气安全</td><td><span class="badge-m">M</span> CCC必测</td></tr>
+              <tr><td>2</td><td>GB/T 9254.1-2021</td><td>信息技术设备无线电骚扰限值和测量方法</td><td>2021</td><td>中国大陆</td><td>EMC辐射</td><td><span class="badge-m">M</span> CCC必测</td></tr>
+              <tr><td>3</td><td>GB 17625.1-2022</td><td>电磁兼容 限值 第1部分：谐波电流发射限值</td><td>2022</td><td>中国大陆</td><td>EMC传导</td><td><span class="badge-m">M</span> CCC必测</td></tr>
+              <tr><td>4</td><td>YD/T 1595.1-2019</td><td>无线局域网（WLAN）设备技术要求</td><td>2019</td><td>中国大陆</td><td>Wi-Fi射频</td><td><span class="badge-m">M</span> SRRC必测</td></tr>
+              <tr><td>5</td><td>YD/T 1214-2022</td><td>900/1800MHz TDMA数字蜂窝移动通信网</td><td>2022</td><td>中国大陆</td><td>蓝牙共存</td><td><span class="badge-m">M</span> SRRC参考</td></tr>
+              <tr><td>6</td><td>EN IEC 62368-1:2020+A11:2021</td><td>音视频、信息技术和通信技术设备安全</td><td>2021</td><td>欧盟</td><td>电气安全</td><td><span class="badge-m">M</span> RED/LVD核心</td></tr>
+              <tr><td>7</td><td>EN 301 893 V2.1.1</td><td>WLAN 5GHz频段技术要求</td><td>2021</td><td>欧盟</td><td>Wi-Fi 6射频</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>8</td><td>EN 300 328 V2.2.2</td><td>WLAN 2.4GHz频段技术要求</td><td>2019</td><td>欧盟</td><td>Wi-Fi射频</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>9</td><td>EN 300 440 V2.2.1</td><td>短距离设备（Zigbee 2.4GHz）</td><td>2018</td><td>欧盟</td><td>Zigbee射频</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>10</td><td>EN 55032:2015+A11:2020</td><td>多媒体设备EMC辐射要求</td><td>2020</td><td>欧盟</td><td>EMC辐射</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>11</td><td>EN IEC 61000-3-2:2019</td><td>谐波电流发射</td><td>2019</td><td>欧盟</td><td>EMC传导</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>12</td><td>EN IEC 61000-3-3:2013+A1:2019</td><td>电压变动/闪烁</td><td>2019</td><td>欧盟</td><td>EMC传导</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>13</td><td>EN IEC 55024:2010+A1:2015</td><td>信息技术设备抗扰度</td><td>2015</td><td>欧盟</td><td>EMC抗扰</td><td><span class="badge-m">M</span> RED必测</td></tr>
+              <tr><td>14</td><td>2011/65/EU+2015/863/EU</td><td>RoHS指令（有害物质限制）</td><td>2021</td><td>欧盟</td><td>环保合规</td><td><span class="badge-m">M</span> 强制</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 1.3 推荐性 -->
+      <div class="sub-section">
+        <div class="sub-title">1.3 推荐性 / 行业最佳实践标准清单</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>序号</th><th>标准编号</th><th>标准名称</th><th>版本/年份</th><th>推荐理由</th><th>优先级</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>IEC 62443-4-2:2019</td><td>工业自动化/控制系统安全</td><td>2019</td><td>提升IoT网络安全竞争力</td><td><span class="badge-pri-h">高</span></td></tr>
+              <tr><td>2</td><td>EN IEC 62443-2-1:2021</td><td>网络安全管理体系</td><td>2021</td><td>欧盟网络安全法CRA预先准备</td><td><span class="badge-pri-h">高</span></td></tr>
+              <tr><td>3</td><td>GB/T 40647-2021</td><td>智能家居自动控制设备通用技术要求</td><td>2021</td><td>国内智能家居品质标识</td><td><span class="badge-pri-m">中</span></td></tr>
+              <tr><td>4</td><td>ISO 9001:2015</td><td>质量管理体系</td><td>2015</td><td>企业体系认证，提升B端信任</td><td><span class="badge-pri-m">中</span></td></tr>
+              <tr><td>5</td><td>Wi-Fi CERTIFIED 6</td><td>Wi-Fi联盟Wi-Fi 6认证</td><td>2021</td><td>市场差异化，消费者品牌认知</td><td><span class="badge-pri-h">高</span></td></tr>
+              <tr><td>6</td><td>Zigbee Alliance认证</td><td>Zigbee互联互通认证</td><td>2022</td><td>生态兼容性，扩大市场覆盖</td><td><span class="badge-pri-m">中</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 1.4 渠道 -->
+      <div class="sub-section">
+        <div class="sub-title">1.4 标准获取与合规参考渠道</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>机构/数据库</th><th>网址/途径</th><th>适用标准类型</th></tr></thead>
+            <tbody>
+              <tr><td>中国国家标准全文公开系统</td><td>openstd.samr.gov.cn</td><td>GB/T标准免费下载</td></tr>
+              <tr><td>CNCA官网</td><td>cnca.gov.cn</td><td>CCC认证指南</td></tr>
+              <tr><td>工信部SRRC</td><td>srrc.org.cn</td><td>无线型号核准申请</td></tr>
+              <tr><td>欧盟官方公报</td><td>eur-lex.europa.eu</td><td>CE指令全文</td></tr>
+              <tr><td>ETSI官网</td><td>etsi.org</td><td>EN系列无线标准</td></tr>
+              <tr><td>IEC官网</td><td>iec.ch</td><td>国际电工标准</td></tr>
+              <tr><td>Wi-Fi Alliance</td><td>wi-fi.org</td><td>Wi-Fi 6认证申请</td></tr>
+              <tr><td>Zigbee Alliance</td><td>zigbeealliance.org</td><td>Zigbee生态认证</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 第二部分 ==================== -->
+  <div class="section-card" id="sec2">
+    <div class="section-header">
+      <span class="sec-num">二</span>
+      <h2>认证路线图</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- 2.1 总体策略 -->
+      <div class="sub-section">
+        <div class="sub-title">2.1 总体认证策略</div>
+        <ul class="strategy-list">
+          <li><strong>认证优先级原则：</strong>CCC认证（中国大陆强制）和CE认证（欧盟强制）<strong>并行推进</strong>，SRRC型号核准在CCC之前或同步完成，Wi-Fi 6认证可在CE/CCC完成后补充推进</li>
+          <li><strong>并行策略：</strong>中国CCC安全+EMC测试与欧盟CE安全+EMC测试可同步送检（使用共用样机），共享部分技术文件，节省约 <strong>6~8周</strong></li>
+          <li><strong>认证联动：</strong>CE认证的IEC 62368-1安全测试结果与GB 4943.1高度重叠，国内实验室可出具双标报告；EMC测试数据部分可交叉利用</li>
+        </ul>
+      </div>
+
+      <!-- 2.2 五大阶段 -->
+      <div class="sub-section">
+        <div class="sub-title">2.2 认证五大阶段详解</div>
+
+        <!-- 阶段一 -->
+        <div class="phase-card phase-1">
+          <div class="phase-header">
+            🔵 阶段一：认证准备期
+            <span style="margin-left:auto;font-size:.82rem;opacity:.85;">第1月第1周 ~ 第2月第4周</span>
+          </div>
+          <div class="phase-body">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>任务</th><th>负责角色</th><th>输出成果</th><th>完成标准</th></tr></thead>
+                <tbody>
+                  <tr><td>确定适用标准完整清单</td><td>法规标准研究员</td><td>本报告Section 1</td><td>内部评审通过</td></tr>
+                  <tr><td>完善产品技术规格书</td><td>硬件工程师</td><td>电路图、BOM、RF参数表</td><td>文档完整性≥95%</td></tr>
+                  <tr><td>GAP分析（CE+CCC双线）</td><td>质量工程师</td><td>GAP分析报告</td><td>不符合项全部识别</td></tr>
+                  <tr><td>选择认证实验室（TÜV/SGS/华检）</td><td>认证规划师</td><td>实验室协议</td><td>合同签署完成</td></tr>
+                  <tr><td>SRRC预申请材料准备</td><td>合规专员</td><td>SRRC申请材料包</td><td>格式符合工信部要求</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="milestone">✅ 关键里程碑 M1：GAP分析完成（第2月末），整改清单发布</div>
+          </div>
+        </div>
+
+        <!-- 阶段二 -->
+        <div class="phase-card phase-2">
+          <div class="phase-header">
+            🟡 阶段二：技术整改与优化期
+            <span style="margin-left:auto;font-size:.82rem;">第3月第1周 ~ 第5月第2周</span>
+          </div>
+          <div class="phase-body">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>任务</th><th>负责角色</th><th>输出成果</th><th>完成标准</th></tr></thead>
+                <tbody>
+                  <tr><td>安规距离整改（PCB爬电/电气间隙）</td><td>硬件工程师（PCB）</td><td>整改版PCB v2.1</td><td>符合IEC 62368-1</td></tr>
+                  <tr><td>EMC滤波电路优化（共模/差模）</td><td>硬件工程师（EMC）</td><td>整改版PCB v2.1</td><td>内部传导预测试通过</td></tr>
+                  <tr><td>RF天线整改（各频段辐射功率合规）</td><td>RF工程师</td><td>调整版天线设计</td><td>各频段ERP≤法规上限</td></tr>
+                  <tr><td>RoHS物料合规筛查</td><td>采购/质量</td><td>RoHS材料声明(DoC)</td><td>全BOM覆盖</td></tr>
+                  <tr><td>固件安全更新（密码策略、固件签名）</td><td>嵌入式工程师</td><td>v2.0固件</td><td>安全漏洞扫描通过</td></tr>
+                  <tr><td>内部预测试（EMC+安全）</td><td>测试工程师</td><td>预测试报告</td><td>关键指标6dB余量</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="milestone">✅ 关键里程碑 M2：整改完成，内部预测试通过（第5月第2周）</div>
+          </div>
+        </div>
+
+        <!-- 阶段三 -->
+        <div class="phase-card phase-3">
+          <div class="phase-header">
+            🟠 阶段三：测试送检期
+            <span style="margin-left:auto;font-size:.82rem;">第5月第3周 ~ 第8月第2周</span>
+          </div>
+          <div class="phase-body">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>任务</th><th>负责角色</th><th>输出成果</th><th>完成标准</th></tr></thead>
+                <tbody>
+                  <tr><td>正式送样（10台样机）</td><td>认证规划师</td><td>送样确认单</td><td>实验室收样确认</td></tr>
+                  <tr><td>GB 4943.1安全测试（CCC）</td><td>SGS广州实验室</td><td>安全测试报告</td><td>Pass，0 CR项</td></tr>
+                  <tr><td>GB EMC测试（CCC）</td><td>SGS广州实验室</td><td>EMC测试报告</td><td>Pass，余量≥3dB</td></tr>
+                  <tr><td>SRRC型号核准测试</td><td>CAICT认可实验室</td><td>射频测试报告</td><td>全频段通过</td></tr>
+                  <tr><td>IEC 62368-1安全测试（CE）</td><td>TÜV莱茵</td><td>CE安全报告</td><td>Pass，0 MR项</td></tr>
+                  <tr><td>EN 55032/EN 301 893 EMC+RF（CE）</td><td>TÜV莱茵</td><td>CE EMC+RF报告</td><td>Pass</td></tr>
+                  <tr><td>不符合项整改闭环</td><td>研发+质量</td><td>整改报告</td><td>实验室书面关闭</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="milestone">✅ 关键里程碑 M3：全部测试通过，报告出具（第8月第2周）</div>
+          </div>
+        </div>
+
+        <!-- 阶段四 -->
+        <div class="phase-card phase-4">
+          <div class="phase-header">
+            🔴 阶段四：认证审核与证书获取
+            <span style="margin-left:auto;font-size:.82rem;">第8月第3周 ~ 第10月第1周</span>
+          </div>
+          <div class="phase-body">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>任务</th><th>负责角色</th><th>输出成果</th><th>完成标准</th></tr></thead>
+                <tbody>
+                  <tr><td>CCC申请正式提交至CQC</td><td>合规专员</td><td>受理通知书</td><td>CQC书面受理</td></tr>
+                  <tr><td>CCC工厂审查（初始工厂检查）</td><td>CQC审查员</td><td>工厂审查报告</td><td>审查结论"合格"</td></tr>
+                  <tr><td>SRRC型号核准批复</td><td>工信部</td><td>型号核准证</td><td>证书编号可查</td></tr>
+                  <tr><td>CE技术文件审核（TCF完整性）</td><td>TÜV莱茵TCB</td><td>审核意见书</td><td>无重大不符合项</td></tr>
+                  <tr><td>CE-DoC（符合性声明）签署</td><td>CEO/技术负责人</td><td>已签DoC</td><td>存档备查</td></tr>
+                  <tr><td>CCC证书颁发</td><td>CQC</td><td>CCC证书</td><td>证书编号可查</td></tr>
+                  <tr><td>CE标识授权使用</td><td>法务+品牌</td><td>CE标识规范手册</td><td>合规使用授权</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="milestone">✅ 关键里程碑 M4：CCC证书 + CE证书 + SRRC证 全部获取（第10月第1周）</div>
+          </div>
+        </div>
+
+        <!-- 阶段五 -->
+        <div class="phase-card phase-5">
+          <div class="phase-header">
+            🟢 阶段五：证书维护与监控
+            <span style="margin-left:auto;font-size:.82rem;">持续进行</span>
+          </div>
+          <div class="phase-body">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>任务</th><th>负责角色</th><th>周期</th><th>说明</th></tr></thead>
+                <tbody>
+                  <tr><td>CCC年度监督抽样检测</td><td>质量工程师</td><td>每年</td><td>配合CQC年审</td></tr>
+                  <tr><td>CE法规更新跟踪（CRA、RED DA等）</td><td>法规研究员</td><td>每月</td><td>订阅ETSI、EUR-Lex更新</td></tr>
+                  <tr><td>产品变更认证评估</td><td>质量工程师</td><td>变更时</td><td>重大变更需补充测试</td></tr>
+                  <tr><td>Wi-Fi 6认证申请（阶段二选项）</td><td>认证规划师</td><td>第11~12月</td><td>市场差异化加分项</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="milestone">✅ 关键里程碑 M5：证书维护体系建立（第10月末）</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2.3 甘特图 -->
+      <div class="sub-section">
+        <div class="sub-title">2.3 认证路线图总览（甘特图）</div>
+        <div class="gantt-wrap" id="ganttWrap">
+          <table class="gantt-table">
+            <thead>
+              <tr class="g-head-row">
+                <th>阶段 / 任务</th>
+                <th class="month-col">M01</th>
+                <th class="month-col">M02</th>
+                <th class="month-col">M03</th>
+                <th class="month-col">M04</th>
+                <th class="month-col">M05</th>
+                <th class="month-col">M06</th>
+                <th class="month-col">M07</th>
+                <th class="month-col">M08</th>
+                <th class="month-col">M09</th>
+                <th class="month-col">M10</th>
+                <th class="month-col">M11</th>
+                <th class="month-col">M12</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- ====== 阶段一 ====== -->
+              <tr class="row-ph1">
+                <td class="g-label g-phase-label">🔵 一、认证准备期（M01~M02）</td>
+                <td class="g-cell ph1"><span class="g-bar g-bar-full" style="background:#64b5f6;"></span></td>
+                <td class="g-cell ph1"><span class="g-bar g-bar-full" style="background:#64b5f6;"></span></td>
+                <td class="g-cell" colspan="10"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">标准清单确定</td>
+                <td class="g-cell ph1"><span class="g-bar g-bar-full" style="background:#1e88e5;"></span></td>
+                <td class="g-cell" colspan="11"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">技术文档准备</td>
+                <td class="g-cell ph1"><span class="g-bar g-bar-full" style="background:#1e88e5;"></span></td>
+                <td class="g-cell ph1"><span class="g-bar g-bar-half" style="background:#1e88e5;"></span></td>
+                <td class="g-cell" colspan="10"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">GAP分析 &amp; 实验室选择</td>
+                <td class="g-cell"></td>
+                <td class="g-cell ph1"><span class="g-bar g-bar-full" style="background:#1e88e5;"></span></td>
+                <td class="g-cell" colspan="10"></td>
+              </tr>
+              <tr style="background:#e8f5e9;">
+                <td class="g-label sub-label" style="color:#1b5e20;font-weight:700;">✅ M1 — GAP分析完成（M02末）</td>
+                <td class="g-cell"></td>
+                <td class="g-cell g-milestone-cell">◆</td>
+                <td class="g-cell" colspan="10"></td>
+              </tr>
+
+              <!-- ====== 阶段二 ====== -->
+              <tr class="row-ph2">
+                <td class="g-label g-phase-label" style="color:#3e2e00;">🟡 二、技术整改期（M03~M05）</td>
+                <td class="g-cell" colspan="2"></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-half" style="background:#f9a825;"></span></td>
+                <td class="g-cell" colspan="7"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">PCB硬件整改（安规/EMC）</td>
+                <td class="g-cell" colspan="2"></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell" colspan="8"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">RF天线整改</td>
+                <td class="g-cell" colspan="3"></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell" colspan="7"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">固件安全更新</td>
+                <td class="g-cell" colspan="2"></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell" colspan="9"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">内部预测试</td>
+                <td class="g-cell" colspan="4"></td>
+                <td class="g-cell ph2"><span class="g-bar g-bar-full" style="background:#f9a825;"></span></td>
+                <td class="g-cell" colspan="7"></td>
+              </tr>
+              <tr style="background:#e8f5e9;">
+                <td class="g-label sub-label" style="color:#1b5e20;font-weight:700;">✅ M2 — 内部预测试通过（M05第2周）</td>
+                <td class="g-cell" colspan="4"></td>
+                <td class="g-cell g-milestone-cell">◆</td>
+                <td class="g-cell" colspan="7"></td>
+              </tr>
+
+              <!-- ====== 阶段三 ====== -->
+              <tr class="row-ph3">
+                <td class="g-label g-phase-label">🟠 三、测试送检期（M05~M08）</td>
+                <td class="g-cell" colspan="4"></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-half" style="background:#ff8f00;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#ff8f00;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#ff8f00;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-half" style="background:#ff8f00;"></span></td>
+                <td class="g-cell" colspan="4"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">CCC 安全+EMC 送检</td>
+                <td class="g-cell" colspan="4"></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-half" style="background:#e65100;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#e65100;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#e65100;"></span></td>
+                <td class="g-cell" colspan="5"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">SRRC 射频送检</td>
+                <td class="g-cell" colspan="4"></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-half" style="background:#e65100;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#e65100;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#e65100;"></span></td>
+                <td class="g-cell" colspan="5"></td>
+              </tr>
+
+              <tr>
+                <td class="g-label sub-label">CE 安全+EMC+RF 送检</td>
+                <td class="g-cell" colspan="5"></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#e65100;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-full" style="background:#e65100;"></span></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-half" style="background:#e65100;"></span></td>
+                <td class="g-cell" colspan="4"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">不符合项整改闭环</td>
+                <td class="g-cell" colspan="7"></td>
+                <td class="g-cell ph3"><span class="g-bar g-bar-half" style="background:#e65100;"></span></td>
+                <td class="g-cell" colspan="4"></td>
+              </tr>
+              <tr style="background:#e8f5e9;">
+                <td class="g-label sub-label" style="color:#1b5e20;font-weight:700;">✅ M3 — 全部测试报告出具（M08第2周）</td>
+                <td class="g-cell" colspan="7"></td>
+                <td class="g-cell g-milestone-cell">◆</td>
+                <td class="g-cell" colspan="4"></td>
+              </tr>
+
+              <!-- ====== 阶段四 ====== -->
+              <tr class="row-ph4">
+                <td class="g-label g-phase-label">🔴 四、认证审核期（M08~M10）</td>
+                <td class="g-cell" colspan="7"></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-half" style="background:#ef5350;"></span></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-full" style="background:#ef5350;"></span></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-full" style="background:#ef5350;"></span></td>
+                <td class="g-cell" colspan="2"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">CCC 申请+工厂审查</td>
+                <td class="g-cell" colspan="7"></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-half" style="background:#c62828;"></span></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-full" style="background:#c62828;"></span></td>
+                <td class="g-cell" colspan="3"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">SRRC 证书批复</td>
+                <td class="g-cell" colspan="8"></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-full" style="background:#c62828;"></span></td>
+                <td class="g-cell" colspan="3"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">CE 技术文件审核+DoC签署</td>
+                <td class="g-cell" colspan="7"></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-half" style="background:#c62828;"></span></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-full" style="background:#c62828;"></span></td>
+                <td class="g-cell" colspan="3"></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">证书颁发（CCC+CE+SRRC）</td>
+                <td class="g-cell" colspan="9"></td>
+                <td class="g-cell ph4"><span class="g-bar g-bar-full" style="background:#c62828;"></span></td>
+                <td class="g-cell" colspan="2"></td>
+              </tr>
+              <tr style="background:#e8f5e9;">
+                <td class="g-label sub-label" style="color:#1b5e20;font-weight:700;">✅ M4 — 三证全部获取（M10第1周）</td>
+                <td class="g-cell" colspan="9"></td>
+                <td class="g-cell g-milestone-cell">◆</td>
+                <td class="g-cell" colspan="2"></td>
+              </tr>
+
+              <!-- ====== 阶段五 ====== -->
+              <tr class="row-ph5">
+                <td class="g-label g-phase-label">🟢 五、证书维护期（持续）</td>
+                <td class="g-cell" colspan="9"></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#66bb6a;"></span></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#66bb6a;"></span></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#66bb6a;"></span></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">年度监督检测 &amp; 法规跟踪</td>
+                <td class="g-cell" colspan="9"></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#2e7d32;"></span></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#2e7d32;"></span></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#2e7d32;"></span></td>
+              </tr>
+              <tr>
+                <td class="g-label sub-label">Wi-Fi 6 认证（可选项）</td>
+                <td class="g-cell" colspan="9"></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#2e7d32;"></span></td>
+                <td class="g-cell ph5"><span class="g-bar g-bar-full" style="background:#2e7d32;"></span></td>
+                <td class="g-cell" colspan="1"></td>
+              </tr>
+              <tr style="background:#e8f5e9;">
+                <td class="g-label sub-label" style="color:#1b5e20;font-weight:700;">✅ M5 — 证书维护体系建立（M10末）</td>
+                <td class="g-cell" colspan="9"></td>
+                <td class="g-cell g-milestone-cell">◆</td>
+                <td class="g-cell" colspan="2"></td>
+              </tr>
+
+            </tbody>
+          </table>
+          <!-- 图例 -->
+          <div class="gantt-legend">
+            <div class="gantt-legend-item"><div class="g-leg-dot" style="background:#1e88e5;"></div><span>一、认证准备期</span></div>
+            <div class="gantt-legend-item"><div class="g-leg-dot" style="background:#f9a825;"></div><span>二、技术整改期</span></div>
+            <div class="gantt-legend-item"><div class="g-leg-dot" style="background:#e65100;"></div><span>三、测试送检期</span></div>
+            <div class="gantt-legend-item"><div class="g-leg-dot" style="background:#c62828;"></div><span>四、认证审核期</span></div>
+            <div class="gantt-legend-item"><div class="g-leg-dot" style="background:#2e7d32;"></div><span>五、证书维护期</span></div>
+            <div class="gantt-legend-item"><span class="g-leg-m">◆</span><span>关键里程碑</span></div>
+            <div class="gantt-legend-item" style="color:#78909c;font-size:.75rem;margin-left:auto;">注：CCC 与 CE 两线并行，共享样机及部分技术文件</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 第三部分 ==================== -->
+  <div class="section-card" id="sec3">
+    <div class="section-header">
+      <span class="sec-num">三</span>
+      <h2>时间节点与预算</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- 3.1 时间节点 -->
+      <div class="sub-section">
+        <div class="sub-title">3.1 时间节点规划</div>
+        <p class="prose"><strong>整体工期估算：</strong>约 <strong>9~10 个月</strong>（从启动到CCC+CE+SRRC全证获取）</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>阶段</th><th>起止时间</th><th>工期</th><th>关键交付物</th><th>负责方</th></tr></thead>
+            <tbody>
+              <tr><td><strong>阶段一：认证准备</strong></td><td>2026年6月1日 ~ 2026年7月31日</td><td>8周</td><td>GAP分析报告、标准清单、实验室协议</td><td>内部合规团队</td></tr>
+              <tr><td><strong>阶段二：技术整改</strong></td><td>2026年8月1日 ~ 2026年10月14日</td><td>10周</td><td>整改样机v2.1、预测试报告</td><td>研发团队</td></tr>
+              <tr><td><strong>阶段三：测试送检</strong></td><td>2026年10月15日 ~ 2027年1月14日</td><td>12周</td><td>CCC/CE/SRRC测试报告全套</td><td>SGS+TÜV+CAICT</td></tr>
+              <tr><td><strong>阶段四：认证审核</strong></td><td>2027年1月15日 ~ 2027年3月14日</td><td>8周</td><td>CCC证书、CE证书、SRRC证书</td><td>CQC+TÜV莱茵</td></tr>
+              <tr><td><strong>阶段五：证书维护</strong></td><td>2027年3月15日起持续</td><td>常态化</td><td>年度维护报告</td><td>合规专员</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert-box">
+          ⚠️ <strong>关键节点提示：</strong>
+          最迟在2026年8月完成GAP整改启动，确保2026年底前产品量产版同步具备认证条件。圣诞/春节假期（2026年12月~2027年2月）会影响实验室排期，建议提前沟通备档。
+        </div>
+      </div>
+
+      <!-- 3.2 资源需求 -->
+      <div class="sub-section">
+        <div class="sub-title">3.2 资源需求分析</div>
+        <p class="prose"><strong>内部人力资源：</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>角色</th><th>参与阶段</th><th>投入工时估算</th><th>主要职责</th></tr></thead>
+            <tbody>
+              <tr><td>硬件工程师（PCB/EMC）</td><td>阶段一~三</td><td>2.5人月</td><td>EMC整改、安规PCB修改</td></tr>
+              <tr><td>RF工程师</td><td>阶段一~三</td><td>1.5人月</td><td>天线整改、射频测试配合</td></tr>
+              <tr><td>嵌入式工程师</td><td>阶段一~三</td><td>1人月</td><td>固件安全合规更新</td></tr>
+              <tr><td>质量工程师</td><td>全程</td><td>2人月</td><td>GAP分析、过程管控、年审配合</td></tr>
+              <tr><td>合规专员</td><td>全程</td><td>3人月</td><td>文件管理、机构对接、证书跟踪</td></tr>
+              <tr><td>项目经理</td><td>全程</td><td>1.5人月</td><td>协调、进度管控、预算管理</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose" style="margin-top:14px;"><strong>外部资源需求：</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>资源类型</th><th>说明</th><th>推荐供应商</th></tr></thead>
+            <tbody>
+              <tr><td>CCC测试实验室</td><td>提供GB安全+EMC测试</td><td>SGS广州、华检上海、中国质量认证中心</td></tr>
+              <tr><td>SRRC认可实验室</td><td>射频型号核准测试</td><td>CAICT（中国信通院）、工信部认可实验室</td></tr>
+              <tr><td>CE认证测试+TCB</td><td>CE测试+技术文件审核</td><td>TÜV莱茵、TÜV南德、Intertek</td></tr>
+              <tr><td>RoHS检测实验室</td><td>有害物质检测</td><td>SGS、BV、Eurofins</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3.3 预算分解 -->
+      <div class="sub-section">
+        <div class="sub-title">3.3 预算分解表</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>预算大类</th><th>细分项目</th><th>预算区间（人民币）</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td rowspan="2"><strong>样机与整改成本</strong></td><td>整改版样机制作（10台）</td><td>¥15,000 ~ ¥30,000</td><td>含PCB打板+组装</td></tr>
+              <tr><td>内部预测试耗材</td><td>¥3,000 ~ ¥5,000</td><td>滤波器等元器件</td></tr>
+              <tr><td rowspan="5"><strong>CCC认证费用</strong></td><td>安全测试（GB 4943.1）</td><td>¥18,000 ~ ¥28,000</td><td>SGS/华检报价</td></tr>
+              <tr><td>EMC测试（GB 9254等）</td><td>¥15,000 ~ ¥22,000</td><td></td></tr>
+              <tr><td>CCC申请费</td><td>¥3,000 ~ ¥5,000</td><td>CQC官方收费</td></tr>
+              <tr><td>CCC工厂初始审查</td><td>¥12,000 ~ ¥18,000</td><td>含差旅</td></tr>
+              <tr><td>CCC年度维护费</td><td>¥8,000/年 ~ ¥12,000/年</td><td></td></tr>
+              <tr><td rowspan="2"><strong>SRRC型号核准</strong></td><td>射频测试（Wi-Fi+BT+Zigbee）</td><td>¥20,000 ~ ¥35,000</td><td>按频段/认可实验室</td></tr>
+              <tr><td>型号核准申请费</td><td>¥2,000 ~ ¥3,000</td><td></td></tr>
+              <tr><td rowspan="4"><strong>CE认证费用</strong></td><td>IEC 62368-1安全测试</td><td>¥22,000 ~ ¥35,000</td><td>TÜV莱茵报价</td></tr>
+              <tr><td>EN 301 893/300 328 RF测试</td><td>¥25,000 ~ ¥40,000</td><td>含EN 300 440 Zigbee</td></tr>
+              <tr><td>EN 55032 EMC辐射+传导</td><td>¥18,000 ~ ¥25,000</td><td></td></tr>
+              <tr><td>TCF技术文件审核</td><td>¥8,000 ~ ¥15,000</td><td>含DoC起草支持</td></tr>
+              <tr><td><strong>RoHS合规</strong></td><td>BOM材料合规筛查+测试</td><td>¥8,000 ~ ¥15,000</td><td></td></tr>
+              <tr><td rowspan="2"><strong>可选认证</strong></td><td>Wi-Fi 6认证（Wi-Fi Alliance）</td><td>¥30,000 ~ ¥50,000</td><td>市场差异化</td></tr>
+              <tr><td>Zigbee生态认证</td><td>¥20,000 ~ ¥35,000</td><td></td></tr>
+              <tr><td><strong>合规咨询（可选）</strong></td><td>全程咨询顾问</td><td>¥30,000 ~ ¥60,000</td><td>适合首次认证</td></tr>
+              <tr style="background:#fff3e0;"><td><strong>预算缓冲（15%）</strong></td><td>应对返工/不确定项</td><td><strong>约¥4~6万</strong></td><td>基于总额15%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 预算汇总卡片 -->
+        <p class="prose" style="margin-top:18px;"><strong>预算汇总：</strong></p>
+        <div class="budget-cards">
+          <div class="budget-card bc-base">
+            <div class="bc-label">基础方案（CCC+SRRC+CE+RoHS）</div>
+            <div class="bc-price" data-target-text="¥26 ~ 38万">¥0 万</div>
+            <div class="bc-note">不含可选认证和外部咨询</div>
+          </div>
+          <div class="budget-card bc-std">
+            <div class="bc-label">标准方案（基础 + Wi-Fi 6认证）</div>
+            <div class="bc-price" data-target-text="¥36 ~ 52万">¥0 万</div>
+            <div class="bc-note">含Wi-Fi 6市场认证</div>
+          </div>
+          <div class="budget-card bc-full">
+            <div class="bc-label">完整方案（标准+咨询+Zigbee）</div>
+            <div class="bc-price" data-target-text="¥55 ~ 80万">¥0 万</div>
+            <div class="bc-note">首次认证推荐，风险最低</div>
+          </div>
+        </div>
+
+        <!-- 饼图（V3.6：初始不可见，由JS触发动画 + 交互动态效果） -->
+        <p class="prose" style="margin-top:18px;"><strong>预算构成参考比例（基础方案）：</strong></p>
+        <div class="pie-chart-wrap" id="pieWrap">
+          <svg class="pie-svg" width="160" height="160" viewBox="0 0 160 160">
+            <!-- 周长 2π×60 ≈ 376.99 -->
+            <!-- 42%→158.34 | 33%→124.41 | 12%→45.24 | 5%→18.85 | 8%→30.16 -->
+            <!-- 初始 stroke-dasharray="0 376.99" 不可见，JS IntersectionObserver 触发后动画到 data-dash 目标值 -->
+            <circle class="pie-sector animated-0" cx="80" cy="80" r="60" fill="none" stroke="#1e88e5" stroke-width="40"
+              data-dash="158.34 218.65" stroke-dasharray="0 376.99" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
+            <circle class="pie-sector animated-1" cx="80" cy="80" r="60" fill="none" stroke="#0d47a1" stroke-width="40"
+              data-dash="124.41 252.58" stroke-dasharray="0 376.99" stroke-dashoffset="-158.34" transform="rotate(-90 80 80)"/>
+            <circle class="pie-sector animated-2" cx="80" cy="80" r="60" fill="none" stroke="#42a5f5" stroke-width="40"
+              data-dash="45.24 331.75" stroke-dasharray="0 376.99" stroke-dashoffset="-282.75" transform="rotate(-90 80 80)"/>
+            <circle class="pie-sector animated-3" cx="80" cy="80" r="60" fill="none" stroke="#26c6da" stroke-width="40"
+              data-dash="18.85 358.14" stroke-dasharray="0 376.99" stroke-dashoffset="-328.99" transform="rotate(-90 80 80)"/>
+            <circle class="pie-sector animated-4" cx="80" cy="80" r="60" fill="none" stroke="#80cbc4" stroke-width="40"
+              data-dash="30.16 346.83" stroke-dasharray="0 376.99" stroke-dashoffset="-347.84" transform="rotate(-90 80 80)"/>
+            <!-- 内圆 r=42，在 160×160 的SVG中完全居中，不遮挡中心文字 -->
+            <circle cx="80" cy="80" r="42" fill="white"/>
+            <!-- 中心文字：hover 时 JS 动态更新；默认显示 -->
+            <text id="pieCenterTop" x="80" y="75" text-anchor="middle" font-size="11" fill="#0d47a1" font-weight="700">基础方案</text>
+            <text id="pieCenterBtm" x="80" y="92" text-anchor="middle" font-size="10" fill="#546e8a">预算构成</text>
+          </svg>
+          <div class="pie-legend">
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#1e88e5;"></div><span>测试费用（安全+EMC+RF） — <strong>42%</strong></span></div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#0d47a1;"></div><span>认证机构申请/审查费 — <strong>33%</strong></span></div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#42a5f5;"></div><span>样机与整改成本 — <strong>12%</strong></span></div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#26c6da;"></div><span>RoHS合规 — <strong>5%</strong></span></div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#80cbc4;"></div><span>预算缓冲（15%原则）— <strong>8%</strong></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.4 风险说明 -->
+      <div class="sub-section">
+        <div class="sub-title">3.4 风险与缓冲说明</div>
+        <div class="risk-grid">
+          <div class="risk-card risk-h">
+            <div class="risk-type">🔴 高风险</div>
+            <div class="risk-desc">EMC测试失败</div>
+            <p class="prose" style="font-size:.82rem;margin:4px 0;">RF天线辐射超标，需硬件返工</p>
+            <div class="risk-mitigation">充分预测试留6dB余量；整改预算已含缓冲</div>
+          </div>
+          <div class="risk-card risk-h">
+            <div class="risk-type">🔴 高风险</div>
+            <div class="risk-desc">法规变更风险</div>
+            <p class="prose" style="font-size:.82rem;margin:4px 0;">欧盟CRA（网络安全法）2027年实施</p>
+            <div class="risk-mitigation">提前对标EN IEC 62443，参见推荐标准清单</div>
+          </div>
+          <div class="risk-card risk-m">
+            <div class="risk-type">🟡 中风险</div>
+            <div class="risk-desc">实验室排期延误</div>
+            <p class="prose" style="font-size:.82rem;margin:4px 0;">Q4热门档期排满，等待4~6周</p>
+            <div class="risk-mitigation">提前3个月预约并签订服务协议</div>
+          </div>
+          <div class="risk-card risk-m">
+            <div class="risk-type">🟡 中风险</div>
+            <div class="risk-desc">工厂审查不通过</div>
+            <p class="prose" style="font-size:.82rem;margin:4px 0;">产线控制不符合CCC体系要求</p>
+            <div class="risk-mitigation">提前进行内部模拟审查，建立质量管控记录</div>
+          </div>
+          <div class="risk-card risk-h">
+            <div class="risk-type">🔴 高风险</div>
+            <div class="risk-desc">样机量产一致性</div>
+            <p class="prose" style="font-size:.82rem;margin:4px 0;">认证样机与量产差异导致需重测</p>
+            <div class="risk-mitigation">认证样机锁版管理，变更走ECN流程</div>
+          </div>
+          <div class="risk-card risk-m">
+            <div class="risk-type">🟡 中风险</div>
+            <div class="risk-desc">SRRC审批延迟</div>
+            <p class="prose" style="font-size:.82rem;margin:4px 0;">工信部审批周期不确定（通常8~16周）</p>
+            <div class="risk-mitigation">早于CE/CCC同步提交，并行推进</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 附录 ==================== -->
+  <div class="section-card" id="appendix">
+    <div class="appendix-header">
+      <h2>📎 附录</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- 附录A 风险登记册 -->
+      <div class="sub-section">
+        <div class="sub-title">附录A：风险登记册（初版）</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>编号</th><th>风险描述</th><th>概率</th><th>影响</th><th>风险等级</th><th>责任人</th><th>应对策略</th></tr></thead>
+            <tbody>
+              <tr><td>R-01</td><td>EMC辐射测试超标返工</td><td><span class="badge-med">M</span></td><td><span class="badge-h">H</span></td><td><span class="badge-h">高</span></td><td>RF工程师</td><td>充分预测试，EMC顾问评审</td></tr>
+              <tr><td>R-02</td><td>欧盟CRA法规新增要求</td><td><span class="badge-h">H</span></td><td><span class="badge-h">H</span></td><td><span class="badge-h">极高</span></td><td>法规研究员</td><td>跟踪CRA进展，提前对标</td></tr>
+              <tr><td>R-03</td><td>实验室排期延误</td><td><span class="badge-med">M</span></td><td><span class="badge-med">M</span></td><td><span class="badge-med">中</span></td><td>认证规划师</td><td>提前3个月预约，多家备选</td></tr>
+              <tr><td>R-04</td><td>样机量产一致性差异</td><td><span class="badge-med">M</span></td><td><span class="badge-h">H</span></td><td><span class="badge-h">高</span></td><td>质量工程师</td><td>锁版+ECN变更管控</td></tr>
+              <tr><td>R-05</td><td>SRRC审批周期超预期</td><td><span class="badge-med">M</span></td><td><span class="badge-med">M</span></td><td><span class="badge-med">中</span></td><td>合规专员</td><td>并行推进，关注进度</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 附录B 里程碑日历 -->
+      <div class="sub-section">
+        <div class="sub-title">附录B：认证里程碑日历</div>
+        <div class="timeline" id="timeline">
+          <div class="tl-item">
+            <div class="tl-date">2026年7月31日</div>
+            <div class="tl-title">M1 — GAP分析完成</div>
+            <div class="tl-note">整改清单正式发布，启动阶段二</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2026年10月14日</div>
+            <div class="tl-title">M2 — 整改样机内部预测试通过</div>
+            <div class="tl-note">关键指标全部达标，可送检</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2027年1月14日</div>
+            <div class="tl-title">M3 — 所有测试报告出具</div>
+            <div class="tl-note">CCC/CE/SRRC测试报告全部Pass</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2027年3月14日</div>
+            <div class="tl-title">M4 — 三证（CCC+CE+SRRC）全部获取</div>
+            <div class="tl-note">产品具备中国大陆+欧盟合法上市资格</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2027年3月31日</div>
+            <div class="tl-title">M5 — 证书维护体系建立</div>
+            <div class="tl-note">进入常态化证书管理阶段</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 附录C 参考文献 -->
+      <div class="sub-section">
+        <div class="sub-title">附录C：参考文献与依据</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>文件编号</th><th>文件名称</th><th>版本</th></tr></thead>
+            <tbody>
+              <tr><td>SOP-CCP-2024-01</td><td>合规认证计划生成技能标准操作程序</td><td>V1.0</td></tr>
+              <tr><td>2014/53/EU</td><td>欧盟无线电设备指令RED</td><td>—</td></tr>
+              <tr><td>2014/35/EU</td><td>欧盟低压指令LVD</td><td>—</td></tr>
+              <tr><td>2011/65/EU+2015/863/EU</td><td>欧盟RoHS指令</td><td>修订版</td></tr>
+              <tr><td>GB 4943.1-2022</td><td>音视频信息技术设备安全要求</td><td>2022版</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- 页脚 -->
+<footer>
+  <p>报告生成时间：<span>2026年5月24日</span> &nbsp;|&nbsp; 技能版本：<span>V3.7</span> &nbsp;|&nbsp; 基准SOP：<span>SOP-CCP-2024-01</span></p>
+  <p style="margin-top:6px;">本报告由「合规认证计划生成器」技能自动生成，仅供内部参考，具体认证事宜请以认证机构最新要求为准。</p>
+</footer>
+
+</div><!-- /pdf-print-area -->
+
+<!-- 悬浮按钮组 -->
+<div class="fab-pdf">
+  <span class="fab-label">PDF</span>
+  <button class="fab-btn pdf" onclick="downloadPDF()" title="下载PDF">📥</button>
+  <span class="fab-label">PNG</span>
+  <button class="fab-btn png" onclick="downloadPNG()" title="下载PNG" style="background:#43a047;">🖼️</button>
+  <button class="fab-btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">▲</button>
+</div>
+
+<script>
+/* ============================================================
+   1. IntersectionObserver — 滚动进入动画
+   ============================================================ */
+(function() {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  /* 章节卡片 */
+  document.querySelectorAll('.section-card').forEach(function(el) { io.observe(el); });
+  /* 目录 */
+  document.querySelectorAll('.fade-in-up').forEach(function(el) { io.observe(el); });
+  /* 时间线条目 */
+  document.querySelectorAll('.tl-item').forEach(function(el, i) {
+    el.style.transitionDelay = (i * 0.12) + 's';
+    io.observe(el);
+  });
+})();
+
+/* ============================================================
+   2. 甘特图条形动画 — 进入视口时播放
+   ============================================================ */
+(function() {
+  var ganttIo = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var bars = e.target.querySelectorAll('.g-bar');
+        bars.forEach(function(bar, i) {
+          setTimeout(function() {
+            bar.classList.add('animated');
+          }, i * 30);
+        });
+        ganttIo.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  var gw = document.getElementById('ganttWrap');
+  if (gw) ganttIo.observe(gw);
+})();
+
+/* ============================================================
+   3. 饼图动画 — 进入视口时播放（V3.6修复：强制回流）
+   ============================================================ */
+(function() {
+  var pieIo = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.pie-sector').forEach(function(s) {
+          // 强制回流，确保浏览器从 stroke-dasharray="0 376.99" 开始动画
+          s.getBoundingClientRect();
+          s.setAttribute('stroke-dasharray', s.dataset.dash);
+        });
+        pieIo.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  var pw = document.getElementById('pieWrap');
+  if (pw) pieIo.observe(pw);
+})();
+
+/* ============================================================
+   4. 预算卡片数字动画 — 进入视口时播放（V3.6修复：逗号）
+   ============================================================ */
+(function() {
+  var nums   = ['26', '36', '55'];
+  var maxes  = [38, 52, 80];
+  var budgetIo = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var cards2 = document.querySelectorAll('.budget-card .bc-price');
+        cards2.forEach(function(el, i) {
+          var targetText = el.dataset.targetText;
+          if (!targetText) return;
+          var start = 0;
+          var end   = maxes[i];
+          var duration = 900;
+          var step  = duration / 60;
+          var inc   = end / (duration / step);
+          var cur   = start;
+          var timer = setInterval(function() {
+            cur += inc;
+            if (cur >= end) {
+              clearInterval(timer);
+              el.textContent = targetText;
+            } else {
+              el.textContent = '¥' + Math.floor(cur) + ' 万起';
+            }
+          }, step);
+        });
+        budgetIo.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  var bc = document.querySelector('.budget-cards');
+  if (bc) budgetIo.observe(bc);
+})();
+
+/* ============================================================
+   5. PDF 下载功能（V3.5最终版：不添加pdf-rendering类，
+       直接强制元素可见，确保封面文字正常渲染）
+   ============================================================ */
+function downloadPDF() {
+  var overlay = document.getElementById('pdfOverlay');
+  overlay.classList.add('active');
+
+  /* 1. 强制所有动画元素可见（不添加pdf-rendering类） */
+  document.querySelectorAll('.section-card,.tl-item,.fade-in-up').forEach(function(el) {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+  document.querySelectorAll('.g-bar').forEach(function(bar) {
+    bar.style.width = bar.classList.contains('g-bar-half') ? '55%' : '100%';
+  });
+  document.querySelectorAll('.pie-sector').forEach(function(s) {
+    s.setAttribute('stroke-dasharray', s.dataset.dash);
+  });
+
+  /* 2. 等待渲染完成 */
+  setTimeout(function() {
+    var element = document.getElementById('pdf-print-area');
+
+    /* 3. 用 html2canvas 截全图（不添加pdf-rendering类，封面按屏幕实际显示渲染）*/
+    html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      letterRendering: true,
+      logging: false,
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: element.scrollWidth,
+      width: element.scrollWidth,
+      height: element.scrollHeight
+    }).then(function(canvas) {
+
+      /* 4. 按画布真实像素换算 PDF 页面尺寸（mm），1px = 0.2646mm @96dpi */
+      var imgData   = canvas.toDataURL('image/jpeg', 0.98);
+      var pxPerMm   = 96 / 25.4;                        /* 3.7795 px/mm */
+      var pdfW      = canvas.width  / pxPerMm / 2;      /* ÷2 因为 scale=2 */
+      var pdfH      = canvas.height / pxPerMm / 2;
+
+      /* 5. 创建自定义尺寸 jsPDF，单页放入完整截图 */
+      var { jsPDF } = window.jspdf;
+      var doc = new jsPDF({
+        unit:        'mm',
+        format:      [pdfW, pdfH],   /* 自定义页面 = 内容实际大小 */
+        orientation: pdfW > pdfH ? 'landscape' : 'portrait',
+        compress:    true
+      });
+      doc.addImage(imgData, 'JPEG', 0, 0, pdfW, pdfH);
+      doc.save('智能家居无线网关_合规认证计划报告_V3.7.pdf');
+
+      /* 6. 收尾 */
+      overlay.classList.remove('active');
+      document.querySelectorAll('.section-card,.tl-item,.fade-in-up').forEach(function(el) {
+        el.style.opacity = '';
+        el.style.transform = '';
+      });
+      document.querySelectorAll('.g-bar').forEach(function(bar) {
+        bar.style.width = '';
+      });
+
+    }).catch(function(err) {
+      overlay.classList.remove('active');
+      alert('PDF生成失败：' + err.message);
+    });
+
+  }, 600);
+}
+
+/* ============================================================
+   6. PNG 下载功能（V3.6新增：完整长图导出）
+   ============================================================ */
+function downloadPNG() {
+  var overlay = document.getElementById('pdfOverlay');
+  var txt = overlay.querySelector('.overlay-text');
+  if (txt) txt.textContent = '正在生成 PNG 长图...';
+  overlay.classList.add('active');
+
+  /* 1. 强制所有动画元素可见 */
+  document.querySelectorAll('.section-card,.tl-item,.fade-in-up').forEach(function(el) {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+  document.querySelectorAll('.g-bar').forEach(function(bar) {
+    bar.style.width = bar.classList.contains('g-bar-half') ? '55%' : '100%';
+  });
+  document.querySelectorAll('.pie-sector').forEach(function(s) {
+    s.setAttribute('stroke-dasharray', s.dataset.dash);
+  });
+
+  /* 2. 等待渲染完成（延迟加长，确保样式生效）*/
+  setTimeout(function() {
+    var element = document.getElementById('pdf-print-area');
+
+    /* 3. 用 html2canvas 截全图（去掉 letterRendering 确保兼容性）*/
+    html2canvas(element, {
+      scale:           2,
+      useCORS:         true,
+      logging:          false,
+      scrollX:          0,
+      scrollY:          0,
+      windowWidth:      element.scrollWidth,
+      width:            element.scrollWidth,
+      height:           element.scrollHeight
+    }).then(function(canvas) {
+
+      /* 4. 将 canvas 转为 PNG 并可靠触发下载 */
+      var pngUrl = canvas.toDataURL('image/png');
+      var link   = document.createElement('a');
+      link.href     = pngUrl;
+      link.download = '智能家居无线网关_合规认证计划报告_V3.7.png';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(function() {
+        document.body.removeChild(link);
+        /* 释放内存 */
+        canvas.width  = 1;
+        canvas.height = 1;
+      }, 100);
+
+      /* 5. 收尾：恢复动画元素样式 */
+      overlay.classList.remove('active');
+      document.querySelectorAll('.section-card,.tl-item,.fade-in-up').forEach(function(el) {
+        el.style.opacity = '';
+        el.style.transform = '';
+      });
+      document.querySelectorAll('.g-bar').forEach(function(bar) {
+        bar.style.width = '';
+      });
+
+    }).catch(function(err) {
+      overlay.classList.remove('active');
+      alert('PNG生成失败：' + (err && err.message || String(err)));
+    });
+
+  }, 800);
+}
+</script>
+</body>
+</html>

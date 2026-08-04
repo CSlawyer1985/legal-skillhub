@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人日历</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-secondary: #f7f8fa;
+  --text: #1a1a2e;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-light: #dbeafe;
+  --accent-hover: #1d4ed8;
+  --danger: #ef4444;
+  --danger-light: #fef2f2;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --transition: 0.2s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Layout */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 320px;
+  min-width: 320px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header h2 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-hover); }
+
+.btn-secondary {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { background: var(--bg-secondary); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 6px 8px;
+}
+.btn-ghost:hover { background: var(--bg-secondary); color: var(--text); }
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  padding: 4px 8px;
+  font-size: 12px;
+}
+.btn-danger:hover { background: var(--danger-light); }
+
+.btn-sm { padding: 4px 10px; font-size: 12px; }
+
+.btn-danger-solid {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+}
+.btn-danger-solid:hover { background: #dc2626; }
+
+/* Event list */
+.events-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.date-section {
+  padding: 12px 20px 6px;
+}
+
+.date-section .date-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.date-section .date-weekday {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-left: 6px;
+}
+
+.event-item {
+  margin: 2px 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.event-item:hover { background: rgba(0,0,0,0.03); }
+
+.event-item .event-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.event-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.event-item .event-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-item .event-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.event-item .event-time {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.event-item .event-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.event-empty svg { opacity: 0.3; margin-bottom: 8px; }
+
+/* Main calendar area */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.calendar-header {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calendar-header h1 {
+  font-size: 18px;
+  font-weight: 700;
+  min-width: 140px;
+}
+
+.nav-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  font-size: 16px;
+}
+.nav-btn:hover { background: var(--bg-secondary); color: var(--text); }
+
+.today-btn {
+  margin-left: auto;
+}
+
+/* Category filters */
+.category-filters {
+  padding: 0 24px 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cat-chip {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cat-chip:hover { background: var(--bg-secondary); }
+.cat-chip.active { background: var(--text); color: #fff; border-color: var(--text); }
+
+.cat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* Calendar grid */
+.calendar-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px 16px;
+  min-height: 0;
+}
+
+.weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.weekday-row .weekend { color: #ef4444; }
+
+.days-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.day-cell {
+  border: 1px solid var(--border);
+  border-top: none;
+  border-left: none;
+  padding: 6px;
+  cursor: pointer;
+  transition: background var(--transition);
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.day-cell:nth-child(7n+1) { border-left: 1px solid var(--border); }
+
+.day-cell:hover { background: var(--bg-secondary); }
+
+.day-cell.today {
+  background: var(--accent-light);
+}
+
+.day-cell.selected {
+  background: #eff6ff;
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.day-cell.other-month { opacity: 0.35; }
+
+.day-number {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.day-cell.today .day-number {
+  background: var(--accent);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2px;
+}
+
+.day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.day-event-dot {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6;
+}
+
+.day-event-dot .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  width: 420px;
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color var(--transition);
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.color-picker {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.color-option:hover { transform: scale(1.1); }
+.color-option.selected { border-color: var(--text); box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--text); }
+
+.modal-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app { flex-direction: column; }
+  .sidebar { width: 100%; min-width: unset; max-height: 200px; }
+  .day-cell { padding: 3px; }
+  .day-number { font-size: 11px; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>日程列表</h2>
+      <div style="display:flex;gap:6px;">
+        <button class="btn btn-secondary btn-sm" id="importBtn">📥 导入</button>
+        <button class="btn btn-primary btn-sm" id="addEventBtn">＋ 新建</button>
+      </div>
+    </div>
+    <div class="events-panel" id="eventsPanel">
+      <div class="event-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <p>点击日历日期查看日程</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Calendar -->
+  <div class="main">
+    <div class="calendar-header">
+      <h1 id="monthYear"></h1>
+      <div class="nav-btns">
+        <button class="nav-btn" id="prevMonthBtn" title="上个月">◀</button>
+        <button class="nav-btn" id="nextMonthBtn" title="下个月">▶</button>
+      </div>
+      <button class="btn btn-secondary btn-sm today-btn" id="todayBtn">今天</button>
+    </div>
+    <div class="category-filters" id="categoryFilters"></div>
+    <div class="calendar-grid">
+      <div class="weekday-row">
+        <div>一</div><div>二</div><div>三</div><div>四</div><div>五</div>
+        <div class="weekend">六</div><div class="weekend">日</div>
+      </div>
+      <div class="days-grid" id="daysGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm Dialog -->
+<div class="modal-overlay" id="confirmOverlay" style="display:none;">
+  <div class="modal" style="width:360px;">
+    <div class="modal-header">
+      <h3 id="confirmTitle">确认操作</h3>
+    </div>
+    <div class="modal-body" style="text-align:center;">
+      <p id="confirmMsg" style="font-size:14px;color:var(--text);"></p>
+    </div>
+    <div class="modal-footer" style="justify-content:center;gap:12px;">
+      <button class="btn btn-secondary btn-sm" id="confirmCancelBtn">取消</button>
+      <button class="btn btn-primary btn-sm btn-danger-solid" id="confirmOkBtn">确定删除</button>
+    </div>
+  </div>
+</div>
+
+<!-- Event Modal -->
+<div class="modal-overlay" id="modalOverlay" style="display:none;">
+  <div class="modal" id="eventModal">
+    <div class="modal-header">
+      <h3 id="modalTitle">新建日程</h3>
+      <button class="btn btn-ghost" id="modalCloseBtn">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>日程标题 *</label>
+        <input type="text" id="eventTitle" placeholder="例如：开庭、会议、截止日期..." maxlength="100">
+      </div>
+      <div class="form-group">
+        <label>日期</label>
+        <input type="date" id="eventDate">
+      </div>
+      <div class="form-group">
+        <label>时间</label>
+        <input type="time" id="eventTime">
+      </div>
+      <div class="form-group">
+        <label>分类颜色</label>
+        <div class="color-picker" id="colorPicker"></div>
+      </div>
+      <div class="form-group">
+        <label>备注</label>
+        <textarea id="eventDesc" placeholder="添加备注信息..." maxlength="500"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger btn-sm" id="deleteEventBtn" style="display:none; margin-right:auto;">删除日程</button>
+      <button class="btn btn-secondary btn-sm" id="modalCancelBtn">取消</button>
+      <button class="btn btn-primary btn-sm" id="modalSaveBtn">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- Embedded chat events (updated by WorkBuddy AI when user adds events in chat) -->
+<script id="chat-events-data" type="application/json">
+[]
+</script>
+
+<script>
+// ---- Constants ----
+const COLOR_PALETTE = [
+  { name: '开庭/诉讼', color: '#ef4444' },
+  { name: '会议/会面', color: '#3b82f6' },
+  { name: '截止日期', color: '#f59e0b' },
+  { name: '个人', color: '#10b981' },
+  { name: '研究/写作', color: '#8b5cf6' },
+  { name: '其他', color: '#6b7280' },
+];
+
+const STORAGE_KEY = 'workbuddy_calendar_events';
+const CHAT_IMPORTED_KEY = 'workbuddy_calendar_chat_imported';
+
+// ---- State ----
+let currentDate = new Date();
+let selectedDate = null;
+let events = [];
+let editingId = null;
+let activeCategory = 'all';
+
+// ---- Data ----
+function loadEvents() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    events = raw ? JSON.parse(raw) : [];
+  } catch(e) {
+    events = [];
+  }
+}
+
+function saveEvents() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
+}
+
+async function importFromChat() {
+  const btn = document.getElementById('importBtn');
+  btn.textContent = '⏳ 同步中...';
+  btn.disabled = true;
+  
+  let newCount = 0;
+  const importedIds = JSON.parse(localStorage.getItem(CHAT_IMPORTED_KEY) || '[]');
+  
+  try {
+    // Read from embedded data (no HTTP server needed)
+    const dataEl = document.getElementById('chat-events-data');
+    if (!dataEl || !dataEl.textContent.trim()) throw new Error('No embedded chat events');
+    const chatEvents = JSON.parse(dataEl.textContent);
+    
+    chatEvents.forEach(ce => {
+      if (!importedIds.includes(ce.id)) {
+        // Check not already in localStorage by title+date
+        const dup = events.find(e => e.title === ce.title && e.date === ce.date);
+        if (!dup) {
+          events.push({...ce});
+          importedIds.push(ce.id);
+          newCount++;
+        }
+      }
+    });
+    
+    if (newCount > 0) {
+      saveEvents();
+      localStorage.setItem(CHAT_IMPORTED_KEY, JSON.stringify(importedIds));
+      renderCalendar();
+    }
+    
+    btn.textContent = newCount > 0 ? `✅ 已导入 ${newCount} 条` : '📥 导入';
+    setTimeout(() => { btn.textContent = '📥 导入'; }, 2000);
+  } catch(e) {
+    btn.textContent = '📥 导入';
+    console.warn('导入失败:', e.message);
+    setTimeout(() => { btn.textContent = '📥 导入'; }, 500);
+  }
+  btn.disabled = false;
+}
+
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function fmtDate(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function fmtDateCN(d) {
+  return `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`;
+}
+
+function getWeekdayCN(d) {
+  const days = ['日','一','二','三','四','五','六'];
+  return '周' + days[d.getDay()];
+}
+
+function getEventsForDate(dateStr) {
+  return events.filter(e => e.date === dateStr).sort((a,b) => (a.time||'99:99').localeCompare(b.time||'99:99'));
+}
+
+function getEventCountForDate(dateStr) {
+  return events.filter(e => e.date === dateStr).length;
+}
+
+// ---- Render ----
+function renderCalendar() {
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  document.getElementById('monthYear').textContent = `${year}年 ${month+1}月`;
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month+1, 0);
+  const startDay = firstDay.getDay(); // 0=Sun
+  const daysInMonth = lastDay.getDate();
+
+  // Adjust start: Monday is index 0
+  const startOffset = startDay === 0 ? 6 : startDay - 1;
+
+  const grid = document.getElementById('daysGrid');
+  grid.innerHTML = '';
+
+  const today = fmtDate(new Date());
+  const totalCells = 42; // 6 rows of 7
+
+  // Previous month days
+  const prevMonthLastDay = new Date(year, month, 0).getDate();
+  for (let i = startOffset - 1; i >= 0; i--) {
+    const d = prevMonthLastDay - i;
+    const dateStr = `${year}-${String(month).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    grid.appendChild(createDayCell(d, dateStr, true));
+  }
+
+  // Current month days
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    grid.appendChild(createDayCell(d, dateStr, false));
+  }
+
+  // Next month days
+  const remaining = totalCells - startOffset - daysInMonth;
+  for (let d = 1; d <= remaining; d++) {
+    const nextMonth = month + 2;
+    const nmYear = nextMonth > 12 ? year+1 : year;
+    const nmMonth = nextMonth > 12 ? 1 : nextMonth;
+    const dateStr = `${nmYear}-${String(nmMonth).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    grid.appendChild(createDayCell(d, dateStr, true));
+  }
+
+  updateSidebar();
+  renderCategoryFilters();
+}
+
+function createDayCell(dayNum, dateStr, isOtherMonth) {
+  const cell = document.createElement('div');
+  cell.className = 'day-cell';
+  if (isOtherMonth) cell.classList.add('other-month');
+
+  const today = fmtDate(new Date());
+  if (dateStr === today) cell.classList.add('today');
+  if (selectedDate && dateStr === selectedDate) cell.classList.add('selected');
+
+  // Day number
+  const numEl = document.createElement('div');
+  numEl.className = 'day-number';
+  numEl.textContent = dayNum;
+  cell.appendChild(numEl);
+
+  // Event dots
+  const dayEvents = getEventsForDate(dateStr);
+  if (activeCategory !== 'all') {
+    const filtered = dayEvents.filter(e => (e.color || '#6b7280') === activeCategory);
+    if (filtered.length > 0) {
+      const dotsEl = document.createElement('div');
+      dotsEl.className = 'day-events';
+      filtered.slice(0, 3).forEach(e => {
+        const dot = document.createElement('div');
+        dot.className = 'day-event-dot';
+        dot.innerHTML = `<span class="dot" style="background:${e.color||'#6b7280'}"></span>${e.title}`;
+        dotsEl.appendChild(dot);
+      });
+      if (filtered.length > 3) {
+        const more = document.createElement('div');
+        more.className = 'day-event-dot';
+        more.textContent = `+${filtered.length-3} 更多`;
+        more.style.color = '#9ca3af';
+        dotsEl.appendChild(more);
+      }
+      cell.appendChild(dotsEl);
+    }
+  } else if (dayEvents.length > 0) {
+    const dotsEl = document.createElement('div');
+    dotsEl.className = 'day-events';
+    dayEvents.slice(0, 3).forEach(e => {
+      const dot = document.createElement('div');
+      dot.className = 'day-event-dot';
+      dot.innerHTML = `<span class="dot" style="background:${e.color||'#6b7280'}"></span>${e.title}`;
+      dotsEl.appendChild(dot);
+    });
+    if (dayEvents.length > 3) {
+      const more = document.createElement('div');
+      more.className = 'day-event-dot';
+      more.textContent = `+${dayEvents.length-3} 更多`;
+      more.style.color = '#9ca3af';
+      dotsEl.appendChild(more);
+    }
+    cell.appendChild(dotsEl);
+  }
+
+  cell.addEventListener('click', () => selectDate(dateStr));
+  return cell;
+}
+
+function selectDate(dateStr) {
+  selectedDate = dateStr;
+  renderCalendar();
+}
+
+function updateSidebar() {
+  const panel = document.getElementById('eventsPanel');
+  if (!selectedDate) {
+    panel.innerHTML = `
+      <div class="event-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <p>点击日历日期查看日程</p>
+      </div>`;
+    return;
+  }
+
+  const d = new Date(selectedDate);
+  const dayEvents = getEventsForDate(selectedDate);
+  const filtered = activeCategory === 'all'
+    ? dayEvents
+    : dayEvents.filter(e => (e.color || '#6b7280') === activeCategory);
+
+  let html = `
+    <div class="date-section">
+      <span class="date-label">${fmtDateCN(d)}</span>
+      <span class="date-weekday">${getWeekdayCN(d)}</span>
+    </div>`;
+
+  if (filtered.length === 0) {
+    html += `<div class="event-empty"><p>当天无日程</p></div>`;
+  } else {
+    filtered.forEach(e => {
+      const colorInfo = COLOR_PALETTE.find(c => c.color === (e.color||'#6b7280'));
+      const catName = colorInfo ? colorInfo.name : '其他';
+      html += `
+        <div class="event-item" style="border-left-color:${e.color||'#6b7280'}" data-event-id="${escapeHtml(e.id)}">
+          <div class="event-header">
+            <div class="event-dot" style="background:${e.color||'#6b7280'}"></div>
+            <div class="event-info">
+              <div class="event-title">${escapeHtml(e.title)}</div>
+              ${e.time ? `<div class="event-time">🕐 ${e.time} · ${catName}</div>` : `<div class="event-time">${catName}</div>`}
+              ${e.desc ? `<div class="event-desc">${escapeHtml(e.desc)}</div>` : ''}
+            </div>
+          </div>
+        </div>`;
+    });
+  }
+
+  panel.innerHTML = html;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ---- Category Filters ----
+function renderCategoryFilters() {
+  const container = document.getElementById('categoryFilters');
+  let html = `<div class="cat-chip ${activeCategory==='all'?'active':''}" data-category="all">全部</div>`;
+  COLOR_PALETTE.forEach(c => {
+    html += `<div class="cat-chip ${activeCategory===c.color?'active':''}" data-category="${c.color}">
+      <span class="cat-dot" style="background:${c.color}"></span>${c.name}
+    </div>`;
+  });
+  container.innerHTML = html;
+  
+  // Re-bind category filter clicks
+  container.querySelectorAll('.cat-chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      filterCategory(this.getAttribute('data-category'));
+    });
+  });
+}
+
+function filterCategory(color) {
+  activeCategory = color;
+  renderCalendar();
+}
+
+// ---- Custom Dialogs (replace native alert/confirm which may not work in embedded WebView) ----
+let confirmCallback = null;
+
+function showAlert(msg) {
+  // Always use custom dialog for reliability in embedded WebView environments
+  confirmCallback = null;
+  document.getElementById('confirmTitle').textContent = '提示';
+  document.getElementById('confirmMsg').textContent = msg;
+  document.getElementById('confirmCancelBtn').style.display = 'none';
+  document.getElementById('confirmOkBtn').textContent = '确定';
+  document.getElementById('confirmOkBtn').className = 'btn btn-primary btn-sm';
+  document.getElementById('confirmOverlay').style.display = 'flex';
+  document.getElementById('confirmOkBtn').focus();
+}
+
+function showConfirm(msg, title, onOk) {
+  confirmCallback = onOk;
+  // Always use custom confirm dialog for reliability in embedded WebView environments
+  document.getElementById('confirmTitle').textContent = title || '确认操作';
+  document.getElementById('confirmMsg').textContent = msg;
+  document.getElementById('confirmCancelBtn').style.display = '';
+  document.getElementById('confirmOkBtn').textContent = '确定删除';
+  document.getElementById('confirmOkBtn').className = 'btn btn-primary btn-sm btn-danger-solid';
+  document.getElementById('confirmOverlay').style.display = 'flex';
+  document.getElementById('confirmCancelBtn').focus();
+}
+
+function hideConfirm() {
+  document.getElementById('confirmOverlay').style.display = 'none';
+  // Reset confirm dialog to default state
+  document.getElementById('confirmCancelBtn').style.display = '';
+  document.getElementById('confirmOkBtn').textContent = '确定删除';
+  document.getElementById('confirmOkBtn').className = 'btn btn-primary btn-sm btn-danger-solid';
+  confirmCallback = null;
+}
+
+// ---- Modal ----
+function openAddModal() {
+  editingId = null;
+  document.getElementById('modalTitle').textContent = '新建日程';
+  document.getElementById('eventTitle').value = '';
+  document.getElementById('eventDate').value = selectedDate || fmtDate(new Date());
+  document.getElementById('eventTime').value = '';
+  document.getElementById('eventDesc').value = '';
+  document.getElementById('deleteEventBtn').style.display = 'none';
+  renderColorPicker(null);
+  document.getElementById('modalOverlay').style.display = 'flex';
+  document.getElementById('eventTitle').focus();
+}
+
+function openEditModal(id) {
+  const e = events.find(ev => ev.id === id);
+  if (!e) return;
+  editingId = id;
+  document.getElementById('modalTitle').textContent = '编辑日程';
+  document.getElementById('eventTitle').value = e.title;
+  document.getElementById('eventDate').value = e.date;
+  document.getElementById('eventTime').value = e.time || '';
+  document.getElementById('eventDesc').value = e.desc || '';
+  document.getElementById('deleteEventBtn').style.display = 'inline-flex';
+  renderColorPicker(e.color);
+  document.getElementById('modalOverlay').style.display = 'flex';
+  document.getElementById('eventTitle').focus();
+}
+
+function closeModal() {
+  doCloseModal();
+}
+
+function doCloseModal() {
+  document.getElementById('modalOverlay').style.display = 'none';
+  editingId = null;
+}
+
+function renderColorPicker(selectedColor) {
+  const picker = document.getElementById('colorPicker');
+  picker.innerHTML = '';
+  COLOR_PALETTE.forEach(c => {
+    const opt = document.createElement('div');
+    opt.className = 'color-option';
+    opt.style.background = c.color;
+    opt.title = c.name;
+    if (c.color === (selectedColor || COLOR_PALETTE[5].color)) {
+      opt.classList.add('selected');
+    }
+    opt.addEventListener('click', () => {
+      picker.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+    });
+    picker.appendChild(opt);
+  });
+}
+
+function getSelectedColor() {
+  const sel = document.querySelector('#colorPicker .color-option.selected');
+  return sel ? sel.style.background : COLOR_PALETTE[5].color;
+}
+
+function saveEvent() {
+  const title = document.getElementById('eventTitle').value.trim();
+  if (!title) {
+    showAlert('请输入日程标题');
+    return;
+  }
+
+  const date = document.getElementById('eventDate').value;
+  const time = document.getElementById('eventTime').value;
+  const desc = document.getElementById('eventDesc').value.trim();
+  const color = getSelectedColor();
+
+  if (editingId) {
+    const idx = events.findIndex(e => e.id === editingId);
+    if (idx !== -1) {
+      events[idx] = { ...events[idx], title, date, time, desc, color };
+    }
+  } else {
+    events.push({
+      id: generateId(),
+      title,
+      date,
+      time,
+      desc,
+      color,
+      createdAt: new Date().toISOString()
+    });
+  }
+
+  saveEvents();
+  doCloseModal();
+  renderCalendar();
+}
+
+function deleteEvent() {
+  if (!editingId) return;
+  // Capture the id immediately — editingId may be reset to null by doCloseModal()
+  // before the async confirm callback fires, so we must close-over the local copy.
+  const idToDelete = editingId;
+  const eventToDelete = events.find(e => e.id === idToDelete);
+  if (!eventToDelete) {
+    showAlert('未找到该日程，可能已被删除');
+    doCloseModal();
+    renderCalendar();
+    return;
+  }
+  const confirmMsg = '确定删除日程「' + eventToDelete.title + '」吗？此操作不可恢复。';
+  
+  showConfirm(confirmMsg, '删除日程', function() {
+    // Use captured idToDelete, not editingId (which may already be null)
+    events = events.filter(function(e) { return e.id !== idToDelete; });
+    saveEvents();
+    
+    // Also remove from chat imported list so re-import won't bring it back
+    try {
+      var importedIds = JSON.parse(localStorage.getItem(CHAT_IMPORTED_KEY) || '[]');
+      var updatedIds = importedIds.filter(function(id) { return id !== idToDelete; });
+      localStorage.setItem(CHAT_IMPORTED_KEY, JSON.stringify(updatedIds));
+    } catch(e) {}
+    
+    doCloseModal();
+    renderCalendar();
+  });
+}
+
+// ---- Navigation ----
+function prevMonth() {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar();
+}
+
+function nextMonth() {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar();
+}
+
+function goToday() {
+  currentDate = new Date();
+  selectedDate = fmtDate(currentDate);
+  renderCalendar();
+}
+
+// ---- Event Delegation & Button Bindings ----
+// Navigation buttons
+document.getElementById('prevMonthBtn').addEventListener('click', prevMonth);
+document.getElementById('nextMonthBtn').addEventListener('click', nextMonth);
+document.getElementById('todayBtn').addEventListener('click', goToday);
+
+// Sidebar buttons
+document.getElementById('importBtn').addEventListener('click', importFromChat);
+document.getElementById('addEventBtn').addEventListener('click', openAddModal);
+
+// Sidebar event click delegation (avoids inline onclick with ID injection)
+document.getElementById('eventsPanel').addEventListener('click', function(e) {
+  const item = e.target.closest('.event-item');
+  if (item) {
+    const eventId = item.getAttribute('data-event-id');
+    if (eventId) openEditModal(eventId);
+  }
+});
+
+// Overlay click to close modals
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Modal buttons
+document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+document.getElementById('modalCancelBtn').addEventListener('click', closeModal);
+document.getElementById('modalSaveBtn').addEventListener('click', saveEvent);
+document.getElementById('deleteEventBtn').addEventListener('click', deleteEvent);
+
+// Confirm dialog buttons
+document.getElementById('confirmCancelBtn').addEventListener('click', hideConfirm);
+document.getElementById('confirmOkBtn').addEventListener('click', function() {
+  if (confirmCallback) {
+    var cb = confirmCallback;
+    hideConfirm();
+    cb();
+  }
+});
+document.getElementById('confirmOverlay').addEventListener('click', function(e) {
+  if (e.target === this) hideConfirm();
+});
+
+// ---- Keyboard shortcuts ----
+document.addEventListener('keydown', e => {
+  // Handle confirm dialog
+  if (document.getElementById('confirmOverlay').style.display === 'flex') {
+    if (e.key === 'Escape') hideConfirm();
+    if (e.key === 'Enter') {
+      if (confirmCallback) {
+        var cb = confirmCallback;
+        hideConfirm();
+        cb();
+      }
+    }
+    return;
+  }
+  
+  if (document.getElementById('modalOverlay').style.display === 'flex') {
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) saveEvent();
+    return;
+  }
+  if (e.key === 'n' && (e.metaKey || e.ctrlKey)) {
+    e.preventDefault();
+    openAddModal();
+  }
+  if (e.key === 'ArrowLeft' && !e.metaKey && !e.ctrlKey) prevMonth();
+  if (e.key === 'ArrowRight' && !e.metaKey && !e.ctrlKey) nextMonth();
+});
+
+// ---- Init ----
+loadEvents();
+selectedDate = fmtDate(new Date());
+renderCalendar();
+// Auto-import from chat on load
+setTimeout(() => importFromChat(), 500);
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "expected_behaviors": [
+        "保证人履责追偿",
+        "五链",
+        "production-intake"
+      ],
+      "id": "recovery-should_trigger-01",
+      "prompt": "保证人已实际代偿，准备向主债务人追偿。",
+      "type": "should_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "反担保追偿",
+        "五链"
+      ],
+      "id": "recovery-should_trigger-02",
+      "prompt": "保证人履责后依据反担保合同向反担保人追偿。",
+      "type": "should_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "retrospective-benchmark",
+        "五链"
+      ],
+      "id": "recovery-should_trigger-03",
+      "prompt": "对历史裁判前时点材料做盲测复盘。",
+      "type": "should_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "do_not_trigger"
+      ],
+      "id": "recovery-should_not_trigger-01",
+      "prompt": "申请执行已经生效的判决。",
+      "type": "should_not_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "do_not_trigger"
+      ],
+      "id": "recovery-should_not_trigger-02",
+      "prompt": "起草普通借款合同。",
+      "type": "should_not_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "do_not_trigger"
+      ],
+      "id": "recovery-should_not_trigger-03",
+      "prompt": "只做纯文字错别字校对。",
+      "type": "should_not_trigger"
+    },
+    {
+      "expected_behaviors": [
+        "五链",
+        "HOLD"
+      ],
+      "id": "recovery-edge_case-01",
+      "prompt": "只有垫付款说法，没有实际履责凭证。",
+      "type": "edge_case"
+    },
+    {
+      "expected_behaviors": [
+        "五链",
+        "HOLD"
+      ],
+      "id": "recovery-edge_case-02",
+      "prompt": "履责范围、时效和管辖均存在冲突。",
+      "type": "edge_case"
+    }
+  ],
+  "generated_date": "2026-07-30",
+  "schema": "gaotao.platform-lite.route-prompts/v1"
+}

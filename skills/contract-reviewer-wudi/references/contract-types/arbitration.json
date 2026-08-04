@@ -1,0 +1,236 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "仲裁协议",
+  "contract_type_en": "arbitration",
+  "description": "仲裁条款、仲裁协议书、争议解决条款等",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国仲裁法》"
+  ],
+  "keywords_for_detection": [
+    "仲裁", "仲裁协议", "仲裁条款", "争议解决", "仲裁委员会",
+    "仲裁规则", "仲裁地", "一裁终局"
+  ],
+  "key_clauses": [
+    {
+      "name": "仲裁意思表示",
+      "required": true,
+      "keywords": ["仲裁", "提交仲裁", "仲裁解决", "争议解决"],
+      "check_points": [
+        {
+          "item": "意思明确",
+          "description": "当事人是否有明确的仲裁意思表示",
+          "risk_level": "致命"
+        },
+        {
+          "item": "排除诉讼",
+          "description": "是否排除法院管辖",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确约定'因本合同引起的或与本合同有关的任何争议，提交仲裁'"
+    },
+    {
+      "name": "仲裁事项",
+      "required": true,
+      "keywords": ["仲裁事项", "争议", "纠纷", "范围"],
+      "check_points": [
+        {
+          "item": "事项明确",
+          "description": "仲裁事项范围是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "范围适当",
+          "description": "仲裁事项是否具有可仲裁性",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确仲裁事项范围，建议表述为'因本合同引起的或与本合同有关的任何争议'"
+    },
+    {
+      "name": "仲裁机构",
+      "required": true,
+      "keywords": ["仲裁委员会", "仲裁机构", "仲裁院", "CIETAC", "BAC"],
+      "check_points": [
+        {
+          "item": "机构明确",
+          "description": "选定的仲裁委员会是否明确、唯一",
+          "risk_level": "致命"
+        },
+        {
+          "item": "机构存在",
+          "description": "选定的仲裁机构是否存在",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确约定具体的仲裁委员会（如'中国国际经济贸易仲裁委员会'）"
+    },
+    {
+      "name": "仲裁规则",
+      "required": false,
+      "keywords": ["仲裁规则", "程序", "适用规则"],
+      "check_points": [
+        {
+          "item": "规则明确",
+          "description": "适用的仲裁规则是否明确",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "可约定适用选定仲裁机构的仲裁规则，或特定版本规则"
+    },
+    {
+      "name": "仲裁地点",
+      "required": false,
+      "keywords": ["仲裁地", "开庭地点", "仲裁地点", "地点"],
+      "check_points": [
+        {
+          "item": "地点明确",
+          "description": "仲裁地点是否明确",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确仲裁地点，通常选择仲裁机构所在地或便利地点"
+    },
+    {
+      "name": "仲裁语言",
+      "required": false,
+      "keywords": ["语言", "中文", "英文", "仲裁语言"],
+      "check_points": [
+        {
+          "item": "语言明确",
+          "description": "仲裁语言是否明确",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "涉外仲裁应明确仲裁语言（中文/英文/双语）"
+    },
+    {
+      "name": "仲裁员选定",
+      "required": false,
+      "keywords": ["仲裁员", "选定", "指定", "人数"],
+      "check_points": [
+        {
+          "item": "人数明确",
+          "description": "仲裁员人数（1人或3人）",
+          "risk_level": "一般"
+        },
+        {
+          "item": "选定方式",
+          "description": "仲裁员选定方式",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "可约定仲裁员人数和选定方式，未约定按仲裁规则处理"
+    },
+    {
+      "name": "仲裁效力",
+      "required": true,
+      "keywords": ["终局", "一裁终局", "约束力", "可执行"],
+      "check_points": [
+        {
+          "item": "终局性",
+          "description": "仲裁裁决的终局性",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确约定仲裁裁决是终局的，对双方均有约束力"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "ARB001",
+      "name": "仲裁机构不明确",
+      "description": "仲裁协议约定的仲裁机构不明确或不存在，仲裁协议无效",
+      "severity": "高风险",
+      "suggestion": "明确约定具体的、存在的仲裁委员会名称",
+      "legal_basis": "《仲裁法》第16条、第18条"
+    },
+    {
+      "id": "ARB002",
+      "name": "或裁或审条款",
+      "description": "既约定仲裁又约定诉讼，仲裁协议无效",
+      "severity": "高风险",
+      "suggestion": "选择仲裁或诉讼其一，不能同时约定",
+      "legal_basis": "《仲裁法解释》第7条"
+    },
+    {
+      "id": "ARB003",
+      "name": "仲裁事项不可仲裁",
+      "description": "约定的仲裁事项超出法律规定的可仲裁范围（如婚姻、收养、监护、扶养、继承纠纷）",
+      "severity": "高风险",
+      "suggestion": "确保仲裁事项属于合同纠纷和其他财产权益纠纷",
+      "legal_basis": "《仲裁法》第2-3条"
+    },
+    {
+      "id": "ARB004",
+      "name": "仲裁意思表示不明",
+      "description": "仲裁意思表示不明确，无法确定当事人有仲裁意愿",
+      "severity": "高风险",
+      "suggestion": "使用明确的仲裁表述，避免模糊措辞"
+    },
+    {
+      "id": "ARB005",
+      "name": "仲裁地点不利",
+      "description": "仲裁地点选择不当，增加仲裁成本",
+      "severity": "中风险",
+      "suggestion": "选择便利、成本合理的仲裁地点"
+    }
+  ],
+  "position_guidance": {
+    "party_a": {
+      "name": "任一方",
+      "priority_checks": [
+        "仲裁机构",
+        "仲裁地点",
+        "仲裁规则",
+        "仲裁语言"
+      ],
+      "key_concerns": [
+        "选择中立、权威的仲裁机构",
+        "选择便利的仲裁地点",
+        "选择熟悉的仲裁规则",
+        "涉外仲裁注意语言选择"
+      ],
+      "avoid": [
+        "仲裁机构不明确",
+        "或裁或审条款",
+        "仲裁地点过于偏远",
+        "不可仲裁事项"
+      ]
+    }
+  },
+  "legal_notes": {
+    "validity": {
+      "description": "仲裁协议有效要件",
+      "requirements": [
+        "请求仲裁的意思表示",
+        "仲裁事项",
+        "选定的仲裁委员会"
+      ],
+      "effect": "仲裁协议独立存在，合同的变更、解除、终止或无效，不影响仲裁协议的效力",
+      "legal_basis": "《仲裁法》第16-19条"
+    },
+    "arbitrable_matters": {
+      "description": "可仲裁事项",
+      "include": "平等主体的公民、法人和其他组织之间发生的合同纠纷和其他财产权益纠纷",
+      "exclude": [
+        "婚姻、收养、监护、扶养、继承纠纷",
+        "依法应当由行政机关处理的行政争议"
+      ],
+      "legal_basis": "《仲裁法》第2-3条"
+    },
+    "finality": {
+      "description": "一裁终局",
+      "rule": "仲裁实行一裁终局的制度。裁决作出后，当事人就同一纠纷再申请仲裁或向人民法院起诉的，仲裁委员会或人民法院不予受理",
+      "legal_basis": "《仲裁法》第9条"
+    },
+    "major_arbitration_commissions": {
+      "description": "主要仲裁机构",
+      "cietac": "中国国际经济贸易仲裁委员会（CIETAC）",
+      "bac": "北京仲裁委员会/北京国际仲裁中心（BAC/BIAC）",
+      "shiac": "上海国际经济贸易仲裁委员会/上海国际仲裁中心（SHIAC）",
+      "scc": "深圳国际仲裁院（SCIA）"
+    }
+  }
+}

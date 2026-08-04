@@ -1,0 +1,4 @@
+interface:
+  display_name: "工伤预防与安全生产合规"
+  short_description: "用自然语言或上传文件完成工伤预防与安全生产合规，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-compliance-417 请帮我完成工伤预防与安全生产合规：安全生产培训要求+防护用品标准+事故报告义务+工伤保险费率浮动。"

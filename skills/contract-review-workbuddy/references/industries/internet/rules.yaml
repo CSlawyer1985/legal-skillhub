@@ -1,0 +1,665 @@
+rules:
+  # ==================== 软件开发/外包 ====================
+  - id: NET001
+    category: software_development
+    name: "知识产权归属约定不明"
+    description: "软件开发合同未明确约定开发成果的知识产权归属，可能导致委托方无法取得源码和著作权"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否明确约定开发成果（含源码、文档、设计）的知识产权归属，以及背景知识产权的使用范围"
+    legal_basis: "《民法典》第887条；《著作权法》第19条；《计算机软件保护条例》第11条"
+    suggestion: "明确约定开发成果著作权归委托方所有，受托方保留背景知识产权并授予委托方永久、不可撤销的使用许可"
+    enabled: true
+
+  - id: NET002
+    category: software_development
+    name: "源代码交付与第三方托管(Escrow)缺失"
+    description: "定制开发合同未约定源代码交付及第三方托管条款，开发方破产或违约时委托方无法取得源码"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定开发方应交付完整源代码、技术文档，以及是否设立第三方托管(Escrow)机制"
+    legal_basis: "《民法典》第807条；《计算机软件保护条例》第10条"
+    suggestion: "约定分阶段交付源码和文档，设立独立第三方托管，明确触发托管释放的条件（如开发方破产、重大违约）"
+    enabled: true
+
+  - id: NET003
+    category: software_development
+    name: "验收标准与测试流程不明确"
+    description: "合同未约定明确的验收标准、测试流程和验收通过条件，导致验收扯皮"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定功能验收标准（需求规格说明书附件）、性能测试指标、验收测试流程和异议期限"
+    legal_basis: "《民法典》第621条、第623条"
+    suggestion: "以需求规格说明书为验收基准，约定UAT测试周期、缺陷等级分类（致命/严重/一般）、验收通过标准和复验程序"
+    enabled: true
+
+  - id: NET004
+    category: software_development
+    name: "里程碑付款节点与成果未挂钩"
+    description: "付款仅按时间节点而非成果交付节点支付，开发方延迟交付时委托方已支付大部分款项"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同付款条件是否与阶段性成果交付（需求确认、设计评审、Beta版本、终验）挂钩"
+    legal_basis: "《民法典》第626条、第628条"
+    suggestion: "采用里程碑付款，每节点付款需提交对应成果并通过审核，尾款比例不低于20%待终验后支付"
+    enabled: true
+
+  - id: NET005
+    category: software_development
+    name: "需求变更管理条款缺失"
+    description: "合同未约定需求变更的审批流程、工期调整和费用补偿机制"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定需求变更的提出方式、审批程序、对工期和费用的影响确认机制"
+    legal_basis: "《民法典》第543条、第533条"
+    suggestion: "建立需求变更控制委员会(CCB)，约定变更须在5个工作日内提交影响评估，双方书面确认后生效"
+    enabled: true
+
+  - id: NET006
+    category: software_development
+    name: "开发延期违约金条款缺失"
+    description: "合同未约定开发方延期交付的违约金标准，委托方难以追究延期责任"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定延期违约金计算方式（如按日计算比例）和累计上限"
+    legal_basis: "《民法典》第585条"
+    suggestion: "约定延期违约金按合同总额日万分之五计算，累计不超过合同总额20%，超期30日委托方有权解除合同"
+    enabled: true
+
+  - id: NET007
+    category: software_development
+    name: "开源组件许可(GPL传染性)风险"
+    description: "开发方在开发过程中使用GPL/AGPL等强传染性开源组件，导致委托方自有代码被迫开源"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否约定开发方不得使用GPL/AGPL等强传染性开源组件，或需事先取得委托方书面同意"
+    legal_basis: "《计算机软件保护条例》第16条；GPLv3许可协议"
+    suggestion: "约定开发方提供开源组件清单（SBOM），禁止使用GPL/AGPL组件，使用MIT/Apache2.0需声明并确认兼容"
+    enabled: true
+
+  - id: NET008
+    category: software_development
+    name: "保密义务条款不完整"
+    description: "保密条款未明确保密信息范围、保密期限和违反保密义务的违约金"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确保密信息定义、保密期限（合同终止后仍有效）、返还或销毁要求及违约责任"
+    legal_basis: "《民法典》第501条；《反不正当竞争法》第9条"
+    suggestion: "保密期限不少于合同终止后3年，约定违约金或实际损失赔偿，明确电子数据的删除验证方式"
+    enabled: true
+
+  - id: NET009
+    category: software_development
+    name: "核心开发人员锁定与竞业缺失"
+    description: "合同未约定开发方锁定核心开发人员，或人员更换需委托方同意"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定核心人员名单、人员更换条件、竞业限制和知识交接要求"
+    legal_basis: "《民法典》第509条"
+    suggestion: "锁定项目经理和架构师，人员更换需提前30天书面通知并经委托方批准，新成员需具备同等资质"
+    enabled: true
+
+  - id: NET010
+    category: software_development
+    name: "运维期与响应时效条款缺失"
+    description: "合同未约定系统上线后的运维服务级别、响应时效和问题升级机制"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定运维期限、SLA响应时效（如P1级故障30分钟响应）、问题分级和升级路径"
+    legal_basis: "《民法典》第620条"
+    suggestion: "约定不少于12个月免费运维期，P1故障30分钟响应/4小时修复，P2故障2小时响应/8小时修复"
+    enabled: true
+
+  - id: NET011
+    category: software_development
+    name: "质保期与Bug修复条款缺失"
+    description: "合同未约定质保期内免费修复Bug的范围、时限和质保期后维护费用标准"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定质保期限、缺陷等级对应的修复时限、质保期后维护费率"
+    legal_basis: "《民法典》第620条、第621条"
+    suggestion: "质保期不少于12个月，致命缺陷24小时修复、严重缺陷72小时修复，质保期后维护费率不超过合同总额15%/年"
+    enabled: true
+
+  - id: NET012
+    category: software_development
+    name: "开发方破产源码处置条款缺失"
+    description: "合同未约定开发方破产、解散时源代码、文档和数据的提前交付义务"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定开发方经营异常时的预警义务和源码提前交付机制"
+    legal_basis: "《民法典》第527条；《企业破产法》第18条"
+    suggestion: "约定开发方出现经营异常应在30日内通知委托方，并提前交付全部源码、文档和数据至第三方托管"
+    enabled: true
+
+  # ==================== SaaS/云服务 ====================
+  - id: NET013
+    category: saas_service
+    name: "SLA可用性承诺与赔偿缺失"
+    description: "SaaS服务合同未约定服务可用性指标（如99.9%）及未达标的赔偿机制"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定月度可用性计算公式（不含计划内维护）、可用性分级和对应的服务费抵扣比例"
+    legal_basis: "《民法典》第577条；《电子商务法》第32条"
+    suggestion: "承诺月度可用性不低于99.9%，每低0.1%抵扣当月服务费5%，低于98%用户有权解除合同"
+    enabled: true
+
+  - id: NET014
+    category: saas_service
+    name: "数据所有权归属未明确"
+    description: "SaaS合同未明确用户数据的所有权归属，平台可能擅自使用用户数据"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否明确用户对上传数据的所有权，以及平台使用用户数据的范围和限制"
+    legal_basis: "《数据安全法》第3条；《个人信息保护法》第13条；《民法典》第127条"
+    suggestion: "明确用户数据所有权归用户，平台仅限为提供服务目的使用，不得用于训练模型或向第三方共享"
+    enabled: true
+
+  - id: NET015
+    category: saas_service
+    name: "数据导出与退出机制缺失"
+    description: "SaaS合同未约定服务终止后用户数据的导出格式、时限和完整性保证"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定合同终止后数据的导出格式（如CSV/JSON）、导出时限和数据删除确认"
+    legal_basis: "《个人信息保护法》第47条；《数据安全法》第27条"
+    suggestion: "服务终止后30日内提供完整数据导出（标准格式），导出后90日内彻底删除并出具删除证明"
+    enabled: true
+
+  - id: NET016
+    category: saas_service
+    name: "终止后数据删除条款缺失"
+    description: "合同未约定服务终止后平台删除用户数据的义务、时限和验证方式"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定数据删除范围（含备份数据）、删除时限和独立第三方审计验证"
+    legal_basis: "《个人信息保护法》第47条；《数据安全法》第27条"
+    suggestion: "服务终止后90日内删除全部数据（含备份），提供删除确认函，用户有权委托第三方审计验证"
+    enabled: true
+
+  - id: NET017
+    category: saas_service
+    name: "服务商单方涨价条款"
+    description: "合同赋予服务商单方面调整服务价格的权利，客户被动接受不合理涨价"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定服务费调整机制，是否赋予服务商单方涨价权及涨幅上限"
+    legal_basis: "《民法典》第543条；《电子商务法》第34条"
+    suggestion: "禁止单方涨价，续约期价格调整需提前60日书面通知且涨幅不超过CPI或5%，用户有权拒绝并解除合同"
+    enabled: true
+
+  - id: NET018
+    category: saas_service
+    name: "单方变更服务条款权利"
+    description: "合同允许服务商单方面变更服务功能、SLA标准等核心条款"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否限制服务商单方变更核心条款（功能、SLA、隐私政策），是否需用户同意"
+    legal_basis: "《电子商务法》第34条；《民法典》第496条"
+    suggestion: "核心条款变更需提前30日通知并经用户书面同意，用户不同意可解除合同并获得未消费费用退款"
+    enabled: true
+
+  - id: NET019
+    category: saas_service
+    name: "多租户数据隔离措施缺失"
+    description: "SaaS多租户架构未约定数据隔离措施，存在租户间数据泄露风险"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查合同是否约定多租户数据隔离方案（逻辑隔离或物理隔离）、安全审计和渗透测试要求"
+    legal_basis: "《网络安全法》第21条；《数据安全法》第27条"
+    suggestion: "采用逻辑隔离+加密存储，每年进行第三方渗透测试，数据泄露时服务商承担全部赔偿责任"
+    enabled: true
+
+  - id: NET020
+    category: saas_service
+    name: "备份灾备RPO/RTO指标缺失"
+    description: "合同未约定数据恢复点目标(RPO)和恢复时间目标(RTO)，灾备能力不明确"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定RPO（数据恢复点目标）和RTO（恢复时间目标）指标，以及灾备演练频率"
+    legal_basis: "《数据安全法》第27条；《网络安全法》第34条"
+    suggestion: "RPO不超过1小时、RTO不超过4小时，每季度进行一次灾备演练并出具报告"
+    enabled: true
+
+  - id: NET021
+    category: saas_service
+    name: "赔偿责任上限过低"
+    description: "合同将服务商赔偿责任上限限定为月服务费，远低于用户实际损失"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同中的责任限制条款，是否将赔偿上限限定为月/年服务费，是否排除数据泄露和重大过失"
+    legal_basis: "《民法典》第506条；《消费者权益保护法》第26条"
+    suggestion: "责任上限不低于年服务费3倍，数据泄露、重大过失和知识产权侵权不适用责任限制"
+    enabled: true
+
+  - id: NET022
+    category: saas_service
+    name: "服务降级与限流条款缺失"
+    description: "合同未约定服务商进行服务降级、限流时的通知义务和补偿机制"
+    severity: low
+    check_type: prompt_check
+    check_rule: "核查合同是否约定服务降级条件、提前通知时限和对应的服务费减免"
+    legal_basis: "《民法典》第509条"
+    suggestion: "计划性降级需提前72小时通知，每月累计降级超过4小时减免当月服务费10%"
+    enabled: true
+
+  - id: NET023
+    category: saas_service
+    name: "账号数超额计费规则不明"
+    description: "SaaS合同未约定账号超额使用的计费标准和结算方式"
+    severity: low
+    check_type: prompt_check
+    check_rule: "核查合同是否约定账号类型定义、超额计费单价、计费周期和结算方式"
+    legal_basis: "《民法典》第510条"
+    suggestion: "明确账号类型（管理员/普通/只读），超额按阶梯单价计费，按月结算并提供用量明细"
+    enabled: true
+
+  - id: NET024
+    category: saas_service
+    name: "自动续约展期条款缺失"
+    description: "合同到期自动续约但未约定提前通知期和终止便捷性，用户被动续费"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定自动续约的提前通知期限（如60日）和用户终止续约的便捷方式"
+    legal_basis: "《电子商务法》第19条；《消费者权益保护法》第9条"
+    suggestion: "自动续约需提前60日通知，用户可在到期前任意时间以书面或在线方式终止续约"
+    enabled: true
+
+  # ==================== 数据合规 ====================
+  - id: NET025
+    category: data_compliance
+    name: "个人信息告知同意缺失"
+    description: "产品/服务收集个人信息未取得用户知情同意，隐私政策缺失或告知不充分"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否提供隐私政策，是否明确告知收集目的、方式、范围、保存期限，并取得用户主动同意"
+    legal_basis: "《个人信息保护法》第13条、第14条、第17条"
+    suggestion: "隐私政策单独弹窗提示，采用 opt-in 方式获取同意，提供撤回同意入口，记录同意时间戳"
+    enabled: true
+
+  - id: NET026
+    category: data_compliance
+    name: "最小必要原则违反"
+    description: "App/软件收集超出服务必要范围的个人信息（如计算器App读取通讯录）"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查收集的个人信息类型是否与提供服务有直接关联，是否存在过度收集"
+    legal_basis: "《个人信息保护法》第6条；《App违法违规收集使用个人信息行为认定方法》"
+    suggestion: "遵循最小必要原则，仅收集实现服务功能所必需的信息，不得因用户拒绝提供非必要信息而拒绝服务"
+    enabled: true
+
+  - id: NET027
+    category: data_compliance
+    name: "敏感个人信息单独同意缺失"
+    description: "收集生物识别、医疗健康、金融账户等敏感个人信息未取得单独同意"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否对敏感个人信息取得用户的单独同意，是否告知处理的必要性和对个人的影响"
+    legal_basis: "《个人信息保护法》第28条、第29条、第30条"
+    suggestion: "敏感信息收集前需单独弹窗明示同意，告知处理必要性和影响，未成年人信息还需监护人同意"
+    enabled: true
+
+  - id: NET028
+    category: data_compliance
+    name: "数据出境安全评估/标准合同缺失"
+    description: "向境外传输个人信息未通过安全评估或签订标准合同，违反数据出境规定"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否存在数据出境场景，是否完成安全评估申报或签订个人信息出境标准合同"
+    legal_basis: "《数据出境安全评估办法》第4条；《个人信息保护法》第38条"
+    suggestion: "数据出境前开展风险评估，达到申报门槛的向网信部门申报安全评估，否则签订标准合同备案"
+    enabled: true
+
+  - id: NET029
+    category: data_compliance
+    name: "委托处理协议(DPA)缺失"
+    description: "委托第三方处理个人信息未签订委托处理协议，未约定处理目的和双方责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否与数据处理服务商签订委托处理协议，约定处理目的、期限、方式和双方义务"
+    legal_basis: "《个人信息保护法》第21条"
+    suggestion: "签订DPA明确处理目的、期限、方式、数据类型，约定处理结束后返还或删除，禁止转委托"
+    enabled: true
+
+  - id: NET030
+    category: data_compliance
+    name: "数据安全责任划分不清"
+    description: "多方参与的数据处理场景未明确各方数据安全责任边界"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否明确数据控制者、处理者、子处理者的安全责任划分，约定安全事件的责任归属"
+    legal_basis: "《数据安全法》第27条；《个人信息保护法》第21条、第59条"
+    suggestion: "按数据处理角色划分责任，控制者承担总体责任，处理者按指令处理并配合安全事件响应"
+    enabled: true
+
+  - id: NET031
+    category: data_compliance
+    name: "数据泄露通知义务缺失"
+    description: "合同未约定数据安全事件的通知时限、方式和内容要求"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查合同是否约定数据泄露事件的通知时限（如72小时内）、通知对象和通知内容"
+    legal_basis: "《网络安全法》第25条；《数据安全法》第29条；《个人信息保护法》第57条"
+    suggestion: "发现数据泄露后72小时内通知监管部门和受影响个人，通知包含泄露类型、影响范围和补救措施"
+    enabled: true
+
+  - id: NET032
+    category: data_compliance
+    name: "数据本地化存储要求违反"
+    description: "关键信息基础设施运营者和处理重要数据的企业未将数据存储在境内"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查数据处理者是否属于CIIO，数据是否属于重要数据，是否满足境内存储要求"
+    legal_basis: "《网络安全法》第37条；《数据安全法》第31条"
+    suggestion: "CIIO和处理重要数据的企业须将相关数据存储在境内，出境需通过安全评估"
+    enabled: true
+
+  - id: NET033
+    category: data_compliance
+    name: "算法推荐服务未备案"
+    description: "提供算法推荐服务的企业未向网信部门备案"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查企业是否提供算法推荐服务，是否已完成算法备案"
+    legal_basis: "《互联网信息服务算法推荐管理规定》第24条"
+    suggestion: "算法推荐服务上线前通过互联网信息服务算法备案系统备案，取得备案编号并对外公示"
+    enabled: true
+
+  - id: NET034
+    category: data_compliance
+    name: "生物识别信息特殊保护缺失"
+    description: "收集人脸、指纹等生物识别信息未取得单独同意，未提供非生物识别替代方案"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否将生物识别信息作为唯一验证方式，是否提供替代验证方式"
+    legal_basis: "《个人信息保护法》第28条；《最高人民法院关于审理使用人脸识别技术处理个人信息相关民事案件适用法律若干问题的规定》"
+    suggestion: "不得将人脸识别作为唯一验证方式，提供非生物识别替代方案，取得单独同意"
+    enabled: true
+
+  - id: NET035
+    category: data_compliance
+    name: "未成年人信息保护条款缺失"
+    description: "面向未成年人或可能收集未成年人信息的服务未取得监护人同意"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否建立未成年人信息保护机制，是否取得监护人同意，是否设置防沉迷措施"
+    legal_basis: "《个人信息保护法》第31条；《未成年人网络保护条例》第16条"
+    suggestion: "收集14岁以下未成年人信息需监护人明示同意，建立监护人验证机制，不得推送可能诱导沉迷的内容"
+    enabled: true
+
+  - id: NET036
+    category: data_compliance
+    name: "删除权响应时限未约定"
+    description: "合同未约定用户行使删除权时的响应时限和处理方式"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查是否建立删除权响应机制，是否约定响应时限和处理流程"
+    legal_basis: "《个人信息保护法》第47条"
+    suggestion: "收到删除请求后15个工作日内完成删除并反馈结果，涉及备份的同步删除，不可删除的需说明理由"
+    enabled: true
+
+  # ==================== 平台运营 ====================
+  - id: NET037
+    category: platform_operation
+    name: "平台避风港原则适用缺失"
+    description: "平台未建立通知-删除机制，无法援引避风港原则免责"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查平台是否建立侵权投诉通知-删除机制，是否公示投诉渠道和处理流程"
+    legal_basis: "《电子商务法》第42条、第43条；《民法典》第1195条"
+    suggestion: "建立通知-删除机制，收到合格通知后及时采取必要措施转送经营者，对反复侵权者采取必要措施"
+    enabled: true
+
+  - id: NET038
+    category: platform_operation
+    name: "用户协议单方修改权"
+    description: "平台用户协议赋予平台单方面修改协议的权利，用户权益缺乏保障"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查用户协议是否约定平台可单方修改条款，是否需用户明示同意"
+    legal_basis: "《电子商务法》第34条；《民法典》第496条"
+    suggestion: "实质性条款修改需提前30日公示并征得用户同意，非实质性修改需提前7日公示，用户有权退出"
+    enabled: true
+
+  - id: NET039
+    category: platform_operation
+    name: "格式条款提示说明义务违反"
+    description: "平台格式条款（免责条款、管辖条款）未采取合理方式提请用户注意"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查格式条款是否以显著方式（加粗/标红）标识，是否在注册时单独提示"
+    legal_basis: "《民法典》第496条、第497条"
+    suggestion: "免责条款采用加粗+下划线标注，注册时弹窗单独提示，重大管辖条款需单独勾选同意"
+    enabled: true
+
+  - id: NET040
+    category: platform_operation
+    name: "UGC内容审核机制缺失"
+    description: "用户生成内容平台未建立内容审核机制，可能传播违法内容"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查平台是否建立内容审核制度（人工+技术审核），是否配备与业务规模匹配的审核人员"
+    legal_basis: "《网络安全法》第47条；《网络信息内容生态治理规定》第8条"
+    suggestion: "建立先审后发机制，配备与业务规模匹配的审核人员，建立违法内容处置和报告制度"
+    enabled: true
+
+  - id: NET041
+    category: platform_operation
+    name: "网络安全等级保护未落实"
+    description: "网络运营者未完成网络安全等级保护定级、备案和测评"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查系统是否完成等保定级、备案和年度测评，二级以上系统是否每年测评"
+    legal_basis: "《网络安全法》第21条、第31条；《信息安全技术网络安全等级保护基本要求》"
+    suggestion: "完成等保定级备案，三级系统每年测评一次，二级系统每两年测评一次，及时整改安全隐患"
+    enabled: true
+
+  - id: NET042
+    category: platform_operation
+    name: "ICP许可与EDI许可缺失"
+    description: "经营性网站未取得ICP许可，或在线数据处理业务未取得EDI许可"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查网站是否属于经营性网站，是否取得ICP许可证；涉及在线数据处理的需EDI许可"
+    legal_basis: "《互联网信息服务管理办法》第4条、第7条；《电信业务经营许可管理办法》"
+    suggestion: "经营性网站办理ICP许可证，涉及在线数据处理和交易处理的办理EDI许可证，在网站底部公示许可证号"
+    enabled: true
+
+  - id: NET043
+    category: platform_operation
+    name: "广告合规条款缺失"
+    description: "平台广告未标明广告字样，发布虚假或违禁广告"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查广告是否显著标明广告字样，是否存在虚假宣传、违禁内容（医疗、药品、烟草等）"
+    legal_basis: "《广告法》第14条、第28条、第38条"
+    suggestion: "显著标明广告字样，建立广告内容审核制度，不得发布医疗、药品、医疗器械、烟草等违禁广告"
+    enabled: true
+
+  - id: NET044
+    category: platform_operation
+    name: "虚假宣传责任条款缺失"
+    description: "平台对商家虚假宣传未尽到审核义务，承担连带责任"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查平台是否建立商家宣传内容审核机制，是否对关系生命健康的商品服务尽到审核义务"
+    legal_basis: "《电子商务法》第38条；《反不正当竞争法》第8条"
+    suggestion: "对商家宣传内容进行抽查监控，关系生命健康的商品服务需实质审核，发现虚假宣传立即下架"
+    enabled: true
+
+  - id: NET045
+    category: platform_operation
+    name: "自动续费明示义务违反"
+    description: "网络服务自动续费未在续费前显著提醒用户，扣费方式不透明"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查自动续费是否在续费前5日显著提醒，是否明示扣费方式和金额"
+    legal_basis: "《电子商务法》第19条；《网络交易监督管理办法》第18条"
+    suggestion: "自动续费前5日以显著方式提醒，提供便捷的取消入口，不得默认勾选或捆绑自动续费"
+    enabled: true
+
+  - id: NET046
+    category: platform_operation
+    name: "算法歧视(大数据杀熟)"
+    description: "平台利用算法对老用户展示更高价格，构成大数据杀熟"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查平台定价策略是否存在基于用户画像的差异化定价，是否对新老用户展示不同价格"
+    legal_basis: "《电子商务法》第18条；《个人信息保护法》第24条；《互联网信息服务算法推荐管理规定》第21条"
+    suggestion: "不得利用算法对消费者实施不合理差别待遇，提供不针对个人特征的选项，保障消费者选择权"
+    enabled: true
+
+  - id: NET047
+    category: platform_operation
+    name: "竞价排名标识义务违反"
+    description: "搜索引擎/电商平台未将付费搜索结果显著标明为广告"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查付费搜索结果是否显著标明广告字样，与自然搜索结果是否有明显区分"
+    legal_basis: "《广告法》第14条；《电子商务法》第40条"
+    suggestion: "竞价排名结果显著标明广告或推广字样，与自然搜索结果在视觉上有明显区分"
+    enabled: true
+
+  - id: NET048
+    category: platform_operation
+    name: "投诉举报处理机制缺失"
+    description: "平台未建立便捷的投诉举报渠道，未约定处理时限和反馈机制"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查平台是否公示投诉举报渠道，是否约定处理时限（如15日），是否告知处理结果"
+    legal_basis: "《电子商务法》第61条；《网络交易监督管理办法》第28条"
+    suggestion: "建立在线投诉举报渠道，15日内处理并反馈，建立投诉数据公示制度，重大纠纷引入在线解决机制"
+    enabled: true
+
+  # ==================== AI与知识产权 ====================
+  - id: NET049
+    category: ai_and_ip
+    name: "AI生成内容权属约定不明"
+    description: "使用AI工具创作的内容未约定知识产权归属，可能产生权属争议"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查合同是否约定AI生成内容的知识产权归属，是否约定训练数据的合法来源保证"
+    legal_basis: "《著作权法》第3条；《民法典》第127条"
+    suggestion: "约定AI生成内容著作权归委托方/使用方所有，开发方保证训练数据合法来源并承担侵权责任"
+    enabled: true
+
+  - id: NET050
+    category: ai_and_ip
+    name: "训练数据合法来源缺失"
+    description: "AI模型训练数据可能包含未授权的个人信息或受版权保护内容"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否约定训练数据来源合法，是否取得个人信息主体的同意或进行匿名化处理"
+    legal_basis: "《个人信息保护法》第13条；《著作权法》第24条"
+    suggestion: "约定训练数据须为合法取得（授权/公开/匿名化），保留数据来源记录，不得使用未经授权的个人信息"
+    enabled: true
+
+  - id: NET051
+    category: ai_and_ip
+    name: "大模型API调用责任缺失"
+    description: "调用第三方大模型API服务未约定数据安全、服务稳定性和责任承担"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否约定API调用数据安全（输入输出数据归属、保密）、服务可用性和故障责任"
+    legal_basis: "《数据安全法》第27条；《个人信息保护法》第21条"
+    suggestion: "约定输入输出数据归属用户，API提供方不得用于训练模型，明确SLA标准和故障赔偿责任"
+    enabled: true
+
+  - id: NET052
+    category: ai_and_ip
+    name: "深度合成标识义务违反"
+    description: "使用AI生成音视频、图像内容未添加显著标识，构成深度合成违规"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查AI生成的音视频、图像是否添加了不影响使用的标识（水印/提示）"
+    legal_basis: "《互联网信息服务深度合成管理规定》第16条、第17条"
+    suggestion: "深度合成内容添加显著标识，提示用户内容为AI生成，不得用于虚假宣传和诈骗"
+    enabled: true
+
+  - id: NET053
+    category: ai_and_ip
+    name: "生成式AI服务备案缺失"
+    description: "提供生成式AI服务（聊天、写作、图像生成）未完成备案"
+    severity: critical
+    check_type: prompt_check
+    check_rule: "核查是否提供生成式AI服务，是否已完成服务备案"
+    legal_basis: "《生成式人工智能服务管理暂行办法》第5条、第6条"
+    suggestion: "向网信部门进行算法备案和安全评估，取得备案编号后方可对外提供服务，在交互界面公示备案信息"
+    enabled: true
+
+  - id: NET054
+    category: ai_and_ip
+    name: "算法透明度与可解释性缺失"
+    description: "自动化决策系统未向用户说明算法逻辑和决策依据"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查是否向用户说明自动化决策的基本原理和主要逻辑，是否提供不针对个人特征的选项"
+    legal_basis: "《个人信息保护法》第24条；《互联网信息服务算法推荐管理规定》第12条、第16条"
+    suggestion: "以适当方式告知用户算法推荐服务的情况，提供不针对个人特征的选项或便捷的拒绝方式"
+    enabled: true
+
+  - id: NET055
+    category: ai_and_ip
+    name: "开源模型许可限制违反"
+    description: "使用开源大模型未遵守许可限制（如非商用限制、署名要求、相同方式共享）"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查使用的开源模型许可类型，是否满足署名、商用、开源衍生模型等限制条件"
+    legal_basis: "《计算机软件保护条例》第8条；开源许可协议（Apache2.0、MIT、CC-BY-SA等）"
+    suggestion: "建立开源许可合规审查流程，区分商用/非商用许可，保留署名信息，遵守相同方式共享义务"
+    enabled: true
+
+  - id: NET056
+    category: ai_and_ip
+    name: "商标与域名抢注风险"
+    description: "软件/平台名称未进行商标注册和域名保护，存在被抢注风险"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查产品/平台名称是否已完成商标注册，相关域名是否已注册保护"
+    legal_basis: "《商标法》第3条、第57条；《反不正当竞争法》第6条"
+    suggestion: "产品开发前完成商标注册（第9类、第35类、第42类），注册相关域名和社交媒体账号"
+    enabled: true
+
+  - id: NET057
+    category: ai_and_ip
+    name: "软件著作权登记缺失"
+    description: "开发完成的软件未进行著作权登记，维权时举证困难"
+    severity: low
+    check_type: prompt_check
+    check_rule: "核查软件是否已完成著作权登记，是否保留开发过程文档作为创作证据"
+    legal_basis: "《计算机软件保护条例》第7条；《作品自愿登记试行办法》"
+    suggestion: "软件完成后30日内完成软著登记，保留需求文档、设计文档、源码版本记录等创作证据"
+    enabled: true
+
+  - id: NET058
+    category: ai_and_ip
+    name: "职务作品权属约定不明"
+    description: "员工开发的软件未约定职务作品权属，离职后产生知识产权纠纷"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查劳动合同和保密协议中是否约定职务作品著作权归属，是否约定离职后知识产权返还义务"
+    legal_basis: "《著作权法》第18条；《计算机软件保护条例》第13条"
+    suggestion: "劳动合同中明确约定职务作品著作权归公司，离职时签署知识产权确认书并返还全部技术资料"
+    enabled: true
+
+  - id: NET059
+    category: ai_and_ip
+    name: "字体图片素材侵权风险"
+    description: "软件/网站使用未经授权的字体、图片、图标，面临侵权索赔"
+    severity: medium
+    check_type: prompt_check
+    check_rule: "核查使用的字体、图片、图标是否取得商用授权，是否保留授权证明"
+    legal_basis: "《著作权法》第10条、第52条"
+    suggestion: "建立素材授权管理制度，优先使用开源免费资源（CC0、商用免费字体），保留授权证明文件"
+    enabled: true
+
+  - id: NET060
+    category: ai_and_ip
+    name: "开源合规扫描(SCA)缺失"
+    description: "软件产品未进行开源组件扫描，可能违反开源许可或引入安全漏洞"
+    severity: high
+    check_type: prompt_check
+    check_rule: "核查是否建立软件成分分析(SCA)流程，是否定期扫描开源组件的许可合规和安全漏洞"
+    legal_basis: "《计算机软件保护条例》第8条；开源许可协议合规要求"
+    suggestion: "引入SCA工具（如FOSSA、Black Duck）定期扫描，建立开源组件白名单，及时修复安全漏洞"
+    enabled: true

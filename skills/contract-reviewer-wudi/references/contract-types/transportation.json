@@ -1,0 +1,272 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "运输合同",
+  "contract_type_en": "transportation",
+  "description": "货物运输、旅客运输、多式联运等运输合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国海商法》（海上运输）"
+  ],
+  "keywords_for_detection": [
+    "运输", "承运人", "托运人", "收货人", "货物", "运费",
+    "运输方式", "公路运输", "铁路运输", "航空运输", "海运"
+  ],
+  "key_clauses": [
+    {
+      "name": "运输货物/旅客",
+      "required": true,
+      "keywords": ["货物", "品名", "数量", "重量", "旅客"],
+      "check_points": [
+        {
+          "item": "货物信息",
+          "description": "货物品名、数量、重量、包装是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "特殊货物",
+          "description": "危险品、易碎品等特殊货物是否注明",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确货物品名、数量、重量、包装方式，危险品需特别注明"
+    },
+    {
+      "name": "运输路线和方式",
+      "required": true,
+      "keywords": ["起运地", "目的地", "路线", "运输方式"],
+      "check_points": [
+        {
+          "item": "起止地点",
+          "description": "起运地和目的地是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "运输方式",
+          "description": "运输方式（公路/铁路/航空/水运）是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "路线约定",
+          "description": "是否约定具体运输路线",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确起运地、目的地、运输方式，可约定具体路线"
+    },
+    {
+      "name": "运输时间",
+      "required": true,
+      "keywords": ["运输期限", "到达时间", "交货时间", "期限"],
+      "check_points": [
+        {
+          "item": "运输期限",
+          "description": "运输期限或到达时间是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "延误责任",
+          "description": "运输延误的违约责任",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确运输期限或预计到达时间，约定延误责任"
+    },
+    {
+      "name": "运费",
+      "required": true,
+      "keywords": ["运费", "运输费用", "计费标准", "支付方式"],
+      "check_points": [
+        {
+          "item": "运费金额",
+          "description": "运费金额或计算标准是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "支付方式",
+          "description": "预付/到付/月结等支付方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "其他费用",
+          "description": "装卸费、保险费等由谁承担",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确运费金额/计算标准、支付方式、其他费用承担"
+    },
+    {
+      "name": "货物交付",
+      "required": true,
+      "keywords": ["交付", "收货", "签收", "提货"],
+      "check_points": [
+        {
+          "item": "交付方式",
+          "description": "送货上门/自提等交付方式",
+          "risk_level": "重大"
+        },
+        {
+          "item": "签收程序",
+          "description": "货物签收和验收程序",
+          "risk_level": "重大"
+        },
+        {
+          "item": "拒收处理",
+          "description": "货物损坏或短缺时的处理",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确交付方式、签收程序、货物验收和异议提出时限"
+    },
+    {
+      "name": "货物保险",
+      "required": false,
+      "keywords": ["保险", "货物运输保险", "保价", "投保"],
+      "check_points": [
+        {
+          "item": "保险责任",
+          "description": "由谁负责投保",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保价运输",
+          "description": "是否保价及保价金额",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确货物运输保险由谁投保，贵重货物建议保价"
+    },
+    {
+      "name": "货物损毁责任",
+      "required": true,
+      "keywords": ["损毁", "灭失", "赔偿", "责任", "免责"],
+      "check_points": [
+        {
+          "item": "赔偿责任",
+          "description": "货物损毁、灭失的赔偿责任",
+          "risk_level": "致命"
+        },
+        {
+          "item": "赔偿标准",
+          "description": "赔偿计算标准（实际损失/保价/运费倍数）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "免责情形",
+          "description": "承运人免责情形",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确赔偿责任、赔偿标准（建议保价赔偿）、法定免责情形"
+    },
+    {
+      "name": "留置权",
+      "required": false,
+      "keywords": ["留置", "留置权", "运费未付"],
+      "check_points": [
+        {
+          "item": "留置约定",
+          "description": "承运人留置权是否约定",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "可约定托运人未支付运费时，承运人对货物享有留置权"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "TR001",
+      "name": "货物信息不清",
+      "description": "货物品名、数量、性质不明确，影响运费计算和运输安排",
+      "severity": "高风险",
+      "suggestion": "详细列明货物品名、规格、数量、重量、包装，危险品需特别注明"
+    },
+    {
+      "id": "TR002",
+      "name": "赔偿标准过低",
+      "description": "未保价时赔偿标准过低（如仅运费3倍），不足以弥补损失",
+      "severity": "高风险",
+      "suggestion": "贵重货物应保价运输，或约定按实际损失赔偿",
+      "legal_basis": "《民法典》第833条"
+    },
+    {
+      "id": "TR003",
+      "name": "免责条款过于宽泛",
+      "description": "承运人免责情形约定过于宽泛，免除法定责任",
+      "severity": "高风险",
+      "suggestion": "免责条款不得违反法律强制性规定，不得免除故意或重大过失责任"
+    },
+    {
+      "id": "TR004",
+      "name": "运输延误无责任",
+      "description": "未约定运输延误的违约责任",
+      "severity": "中风险",
+      "suggestion": "约定运输期限和延误违约金（通常运费的一定比例）"
+    },
+    {
+      "id": "TR005",
+      "name": "签收程序不清",
+      "description": "货物签收和验收程序不明确，货物损毁责任难以认定",
+      "severity": "中风险",
+      "suggestion": "明确签收程序，约定当场验收和异议提出时限"
+    }
+  ],
+  "position_guidance": {
+    "shipper": {
+      "name": "托运人",
+      "priority_checks": [
+        "运输时间",
+        "货物保险",
+        "赔偿标准",
+        "签收程序"
+      ],
+      "key_concerns": [
+        "明确运输期限和延误责任",
+        "贵重货物应保价运输",
+        "争取按实际损失赔偿",
+        "明确签收和验收程序"
+      ],
+      "avoid": [
+        "货物信息不实",
+        "未保价运输贵重货物",
+        "赔偿标准过低",
+        "签收程序不清"
+      ]
+    },
+    "carrier": {
+      "name": "承运人",
+      "priority_checks": [
+        "货物信息",
+        "运费支付",
+        "免责条款",
+        "留置权"
+      ],
+      "key_concerns": [
+        "核实货物信息，防止危险品瞒报",
+        "明确运费支付时间和方式",
+        "合理约定免责情形",
+        "约定留置权保障运费收取"
+      ],
+      "avoid": [
+        "接受危险品瞒报",
+        "赔偿标准过高",
+        "免责条款违反法律规定",
+        "未约定运费支付保障"
+      ]
+    }
+  },
+  "legal_limits": {
+    "liability_limit": {
+      "description": "赔偿责任限制",
+      "rule": "未保价的货物损毁，赔偿额按交付时市场价格计算，最高不超过运费3倍",
+      "legal_basis": "《民法典》第833条"
+    },
+    "exclusions": {
+      "description": "承运人免责情形",
+      "force_majeure": "不可抗力",
+      "inherent_defect": "货物本身的自然性质或合理损耗",
+      "shipper_consignee_fault": "托运人、收货人的过错",
+      "legal_basis": "《民法典》第832条"
+    }
+  }
+}

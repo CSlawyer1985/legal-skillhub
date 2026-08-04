@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="48" fill="#1f6feb"/>
+  <g fill="#ffffff" font-family="-apple-system, 'PingFang SC', sans-serif" text-anchor="middle">
+    <text x="128" y="108" font-size="64" font-weight="700">合</text>
+    <text x="128" y="176" font-size="34" font-weight="500" letter-spacing="4">审查</text>
+    <circle cx="198" cy="70" r="26" fill="#ffd33d"/>
+    <text x="198" y="80" font-size="28" font-weight="700" fill="#1f6feb">!</text>
+  </g>
+</svg>

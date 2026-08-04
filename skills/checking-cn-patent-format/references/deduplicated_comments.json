@@ -1,0 +1,252 @@
+{
+  "_metadata": {
+    "template_version": "1.0",
+    "created_date": "2026-05-14",
+    "skill_name": "checking-cn-patent-format",
+    "description": "去重后的批注数据存储模板，记录所有经过去重算法处理后的有效批注内容"
+  },
+
+  "schema_specification": {
+    "type": "JSON_OBJECT",
+    "description": "去重后批注数据的存储格式，包含元数据、去重统计和批注条目列表",
+
+    "root_fields": {
+      "metadata": {
+        "type": "object",
+        "required": true,
+        "description": "去重处理过程的元数据信息"
+      },
+      "deduplication_summary": {
+        "type": "object",
+        "required": true,
+        "description": "去重处理的统计摘要"
+      },
+      "comments": {
+        "type": "array",
+        "required": true,
+        "description": "去重后的有效批注条目列表"
+      }
+    },
+
+    "metadata_schema": {
+      "source_file": {
+        "type": "string",
+        "description": "源审查意见文件路径（合并去重后的 reviews_<timestamp>.json）"
+      },
+      "skipped_file": {
+        "type": "string_or_null",
+        "description": "跳过条目文件路径（skipped_reviews_<timestamp>.json），无跳过条目时为null"
+      },
+      "dedup_log_file": {
+        "type": "string_or_null",
+        "description": "去重日志文件路径（reviews_<timestamp>_dedup_log.json），未启用时为null"
+      },
+      "processing_timestamp": {
+        "type": "string",
+        "description": "处理时间戳，ISO 8601格式"
+      },
+      "input_doc": {
+        "type": "string",
+        "description": "原始输入文档路径"
+      },
+      "work_dir": {
+        "type": "string",
+        "description": "工作目录路径"
+      },
+      "timestamp": {
+        "type": "string",
+        "description": "流程时间戳（与工作目录中的时间戳一致）"
+      }
+    },
+
+    "deduplication_summary_schema": {
+      "total_before_dedup": {
+        "type": "integer",
+        "description": "去重前的审查意见总数"
+      },
+      "total_after_dedup": {
+        "type": "integer",
+        "description": "去重后的审查意见总数"
+      },
+      "total_removed": {
+        "type": "integer",
+        "description": "被去重移除的条目总数"
+      },
+      "removal_rate": {
+        "type": "number",
+        "description": "去重移除率（百分比）"
+      },
+      "strategies_applied": {
+        "type": "array",
+        "description": "应用的去重策略列表"
+      },
+      "conflicts_resolved": {
+        "type": "integer",
+        "description": "解决的修订冲突数量"
+      },
+      "skipped_count": {
+        "type": "integer",
+        "description": "批注添加时被跳过的条目数量"
+      }
+    },
+
+    "comment_item_schema": {
+      "original_index": {
+        "type": "integer",
+        "description": "该条目在去重后 reviews_<timestamp>.json 中的原始索引"
+      },
+      "comment_id": {
+        "type": "integer_or_null",
+        "description": "在docx文档中分配的批注ID（批注添加成功后填写），未添加时为null"
+      },
+      "section": {
+        "type": "string",
+        "enum": ["摘要", "权利要求书", "说明书", "说明书附图", "摘要附图", "全文"],
+        "description": "问题所在的文档章节名称"
+      },
+      "paragraph_index": {
+        "type": "integer_or_null",
+        "description": "段落在该章节中的索引（从0开始）"
+      },
+      "claim_number": {
+        "type": "integer_or_null",
+        "description": "权利要求序号"
+      },
+      "context": {
+        "type": "string",
+        "description": "锚定文本（verbatim copy）"
+      },
+      "highlight_text": {
+        "type": "string_or_null",
+        "description": "高亮显示的文本"
+      },
+      "old_text": {
+        "type": "string_or_null",
+        "description": "需要替换/删除的文本"
+      },
+      "new_text": {
+        "type": "string_or_null",
+        "description": "替换后的文本"
+      },
+      "action_type": {
+        "type": "string",
+        "enum": ["comment", "replace", "delete"],
+        "description": "操作类型"
+      },
+      "occurrence": {
+        "type": "integer_or_null",
+        "description": "指定修改第几次出现"
+      },
+      "issue": {
+        "type": "string",
+        "description": "问题描述"
+      },
+      "suggestion": {
+        "type": "string",
+        "description": "修改建议"
+      },
+      "rule_id": {
+        "type": "string_or_null",
+        "description": "审查规则编号"
+      },
+      "severity": {
+        "type": "string_or_null",
+        "description": "严重程度"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["added", "skipped", "relocated"],
+        "description": "批注处理状态：added=已成功添加, skipped=被跳过, relocated=已重定位"
+      },
+      "skip_reason": {
+        "type": "string_or_null",
+        "description": "跳过原因（仅status为skipped时填写）"
+      },
+      "relocation_info": {
+        "type": "object_or_null",
+        "description": "重定位信息（仅status为relocated时填写）",
+        "fields": {
+          "original_section": {
+            "type": "string",
+            "description": "原始所属章节"
+          },
+          "anchor_text": {
+            "type": "string",
+            "description": "锚定文本（额外批注）"
+          },
+          "new_paragraph_index": {
+            "type": "integer",
+            "description": "重定位后的段落索引"
+          },
+          "relocation_timestamp": {
+            "type": "string",
+            "description": "重定位操作时间戳"
+          }
+        }
+      }
+    }
+  },
+
+  "example_output": {
+    "metadata": {
+      "source_file": "D:/docs/checking-cn-patent-format_20260514_143025/reviews_20260514_143025.json",
+      "skipped_file": "D:/docs/checking-cn-patent-format_20260514_143025/skipped_reviews_20260514_143025.json",
+      "dedup_log_file": "D:/docs/checking-cn-patent-format_20260514_143025/reviews_20260514_143025_dedup_log.json",
+      "processing_timestamp": "2026-05-14T14:35:00+08:00",
+      "input_doc": "D:/docs/专利申请文件.docx",
+      "work_dir": "D:/docs/checking-cn-patent-format_20260514_143025",
+      "timestamp": "20260514_143025"
+    },
+    "deduplication_summary": {
+      "total_before_dedup": 45,
+      "total_after_dedup": 32,
+      "total_removed": 13,
+      "removal_rate": 28.89,
+      "strategies_applied": ["预分组去重", "精确去重", "语义去重", "包含去重", "issue语义去重", "跨章节vs单章节去重", "位置邻近去重"],
+      "conflicts_resolved": 2,
+      "skipped_count": 3
+    },
+    "comments": [
+      {
+        "original_index": 0,
+        "comment_id": 0,
+        "section": "权利要求书",
+        "paragraph_index": 2,
+        "claim_number": 1,
+        "context": "所述排油口",
+        "highlight_text": "所述",
+        "old_text": "所述排油口",
+        "new_text": "排油口",
+        "action_type": "replace",
+        "occurrence": null,
+        "issue": "'排油口'首次出现不应使用'所述'，缺少引用基础",
+        "suggestion": "将'所述排油口'改为'排油口'",
+        "rule_id": "31",
+        "severity": "major",
+        "status": "added",
+        "skip_reason": null,
+        "relocation_info": null
+      },
+      {
+        "original_index": 5,
+        "comment_id": 15,
+        "section": "摘要附图",
+        "paragraph_index": null,
+        "claim_number": null,
+        "context": "摘要附图来源异常",
+        "highlight_text": null,
+        "old_text": null,
+        "new_text": null,
+        "action_type": "comment",
+        "occurrence": null,
+        "issue": "摘要附图标记为'图5'，但说明书附图中不存在图5",
+        "suggestion": "将摘要附图修改为说明书附图中实际存在的图片之一",
+        "rule_id": "51",
+        "severity": "minor",
+        "status": "added",
+        "skip_reason": null,
+        "relocation_info": null
+      }
+    ]
+  }
+}

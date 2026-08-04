@@ -1,0 +1,4 @@
+interface:
+  display_name: "工伤康复与返岗支持方案"
+  short_description: "用自然语言或上传文件完成工伤康复与返岗支持方案，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-employee-relations-397 请帮我完成工伤康复与返岗支持方案：工伤康复期管理+返岗评估+岗位调整+辅助器具+心理支持+法律权益保障。"

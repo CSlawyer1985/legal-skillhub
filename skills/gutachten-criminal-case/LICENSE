@@ -1,0 +1,110 @@
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   Copyright 2026 游初 (994559732@qq.com)
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+---
+
+NOTICE / 声明
+
+This project, "gutachten-criminal-case" (鉴定式刑法案例研习 Skill), is an
+original work by 游初 (Yu Chu).
+
+本项目"gutachten-criminal-case"（鉴定式刑法案例研习 Skill）由游初原创开发。
+
+The skill implements the Gutachtenstil (鉴定式案例分析法) methodology
+for Chinese criminal law practice. It builds on a tripartite crime
+theory system (Dreistufiger Deliktsaufbau) and features an internal
+offense-examination-engine that performs independent legal analysis without
+external knowledge base dependencies. On all major doctrinal controversies,
+the skill takes a doctrine-neutral stance: it provides a user-configurable
+school-of-thought switch (see workflow/0-cold-start-interview.md §1.5) so
+that practitioners may freely select the position they find most reasonable
+on each contested issue. When the user makes no selection, the skill
+defaults to the dualistic Handlungsunwert position (Position A).
+
+本技能将鉴定式案例分析方法论（Gutachtenstil）适配中国刑法实务，
+以三阶层犯罪论体系（Dreistufiger Deliktsaufbau）为基底，通过内置罪名检视
+引擎（offense-examination-engine）独立完成法律分析，无需依赖外部知识库。
+在所有重大学派分歧议题上，本技能采"不预设权威学说"的中立立场：
+通过 workflow/0-cold-start-interview.md §1.5 提供学派开关，让用户在每一
+争议议题上自由选择其认为合理的立场。用户未选择时，默认采"行为无价值
+二元论"（立场 A）。
+
+---
+
+CONTACT / 联系方式
+
+Author / 作者: 游初 (Yu Chu)
+Email / 邮箱: 994559732@qq.com
+WeChat / 微信: Cyruswcx
+GitHub: https://github.com/Youchu-lawhub
+
+For questions, suggestions, or collaboration inquiries, feel free to reach out
+via email, WeChat, or GitHub.
+
+如有问题、建议或合作意向，欢迎通过邮箱、微信或 GitHub 联系。
+
+---
+
+ADDITIONAL TERMS / 附加条款
+
+1. Attribution / 署名要求:
+   If you use, modify, or redistribute this skill or any substantial portion
+   thereof, please retain this copyright notice and provide appropriate
+   attribution to the original author.
+
+   如您使用、修改或再分发本技能或其实质性部分，请保留本版权声明并对原作者
+   进行适当署名。
+
+2. No Endorsement / 非背书声明:
+   The name "游初" and "gutachten-criminal-case" shall not be used to endorse or
+   promote derivative works without prior written permission.
+
+   未经事先书面许可，不得使用"游初"或"gutachten-criminal-case"名称为衍生作品
+   背书或进行推广。
+
+3. Academic Integrity / 学术诚信:
+   This skill is designed as a learning and practice aid. Users are responsible
+   for ensuring academic integrity in their own use of this tool.
+
+   本技能旨在作为学习和实务辅助工具。用户应自行确保使用本工具时的学术诚信。
+
+4. Doctrinal Neutrality / 学派中立:
+   This skill does NOT endorse any particular school of Chinese criminal law
+   dogmatics. The default position (dualistic Handlungsunwert / Position A) is
+   a software default for stable workflow execution, not a normative
+   recommendation. Users are encouraged to read the works listed in the
+   "References" section below and form their own scholarly judgment.
+
+   本技能不为任何中国刑法学派背书。默认采用的"行为无价值二元论（立场 A）"
+   是软件层面为保证工作流稳定运行而设定的兜底立场，并非规范层面的推荐。
+   建议用户深入阅读下方"参考文献"所列著作，形成自己的学术判断。
+
+---
+
+REFERENCES / 参考文献（推荐深入学习阅读）
+
+强烈建议用户深入阅读以下著作，以加深对本框架的理解，并在配置学派立场开关时作出有依据的选择。
+
+[1] 陈璇：《刑法思维与案例讲习》，北京大学出版社 2023 年版。
+
+[2] 王钢：《刑法犯罪论与核心知识》，北京大学出版社 2025 年版。
+
+[3] 蔡圣伟：《刑法案例解析方法论》，元照出版有限公司 2020 年版。
+
+[4] 张明楷：《刑法分则的解释原理》（第三版），高等教育出版社；
+    《刑法学》（第七版），法律出版社。

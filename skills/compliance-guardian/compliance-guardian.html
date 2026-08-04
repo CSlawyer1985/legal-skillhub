@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliance Guardian — FinCEN Reporting Tool</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0D0D0F; color: #F0F0F5; min-height: 100vh; }
+.container { max-width: 900px; margin: 0 auto; padding: 24px; }
+header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #C8102E; }
+h1 { font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.badge { background: #C8102E; color: white; font-size: 10px; padding: 3px 8px; border-radius: 12px; font-weight: 600; }
+.tabs { display: flex; gap: 8px; margin-bottom: 24px; }
+.tab { padding: 10px 20px; border: 1px solid #2A2A33; background: #16161A; color: #888899; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+.tab:hover { border-color: #C8102E; color: #F0F0F5; }
+.tab.active { background: #C8102E; border-color: #C8102E; color: white; }
+.section { display: none; }
+.section.active { display: block; }
+.card { background: #16161A; border: 1px solid #2A2A33; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+.card h2 { font-size: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.question { margin-bottom: 20px; }
+.question label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #F0F0F5; }
+.question p { font-size: 12px; color: #888899; margin-bottom: 10px; }
+.options { display: flex; gap: 10px; flex-wrap: wrap; }
+.option { padding: 12px 20px; border: 2px solid #2A2A33; background: #1E1E24; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.15s; }
+.option:hover { border-color: #C8102E; }
+.option.selected { border-color: #C8102E; background: rgba(200,16,46,0.15); color: #F0F0F5; }
+.result-box { padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center; }
+.result-box.yes { background: rgba(239,68,68,0.15); border: 2px solid #EF4444; }
+.result-box.no { background: rgba(34,197,94,0.15); border: 2px solid #22C55E; }
+.result-box h3 { font-size: 20px; margin-bottom: 8px; }
+.result-box.yes h3 { color: #EF4444; }
+.result-box.no h3 { color: #22C55E; }
+.result-box p { font-size: 13px; color: #888899; }
+input, select { width: 100%; padding: 12px 14px; border: 1px solid #2A2A33; background: #1E1E24; color: #F0F0F5; border-radius: 8px; font-size: 14px; margin-bottom: 12px; }
+input:focus, select:focus { outline: none; border-color: #C8102E; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+.btn { padding: 12px 24px; background: #C8102E; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn:hover { background: #A00D24; }
+.btn-secondary { background: #2A2A33; }
+.btn-secondary:hover { background: #3A3A44; }
+.deadline-card { text-align: center; padding: 30px; }
+.deadline-days { font-size: 64px; font-weight: 700; line-height: 1; }
+.deadline-days.green { color: #22C55E; }
+.deadline-days.yellow { color: #EAB308; }
+.deadline-days.red { color: #EF4444; }
+.deadline-label { font-size: 14px; color: #888899; margin-top: 8px; }
+.deadline-date { font-size: 18px; font-weight: 600; margin-top: 12px; }
+.tracker-list { margin-top: 20px; }
+.tracker-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: #1E1E24; border-radius: 8px; margin-bottom: 8px; }
+.tracker-item .address { font-weight: 600; }
+.tracker-item .dates { font-size: 12px; color: #888899; }
+.tracker-item .status { padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.status-green { background: rgba(34,197,94,0.2); color: #22C55E; }
+.status-yellow { background: rgba(234,179,8,0.2); color: #EAB308; }
+.status-red { background: rgba(239,68,68,0.2); color: #EF4444; }
+.owner-section { border: 1px dashed #2A2A33; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.owner-section h4 { font-size: 13px; color: #888899; margin-bottom: 12px; }
+.add-owner { display: flex; align-items: center; gap: 8px; color: #C8102E; cursor: pointer; font-size: 13px; font-weight: 600; }
+.add-owner:hover { color: #F0F0F5; }
+.copy-output { background: #0D0D0F; border: 1px solid #2A2A33; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; white-space: pre-wrap; max-height: 300px; overflow-y: auto; margin-top: 16px; }
+@media print {
+  body { background: white; color: black; }
+  .tabs, .btn { display: none; }
+  .card { border: 1px solid #ccc; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🛡️ Compliance Guardian <span class="badge">FinCEN</span></h1>
+    <a href="/" style="color:#888899;text-decoration:none;font-size:13px;">← Back to Mission Control</a>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showSection('screener')">1. Screener</div>
+    <div class="tab" onclick="showSection('prefill')">2. Pre-Filler</div>
+    <div class="tab" onclick="showSection('tracker')">3. Tracker</div>
+  </div>
+
+  <!-- SCREENER -->
+  <div id="screener" class="section active">
+    <div class="card">
+      <h2>🔍 Transaction Screener</h2>
+      <p style="color:#888899;font-size:13px;margin-bottom:20px;">Answer 3 questions to determine if FinCEN reporting is required.</p>
+
+      <div class="question">
+        <label>1. Property Type</label>
+        <p>Is this a residential property (1-4 units) or vacant land for residential development?</p>
+        <div class="options">
+          <div class="option" onclick="selectOption(this, 'q1', 'yes')">Yes — Residential (1-4 units)</div>
+          <div class="option" onclick="selectOption(this, 'q1', 'no')">No — Commercial or 5+ units</div>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>2. Buyer Type</label>
+        <p>Is the buyer a legal entity (LLC, Corp, Partnership) or a Trust?</p>
+        <div class="options">
+          <div class="option" onclick="selectOption(this, 'q2', 'yes')">Yes — Entity or Trust</div>
+          <div class="option" onclick="selectOption(this, 'q2', 'no')">No — Natural Person</div>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>3. Financing Type</label>
+        <p>Is a regulated bank providing a mortgage for this purchase?</p>
+        <div class="options">
+          <div class="option" onclick="selectOption(this, 'q3', 'bank')">Bank Mortgage</div>
+          <div class="option" onclick="selectOption(this, 'q3', 'other')">Cash / Private / Seller Carryback</div>
+        </div>
+      </div>
+
+      <div id="screener-result"></div>
+    </div>
+  </div>
+
+  <!-- PRE-FILLER -->
+  <div id="prefill" class="section">
+    <div class="card">
+      <h2>📝 Reporting Person</h2>
+      <div class="row">
+        <input type="text" id="rp-name" placeholder="Full Name">
+        <input type="text" id="rp-title" placeholder="Title">
+      </div>
+      <input type="text" id="rp-business" placeholder="Business Name">
+      <div class="row">
+        <input type="email" id="rp-email" placeholder="Email">
+        <input type="tel" id="rp-phone" placeholder="Phone">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🏠 Property Information</h2>
+      <input type="text" id="prop-address" placeholder="Property Address">
+      <div class="row">
+        <input type="text" id="prop-city" placeholder="City">
+        <input type="text" id="prop-state" placeholder="State">
+      </div>
+      <div class="row">
+        <input type="text" id="prop-zip" placeholder="ZIP Code">
+        <input type="text" id="prop-apn" placeholder="APN / Parcel Number">
+      </div>
+      <div class="row">
+        <input type="date" id="prop-closing" placeholder="Closing Date">
+        <input type="text" id="prop-price" placeholder="Total Consideration ($)">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>👤 Seller Information</h2>
+      <input type="text" id="seller-name" placeholder="Seller Name (or Entity Name)">
+      <input type="text" id="seller-address" placeholder="Seller Address">
+    </div>
+
+    <div class="card">
+      <h2>🏢 Buyer Entity Information</h2>
+      <input type="text" id="buyer-name" placeholder="Legal Entity Name">
+      <div class="row">
+        <input type="text" id="buyer-ein" placeholder="EIN / TIN">
+        <input type="text" id="buyer-state" placeholder="State of Formation">
+      </div>
+      <input type="text" id="buyer-address" placeholder="Entity Address">
+    </div>
+
+    <div class="card">
+      <h2>👥 Beneficial Owners</h2>
+      <p style="color:#888899;font-size:12px;margin-bottom:16px;">Anyone with 25%+ ownership OR substantial control. For trusts: trustees, certain beneficiaries, grantors.</p>
+      
+      <div id="owners-container">
+        <div class="owner-section">
+          <h4>Beneficial Owner #1</h4>
+          <div class="row">
+            <input type="text" class="bo-name" placeholder="Full Legal Name">
+            <input type="date" class="bo-dob" placeholder="Date of Birth">
+          </div>
+          <input type="text" class="bo-address" placeholder="Residential Address">
+          <div class="row">
+            <input type="text" class="bo-citizenship" placeholder="Citizenship">
+            <input type="text" class="bo-tin" placeholder="TIN / SSN">
+          </div>
+        </div>
+      </div>
+
+      <div class="add-owner" onclick="addOwner()">+ Add Another Beneficial Owner</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button class="btn" onclick="generateOutput()">📋 Copy to Clipboard</button>
+        <button class="btn btn-secondary" onclick="window.print()">🖨️ Print</button>
+        <button class="btn btn-secondary" onclick="addToTracker()">📅 Add to Tracker</button>
+      </div>
+      <div id="output-area" class="copy-output" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- TRACKER -->
+  <div id="tracker" class="section">
+    <div class="card">
+      <h2>📅 Filing Deadline Calculator</h2>
+      <p style="color:#888899;font-size:13px;margin-bottom:16px;">Enter closing date to calculate your FinCEN filing deadline.</p>
+      <input type="date" id="calc-closing" onchange="calculateDeadline()">
+      <div id="deadline-result" class="deadline-card" style="display:none;">
+        <div class="deadline-days green" id="deadline-days">--</div>
+        <div class="deadline-label">days remaining</div>
+        <div class="deadline-date" id="deadline-date"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📋 Pending Filings</h2>
+      <p style="color:#888899;font-size:13px;margin-bottom:16px;">Track your FinCEN report deadlines. Data stored in browser only.</p>
+      <div id="tracker-list" class="tracker-list">
+        <p style="color:#888899;font-size:13px;text-align:center;">No pending filings. Add transactions from the Pre-Filler.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const answers = { q1: null, q2: null, q3: null };
+let ownerCount = 1;
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function selectOption(el, question, value) {
+  el.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[question] = value;
+  checkScreener();
+}
+
+function checkScreener() {
+  if (answers.q1 === null || answers.q2 === null || answers.q3 === null) return;
+  
+  const result = document.getElementById('screener-result');
+  const reportable = answers.q1 === 'yes' && answers.q2 === 'yes' && answers.q3 === 'other';
+  
+  if (reportable) {
+    result.innerHTML = `
+      <div class="result-box yes">
+        <h3>⚠️ REPORTING REQUIRED</h3>
+        <p>This transaction requires a FinCEN Real Estate Report. File within 30 days of closing or by end of following month.</p>
+        <button class="btn" style="margin-top:16px;" onclick="showSection('prefill');document.querySelectorAll('.tab')[1].classList.add('active');document.querySelectorAll('.tab')[0].classList.remove('active');">
+          Start Pre-Filler →
+        </button>
+      </div>`;
+  } else {
+    let reason = '';
+    if (answers.q1 === 'no') reason = 'Commercial or 5+ unit properties are exempt.';
+    else if (answers.q2 === 'no') reason = 'Natural person buyers are exempt.';
+    else if (answers.q3 === 'bank') reason = 'Bank-financed transactions are exempt (bank reports separately).';
+    
+    result.innerHTML = `
+      <div class="result-box no">
+        <h3>✓ NO REPORTING REQUIRED</h3>
+        <p>${reason}</p>
+      </div>`;
+  }
+}
+
+function addOwner() {
+  ownerCount++;
+  const container = document.getElementById('owners-container');
+  const div = document.createElement('div');
+  div.className = 'owner-section';
+  div.innerHTML = `
+    <h4>Beneficial Owner #${ownerCount}</h4>
+    <div class="row">
+      <input type="text" class="bo-name" placeholder="Full Legal Name">
+      <input type="date" class="bo-dob" placeholder="Date of Birth">
+    </div>
+    <input type="text" class="bo-address" placeholder="Residential Address">
+    <div class="row">
+      <input type="text" class="bo-citizenship" placeholder="Citizenship">
+      <input type="text" class="bo-tin" placeholder="TIN / SSN">
+    </div>`;
+  container.appendChild(div);
+}
+
+function generateOutput() {
+  const owners = [];
+  document.querySelectorAll('.owner-section').forEach((section, i) => {
+    owners.push({
+      name: section.querySelector('.bo-name').value,
+      dob: section.querySelector('.bo-dob').value,
+      address: section.querySelector('.bo-address').value,
+      citizenship: section.querySelector('.bo-citizenship').value,
+      tin: section.querySelector('.bo-tin').value
+    });
+  });
+
+  const output = `
+═══════════════════════════════════════════════════════════════
+FINCEN REAL ESTATE REPORT — PRE-FILL DATA
+Generated: ${new Date().toLocaleString()}
+═══════════════════════════════════════════════════════════════
+
+REPORTING PERSON
+  Name: ${document.getElementById('rp-name').value}
+  Title: ${document.getElementById('rp-title').value}
+  Business: ${document.getElementById('rp-business').value}
+  Email: ${document.getElementById('rp-email').value}
+  Phone: ${document.getElementById('rp-phone').value}
+
+PROPERTY
+  Address: ${document.getElementById('prop-address').value}
+  City: ${document.getElementById('prop-city').value}
+  State: ${document.getElementById('prop-state').value}
+  ZIP: ${document.getElementById('prop-zip').value}
+  APN: ${document.getElementById('prop-apn').value}
+  Closing Date: ${document.getElementById('prop-closing').value}
+  Consideration: $${document.getElementById('prop-price').value}
+
+SELLER
+  Name: ${document.getElementById('seller-name').value}
+  Address: ${document.getElementById('seller-address').value}
+
+BUYER ENTITY
+  Legal Name: ${document.getElementById('buyer-name').value}
+  EIN/TIN: ${document.getElementById('buyer-ein').value}
+  State of Formation: ${document.getElementById('buyer-state').value}
+  Address: ${document.getElementById('buyer-address').value}
+
+BENEFICIAL OWNERS
+${owners.map((o, i) => `
+  Owner #${i + 1}
+    Name: ${o.name}
+    DOB: ${o.dob}
+    Address: ${o.address}
+    Citizenship: ${o.citizenship}
+    TIN: ${o.tin}
+`).join('')}
+═══════════════════════════════════════════════════════════════
+File at: https://bsaefiling.fincen.treas.gov/
+═══════════════════════════════════════════════════════════════
+`;
+
+  const area = document.getElementById('output-area');
+  area.style.display = 'block';
+  area.textContent = output;
+  navigator.clipboard.writeText(output).then(() => {
+    alert('Copied to clipboard!');
+  });
+}
+
+function calculateDeadline() {
+  const closingStr = document.getElementById('calc-closing').value;
+  if (!closingStr) return;
+  
+  const closing = new Date(closingStr);
+  const thirtyDays = new Date(closing);
+  thirtyDays.setDate(thirtyDays.getDate() + 30);
+  
+  const endOfNextMonth = new Date(closing.getFullYear(), closing.getMonth() + 2, 0);
+  
+  const deadline = thirtyDays > endOfNextMonth ? thirtyDays : endOfNextMonth;
+  const today = new Date();
+  const daysRemaining = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+  
+  const resultDiv = document.getElementById('deadline-result');
+  const daysDiv = document.getElementById('deadline-days');
+  const dateDiv = document.getElementById('deadline-date');
+  
+  resultDiv.style.display = 'block';
+  daysDiv.textContent = daysRemaining;
+  dateDiv.textContent = `Deadline: ${deadline.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}`;
+  
+  daysDiv.className = 'deadline-days';
+  if (daysRemaining > 14) daysDiv.classList.add('green');
+  else if (daysRemaining > 7) daysDiv.classList.add('yellow');
+  else daysDiv.classList.add('red');
+}
+
+function addToTracker() {
+  const address = document.getElementById('prop-address').value;
+  const closing = document.getElementById('prop-closing').value;
+  if (!address || !closing) {
+    alert('Please fill in property address and closing date first.');
+    return;
+  }
+  
+  const closingDate = new Date(closing);
+  const thirtyDays = new Date(closingDate);
+  thirtyDays.setDate(thirtyDays.getDate() + 30);
+  const endOfNextMonth = new Date(closingDate.getFullYear(), closingDate.getMonth() + 2, 0);
+  const deadline = thirtyDays > endOfNextMonth ? thirtyDays : endOfNextMonth;
+  
+  let filings = JSON.parse(localStorage.getItem('fincen-filings') || '[]');
+  filings.push({
+    address: address,
+    closing: closing,
+    deadline: deadline.toISOString(),
+    added: new Date().toISOString()
+  });
+  localStorage.setItem('fincen-filings', JSON.stringify(filings));
+  
+  alert('Added to tracker!');
+  renderTracker();
+}
+
+function renderTracker() {
+  const filings = JSON.parse(localStorage.getItem('fincen-filings') || '[]');
+  const list = document.getElementById('tracker-list');
+  
+  if (filings.length === 0) {
+    list.innerHTML = '<p style="color:#888899;font-size:13px;text-align:center;">No pending filings. Add transactions from the Pre-Filler.</p>';
+    return;
+  }
+  
+  const today = new Date();
+  list.innerHTML = filings.map((f, i) => {
+    const deadline = new Date(f.deadline);
+    const days = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+    let statusClass = 'status-green';
+    let statusText = `${days} days`;
+    if (days <= 7) { statusClass = 'status-red'; statusText = days <= 0 ? 'OVERDUE' : `${days} days`; }
+    else if (days <= 14) { statusClass = 'status-yellow'; }
+    
+    return `
+      <div class="tracker-item">
+        <div>
+          <div class="address">${f.address}</div>
+          <div class="dates">Closed: ${new Date(f.closing).toLocaleDateString()} • Due: ${deadline.toLocaleDateString()}</div>
+        </div>
+        <span class="status ${statusClass}">${statusText}</span>
+      </div>`;
+  }).join('');
+}
+
+renderTracker();
+</script>
+</body>
+</html>

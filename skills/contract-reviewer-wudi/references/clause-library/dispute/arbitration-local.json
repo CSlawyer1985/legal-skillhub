@@ -1,0 +1,13 @@
+{
+  "$schema": "clause-schema",
+  "category": "dispute",
+  "name": "国内仲裁条款（格式化）",
+  "applicable_types": [
+    "all"
+  ],
+  "clause_text": "因本合同引起的或与本合同有关的任何争议，均应提交【XX仲裁委员会】，按照其届时有效的仲裁规则进行仲裁。仲裁地点：【___】。仲裁裁决是终局的，对双方均有约束力。",
+  "position_tips": {
+    "both": "优先选择双方所在地省会仲裁委，知名度高、公信力强；注意确认仲裁委名称准确无误"
+  },
+  "legal_reference": "《仲裁法》第16条"
+}

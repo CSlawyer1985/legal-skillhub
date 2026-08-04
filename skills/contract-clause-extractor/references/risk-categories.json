@@ -1,0 +1,91 @@
+{
+  "title": "Contract Clause Risk Categories",
+  "description": "Definitions for the 12 standard contract clause categories with risk indicators",
+  "version": "1.0.0",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Payment Terms",
+      "name_zh": "付款条款",
+      "description": "Amounts, payment schedules, milestones, late fees, invoicing requirements, and currency specifications.",
+      "risk_indicators": ["Net-90+ terms", "unilateral price adjustment", "no late fee", "milestones without time bounds"]
+    },
+    {
+      "id": 2,
+      "name": "Delivery/Performance",
+      "name_zh": "交付/履约条款",
+      "description": "Scope of work, delivery timeline, acceptance criteria, milestones, and performance standards.",
+      "risk_indicators": ["vague scope definition", "no delivery deadline", "unilateral scope change"]
+    },
+    {
+      "id": 3,
+      "name": "Breach & Penalties",
+      "name_zh": "违约责任",
+      "description": "Liquidated damages, remedies, cure periods, and consequences of breach.",
+      "risk_indicators": ["penalty > 30% contract value (PRC limit)", "no cure period", "asymmetric remedies"]
+    },
+    {
+      "id": 4,
+      "name": "Confidentiality",
+      "name_zh": "保密条款",
+      "description": "Scope of confidential information, duration, exclusions, return/destruction obligations.",
+      "risk_indicators": ["no standard exclusions", "one-sided obligation", "perpetual duration"]
+    },
+    {
+      "id": 5,
+      "name": "Intellectual Property",
+      "name_zh": "知识产权",
+      "description": "IP ownership, licensing, work-for-hire, background IP, and assignment terms.",
+      "risk_indicators": ["no background IP exclusion", "all IP assigned unilaterally", "no license grant"]
+    },
+    {
+      "id": 6,
+      "name": "Non-Compete / Non-Solicit",
+      "name_zh": "竞业限制",
+      "description": "Non-competition scope, duration, geographic limits, and non-solicitation restrictions.",
+      "risk_indicators": ["overly broad geographic scope", "duration > 2 years (PRC limit)", "no compensation"]
+    },
+    {
+      "id": 7,
+      "name": "Jurisdiction & Dispute Resolution",
+      "name_zh": "管辖权/争议解决",
+      "description": "Governing law, venue, arbitration clauses, and dispute resolution procedures.",
+      "risk_indicators": ["foreign jurisdiction for domestic contract", "unilateral venue choice", "no arbitration clause"]
+    },
+    {
+      "id": 8,
+      "name": "Termination",
+      "name_zh": "终止条款",
+      "description": "Termination for cause, convenience, notice periods, and effects of termination.",
+      "risk_indicators": ["one-sided termination right", "no cause termination with short notice", "onerous post-termination obligations"]
+    },
+    {
+      "id": 9,
+      "name": "Force Majeure",
+      "name_zh": "不可抗力",
+      "description": "Definition of force majeure events, notice obligations, and consequences.",
+      "risk_indicators": ["overly broad definition includes market conditions", "no notice obligation", "no termination right on prolonged force majeure"]
+    },
+    {
+      "id": 10,
+      "name": "Liability & Indemnity Caps",
+      "name_zh": "赔偿上限",
+      "description": "Total liability caps, damages exclusions, indemnification scope, and limitations.",
+      "risk_indicators": ["unlimited liability", "no cap on total liability", "overly broad indemnity"]
+    },
+    {
+      "id": 11,
+      "name": "Acceptance Criteria",
+      "name_zh": "验收标准",
+      "description": "Testing procedures, UAT, defect classification, remediation timelines, and sign-off process.",
+      "risk_indicators": ["no acceptance criteria", "deemed acceptance without testing", "unreasonable defect resolution timeline"]
+    },
+    {
+      "id": 12,
+      "name": "Renewal & Term",
+      "name_zh": "续约/期限",
+      "description": "Initial term, auto-renewal provisions, notice periods, and term adjustments.",
+      "risk_indicators": ["auto-renewal without opt-out", "asymmetric notice periods", "excessive initial term"]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "batch_info": {
+    "total_contracts": 1,
+    "processed_contracts": 1,
+    "failed_contracts": 0,
+    "processing_time_seconds": 0.13,
+    "timestamp": "2026-04-27T12:33:17.569710",
+    "industry": "general",
+    "max_workers": 4
+  },
+  "results": [
+    {
+      "contract_file": "C:\\Users\\pc\\test_contract.txt",
+      "contract_name": "test_contract.txt",
+      "risk_score": 40,
+      "risk_level": "HIGH",
+      "findings_count": 5,
+      "high_risk_count": 0,
+      "medium_risk_count": 3,
+      "low_risk_count": 2,
+      "critical_risk_count": 0
+    }
+  ],
+  "summary": {
+    "total_high_risk": 0,
+    "total_medium_risk": 3,
+    "total_low_risk": 2,
+    "average_risk_score": 40.0,
+    "risk_distribution": {
+      "critical": 0,
+      "high": 0,
+      "medium": 3,
+      "low": 2
+    }
+  }
+}

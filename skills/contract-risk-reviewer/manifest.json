@@ -1,0 +1,94 @@
+{
+  "version": "1.0.0",
+  "name": "contract-risk-reviewer",
+  "displayName": "法律合同风险审查系统",
+  "displayNameEn": "Legal Contract Risk Review System",
+  "description": "专业级合同风险审查工具，自动识别 20+ 类常见风险条款（权责不对等、违约模糊、管辖陷阱、知识产权漏洞等），给出修改建议和法律依据。适合创业者、法务、自由职业者使用。",
+  "descriptionEn": "Professional contract risk review tool. Automatically identifies 20+ risk categories with legal references and revision suggestions.",
+  "author": "上海冰月网络科技有限公司",
+  "authorEn": "Shanghai Bingyue Network Technology Co., Ltd.",
+  "category": "法律/企业",
+  "tags": ["合同审查", "风险识别", "法律咨询", "创业者", "法务", "合规"],
+  "tagsEn": ["contract-review", "risk-analysis", "legal", "compliance", "business"],
+  "price": {
+    "cny": 99,
+    "usd": 39.99,
+    "type": "one-time"
+  },
+  "pricingOptions": [
+    {
+      "name": "单次审查",
+      "priceCny": 9.9,
+      "priceUsd": 2.99,
+      "description": "审查 1 份合同（限 5000 字）"
+    },
+    {
+      "name": "月度会员",
+      "priceCny": 99,
+      "priceUsd": 39.99,
+      "description": "无限次审查 + 高级报告 + 法律依据"
+    },
+    {
+      "name": "企业版",
+      "priceCny": 299,
+      "priceUsd": 99,
+      "description": "团队协作 + 自定义规则 + API 接入"
+    }
+  ],
+  "icon": "icon.png",
+  "preview": "preview.png",
+  "inputs": [
+    {
+      "name": "contract_text",
+      "type": "string",
+      "required": true,
+      "description": "合同全文文本"
+    },
+    {
+      "name": "contract_type",
+      "type": "string",
+      "required": false,
+      "description": "合同类型（服务合同/买卖合同/租赁合同/劳动合同/合作协议/保密协议/其他）",
+      "default": "通用"
+    },
+    {
+      "name": "my_role",
+      "type": "string",
+      "required": false,
+      "description": "我的角色（甲方/乙方/平等合作）",
+      "default": "通用"
+    },
+    {
+      "name": "depth",
+      "type": "string",
+      "required": false,
+      "description": "审查深度（标准/深度/全面）",
+      "default": "标准"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "risk_score",
+      "type": "number",
+      "description": "综合风险评分（0-100，越高风险越大）"
+    },
+    {
+      "name": "risk_list",
+      "type": "array",
+      "description": "识别到的风险条款列表（含等级、原文、问题、修改建议、法律依据）"
+    },
+    {
+      "name": "summary",
+      "type": "string",
+      "description": "审查摘要和整体建议"
+    },
+    {
+      "name": "revised_clauses",
+      "type": "array",
+      "description": "修改后的安全条款建议"
+    }
+  ],
+  "compliance": "本工具仅提供风险提示参考，不构成法律意见。重大合同请咨询专业律师。",
+  "createdAt": "2026-04-15",
+  "updatedAt": "2026-04-15"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "agent-code-no7-legal-hunter",
+  "version": "1.0.0",
+  "description": "Agent Code No.7 法律猎手 - 法规检索与案例分析",
+  "keywords": ["agent", "legal", "law", "research", "case-analysis"],
+  "author": "monarchmio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monarchmio/agent-code-no7"
+  }
+}

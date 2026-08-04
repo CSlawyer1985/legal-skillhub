@@ -1,0 +1,37 @@
+{
+  "slug": "legal-matter-intake-summarizer",
+  "title": "法务接案摘要器",
+  "category": "vertical",
+  "categoryLabel": "垂直行业",
+  "mode": "structured_brief",
+  "summary": "把法律相关咨询材料整理成事实、争议点、缺失材料与后续问题，不给法律结论。",
+  "inputHint": "事实经过、时间线、已有文件",
+  "sections": [
+    "事实摘要",
+    "争议点",
+    "已知证据",
+    "缺失材料",
+    "需进一步确认",
+    "风险提示"
+  ],
+  "useCases": [
+    "法务接案",
+    "咨询前整理",
+    "案件材料收口"
+  ],
+  "positiveExamples": [
+    "把这堆法务材料整理成接案摘要",
+    "列出还缺哪些材料"
+  ],
+  "negativeExamples": [
+    "不要提供法律意见结论",
+    "不要替代律师审查"
+  ],
+  "risk": "只做材料整理与问题清单。",
+  "tags": [
+    "legal",
+    "intake",
+    "case-summary",
+    "operations"
+  ]
+}

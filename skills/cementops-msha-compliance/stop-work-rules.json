@@ -1,0 +1,209 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-03-30",
+  "author": "Josh Larkin, CementOps AI",
+  "fail_safe": "If this file cannot be loaded, DEFAULT TO STOP_WORK",
+  "notes": "Every rule maps to a 30 CFR section. Keywords are broad to minimize false negatives. The agent MUST use check_stopwork.py to evaluate — it does NOT make stop-work decisions on its own.",
+  "rules": [
+    {
+      "id": "SW-001",
+      "condition": "Unguarded moving machine parts within reach of personnel",
+      "keywords": ["unguarded", "no guard", "guard missing", "guard removed", "guard fell", "guard broken", "guard off", "exposed shaft", "exposed gear", "exposed belt", "exposed chain", "exposed pulley", "exposed sprocket", "exposed flywheel", "exposed coupling", "nip point", "pinch point unguarded", "rotating equipment no guard", "missing guard", "without guard", "belt exposed", "chain exposed", "shaft exposed", "pulley exposed", "guard not installed", "guard damaged", "guard not in place", "reached into"],
+      "cfr_reference": "30 CFR 56.14107(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Unguarded moving machine parts within reach of personnel. Do not resume until guards are installed, inspected, and verified. Notify your supervisor and safety manager NOW. Reference: 30 CFR 56.14107(a)."
+    },
+    {
+      "id": "SW-002",
+      "condition": "Fall hazard — unprotected edge or opening above 6 feet",
+      "keywords": ["unprotected edge", "no guardrail", "fall hazard", "no fall protection", "no harness", "open floor hole", "unprotected opening", "missing handrail", "guardrail missing", "guardrail removed", "guardrail broken", "no tie-off", "not tied off", "working at height without", "edge without rail", "open hole", "missing railing", "railing removed", "no lanyard", "fell from", "almost fell", "near fall", "platform no rail", "walkway no rail", "no safety line"],
+      "cfr_reference": "30 CFR 56.15005",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Fall hazard: unprotected edge or opening. Do not approach. Do not resume until fall protection (guardrails, harness, or covers) is in place and verified. Reference: 30 CFR 56.15005."
+    },
+    {
+      "id": "SW-003",
+      "condition": "Energized equipment — lockout/tagout not applied during maintenance",
+      "keywords": ["not locked out", "no lockout", "no tagout", "energized", "loto not applied", "working on energized", "no lock no tag", "lockout not applied", "tagout not applied", "equipment not de-energized", "not de-energized", "still running while working", "still powered", "breaker not locked", "didn't lock out", "forgot lockout", "working on live", "live equipment", "maintenance without lockout", "servicing without loto", "no isolation", "not isolated"],
+      "cfr_reference": "30 CFR 56.12016",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Equipment not properly locked out/tagged out during maintenance. All energy sources must be isolated and verified before work continues. Contact your supervisor NOW. Reference: 30 CFR 56.12016."
+    },
+    {
+      "id": "SW-004",
+      "condition": "Confined space entry without permit or atmospheric testing",
+      "keywords": ["confined space no permit", "entered silo", "entered bin without", "no atmospheric test", "confined space no test", "entered tank without", "entered vessel without", "no entry permit", "confined space without", "no air test", "went into the silo", "went into the bin", "inside the tank without", "inside the vessel without", "no gas test", "no atmosphere check", "entered preheater without", "entered cyclone without", "entered hopper without", "entered baghouse without", "confined entry no permit"],
+      "cfr_reference": "30 CFR 56.5002",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Confined space entry without proper permit and atmospheric testing. EXIT THE SPACE IMMEDIATELY if safe to do so. Do not re-enter until a confined space permit is issued and atmosphere is tested and verified safe. Reference: 30 CFR 56.5002."
+    },
+    {
+      "id": "SW-005",
+      "condition": "Active ground instability or structural failure risk",
+      "keywords": ["ground collapse", "wall collapse", "structural crack", "silo wall crack", "foundation failure", "highwall", "unstable ground", "slope failure", "building collapse", "roof collapse", "structure failing", "wall bulging", "wall buckling", "floor giving way", "sinking ground", "crack in structure", "structural damage", "preheater tower crack", "kiln support crack", "foundation crack"],
+      "cfr_reference": "30 CFR 56.3200",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Ground or structural instability detected. Evacuate the area. Establish a safety perimeter. Do not re-enter until a qualified person has assessed and cleared the area. Reference: 30 CFR 56.3200."
+    },
+    {
+      "id": "SW-006",
+      "condition": "Hazardous atmosphere — oxygen deficient, enriched, or toxic gas detected",
+      "keywords": ["oxygen deficient", "low oxygen", "toxic gas", "h2s detected", "co detected", "gas alarm", "atmosphere dangerous", "high co", "high h2s", "carbon monoxide alarm", "hydrogen sulfide", "oxygen alarm", "air monitor alarm", "gas monitor alarm", "dangerous atmosphere", "bad air", "can't breathe", "trouble breathing", "fumes", "chemical release", "ammonia leak", "chlorine leak", "so2 alarm", "sulfur dioxide"],
+      "cfr_reference": "30 CFR 56.5001",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Hazardous atmosphere detected. Move to fresh air immediately. Do not re-enter until atmosphere is tested and verified safe by a competent person with calibrated instruments. Reference: 30 CFR 56.5001."
+    },
+    {
+      "id": "SW-007",
+      "condition": "Arc flash or electrical flash hazard — work near energized electrical panels without PPE",
+      "keywords": ["arc flash", "electrical flash", "flash hazard", "working in mcc without", "mcc room no ppe", "energized panel open", "panel open no ppe", "switchgear open", "no arc flash ppe", "no flash suit", "electrical panel exposed", "bus bar exposed", "exposed electrical", "live panel open", "energized switchgear", "no arc rated", "opening panel without"],
+      "cfr_reference": "30 CFR 56.12025",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Arc flash / electrical flash hazard. Close the panel and step back. Do not open or work on energized electrical equipment without proper arc-flash-rated PPE and a qualified electrician present. Reference: 30 CFR 56.12025."
+    },
+    {
+      "id": "SW-008",
+      "condition": "Kiln shell hot spot — potential shell breach or refractory failure",
+      "keywords": ["kiln hot spot", "kiln shell red", "red spot on kiln", "shell temperature", "refractory failure", "refractory fallen", "refractory missing", "brick fallen", "brick missing in kiln", "kiln shell glowing", "kiln shell above", "shell breach", "kiln burning through", "refractory breach", "kiln shell deformation", "kiln shell buckle"],
+      "cfr_reference": "30 CFR 56.14100(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Kiln shell hot spot / potential refractory breach detected. Evacuate the area around the kiln shell. Do not walk under or near the affected zone. Notify kiln operator and maintenance supervisor. Kiln may need emergency shutdown. Reference: 30 CFR 56.14100(a)."
+    },
+    {
+      "id": "SW-009",
+      "condition": "Molten clinker or hot material spill in personnel area",
+      "keywords": ["molten clinker", "hot clinker spill", "clinker spill", "hot material spill", "molten material", "hot material on ground", "clinker on the floor", "burning material", "red hot clinker", "clinker cooler breach", "cooler breach", "hot material leak", "clinker falling"],
+      "cfr_reference": "30 CFR 56.14100(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Molten/hot clinker or material spill in personnel area. Evacuate immediately. Establish exclusion zone. Do not attempt to clean up until material has cooled and area is assessed safe. Reference: 30 CFR 56.14100(a)."
+    },
+    {
+      "id": "SW-010",
+      "condition": "Dust concentration at or above explosive limit (LEL)",
+      "keywords": ["dust explosion", "explosive dust", "lel alarm", "lel exceeded", "lower explosive limit", "combustible dust", "coal dust concentration", "dust cloud", "dust ignition", "explosion risk dust", "high dust concentration", "coal mill explosion", "bag house fire", "baghouse fire", "baghouse explosion", "dust collector fire", "dust collector explosion"],
+      "cfr_reference": "30 CFR 56.4201",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Combustible dust at or above explosive concentration. Evacuate the area. Eliminate all ignition sources. Do not operate electrical equipment in the zone. Notify the control room and fire response team. Reference: 30 CFR 56.4201."
+    },
+    {
+      "id": "SW-011",
+      "condition": "Mobile equipment operating without backup alarm or in blind spot with personnel present",
+      "keywords": ["no backup alarm", "backup alarm not working", "no reverse alarm", "reverse alarm broken", "working in blind spot", "people behind truck", "loader blind spot", "no spotter", "operating without spotter", "pedestrian near mobile equipment", "no barricade around equipment", "haul truck no alarm", "forklift no horn", "almost hit by", "nearly struck by", "close call mobile", "alarm not working", "backing no alarm", "backing up no alarm", "no alarm people", "no alarm backing", "loader no alarm", "truck no alarm", "equipment no alarm"],
+      "cfr_reference": "30 CFR 56.14132(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Mobile equipment operating near personnel without functioning backup alarm or spotter. Stop equipment movement. Clear all personnel from the area. Do not resume until backup alarms are verified working and spotters are in place. Reference: 30 CFR 56.14132(a)."
+    },
+    {
+      "id": "SW-012",
+      "condition": "Crane or hoist operating over personnel or with defective rigging",
+      "keywords": ["crane over people", "load over personnel", "rigging defective", "sling damaged", "sling frayed", "wire rope damaged", "overloaded crane", "crane overloaded", "hoist overloaded", "lifting over people", "working under suspended load", "under the load", "standing under load", "bad rigging", "rigging not inspected", "no rigging inspection", "hook no safety latch", "crane no inspection"],
+      "cfr_reference": "30 CFR 56.14211",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Crane/hoist operating over personnel or with defective rigging. Lower the load to a safe position if possible. Clear all personnel from under and around the load. Do not resume lifting until rigging is inspected and all personnel are clear. Reference: 30 CFR 56.14211."
+    },
+    {
+      "id": "SW-013",
+      "condition": "Scaffold without inspection tag or structurally deficient",
+      "keywords": ["scaffold no tag", "scaffold not inspected", "scaffold no inspection", "scaffold damaged", "scaffold missing planks", "scaffold missing rail", "scaffold unstable", "scaffold not tied", "scaffold leaning", "scaffold base not level", "scaffold overloaded", "incomplete scaffold", "scaffold missing cross brace"],
+      "cfr_reference": "30 CFR 56.11027",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Scaffold is not inspected, tagged, or is structurally deficient. Do not use the scaffold. Barricade the area. Do not resume until a competent person has inspected, repaired, and tagged the scaffold safe. Reference: 30 CFR 56.11027."
+    },
+    {
+      "id": "SW-014",
+      "condition": "Chemical spill — acid, caustic, or hazardous material release",
+      "keywords": ["acid spill", "chemical spill", "caustic spill", "hcl spill", "hydrochloric acid", "sulfuric acid spill", "naoh spill", "chemical release", "hazmat spill", "chemical leak", "acid leak", "caustic leak", "ammonia release", "chemical drum leaking", "battery acid spill", "chemical exposure", "chemical burn"],
+      "cfr_reference": "30 CFR 56.20014",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Hazardous chemical spill or release. Evacuate the immediate area. Do not attempt cleanup without proper PPE and training. Notify your supervisor and follow your plant spill response plan. Reference: 30 CFR 56.20014."
+    },
+    {
+      "id": "SW-015",
+      "condition": "Fire or active combustion in plant area",
+      "keywords": ["fire", "burning", "flames", "smoke", "on fire", "caught fire", "fire alarm", "active fire", "smoldering", "combustion", "fire in baghouse", "fire in coal mill", "belt on fire", "conveyor fire", "electrical fire", "transformer fire", "oil fire", "hydraulic fire"],
+      "cfr_reference": "30 CFR 56.4200",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Fire or active combustion detected. Activate fire alarm. Evacuate the area. Do not attempt to fight the fire unless trained and it is safe to do so. Notify the control room and emergency response team. Reference: 30 CFR 56.4200."
+    },
+    {
+      "id": "SW-016",
+      "condition": "Excavation or trench without shoring, sloping, or protective system",
+      "keywords": ["trench no shoring", "excavation no shoring", "trench collapse", "unshored trench", "unshored excavation", "trench no protection", "digging without shoring", "excavation no slope", "trench walls caving", "trench cave-in", "soil collapse trench", "deep hole no protection"],
+      "cfr_reference": "30 CFR 56.3401",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Excavation or trench without proper shoring or protective system. All personnel exit the trench immediately. Do not re-enter until shoring, sloping, or a trench box is installed and inspected by a competent person. Reference: 30 CFR 56.3401."
+    },
+    {
+      "id": "SW-017",
+      "condition": "Person trapped, pinned, or caught in equipment",
+      "keywords": ["person trapped", "someone trapped", "caught in machine", "caught in conveyor", "pinned by", "stuck in equipment", "arm caught", "hand caught", "leg caught", "body caught", "entangled", "pulled into", "dragged into", "crushed by", "person pinned", "worker trapped", "someone stuck"],
+      "cfr_reference": "30 CFR 56.14107(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. EMERGENCY RESCUE SITUATION. Do NOT attempt to reverse the equipment — you may cause further injury. Hit the emergency stop. Call 911 / plant emergency number. Keep the victim calm and still. Do not move them unless there is immediate danger to life. This is a medical emergency."
+    },
+    {
+      "id": "SW-018",
+      "condition": "Electrical ground fault or stray current detected",
+      "keywords": ["ground fault", "stray current", "tingling sensation", "got shocked", "electric shock", "felt a shock", "equipment shocking", "ground fault alarm", "gfci tripping", "current leaking", "metal is hot", "tingling when touching", "buzzing from equipment", "arcing", "sparking from"],
+      "cfr_reference": "30 CFR 56.12025",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Electrical ground fault or stray current. Do not touch the affected equipment. De-energize the circuit if you can do so safely from a remote breaker. Barricade the area. Do not re-energize until a qualified electrician has investigated and repaired the fault. Reference: 30 CFR 56.12025."
+    },
+    {
+      "id": "SW-019",
+      "condition": "Pressure vessel or compressed gas leak",
+      "keywords": ["pressure vessel leak", "compressed gas leak", "hissing from pipe", "hissing from line", "hissing from valve", "hissing under pressure", "high pressure leak", "steam leak", "hydraulic line burst", "pneumatic line burst", "pressure relief valve", "overpressure", "tank overpressure", "accumulator leak", "air receiver leak", "boiler leak", "pressure gauge red", "vessel rupture", "high pressure line", "high pressure hissing", "pipe burst", "line burst"],
+      "cfr_reference": "30 CFR 56.13020",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Pressure vessel or compressed gas leak. Evacuate the area. Do not attempt to tighten fittings or stop the leak while under pressure. Isolate the pressure source if you can do so safely from a remote valve. Notify maintenance and your supervisor. Reference: 30 CFR 56.13020."
+    },
+    {
+      "id": "SW-020",
+      "condition": "Blasting area — unauthorized personnel in blast zone",
+      "keywords": ["blast zone", "blasting area", "explosives", "detonation", "people in blast", "unauthorized in blast", "blast radius", "blasting without clearance", "blast warning not given", "no blast signal", "blast guard not posted"],
+      "cfr_reference": "30 CFR 56.6306",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Unauthorized personnel in blast zone or blasting without proper clearance. All personnel evacuate to safe distance. Do not proceed with any blasting until area is cleared, guards are posted, and proper blast signals are given. Reference: 30 CFR 56.6306."
+    },
+    {
+      "id": "SW-021",
+      "condition": "Preheater buildup collapse or blockage with personnel in exposure zone",
+      "keywords": ["preheater buildup", "preheater blockage", "cyclone blockage", "cyclone buildup", "buildup collapse", "material collapse preheater", "preheater plugged", "riser duct blockage", "buildup fell", "material fell preheater", "preheater cleanout", "cyclone cleanout without", "poking preheater", "rodding preheater", "blockage collapsed"],
+      "cfr_reference": "30 CFR 56.3200",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Preheater buildup/blockage with personnel in exposure zone. Buildup collapses are unpredictable and can release tons of hot material instantly. Evacuate all personnel from below the blockage and from the cleanout area. Do not attempt to rod or poke the blockage with personnel positioned below or in the path of falling material. Notify the control room and kiln operator. Reference: 30 CFR 56.3200."
+    },
+    {
+      "id": "SW-022",
+      "condition": "Hydraulic injection injury — high-pressure fluid penetrating skin",
+      "keywords": ["hydraulic injection", "hydraulic puncture", "hydraulic needle", "fluid injection", "high pressure fluid skin", "hydraulic line hit skin", "hydraulic spray hit", "pinhole hydraulic", "hydraulic fluid under skin", "hydraulic injury"],
+      "cfr_reference": "30 CFR 56.14100(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. MEDICAL EMERGENCY — suspected hydraulic injection injury. This is a SURGICAL EMERGENCY even if the wound looks minor. Do NOT apply heat, do NOT massage the area, do NOT wait. Call 911 and get the injured person to an emergency room with surgical capability IMMEDIATELY. Inform the ER it is a hydraulic fluid injection injury — they may not recognize it. Time to surgery is critical. Reference: 30 CFR 56.14100(a)."
+    },
+    {
+      "id": "SW-023",
+      "condition": "Kiln coating ring or buildup collapse inside kiln during operation",
+      "keywords": ["kiln ring collapse", "kiln ring collapsed", "coating ring fell", "coating ring collapsed", "kiln buildup fell", "kiln buildup collapsed", "ring collapse kiln", "ring collapsed kiln", "kiln ring broke", "dam ring collapse", "dam ring collapsed", "kiln ring fell", "clinker ring collapse", "clinker ring collapsed"],
+      "cfr_reference": "30 CFR 56.14100(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Kiln coating ring or buildup collapse detected. This can cause kiln shell deformation, dust storm in the cooler area, and hot material surge through the cooler. Evacuate personnel from the kiln hood, cooler, and clinker handling areas. Notify the control room. Kiln may require controlled shutdown. Reference: 30 CFR 56.14100(a)."
+    },
+    {
+      "id": "SW-024",
+      "condition": "Personnel entering clinker cooler undergrate while cooler is hot or not fully isolated",
+      "keywords": ["cooler undergrate", "under the cooler", "undergrate entry", "cooler not cooled", "entered cooler without", "cooler still hot", "cooler not isolated", "clinker cooler entry"],
+      "cfr_reference": "30 CFR 56.14100(a)",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Personnel in clinker cooler undergrate area without full isolation and cooldown. Cooler undergrate temperatures can exceed 500C. Material can fall through grate plates without warning. EXIT IMMEDIATELY if safe to do so. Cooler must be fully shut down, cooled, locked out, and atmospherically tested before entry. Reference: 30 CFR 56.14100(a)."
+    },
+    {
+      "id": "SW-025",
+      "condition": "Uncontrolled quicklime (CaO) contact with water — exothermic reaction",
+      "keywords": ["quicklime water", "cao water", "lime water reaction", "lime getting wet", "lime pile wet", "water on quicklime", "water on lime pile", "lime steaming", "lime smoking", "lime reaction", "quicklime spill water"],
+      "cfr_reference": "30 CFR 56.20014",
+      "severity": "imminent_danger",
+      "message": "STOP WORK IMMEDIATELY. Uncontrolled quicklime (CaO) and water reaction. This is a violent exothermic reaction that produces extreme heat, steam, and caustic calcium hydroxide. Evacuate the area. Do not attempt to add more water — it will intensify the reaction. Do not touch the material — it causes severe chemical burns. Allow the reaction to complete, then clean up with proper PPE (chemical suit, respirator, face shield). Reference: 30 CFR 56.20014."
+    }
+  ]
+}

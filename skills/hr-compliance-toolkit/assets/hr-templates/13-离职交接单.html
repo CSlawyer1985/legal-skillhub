@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>模板13 - 离职交接单</title>
+<style>
+  body { font-family: "SimSun", "宋体", serif; font-size: 14px; line-height: 1.8; margin: 0; padding: 10px; }
+  .page { width: 210mm; margin: 0 auto; padding: 12mm 18mm; background: white; }
+  h1 { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+  h2 { font-size: 15px; font-weight: bold; margin-top: 16px; margin-bottom: 6px; border-bottom: 1px solid #333; padding-bottom: 3px; }
+  p { text-indent: 2em; margin: 4px 0; text-align: justify; }
+  .tip { background: #e8f5e9; border: 1px solid #4caf50; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+  .tip strong { color: #2e7d32; }
+  .warn { background: #fff3e0; border: 1px solid #ff9800; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 13px; line-height: 1.6; }
+  .warn strong { color: #e65100; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+  td, th { border: 1px solid #333; padding: 4px 7px; font-size: 13px; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: bold; text-align: center; }
+  .sig-area { height: 40px; }
+  .footer { text-align: center; font-size: 12px; color: #666; margin-top: 20px; }
+  @media print { body { padding: 0; } .page { margin: 0; padding: 12mm 18mm; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>离 职 交 接 单</h1>
+
+  <div class="tip">
+    <strong>⚖️ 法律提示：</strong>根据《劳动合同法》第50条，劳动者应当按照双方约定办理工作交接。用人单位依照本法有关规定应当向劳动者支付经济补偿的，在办结工作交接时支付。工作交接是员工离职的必经程序，也是公司追索损失的重要依据。
+  </div>
+
+  <!-- 基本信息 -->
+  <table>
+    <tr><td style="width:90px; text-align:right; font-weight:bold;">姓名</td><td style="width:150px;">________________</td>
+        <td style="width:90px; text-align:right; font-weight:bold;">部门</td><td style="width:140px;">________________</td>
+        <td style="width:80px; text-align:right; font-weight:bold;">岗位</td><td>________________</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">入职日期</td><td>____年____月____日</td>
+        <td style="text-align:right; font-weight:bold;">离职日期</td><td colspan="3">____年____月____日</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">解除原因</td><td colspan="5">□ 主动辞职　□ 协商一致解除　□ 公司单方解除　□ 劳动合同期满　□ 其他：________</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">劳动合同<br>终止/解除日期</td><td colspan="5">____年____月____日（与《解除劳动合同协议书》一致）</td></tr>
+  </table>
+
+  <h2>一、工作交接（由移交人、接交人、监交人三方签字确认）</h2>
+  <table>
+    <tr><th style="width:22%;">交接项目</th><th style="width:35%;">具体内容及说明</th><th style="width:15%;">接交人签字</th><th style="width:15%;">监交人签字</th><th style="width:13%;">完成状态</th></tr>
+    <tr><td style="text-align:center; font-weight:bold;">工作文档/资料</td>
+        <td>电脑文件、纸质文档、客户资料、技术资料等：<br>________________________________<br>________________________________</td>
+        <td class="sig-area"></td><td class="sig-area"></td><td style="text-align:center;">□ 已完成</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">正在进行中的工作</td>
+        <td>未完成项目/任务：<br>项目名称：________________________<br>当前进度：________________________<br>后续安排：________________________</td>
+        <td class="sig-area"></td><td class="sig-area"></td><td style="text-align:center;">□ 已完成</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">账号/权限移交</td>
+        <td>OA账号、邮箱、系统账号、门禁权限等：<br>________________________________<br>________________________________</td>
+        <td class="sig-area"></td><td class="sig-area"></td><td style="text-align:center;">□ 已完成</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">客户/供应商交接</td>
+        <td>须交接的客户名单、联系方式、跟进状态：<br>________________________________<br>________________________________</td>
+        <td class="sig-area"></td><td class="sig-area"></td><td style="text-align:center;">□ 已完成</td></tr>
+    <tr><td style="text-align:center; font-weight:bold;">财务借款/报销</td>
+        <td>是否有未结清借款：□ 无　□ 有，金额________元，承诺于____年____月____日前归还</td>
+        <td class="sig-area"></td><td class="sig-area"></td><td style="text-align:center;">□ 已完成</td></tr>
+  </table>
+
+  <h2>二、公司财物归还</h2>
+  <table>
+    <tr><th style="width:25%;">财物名称</th><th style="width:12%;">数量</th><th style="width:18%;">编号/规格</th><th style="width:15%;">归还状态</th><th>备注</th></tr>
+    <tr><td>电脑/笔记本</td><td>____台</td><td>资产编号：________</td><td style="text-align:center;">□ 已归还</td><td></td></tr>
+    <tr><td>工牌/门禁卡</td><td>____张</td><td>卡号：________</td><td style="text-align:center;">□ 已归还</td><td></td></tr>
+    <tr><td>钥匙（办公室/柜子）</td><td>____把</td><td>________</td><td style="text-align:center;">□ 已归还</td><td></td></tr>
+    <tr><td>公司车辆（如适用）</td><td>____辆</td><td>车牌号：________</td><td style="text-align:center;">□ 已归还</td><td></td></tr>
+    <tr><td>文件/印章</td><td>____份/枚</td><td>________________</td><td style="text-align:center;">□ 已归还</td><td></td></tr>
+    <tr><td>其他：________________</td><td>____</td><td>________________</td><td style="text-align:center;">□ 已归还</td><td></td></tr>
+    <tr><td colspan="5" style="font-size:12px;">经办人（行政/IT）：________________　日期：____年____月____日</td></tr>
+  </table>
+
+  <h2>三、各相关部门签字确认</h2>
+  <table>
+    <tr><td style="width:140px; text-align:right; font-weight:bold;">直属部门负责人</td>
+        <td>工作已交接完毕，无异议。<br>签名：________________　日期：____年____月____日</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">IT/行政部</td>
+        <td>公司财物（电脑、工牌、门禁卡等）已全部归还。<br>签名：________________　日期：____年____月____日</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">财务部</td>
+        <td>财务借款已结清 / 尚有借款________元未结清（须注明处理方案）。<br>签名：________________　日期：____年____月____日</td></tr>
+    <tr><td style="text-align:right; font-weight:bold;">人力资源部</td>
+        <td>劳动合同已解除，离职证明已出具，社保转移手续已办理。<br>签名：________________　日期：____年____月____日</td></tr>
+  </table>
+
+  <h2>四、员工本人确认</h2>
+  <div style="border:1px solid #333; padding:10px; margin:10px 0; font-size:13px; line-height:1.8;">
+    <p style="text-indent:0; margin:4px 0;">本人 <strong>________________</strong> 确认：</p>
+    <p>1. 本人已全部完成上述工作交接及财物归还手续；</p>
+    <p>2. 本人与公司的全部工资、奖金、经济补偿等款项已结清（或：尚有________元未结清，预计于____年____月____日支付）；</p>
+    <p>3. 本人承诺：离职后继续保守公司商业秘密，不泄露任何涉密信息；</p>
+    <p>4. 本人确认：本交接单签署后，本人与公司在劳动关系方面的权利义务已全部结清，本人不再向公司主张任何权利（或：除____以外，不再主张任何权利）。</p>
+    <p style="margin-top:15px;">员工本人（亲笔签名）：________________　日期：____年____月____日</p>
+  </div>
+
+  <div class="warn">
+    <strong>⚠️ 使用提示：</strong>本交接单须由员工本人亲笔签名（不得打印或代签）。建议一式两份，员工与公司各执一份，作为办结离职手续的完整凭证。
+  </div>
+
+  <p style="margin-top:15px;">公司（盖章）：________________________</p>
+  <p>人力资源部负责人：________________　日期：____年____月____日</p>
+
+  <div class="footer">—— 模板13（最终模板）结束 ——</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "regulation": {
+    "celex": "32023R2854",
+    "title": "Regulation (EU) 2023/2854 of the European Parliament and of the Council of 13 December 2023 on harmonised rules on fair access to and use of data and amending Regulation (EU) 2017/2394 and Directive (EU) 2020/1828 (Data Act)",
+    "consolidated_date": "2023-12-13",
+    "source_url": "https://eur-lex.europa.eu/eli/reg/2023/2854",
+    "file": "regulation-2023-2854.md"
+  },
+  "faq": {
+    "version": "1.4",
+    "published_date": "2026-01-22",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/faqs/data-act-explained-frequently-asked-questions",
+    "file": "faq-v1.4.md"
+  },
+  "model_contractual_terms": {
+    "title": "Commission Recommendation on standard contractual clauses (annex on model contractual terms / SCCs)",
+    "published_date": "2025-11-19",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/library/standard-contractual-clauses-data-sharing-and-cloud-computing-contracts",
+    "file": "model-contractual-terms.md"
+  },
+  "data_act_explained": {
+    "snapshot_date": "2026-04-30",
+    "source_url": "https://digital-strategy.ec.europa.eu/en/policies/data-act",
+    "file": "data-act-explained.md"
+  },
+  "last_check_date": "2026-04-30",
+  "_note": "The skill compares against these source URLs when the user grants update consent. New versions are saved alongside the existing version; archived versions go to assets/source/_archive/{YYYY-MM-DD}/. The skill never auto-rewrites references."
+}

@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<!--
+  法普小象 · 饮酒纠纷责任分析
+  Author: 张卓 (Zhang Zhuo)
+  Version: 1.2.0
+  License: All Rights Reserved © 2026
+  Data Source: 华宇元典法律数据库 · 中国裁判文书网
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>喝酒出了事，你要不要赔？——30秒测出来</title>
+<meta property="og:title" content="喝酒出了事，你要不要赔？——30秒测出来">
+<meta property="og:description" content="填8个问题，基于全国17个真实法院判例，告诉你同桌喝酒出事要不要赔钱。测过的人都说有用。">
+<meta property="og:image" content="https://2f74b1f971124f4e8257e1502f592136.app.codebuddy.work/cover.png">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="340">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="法普小象">
+<meta name="description" content="填8个问题，基于全国17个真实法院判例，告诉你同桌喝酒出事要不要赔钱。">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root {
+  --accent: #534ab7;
+  --accent-light: #eeedfe;
+  --green: #1d9e75;
+  --green-light: #e1f5ee;
+  --coral: #d85a30;
+  --coral-light: #faece7;
+  --amber: #ef9f27;
+  --amber-light: #faeeda;
+  --bg: #f5f3ef;
+  --card: #ffffff;
+  --text: #2c2c2a;
+  --text-secondary: #777;
+  --border: #e0ded8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 500px; margin: 0 auto; padding: 20px 16px 40px; }
+
+.header {
+  text-align: center;
+  padding: 32px 0 20px;
+}
+.header .logo { font-size: 42px; display: block; margin-bottom: 8px; }
+.header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.header .sub { font-size: 13px; color: var(--text-secondary); }
+
+.disclaimer {
+  background: var(--amber-light);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #854f0b;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.disclaimer strong { display: block; margin-bottom: 4px; }
+
+.question-block {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.question-block.answered { border-color: var(--accent); }
+.question-block .q-num {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.question-block .q-text {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+}
+.question-block .q-hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s;
+  background: var(--card);
+}
+.option:hover { border-color: var(--accent); }
+.option.selected {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+.option .radio {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.option.selected .radio {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.option.selected .radio::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.option .emoji { font-size: 18px; flex-shrink: 0; }
+
+.analyze-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  background: var(--accent);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: all 0.15s;
+  letter-spacing: 0.5px;
+}
+.analyze-btn:hover { opacity: 0.92; }
+.analyze-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.result-section {
+  display: none;
+}
+
+.result-card {
+  background: var(--card);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.result-header {
+  padding: 24px 20px;
+  text-align: center;
+  color: white;
+}
+.result-header.safe { background: var(--green); }
+.result-header.risk-low { background: var(--amber); }
+.result-header.risk-high { background: var(--coral); }
+.result-header .result-icon { font-size: 48px; display: block; margin-bottom: 8px; }
+.result-header .result-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.result-header .result-sub { font-size: 13px; opacity: 0.9; }
+
+.result-body { padding: 20px; }
+
+.section-block {
+  margin-bottom: 20px;
+}
+.section-block:last-child { margin-bottom: 0; }
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.section-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.case-card {
+  background: #f8f7fc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--accent);
+}
+.case-card .case-title { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+.case-card .case-detail { font-size: 13px; color: #555; line-height: 1.7; }
+.case-card .case-result { display: inline-block; margin-top: 6px; font-size: 12px; padding: 3px 8px; border-radius: 4px; font-weight: 500; }
+.case-result.green { background: var(--green-light); color: #0f6e56; }
+.case-result.coral { background: var(--coral-light); color: #993c1d; }
+.case-result.amber { background: var(--amber-light); color: #854f0b; }
+
+.range-bar {
+  background: #f0eee8;
+  border-radius: 8px;
+  height: 32px;
+  position: relative;
+  margin: 12px 0;
+  overflow: hidden;
+}
+.range-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+.range-fill.green { background: var(--green); }
+.range-fill.amber { background: var(--amber); }
+.range-fill.coral { background: var(--coral); }
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.advice-list {
+  list-style: none;
+  padding: 0;
+}
+.advice-list li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.7;
+  border-bottom: 0.5px solid #f0eee8;
+}
+.advice-list li:last-child { border-bottom: none; }
+.advice-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 14px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.share-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.share-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  text-align: center;
+}
+.share-btn.primary { background: var(--accent); color: white; }
+.share-btn.primary:hover { opacity: 0.9; }
+.share-btn.outline { background: var(--card); border: 1px solid var(--border); }
+.share-btn.outline:hover { border-color: var(--accent); }
+
+.reset-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: none;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.reset-btn:hover { color: var(--coral); border-color: var(--coral); }
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 12px;
+  color: #ccc;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+
+.progress-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.progress-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+}
+.progress-dot.done { background: var(--accent); }
+
+.toast {
+  position: fixed; bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  background: #333; color: white;
+  padding: 10px 20px; border-radius: 100px;
+  font-size: 13px; z-index: 999;
+  opacity: 0; transition: opacity 0.3s;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <span class="logo">🐘</span>
+    <h1>喝酒出了事，你要不要赔？</h1>
+    <p class="sub">法普小象 · 基于全国真实判例</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>⚠️ 先说清楚</strong>
+    这是个参考工具，不是法律意见。真实案件情况复杂，具体还得问律师。下面这些分析都是基于全国法院的真实判例来的，让你心里有个底。
+  </div>
+
+  <div class="progress-dots" id="progressDots">
+    <span class="progress-dot"></span><span class="progress-dot"></span><span class="progress-dot"></span>
+    <span class="progress-dot"></span><span class="progress-dot"></span><span class="progress-dot"></span>
+    <span class="progress-dot"></span><span class="progress-dot"></span>
+  </div>
+
+  <div id="questions">
+    <div style="display:flex;justify-content:center;gap:8px;margin-bottom:12px;">
+      <button class="quick-toggle active" id="quickToggle" onclick="toggleMode()" style="padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;background:var(--accent);color:white;border:none;font-weight:500;transition:all 0.15s;">
+        ⚡ 快速自测（3题 · 5秒出结果）
+      </button>
+      <button onclick="toggleMode()" id="fullToggle" style="padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;background:white;color:var(--text-secondary);border:0.5px solid var(--border);transition:all 0.15s;">
+        完整版（8题）
+      </button>
+    </div>
+    <div class="question-block quick" id="q1">
+      <div class="q-text"><span class="q-num">1</span>有没有人劝酒、灌酒？</div>
+      <div class="options">
+        <div class="option" data-value="force"><span class="radio"></span><span class="emoji">🍺</span>有，硬劝了/灌了</div>
+        <div class="option" data-value="mild"><span class="radio"></span><span class="emoji">🥂</span>劝了几句，但不严重</div>
+        <div class="option" data-value="none"><span class="radio"></span><span class="emoji">🙅</span>没有，都是自己喝的</div>
+      </div>
+    </div>
+
+    <div class="question-block" id="q2">
+      <div class="q-text"><span class="q-num">2</span>你知不知道对方不能喝？（有病、吃药、酒量差等）</div>
+      <div class="options">
+        <div class="option" data-value="yes"><span class="radio"></span><span class="emoji">😰</span>知道，但没拦</div>
+        <div class="option" data-value="no"><span class="radio"></span><span class="emoji">🤷</span>不知道/他没说过</div>
+      </div>
+    </div>
+
+    <div class="question-block" id="q3">
+      <div class="q-text"><span class="q-num">3</span>对方喝酒是自愿的吗？</div>
+      <div class="options">
+        <div class="option" data-value="voluntary"><span class="radio"></span><span class="emoji">👍</span>自愿的，没人逼他</div>
+        <div class="option" data-value="pressured"><span class="radio"></span><span class="emoji">😣</span>有点被架着喝的</div>
+      </div>
+    </div>
+
+    <div class="question-block" id="q4">
+      <div class="q-text"><span class="q-num">4</span>散场的时候，对方状态怎么样？</div>
+      <div class="options">
+        <div class="option" data-value="sober"><span class="radio"></span><span class="emoji">😊</span>挺清醒的，能自己走</div>
+        <div class="option" data-value="tipsy"><span class="radio"></span><span class="emoji">😵</span>有点上头，但还行</div>
+        <div class="option" data-value="drunk"><span class="radio"></span><span class="emoji">🤮</span>明显醉了，走路不稳</div>
+      </div>
+    </div>
+
+    <div class="question-block quick" id="q5">
+      <div class="q-text"><span class="q-num">5</span>散场后有没有把人送回家？</div>
+      <div class="options">
+        <div class="option" data-value="full"><span class="radio"></span><span class="emoji">🏠</span>送到了，亲手交给家人</div>
+        <div class="option" data-value="partial"><span class="radio"></span><span class="emoji">🚪</span>送到了楼下/小区门口</div>
+        <div class="option" data-value="taxi"><span class="radio"></span><span class="emoji">🚕</span>帮忙叫了车，没跟车</div>
+        <div class="option" data-value="none"><span class="radio"></span><span class="emoji">👋</span>没送，他自己走的</div>
+      </div>
+    </div>
+
+    <div class="question-block quick" id="q6">
+      <div class="q-text"><span class="q-num">6</span>发现不对劲之后，有没有打120？</div>
+      <div class="q-hint">包括发现他呕吐、摔倒、意识模糊等情况</div>
+      <div class="options">
+        <div class="option" data-value="prompt"><span class="radio"></span><span class="emoji">🚑</span>立刻打了120</div>
+        <div class="option" data-value="delay"><span class="radio"></span><span class="emoji">⏰</span>犹豫了一会才打的</div>
+        <div class="option" data-value="no-issue"><span class="radio"></span><span class="emoji">🤔</span>没发现有什么不对劲</div>
+        <div class="option" data-value="no-help"><span class="radio"></span><span class="emoji">😰</span>发现了但没管</div>
+      </div>
+    </div>
+
+    <div class="question-block" id="q7">
+      <div class="q-text"><span class="q-num">7</span>这个酒局是你组的吗？</div>
+      <div class="options">
+        <div class="option" data-value="yes"><span class="radio"></span><span class="emoji">📋</span>是，我张罗的</div>
+        <div class="option" data-value="no"><span class="radio"></span><span class="emoji">👥</span>不是，别人叫的/AA的</div>
+      </div>
+    </div>
+
+    <div class="question-block" id="q8">
+      <div class="q-text"><span class="q-num">8</span>有没有让他酒后开车/做危险的事？</div>
+      <div class="options">
+        <div class="option" data-value="yes"><span class="radio"></span><span class="emoji">🚗</span>有，知道他开车没拦</div>
+        <div class="option" data-value="no"><span class="radio"></span><span class="emoji">🚫</span>没有/拦了/他没开车</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="analyze-btn" id="analyzeBtn" disabled onclick="analyze()">
+    请先回答完所有问题
+  </button>
+
+  <div class="result-section" id="resultSection">
+    <div id="resultContent"></div>
+    <button class="reset-btn" onclick="resetAll()">🔄 重新分析</button>
+  </div>
+
+  <div class="footer">
+    法普小象 · 案例数据来源：中国裁判文书网及华宇元典数据库<br>
+    © 2026 张卓 · All Rights Reserved
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let answers = {};
+let quickMode = true;
+
+function toggleMode() {
+  quickMode = !quickMode;
+  const qToggle = document.getElementById('quickToggle');
+  const fToggle = document.getElementById('fullToggle');
+  
+  if (quickMode) {
+    qToggle.style.cssText = 'padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;background:var(--accent);color:white;border:none;font-weight:500;';
+    fToggle.style.cssText = 'padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;background:white;color:var(--text-secondary);border:0.5px solid var(--border);';
+    document.querySelectorAll('.question-block:not(.quick)').forEach(b => { b.style.display = 'none'; });
+    document.getElementById('analyzeBtn').textContent = '⚡ 快速分析（5秒）';
+  } else {
+    fToggle.style.cssText = 'padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;background:var(--accent);color:white;border:none;font-weight:500;';
+    qToggle.style.cssText = 'padding:8px 18px;border-radius:100px;font-size:13px;cursor:pointer;background:white;color:var(--text-secondary);border:0.5px solid var(--border);';
+    document.querySelectorAll('.question-block').forEach(b => { b.style.display = 'block'; });
+    document.getElementById('analyzeBtn').textContent = '🔍 完整分析';
+  }
+  answers = {};
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.question-block').forEach(b => b.classList.remove('answered'));
+  updateProgress();
+  checkComplete();
+}
+
+toggleMode();
+
+document.querySelectorAll('.option').forEach(opt => {
+  opt.addEventListener('click', function() {
+    const block = this.closest('.question-block');
+    block.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    this.classList.add('selected');
+    block.classList.add('answered');
+    answers[block.id] = this.dataset.value;
+    updateProgress();
+    checkComplete();
+  });
+});
+
+function updateProgress() {
+  const total = document.querySelectorAll('.question-block').length;
+  const answered = document.querySelectorAll('.question-block.answered').length;
+  const dots = document.querySelectorAll('.progress-dot');
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('done', i < answered);
+  });
+}
+
+function checkComplete() {
+  const requiredQuestions = quickMode 
+    ? document.querySelectorAll('.question-block.quick')
+    : document.querySelectorAll('.question-block');
+  const total = requiredQuestions.length;
+  let answered = 0;
+  requiredQuestions.forEach(q => { if (q.classList.contains('answered')) answered++; });
+  
+  const btn = document.getElementById('analyzeBtn');
+  if (answered >= total) {
+    btn.disabled = false;
+    btn.textContent = quickMode ? '⚡ 快速分析' : '🔍 分析我的情况';
+  } else {
+    btn.disabled = true;
+    btn.textContent = quickMode ? '⚡ 快速分析（5秒）' : '请先回答完所有问题';
+  }
+}
+
+function analyze() {
+  const score = calcRiskScore();
+  const category = score <= 1 ? 'safe' : (score <= 3 ? 'risk-low' : 'risk-high');
+  
+  renderResults(score, category);
+  
+  document.getElementById('questions').style.display = 'none';
+  document.getElementById('analyzeBtn').style.display = 'none';
+  document.getElementById('resultSection').style.display = 'block';
+  document.getElementById('progressDots').style.display = 'none';
+  
+  document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function calcRiskScore() {
+  let score = 0;
+  
+  if (answers.q1 === 'force') score += 3;
+  else if (answers.q1 === 'mild') score += 1;
+  
+  if (answers.q2 === 'yes') score += 2;
+  
+  if (answers.q3 === 'pressured') score += 1;
+  
+  if (answers.q4 === 'drunk') score += 2;
+  else if (answers.q4 === 'tipsy') score += 0.5;
+  
+  if (answers.q5 === 'none') score += 3;
+  else if (answers.q5 === 'taxi') score += 1.5;
+  else if (answers.q5 === 'partial') score += 1;
+  
+  if (answers.q6 === 'no-help') score += 3;
+  else if (answers.q6 === 'delay') score += 1.5;
+  
+  if (answers.q7 === 'yes') score += 1;
+  
+  if (answers.q8 === 'yes') score += 3;
+  
+  if (quickMode && score > 0) {
+    score = score / 2.5;
+  }
+  
+  return score;
+}
+
+function getMatchCases(score, category) {
+  const cases = [];
+  
+  if (answers.q1 === 'none' && answers.q5 === 'full' && answers.q6 !== 'no-help' && answers.q8 === 'no') {
+    cases.push({
+      title: '陕西渭南案（2024）',
+      court: '渭南市中级人民法院',
+      fact: '几个朋友一起喝酒，喝完以后把人安全送回了家、亲手交给了家人。结果这人后来又自己跑出去酒驾出事了。',
+      result: '法院判了：同桌的人全部免责，不用赔。',
+      resultClass: 'green',
+      match: '你这情况跟这个案子很像——同桌的人没劝酒、把人安全护送到家了，后面的事就跟你没关系了。'
+    });
+    cases.push({
+      title: '云南大理案（2026）',
+      court: '大理州中级人民法院',
+      fact: '聚餐结束后，朋友主动提出送人回家，亲眼确认他安全进了家门才离开。结果这人后来又自己骑车出去了。',
+      result: '法院判：已尽到护送义务，无需担责。',
+      resultClass: 'green',
+      match: ''
+    });
+  }
+  
+  if (answers.q1 === 'force') {
+    cases.push({
+      title: '贵州黔西南案（2025）',
+      court: '黔西南州中级人民法院',
+      fact: '几个人一起喝酒，有劝酒行为。喝完以后，明知对方已经醉了，还放任他一个人骑摩托车离开，结果出了交通事故人没了。',
+      result: '法院判：同桌三人各承担10%的赔偿责任。',
+      resultClass: 'coral',
+      match: '你这有劝酒的情况，跟这个案子很接近。有劝酒行为 + 没管住对方酒后驾驶 = 大概率要担责。'
+    });
+  }
+  
+  if (answers.q6 === 'no-help' || answers.q6 === 'delay') {
+    cases.push({
+      title: '北京三中院案（2020）',
+      court: '北京市第三中级人民法院',
+      fact: '同学聚餐，一个人喝到严重醉酒状态，同桌的人没有及时打120。最终乙醇中毒死亡。',
+      result: '法院判：同桌人承担10%的赔偿责任。',
+      resultClass: 'coral',
+      match: '这个案子跟你有点像——该打120的时候没打（或者打晚了），法院就认为你没尽到救助义务。'
+    });
+  }
+  
+  if (answers.q7 === 'yes' && (answers.q4 === 'drunk' || answers.q5 === 'none')) {
+    cases.push({
+      title: '陕西渭南案（2025）',
+      court: '渭南市中级人民法院',
+      fact: '参加别人家里办的满月宴，组局的人明知客人连续喝酒却没劝阻、没照顾、没护送。客人醉酒呕吐窒息死亡。',
+      result: '法院判：组局的人承担15%责任。',
+      resultClass: 'coral',
+      match: '你是组局的人，法院对组局者的要求更高。你张罗的局，你就得对大家的安全多操一份心。'
+    });
+  }
+  
+  if (answers.q8 === 'yes') {
+    cases.push({
+      title: '广西贺州案（2026）',
+      court: '贺州市中级人民法院',
+      fact: '聚餐喝酒后，明知对方喝了酒，还把摩托车钥匙给他、让他骑车，结果出了单方事故人没了。',
+      result: '法院判：提供车钥匙的人承担10%责任。',
+      resultClass: 'coral',
+      match: '这个案子就是前车之鉴——知道人家喝酒了还让他开车，出了事法院肯定追你的责。'
+    });
+  }
+  
+  if (answers.q5 === 'partial' && answers.q4 === 'drunk') {
+    cases.push({
+      title: '内蒙古鄂尔多斯案（2021）',
+      court: '伊金霍洛旗人民法院',
+      fact: '几个人喝完酒，把人送到了小区门口就走了，没送到家。结果这人在小区里迷路摔倒，第二天人没了。',
+      result: '法院判：同桌三人承担7%责任。死者自己担90%。',
+      resultClass: 'amber',
+      match: '你这情况跟这个很像——送到了但没送到位，法院觉得你还是没完全尽到义务。'
+    });
+  }
+  
+  if (answers.q5 === 'none' && answers.q4 === 'drunk') {
+    cases.push({
+      title: '北京三中院案（2020）',
+      court: '北京市第三中级人民法院',
+      fact: '聚餐组织者送醉酒的朋友回家，途中放他下车自己走。结果坠河身亡。',
+      result: '法院判：组织者赔偿14万元。',
+      resultClass: 'coral',
+      match: '人醉了绝对不能让他自己走。你这个情况，法院大概率会认为你没尽到照顾义务。'
+    });
+  }
+  
+  if (answers.q6 === 'no-issue' && answers.q5 === 'full' && answers.q1 === 'none') {
+    cases.push({
+      title: '甘肃酒泉案（2024）',
+      court: '酒泉市中级人民法院',
+      fact: '朋友聚餐喝酒，散场后把人送回了家，当时没看出有什么异常。第二天人没了，死因是急性心脏猝死，血液酒精很高。',
+      result: '法院判：同桌的人不用赔，但基于公平原则，每人补偿5000元。注意：这是"补偿"不是"赔偿"——补偿是因为人毕竟是在跟你喝完酒后没的，但你没做错事。',
+      resultClass: 'amber',
+      match: '你这情况跟这个案子高度相似。人送回去了、看起来也没事，但万一出了意外，法院可能判你出于人道给点补偿——但这不是说你做错了。'
+    });
+  }
+  
+  if (answers.q1 === 'none' && answers.q5 !== 'none' && category === 'safe') {
+    cases.push({
+      title: '山西忻州案（2025）',
+      court: '忻州市中级人民法院',
+      fact: '在丧事宴席上同桌吃饭喝酒，喝完以后还一起摔跤玩。结果一个人倒地受伤，送回家后第二天死了。',
+      result: '法院判：同桌的人全部免责。因为没证据证明有人劝酒、灌酒，而且喝酒跟死亡之间没有直接因果关系。',
+      resultClass: 'green',
+      match: '你这情况比这个案子还要安全——人家摔跤了都没判同桌赔，你这更没事。'
+    });
+  }
+  
+  if (cases.length === 0) {
+    cases.push({
+      title: '山西忻州案（2025）',
+      court: '忻州市中级人民法院',
+      fact: '同桌吃饭喝酒，没有劝酒行为，喝完以后也没有明显异常。事后出了意外。',
+      result: '法院判：全部免责。没有过错就没有责任。',
+      resultClass: 'green',
+      match: '你的情况整体来看风险偏低——没做错事，法院不会判你赔钱。'
+    });
+  }
+  
+  return cases;
+}
+
+function getRiskRange(score, category) {
+  if (category === 'safe') return { label: '0%~2%', pct: 5, cls: 'green', desc: '基本不用赔' };
+  if (score <= 2) return { label: '1%~5%', pct: 15, cls: 'green', desc: '大概率少量补偿或不赔' };
+  if (score <= 4) return { label: '5%~10%', pct: 30, cls: 'amber', desc: '有一定责任风险' };
+  if (score <= 6) return { label: '10%~15%', pct: 50, cls: 'coral', desc: '很可能要承担部分责任' };
+  return { label: '15%~25%', pct: 75, cls: 'coral', desc: '责任风险较高，建议尽快咨询律师' };
+}
+
+function getAdvice(score, category) {
+  const advices = [];
+  
+  if (category === 'safe') {
+    advices.push('你现在不用慌，从你填的情况来看，你没有明显的过错行为。法院判案的核心就是"谁有错谁赔钱"，你没做错事，就不用赔。');
+    advices.push('但是要记住：万一真出了事，立刻打120！别犹豫！你只要第一时间救助了，法院基本都会认可你尽到了义务。');
+    advices.push('如果家属找到你，态度好一点，解释清楚当时的情况。但别因为"不好意思"就主动承诺赔钱——承诺了后面在法院就很难推翻了。');
+  } else if (category === 'risk-low') {
+    advices.push('你的情况有点边缘——没有特别严重的过错，但也不是完全没有瑕疵。法院可能根据公平原则，判你出一小笔"补偿"，但这不等于你"赔钱"。');
+    advices.push('如果还没出事——散场的时候记得确认每个人能安全到家。宁可多送两步，也别留下话柄。');
+    advices.push('如果已经出事了——主动配合调查，把你知道的情况如实说清楚。咨询一下律师，问清楚你的具体风险。');
+  } else {
+    advices.push('从你填的情况看，你的风险不小。建议立刻找律师，不要自己跟家属谈——你说的话有可能在法庭上对你不利。');
+    advices.push('如果还没到法院——先不要主动承诺赔偿金额。态度要好，但具体数字让律师来谈。');
+    advices.push('关键证据：①你有没有劝酒的记录（微信聊天、现场视频）；②散场时的监控；③你有没有打120的通话记录。这些对你很重要，先别删。');
+  }
+  
+  return advices;
+}
+
+function getGreeting(category) {
+  if (category === 'safe') return { icon: '✅', title: '放心吧，基本不用赔', sub: '你的情况跟类似判例对比，属于安全区' };
+  if (category === 'risk-low') return { icon: '⚠️', title: '有点风险，但问题不大', sub: '最多是少量补偿，不算是真正的"赔钱"' };
+  return { icon: '🔴', title: '风险不小，赶紧处理', sub: '建议立刻找律师，不要自己扛' };
+}
+
+function renderResults(score, category) {
+  const greeting = getGreeting(category);
+  const cases = getMatchCases(score, category);
+  const range = getRiskRange(score, category);
+  const advices = getAdvice(score, category);
+  
+  let caseCards = cases.map(c => `
+    <div class="case-card">
+      <div class="case-title">📋 ${c.title}</div>
+      <div class="case-detail">
+        <strong>${c.court}</strong><br>
+        ${c.fact}<br>
+        <span class="case-result ${c.resultClass}">${c.result}</span>
+      </div>
+      ${c.match ? `<div style="margin-top:8px;font-size:13px;color:var(--accent);">💬 ${c.match}</div>` : ''}
+    </div>
+  `).join('');
+  
+  let adviceItems = advices.map(a => `<li>${a}</li>`).join('');
+  
+  const sharePrompts = {
+    safe: { emoji: '✅', text: '我是安全区选手，下次酒局放心带上我。你也来测测？' },
+    'risk-low': { emoji: '⚠️', text: '测了一下，有点边缘风险，以后喝酒得注意了。你也测测你的？' },
+    'risk-high': { emoji: '🔴', text: '不测不知道…以后再也不随便跟人喝了。你敢测一下你的情况吗？' }
+  };
+  const sp = sharePrompts[category];
+  
+  const html = `
+    <div class="result-card">
+      <div class="result-header ${category}">
+        <span class="result-icon">${greeting.icon}</span>
+        <div class="result-title">${greeting.title}</div>
+        <div class="result-sub">${greeting.sub}</div>
+      </div>
+      <div style="background:#fffbe6;padding:14px 16px;margin:0;text-align:center;border-bottom:1px solid #f0e8c0;">
+        <div style="font-size:13px;color:#666;line-height:1.6;margin-bottom:10px;">${sp.emoji} ${sp.text}</div>
+        <button onclick="saveLongImage()" style="background:#d85a30;color:white;border:none;padding:12px 32px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;">📸 生成长图发朋友圈</button>
+      </div>
+      <div class="result-body">
+        <div class="section-block">
+          <div class="section-title">📊 案情相似度对比</div>
+          <div class="section-content">
+            <p>我们找到了 <strong>${cases.length}</strong> 个跟你情况高度相似的真实判例，来看看法院在这些案子里是怎么判的：</p>
+          </div>
+        </div>
+
+        ${caseCards}
+
+        <div class="section-block" style="margin-top:20px;">
+          <div class="section-title">⚖️ 你的责任预判区间</div>
+          <div class="section-content">
+            <p>综合考虑你填的所有情况，你的责任比例大概在：</p>
+            <div class="range-bar">
+              <div class="range-fill ${range.cls}" style="width:${range.pct}%">${range.label}</div>
+            </div>
+            <div class="range-labels">
+              <span>0% 免责</span>
+              <span>少量补偿</span>
+              <span>部分责任</span>
+              <span>较重责任</span>
+            </div>
+            <p style="margin-top:8px;font-size:13px;color:var(--text-secondary);">${range.desc}</p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-title">💡 建议处理方式</div>
+          <div class="section-content">
+            <ul class="advice-list">${adviceItems}</ul>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-title">📝 记住这条核心原则</div>
+          <div class="section-content" style="background:var(--accent-light);padding:14px;border-radius:10px;font-size:14px;line-height:1.7;">
+            法院判的不是"喝酒就要赔钱"，而是<strong>谁有错谁赔钱</strong>。<br><br>
+            死者自己喝多了，自己要负最主要的责任（通常是70%-95%）。<br>
+            同饮的人只在<strong>你也做错了事</strong>的时候才需要赔——比如你灌他了、看他醉了不管、让他酒驾了。<br><br>
+            只要你不是这三种情况，<strong>大概率没事</strong>。
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.getElementById('resultContent').innerHTML = html;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+async function saveLongImage() {
+  showToast('正在生成朋友圈长图...');
+  try {
+    const resultContent = document.getElementById('resultContent');
+    const resultClone = resultContent.cloneNode(true);
+    
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:fixed;left:-9999px;top:0;width:375px;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;padding:0;';
+    
+    const qrDiv = document.createElement('div');
+    qrDiv.id = 'qrTemp';
+    qrDiv.style.cssText = 'width:130px;height:130px;display:inline-block;';
+    
+    wrapper.innerHTML = `
+      <div style="background:#534ab7;padding:32px 20px 24px;text-align:center;color:white;">
+        <div style="font-size:36px;margin-bottom:8px;">🐘</div>
+        <div style="font-size:20px;font-weight:700;margin-bottom:4px;">喝酒出了事，你要不要赔？</div>
+        <div style="font-size:13px;opacity:0.85;">填8个问题 · 30秒出结果 · 基于全国真实判例</div>
+      </div>
+      <div id="longImgContent" style="padding:16px;"></div>
+      <div style="background:#f8f7fc;padding:24px 20px;text-align:center;border-top:1px solid #eee;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px;">
+          <div id="qrContainer"></div>
+          <div style="text-align:left;">
+            <div style="font-size:14px;color:#534ab7;font-weight:600;margin-bottom:4px;">🐘 法普小象</div>
+            <div style="font-size:12px;color:#666;line-height:1.6;">长按扫码<br>立即测你的酒局风险</div>
+            <div style="font-size:11px;color:#999;margin-top:4px;">基于全国17个真实判例</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#bbb;">案例数据来源：中国裁判文书网及华宇元典数据库 · 仅供参考不构成法律意见</div>
+        <div style="font-size:11px;color:#ccc;margin-top:4px;">© 2026 张卓 · 法普小象</div>
+      </div>
+    `;
+    
+    document.body.appendChild(wrapper);
+    wrapper.querySelector('#longImgContent').appendChild(resultClone);
+    
+    new QRCode(wrapper.querySelector('#qrContainer'), {
+      text: 'https://zz24-66-d6gwip8n67e9cf180-1448357696.tcloudbaseapp.com',
+      width: 130,
+      height: 130,
+      colorDark: '#534ab7',
+      colorLight: '#ffffff'
+    });
+    
+    await new Promise(r => setTimeout(r, 300));
+    
+    const canvas = await html2canvas(wrapper, {
+      backgroundColor: '#ffffff',
+      scale: 2,
+      useCORS: true,
+      allowTaint: true
+    });
+    
+    document.body.removeChild(wrapper);
+    
+    const dataUrl = canvas.toDataURL('image/png');
+    
+    const overlay = document.createElement('div');
+    overlay.id = 'imgOverlay';
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;overflow-y:auto;';
+    
+    const shareText = document.querySelector('.result-header')?.nextElementSibling?.querySelector('div:last-child')?.textContent?.trim() || '测了一下我的酒局风险，你也来测测？';
+    
+    overlay.innerHTML = `
+      <div style="color:white;font-size:16px;margin-bottom:12px;text-align:center;font-weight:500;">👇 长按图片即可保存到相册</div>
+      <img src="${dataUrl}" style="max-width:90vw;max-height:60vh;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);margin-bottom:16px;" oncontextmenu="return false;">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+        <button id="btnCopyGo" style="padding:12px 24px;border-radius:10px;border:none;font-size:15px;font-weight:600;color:white;background:#534ab7;cursor:pointer;">📋 复制文案·去发圈</button>
+        <button onclick="document.getElementById('imgOverlay').remove()" style="padding:10px 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.3);font-size:13px;color:white;background:transparent;cursor:pointer;">关闭</button>
+      </div>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    document.getElementById('btnCopyGo').onclick = function() {
+      navigator.clipboard.writeText('我测了一下酒局风险，结果出乎意料…你也来测测？🐘 链接在评论区').then(() => {
+        showToast('文案已复制！打开微信朋友圈粘贴发图即可');
+        setTimeout(() => {
+          window.location.href = 'weixin://';
+        }, 500);
+      }).catch(() => {
+        showToast('复制失败，请手动选择文字');
+      });
+    };
+  } catch(e) {
+    showToast('生成失败，请重试');
+    console.error(e);
+  }
+}
+
+async function saveImage() {
+  showToast('正在生成图片...');
+  try {
+    const result = document.getElementById('resultContent');
+    const canvas = await html2canvas(result, { backgroundColor: '#f5f3ef', scale: 2, useCORS: true });
+    const link = document.createElement('a');
+    link.download = `喝酒责任分析_${Date.now()}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast('图片已保存，可以发朋友圈了！');
+  } catch(e) {
+    showToast('保存失败，请截图保存');
+  }
+}
+
+function copyShareText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('文案已复制，粘贴到朋友圈配文即可');
+  }).catch(() => showToast('复制失败，请手动选择'));
+}
+
+function shareToWechat() {
+  const text = document.getElementById('resultContent').innerText.substring(0, 200);
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('分析结果已复制，可以粘贴分享');
+  }).catch(() => showToast('请长按屏幕截图分享'));
+}
+
+function resetAll() {
+  answers = {};
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.question-block').forEach(b => b.classList.remove('answered'));
+  document.querySelectorAll('.progress-dot').forEach(d => d.classList.remove('done'));
+  document.getElementById('questions').style.display = 'block';
+  document.getElementById('analyzeBtn').style.display = 'block';
+  document.getElementById('analyzeBtn').disabled = true;
+  document.getElementById('analyzeBtn').textContent = '请先回答完所有问题';
+  document.getElementById('resultSection').style.display = 'none';
+  document.getElementById('progressDots').style.display = 'flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('resultSection').style.display = 'none';
+</script>
+</body>
+</html>

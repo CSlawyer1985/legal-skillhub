@@ -1,0 +1,4 @@
+interface:
+  display_name: "工伤处理全流程指引"
+  short_description: "用自然语言或直接上传文件完成工伤处理全流程指引并交付可复核结果"
+  default_prompt: "使用 $mayihr-work-injury-process-guide 按事故城市和日期生成工伤报告、认定、鉴定和待遇申领时间表。"

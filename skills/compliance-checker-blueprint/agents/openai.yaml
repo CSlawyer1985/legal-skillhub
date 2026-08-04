@@ -1,0 +1,4 @@
+interface:
+  display_name: "合规性审核与整改方案｜简诗 AI"
+  short_description: "对一个或多个法规框架进行深度合规审查，识别差距，产出有据可依的整改措施和认证准备指导。"
+  default_prompt: "使用 $compliance-checker-blueprint 完成“合规性审核与整改方案”任务，并给出可执行结果。"

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "candidate_skill": "example-cause-of-action-skill@0.1.0",
+  "domain_baseline": {
+    "status": "PASS",
+    "missing_gate_ids": [],
+    "duplicate_gate_ids": []
+  },
+  "court_visible_text": {
+    "status": "PASS",
+    "governance_jargon_hits": 0,
+    "placeholder_hits": 0,
+    "non_chinese_anomaly_hits": 0,
+    "hidden_text_hits": 0
+  },
+  "render": {
+    "status": "PASS",
+    "fixed_font_double_render": true,
+    "pixel_mismatch_pages": [],
+    "sparse_pages": [],
+    "ooxml_editable": true,
+    "external_relationship_count": 0
+  },
+  "e2e_cases": [
+    {
+      "role": "complete-nine-document",
+      "document_count": 9,
+      "hold_triggered": false,
+      "answer_key_isolated": true,
+      "status": "PASS"
+    },
+    {
+      "role": "hold-case",
+      "document_count": 0,
+      "hold_triggered": true,
+      "answer_key_isolated": true,
+      "status": "PASS"
+    }
+  ],
+  "seats": {
+    "builder": "builder-seat",
+    "acceptance": "independent-acceptance-seat"
+  },
+  "overall": "PASS"
+}

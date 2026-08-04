@@ -1,0 +1,12 @@
+# 核心
+markdown>=3.4
+
+# 官方站点浏览器校验与 PDF 报告
+playwright>=1.40
+
+# 澳大利亚 DFAT XLSX 分析（可选但推荐）
+pandas>=2.0
+openpyxl>=3.1
+
+# DoD 1260H 等 PDF 高亮（browser_verify 内按需导入）
+pymupdf>=1.23

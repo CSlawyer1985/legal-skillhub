@@ -1,0 +1,4 @@
+interface:
+  display_name: "股权激励个税处理"
+  short_description: "用自然语言或上传文件完成股权激励个税处理，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-hr-plus-0852 请帮我完成股权激励个税处理：期权行权/限制性股票解禁/股票增值权收益的个税计算+纳税申报。"

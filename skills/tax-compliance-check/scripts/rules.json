@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "name": "税务合规自查规则基线",
+    "version": "2025",
+    "scope": "中华人民共和国税法（增值税/企业所得税/个人所得税/印花税/发票管理/申报缴纳）",
+    "note": "本基线为通用自查参考，具体适用以最新法规与主管税务机关为准。每条规则的 condition 由 run_check.py 解释执行。"
+  },
+  "rules": [
+    {
+      "id": "VAT-001",
+      "category": "增值税",
+      "name": "销项发票金额与申报销售额差异过大",
+      "severity": "高",
+      "condition": { "type": "diff_pct", "left_path": "facts.vat.output_invoice_amount", "right_path": "facts.vat.declared_sales", "max_pct": 5 },
+      "regulation": "《中华人民共和国增值税暂行条例》第十九条；财税〔2016〕36号附件1第四十四条",
+      "remediation": "核对未开票收入、视同销售（无偿赠送/用于非应税项目）、错票红冲及税控盘抄报数据；差异超5%应说明并补正申报。"
+    },
+    {
+      "id": "VAT-002",
+      "category": "增值税",
+      "name": "取得异常增值税扣税凭证（走逃失联/失控发票）",
+      "severity": "高",
+      "condition": { "type": "flag_true", "path": "facts.vat.abnormal_invoices" },
+      "regulation": "《国家税务总局关于异常增值税扣税凭证管理等有关事项的公告》（2019年第38号）",
+      "remediation": "暂停抵扣并作进项转出，向主管税务机关提出核实申请；如已抵扣需补缴税款及滞纳金，涉虚开应移交稽查。"
+    },
+    {
+      "id": "VAT-003",
+      "category": "增值税",
+      "name": "不得抵扣进项税额未做进项转出",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "flag_true", "path": "facts.vat.non_deductible_items" }, { "type": "flag_false", "path": "facts.vat.non_deductible_transferred" } ] },
+      "regulation": "《增值税暂行条例》第十条；《国家税务总局关于发布〈不动产进项税额分期抵扣暂行办法〉的公告》（2016年第15号）",
+      "remediation": "对用于简易计税、免税、集体福利、个人消费、非正常损失的进项税做进项转出，留存转出计算表。"
+    },
+    {
+      "id": "VAT-004",
+      "category": "增值税",
+      "name": "出口业务未单独核算免抵退",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "flag_true", "path": "facts.vat.export_involved" }, { "type": "flag_false", "path": "facts.vat.export_separated" } ] },
+      "regulation": "财税〔2012〕39号《财政部 国家税务总局关于出口货物劳务增值税和消费税政策的通知》",
+      "remediation": "出口与内销分别设账，按期办理免抵退税申报，保存出口报关单、收汇凭证等备案资料。"
+    },
+    {
+      "id": "VAT-005",
+      "category": "增值税",
+      "name": "进项抵扣凭证不合规（无税号/抬头错误/汇总开具无清单）",
+      "severity": "中",
+      "condition": { "type": "flag_false", "path": "facts.vat.invoice_compliant" },
+      "regulation": "《国家税务总局关于增值税发票开具有关问题的公告》（2017年第16号）；《发票管理办法》",
+      "remediation": "补开合规发票或换票；不合规专票不得抵扣，已抵扣应转出。"
+    },
+    {
+      "id": "CIT-001",
+      "category": "企业所得税",
+      "name": "业务招待费超限额未纳税调增",
+      "severity": "中",
+      "condition": { "type": "meal_limit", "path": "facts.cit.meal_entertainment", "base_path": "facts.cit.revenue" },
+      "regulation": "《企业所得税法实施条例》第四十三条（发生额60%且不超过营收5‰）",
+      "remediation": "按 min(发生额×60%, 营收×5‰) 税前扣除，超限部分调增应纳税所得额。"
+    },
+    {
+      "id": "CIT-002",
+      "category": "企业所得税",
+      "name": "广告费和业务宣传费超限额未调增",
+      "severity": "中",
+      "condition": { "type": "deduct_limit", "path": "facts.cit.advertising", "base_path": "facts.cit.revenue", "rate": 0.15 },
+      "regulation": "《企业所得税法实施条例》第四十四条（一般企业不超过营收15%，超限结转以后年度）",
+      "remediation": "超限部分调增，结转以后年度扣除；化妆品/医药/饮料制造等特定行业限额30%。"
+    },
+    {
+      "id": "CIT-003",
+      "category": "企业所得税",
+      "name": "职工福利费超工资总额14%未调增",
+      "severity": "中",
+      "condition": { "type": "deduct_limit", "path": "facts.cit.welfare", "base_path": "facts.cit.salary_total", "rate": 0.14 },
+      "regulation": "国税函〔2009〕3号《关于企业工资薪金及职工福利费扣除问题的通知》",
+      "remediation": "福利费按工资总额14%限额扣除，超限调增；区分福利费与工资薪金边界。"
+    },
+    {
+      "id": "CIT-004",
+      "category": "企业所得税",
+      "name": "工会经费超工资总额2%未调增",
+      "severity": "低",
+      "condition": { "type": "deduct_limit", "path": "facts.cit.union_fund", "base_path": "facts.cit.salary_total", "rate": 0.02 },
+      "regulation": "《企业所得税法实施条例》第四十一条（不超过工资总额2%）",
+      "remediation": "凭工会组织开具的《工会经费收入专用收据》或完税凭证扣除，超限调增。"
+    },
+    {
+      "id": "CIT-005",
+      "category": "企业所得税",
+      "name": "职工教育经费超工资总额8%未调增",
+      "severity": "低",
+      "condition": { "type": "deduct_limit", "path": "facts.cit.education_fund", "base_path": "facts.cit.salary_total", "rate": 0.08 },
+      "regulation": "财税〔2018〕51号《关于企业职工教育经费税前扣除政策的通知》（不超过8%，超限结转）",
+      "remediation": "超8%部分调增并结转以后年度；留存培训支出凭证。"
+    },
+    {
+      "id": "CIT-006",
+      "category": "企业所得税",
+      "name": "符合条件的研发费用未享受加计扣除",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "gt", "path": "facts.cit.rd_expense", "value": 0 }, { "type": "flag_false", "path": "facts.cit.rd_super_deduction_applied" } ] },
+      "regulation": "财政部 税务总局公告2023年第7号（研发费用100%加计扣除，资本化按100%摊销）",
+      "remediation": "归集研发支出辅助账，按100%加计；制造业/科技型中小企业均可适用，及时享受减税。"
+    },
+    {
+      "id": "CIT-007",
+      "category": "企业所得税",
+      "name": "存在关联交易但未准备同期资料",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "flag_true", "path": "facts.cit.related_party_transactions" }, { "type": "flag_false", "path": "facts.cit.tp_doc_prepared" } ] },
+      "regulation": "《企业所得税法》第六章特别纳税调整；《国家税务总局关于完善关联申报和同期资料管理有关事项的公告》（2016年第42号）",
+      "remediation": "按独立交易原则准备主体文档/本地文档/特殊事项文档，防范转让定价调整风险。"
+    },
+    {
+      "id": "CIT-008",
+      "category": "企业所得税",
+      "name": "资产损失税前扣除未专项申报",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "gt", "path": "facts.cit.asset_loss", "value": 0 }, { "type": "flag_false", "path": "facts.cit.asset_loss_filed" } ] },
+      "regulation": "国家税务总局公告2011年第25号《企业资产损失所得税税前扣除管理办法》",
+      "remediation": "区分清单申报与专项申报，留存损失确认证据链（报废单、鉴定意见、理赔记录等）。"
+    },
+    {
+      "id": "CIT-009",
+      "category": "企业所得税",
+      "name": "享受税收优惠未完成留存备查/备案",
+      "severity": "低",
+      "condition": { "type": "flag_false", "path": "facts.cit.preferential_applied" },
+      "regulation": "《企业所得税优惠政策事项办理办法》（国家税务总局公告2018年第23号，留存备查）",
+      "remediation": "享受优惠应自行判断并留存相关资料备查；资格类优惠（高新等）确保证书有效。"
+    },
+    {
+      "id": "IIT-001",
+      "category": "个人所得税",
+      "name": "工资薪金未依法足额代扣代缴",
+      "severity": "高",
+      "condition": { "type": "flag_false", "path": "facts.iit.salary_withheld" },
+      "regulation": "《个人所得税法》第九条（扣缴义务人依法履行代扣代缴）",
+      "remediation": "全员全额扣缴申报，含社保公积金专项扣除、专项附加扣除采集；补缴税款与可能的0.5-3倍罚款。"
+    },
+    {
+      "id": "IIT-002",
+      "category": "个人所得税",
+      "name": "股东/个人借款年度终了未归还",
+      "severity": "中",
+      "condition": { "type": "flag_true", "path": "facts.iit.shareholder_loan_unpaid" },
+      "regulation": "财税〔2003〕158号（纳税年度内未归还且未用于经营的借款视同股息红利，按20%征税）",
+      "remediation": "年度终了前归还或用于生产经营；否则按20%代扣代缴个税。"
+    },
+    {
+      "id": "IIT-003",
+      "category": "个人所得税",
+      "name": "支付劳务报酬未代扣代缴个税",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "gt", "path": "facts.iit.service_fee_paid", "value": 0 }, { "type": "flag_false", "path": "facts.iit.service_fee_withheld" } ] },
+      "regulation": "《个人所得税法》及实施条例（劳务报酬按次预扣，税率20%-40%）",
+      "remediation": "向自然人支付劳务报酬须代扣代缴，并索取发票（企业税前扣除凭证）。"
+    },
+    {
+      "id": "IIT-004",
+      "category": "个人所得税",
+      "name": "全年一次性奖金计税未做最优选择",
+      "severity": "低",
+      "condition": { "type": "flag_false", "path": "facts.iit.year_end_bonus_optimized" },
+      "regulation": "财政部 税务总局公告2023年第30号（单独计税优惠延续至2027.12.31）",
+      "remediation": "对比并入综合所得与单独计税两种方案，选择税负较低者，并做好员工沟通。"
+    },
+    {
+      "id": "SD-001",
+      "category": "印花税",
+      "name": "应税合同未足额计算缴纳印花税",
+      "severity": "中",
+      "condition": { "type": "all", "conds": [ { "type": "flag_true", "path": "facts.stamp.contracts_signed" }, { "type": "flag_false", "path": "facts.stamp.stamp_paid" } ] },
+      "regulation": "《中华人民共和国印花税法》（2022.7.1施行）",
+      "remediation": "按借款/买卖/承揽/建设工程/租赁/运输/技术/保管/仓储/财产保险合同等税目计征，按期汇总申报。"
+    },
+    {
+      "id": "SD-002",
+      "category": "印花税",
+      "name": "营业账簿（实收资本+资本公积）未计印花税",
+      "severity": "低",
+      "condition": { "type": "flag_false", "path": "facts.stamp.capital_account_stamped" },
+      "regulation": "《印花税法》第五条（营业账簿按实收资本与资本公积合计的0.25‰）",
+      "remediation": "资金账簿按0.25‰贴花，增资部分就增加额补贴；注意已享减半政策以当年为准。"
+    },
+    {
+      "id": "INV-001",
+      "category": "发票管理",
+      "name": "存在虚开发票风险（为他人/为自己/让他人为自己开具与实际经营不符发票）",
+      "severity": "高",
+      "condition": { "type": "flag_true", "path": "facts.invoice.fake_invoice_risk" },
+      "regulation": "《发票管理办法》第二十二条；虚开增值税专用发票罪《刑法》第二百零五条",
+      "remediation": "立即停止并自查业务真实性、资金流/货物流/合同流一致性；涉刑移送，最高无期徒刑。"
+    },
+    {
+      "id": "INV-002",
+      "category": "发票管理",
+      "name": "发票开具不规范（购买方未填纳税人识别号等）",
+      "severity": "中",
+      "condition": { "type": "flag_false", "path": "facts.invoice.invoice_compliant" },
+      "regulation": "国家税务总局公告2017年第16号；发票管理办法实施细则",
+      "remediation": "发票抬头、税号、商品税收分类编码规范填写；不合规发票不得作为税前扣除凭证。"
+    },
+    {
+      "id": "FILE-001",
+      "category": "申报缴纳",
+      "name": "存在逾期纳税申报",
+      "severity": "中",
+      "condition": { "type": "flag_true", "path": "facts.filing.late_filing" },
+      "regulation": "《税收征收管理法》第六十二条（逾期申报处二千元以下，情节严重二千至一万元罚款）",
+      "remediation": "补报并说明，缴纳可能的罚款；建立申报日历与提醒机制避免重复发生。"
+    },
+    {
+      "id": "FILE-002",
+      "category": "申报缴纳",
+      "name": "存在逾期税款缴纳（产生滞纳金）",
+      "severity": "中",
+      "condition": { "type": "flag_true", "path": "facts.filing.late_payment" },
+      "regulation": "《税收征收管理法》第三十二条（按日加收滞纳税款万分之五的滞纳金）",
+      "remediation": "尽早补缴并缴清滞纳金；对资金紧张情形可申请延期缴纳（需税务机关批准）。"
+    }
+  ]
+}

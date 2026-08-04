@@ -1,0 +1,66 @@
+{
+  "name": "pipl-compliance",
+  "version": "1.1.9",
+  "description": "中国个人信息保护法（PIPL）合规检查、风险评估和文档生成工具。为企业提供全面的PIPL合规解决方案。🎉 v1.1.9: 统一化CLI接口，多格式报告输出，跨法域联合检查。",
+  "keywords": [
+    "PIPL",
+    "中国合规",
+    "个人信息保护法",
+    "中国隐私",
+    "合规检查",
+    "风险评估",
+    "隐私政策",
+    "跨境传输",
+    "单独同意",
+    "敏感个人信息",
+    "未成年人保护"
+  ],
+  "author": "Wei Wu (wwumit)",
+  "license": "MIT",
+  "files": [
+    "SKILL.md",
+    "requirements.txt",
+    "package.json",
+    "CHANGELOG.md",
+    "references/",
+    "scripts/",
+    "assets/",
+    "tests/"
+  ],
+  "scripts": {
+    "check": "python3 scripts/pipl-check.py",
+    "risk": "python3 scripts/risk-assessment.py",
+    "docs": "python3 scripts/document-generator.py",
+    "report": "python3 scripts/report-generator.py",
+    "manager": "python3 scripts/compliance-manager.py",
+    "validator": "python3 scripts/utils/data_validator.py",
+    "template": "python3 scripts/utils/template_engine.py",
+    "formatter": "python3 scripts/utils/report_formatter.py"
+  },
+  "openclaw": {
+    "skill": true,
+    "category": "compliance",
+    "region": "cn",
+    "dependencies": [],
+    "compatibility": {
+      "minOpenClawVersion": "1.0.0",
+      "testedModels": [
+        "volcengine-plan/ark-code-latest"
+      ]
+    },
+    "emoji": "🛡️"
+  },
+  "security": {
+    "scanned": true,
+    "last_scan_date": "2026-03-28",
+    "scan_result": "PASS",
+    "issues_fixed": "网络行为澄清，文件一致性修复",
+    "issues": 0,
+    "warnings": 0
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://clawhub.ai/wwumit/pipl-compliance"
+  },
+  "homepage": "https://clawhub.ai/wwumit/pipl-compliance"
+}

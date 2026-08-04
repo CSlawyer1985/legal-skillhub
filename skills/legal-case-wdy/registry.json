@@ -1,0 +1,4 @@
+{
+  "name": "pre-judgment-of-similar-cases-wdy",
+  "requiredEnvVars": ["WENDAOYUN_API_KEY"]
+}

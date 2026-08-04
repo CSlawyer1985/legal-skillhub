@@ -1,0 +1,50 @@
+{
+  "name": "defense",
+  "version": "1.0.0",
+  "description": "A comprehensive AI agent skill for anyone facing criminal charges, civil lawsuits, or regulatory investigations. Covers rights protection, defense process, working with counsel, and evaluating plea and settlement options.",
+  "author": "AGIstack",
+  "license": "MIT-0",
+  "homepage": "https://clawhub.ai",
+  "keywords": [
+    "defense", "criminal defense", "civil defense", "lawsuit", "charges",
+    "attorney", "rights", "plea", "settlement", "investigation",
+    "regulatory", "defendant", "counsel", "legal defense"
+  ],
+  "files": {
+    "skill.md": "skill.md",
+    "heartbeat.md": "heartbeat.md",
+    "examples.md": "examples.md"
+  },
+  "capabilities": {
+    "rights_protection": "Identifies critical rights to exercise in the first hours of any legal matter",
+    "process_guidance": "Explains criminal, civil, and regulatory defense processes at each stage",
+    "counsel_effectiveness": "Helps defendants work productively with defense attorneys",
+    "plea_evaluation": "Analyzes plea and settlement offers against realistic trial alternatives",
+    "evidence_preservation": "Guides document preservation obligations from the moment a matter begins",
+    "decision_support": "Frames key defense decisions with the information needed to make them"
+  },
+  "triggers": [
+    "defense", "criminal charges", "arrested", "sued", "lawsuit defendant",
+    "investigation", "plea deal", "plea offer", "criminal defense",
+    "civil defense", "regulatory investigation", "right to remain silent",
+    "fifth amendment", "miranda", "search warrant", "subpoena",
+    "grand jury", "indictment", "arraignment", "bail"
+  ],
+  "heartbeat": {
+    "immediate": "Protect rights and preserve evidence in the first 24 hours",
+    "weekly": "Active matter deadline and development tracking",
+    "pre_decision": "Frame any major defense decision with full information",
+    "post_resolution": "Comply with resolution terms and address collateral consequences"
+  },
+  "audience": [
+    "Anyone facing criminal charges at any level",
+    "Business owners or individuals who have been sued",
+    "People under regulatory or administrative investigation",
+    "Anyone who has had contact with law enforcement and is uncertain of their situation",
+    "Defendants wanting to work more effectively with their defense attorneys"
+  ],
+  "openclaw": {
+    "primaryEnv": null,
+    "requires": {}
+  }
+}

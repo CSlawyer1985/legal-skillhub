@@ -1,0 +1,6 @@
+interface:
+  display_name: "合同版本差异审查器"
+  short_description: "对比合同版本并标记付款、责任、终止、知识产权和数据条款变化。"
+  default_prompt: "使用 $contract-version-diff 分析我提供的材料，生成结构化报告，并说明证据、限制和下一步动作。"
+policy:
+  allow_implicit_invocation: true

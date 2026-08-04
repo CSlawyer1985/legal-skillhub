@@ -1,0 +1,1 @@
+针对帝力地区法院严重罪行特别审判庭（Special Panels for Serious Crimes，SPSC；UNTAET，2000–2006 年）的验证优先方法论。所有引用均对照 JSMP、联合国档案和 legal-tools.org 核验。覆盖 Los Palos 案、严重罪行调查组（Serious Crimes Unit）案件量（391 人被起诉；约 88 人受审）以及 SPSC 与雅加达（印尼特设法院）的区分。为研究辅助工具，不构成法律意见。

@@ -1,0 +1,7 @@
+interface:
+  display_name: "婚姻家事助手"
+  short_description: "帮助个人理清离婚路径，也帮助律师整理案情、证据和处理方案。"
+  default_prompt: "使用 $marriage-family-assistant 帮我整理婚姻家事问题，判断下一步怎么走，并列出需要补充的事实和材料。"
+
+policy:
+  allow_implicit_invocation: true

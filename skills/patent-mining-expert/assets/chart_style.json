@@ -1,0 +1,75 @@
+{
+  "colors": {
+    "primary": "#2E5090",
+    "secondary": "#5B9BD5",
+    "accent": "#ED7D31",
+    "comparison": "#70AD47",
+    "warning": "#FFC000",
+    "background": "#F2F2F2",
+    "text": "#404040",
+    "white": "#FFFFFF"
+  },
+  "fonts": {
+    "title": {
+      "family": "Microsoft YaHei",
+      "size": 14,
+      "weight": "bold"
+    },
+    "subtitle": {
+      "family": "Microsoft YaHei",
+      "size": 12,
+      "weight": "normal"
+    },
+    "label": {
+      "family": "Microsoft YaHei",
+      "size": 11,
+      "weight": "normal"
+    },
+    "text": {
+      "family": "Microsoft YaHei",
+      "size": 10,
+      "weight": "normal"
+    }
+  },
+  "figure": {
+    "dpi": 300,
+    "format": "png",
+    "bbox_inches": "tight",
+    "facecolor": "white"
+  },
+  "grid": {
+    "alpha": 0.3,
+    "linestyle": "--",
+    "linewidth": 0.5
+  },
+  "chart_types": {
+    "bar": {
+      "width": 0.25,
+      "alpha": 0.8,
+      "edgecolor": "black",
+      "linewidth": 1
+    },
+    "line": {
+      "linewidth": 2.5,
+      "markersize": 8,
+      "markeredgewidth": 2
+    },
+    "scatter": {
+      "s": 50,
+      "alpha": 0.6,
+      "edgecolor": "black",
+      "linewidth": 1
+    },
+    "radar": {
+      "linewidth": 2.5,
+      "fill_alpha": 0.15
+    }
+  },
+  "table": {
+    "header_color": "#2E5090",
+    "header_text_color": "white",
+    "alternate_row_color": "#F2F2F2",
+    "border_color": "#CCCCCC",
+    "cell_padding": 80
+  }
+}

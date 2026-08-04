@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/schemas/domain-baseline-inheritance.schema.json",
+  "title": "Domain Baseline Inheritance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target_skill",
+    "donor_inventories",
+    "decisions",
+    "coverage"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "target_skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "candidate_version"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "candidate_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "donor_inventories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["donor_id", "source_skill", "source_version", "source_freeze_sha256", "required_gate_ids"],
+        "properties": {
+          "donor_id": {"type": "string", "minLength": 1},
+          "source_skill": {"type": "string", "minLength": 1},
+          "source_version": {"type": "string", "minLength": 1},
+          "source_freeze_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "required_gate_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["donor_id", "gate_id", "decision", "donor_evidence", "legal_impact", "decision_reason", "regression_test"],
+        "properties": {
+          "donor_id": {"type": "string", "minLength": 1},
+          "gate_id": {"type": "string", "minLength": 1},
+          "decision": {"enum": ["保留", "强化", "替换", "组合", "舍弃"]},
+          "donor_evidence": {"type": "string", "minLength": 1},
+          "legal_impact": {"type": "string", "minLength": 1},
+          "decision_reason": {"type": "string", "minLength": 1},
+          "regression_test": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_gate_count", "decision_count", "missing_gate_ids", "duplicate_gate_ids", "status"],
+      "properties": {
+        "required_gate_count": {"type": "integer", "minimum": 1},
+        "decision_count": {"type": "integer", "minimum": 1},
+        "missing_gate_ids": {"type": "array", "maxItems": 0},
+        "duplicate_gate_ids": {"type": "array", "maxItems": 0},
+        "status": {"const": "PASS"}
+      }
+    }
+  }
+}

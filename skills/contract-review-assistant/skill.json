@@ -1,0 +1,131 @@
+{
+  "name": "contract-review-assistant",
+  "version": "2.0.0",
+  "description": "合同审查辅助系统v2.0，支持AI增强审查、多种文件格式、Word/PDF/HTML/Markdown多格式输出、邮件发送和历史记录管理",
+  "author": "WorkBuddy AI",
+  "trigger_words": [
+    "合同审查",
+    "审查合同",
+    "合同条款",
+    "合同风险",
+    "合同对比",
+    "生成审查报告",
+    "contract review",
+    "合同分析"
+  ],
+  "main_script": "main_v2.py",
+  "dependencies": {
+    "python": ">=3.8",
+    "packages": [
+      "python-docx",
+      "pdfplumber",
+      "PyPDF2",
+      "pytesseract",
+      "Pillow",
+      "reportlab"
+    ]
+  },
+  "parameters": {
+    "contract_input": {
+      "type": "string",
+      "description": "合同文本内容或文件路径",
+      "required": true
+    },
+    "output_format": {
+      "type": "string",
+      "description": "输出格式：docx/pdf/html/md",
+      "default": "docx",
+      "options": ["docx", "pdf", "html", "md"]
+    },
+    "use_llm": {
+      "type": "boolean",
+      "description": "是否使用LLM增强审查",
+      "default": false
+    },
+    "api_key": {
+      "type": "string",
+      "description": "LLM API密钥（可选）"
+    },
+    "send_email": {
+      "type": "boolean",
+      "description": "是否发送邮件",
+      "default": false
+    },
+    "email_recipient": {
+      "type": "string",
+      "description": "收件人邮箱"
+    }
+  },
+  "output_files": [
+    {
+      "name": "审查报告.docx",
+      "description": "Word格式的审查报告"
+    },
+    {
+      "name": "审查报告.html",
+      "description": "HTML格式的审查报告"
+    },
+    {
+      "name": "审查报告.md",
+      "description": "Markdown格式的审查报告"
+    },
+    {
+      "name": "审查报告.pdf",
+      "description": "PDF格式的审查报告"
+    }
+  ],
+  "features": [
+    "条款提取 - 自动识别合同核心条款",
+    "风险识别 - 检测异常条款和高风险表述",
+    "差异比对 - 对比合同版本差异",
+    "意见生成 - 生成专业审查意见",
+    "LLM增强 - 支持GPT/Claude AI增强审查",
+    "多格式输入 - 支持TXT/DOCX/PDF/图片",
+    "多格式输出 - Word/PDF/HTML/Markdown",
+    "邮件发送 - SMTP发送报告和附件",
+    "历史管理 - SQLite记录审查历史"
+  ],
+  "usage_examples": [
+    {
+      "command": "帮我审查这份合同",
+      "description": "审查合同并生成报告"
+    },
+    {
+      "command": "审查这份采购合同，重点关注付款条款",
+      "description": "针对性审查特定条款"
+    },
+    {
+      "command": "对比合同v1和v2版本的差异",
+      "description": "版本差异对比"
+    },
+    {
+      "command": "生成审查报告并发送邮件",
+      "description": "生成报告并通过邮件发送"
+    },
+    {
+      "command": "审查合同.docx，输出HTML格式",
+      "description": "审查Word文档并输出HTML"
+    },
+    {
+      "command": "使用AI增强审查",
+      "description": "使用LLM生成更专业的审查意见"
+    }
+  ],
+  "api_endpoints": [
+    {
+      "method": "POST",
+      "path": "/review",
+      "description": "审查合同并返回结果"
+    },
+    {
+      "method": "POST",
+      "path": "/export",
+      "description": "导出审查报告"
+    },
+    {
+      "method": "GET",
+      "path": "/history",
+      "description": "获取审查历史"
+    }
+  ]
+}

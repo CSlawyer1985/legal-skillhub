@@ -1,0 +1,9 @@
+# Core dependencies
+requests>=2.28.0
+pypandoc>=1.11
+python-docx>=0.8.11
+
+# Optional: PDF OCR support
+# pdf2image>=1.16.0
+# pytesseract>=0.3.10
+# Pillow>=9.0.0

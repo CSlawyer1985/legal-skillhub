@@ -1,0 +1,13 @@
+{
+  "$schema": "clause-schema",
+  "category": "dispute",
+  "name": "指定法院管辖条款",
+  "applicable_types": [
+    "all"
+  ],
+  "clause_text": "因本合同引起的或与本合同有关的任何争议，双方同意提交【___】人民法院管辖（仅限于被告住所地、合同履行地、合同签订地、原告住所地、标的物所在地人民法院）。",
+  "position_tips": {
+    "both": "约定法院须符合《民事诉讼法》第34条规定，与争议有实际联系"
+  },
+  "legal_reference": "《民事诉讼法》第34条"
+}

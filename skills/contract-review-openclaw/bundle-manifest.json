@@ -1,0 +1,72 @@
+{
+  "skillName": "contract-review",
+  "sourceDirectory": "skills/contract-review",
+  "outputDirectory": "temp/clawhub/contract-review",
+  "packageMode": "directory",
+  "includedFiles": [
+    {
+      "relativePath": "SKILL.md",
+      "kind": "main",
+      "required": true,
+      "sourcePath": "/Users/renzhiping/workspace/openclaw-plugin/skills/contract-review/SKILL.md",
+      "checksum": "278d7785d9084b7a38e32bb1f1bbb6bc1525c36d1066add19ddbf30141d34934"
+    },
+    {
+      "relativePath": "README.md",
+      "kind": "readme",
+      "required": false,
+      "sourcePath": "/Users/renzhiping/workspace/openclaw-plugin/skills/contract-review/README.md",
+      "checksum": "ef69b3a4d6523bf900bf634a216e45c42a4aa87264b555ef4fa8814b7ce06c77"
+    },
+    {
+      "relativePath": "references/intent-routing.md",
+      "kind": "reference",
+      "required": true,
+      "sourcePath": "/Users/renzhiping/workspace/openclaw-plugin/skills/contract-review/references/intent-routing.md",
+      "checksum": "7aa1ac12d7670960d519c85930c4bbf0848e0a4bf641492e12c512f1366a5db4"
+    },
+    {
+      "relativePath": "references/auth-gate.md",
+      "kind": "reference",
+      "required": true,
+      "sourcePath": "/Users/renzhiping/workspace/openclaw-plugin/skills/contract-review/references/auth-gate.md",
+      "checksum": "6f34ffa0ca508f0c156ece2bac08d01c2e5e5c5f87eaabc032a1da88eab71050"
+    },
+    {
+      "relativePath": "references/execution-rules.md",
+      "kind": "reference",
+      "required": true,
+      "sourcePath": "/Users/renzhiping/workspace/openclaw-plugin/skills/contract-review/references/execution-rules.md",
+      "checksum": "f7a3ce66faf3f93b24020083121ca2314df4ab20c7887cbbb7fa780e5cc4c287"
+    },
+    {
+      "relativePath": "references/examples.md",
+      "kind": "reference",
+      "required": true,
+      "sourcePath": "/Users/renzhiping/workspace/openclaw-plugin/skills/contract-review/references/examples.md",
+      "checksum": "7859c9faa5abb702f3291f1ea7de9d0b7ccfb570c9a7fbbb84f525526245524d"
+    },
+    {
+      "relativePath": "bundle-manifest.json",
+      "kind": "derived_manifest",
+      "required": true,
+      "checksum": "629fc3e8e3d930daee21e570ee725c72ef05d0337bfb56348ffa1c3c37c47406"
+    },
+    {
+      "relativePath": "version-trace.json",
+      "kind": "evidence",
+      "required": true,
+      "checksum": "b01e91fa5370a361b6fba98d78202bb58fcd94f69b67c54984e2bdba3e78677e"
+    }
+  ],
+  "compatibility": {
+    "pluginPackageName": "openclaw-contract-review-plugin",
+    "minimumPluginVersion": "0.1.0",
+    "displayText": "Requires openclaw-contract-review-plugin >= 0.1.0",
+    "configRequirements": [
+      "plugins.entries.openclaw-contract-review-plugin.enabled"
+    ],
+    "sourceOfTruth": "package.json"
+  },
+  "generatedAt": "2026-03-25T14:20:27.013Z"
+}

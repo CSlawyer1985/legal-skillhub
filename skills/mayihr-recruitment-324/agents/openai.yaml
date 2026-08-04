@@ -1,0 +1,4 @@
+interface:
+  display_name: "海外招聘合规指引"
+  short_description: "用自然语言或上传文件完成海外招聘合规指引，输出可复核结果和行动清单"
+  default_prompt: "使用 $mayihr-recruitment-324 请帮我完成海外招聘合规指引：跨国招聘→各国劳动法差异/签证要求/跨境薪酬支付/社保缴纳规则。"

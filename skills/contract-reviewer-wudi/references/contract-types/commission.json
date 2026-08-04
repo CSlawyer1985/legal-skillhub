@@ -1,0 +1,297 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "委托合同",
+  "contract_type_en": "commission",
+  "description": "委托代理、事务委托、授权委托等委托合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编"
+  ],
+  "keywords_for_detection": [
+    "委托", "受托人", "委托人", "代理", "授权", "事务",
+    "委托事项", "委托权限", "报酬"
+  ],
+  "key_clauses": [
+    {
+      "name": "委托事项",
+      "required": true,
+      "keywords": ["委托事项", "事务", "委托内容", "代理事项"],
+      "check_points": [
+        {
+          "item": "事项明确",
+          "description": "委托处理的事务是否明确具体",
+          "risk_level": "致命"
+        },
+        {
+          "item": "事项合法",
+          "description": "委托事项是否合法",
+          "risk_level": "致命"
+        }
+      ],
+      "suggestion": "明确委托处理的具体事务，确保事项合法"
+    },
+    {
+      "name": "委托权限",
+      "required": true,
+      "keywords": ["权限", "授权范围", "代理权限", "特别授权"],
+      "check_points": [
+        {
+          "item": "权限范围",
+          "description": "受托人权限范围是否明确",
+          "risk_level": "致命"
+        },
+        {
+          "item": "特别授权",
+          "description": "特别授权事项是否明确（如代为承认、放弃、变更诉讼请求）",
+          "risk_level": "重大"
+        },
+        {
+          "item": "转委托",
+          "description": "是否允许转委托",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确受托人权限范围，特别授权需具体列明，约定是否允许转委托"
+    },
+    {
+      "name": "委托期限",
+      "required": true,
+      "keywords": ["委托期限", "期限", "授权期限", "终止"],
+      "check_points": [
+        {
+          "item": "期限明确",
+          "description": "委托期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "终止条件",
+          "description": "委托终止条件",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确委托期限或终止条件"
+    },
+    {
+      "name": "报酬",
+      "required": false,
+      "keywords": ["报酬", "费用", "佣金", "代理费"],
+      "check_points": [
+        {
+          "item": "报酬金额",
+          "description": "报酬金额或计算方式是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "支付方式",
+          "description": "报酬支付方式和时间",
+          "risk_level": "重大"
+        },
+        {
+          "item": "费用承担",
+          "description": "处理委托事务的费用由谁承担",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确报酬金额/计算方式、支付时间、费用承担（通常受托人垫付，委托人偿还）"
+    },
+    {
+      "name": "处理要求",
+      "required": true,
+      "keywords": ["处理", "指示", "要求", "报告"],
+      "check_points": [
+        {
+          "item": "处理标准",
+          "description": "事务处理的标准和要求",
+          "risk_level": "重大"
+        },
+        {
+          "item": "报告义务",
+          "description": "受托人报告事务处理情况的义务",
+          "risk_level": "一般"
+        },
+        {
+          "item": "听从指示",
+          "description": "受托人听从委托人指示的义务",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确事务处理标准、报告义务、听从指示的要求"
+    },
+    {
+      "name": "财产处理",
+      "required": false,
+      "keywords": ["财产", "财物", "交付", "返还", "孳息"],
+      "check_points": [
+        {
+          "item": "财产交付",
+          "description": "委托人交付的财产如何处理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "孳息归属",
+          "description": "处理事务取得的孳息归属",
+          "risk_level": "一般"
+        },
+        {
+          "item": "剩余返还",
+          "description": "剩余财产和孳息的返还",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确委托人交付财产的使用、孳息归属、剩余财产返还"
+    },
+    {
+      "name": "保密",
+      "required": true,
+      "keywords": ["保密", "秘密", "隐私", "保密义务"],
+      "check_points": [
+        {
+          "item": "保密范围",
+          "description": "保密信息范围",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保密期限",
+          "description": "保密期限（通常委托终止后仍有效）",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确保密信息范围、保密期限（建议委托终止后2-3年）"
+    },
+    {
+      "name": "违约责任",
+      "required": true,
+      "keywords": ["违约", "违约金", "赔偿", "责任"],
+      "check_points": [
+        {
+          "item": "受托人违约",
+          "description": "受托人违反委托义务的违约责任",
+          "risk_level": "重大"
+        },
+        {
+          "item": "委托人违约",
+          "description": "委托人违反义务（如支付报酬）的违约责任",
+          "risk_level": "一般"
+        }
+      ],
+      "suggestion": "明确双方违约责任，特别是受托人越权、泄密、未尽注意义务的责任"
+    },
+    {
+      "name": "合同解除",
+      "required": true,
+      "keywords": ["解除", "任意解除", "终止", "撤销"],
+      "check_points": [
+        {
+          "item": "任意解除权",
+          "description": "双方任意解除权的约定",
+          "risk_level": "重大"
+        },
+        {
+          "item": "解除后果",
+          "description": "解除后的报酬结算和损失赔偿",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确双方均有任意解除权，解除后应结算报酬、赔偿损失"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "COM001",
+      "name": "委托事项不明",
+      "description": "委托处理的事务不明确，导致受托人权限不清",
+      "severity": "高风险",
+      "suggestion": "明确列明委托处理的具体事务"
+    },
+    {
+      "id": "COM002",
+      "name": "权限范围不清",
+      "description": "受托人权限范围不明确，易产生越权或无权代理风险",
+      "severity": "高风险",
+      "suggestion": "明确权限范围，特别授权需具体列明"
+    },
+    {
+      "id": "COM003",
+      "name": "报酬约定不明",
+      "description": "无偿委托未明确，或有偿委托报酬不明",
+      "severity": "中风险",
+      "suggestion": "明确是否有偿，有偿的应明确报酬标准和支付方式"
+    },
+    {
+      "id": "COM004",
+      "name": "转委托风险",
+      "description": "未约定是否允许转委托，受托人擅自转委托",
+      "severity": "中风险",
+      "suggestion": "明确是否允许转委托，紧急情况下为维护委托人利益可转委托"
+    },
+    {
+      "id": "COM005",
+      "name": "保密义务缺失",
+      "description": "未约定保密义务，受托人泄露委托事务信息",
+      "severity": "中风险",
+      "suggestion": "约定保密义务和泄密责任"
+    }
+  ],
+  "position_guidance": {
+    "principal": {
+      "name": "委托人",
+      "priority_checks": [
+        "委托事项",
+        "权限范围",
+        "报酬",
+        "解除权"
+      ],
+      "key_concerns": [
+        "明确委托事项和权限范围",
+        "约定合理的报酬",
+        "保留任意解除权",
+        "约定保密义务"
+      ],
+      "avoid": [
+        "委托事项过于宽泛",
+        "权限范围不清",
+        "未约定解除权",
+        "忽视保密义务"
+      ]
+    },
+    "agent": {
+      "name": "受托人",
+      "priority_checks": [
+        "权限范围",
+        "报酬",
+        "费用承担",
+        "责任限制"
+      ],
+      "key_concerns": [
+        "明确权限范围，避免越权",
+        "明确报酬和支付方式",
+        "费用垫付和偿还",
+        "限制责任范围（非故意或重大过失）"
+      ],
+      "avoid": [
+        "权限范围不清导致越权",
+        "无偿委托",
+        "承担过重责任",
+        "未约定费用承担"
+      ]
+    }
+  },
+  "legal_notes": {
+    "termination": {
+      "description": "任意解除权",
+      "rule": "委托人或者受托人可以随时解除委托合同，但应赔偿对方损失",
+      "legal_basis": "《民法典》第933条"
+    },
+    "liability": {
+      "description": "受托人责任",
+      "rule": "有偿委托：受托人过错造成损失的，应赔偿；无偿委托：受托人故意或重大过失造成损失的，应赔偿",
+      "legal_basis": "《民法典》第929条"
+    },
+    "sub_delegation": {
+      "description": "转委托",
+      "rule": "经委托人同意，受托人可以转委托。未经同意的转委托，受托人对第三人的行为承担责任",
+      "emergency": "紧急情况下为维护委托人利益可转委托",
+      "legal_basis": "《民法典》第923条"
+    }
+  }
+}

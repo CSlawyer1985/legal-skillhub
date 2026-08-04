@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{CASE_NAME}} — 案件时间轴</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #6b7280;
+    --line: #e5e7eb;
+    --card-bg: #f9fafb;
+    --card-border: #e5e7eb;
+    --tag-sign: #2563eb;
+    --tag-money: #059669;
+    --tag-delivery: #d97706;
+    --tag-notice: #7c3aed;
+    --tag-breach: #dc2626;
+    --tag-procedure: #0891b2;
+    --tag-other: #6b7280;
+    --dot: #3b82f6;
+    --dot-outer: #dbeafe;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 40px 20px 60px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .header .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  /* The vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--line);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+    animation: fadeIn 0.4s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* The dot on the line */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -45px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--dot);
+    border: 3px solid var(--dot-outer);
+    z-index: 2;
+  }
+
+  .timeline-date {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .timeline-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: default;
+  }
+
+  .timeline-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+  }
+
+  .timeline-card .event-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  .tag-sign     { background: #dbeafe; color: var(--tag-sign); }
+  .tag-money    { background: #d1fae5; color: var(--tag-money); }
+  .tag-delivery { background: #fef3c7; color: var(--tag-delivery); }
+  .tag-notice   { background: #ede9fe; color: var(--tag-notice); }
+  .tag-breach   { background: #fee2e2; color: var(--tag-breach); }
+  .tag-procedure{ background: #cffafe; color: var(--tag-procedure); }
+  .tag-other    { background: #f3f4f6; color: var(--tag-other); }
+
+  .timeline-card .event-text {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .timeline-card .event-source {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .timeline-card .event-source::before {
+    content: '📎';
+    font-size: 11px;
+  }
+
+  .timeline-footer {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* Empty state */
+  .timeline-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+
+  /* Print styles */
+  @media print {
+    body { padding: 20px; }
+    .timeline-card:hover { transform: none; box-shadow: var(--shadow); }
+    .timeline-item { animation: none; opacity: 1; }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .timeline { padding-left: 44px; }
+    .timeline::before { left: 15px; }
+    .timeline-item::before { left: -35px; width: 10px; height: 10px; }
+    .timeline-card { padding: 14px 16px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>{{CASE_NAME}} — 案件时间轴</h1>
+    <p class="subtitle">生成日期：{{GENERATED_DATE}} | 证据来源：{{EVIDENCE_COUNT}} 份材料</p>
+  </div>
+
+  <div class="timeline">
+    {{TIMELINE_ITEMS}}
+  </div>
+
+  <div class="timeline-footer">
+    本时间轴由 case-file-review Skill 自动生成，所有事件均标注证据来源
+  </div>
+
+</div>
+
+</body>
+</html>

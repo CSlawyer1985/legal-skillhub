@@ -1,0 +1,294 @@
+{
+  "$schema": "contract-type-config",
+  "contract_type": "技术服务合同",
+  "contract_type_en": "tech-service",
+  "description": "软件开发、技术咨询、系统集成等技术服务类合同",
+  "version": "1.0.0",
+  "applicable_laws": [
+    "《中华人民共和国民法典》合同编",
+    "《中华人民共和国著作权法》",
+    "《计算机软件保护条例》"
+  ],
+  "keywords_for_detection": [
+    "技术服务", "软件开发", "系统开发", "技术咨询", "交付", "验收",
+    "源代码", "知识产权", "维护", "运维", "API", "接口"
+  ],
+  "key_clauses": [
+    {
+      "name": "服务范围与内容",
+      "required": true,
+      "keywords": ["服务范围", "服务内容", "开发内容", "功能清单"],
+      "check_points": [
+        {
+          "item": "范围明确",
+          "description": "服务范围是否具体、可衡量",
+          "risk_level": "致命"
+        },
+        {
+          "item": "功能清单",
+          "description": "是否附功能清单或需求文档",
+          "risk_level": "重大"
+        },
+        {
+          "item": "变更机制",
+          "description": "需求变更如何处理",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "建议以附件形式附详细功能清单，明确需求变更流程和费用调整机制"
+    },
+    {
+      "name": "交付物与交付标准",
+      "required": true,
+      "keywords": ["交付物", "交付成果", "源代码", "文档"],
+      "check_points": [
+        {
+          "item": "交付物清单",
+          "description": "是否列明全部交付物",
+          "risk_level": "重大"
+        },
+        {
+          "item": "源代码",
+          "description": "是否包含源代码交付",
+          "risk_level": "重大"
+        },
+        {
+          "item": "技术文档",
+          "description": "是否包含技术文档、操作手册",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确交付物清单：源代码、可执行程序、技术文档、测试报告、操作手册"
+    },
+    {
+      "name": "验收标准与流程",
+      "required": true,
+      "keywords": ["验收", "测试", "上线", "交付"],
+      "check_points": [
+        {
+          "item": "验收标准",
+          "description": "验收标准是否客观、可验证",
+          "risk_level": "致命"
+        },
+        {
+          "item": "验收期限",
+          "description": "验收期限是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "异议处理",
+          "description": "验收不合格如何处理",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确验收标准、验收期限（如交付后15个工作日）、不合格的处理方式"
+    },
+    {
+      "name": "知识产权归属",
+      "required": true,
+      "keywords": ["知识产权", "著作权", "版权", "源代码归属"],
+      "check_points": [
+        {
+          "item": "成果归属",
+          "description": "开发成果的知识产权归属",
+          "risk_level": "致命"
+        },
+        {
+          "item": "背景知识产权",
+          "description": "双方背景知识产权如何处理",
+          "risk_level": "重大"
+        },
+        {
+          "item": "第三方组件",
+          "description": "开源组件、第三方库的使用和授权",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "明确：开发成果归甲方所有，乙方保留背景知识产权，开源组件需符合甲方要求"
+    },
+    {
+      "name": "价款与付款方式",
+      "required": true,
+      "keywords": ["价款", "报酬", "付款", "里程碑"],
+      "check_points": [
+        {
+          "item": "总价明确",
+          "description": "合同总价是否明确（含税）",
+          "risk_level": "致命"
+        },
+        {
+          "item": "付款节点",
+          "description": "是否与里程碑挂钩",
+          "risk_level": "重大"
+        },
+        {
+          "item": "验收后付款",
+          "description": "尾款是否在验收后支付",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "建议分期付款：签约30%、中期30%、验收30%、质保10%（1年后支付）"
+    },
+    {
+      "name": "保密条款",
+      "required": true,
+      "keywords": ["保密", "商业秘密", "机密信息"],
+      "check_points": [
+        {
+          "item": "保密范围",
+          "description": "保密信息范围是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "保密期限",
+          "description": "保密期限是否合理",
+          "risk_level": "一般"
+        },
+        {
+          "item": "违约责任",
+          "description": "泄密责任是否明确",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "保密期限建议为合同期内及终止后2-3年"
+    },
+    {
+      "name": "维护与质保",
+      "required": true,
+      "keywords": ["维护", "质保", "保修", "运维", "bug修复"],
+      "check_points": [
+        {
+          "item": "质保期限",
+          "description": "质保期是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "响应时间",
+          "description": "故障响应时间是否明确",
+          "risk_level": "重大"
+        },
+        {
+          "item": "维护范围",
+          "description": "免费维护与收费维护的界限",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "质保期建议1年，明确bug修复响应时间（如严重bug 24小时内）"
+    },
+    {
+      "name": "人员与外包",
+      "required": false,
+      "keywords": ["人员", "团队", "外包", "转包", "分包"],
+      "check_points": [
+        {
+          "item": "核心人员",
+          "description": "是否约定核心开发人员",
+          "risk_level": "一般"
+        },
+        {
+          "item": "人员变更",
+          "description": "核心人员变更是否需要同意",
+          "risk_level": "一般"
+        },
+        {
+          "item": "外包限制",
+          "description": "是否允许外包或分包",
+          "risk_level": "重大"
+        }
+      ],
+      "suggestion": "建议约定核心人员，变更需甲方同意；限制未经同意的分包"
+    }
+  ],
+  "common_risks": [
+    {
+      "id": "T001",
+      "name": "需求范围模糊",
+      "description": "服务范围描述过于笼统，缺乏可衡量的交付标准",
+      "severity": "高风险",
+      "suggestion": "以附件形式附详细功能清单，明确需求变更流程"
+    },
+    {
+      "id": "T002",
+      "name": "知识产权归属不清",
+      "description": "开发成果的知识产权归属约定不明或偏向乙方",
+      "severity": "高风险",
+      "suggestion": "明确约定开发成果归甲方所有，乙方仅保留背景知识产权"
+    },
+    {
+      "id": "T003",
+      "name": "验收标准主观",
+      "description": "验收标准过于主观，如'甲方满意'、'符合预期'",
+      "severity": "高风险",
+      "suggestion": "验收标准应客观可验证，如'通过测试用例'、'功能符合需求文档'"
+    },
+    {
+      "id": "T004",
+      "name": "付款节点不合理",
+      "description": "验收前支付大部分款项，或尾款比例过低",
+      "severity": "高风险",
+      "suggestion": "建议尾款至少10-20%在验收后支付，质保金1年后支付"
+    },
+    {
+      "id": "T005",
+      "name": "源代码交付缺失",
+      "description": "合同未约定源代码交付",
+      "severity": "高风险",
+      "suggestion": "必须约定源代码交付，明确交付时间和形式"
+    },
+    {
+      "id": "T006",
+      "name": "开源组件风险",
+      "description": "未约定开源组件的使用限制，可能带来GPL等传染性许可风险",
+      "severity": "中风险",
+      "suggestion": "约定禁止使用GPL等强传染性开源组件，或需甲方书面同意"
+    }
+  ],
+  "position_guidance": {
+    "client": {
+      "name": "甲方（委托方）",
+      "priority_checks": [
+        "知识产权归属",
+        "源代码交付",
+        "验收标准",
+        "需求范围"
+      ],
+      "key_concerns": [
+        "确保开发成果知识产权归甲方所有",
+        "必须获得完整源代码",
+        "验收标准客观可验证",
+        "付款与里程碑和验收挂钩",
+        "限制未经同意的分包",
+        "约定合理的质保期和响应时间"
+      ],
+      "avoid": [
+        "验收前支付全部款项",
+        "知识产权归乙方所有",
+        "主观验收标准",
+        "未约定源代码交付",
+        "允许自由分包"
+      ]
+    },
+    "vendor": {
+      "name": "乙方（服务方）",
+      "priority_checks": [
+        "需求变更机制",
+        "付款节点",
+        "验收期限",
+        "背景知识产权"
+      ],
+      "key_concerns": [
+        "明确需求变更流程和费用调整机制",
+        "争取合理的付款节点（启动、中期、验收）",
+        "验收期限不宜过短，需合理测试时间",
+        "保留背景知识产权和通用技术",
+        "明确超出范围的额外工作需另行付费"
+      ],
+      "avoid": [
+        "无限次免费修改",
+        "验收期限过短",
+        "所有知识产权归甲方（不含背景IP）",
+        "质保期内承担所有修改（不含需求变更）"
+      ]
+    }
+  }
+}

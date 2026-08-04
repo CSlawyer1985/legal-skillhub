@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openclaw.dev/skills/contract-clause-extractor/input.schema.json",
+  "title": "Contract Clause Extractor Input",
+  "description": "Schema for contract document input to the clause extractor",
+  "type": "object",
+  "required": ["content"],
+  "properties": {
+    "content": {
+      "type": "string",
+      "description": "Raw contract text content"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["pdf", "docx", "txt", "ocr"],
+      "description": "Document format",
+      "default": "pdf"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["auto", "zh", "en", "mixed"],
+      "description": "Contract language",
+      "default": "auto"
+    },
+    "title": {
+      "type": "string",
+      "description": "Contract title (optional override)"
+    },
+    "parties": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Known party names (optional)"
+    },
+    "options": {
+      "type": "object",
+      "properties": {
+        "bilingual": {
+          "type": "boolean",
+          "description": "Enable bilingual extraction",
+          "default": false
+        },
+        "target_lang": {
+          "type": "string",
+          "enum": ["en", "zh"],
+          "description": "Target language for bilingual mode"
+        },
+        "comparison_mode": {
+          "type": "boolean",
+          "description": "Enable multi-contract comparison",
+          "default": false
+        },
+        "hidden_risk_detection": {
+          "type": "boolean",
+          "description": "Enable hidden risk pattern scanning",
+          "default": true
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
