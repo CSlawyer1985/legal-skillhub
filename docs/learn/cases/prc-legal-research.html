@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案例解剖 · prc-legal-research · 学习中心</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div id="header"></div>
+<article class="article">
+  <h1>案例解剖：中国法律研究助手</h1>
+  <p class="lead">来自<a class="case-link" href="../../skill.html?f=prc-legal-research">prc-legal-research</a>（元力法律出品）——中文法律检索类 Skill 的工程化标杆。</p>
+
+  <h2>一、背景与触发</h2>
+  <p>面向中国境内法律研究的 Agent Skill：用户提出法律问题，Skill 系统性检索和分析法律资料，最终输出一份<strong>客观的法律研究备忘录</strong>。它的 description 明确定位："你的工作是根据用户的问题，系统性检索和分析法律资料，最终输出一份客观的法律研究备忘录"——研究框架参考英美法 IRAC/CREAC 与德国法 Gutachtenstil 推理模式。</p>
+
+  <h2>二、模式归类：流程 SOP 型 + 工具调用型（L3）</h2>
+  <ul>
+    <li><strong>八阶段工作流</strong>：信息完整性检查 → 研究问题提出与确认 → 二手文献检索 → 二手文献分析 → 一手权威资料检索与验证 → 分析与推理 → 验证和风险识别 → 生成法律研究备忘录</li>
+    <li><strong>双检索架构</strong>：一手权威资料走元典 API（法条/法规/权威案例/普通案例四类检索），二手文献走 Tavily 网络检索</li>
+    <li><strong>首次使用检查</strong>：运行前先验证两个 API Key 是否配置，未配置则引导用户注册获取并写入 config.py——而不是默默报错</li>
+  </ul>
+
+  <h2>三、结构解剖</h2>
+  <table>
+    <tr><th>部件</th><th>实现</th><th>可借鉴点</th></tr>
+    <tr><td>Intake</td><td>第一阶段"信息完整性检查"：先确认问题所需信息是否齐备</td><td>分析前的完整性检查，避免基于残缺信息的错误分析</td></tr>
+    <tr><td>双源检索</td><td>一手（元典）+ 二手（Tavily）分层检索</td><td>一手权威资料与二手文献分离，来源层级清晰</td></tr>
+    <tr><td>验证闭环</td><td>第七阶段"验证和风险识别"：输出前复核检索结果</td><td>验证是流程的正式阶段，不是可选项</td></tr>
+    <tr><td>输出契约</td><td>法律研究备忘录的固定结构</td><td>交付物结构化，可直接进文档</td></tr>
+    <tr><td>脚本封装</td><td>scripts/ 封装元典与 Tavily 的调用函数</td><td>API 调用抽象为函数，模型只需传参</td></tr>
+  </table>
+
+  <h2>四、亮点摘录</h2>
+  <ul>
+    <li><strong>框架的诚实</strong>：明确声明研究框架参考 IRAC/CREAC（英美法）与 Gutachtenstil（德国法）——方法论有出处，不装原创；</li>
+    <li><strong>引导式配置</strong>："请前往元典 API 平台注册获取密钥，然后把密钥告诉我，我来帮你写入配置文件"——把运维工作做成对话，律师零门槛；</li>
+    <li><strong>来源可追溯</strong>：每条法条带时效性字段（现行有效/失效/已被修改/部分失效/尚未生效），案例带案号。</li>
+  </ul>
+
+  <h2>五、可复用方法论</h2>
+  <ol>
+    <li><strong>检索类 Skill 先解决"数据从哪来"</strong>：一手+二手双层来源设计，比让模型自由发挥可靠得多；</li>
+    <li><strong>首次使用检查是标配</strong>：任何依赖 API key/外部服务的 Skill，都应该先自检依赖再开工；</li>
+    <li><strong>八阶段里的"验证"要独立成段</strong>：验证不是最后随手做，而是流程中的正式阶段；</li>
+    <li><strong>脚本传参而非让模型写代码</strong>：把 API 调用封装成函数，模型只负责组织参数——大幅降低出错率。</li>
+  </ol>
+
+  <h2>六、法域适配讨论</h2>
+  <p>本 Skill 完全绑定中国大陆法域（元典 API + 中文法规库）。移植到其他法域的启示：<strong>把"数据源"和"方法论"解耦</strong>——同样的八阶段流程，换成美国法可以用 Westlaw/Lexis 检索，换成欧盟法可以用 EUR-Lex——流程骨架可复用，数据源替换即可。</p>
+
+  <div class="note"><b>注意</b>：本 Skill 需要元典 API key（免费额度 1000 积分/首月）与 Tavily API key（免费 10000 次/月）。安装后需先配置密钥才能使用，详情见其<a class="case-link" href="../../skill.html?f=prc-legal-research">详情页</a>的"依赖与配套条件"。</div>
+
+  <p>← 返回<a class="case-link" href="./index.html">案例列表</a> | <a class="case-link" href="../index.html">学习中心首页</a></p>
+</article>
+<div id="footer"></div>
+<script src="../../assets/common.js"></script>
+<script>
+  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../../");
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../../");
+</script>
+</body>
+</html>
