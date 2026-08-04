@@ -6,7 +6,7 @@
 <title>案例解剖 · prc-legal-research · 学习中心</title>
 <link rel="stylesheet" href="../../assets/style.css">
 </head>
-<body>
+<body data-active="learn" data-prefix="../../">
 <div id="header"></div>
 <article class="article">
   <h1>案例解剖：中国法律研究助手</h1>
@@ -56,9 +56,6 @@
 </article>
 <div id="footer"></div>
 <script src="../../assets/common.js"></script>
-<script>
-  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../../");
-  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../../");
-</script>
+
 </body>
 </html>

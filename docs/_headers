@@ -1,0 +1,3 @@
+# Legal SkillHub CSP（防御纵深：第三方 Skill 内容按纯文本渲染 + 协议白名单）
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://raw.githubusercontent.com https://cdn.jsdelivr.net; object-src 'none'; base-uri 'none'; frame-ancestors 'none'

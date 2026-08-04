@@ -236,6 +236,12 @@
       <pre>${escHtml(cmd)}</pre>
     </div>`;
   }
+  /* 文件名 Shell 安全校验：拒绝命令替换/变量展开/引号/反斜杠及路径穿越
+     （当前语料全部通过；不通过的 Skill 降级为不生成 curl 命令） */
+  function shellSafeFile(f) {
+    return !/[`$\\"']/.test(f) && !f.split("/").includes("..") && !f.startsWith("/") && f.length > 0;
+  }
+
   async function buildCurlCmd() {
     const c = await siteConfig();
     const base = MIRRORS[getMirror()](c, `skills/${rec.id}`);
@@ -255,11 +261,20 @@
     return `请从 GitHub 仓库下载并安装一个 Skill 到我的工作环境：\n1. 逐个读取 https://github.com/${"${owner}/${repo}"}/tree/main/skills/${rec.id} 下的全部文件（共 ${files.length} 个）\n2. 按相同目录结构保存到 ~/.claude/skills/${rec.id}/\n3. 完成后告诉我这个 Skill 的触发方式`;
   }
   async function renderCmds() {
-    const [curlCmd, gitCmd] = await Promise.all([buildCurlCmd(), buildGitCmd()]);
-    $("#cmd-area").innerHTML =
-      cmdBlock("方式一：curl 逐文件下载（推荐）", curlCmd) +
-      cmdBlock("方式二：git sparse-checkout（适合批量）", gitCmd) +
+    const gitCmd = await buildGitCmd();
+    const unsafe = files.filter(f => !shellSafeFile(f));
+    let html;
+    if (unsafe.length) {
+      // 含不安全文件名的 Skill：不生成 curl 命令（防 Shell 注入），降级提示
+      html = `<div class="cmd-block"><div class="cmd-head"><span>方式一：curl 逐文件下载</span></div>
+        <pre>⚠ 该 Skill 包含无法安全用于 Shell 命令的文件名（${escHtml(unsafe[0])} 等 ${unsafe.length} 个文件）。\n请使用下方文件浏览器逐个下载，或让 AI 助手代为安装。</pre></div>`;
+    } else {
+      const curlCmd = await buildCurlCmd();
+      html = cmdBlock("方式一：curl 逐文件下载（推荐）", curlCmd);
+    }
+    html += cmdBlock("方式二：git sparse-checkout（适合批量）", gitCmd) +
       cmdBlock("方式三：让 AI 助手帮你安装（复制给它）", buildPromptCmd().replace("${owner}/${repo}", (await siteConfig()).owner + "/" + (await siteConfig()).repo));
+    $("#cmd-area").innerHTML = html;
     bindCopy($("#cmd-area"));
   }
   function bindMirror() {

@@ -6,7 +6,7 @@
 <title>03 · 编写 SKILL.md · 学习中心</title>
 <link rel="stylesheet" href="../assets/style.css?v=a23c082">
 </head>
-<body>
+<body data-active="learn" data-prefix="../">
 <div id="header"></div>
 <article class="article">
   <h1>03 · 编写 SKILL.md</h1>
@@ -83,9 +83,6 @@
 </article>
 <div id="footer"></div>
 <script src="../assets/common.js?v=a23c082"></script>
-<script>
-  document.getElementById("header").innerHTML = renderHeader("learn").replaceAll("./", "../");
-  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", "../");
-</script>
+
 </body>
 </html>

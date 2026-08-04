@@ -90,16 +90,34 @@ async function fetchSkillFile(path) {
   }
 }
 
-/* ── 极简 Markdown 渲染（覆盖本项目常见语法） ── */
+/* ── 极简 Markdown 渲染（覆盖本项目常见语法） ──
+   安全约定：一切第三方内容先转义再渲染；链接经协议白名单校验。
+   escHtml 必须覆盖全部 HTML 特殊字符（含引号，防属性逃逸）。 */
 function escHtml(s) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+/* 链接协议白名单：仅 https/http/mailto/相对路径；javascript:/data:/vbscript: 等一律拒绝 */
+function safeUrl(u) {
+  u = String(u || "").trim();
+  if (/^(https?:|mailto:)/i.test(u)) return u;
+  if (/^(\.{0,2}\/|#)/.test(u)) return u;
+  return null;
 }
 function inlineMd(s) {
   s = escHtml(s);
   s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
   s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   s = s.replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, "<em>$1</em>");
-  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, label, url) => {
+    const href = safeUrl(url);
+    if (!href) return escHtml(label); // 危险协议：丢弃链接，仅保留文本
+    return `<a href="${escHtml(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+  });
   return s;
 }
 function renderMd(src) {
@@ -194,3 +212,14 @@ function renderFooter() {
     </div>
   </footer>`;
 }
+
+/* ── 页头页脚自动初始化（替代内联 script，兼容 CSP script-src 'self'）──
+   页面在 <body> 上声明 data-active（home/learn/about）与 data-prefix（相对页面到站点根）。 */
+(function () {
+  const body = document.body;
+  if (!body || !document.getElementById("header")) return;
+  const active = body.getAttribute("data-active") || "home";
+  const prefix = body.getAttribute("data-prefix") || "./";
+  document.getElementById("header").innerHTML = renderHeader(active).replaceAll("./", prefix);
+  document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", prefix);
+})();
