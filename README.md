@@ -4,7 +4,7 @@
 
 **2049 个法律 Agent Skill 的目录 · 说明书 · 分类体系 · 部署入口**
 
-[![License](https://img.shields.io/badge/License-Multi-blue.svg)](NOTICE.md)
+[![License](https://img.shields.io/badge/License-See%20individual%20skills-blue.svg)]()
 [![Skills](https://img.shields.io/badge/Skills-2049-brightgreen.svg)](index/master-index.md)
 [![Author](https://img.shields.io/badge/author-Dr.CS(CS)-orange.svg)](https://github.com/CSlawyer1985)
 [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/CSlawyer1985/legal-skillhub/pulls)
@@ -148,7 +148,6 @@ cd legal-skillhub && git sparse-checkout set skills/legal-kb && cp -r skills/leg
 │   ├── learn/               # 学习中心（七讲 + 案例解剖）
 │   ├── about.html           # 授权说明与权利人下架通道
 │   └── data/                # 站点数据（skills.json / files.json / site-config.json）
-└── NOTICE.md            # 署名与授权说明
 ```
 
 ## 📦 技术栈
