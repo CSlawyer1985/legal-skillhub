@@ -245,7 +245,9 @@ def complexity_of(nfiles):
         return "L"
     return "XL"
 
-def quality_of(st, desc):
+def structure_score_of(st, desc):
+    """结构完整度 0-5 分（仅测量包结构，不测量任务质量/法律准确性）。
+    见 taxonomy.md『质量评价拆分』：真正的质量评价需按维度拆开，不合并总分。"""
     q = 0
     q += 1 if st["has_references"] else 0
     q += 1 if st["has_scripts"] else 0
@@ -619,7 +621,7 @@ def build():
             },
             "skill_type": stype,
             "complexity": complexity_of(len(st["files"])),
-            "quality_score": quality_of(st, desc),
+            "structure_score": structure_score_of(st, desc),
             "files_count": len(st["files"]),
             "has": {"scripts": st["has_scripts"], "references": st["has_references"],
                     "assets": st["has_assets"], "license": st["has_license"]},
@@ -730,7 +732,7 @@ def slim_record(r):
         "ind": r["classification"]["industries"],
         "in": r["capabilities"]["inputs"], "out": r["capabilities"]["outputs"],
         "auto": r["capabilities"]["automation_level"],
-        "type": r["skill_type"], "cplx": r["complexity"], "q": r["quality_score"],
+        "type": r["skill_type"], "cplx": r["complexity"], "q": r["structure_score"],
         "files": r["files_count"], "has": r["has"], "lang": r["language"],
         "lic": r["license"]["spdx_id"], "lrisk": r["license"]["risk"],
         "verif": r["verification"]["status"], "fresh": r["badges"]["freshness"], "cur": r["badges"]["curated"],

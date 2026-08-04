@@ -24,7 +24,7 @@
   ];
   const RISK_LBL = { open: "宽松许可", copyleft: "传染性", "restrictive-nc": "非商业", undeclared: "未声明" };
   const SORTS = [
-    { key: "q", label: "质量分" },
+    { key: "q", label: "结构完整度" },
     { key: "files", label: "文件数" },
     { key: "name", label: "A-Z" },
     { key: "fresh", label: "含新法" },
@@ -229,7 +229,7 @@
     const riskCls = d.lrisk;
     return `<a class="skill-row" href="./skill.html?f=${encodeURIComponent(d.id)}">
       <div class="row-main">
-        <div class="row-title"><span class="prompt">&gt;</span> <span class="sname">${escHtml(d.name)}</span> <span class="score">${d.q * 20}</span></div>
+        <div class="row-title"><span class="prompt">&gt;</span> <span class="sname">${escHtml(d.name)}</span> <span class="score" title="结构完整度：仅反映包结构（references/scripts/LICENSE/描述/文件数），不代表任务质量或法律准确性">${d.q}/5</span></div>
         <div class="row-desc">${escHtml(d.summary || "（暂无简介）")}</div>
         <div class="row-meta">
           <span class="badge-st ${riskCls}">${riskWord}</span>
@@ -264,7 +264,7 @@
     if (showTop) $("#top-zone").innerHTML = `<div class="top-label">▍ 编辑精选 · TOP PERFORMING</div><div class="top-grid">${
       (DATA.filter(d => d.cur).length ? DATA.filter(d => d.cur) : DATA.slice().sort((a,b)=>b.q-a.q).slice(0,8)).slice(0,4)
       .map(d => `<a class="top-card" href="./skill.html?f=${encodeURIComponent(d.id)}">
-        <div class="tc-score">${d.q * 20}</div><div class="tc-name">&gt; ${escHtml(d.name)}</div>
+        <div class="tc-score">${d.q}/5</div><div class="tc-name">&gt; ${escHtml(d.name)}</div>
         <div class="tc-desc">${escHtml((d.summary||"").slice(0,70))}</div></a>`).join("")}</div>`;
 
     $("#list").innerHTML = slice.map(cardHtml).join("");
