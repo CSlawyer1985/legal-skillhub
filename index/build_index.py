@@ -116,6 +116,7 @@ SOURCE_MAP = {
     "AgentSkills.Legal": "casemark", "AwesomeLegalSkills(zh)": "awesome-zh",
 }
 SOURCE_DEFAULT_LICENSE = {"casemark": "apache-2.0", "awesome-zh": "cc-by-nc-nd-4.0"}
+# 来源信息不再输出到站点数据/索引（用户要求消除全部来源信息）；仅内部用于 license 默认值推断
 
 # ═══════════════════════════ 3. 语言检测 ═══════════════════════════
 
@@ -550,8 +551,8 @@ def build():
         version = str(fm.get("version") or (fm.get("metadata") or {}).get("version") or "") or None
         src_tags = fm.get("tags") if isinstance(fm.get("tags"), list) else []
 
-        source_label = src_map.get(folder, "未标注（待考）")
-        source = SOURCE_MAP.get(source_label, "tencent" if source_label == "腾讯SkillHub" else "unknown")
+        source_label = src_map.get(folder, "unknown")
+        source = SOURCE_MAP.get(source_label, "unknown")
         lic = detect_license(fp, fm, source)
         lang = detect_language(raw)
         text_sig = (name + " " + desc + " " + raw[:2000])
@@ -626,8 +627,7 @@ def build():
             "data_security": ds,
             "risk": {"level": None, "human_review_required": True},   # T2
             "language": lang,
-            "provenance": {"source": source, "source_label": source_label,
-                           "author": author, "version": version,
+            "provenance": {"author": author, "version": version,
                            "collected_at": "2026-08-04",
                            "content_hash": hashlib.sha256(raw.encode()).hexdigest()[:16] if raw else None},
             "license": {"spdx_id": lic, "risk": lic_risk},
@@ -732,7 +732,7 @@ def slim_record(r):
         "auto": r["capabilities"]["automation_level"],
         "type": r["skill_type"], "cplx": r["complexity"], "q": r["quality_score"],
         "files": r["files_count"], "has": r["has"], "lang": r["language"],
-        "src": r["provenance"]["source"], "lic": r["license"]["spdx_id"], "lrisk": r["license"]["risk"],
+        "lic": r["license"]["spdx_id"], "lrisk": r["license"]["risk"],
         "verif": r["verification"]["status"], "fresh": r["badges"]["freshness"], "cur": r["badges"]["curated"],
         "logic": r.get("logic_summary"), "deps": r.get("dependencies"),
         "risk": r["risk"]["level"],
@@ -742,14 +742,14 @@ def write_master_index(records):
     lines = ["# Legal SkillHub 主索引（机器生成，禁手改）", "",
              f"- 总数：**{len(records)} 个 Skill**", "- 标签体系：`index/taxonomy.md` v0.1",
              "- 数据权威：`index/skills-index.json`（本文件由其渲染）", "",
-             "| # | 文件夹 | 简介 | 法域 | 领域 | 任务 | 语言 | 来源 | 授权 |",
-             "|---|--------|------|------|------|------|------|------|------|"]
+             "| # | 文件夹 | 简介 | 法域 | 领域 | 任务 | 语言 | 授权 |",
+             "|---|--------|------|------|------|------|------|------|"]
     for i, r in enumerate(records, 1):
         desc = (r["summary"][:60] + "…" if len(r["summary"]) > 60 else r["summary"]).replace("|", "\\|")
         jur = "/".join(r["classification"]["jurisdictions"])
         dom = r["classification"]["areas_of_law"]["primary"]
         task = r["classification"]["tasks"]["primary"]
-        lines.append(f"| {i} | `{r['folder']}` | {desc} | {jur} | {dom} | {task} | {r['language']} | {r['provenance']['source']} | {r['license']['spdx_id']} |")
+        lines.append(f"| {i} | `{r['folder']}` | {desc} | {jur} | {dom} | {task} | {r['language']} | {r['license']['spdx_id']} |")
     open(os.path.join(INDEX, "master-index.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
 
 def write_stats(records, review_queue):
@@ -777,9 +777,6 @@ def write_stats(records, review_queue):
         lines.append(f"- {k}: {v}")
     lines += ["", "## 语言分布", ""]
     for k, v in dist(lambda r: r["language"]):
-        lines.append(f"- {k}: {v}")
-    lines += ["", "## 来源分布", ""]
-    for k, v in dist(lambda r: r["provenance"]["source"]):
         lines.append(f"- {k}: {v}")
     lines += ["", "## 授权分布", ""]
     for k, v in dist(lambda r: r["license"]["spdx_id"]):

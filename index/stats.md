@@ -78,14 +78,6 @@
 - en: 1046
 - zh-CN: 1003
 
-## 来源分布
-
-- casemark: 882
-- tencent: 881
-- awesome-zh: 224
-- yuanli: 61
-- unknown: 1
-
 ## 授权分布
 
 - apache-2.0: 930

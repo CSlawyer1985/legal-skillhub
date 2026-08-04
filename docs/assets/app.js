@@ -10,7 +10,6 @@
     { key: "dom", label: "领域", field: "dom" },
     { key: "task", label: "任务", field: "task" },
     { key: "roles", label: "角色", field: "roles", lbl: "role" },
-    { key: "src", label: "来源", field: "src", single: true },
   ];
   const ADV = [   // 高级筛选抽屉
     { key: "lang", label: "语言", field: "lang", single: true },

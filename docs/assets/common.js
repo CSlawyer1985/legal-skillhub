@@ -22,7 +22,6 @@ const LBL = {
   ind: {finance:"金融",insurance:"保险","real-estate":"房地产",construction:"建筑",manufacturing:"制造",energy:"能源",
     internet:"互联网",ai:"人工智能",healthcare:"医疗医药",education:"教育",retail:"消费零售",ecommerce:"电商",
     government:"政府","professional-services":"专业服务",general:"综合"},
-  src: {tencent:"腾讯SkillHub",yuanli:"元力法律",casemark:"CaseMark","awesome-zh":"AwesomeLegal",unknown:"其他"},
   type: {instruction:"指令型","prompt-template":"模板型",checklist:"清单型",workflow:"工作流型",
     "tool-wrapper":"工具封装","code-package":"代码包","knowledge-pack":"知识包",hybrid:"混合型"},
   auto: {L0:"L0 知识参考",L1:"L1 单次辅助",L2:"L2 结构化工作流",L3:"L3 工具调用",L4:"L4 有限自主"},

@@ -126,7 +126,7 @@ lawyer 律师 / paralegal 律师助理 / in-house 法务 / compliance-officer �
 
 claude-code / codex / universal-markdown 通用 Markdown skill / openclaw / other-cli 其他 CLI Agent / unknown 未知
 
-> 本项目 skill 绝大多数为通用 Markdown skill；此维度同时标注原始发布平台特征（如腾讯系 metadata.openclaw → openclaw 标记）。
+> 本项目 skill 绝大多数为通用 Markdown skill；部分 Skill 声明了平台兼容标记（如 metadata.openclaw → openclaw 标记）。
 
 ## 六、input_type 输入类型（首屏筛选，≤3）
 
@@ -181,9 +181,6 @@ zh-CN / en（内容 CJK 密度检测，不用 frontmatter language 字段）
 ### 9.9 maintenance 维护状态
 active / stale / archived / unknown（来源平台更新时间推定，默认 unknown）
 
-### 9.10 source 来源
-tencent 腾讯SkillHub / yuanli 元力法律 / casemark CaseMark(AgentSkills.Legal) / awesome-zh AwesomeLegalSkills中文库
-
 ## 十、license 授权（首屏徽章色）
 
 ### 10.1 规范化枚举（SPDX 短标识）
@@ -194,7 +191,7 @@ apache-2.0 / mit / mit-0 / cc-by-4.0 / cc-by-nc / cc-by-nc-nd-4.0 / cc-by-nc-sa-
 
 ```
 LICENSE 文件内容嗅探 > frontmatter 顶层 license（清洗小写、去尾随符号）
-> metadata.license 嵌套 > 集合默认（casemark→apache-2.0、awesome-zh→cc-by-nc-nd-4.0）
+> metadata.license 嵌套 > 按具体 Skill 文件的授权声明推定
 > undeclared
 ```
 
@@ -220,9 +217,9 @@ LICENSE 文件内容嗅探 > frontmatter 顶层 license（清洗小写、去尾�
 
 | 关系 | 说明 | 本项目数据来源 |
 |------|------|----------------|
-| alternatives 替代 | 内容重复或高度相似的其它 skill | 去重清理时的重复组 |
-| complements 互补 | 同作者/同系列配套 skill | 同发布者系列（jicheng/pan/yang/mayihr 等） |
-| derived_from 派生 | 改编自 | 撞名后缀变体（-tencent/-agl） |
+| alternatives 替代 | 内容重复或高度相似的其它 skill | 内容完全一致仅命名不同的版本 |
+| complements 互补 | 配套 skill | 同一 skill 家族中的协作组件 |
+| derived_from 派生 | 改编自 | 内容相同或高度相似的不同收录版本 |
 
 ## 十三、标签数量限制
 
