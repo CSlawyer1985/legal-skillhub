@@ -10,36 +10,42 @@
 <body>
 <div id="header"></div>
 
-<section class="stats-bar" id="stats"></section>
+<!-- Hero 开机动画 -->
+<div class="hero" id="hero">
+  <pre class="hero-out"></pre><span class="cursor">▊</span>
+</div>
 
-<section class="search-zone">
+<section class="browse">
+  <h1 class="browse-h">Browse Skills</h1>
+  <p class="browse-sub">// 2049 个法律 Agent Skill · 目录 · 说明书 · 部署入口</p>
+
+  <!-- 搜索 -->
   <div class="search-box">
-    <input id="q" type="text" placeholder="搜索技能名称或简介，如：合同审查 / contract review / 工伤" autofocus>
+    <svg class="search-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input id="q" type="text" placeholder="search skills... 合同审查 / contract review / 工伤">
   </div>
-  <div class="search-hint">// 支持中英文模糊搜索；点击左侧标签组合筛选；筛选条件同步到地址栏可分享</div>
+
+  <!-- 排序 -->
+  <div class="sort-row" id="sortrow"></div>
+
+  <!-- 维度切换 + 分类 pills -->
+  <div class="dim-row" id="dim-tabs"></div>
+  <div class="pill-row" id="pills"></div>
+
+  <div class="count-row"><span id="count">加载中…</span></div>
 </section>
 
-<div class="active-filters" id="chips"></div>
+<!-- Top 精选 -->
+<section class="top-zone" id="top-zone" style="display:none"></section>
 
-<div class="layout">
-  <aside class="sidebar" id="sidebar"></aside>
-  <main class="main">
-    <div class="result-meta" id="meta">加载中…</div>
-    <div class="sort-row" id="sortrow">
-      <span>sort:</span>
-      <span class="sort-opt on" data-sort="name">名称</span>
-      <span class="sort-opt" data-sort="files">文件数</span>
-      <span class="sort-opt" data-sort="q">质量分</span>
-      <span style="margin-left:auto"></span>
-      <span class="sort-opt" data-quick="scripts">有脚本</span>
-      <span class="sort-opt" data-quick="references">有参考库</span>
-      <span class="sort-opt" data-quick="fresh">含新法</span>
-      <span class="sort-opt" data-quick="cur">★精选</span>
-    </div>
-    <div class="cards" id="cards"></div>
-    <div id="sentinel" style="height:1px"></div>
-  </main>
-</div>
+<!-- 卡片列表 -->
+<main class="list-main">
+  <div class="list" id="list"></div>
+  <div class="pager" id="pager"></div>
+</main>
+
+<!-- 底部分类目录 -->
+<section class="directory" id="directory"></section>
 
 <div id="footer"></div>
 <script src="./assets/common.js"></script>
