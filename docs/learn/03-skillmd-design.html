@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>03 · 编写 SKILL.md · 学习中心</title>
-<link rel="stylesheet" href="../assets/style.css?v=58f6eec">
+<link rel="stylesheet" href="../assets/style.css?v=4dc3bc2">
 </head>
 <body data-active="learn" data-prefix="../">
 <div id="header"></div>
@@ -78,11 +78,27 @@
     <li>有没有"不写 AI 也知道"的内容（法条原文、常识）？</li>
   </ul>
 
+  <h2>六、元技能推荐：让 AI 来写 SKILL.md</h2>
+  <p>前五节是徒手写 SKILL.md 的方法。实际动手时更快的路径是装一个<strong>元技能</strong>（制作 Skill 的 Skill）——把"把这个流程做成一个 Skill"这句话直接交给 AI，由它完成调研、起草、评测、发布的全流程。推荐三个，按工程化程度递进：</p>
+
+  <h3>1. Anthropic 官方 skill-creator —— 官方口径的基线</h3>
+  <p><a href="https://github.com/anthropics/skills/tree/main/skills/skill-creator" target="_blank" rel="noopener">anthropics/skills 仓库</a>中的官方元技能：负责意图澄清、起草 SKILL.md、生成测试用例、打包发布。它定义了 Anthropic 对 Skill 结构的官方理解（frontmatter + 正文 + references 分层），本讲前五节的规则大多源自它。三个中最轻，适合第一次接触元技能、想先理解官方口径的人。</p>
+
+  <h3>2. qiaomu-meta-skill —— 先研究再创造</h3>
+  <p><a href="https://github.com/joeseesun/qiaomu-meta-skill" target="_blank" rel="noopener">乔木元技能（joeseesun）</a>的核心差异是"先研究再创造"：动手写之前先在 skills.sh、SkillsMP 检索同类 Skill，回到 GitHub 核验来源、维护状态与许可证，对每个候选记录 keep / adapt / reject / invent 决策，避免拼贴抄袭。产出按原型等级控制复杂度——个人试验走轻量 Scaffold，公开发布才启用完整 Governed 门禁；配触发评测（应触发/不应触发/近邻场景）、质量门禁（目录结构、版本一致性、上下文预算）、密钥泄漏扫描和一键开源发布（功能分支 → PR → 合并 → Release → <code>npx skills add</code> 安装验证）。作者自述已用此流程产出 28 个 Skill。安装（需 Node.js 18+）：</p>
+  <pre>npx skills add joeseesun/qiaomu-meta-skill</pre>
+
+  <h3>3. yao-meta-skill —— 把 Skill 当软件工程来管</h3>
+  <p><a href="https://github.com/yaojingang/yao-meta-skill" target="_blank" rel="noopener">YAO 元技能（yaojingang）</a>自称"Skill OS"，是三个中工程化最重的一个：先用平台中立的"技能 IR"（意图、触发器、输入输出、边界）建模，再编译到 Claude、OpenAI、Codex、VS Code 多平台；配 Output Eval Lab（输出断言、盲审 A/B 包）、Review Studio 单页审查门户、发布治理（安装模拟、权限探测、证据账本）和 SkillOps 持续迭代循环（采纳漂移检测、每日看护报告）。作者自评 91.5/100（对比官方 skill-creator 67.5、OpenAI 50.5），但仅有一次人工盲审，属自评参考。安装（需 Python 3.11+）：</p>
+  <pre>npx -y skills add yaojingang/yao-meta-skill -a codex -g -y</pre>
+
+  <div class="note"><b>选型提示</b>：三个的差别本质是第 3 节的"任务自由度"——官方版最低（固定流程），乔木版是"流程刚性 + 判断弹性"的折中，YAO 版自由度最高、工程化最重。个人法律 Skill 起步用官方版或乔木版即可；需要跨平台分发、持续迭代治理的团队级资产，再上 YAO。</div>
+
   <h2>下一讲</h2>
   <p>SKILL.md 写好了，它需要什么环境才能跑起来？带脚本的、要联网的、要处理 Word 的，各有什么配套条件？→ <a class="case-link" href="./04-environment.html">04 · 工作环境与配套条件</a></p>
 </article>
 <div id="footer"></div>
-<script src="../assets/common.js?v=58f6eec"></script>
+<script src="../assets/common.js?v=4dc3bc2"></script>
 
 </body>
 </html>
