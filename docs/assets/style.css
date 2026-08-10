@@ -306,6 +306,9 @@ a:hover { text-decoration: underline; }
 .article .case-link { color: var(--accent); }
 .article .note { border: 1px dashed var(--border-bright); border-radius: 4px; padding: 12px 16px; margin: 14px 0; font-size: .85rem; color: var(--text-dim); }
 .article .note b { color: var(--amber); }
+.article figure.shot { margin: 18px 0; }
+.article figure.shot img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 4px; }
+.article figure.shot figcaption { font-size: .8rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; }
 
 /* 页脚 */
 .site-footer {
