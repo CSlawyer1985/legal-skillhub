@@ -1,8 +1,7 @@
 /* Legal SkillHub 首页 — 参照 terminalskills.io 的列表式 + 顶部分类 pill 架构 */
 (function () {
   const $ = s => document.querySelector(s);
-  document.getElementById("header").innerHTML = renderHeader("home");
-  document.getElementById("footer").innerHTML = renderFooter();
+  /* 页头页脚由 common.js 按 data-active/data-prefix 统一注入，此处不重复 */
 
   /* 维度定义：顶部分类 pill 按维度切换 */
   const DIMS = [
@@ -85,28 +84,24 @@
     refresh();
   }
 
-  /* ── Hero 开机动画（首次访问播一次）── */
+  /* ── Hero 开机动画（每会话播一次，播完终端窗口常驻）── */
   function renderHero() {
-    if (sessionStorage.getItem("lsh-hero")) { document.getElementById("hero").style.display = "none"; return; }
+    const out = document.querySelector(".hero-out");
+    if (!out) return;
     const lines = [
-      "> initializing legal_skillhub...",
-      "> mounting /skills ............ [████████████] 2049/2049",
-      "> indexing jurisdictions ...... china·us·eu·fr·uk·intl",
-      "> ready.",
+      "> initializing legal_skillhub ...",
+      "> mounting /skills .... [██████████] 2049/2049",
+      "> jurisdictions ... china·us·eu·fr·uk·intl",
+      "> taxonomy ... 36 domains · 15 tasks",
+      "> ready. scroll down ↓",
     ];
-    const el = document.getElementById("hero");
-    let li = 0, ci = 0, buf = "";
+    if (sessionStorage.getItem("lsh-hero")) { out.textContent = lines.join("\n"); return; }
+    let li = 0, ci = 0;
     (function step() {
-      if (li >= lines.length) {
-        el.querySelector(".hero-out").innerHTML = lines.join("\n");
-        setTimeout(() => { el.style.opacity = "0"; setTimeout(() => el.style.display = "none", 400); }, 700);
-        sessionStorage.setItem("lsh-hero", "1");
-        return;
-      }
+      if (li >= lines.length) { sessionStorage.setItem("lsh-hero", "1"); return; }
       const line = lines[li];
       if (ci <= line.length) {
-        buf = lines.slice(0, li).join("\n") + (li > 0 ? "\n" : "") + line.slice(0, ci);
-        el.querySelector(".hero-out").textContent = buf;
+        out.textContent = lines.slice(0, li).join("\n") + (li > 0 ? "\n" : "") + line.slice(0, ci);
         ci += Math.max(1, Math.floor(line.length / 28));
         setTimeout(step, 18);
       } else { li++; ci = 0; setTimeout(step, 90); }

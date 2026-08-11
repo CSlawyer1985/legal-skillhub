@@ -1,23 +1,48 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-mode="ink">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal SkillHub · 法律 Skill 聚合站</title>
 <meta name="description" content="2049 个法律 Agent Skill 的目录、说明书、分类体系与部署入口。">
+<meta name="theme-color" content="#11111b">
+<meta property="og:title" content="Legal SkillHub · 法律 Skill 聚合站">
+<meta property="og:description" content="2049 个法律 Agent Skill 的目录、说明书、分类体系与部署入口。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skill.chenshi.ai/">
+<meta property="og:site_name" content="Legal SkillHub">
+<link rel="icon" href="./assets/img/favicon.svg?v=f0765c1" type="image/svg+xml">
+<script src="./assets/mode.js?v=f0765c1"></script>
+<link rel="preload" href="./assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/jbmono-term.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./assets/style.css?v=f0765c1">
 </head>
 <body data-active="home" data-prefix="./">
 <div id="header"></div>
 
-<!-- Hero 开机动画 -->
-<div class="hero" id="hero">
-  <pre class="hero-out"></pre><span class="cursor">▊</span>
-</div>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-in">
+    <div class="hero-eyebrow">Legal Agent Skills Registry</div>
+    <h1 class="hero-h">让 Agent <em>懂法律。</em></h1>
+    <p class="hero-lede">收录 <b>2049</b> 个法律 Agent Skill——目录、说明书、分类体系与部署入口。按法域、业务领域、任务类型检索，复制一条命令，装进你的工作环境。</p>
+    <div class="hero-term">
+      <div class="hero-term-bar"><span>legal_skillhub — boot</span><span class="hero-term-dots">●●●</span></div>
+      <div class="hero-term-body"><pre class="hero-out"></pre><span class="cursor">▊</span></div>
+    </div>
+    <div class="strip">
+      <div class="stat"><b>2049</b><span>legal skills</span></div>
+      <div class="stat"><b>21</b><span>法域 · jurisdictions</span></div>
+      <div class="stat"><b>36</b><span>业务领域 · domains</span></div>
+      <div class="stat"><b>15</b><span>任务类型 · tasks</span></div>
+    </div>
+  </div>
+</section>
 
 <section class="browse">
-  <h1 class="browse-h">Browse Skills</h1>
-  <p class="browse-sub">// 2049 个法律 Agent Skill · 目录 · 说明书 · 部署入口</p>
+  <h2 class="browse-h">Browse Skills</h2>
+  <p class="browse-sub">关键词、法域、业务领域、任务类型，可组合检索</p>
 
   <!-- 搜索 -->
   <div class="search-box">

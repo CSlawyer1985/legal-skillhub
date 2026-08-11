@@ -192,13 +192,19 @@ function bindCopy(scope) {
 /* ── 页头页脚 ── */
 function renderHeader(active) {
   return `<header class="site-header">
-    <div class="logo">legal_skillhub<span class="cursor">▊</span></div>
+    <a class="logo" href="./index.html">legal_skillhub<span class="cursor">▊</span></a>
     <nav class="site-nav">
       <a href="./index.html" ${active === "home" ? 'class="active"' : ""}>技能库</a>
       <a href="./learn/index.html" ${active === "learn" ? 'class="active"' : ""}>学习中心</a>
       <a href="./about.html" ${active === "about" ? 'class="active"' : ""}>关于</a>
     </nav>
-    <div class="header-meta">2049 legal skills</div>
+    <div class="header-right">
+      <div class="header-meta">2049 legal skills</div>
+      <div class="mode-toggle" role="group" aria-label="配色模式">
+        <button type="button" data-ground="ink" aria-pressed="true">ink</button>
+        <button type="button" data-ground="paper" aria-pressed="false">paper</button>
+      </div>
+    </div>
   </header>`;
 }
 function renderFooter() {
@@ -222,4 +228,12 @@ function renderFooter() {
   const prefix = body.getAttribute("data-prefix") || "./";
   document.getElementById("header").innerHTML = renderHeader(active).replaceAll("./", prefix);
   document.getElementById("footer").innerHTML = renderFooter().replaceAll("./", prefix);
+  /* ink/paper 模式切换：事件委托，header 被重写时仍有效（mode.js 提供 LSH_MODE） */
+  if (window.LSH_MODE) {
+    LSH_MODE.set(LSH_MODE.get());
+    document.addEventListener("click", e => {
+      const b = e.target.closest(".mode-toggle button");
+      if (b) LSH_MODE.set(b.getAttribute("data-ground"));
+    });
+  }
 })();

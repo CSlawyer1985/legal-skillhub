@@ -1,119 +1,119 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
   <!-- 背景 -->
-  <rect width="1280" height="720" fill="#0a0e0a"/>
-  <rect x="0" y="0" width="1280" height="4" fill="#4ade80"/>
+  <rect width="1280" height="720" fill="#11111b"/>
+  <rect x="0" y="0" width="1280" height="4" fill="#cba6f7"/>
 
   <!-- 标题区 -->
-  <text x="90" y="50" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" letter-spacing="5" fill="#4ade80">学习中心 · 核心图</text>
-  <text x="90" y="86" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="30" font-weight="700" fill="#e0f2e0">一个 Skill 的完整解剖：从极简到完整</text>
-  <text x="90" y="112" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13.5" fill="#6a8a6a">左边是能跑的最小单位，右边是四件套齐备——两个都是合法的 Skill，零件按需生长</text>
+  <text x="90" y="50" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" letter-spacing="5" fill="#cba6f7">学习中心 · 核心图</text>
+  <text x="90" y="86" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="30" font-weight="700" fill="#f5e0dc">一个 Skill 的完整解剖：从极简到完整</text>
+  <text x="90" y="112" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13.5" fill="#9399b2">左边是能跑的最小单位，右边是四件套齐备——两个都是合法的 Skill，零件按需生长</text>
 
   <!-- 图例行 -->
   <g transform="translate(90,124)">
-    <path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#fbbf24"/>
-    <text x="24" y="12" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#b8d4b8">文件夹 ＝ 容器（装零件）</text>
+    <path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#f9e2af"/>
+    <text x="24" y="12" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#cdd6f4">文件夹 ＝ 容器（装零件）</text>
   </g>
   <g transform="translate(310,124)">
-    <path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#0e130e" stroke="#6a8a6a"/>
-    <path d="M11,1 L11,4 L14,4" fill="none" stroke="#6a8a6a"/>
-    <text x="24" y="12" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#b8d4b8">文件 ＝ 内容载体（md / py / docx）</text>
+    <path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#181825" stroke="#9399b2"/>
+    <path d="M11,1 L11,4 L14,4" fill="none" stroke="#9399b2"/>
+    <text x="24" y="12" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#cdd6f4">文件 ＝ 内容载体（md / py / docx）</text>
   </g>
   <g transform="translate(590,124)">
-    <line x1="3" y1="4" x2="13" y2="4" stroke="#6a8a6a" stroke-width="1.5"/>
-    <line x1="3" y1="8" x2="13" y2="8" stroke="#6a8a6a" stroke-width="1.5"/>
-    <line x1="3" y1="12" x2="13" y2="12" stroke="#6a8a6a" stroke-width="1.5"/>
-    <text x="24" y="12" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#b8d4b8">文件内部的层</text>
+    <line x1="3" y1="4" x2="13" y2="4" stroke="#9399b2" stroke-width="1.5"/>
+    <line x1="3" y1="8" x2="13" y2="8" stroke="#9399b2" stroke-width="1.5"/>
+    <line x1="3" y1="12" x2="13" y2="12" stroke="#9399b2" stroke-width="1.5"/>
+    <text x="24" y="12" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#cdd6f4">文件内部的层</text>
   </g>
 
   <!-- ============ 左栏：最简形态 ============ -->
-  <rect x="60" y="150" width="485" height="200" rx="4" fill="#0e130e" stroke="#1a3a1a"/>
-  <text x="84" y="176" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="16" font-weight="700" fill="#e0f2e0">最简形态 ｜ 一个文件就能跑</text>
+  <rect x="60" y="150" width="485" height="200" rx="4" fill="#181825" stroke="#313244"/>
+  <text x="84" y="176" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="16" font-weight="700" fill="#f5e0dc">最简形态 ｜ 一个文件就能跑</text>
 
-  <g transform="translate(92,193)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#fbbf24"/></g>
-  <text x="116" y="206" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14" font-weight="700" fill="#e0f2e0">jiancha-review/</text>
+  <g transform="translate(92,193)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#f9e2af"/></g>
+  <text x="116" y="206" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14" font-weight="700" fill="#f5e0dc">jiancha-review/</text>
 
-  <g transform="translate(108,223)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#0e130e" stroke="#6a8a6a"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#6a8a6a"/></g>
-  <text x="132" y="236" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14" font-weight="700" fill="#e0f2e0">SKILL.md</text>
-  <text x="226" y="236" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#6a8a6a">← 唯一必需，全大写</text>
+  <g transform="translate(108,223)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#181825" stroke="#9399b2"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#9399b2"/></g>
+  <text x="132" y="236" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14" font-weight="700" fill="#f5e0dc">SKILL.md</text>
+  <text x="226" y="236" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#9399b2">← 唯一必需，全大写</text>
 
-  <g transform="translate(124,253)"><line x1="3" y1="4" x2="13" y2="4" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#6a8a6a" stroke-width="1.5"/></g>
-  <text x="148" y="266" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13.5" fill="#b8d4b8">frontmatter（YAML）</text>
-  <text x="322" y="266" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#fbbf24">← L1 元数据 · 始终加载</text>
+  <g transform="translate(124,253)"><line x1="3" y1="4" x2="13" y2="4" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#9399b2" stroke-width="1.5"/></g>
+  <text x="148" y="266" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13.5" fill="#cdd6f4">frontmatter（YAML）</text>
+  <text x="322" y="266" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#f9e2af">← L1 元数据 · 始终加载</text>
 
-  <g transform="translate(124,283)"><line x1="3" y1="4" x2="13" y2="4" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#6a8a6a" stroke-width="1.5"/></g>
-  <text x="148" y="296" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13.5" fill="#b8d4b8">Markdown 正文</text>
-  <text x="288" y="296" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#60a5fa">← L2 指令 · 触发才载</text>
+  <g transform="translate(124,283)"><line x1="3" y1="4" x2="13" y2="4" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#9399b2" stroke-width="1.5"/></g>
+  <text x="148" y="296" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13.5" fill="#cdd6f4">Markdown 正文</text>
+  <text x="288" y="296" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#89b4fa">← L2 指令 · 触发才载</text>
 
-  <text x="84" y="326" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#b8d4b8">L1、L2 两层都装在这一个文件里——元数据和指令齐了</text>
+  <text x="84" y="326" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#cdd6f4">L1、L2 两层都装在这一个文件里——元数据和指令齐了</text>
 
   <!-- 左栏要点（框外） -->
-  <text x="84" y="368" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#6a8a6a">什么时候够用？——步骤少、不查资料、不算数、不要固定模板</text>
-  <text x="84" y="392" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" font-weight="700" fill="#fbbf24">零件怎么长出来？缺什么补什么 → 看右边</text>
+  <text x="84" y="368" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#9399b2">什么时候够用？——步骤少、不查资料、不算数、不要固定模板</text>
+  <text x="84" y="392" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" font-weight="700" fill="#f9e2af">零件怎么长出来？缺什么补什么 → 看右边</text>
 
   <!-- 左栏：作用范围框 -->
-  <rect x="60" y="415" width="485" height="120" rx="4" fill="#0e130e" stroke="#1a3a1a"/>
-  <text x="84" y="437" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14.5" font-weight="700" fill="#e0f2e0">装在哪 = 谁能用（作用范围）</text>
+  <rect x="60" y="415" width="485" height="120" rx="4" fill="#181825" stroke="#313244"/>
+  <text x="84" y="437" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14.5" font-weight="700" fill="#f5e0dc">装在哪 = 谁能用（作用范围）</text>
 
-  <text x="84" y="459" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" font-weight="700" fill="#60a5fa">用户级 ~/.claude/skills/</text>
-  <text x="262" y="459" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#b8d4b8">——全部工作区可用</text>
+  <text x="84" y="459" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" font-weight="700" fill="#89b4fa">用户级 ~/.claude/skills/</text>
+  <text x="262" y="459" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#cdd6f4">——全部工作区可用</text>
 
-  <text x="84" y="481" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" font-weight="700" fill="#22c55e">项目级 &lt;项目&gt;/.claude/skills/</text>
-  <text x="300" y="481" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#b8d4b8">——仅该项目生效·保密边界</text>
+  <text x="84" y="481" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" font-weight="700" fill="#9d7fd0">项目级 &lt;项目&gt;/.claude/skills/</text>
+  <text x="300" y="481" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#cdd6f4">——仅该项目生效·保密边界</text>
 
-  <text x="84" y="505" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" font-weight="700" fill="#fbbf24">不进项目，它就不在目录里——也是一层按需加载</text>
-  <text x="84" y="523" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" fill="#6a8a6a">专案 Skill 装全局 = 把专案方法带进你所有的对话</text>
+  <text x="84" y="505" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" font-weight="700" fill="#f9e2af">不进项目，它就不在目录里——也是一层按需加载</text>
+  <text x="84" y="523" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" fill="#9399b2">专案 Skill 装全局 = 把专案方法带进你所有的对话</text>
 
   <!-- ============ 右栏：完整形态 ============ -->
-  <rect x="565" y="150" width="645" height="380" rx="4" fill="#0e130e" stroke="#1a3a1a"/>
-  <text x="585" y="178" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="16" font-weight="700" fill="#e0f2e0">完整形态 ｜ 四件套，缺什么补什么</text>
+  <rect x="565" y="150" width="645" height="380" rx="4" fill="#181825" stroke="#313244"/>
+  <text x="585" y="178" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="16" font-weight="700" fill="#f5e0dc">完整形态 ｜ 四件套，缺什么补什么</text>
 
   <!-- 加载层色块 -->
-  <rect x="570" y="247" width="330" height="26" rx="4" fill="#fbbf24" fill-opacity="0.10" stroke="#fbbf24" stroke-opacity="0.45"/>
-  <rect x="570" y="277" width="330" height="26" rx="4" fill="#60a5fa" fill-opacity="0.10" stroke="#60a5fa" stroke-opacity="0.45"/>
-  <rect x="570" y="307" width="330" height="178" rx="4" fill="#22c55e" fill-opacity="0.07" stroke="#22c55e" stroke-opacity="0.40"/>
+  <rect x="570" y="247" width="330" height="26" rx="4" fill="#f9e2af" fill-opacity="0.10" stroke="#f9e2af" stroke-opacity="0.45"/>
+  <rect x="570" y="277" width="330" height="26" rx="4" fill="#89b4fa" fill-opacity="0.10" stroke="#89b4fa" stroke-opacity="0.45"/>
+  <rect x="570" y="307" width="330" height="178" rx="4" fill="#9d7fd0" fill-opacity="0.07" stroke="#9d7fd0" stroke-opacity="0.40"/>
 
   <!-- L 标签 -->
-  <text x="578" y="258" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" font-weight="700" fill="#fbbf24">L1 元数据</text>
-  <text x="578" y="270" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#fbbf24">始终加载</text>
-  <text x="578" y="288" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" font-weight="700" fill="#60a5fa">L2 正文</text>
-  <text x="578" y="300" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#60a5fa">触发才载</text>
-  <text x="578" y="322" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" font-weight="700" fill="#22c55e">L3 资源</text>
-  <text x="578" y="334" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#22c55e">用到才载</text>
-  <text x="578" y="346" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#22c55e">按需中的按需</text>
+  <text x="578" y="258" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" font-weight="700" fill="#f9e2af">L1 元数据</text>
+  <text x="578" y="270" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#f9e2af">始终加载</text>
+  <text x="578" y="288" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" font-weight="700" fill="#89b4fa">L2 正文</text>
+  <text x="578" y="300" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#89b4fa">触发才载</text>
+  <text x="578" y="322" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" font-weight="700" fill="#9d7fd0">L3 资源</text>
+  <text x="578" y="334" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#9d7fd0">用到才载</text>
+  <text x="578" y="346" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="9.5" fill="#9d7fd0">按需中的按需</text>
 
   <!-- 右栏目录树（图标 + 文本） -->
-  <g transform="translate(648,193)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#fbbf24"/></g>
-  <text x="672" y="206" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#e0f2e0">jiancha-review/</text>
+  <g transform="translate(648,193)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#f9e2af"/></g>
+  <text x="672" y="206" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#f5e0dc">jiancha-review/</text>
 
-  <g transform="translate(664,223)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#0e130e" stroke="#6a8a6a"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#6a8a6a"/></g>
-  <text x="688" y="236" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#e0f2e0">SKILL.md</text>
+  <g transform="translate(664,223)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#181825" stroke="#9399b2"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#9399b2"/></g>
+  <text x="688" y="236" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#f5e0dc">SKILL.md</text>
 
-  <g transform="translate(680,253)"><line x1="3" y1="4" x2="13" y2="4" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#6a8a6a" stroke-width="1.5"/></g>
-  <text x="704" y="266" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#b8d4b8">frontmatter（YAML）</text>
+  <g transform="translate(680,253)"><line x1="3" y1="4" x2="13" y2="4" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#9399b2" stroke-width="1.5"/></g>
+  <text x="704" y="266" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#cdd6f4">frontmatter（YAML）</text>
 
-  <g transform="translate(680,283)"><line x1="3" y1="4" x2="13" y2="4" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#6a8a6a" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#6a8a6a" stroke-width="1.5"/></g>
-  <text x="704" y="296" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#b8d4b8">Markdown 正文</text>
+  <g transform="translate(680,283)"><line x1="3" y1="4" x2="13" y2="4" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="8" x2="13" y2="8" stroke="#9399b2" stroke-width="1.5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#9399b2" stroke-width="1.5"/></g>
+  <text x="704" y="296" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#cdd6f4">Markdown 正文</text>
 
-  <g transform="translate(664,313)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#fbbf24"/></g>
-  <text x="688" y="326" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#e0f2e0">references/</text>
+  <g transform="translate(664,313)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#f9e2af"/></g>
+  <text x="688" y="326" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#f5e0dc">references/</text>
 
-  <g transform="translate(680,343)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#0e130e" stroke="#6a8a6a"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#6a8a6a"/></g>
-  <text x="704" y="356" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#b8d4b8">建工解释二要点.md</text>
+  <g transform="translate(680,343)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#181825" stroke="#9399b2"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#9399b2"/></g>
+  <text x="704" y="356" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#cdd6f4">建工解释二要点.md</text>
 
-  <g transform="translate(664,373)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#fbbf24"/></g>
-  <text x="688" y="386" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#e0f2e0">scripts/</text>
+  <g transform="translate(664,373)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#f9e2af"/></g>
+  <text x="688" y="386" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#f5e0dc">scripts/</text>
 
-  <g transform="translate(680,403)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#0e130e" stroke="#60a5fa"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#60a5fa"/></g>
-  <text x="704" y="416" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#b8d4b8">工期计算.py</text>
+  <g transform="translate(680,403)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#181825" stroke="#89b4fa"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#89b4fa"/></g>
+  <text x="704" y="416" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#cdd6f4">工期计算.py</text>
 
-  <g transform="translate(664,433)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#fbbf24"/></g>
-  <text x="688" y="446" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#e0f2e0">assets/</text>
+  <g transform="translate(664,433)"><path d="M1,3 L6,3 L8,5 L16,5 L16,14 L1,14 Z" fill="#f9e2af"/></g>
+  <text x="688" y="446" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="13" font-weight="700" fill="#f5e0dc">assets/</text>
 
-  <g transform="translate(680,463)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#0e130e" stroke="#22c55e"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#22c55e"/></g>
-  <text x="704" y="476" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#b8d4b8">审查意见书模板.docx</text>
+  <g transform="translate(680,463)"><path d="M3,1 L11,1 L14,4 L14,15 L3,15 Z" fill="#181825" stroke="#9d7fd0"/><path d="M11,1 L11,4 L14,4" fill="none" stroke="#9d7fd0"/></g>
+  <text x="704" y="476" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" fill="#cdd6f4">审查意见书模板.docx</text>
 
   <!-- 右栏注解列 -->
-  <g font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#b8d4b8">
+  <g font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#cdd6f4">
     <text x="915" y="206">目录名 = name 字段（kebab-case）</text>
     <text x="915" y="236">唯一必需｜全大写、大小写敏感</text>
     <text x="915" y="266">name + description（路由）</text>
@@ -126,30 +126,30 @@
     <text x="915" y="476">审查意见书 / 起诉状 docx</text>
   </g>
 
-  <text x="585" y="512" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" font-weight="700" fill="#fbbf24">四件套不是起点，是终点——先让 SKILL.md 跑起来，缺什么补什么</text>
+  <text x="585" y="512" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12.5" font-weight="700" fill="#f9e2af">四件套不是起点，是终点——先让 SKILL.md 跑起来，缺什么补什么</text>
 
   <!-- ============ 底部：八条纪律（含来源分级） ============ -->
-  <text x="90" y="572" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14" font-weight="700" fill="#fbbf24">八条纪律</text>
-  <circle cx="186" cy="568" r="4" fill="#fbbf24"/>
-  <text x="196" y="572" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#b8d4b8">官方明文</text>
-  <circle cx="266" cy="568" r="4" fill="#60a5fa"/>
-  <text x="276" y="572" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#b8d4b8">官方建议</text>
-  <circle cx="346" cy="568" r="4" fill="#6a8a6a"/>
-  <text x="356" y="572" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#b8d4b8">本站整理</text>
+  <text x="90" y="572" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="14" font-weight="700" fill="#f9e2af">八条纪律</text>
+  <circle cx="186" cy="568" r="4" fill="#f9e2af"/>
+  <text x="196" y="572" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#cdd6f4">官方明文</text>
+  <circle cx="266" cy="568" r="4" fill="#89b4fa"/>
+  <text x="276" y="572" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#cdd6f4">官方建议</text>
+  <circle cx="346" cy="568" r="4" fill="#9399b2"/>
+  <text x="356" y="572" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11" fill="#cdd6f4">本站整理</text>
 
-  <g font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#b8d4b8">
-    <text x="90" y="600"><tspan fill="#fbbf24" font-weight="700">1</tspan> 目录名 = name 字段（kebab-case）</text>
-    <text x="370" y="600"><tspan fill="#fbbf24" font-weight="700">2</tspan> SKILL.md 全大写、大小写敏感</text>
-    <text x="650" y="600"><tspan fill="#fbbf24" font-weight="700">3</tspan> description 三段式：做什么＋何时用＋何时不用</text>
-    <text x="990" y="600"><tspan fill="#60a5fa" font-weight="700">4</tspan> 正文 ≤500 行，超出拆 references/</text>
-    <text x="90" y="628"><tspan fill="#fbbf24" font-weight="700">5</tspan> 引用只下探一层，禁链式</text>
-    <text x="370" y="628"><tspan fill="#fbbf24" font-weight="700">6</tspan> 禁放 README.md</text>
-    <text x="650" y="628"><tspan fill="#6a8a6a" font-weight="700">7</tspan> 密钥用占位符，绝不硬编码</text>
-    <text x="990" y="628"><tspan fill="#fbbf24" font-weight="700">8</tspan> scripts 写清调用方式，否则被迫读码</text>
+  <g font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="11.5" fill="#cdd6f4">
+    <text x="90" y="600"><tspan fill="#f9e2af" font-weight="700">1</tspan> 目录名 = name 字段（kebab-case）</text>
+    <text x="370" y="600"><tspan fill="#f9e2af" font-weight="700">2</tspan> SKILL.md 全大写、大小写敏感</text>
+    <text x="650" y="600"><tspan fill="#f9e2af" font-weight="700">3</tspan> description 三段式：做什么＋何时用＋何时不用</text>
+    <text x="990" y="600"><tspan fill="#89b4fa" font-weight="700">4</tspan> 正文 ≤500 行，超出拆 references/</text>
+    <text x="90" y="628"><tspan fill="#f9e2af" font-weight="700">5</tspan> 引用只下探一层，禁链式</text>
+    <text x="370" y="628"><tspan fill="#f9e2af" font-weight="700">6</tspan> 禁放 README.md</text>
+    <text x="650" y="628"><tspan fill="#9399b2" font-weight="700">7</tspan> 密钥用占位符，绝不硬编码</text>
+    <text x="990" y="628"><tspan fill="#f9e2af" font-weight="700">8</tspan> scripts 写清调用方式，否则被迫读码</text>
   </g>
 
   <!-- 底部来源标签 -->
-  <line x1="90" y1="652" x2="1190" y2="652" stroke="#1a3a1a"/>
-  <text x="90" y="674" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" fill="#6a8a6a">来源：纪律 1/2/3/5/6/8＝开放规范/官方文档 ｜ 4＝官方建议值 ｜ 7＝本站整理（安全通用实践）｜ tokens 为建议量级</text>
-  <text x="1080" y="674" font-family="ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#6a8a6a">legal_skillhub</text>
+  <line x1="90" y1="652" x2="1190" y2="652" stroke="#313244"/>
+  <text x="90" y="674" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="10.5" fill="#9399b2">来源：纪律 1/2/3/5/6/8＝开放规范/官方文档 ｜ 4＝官方建议值 ｜ 7＝本站整理（安全通用实践）｜ tokens 为建议量级</text>
+  <text x="1080" y="674" font-family="&quot;JetBrains Mono&quot;,ui-monospace,&quot;SF Mono&quot;,Menlo,Consolas,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;Noto Sans CJK SC&quot;,monospace" font-size="12" fill="#9399b2">legal_skillhub</text>
 </svg>

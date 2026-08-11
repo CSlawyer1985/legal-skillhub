@@ -1,8 +1,7 @@
 /* Legal SkillHub 详情页：10 段信息架构 + 文件树浏览器 + 安装命令 */
 (function () {
   const $ = s => document.querySelector(s);
-  document.getElementById("header").innerHTML = renderHeader("home");
-  document.getElementById("footer").innerHTML = renderFooter();
+  /* 页头页脚由 common.js 按 data-active/data-prefix 统一注入，此处不重复 */
 
   const params = new URLSearchParams(location.search);
   const id = params.get("f");
@@ -97,7 +96,7 @@
 
       <section class="section" id="sec-how">
         <h2>它如何工作</h2>
-        ${d.logic ? `<p style="font-size:.9rem;line-height:1.8">${escHtml(d.logic)}</p>` : `<p style="color:var(--text-dim)">工作逻辑整理中。可直接查看下方 SKILL.md 原文了解完整工作流程。</p>`}
+        ${d.logic ? `<p style="font-size:.9rem;line-height:1.8">${escHtml(d.logic)}</p>` : `<p style="color:var(--muted)">工作逻辑整理中。可直接查看下方 SKILL.md 原文了解完整工作流程。</p>`}
         <dl class="kv-grid" style="margin-top:12px">
           <dt>技能类型</dt><dd>${lbl("type", d.type)}</dd>
           <dt>自动化等级</dt><dd>${d.auto ? lbl("auto", d.auto) : "—"}</dd>
@@ -111,7 +110,7 @@
           <dt>适用法域</dt><dd>${(d.jur || []).map(x => lbl("jur", x)).join("、")}</dd>
           <dt>法律领域</dt><dd>${(d.dom || []).map(x => lbl("dom", x)).join("、")}</dd>
         </dl>
-        <p style="color:var(--text-dim);font-size:.8rem;margin-top:10px">// 法域标签由内容信号自动判定，使用前请核实与你的案件/业务所在法域是否匹配。</p>
+        <p style="color:var(--muted);font-size:.8rem;margin-top:10px">// 法域标签由内容信号自动判定，使用前请核实与你的案件/业务所在法域是否匹配。</p>
       </section>
 
       <section class="section" id="sec-files">
@@ -142,7 +141,7 @@
           <dt>授权</dt><dd>${riskLbl}（${lbl("lic", d.lic)}）</dd>
         </dl>
         ${d.lrisk === "undeclared" ? `<p style="color:var(--red);font-size:.82rem;margin-top:10px">⚠ 该 Skill 原作者未声明授权条款。商业使用前请自行评估或联系原作者。权利相关事宜见<a href="./about.html">授权与免责</a>。</p>` : ""}
-        ${d.lrisk === "restrictive-nc" ? `<p style="color:var(--orange);font-size:.82rem;margin-top:10px">⚠ 该 Skill 采用非商业限制许可（${lbl("lic", d.lic)}），禁止商业用途。</p>` : ""}
+        ${d.lrisk === "restrictive-nc" ? `<p style="color:var(--peach);font-size:.82rem;margin-top:10px">⚠ 该 Skill 采用非商业限制许可（${lbl("lic", d.lic)}），禁止商业用途。</p>` : ""}
       </section>
 
       <section class="section" id="sec-src">
@@ -160,7 +159,7 @@
         <dl class="kv-grid" style="margin-top:12px">
           <dt>验证状态</dt><dd>${lbl("verif", d.verif)}</dd>
         </dl>
-        <p style="color:var(--text-dim);font-size:.78rem;margin-top:10px">// 结构完整度仅反映包结构（是否含参考库/脚本/授权/描述/文件数量），不代表任务质量或法律准确性；法律准确性、任务成功率等维度待逐项评测后独立上线。</p>
+        <p style="color:var(--muted);font-size:.78rem;margin-top:10px">// 结构完整度仅反映包结构（是否含参考库/脚本/授权/描述/文件数量），不代表任务质量或法律准确性；法律准确性、任务成功率等维度待逐项评测后独立上线。</p>
       </section>
 
       <section class="section" id="sec-rel" style="border-bottom:none">
@@ -300,7 +299,7 @@
         <div class="rel-title">${escHtml(d.name)}</div>
         <div class="rel-desc">${escHtml(d.summary || "")}</div>
         <div style="margin-top:6px">${(d.jur || []).slice(0, 2).map(j => `<span class="tag jur">${lbl("jur", j)}</span>`).join("")}</div>
-      </a>`).join("") || `<span style="color:var(--text-dim)">暂无相关推荐</span>`;
+      </a>`).join("") || `<span style="color:var(--muted)">暂无相关推荐</span>`;
   }
 
   load().catch(e => { $("#detail").innerHTML = `<p>加载失败：${escHtml(e.message)}</p>`; });
