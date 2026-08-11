@@ -79,7 +79,7 @@
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "PingFang SC", "Microsoft YaHei", monospace;
   --radius: 4px;
   --radius-sm: 2px;
-  --max: 1100px;
+  --max: 1440px;
 }
 
 /* ── 基础 ── */
@@ -391,7 +391,7 @@ button { font-family: inherit; }
 .filter-opt .cnt { color: var(--muted-2); font-size: .75rem; margin-left: auto; font-family: var(--mono); }
 
 /* ── 详情页 ── */
-.detail { max-width: 1200px; margin: 0 auto; padding: 20px 24px 60px; }
+.detail { max-width: var(--max); margin: 0 auto; padding: 20px 24px 60px; }
 .detail-loading { color: var(--muted); padding: 40px 0; }
 .back-link { color: var(--muted); font-size: .85rem; font-family: var(--mono); }
 .back-link:hover { color: var(--accent-2); }
@@ -536,7 +536,7 @@ button { font-family: inherit; }
 .metric-item.no { color: var(--muted); border-color: var(--line); }
 
 /* ── 学习中心 ── */
-.learn-toc { display: grid; gap: 12px; padding: 20px 0; max-width: 860px; margin: 0 auto; }
+.learn-toc { display: grid; gap: 12px; padding: 20px 0; }
 .learn-item {
   border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px;
   display: flex; gap: 18px; align-items: baseline;
@@ -552,7 +552,8 @@ button { font-family: inherit; }
 .learn-item .ld { color: var(--muted); font-size: .85rem; margin-top: 5px; line-height: 1.6; }
 
 /* 文章页（课程/案例/关于） */
-.article { max-width: 780px; margin: 0 auto; padding: 32px 24px 80px; }
+/* 文章页（课程/案例/关于）：上限 960px，再宽会伤中文长文可读性 */
+.article { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
 .article h1 {
   color: var(--ink); font-family: var(--disp); font-weight: 800;
   font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -.02em;
