@@ -136,30 +136,30 @@ button { font-family: inherit; }
 [data-mode="paper"] .mode-toggle button[data-ground="paper"]:hover { color: var(--on-accent); }
 
 /* ── Hero（首页）── */
-.hero { border-bottom: 1px solid var(--line); padding: 72px 24px 0; }
+.hero { border-bottom: 1px solid var(--line); padding: 72px 24px 0; text-align: center; }
 .hero-in { max-width: var(--max); margin: 0 auto; }
 .hero-eyebrow {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
   font-family: var(--mono); font-size: .72rem; letter-spacing: .28em;
   color: var(--accent); text-transform: uppercase;
 }
-.hero-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--accent); flex-shrink: 0; }
 .hero-h {
   font-family: var(--disp); font-weight: 800;
   font-size: clamp(2.2rem, 5.6vw, 4rem);
   letter-spacing: -.02em; line-height: 1.12;
-  color: var(--ink); margin: 22px 0 0; max-width: 20ch;
+  color: var(--ink); margin: 22px auto 0; max-width: 20ch;
   text-wrap: balance;
 }
 .hero-h em { font-style: normal; color: var(--accent); }
 .hero-lede {
   color: var(--muted); font-size: 1rem; line-height: 1.75;
-  max-width: 52ch; margin: 24px 0 0;
+  max-width: 52ch; margin: 24px auto 0;
 }
 .hero-lede b { color: var(--ink-soft); font-weight: 600; }
 /* 终端窗口卡片 */
 .hero-term {
-  margin: 36px 0 0; max-width: 760px;
+  margin: 36px auto 0; max-width: 760px; text-align: left;
   background: var(--term-bg); border: 1px solid var(--term-line);
   border-radius: var(--radius); overflow: hidden;
 }
