@@ -36,6 +36,7 @@
     "legal-research", "construction-contract-review", "fadawang-qa-plus",
     "patent-invalidation", "litigation-hub", "civil-litigation-thinking",
     "30b6-deposition", "analyse-dpa-fournisseur-hugo-salard",
+    "litigation-deadline-calendar", "customs-trade-law-onur-kafkas",
   ];
   const state = {
     q: "", dim: "jur", pills: new Set(), adv: {}, sort: "q", page: 1, perPage: 24,

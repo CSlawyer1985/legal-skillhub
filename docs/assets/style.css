@@ -552,8 +552,8 @@ button { font-family: inherit; }
 .learn-item .ld { color: var(--muted); font-size: .85rem; margin-top: 5px; line-height: 1.6; }
 
 /* 文章页（课程/案例/关于） */
-/* 文章页（课程/案例/关于）：上限 960px，再宽会伤中文长文可读性 */
-.article { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+/* 文章页（课程/案例/关于）：与全站容器对齐 */
+.article { max-width: var(--max); margin: 0 auto; padding: 32px 24px 80px; }
 .article h1 {
   color: var(--ink); font-family: var(--disp); font-weight: 800;
   font-size: clamp(1.6rem, 3.4vw, 2.2rem); letter-spacing: -.02em;
