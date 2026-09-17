@@ -1,0 +1,7 @@
+interface:
+  display_name: "政府采购合规检查"
+  short_description: "形成证据化检查底稿、问题清单与整改方案"
+  brand_color: "#1F4E79"
+  default_prompt: "使用 $gp-procurement-inspection 从指定主体视角检查这个采购项目，并形成可追溯工作底稿。"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,23 @@
+entries:
+- id: ftc-overseas-loss-per-country
+  scenario_key: overseas-loss-carryforward
+  status: provisional
+  confidence: high
+  conclusion: 境外亏损分国弥补(同国多项目可互抵),不得抵减境内或他国盈利;未弥补部分无限期结转(限该国未来盈利)
+  detail: '计算步骤(用 scripts/tax_calc.py ftc.calc --type overseas-loss):
+
+    - 同国多项目先合并(如乙国:亏损300+利息60=净亏240)
+
+    - 净盈利计入境内应税;净亏损不得抵境内/他国,无限期结转
+
+    反避税重点:企业常误将境外亏损抵减境内盈利。
+
+    '
+  sources:
+  - 企业所得税法第17条(境外亏损不得抵减境内盈利)
+  - 财税〔2009〕125号(分国弥补)
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 境外亏损 分国弥补 结转
+  - 境外亏损 不得抵减 境内盈利

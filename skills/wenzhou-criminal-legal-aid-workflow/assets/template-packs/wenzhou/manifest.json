@@ -1,0 +1,38 @@
+{
+  "id": "wenzhou",
+  "display_name": "温州地区刑事法律援助模板包",
+  "jurisdiction": "浙江省温州市",
+  "version": "2026.09.02.1",
+  "typography": {
+    "body_font": "仿宋_GB2312",
+    "body_size_pt": 14,
+    "title_font": "黑体",
+    "title_size_pt": 16,
+    "line_spacing_pt": 28.5
+  },
+  "assigning_institutions": [
+    "鹿城区法律援助中心",
+    "温州市法律援助中心"
+  ],
+  "source_notice": "会见笔录、阅卷笔录、庭审笔录等格式依据温州地区法律援助中心提供或要求的模板整理。其他地区使用前必须替换为当地模板并完成隐私审计。",
+  "templates": {
+    "authorization_investigation": "authorization_investigation.docx",
+    "authorization_prosecution": "authorization_prosecution.docx",
+    "authorization_trial": "authorization_trial.docx",
+    "meeting_investigation": "meeting_investigation.docx",
+    "meeting_prosecution": "meeting_prosecution.docx",
+    "meeting_trial": "meeting_trial.docx",
+    "plea_meeting": "plea_meeting.docx",
+    "reading_note": "reading_note.docx",
+    "trial_outline": "trial_outline.docx",
+    "trial_record": "trial_record.docx",
+    "evidence_statement": "evidence_statement.docx",
+    "post_judgment_visit": "post_judgment_visit.docx",
+    "case_progress_report": "case_progress_report.docx",
+    "closing_report": "closing_report.docx",
+    "investigation_statement": "investigation_statement.docx",
+    "prosecution_statement": "prosecution_statement.docx",
+    "pretrial_meeting_statement": "pretrial_meeting_statement.docx",
+    "archive_directory": "archive_directory.xlsx"
+  }
+}

@@ -1,0 +1,35 @@
+entries:
+- id: ftc-indirect-impute-and-carryforward
+  scenario_key: foreign-tax-credit-indirect
+  status: provisional
+  confidence: high
+  conclusion: 间接抵免须还原下层归属税(毛股息÷(1-境外企税率)×境外企税率),境外税合计(归属税+预提)超过限额的部分结转,非"不需补税"即结束
+  detail: '计算步骤(用 scripts/tax_calc.py ftc.calc --type indirect):
+
+    1. 还原税前利润 = 毛股息 ÷ (1 - 境外企税率)
+
+    2. 归属税 = 还原利润 × 境外企税率
+
+    3. 境外税合计 = 归属税 + 预提税
+
+    4. 境内应税 = 毛股息 + 归属税
+
+    5. 限额 = 境内应税 × 25%
+
+    6. 抵免 = min(境外税合计, 限额);超额部分结转(常见漏点)
+
+    持股门槛:各层持股≥20%(财税〔2009〕125号;〔2017〕84号由三层扩展为五层)。
+
+    ⚠️ 政策口径(84号"5年不变"、条款分工)部分待人工核实,见验收报告 V12 TODO。
+
+    '
+  sources:
+  - 企业所得税法第24条(间接抵免)
+  - 企业所得税法实施条例第80-81条(持股门槛20%)
+  - 财税〔2009〕125号
+  - 财税〔2017〕84号(三层→五层,综合抵免选择权)
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 间接抵免 还原 归属税 股息
+  - 超限结转 境外税收抵免

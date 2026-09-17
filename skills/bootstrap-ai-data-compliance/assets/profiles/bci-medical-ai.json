@@ -1,0 +1,185 @@
+{
+  "config_version": "1.1",
+  "id": "bci-medical-ai",
+  "display_name": "脑机接口医疗AI",
+  "jurisdiction": "中国大陆",
+  "scope": "适用于脑机接口医疗AI项目的内部研发、机构科研与消费者服务路径的数据处理合规冷启动、证据组织与候选评估。",
+  "negative_boundary": [
+    "不适用于非脑机接口的通用AI数据处理场景",
+    "不自动出具正式法律意见",
+    "不进行未经授权的外部法律检索",
+    "不将论文或公众号资料单独证明强制性法律义务"
+  ],
+  "roles": [
+    "管理层",
+    "研发",
+    "数据安全",
+    "医疗机构",
+    "Agent技术方"
+  ],
+  "interview_targets": [
+    "管理层",
+    "研发",
+    "数据安全",
+    "医疗机构",
+    "Agent技术方"
+  ],
+  "data_types": [
+    "神经数据",
+    "医疗研究数据",
+    "训练数据血缘",
+    "匿名化数据",
+    "认知画像数据"
+  ],
+  "p0_items": [
+    "用例和产品边界",
+    "数据来源及授权链",
+    "伦理材料",
+    "系统和模型架构",
+    "供应商及外部模型",
+    "训练和反馈机制"
+  ],
+  "risk_themes": [
+    "神经数据",
+    "医疗研究",
+    "训练血缘",
+    "匿名化",
+    "认知画像",
+    "撤回删除",
+    "医疗AI公平性"
+  ],
+  "banned_terms": [],
+  "fact_gate_fields": {
+    "p0_registered": "P0资料已登记",
+    "interviews_confirmed": "访谈已完成并确认",
+    "data_map_complete": "数据地图已完整",
+    "system_map_complete": "系统地图已完整",
+    "role_matrix_complete": "角色矩阵已完整",
+    "authorization_and_suppliers_verified": "授权与供应商已核验",
+    "unconfirmed_facts_listed": "未确认事实已列明",
+    "scope_changes_recorded": "范围变化已记录",
+    "lawyer_review_fields_defined": "律师复核字段已定义"
+  },
+  "word_docs": {
+    "startup": [
+      {
+        "doc_no": "00",
+        "title": "使用说明及文件索引",
+        "short_title": "使用说明",
+        "purpose": "说明发送顺序、填写边界、证据编号和阶段门禁。"
+      },
+      {
+        "doc_no": "01",
+        "title": "项目启动说明及P0资料清单",
+        "short_title": "P0资料清单",
+        "purpose": "收集确认项目边界所需的第一批最低资料。"
+      },
+      {
+        "doc_no": "02",
+        "title": "管理层及跨部门访谈提纲",
+        "short_title": "访谈提纲",
+        "purpose": "按角色核验用例、数据、系统、供应商和责任。"
+      },
+      {
+        "doc_no": "03",
+        "title": "数据资产、处理活动及授权链调研表",
+        "short_title": "数据与授权链",
+        "purpose": "记录数据来源、用途、处理活动、授权和共享。"
+      },
+      {
+        "doc_no": "04",
+        "title": "系统、供应商及外部模型调研表",
+        "short_title": "系统与供应商",
+        "purpose": "核验系统边界、接口、外部模型、日志和退出安排。"
+      },
+      {
+        "doc_no": "05",
+        "title": "数据安全风险评估及整改复验表",
+        "short_title": "评估与复验",
+        "purpose": "在事实核验后记录适用指标、问题、整改和复验。"
+      },
+      {
+        "doc_no": "06",
+        "title": "最小试点准入核验表",
+        "short_title": "试点准入",
+        "purpose": "事实和前置控制未满足时不得启动真实试点。"
+      }
+    ],
+    "candidate": [
+      {
+        "doc_no": "00",
+        "title": "候选交付包使用说明及成果索引",
+        "short_title": "成果索引"
+      },
+      {
+        "doc_no": "01",
+        "title": "管理层摘要",
+        "short_title": "管理层摘要"
+      },
+      {
+        "doc_no": "02",
+        "title": "项目范围及事实确认稿",
+        "short_title": "事实确认稿"
+      },
+      {
+        "doc_no": "03",
+        "title": "数据、系统、角色与授权链说明",
+        "short_title": "数据系统说明"
+      },
+      {
+        "doc_no": "04",
+        "title": "法律适用性及证据矩阵",
+        "short_title": "适用性矩阵"
+      },
+      {
+        "doc_no": "05",
+        "title": "AI数据安全风险评估候选报告",
+        "short_title": "风险评估"
+      },
+      {
+        "doc_no": "06",
+        "title": "问题、整改及复验清单",
+        "short_title": "整改复验"
+      },
+      {
+        "doc_no": "07",
+        "title": "未决事项、律师确认及证据索引",
+        "short_title": "未决与证据"
+      }
+    ]
+  },
+  "adopt": {
+    "mapping_version": "1.1",
+    "records": {
+      "source_records": {
+        "path": "ai/work/knowledge_hub/01_indexes/source_records.csv"
+      },
+      "claim_records": {
+        "path": "ai/work/knowledge_hub/01_indexes/claim_records.csv"
+      },
+      "assessment_records": {
+        "path": "ai/work/knowledge_hub/01_indexes/assessment_records.csv"
+      }
+    },
+    "baseline": [
+      {
+        "path": "ai/outputs/脑机接口医疗AI法律合规全景图（交互版）.html",
+        "role": "formal"
+      },
+      {
+        "path": "ai/work/knowledge_hub/04_v4.4_candidate/脑机接口医疗AI法律合规全景图（V4.4综合增强候选版）.html",
+        "role": "optional"
+      }
+    ],
+    "scope": [
+      "ai/work/knowledge_hub",
+      "ai/outputs"
+    ],
+    "ignore": [
+      ".git",
+      "ai_compliance",
+      "__pycache__",
+      ".DS_Store"
+    ]
+  }
+}

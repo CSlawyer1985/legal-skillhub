@@ -1,0 +1,7 @@
+interface:
+  display_name: "政采投标模拟评审"
+  short_description: "按评委视角预评标书并定位可挽回失分"
+  brand_color: "#1F4E79"
+  default_prompt: "使用 $gp-mock-evaluation 独立模拟评审这份标书，每项得分必须标明证据页码。"
+policy:
+  allow_implicit_invocation: true

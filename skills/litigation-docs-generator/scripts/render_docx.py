@@ -1,3 +1,4 @@
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 #!/usr/bin/env python3
 """
 诉讼文书模板渲染引擎 v2
@@ -18,15 +19,21 @@ from docx.oxml.ns import qn
 def parse_template(md_path):
     with open(md_path, "r", encoding="utf-8") as f:
         content = f.read()
-    
+
+    # 跳过开头的 HTML 注释（如 <!-- Maintained by ... -->），避免其位于文件最前时
+    # 导致 YAML frontmatter 的 `---` 不在行首而无法解析
+    m_pre = re.match(r'^\s*<!--.*?-->\s*', content, re.DOTALL)
+    if m_pre:
+        content = content[m_pre.end():]
+
     # 分离 frontmatter 和 body
     m = re.match(r'^---\s*\n(.*?)\n---\s*\n(.*)', content, re.DOTALL)
     if not m:
         raise ValueError(f"模板缺少 YAML frontmatter: {md_path}")
-    
+
     config = yaml.safe_load(m.group(1))
     body = m.group(2)
-    
+
     return config, body
 
 
@@ -81,6 +88,7 @@ def render_docx(config, body, variables, output_path):
         "date": "date",
         "note": "note",
         "court": "court",
+        "center": "center",
     }
     
     lines = body.strip().split("\n")
@@ -122,6 +130,11 @@ def render_docx(config, body, variables, output_path):
             _add_para(doc, text, style_note)
         elif inline_style == "court":
             _add_para(doc, text, styles.get("court", style_body), indent=False)
+        elif inline_style == "center":
+            _add_para(doc, text,
+                      styles.get("center", {"font": "宋体", "size": Pt(14),
+                                            "align": "center", "indent": False}),
+                      indent=False)
         # 标题 #
         elif stripped.startswith("# ") and not stripped.startswith("## "):
             _add_para(doc, text[2:], style_h1)

@@ -1,0 +1,21 @@
+entries:
+- id: non-exclusive-distribution-not-royalty
+  scenario_key: non-exclusive-distribution-vs-royalty
+  status: provisional
+  confidence: medium
+  conclusion: 非独家授权分销,分销商未取得版权使用权的,分销收入不构成特许权使用费,按营业利润处理(无PE不在来源国征税)
+  detail: '定性关键:分销商是否取得版权使用权。非独家分销(仅转售广告位/商品)≠ 特许权使用费。
+
+    数字化服务的定性是新兴争议点。本案(CC20谷歌印度卡纳塔克邦高等法院)经国税总局海外案例库收录,代表中国税务机关参考口径。
+
+    '
+  sources:
+  - 印度版权法第14条
+  - 印度-爱尔兰税收协定第7、12条
+  - 卡纳塔克邦高等法院判决(谷歌印度案)
+  - 国家税务总局海外税收案例库
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 非独家分销 特许权使用费
+  - 数字化服务 收入定性 广告位

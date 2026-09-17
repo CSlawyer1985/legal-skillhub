@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 """创建失信被执行人名单申请书 + 限制消费申请书 + 授权委托书模板 .docx"""
 from docx import Document
 from docx.shared import Pt, Cm

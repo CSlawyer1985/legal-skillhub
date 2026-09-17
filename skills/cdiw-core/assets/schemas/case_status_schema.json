@@ -1,0 +1,129 @@
+{
+  "_version": "1.1.0",
+  "_updated_at": "2026-09-02",
+  "_说明": "案件状态文件（case_status.md）结构化字段 Schema。读写仅经 scripts/case_state_manager.py，写入前按本 Schema 校验，违规拒绝写入并报 INVALID＋字段清单。Schema 变更属主包结构性变更，升次版本号。对应大纲 8.4.1 七块字段、8.3.1 状态机、规格书 C-1。",
+  "_single_source": "case_status.md 为案件唯一权威数据源；进程表为对委托人呈现的视图，两者经 case_state_manager.py 保持同源一致（附录 F3）。",
+  "field_groups": {
+    "案件标识": {
+      "fields": {
+        "案件代称": {"type": "string", "required": true, "desc": "虚构代称，禁止真实姓名"},
+        "案号": {"type": "string", "required": false, "desc": "无案号时留空，禁止占位符"},
+        "承办律师": {"type": "string", "required": false},
+        "协办律师": {"type": "array", "items": "string", "required": false}
+      }
+    },
+    "程序状态": {
+      "fields": {
+        "当前阶段": {"type": "string", "required": true,
+          "enum": ["咨询（pending）", "咨询（已确认）", "已立案", "侦查阶段·在办",
+                   "移送审查起诉", "审查起诉", "一审", "二审", "结案"]},
+        "当前子阶段": {"type": "string", "required": false,
+          "enum": ["批捕前", "批捕后", "侦查终结前", "阅卷期", "正常审查期间",
+                   "退查期间", "审查起诉到期前", "庭前", "庭审期间", "一审补侦期间", "庭后判决前"],
+          "desc": "两级子阶段建模取值，与当前阶段匹配；二审单独列示不设子阶段"},
+        "阶段进入时间": {"type": "date", "required": false,
+          "desc": "进入当前子阶段的时点，由线 3 期限引擎预警联动回写；阶段变更仍由承办律师确认触发"},
+        "强制措施": {"type": "string", "required": true,
+          "enum": ["刑事拘留", "逮捕", "取保候审", "监视居住", "无"]},
+        "羁押地点": {"type": "string", "required": false},
+        "办案机关及承办人": {"type": "array", "items": "string", "required": false},
+        "各机关文书时间": {"type": "array", "items": {"type": "object"}, "required": false}
+      }
+    },
+    "期限节点": {
+      "fields": {
+        "刑拘起算": {"type": "date", "required": false},
+        "报捕期限": {"type": "date", "required": false},
+        "审查批捕期限": {"type": "date", "required": false},
+        "侦查羁押期限及延长": {"type": "array", "items": {"type": "object"}, "required": false},
+        "全部预警日期": {"type": "array", "items": "date", "required": false},
+        "三类日期": {"type": "object", "required": false,
+          "desc": "每期限节点按双轨口径标注三类日期",
+          "fields": {"法定届满日": "date", "机关实际动作日": "date", "律师预警日": "date"}},
+        "前移顺延提示": {"type": "array", "required": false,
+          "items": {"type": "object",
+            "fields": {"kind": {"enum": ["前移", "顺延"]}, "original_day": "date",
+                      "adjusted_day": "date", "reason": "string"}},
+          "desc": "发生节假日顺延或前移时必填：原日、调整后日、原因（⚠ 前移提示／⚠ 顺延提示）"}
+      },
+      "_note": "期限计算一律经 scripts/limit_calculator.py，禁止凭记忆计算；节假日未覆盖区间须标注『待核实』。期限按第 105 条双轨口径——在押期限自然日连续不顺延、一般期间最后一日逢节假日顺延、机关实际动作日按节前最后工作日、律师预警日再前推；顺延/前移须向使用者重点提示。"
+    },
+    "服务进程": {
+      "fields": {
+        "标准服务清单销项状态": {"type": "array", "items": {"type": "object"}, "required": false},
+        "各线完成度": {"type": "object", "required": false},
+        "工作清单": {"type": "array", "required": false,
+          "items": {"type": "object",
+            "fields": {"时间": "date", "承办律师": "string", "事项": "string", "工作用时": "string"}},
+          "_note": "可视化五化之『工作清单依时制作』四要素"}
+      }
+    },
+    "复杂度": {
+      "fields": {
+        "罪名数": {"type": "number", "required": false},
+        "事实节数": {"type": "number", "required": false},
+        "同案人数": {"type": "number", "required": false},
+        "紧急度分级": {"type": "string", "required": false, "enum": ["红", "橙", "黄", "蓝"]}
+      },
+      "_note": "罪名数／事实节数／同案人数任一大于 1 即标注复杂案件（4.9 第 2 条）。"
+    },
+    "待办与确认": {
+      "fields": {
+        "待办优先级队列": {"type": "array", "items": {"type": "object"}, "required": false},
+        "当事人确认记录": {"type": "array", "items": {"type": "object"}, "required": false},
+        "选择笔录索引": {"type": "array", "items": "string", "required": false}
+      }
+    },
+    "治理": {
+      "fields": {
+        "引用台账索引": {"type": "string", "required": false, "default": "citation_ledger.jsonl"},
+        "审计日志索引": {"type": "string", "required": false, "default": "logs/audit_log.jsonl"},
+        "版本记录": {"type": "string", "required": false}
+      }
+    }
+  },
+  "pending_min_fields": {
+    "_说明": "『咨询（pending）』态轻量档案的最小字段组——仅服务利益冲突审查与会话绑定，冲突审查通过前不得写入案件实体信息（8.3.1）。冲突审查未通过即删除本轻量档案（5.0.1 第 3 步）。",
+    "fields": {
+      "案件代称": {"type": "string", "required": true},
+      "委托意向人代称": {"type": "string", "required": true},
+      "涉嫌罪名": {"type": "string", "required": true},
+      "采集时点": {"type": "date", "required": true}
+    },
+    "_boundary": "闲聊、越界、跨案请求一律不写入状态文件；已进入利益冲突审查流程的委托意向属真实接案动作，允许写入上述四项最小字段。"
+  },
+  "_readwrite_rules": {
+    "_说明": "自原 references/case_state_schema.md 读写规范六条迁移（该文件中与 working_notes/ 五子目录冲突的八目录结构已废弃）。",
+    "rules": [
+      {"id": 1, "name": "唯一写入通道",
+       "content": "全部修改经 scripts/case_state_manager.py 执行，各工作线不得直接编辑状态文件。"},
+      {"id": 2, "name": "追加不覆盖",
+       "content": "日志型字段只增不改，更正以新记录附 corrected_from 索引实现。"},
+      {"id": 3, "name": "字段校验",
+       "content": "日期一律 YYYY-MM-DD 格式，枚举字段按既定取值，写入前经脱敏规则检查。"},
+      {"id": 4, "name": "冲突处理",
+       "content": "用户口述与文件记录冲突时以文件为准，输出差异提示，律师确认后更新留痕。"},
+      {"id": 5, "name": "断点续接加载顺序",
+       "content": "stage—service_progress—todos—emergency，据此恢复上下文并输出路由建议。"},
+      {"id": 6, "name": "阶段终结",
+       "content": "读取标准服务清单，按 service_progress_confirm 模板生成确认表文本；未完成事项自动转入待办并列入『衔接事项』。"}
+    ]
+  },
+  "workspace_layout": {
+    "_说明": "案件工作区结构由 scripts/init_case_workspace.py 保证（规格书 C-2／C-3）。原八目录结构（meetings/receptions/communications/documents/reports/confirmations/retrieval/evidence/logs）已废弃。",
+    "directories": [
+      "working_notes/阅卷摘录", "working_notes/证据清单", "working_notes/时间轴",
+      "working_notes/矛盾清单", "working_notes/长文草稿",
+      "03_正式文书", "04_正式文书（word版）", "logs", "backups"
+    ],
+    "files": {
+      "case_status.md": "唯一权威数据源",
+      "citation_ledger.jsonl": "引用台账（C-2，一行一事件）",
+      "logs/audit_log.jsonl": "审计日志（C-2）",
+      "logs/feedback.log": "使用观察记录（C-2）",
+      "logs/localization_log.jsonl": "本地化采集记录（I-3）",
+      "case_status.bak": "写入前副本，按日滚动保留近 3 日（--retention-days 可调）"
+    },
+    "naming": "产出文件一律 YYYYMMDD_内容简述_身份后缀.扩展名；身份后缀按生成时点阶段锚定（侦查/审查起诉『辩护人』、二审『上诉人辩护人』、再审『再审申请人辩护人』），阶段切换后不追溯改名历史文件。"
+  }
+}

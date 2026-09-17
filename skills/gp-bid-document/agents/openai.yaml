@@ -1,0 +1,7 @@
+interface:
+  display_name: "政采法律服务写标"
+  short_description: "按采购文件编制标书并检查无效投标风险"
+  brand_color: "#1F4E79"
+  default_prompt: "使用 $gp-bid-document 根据采购文件和真实资料编制响应文件，并列出所有待补材料。"
+policy:
+  allow_implicit_invocation: true

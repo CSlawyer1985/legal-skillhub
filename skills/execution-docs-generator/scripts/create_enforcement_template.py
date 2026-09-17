@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 """创建强制执行申请书模板 .docx — 格式与用户原始 .doc 完全一致"""
 from docx import Document
 from docx.shared import Pt, Cm

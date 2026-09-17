@@ -1,0 +1,280 @@
+{
+  "pack_id": "demo-civil-retainer",
+  "pack_name": "示范·民事委托材料包",
+  "version": "2.1",
+  "description": "全脱敏示范包：展示「变量化母版 + 材料包编排」长什么样。所有当事人一律虚构（律所为'浙江示范律师事务所'，明确表示示范用途）。律所可照此结构替换为自己的模板。",
+  "design_notes": {
+    "why_only_two_docs": "示范包只保留 2 份核心母版：①计件合同（含全部教学难点：双层编号/勾选框/金额/日期）②授权委托书+律所函（含特别授权权限清单）。示范包的目的仅示范「如何变量化」——风险代理版是否单独成文、收费条款在第几条，取决于贵所自己的模板结构，本示范不预设「改一条即可」（风险代理还涉及 8 类禁止案件、分档收费比例上限、不保证胜诉声明等独立合规要素，见 references/compliance/risk-agency-checklist.md）；律所建库时把实际在用的版本直接投进来，按实际结构变量化。风险告知笔录不提供示范——各所告知口径差异极大，按 references/compliance/ 要素审核清单自拟（'教方法不替做'）。",
+    "old_demo_deprecated": "旧版《委托代理合同（示范母版）.docx》（v1）已被《委托代理合同（计件版·示范母版）.docx》（v2）替代，v2 结构来自真实在用模板的脱敏改写。"
+  },
+  "docs": [
+    {
+      "doc_id": "retainer-contract-fixed",
+      "title": "委托代理合同（计件版·示范母版）",
+      "file": "委托代理合同（计件版·示范母版）.docx",
+      "order": 1,
+      "required": true,
+      "note": "34 种变量：双层编号（年份+序号）、勾选框（☑/□ 成对替换）、金额、日期拆分、管辖法院（本地化固定值的变量化示范）",
+      "sibling_variant": {
+        "doc_id": "retainer-contract-risk",
+        "title": "委托代理合同（风险代理版）",
+        "how_to_derive": "风险代理版是否单独成文、收费条款在第几条，取决于贵所自己的模板结构——投喂时把实际在用的版本直接投进来，按实际结构变量化，不做「改一条即可」的预设。合规要素见 references/compliance/risk-agency-checklist.md"
+      }
+    },
+    {
+      "doc_id": "power-of-attorney",
+      "title": "授权委托书+律所函（示范母版）",
+      "file": "授权委托书+律所函（示范母版）.docx",
+      "order": 2,
+      "required": true,
+      "note": "同页双文书（上半律所函致法院、下半授权委托书）。20 种变量：函件编号、致送法院（随案变量）、诉讼地位、特别授权权限清单。权限合规要素见 references/compliance/power-of-attorney-checklist.md"
+    },
+    {
+      "doc_id": "risk-notice",
+      "title": "风险告知笔录",
+      "order": 3,
+      "required": true,
+      "no_master": true,
+      "note": "本示范包不提供笔录母版。各所风险告知口径差异极大，请按 references/compliance/conflict-check-checklist.md 与 risk-agency-checklist.md 的要素清单自拟正文后，走阶段1 流程变量化入库"
+    }
+  ],
+  "variables": {
+    "当事人": [
+      {
+        "name": "{{委托人姓名}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "录音",
+          "对话"
+        ]
+      },
+      {
+        "name": "{{委托人地址}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "对话"
+        ],
+        "note": "签署前核对证件"
+      },
+      {
+        "name": "{{委托人电话}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "对话"
+        ]
+      },
+      {
+        "name": "{{对方当事人}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "录音",
+          "对话"
+        ]
+      },
+      {
+        "name": "{{原告}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "对话"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      },
+      {
+        "name": "{{被告}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "对话"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      },
+      {
+        "name": "{{诉讼地位}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ],
+        "enum": [
+          "原告",
+          "被告",
+          "第三人"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      }
+    ],
+    "案件": [
+      {
+        "name": "{{案由}}",
+        "required": true,
+        "channels": [
+          "笔录",
+          "录音",
+          "对话"
+        ]
+      },
+      {
+        "name": "{{致送法院}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ],
+        "note": "受理法院，随案而变，区别于合同中的管辖法院",
+        "used_by": [
+          "power-of-attorney"
+        ]
+      },
+      {
+        "name": "{{管辖法院}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ],
+        "note": "合同争议管辖，所内通常为固定值，建库时可一次性替换",
+        "used_by": [
+          "retainer-contract-fixed"
+        ]
+      }
+    ],
+    "费用": [
+      {
+        "name": "{{收费方式序号}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ],
+        "note": "第几种收费方式"
+      },
+      {
+        "name": "{{律师费金额}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ],
+        "note": "签署前已定数"
+      },
+      {
+        "name": "{{分期支付安排}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "note": "选择分期时必填"
+      }
+    ],
+    "所内固定值": [
+      {
+        "name": "{{律所地址}}",
+        "required": true,
+        "channels": [
+          "一次性配置"
+        ],
+        "note": "建库时一次性替换，非每案变量"
+      },
+      {
+        "name": "{{律所电话}}",
+        "required": true,
+        "channels": [
+          "一次性配置"
+        ],
+        "note": "同上"
+      }
+    ],
+    "人员与编号": [
+      {
+        "name": "{{承办律师}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ]
+      },
+      {
+        "name": "{{合同编号年份}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "note": "编号可后补，缺失留 ____"
+      },
+      {
+        "name": "{{合同编号序号}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "note": "同上"
+      },
+      {
+        "name": "{{函件编号年份}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      },
+      {
+        "name": "{{函件编号序号}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      }
+    ],
+    "勾选框": [
+      {
+        "name": "{{勾选_*}}",
+        "required": true,
+        "channels": [
+          "对话"
+        ],
+        "note": "勾选框变量族：生成时替换为 ☑ 或 □（成对替换策略，见教学脚本 variable-naming.md）"
+      }
+    ],
+    "日期": [
+      {
+        "name": "{{签订年份/月份/日期}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "note": "落款日期可留空供手写"
+      },
+      {
+        "name": "{{函件年份/月份/日期}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      },
+      {
+        "name": "{{委托年份/月份/日期}}",
+        "required": false,
+        "channels": [
+          "对话"
+        ],
+        "used_by": [
+          "power-of-attorney"
+        ]
+      }
+    ]
+  },
+  "regeneration": "示范母版 .docx 由 scripts/generate_demo_pack.py 一键重建（发布包不含 docx）：python scripts/generate_demo_pack.py"
+}

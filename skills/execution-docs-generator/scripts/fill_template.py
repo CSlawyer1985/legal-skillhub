@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 """
 精确模板复制引擎 — 格式 1:1 保留
 读取 .docx 模板文件 → 逐段逐 run 替换 [变量] 占位符 → 保存新 .docx

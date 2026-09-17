@@ -1,0 +1,9 @@
+{
+  "base_preset": "compact_reference_guide",
+  "named_override": "chinese_official_a4_bw",
+  "page": {"width_mm": 210, "height_mm": 297, "top_mm": 28, "bottom_mm": 26, "left_mm": 28, "right_mm": 26, "header_mm": 12.5, "footer_mm": 12.5},
+  "fonts": {"body": "STFangsong", "title": "Songti SC", "heading": "Heiti SC", "secondary": "Kaiti SC"},
+  "sizes_pt": {"body": 12, "title": 22, "h1": 16, "h2": 14, "h3": 12, "header": 9, "table": 10.5},
+  "colors": {"text": "000000", "table_header": "E7E6E6", "callout": "F2F2F2"},
+  "table": {"indent_dxa": 140, "cell_margins_dxa": {"top": 100, "bottom": 100, "start": 140, "end": 140}}
+}

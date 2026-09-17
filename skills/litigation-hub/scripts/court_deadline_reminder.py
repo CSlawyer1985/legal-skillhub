@@ -1,3 +1,4 @@
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 #!/usr/bin/env python3
 """
 法院期限提醒统一调度脚本
@@ -44,8 +45,55 @@ RULES_FILE = os.path.join(os.path.dirname(SKILL_DIR), 'references', 'deadline-ru
 SMTP_SKILL_DIR = os.path.expanduser("~/.workbuddy/skills/imap-smtp-email")
 SMTP_SCRIPT = os.path.join(SMTP_SKILL_DIR, "scripts", "smtp.js")
 EMAIL_DATA_DIR = os.path.expanduser("~/.court-email")
-NODE_BIN = shutil.which("node") or "/usr/local/bin/node"
-TO_EMAIL = os.environ.get("COURT_SMS_EMAIL", "YOUR_QQ_EMAIL@qq.com")
+def _find_node():
+    """定位 node 可执行文件。launchd 环境 PATH 极简，shutil.which 常返回 None，
+    且 Apple Silicon 上 /usr/local/bin/node 多不存在（homebrew 在 /opt/homebrew）。
+    依次探测常见绝对路径，命中即用。"""
+    candidates = [
+        "/opt/homebrew/bin/node",
+        "/usr/local/bin/node",
+        "/usr/bin/node",
+    ]
+    import glob
+    for pattern in [
+        os.path.expanduser("~/.nvm/versions/node/*/bin/node"),
+        os.path.expanduser("~/.volta/bin/node"),
+        os.path.expanduser("~/.workbuddy/binaries/node/versions/*/bin/node"),
+    ]:
+        for p in sorted(glob.glob(pattern), reverse=True):
+            candidates.append(p)
+    found = shutil.which("node")
+    if found:
+        return found
+    for c in candidates:
+        if os.path.exists(c):
+            return c
+    return "/usr/local/bin/node"
+
+
+NODE_BIN = _find_node()
+CONFIG_FILE = os.path.join(os.path.dirname(SKILL_DIR), 'config', 'user-preferences.json')
+
+
+def _resolve_email():
+    """解析 QQ 收件人邮箱。优先级：配置文件 > 环境变量 > 占位符。
+    launchd 定时任务不继承 shell 环境变量，必须将邮箱写入配置文件，
+    否则定时触发的 QQ 邮件会静默发往占位符地址而失败。"""
+    try:
+        with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+            cfg = json.load(f)
+        email = cfg.get('court_email', '').strip()
+        if email and 'YOUR_QQ_EMAIL' not in email:
+            return email
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+    env_email = os.environ.get("COURT_SMS_EMAIL", "").strip()
+    if env_email and 'YOUR_QQ_EMAIL' not in env_email:
+        return env_email
+    return "YOUR_QQ_EMAIL@qq.com"
+
+
+TO_EMAIL = _resolve_email()
 
 
 def _uid(case_no):
@@ -66,7 +114,10 @@ def _weekday(dt):
 
 def load_rules():
     with open(RULES_FILE, 'r', encoding='utf-8') as f:
-        return json.load(f)
+        text = f.read()
+    # 剥离 // 开头的注释行（json.load 不支持注释）
+    lines = [ln for ln in text.splitlines() if not ln.strip().startswith('//')]
+    return json.loads('\n'.join(lines))
 
 
 def match_rule(document_type, tags, doc_title=""):
@@ -175,6 +226,7 @@ def _macos_create_calendar(summary, description, deadline_dt, location=""):
     loc = (location or '').replace('"', '\\"')
     script = (
         f'tell application "Calendar"\n'
+        f'  launch\n'
         f'  tell calendar "工作"\n'
         f'    make new event at end with properties {{'
         f'summary:"{s}", start date:date "{ds} 00:00:00", '
@@ -198,9 +250,6 @@ def create_calendar_event(summary, description, deadline_dt, uid_hash, location=
         if not ok:
             _generate_ics(summary, description, deadline_dt, uid_hash)
     else:
-        _generate_ics(summary, description, deadline_dt, uid_hash)
-    # 始终生成 .ics 备份
-    if PLATFORM == 'macos':
         _generate_ics(summary, description, deadline_dt, uid_hash)
 
 
@@ -458,7 +507,7 @@ def main():
         print("用法:")
         print("  # 命令行参数")
         print(f"  python3 {os.path.basename(__file__)} setup <案号> <案由> <文书类型> <标签...> <送达日期> <法院>")
-        print("  例: ... setup '(2025)苏0411刑初1号' '诈骗罪' '裁定书' '冻结,银行存款' '2026-07-07' 'xx法院'")
+        print("  例: ... setup '(2025)苏XXXX刑初1号' '诈骗罪' '裁定书' '冻结,银行存款' '2026-07-07' 'xx法院'")
         print()
         print("  # JSON 模式（推荐）")
         print(f"  python3 {os.path.basename(__file__)} setup --json '{{...}}'")

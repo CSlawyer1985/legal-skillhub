@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 经验库草稿与快照(不入版本库,按需单独管理)
+references/experience/_incoming/*.yaml
+references/experience/_versions/*.bak
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# 工具状态/扫描缓存(不入版本库)
+.mimosa/

@@ -7,7 +7,7 @@ last_updated: 2026-07-09
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/brand/nlv-logo-red.png" width="96" alt="新诉讼可视化 New Litigation Visualization"/>
+  <img src="assets/brand/nlv-logo-red.png" width="96" alt="新诉讼可视化 New Litigation Visualization"/>
 </p>
 
 <h1 align="center">新诉讼可视化 · New Litigation Visualization</h1>
@@ -23,7 +23,7 @@ Visualization」** 开源项目的首个模块，专责把凌乱或"AI 味"的�
 
 ## 作者
 
-<img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/brand/miaoqichuan-avatar.png" width="88" align="right" alt="缪奇川"/>
+<img src="assets/brand/miaoqichuan-avatar.png" width="88" align="right" alt="缪奇川"/>
 
 **缪奇川　MIAO QICHUAN**
 律师 · 法律 AI 博主 · 讲师 · 畅销书作者
@@ -50,7 +50,7 @@ Visualization」** 开源项目的首个模块，专责把凌乱或"AI 味"的�
 
 ## 联系
 
-- **项目仓库**：[mqc-litigation-visual-redraw](https://github.com/MiaoQichuan/mqc-litigation-visual-redraw)
+- **公众号**：奇川律师
 - **GitHub**：[@MiaoQichuan](https://github.com/MiaoQichuan)
 - **邮箱**：miaoqichuan@hotmail.com
 

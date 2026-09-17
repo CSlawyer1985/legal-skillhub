@@ -1,0 +1,7 @@
+interface:
+  display_name: "浙江政采法律服务找标"
+  short_description: "发现并筛选浙江政府采购法律服务机会"
+  brand_color: "#1F4E79"
+  default_prompt: "使用 $gp-lead-radar 检索最近七天浙江省法律服务政府采购机会，并按可投性排序。"
+policy:
+  allow_implicit_invocation: true

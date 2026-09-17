@@ -1,0 +1,100 @@
+{
+  "scope": "criminal_legal_aid_full_flow_only",
+  "default_template_pack": "wenzhou",
+  "stages": [
+    "侦查阶段",
+    "审查起诉阶段",
+    "审判阶段"
+  ],
+  "modes": {
+    "current": "生成当前阶段基础材料",
+    "initial": "同 current，适合刚接到指派准备会见",
+    "archive": "只生成结案归档文书；基础手续与会见笔录使用已有原件，新收案件用 current/initial 生成",
+    "all": "生成当前阶段全部可用材料及已触发的事件材料"
+  },
+  "required_fields": [
+    "recipient_name",
+    "charge",
+    "stage",
+    "aid_center",
+    "handling_agency",
+    "lawyer",
+    "law_firm"
+  ],
+  "conditional_required_fields": {
+    "charge_legal_basis": "生成真实会见笔录前必须经权威法源核验；除非该罪名已有经核验的内置映射。",
+    "prosecuting_agency": "审判阶段若文书涉及公诉机关，应由用户或案卷明确提供，不从法院名称推断。",
+    "meeting_place": "取保候审、未羁押或监视居住时应使用真实的非看守所地点；未确认时保留待确认。"
+  },
+  "optional_fields": [
+    "recipient_id_no",
+    "charge_legal_basis",
+    "custody_status",
+    "lawyer_phone",
+    "law_firm_website",
+    "meeting_place",
+    "meeting_date",
+    "special_recipient_label",
+    "meeting_start",
+    "meeting_end",
+    "record_lawyer",
+    "prosecuting_agency",
+    "court",
+    "prosecutor",
+    "hearing_place",
+    "sign_date_line",
+    "progress",
+    "events",
+    "lawyer_type",
+    "aid_type",
+    "include_plea_note",
+    "include_archive_docs",
+    "include_post_judgment_visit",
+    "include_archive_directory",
+    "assignment_date",
+    "closing_date",
+    "case_result",
+    "summary",
+    "remarks",
+    "case_progress_entries",
+    "meeting_summary",
+    "defense_opinions",
+    "evidence_statement_content",
+    "pretrial_meeting_statement_content"
+  ],
+  "event_stage_gates": {
+    "认罪认罚": "认罪认罚见证笔录仅在审查起诉阶段、审判阶段生成；侦查阶段触发时校验报错，应改在会见笔录中据实记载权利告知。"
+  },
+  "progress_tokens": [
+    "认罪认罚",
+    "承办通报",
+    "结案",
+    "归档",
+    "调查取证",
+    "庭前会议",
+    "判决后回访",
+    "归档目录",
+    "终止援助",
+    "另行委托",
+    "取保候审",
+    "未羁押",
+    "监视居住",
+    "刑事和解"
+  ],
+  "field_notes": {
+    "hearing_place": "开庭/庭审地点；审判阶段庭审笔录使用，未填写时留空待确认。",
+    "lawyer_type": "结案报告表「承办人分类」栏取值，默认“社会律师”。",
+    "aid_type": "结案报告表「援助形式」栏取值，默认“刑事辩护”。",
+    "case_progress_entries": "案件承办通报的承办记录行（code/date/method/content/note）。未提供时生成器输出空白记录行，不预填任何承办行为。",
+    "defense_opinions": "律师核实的主要辩护意见；缺失时对应正文留空并提示待补充。",
+    "evidence_statement_content": "律师据实确认的调查取证情况说明正文；缺失时正文留空，填写提示只进入内部复核清单。",
+    "meeting_date": "已核实的实际会见日期，不得用指派日期替代；仅填写日期不代表已完成任何告知或沟通。",
+    "meeting_summary": "律师核实的已发生会见情况，按羁押状态填写实际地点和行为；不得将计划写成已完成。缺失时正文留空并在内部复核清单提示。",
+    "pretrial_meeting_statement_content": "律师据实确认的庭前会议情况说明正文；缺失时正文留空，填写提示只进入内部复核清单。"
+  },
+  "author_metadata": {
+    "display_name": "李鸿鸿",
+    "organization": "浙江光正大律师事务所",
+    "note": "以上是 Skill 作者署名，不是案件承办律师默认值，也不得自动写入案件文书。"
+  }
+}

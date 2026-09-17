@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "view_type": "data-flow",
+  "scene": "ai-companion-interactive-ai",
+  "title": "拟人化互动类AI陪伴产品 · 数据流向图",
+  "eyebrow": "DATA FLOW · DIAGRAM DESIGN",
+  "desc": "用户对话、语音与形象数据经采集、存储、处理、训练、推理各阶段，由人工审核与治理合规把关，最终归档删除；声纹等敏感数据移交外部供应商处理是核心风险点（跨境传输与训练权利）。",
+  "slug": "ai-companion-dataflow",
+  "dark": false,
+  "lanes": [
+    {
+      "key": "USR",
+      "name": [
+        "用户（C端）",
+        "CONSUMER"
+      ]
+    },
+    {
+      "key": "PLT",
+      "name": [
+        "AI平台",
+        "PLATFORM"
+      ]
+    },
+    {
+      "key": "SUP",
+      "name": [
+        "模型/语音供应商",
+        "SUPPLIERS"
+      ]
+    },
+    {
+      "key": "GOV",
+      "name": [
+        "治理/合规",
+        "GOVERNANCE"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "number": "01",
+      "label": "采集"
+    },
+    {
+      "number": "02",
+      "label": "存储"
+    },
+    {
+      "number": "03",
+      "label": "处理",
+      "focal": true
+    },
+    {
+      "number": "04",
+      "label": "训练"
+    },
+    {
+      "number": "05",
+      "label": "推理"
+    },
+    {
+      "number": "06",
+      "label": "退出"
+    }
+  ],
+  "nodes": [
+    {
+      "lane": "USR",
+      "step": 0,
+      "title": "用户注册/互动",
+      "sub": "实名认证·对话·语音·头像",
+      "tool": "App",
+      "chips": {
+        "out": "WB"
+      }
+    },
+    {
+      "lane": "PLT",
+      "step": 0,
+      "title": "数据采集/入口",
+      "sub": "对话·语音·形象→原始数据",
+      "tool": "采集服务",
+      "chips": {
+        "in": "WB",
+        "out": "DB"
+      }
+    },
+    {
+      "lane": "GOV",
+      "step": 0,
+      "title": "授权与告知",
+      "sub": "注册协议·隐私政策（语音/形象未单独同意）",
+      "tool": "制度/系统",
+      "color": "#b85450"
+    },
+    {
+      "lane": "PLT",
+      "step": 1,
+      "title": "数据存储",
+      "sub": "对话库·语音库·形象素材库",
+      "tool": "阿里云",
+      "chips": {
+        "in": "DB",
+        "out": "DB"
+      }
+    },
+    {
+      "lane": "GOV",
+      "step": 1,
+      "title": "敏感信息分级",
+      "sub": "声纹·真人形象·未成年人识别",
+      "tool": "合规系统",
+      "color": "#7a8c47"
+    },
+    {
+      "lane": "PLT",
+      "step": 2,
+      "title": "语音/形象处理",
+      "sub": "ASR·TTS·声纹情绪识别·形象生成",
+      "tool": "Azure/讯飞/自研引擎",
+      "focal": true,
+      "chips": {
+        "in": "DB",
+        "out": "DB"
+      }
+    },
+    {
+      "lane": "SUP",
+      "step": 2,
+      "title": "供应商处理",
+      "sub": "Azure东亚节点（跨境）·讯飞保留训练权利",
+      "tool": "外部API",
+      "chips": {
+        "in": "DB"
+      }
+    },
+    {
+      "lane": "GOV",
+      "step": 2,
+      "title": "人工审核/危机干预",
+      "sub": "机审+高风险二审·自伤自杀干预",
+      "tool": "审核台",
+      "chips": {
+        "in": "DB"
+      }
+    },
+    {
+      "lane": "PLT",
+      "step": 3,
+      "title": "模型训练/微调",
+      "sub": "对话·人设语料→模型参数",
+      "tool": "Qwen API+自研",
+      "chips": {
+        "in": "DB",
+        "out": "FL"
+      }
+    },
+    {
+      "lane": "PLT",
+      "step": 4,
+      "title": "推理互动服务",
+      "sub": "对话回复·情感回应·形象互动",
+      "tool": "推理服务",
+      "chips": {
+        "in": "FL",
+        "out": "FL"
+      }
+    },
+    {
+      "lane": "GOV",
+      "step": 4,
+      "title": "输出审核",
+      "sub": "深度合成标识·暧昧内容复核",
+      "tool": "审核台",
+      "chips": {
+        "in": "FL"
+      }
+    },
+    {
+      "lane": "USR",
+      "step": 4,
+      "title": "接收拟人互动输出",
+      "sub": "回复·语音·形象",
+      "tool": "App",
+      "chips": {
+        "in": "FL"
+      }
+    },
+    {
+      "lane": "PLT",
+      "step": 5,
+      "title": "归档/删除退出",
+      "sub": "注销·到期销毁·多供应商清理",
+      "tool": "归档系统",
+      "color": "#8c6d3f",
+      "chips": {
+        "in": "LS"
+      }
+    }
+  ],
+  "arrows": [
+    {
+      "from": {
+        "lane": "USR",
+        "step": 0
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 0
+      },
+      "style": "muted"
+    },
+    {
+      "from": {
+        "lane": "GOV",
+        "step": 0
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 0
+      },
+      "style": "trigger"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 0
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 1
+      },
+      "style": "muted"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 1
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 2
+      },
+      "style": "muted"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 2
+      },
+      "to": {
+        "lane": "SUP",
+        "step": 2
+      },
+      "style": "accent",
+      "label": "声纹数据·跨境/训练权利"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 2
+      },
+      "to": {
+        "lane": "GOV",
+        "step": 2
+      },
+      "style": "trigger"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 1
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 3
+      },
+      "style": "muted"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 3
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 4
+      },
+      "style": "muted"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 4
+      },
+      "to": {
+        "lane": "GOV",
+        "step": 4
+      },
+      "style": "trigger"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 4
+      },
+      "to": {
+        "lane": "USR",
+        "step": 4
+      },
+      "style": "link"
+    },
+    {
+      "from": {
+        "lane": "PLT",
+        "step": 4
+      },
+      "to": {
+        "lane": "PLT",
+        "step": 5
+      },
+      "style": "muted"
+    }
+  ]
+}

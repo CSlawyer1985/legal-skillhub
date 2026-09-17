@@ -1,1 +1,19 @@
-[]
+[
+ {
+  "folder": "overseas-legal-compliance",
+  "name": "overseas-legal-compliance",
+  "reasons": [
+   "jurisdiction-conflict"
+  ],
+  "jur_guess": [
+   "eu",
+   "us",
+   "jp",
+   "multi"
+  ],
+  "dom_guess": [
+   "data-privacy"
+  ],
+  "desc_preview": "出海合规法律检索 — 自动安装MCP + 一站式查询全球230+法域法律法规。触发词：查外国法律、出海合规、GDPR、AI Act、HIPAA、CCPA、多国法规对比、跨境投资合规、数据保护合规、安全框架映射（ISO 27001↔NIST↔"
+ }
+]

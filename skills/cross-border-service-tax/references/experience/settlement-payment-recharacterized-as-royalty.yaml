@@ -1,0 +1,24 @@
+entries:
+- id: settlement-recharacterized-as-royalty
+  scenario_key: settlement-payment-recharacterized-as-royalty
+  status: provisional
+  confidence: high
+  conclusion: 侵犯专有技术的诉讼和解金/侵权赔偿款,实质为特许权使用费,应源泉扣缴10%;备案为"其他不征税项目"且未附中文译本是风险点
+  detail: '定性核心:穿透"和解金/赔偿款"形式,审查支付原因——侵犯专有技术的赔偿,实质是特许权使用的对价。
+
+    对外支付备案的"其他不征税项目"不能滥用;英文合同须附中文译本。
+
+    ⚠️ 税额口径(含税gross vs 不含税net)待核实,见CC16。
+
+    '
+  sources:
+  - 企业所得税法实施条例第20条(特许权使用费定义)
+  - 中新税收协定第12条
+  - 国税函〔2009〕507号
+  - 中国税务报2023-10-24(SK案)
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 和解金 特许权使用费 重新定性
+  - 侵权赔偿 代扣 企业所得税
+  - 对外支付 其他不征税 备案

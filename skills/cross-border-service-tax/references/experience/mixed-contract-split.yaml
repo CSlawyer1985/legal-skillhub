@@ -1,0 +1,22 @@
+entries:
+- id: mixed-contract-split-rule
+  scenario_key: mixed-contract-split
+  status: provisional
+  confidence: medium
+  conclusion: 混合合同(技术许可+工艺设计/货物+技术咨询)须按收入拆分,特许权部分适用协定税率,服务费按劳务发生地判断;名服务实特许权是高频陷阱
+  detail: '拆分判断基准:服务实质、合同约定、实际参与程度。
+
+    技术咨询(劳务)vs 专有技术转让(特许权)的界分:核心看是否转让/授权使用无形资产。
+
+    关联交易超额特许权的拆分口径("公允价享协定/超额按国内法")存疑,可能实为转让定价调整,见EX-08/V14。
+
+    '
+  sources:
+  - 国税函〔2009〕507号(特许权vs服务区分)
+  - 财税〔2016〕36号(增值税劳务发生地)
+  - CC06沙特混合合同、CC21广西新能源(中国本土正向辅导)
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 混合合同 分劈 特许权 技术服务
+  - 名服务实特许权 定性

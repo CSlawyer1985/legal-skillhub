@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/brand/nlv-logo-red.png" width="128" alt="新诉讼可视化 New Litigation Visualization"/>
+  <img src="assets/brand/nlv-logo-red.png" width="128" alt="新诉讼可视化 New Litigation Visualization"/>
 </p>
 
 <h1 align="center">新诉讼可视化 · New Litigation Visualization</h1>
@@ -7,7 +7,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0.2-6B7280" alt="version 1.0.2"/>
-  <a href="LICENSE.txt"><img src="https://img.shields.io/badge/License-MIT-6B7280" alt="License: MIT"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-6B7280" alt="License: MIT"/></a>
   <img src="https://img.shields.io/badge/Python-3-6B7280" alt="Python 3"/>
   <img src="https://img.shields.io/badge/dependencies-none%20(stdlib)-6B7280" alt="zero third-party dependencies"/>
   <a href="https://github.com/MiaoQichuan/mqc-litigation-visual-redraw/actions/workflows/checks.yml"><img src="https://github.com/MiaoQichuan/mqc-litigation-visual-redraw/actions/workflows/checks.yml/badge.svg" alt="checks"/></a>
@@ -17,7 +17,6 @@
   <img src="https://img.shields.io/badge/%E8%A7%86%E8%A7%89%E6%A8%A1%E5%BC%8F-%E5%A5%87%E5%B7%9D%E9%A3%8E%20%C2%B7%20%E6%AD%B8%E8%97%8F%E9%A3%8E%20%C2%B7%20%E7%99%BD%E6%8F%8F-6B7280" alt="三种视觉模式：奇川风 · 歸藏风 · 白描"/>
   <img src="https://img.shields.io/badge/%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%9E%8B-7-6B7280" alt="7 种图表类型"/>
   <img src="https://img.shields.io/badge/output-SVG%20%C2%B7%20PNG%20%C2%B7%20PPTX%20%C2%B7%20VSDX%20%C2%B7%20drawio-991B1B" alt="output formats: SVG · PNG · PPTX · VSDX · drawio"/>
-  <img src="https://img.shields.io/badge/%E8%84%B1%E6%95%8F-PII%20scrubbed-6B7280" alt="脱敏"/>
 </p>
 
 ---
@@ -44,7 +43,7 @@
 <summary align="center"><b>▸ 一张长图 · 从你手上的原图，到能接着改的文件</b></summary>
 <br/>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/longform/how-it-works.png" width="820" alt="诉讼可视化 Skill 运行全过程"/>
+  <img src="assets/longform/how-it-works.png" width="820" alt="诉讼可视化 Skill 运行全过程"/>
 </p>
 </details>
 
@@ -82,10 +81,32 @@ https://github.com/MiaoQichuan/mqc-litigation-visual-redraw
 
 不用学语法、不用套模板、不用改办案习惯。Skill 会先问你三件事，再出图。
 
+### 在 DeepSeek Harness 里用
+
+这是一个标准的 `SKILL.md` 目录，**没有任何产品特定的胶水代码**，所以凡是能读
+skill 指令的 agent 都能用：Claude Code、Codex、DeepSeek Harness、Cursor、
+Gemini CLI、Copilot、Cline、Aider 等等。**同一份仓库，不需要维护两套。**
+
+DeepSeek Harness 直接挂目录（dsh 的技能发现是扁平的，指到装着本目录的那一层）：
+
+```yaml
+skills:
+  local:
+    customSkillDirs:
+      - "./skills"          # 本目录的父目录
+```
+
+dsh 的技能发现优先级（先命中先生效）：项目 `.dsh` → 项目 `.agents` →
+`customSkillDirs` → 用户 `.dsh` → 用户 `.agents`。
+
+两点限制说在前面：dsh 目前把 `allowed-tools` / `disallowed-tools` 当未知字段处理，
+技能内的工具约束要你在 harness 层自己保证；出 PNG 与读扫描件依赖本机的
+LibreOffice / poppler，缺什么跑一次 `python3 scripts/doctor.py` 就知道。
+
 ## 适合 / 不适合
 
 **适合**：诉讼材料配图 · 案情时间轴 · 当事人/担保/股权关系 · 程序流程与请求权路径 ·
-诉讼时效与保证期间比对 · 两裁判要旨对读 · 讲课与文章配图 · 把别人做的丑图重画一遍
+诉讼时效与保证期间比对 · 两裁判要旨对读 · 讲课与公众号配图 · 把别人做的丑图重画一遍
 
 **不适合**：数据图表（柱状/折线/饼图，这不是它的活）· 需要真实地图底图的图 ·
 十五个以上节点的超密关系网（会被建议拆成多图，而不是硬塞成一团）·
@@ -96,7 +117,7 @@ https://github.com/MiaoQichuan/mqc-litigation-visual-redraw
 ```
 mqc-litigation-visual-redraw/
 ├── SKILL.md                 技能主文档（工作流、布局选择、红线）
-├── README.md · AUTHOR.md · CHANGELOG.md · LICENSE.txt
+├── README.md · AUTHOR.md · CHANGELOG.md · LICENSE
 ├── assets/
 │   ├── style-tokens.json    冻结的视觉数值（颜色/字体/圆角…）
 │   ├── fonts/README.md      标题宋体字体政策
@@ -150,7 +171,7 @@ mqc-litigation-visual-redraw/
 <summary><b>▸ 展开长图 · 三类七种图形，怎么选</b></summary>
 <br/>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/longform/seven-layouts.png" width="760" alt="三类七种图形"/>
+  <img src="assets/longform/seven-layouts.png" width="760" alt="三类七种图形"/>
 </p>
 </details>
 
@@ -229,37 +250,37 @@ python3 scripts/checkpoint.py map.json --suggest=<n>
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/timeline-points.png" width="420" alt="编号时间轴"/><br/>
+      <img src="assets/screenshots/timeline-points.png" width="420" alt="编号时间轴"/><br/>
       <b>时间轴 · 编号型</b> · <code>numbered_point_timeline</code>
     </td>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/timeline-dated.png" width="420" alt="日期时间轴"/><br/>
+      <img src="assets/screenshots/timeline-dated.png" width="420" alt="日期时间轴"/><br/>
       <b>时间轴 · 日期型</b> · <code>dated_point_timeline</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/timeline-gantt.png" width="420" alt="期间甘特图"/><br/>
+      <img src="assets/screenshots/timeline-gantt.png" width="420" alt="期间甘特图"/><br/>
       <b>时间轴 · 期间型</b> · <code>proportional_gantt</code>
     </td>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/flowchart.png" width="420" alt="流程图"/><br/>
+      <img src="assets/screenshots/flowchart.png" width="420" alt="流程图"/><br/>
       <b>流程图</b> · <code>graphviz_flow</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/relationship.png" width="420" alt="关系网络图"/><br/>
+      <img src="assets/screenshots/relationship.png" width="420" alt="关系网络图"/><br/>
       <b>关系图 · 网络</b> · <code>graphviz_relation</code>
     </td>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/relation-tree.png" width="420" alt="层级树"/><br/>
+      <img src="assets/screenshots/relation-tree.png" width="420" alt="层级树"/><br/>
       <b>关系图 · 层级树</b> · <code>relation_tree</code>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/screenshots/comparison-table.png" width="420" alt="对比表"/><br/>
+      <img src="assets/screenshots/comparison-table.png" width="420" alt="对比表"/><br/>
       <b>关系图 · 对比表</b> · <code>comparison_table</code>
     </td>
     <td width="50%"></td>
@@ -273,14 +294,14 @@ python3 scripts/checkpoint.py map.json --suggest=<n>
 
 | 图表类型 | 三档对照 |
 |---|---|
-| 流程图 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/flowchart-3modes.png" width="820" alt="流程图三档"/> |
-| 关系图 · 网络 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/relationship-3modes.png" width="560" alt="关系图三档"/> |
-| 关系图 · 层级树 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/relation-tree-3modes.png" width="560" alt="层级树三档"/> |
-| 时间轴 · 编号型 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/timeline-points-3modes.png" width="560" alt="编号时间轴三档"/> |
-| 时间轴 · 日期型 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/timeline-dated-3modes.png" width="560" alt="日期时间轴三档"/> |
-| 时间轴 · 期间型 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/timeline-gantt-3modes.png" width="560" alt="甘特三档"/> |
-| 关系图 · 对比表 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/comparison-table-3modes.png" width="560" alt="对比表三档"/> |
-| **压力测试** · 密集关系图 | <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/modes/relation-dense-3modes.png" width="560" alt="密集关系图三档"/> |
+| 流程图 | <img src="assets/modes/flowchart-3modes.png" width="820" alt="流程图三档"/> |
+| 关系图 · 网络 | <img src="assets/modes/relationship-3modes.png" width="560" alt="关系图三档"/> |
+| 关系图 · 层级树 | <img src="assets/modes/relation-tree-3modes.png" width="560" alt="层级树三档"/> |
+| 时间轴 · 编号型 | <img src="assets/modes/timeline-points-3modes.png" width="560" alt="编号时间轴三档"/> |
+| 时间轴 · 日期型 | <img src="assets/modes/timeline-dated-3modes.png" width="560" alt="日期时间轴三档"/> |
+| 时间轴 · 期间型 | <img src="assets/modes/timeline-gantt-3modes.png" width="560" alt="甘特三档"/> |
+| 关系图 · 对比表 | <img src="assets/modes/comparison-table-3modes.png" width="560" alt="对比表三档"/> |
+| **压力测试** · 密集关系图 | <img src="assets/modes/relation-dense-3modes.png" width="560" alt="密集关系图三档"/> |
 
 ## 三种视觉模式
 
@@ -304,9 +325,9 @@ python3 scripts/checkpoint.py map.json --suggest=<n>
 <details>
 <summary><b>▸ 展开三档视觉系统长图</b></summary>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/longform/visual-system-qichuan.png" width="700" alt="奇川风视觉系统"/><br/><br/>
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/longform/visual-system-guizang.png" width="700" alt="歸藏风视觉系统"/><br/><br/>
-  <img src="https://raw.githubusercontent.com/MiaoQichuan/mqc-litigation-visual-redraw/main/assets/longform/visual-system-baimiao.png" width="700" alt="白描视觉系统"/>
+  <img src="assets/longform/visual-system-qichuan.png" width="700" alt="奇川风视觉系统"/><br/><br/>
+  <img src="assets/longform/visual-system-guizang.png" width="700" alt="歸藏风视觉系统"/><br/><br/>
+  <img src="assets/longform/visual-system-baimiao.png" width="700" alt="白描视觉系统"/>
 </p>
 </details>
 
@@ -410,7 +431,7 @@ Python 3 + graphviz + 一个光栅化器（soffice/rsvg/inkscape 任一）。
 零第三方 Python 依赖。`python3 scripts/doctor.py` 会逐项告诉你缺什么、缺了会退化成什么样。
 
 **怎么确认它没画错？**
-`python3 tests/run_checks.py` —— 126 项回归守卫，几何、排版、交付、三档一致性全覆盖，
+`python3 tests/run_checks.py` —— 136 项回归守卫 / 149 条断言，几何、排版、交付、三档一致性全覆盖，
 每一条都做过"故意改坏必须报错"的验证。另有 `verify_pptx.py`（渲染后量文字实际落点）
 和 `audit_edges.py`（量边缘墨量）两个自检工具。
 

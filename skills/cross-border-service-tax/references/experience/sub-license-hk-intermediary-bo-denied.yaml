@@ -1,0 +1,24 @@
+entries:
+- id: bo-sub-license-transfer-obligation
+  scenario_key: sub-license-hk-intermediary-bo-denied
+  status: provisional
+  confidence: medium
+  conclusion: 转许可结构中香港中间层有转付义务+无实质经营+人员资产极少+与第三方存在近似合同的,否定受益所有人,特许权7%→10%
+  detail: '转许可结构(如美国→香港→内地)是受益所有人审查重点。
+
+    9号公告不利因素命中越多,否定风险越高。本案(国税总局案例集-22)全部命中:转付义务、无实质、近似合同、人员资产极少。
+
+    降级备注(2026-08-12 crit 复查):原 confidence=high 仅满足"≥2 来源"表面门槛。crit 实测发现 sources 实质独立度打折——3
+    条虽技术独立,但全指向同一规范性文件体系(9号公告+601号文+案例集是同一套规则的不同载体),缺少不同部门/不同类型(法院判例/不同公告/学术评析)的支撑。降至
+    medium,需补法院行政诉讼判例或不同公告后升级。
+
+    '
+  sources:
+  - 国家税务总局公告2018年第9号第2、3条
+  - 国税函〔2009〕601号
+  - 国家税务总局税收协定执行案例集-案例二十二
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 转许可 受益所有人 香港
+  - 转付义务 导管公司 特许权

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 """
 创建 .docx 模板：将文档中的真实值替换为 [变量] 占位符
-用法：python3 create_template.py input.docx output.docx --map '{"赵建华":"[申请人姓名]","张茂凤":"[被申请人姓名]",...}'
+用法：python3 create_template.py input.docx output.docx --map '{"张某":"[申请人姓名]","李某":"[被申请人姓名]",...}'
 """
 import re, json, argparse
 from docx import Document

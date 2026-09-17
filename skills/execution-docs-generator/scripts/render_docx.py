@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 """
 诉讼文书模板渲染引擎 v2
 读取 YAML 格式模板 → 解析格式规则 → 替换变量 → 生成 .docx

@@ -1,0 +1,7 @@
+interface:
+  display_name: "政府采购质疑投诉"
+  short_description: "计算期限、核对受理条件并起草救济文书"
+  brand_color: "#1F4E79"
+  default_prompt: "使用 $gp-challenge-complaint 先计算并核对救济期限，再整理证据和起草文书。"
+policy:
+  allow_implicit_invocation: true

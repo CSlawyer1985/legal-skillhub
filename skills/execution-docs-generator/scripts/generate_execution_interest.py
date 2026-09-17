@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 """
 执行标的计算表生成器 v2 — 完整利率数据库 + 双段利息
 
@@ -34,11 +35,26 @@
     --general-start 2022-01-01 --general-end 2026-07-16 --general-rate-type benchmark \
     --doubled-start 2022-01-16 --doubled-end 2026-07-16 \
     --submitter "张三"
+
+  # LPR 同步（每月20日央行公布新一期后执行一次即可，之后自动合并）
+  python3 generate_execution_interest.py out.xlsx \
+    --principal 100000 --general-start 2024-01-01 --general-end 2026-07-16 \
+    --general-rate-type LPR --doubled-start 2024-01-16 --doubled-end 2026-07-16 \
+    --submitter "张三" --sync-lpr          # 联网尽力同步（失败则用下面手动方式）
+  python3 generate_execution_interest.py out.xlsx \
+    --principal 100000 --general-start 2024-01-01 --general-end 2026-07-16 \
+    --general-rate-type LPR --doubled-start 2024-01-16 --doubled-end 2026-07-16 \
+    --submitter "张三" --set-lpr 2026-07-20 3.00 3.50   # 手动填入（离线可靠）
 """
 
 import argparse
+import json
+import re
+import ssl
+import urllib.request
 from datetime import date, timedelta, datetime
 from dataclasses import dataclass
+from pathlib import Path
 from typing import List, Optional, Tuple
 
 
@@ -124,6 +140,70 @@ RATE_DATABASE: List[RateRecord] = [
 
 # 确保按生效日期排序
 RATE_DATABASE.sort(key=lambda r: r.effective_date)
+
+
+# ======================== 外置 LPR 补充数据（联网校验 / 同步） ========================
+# 内置 RATE_DATABASE 为静态维护，每月需人工更新。最新一期 LPR 可通过
+# --set-lpr（手动）或 --sync-lpr（联网尽力）写入同目录 lpr_data.json，
+# 运行时自动合并进 RATE_DATABASE，无需修改本文件源码。
+LPR_EXTRA_FILE = Path(__file__).parent / "lpr_data.json"
+
+
+def load_lpr_extra() -> List[RateRecord]:
+    """读取外置 LPR 补充数据（容错：文件缺失/损坏返回空列表）"""
+    if not LPR_EXTRA_FILE.exists():
+        return []
+    try:
+        with open(LPR_EXTRA_FILE, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+        recs: List[RateRecord] = []
+        for item in raw:
+            y1 = float(item["y1"])
+            y5 = float(item["y5"])
+            # LPR 改革后央行仅公布 1Y / 5Y+ 两档，其余期限档位沿用 1Y 值（与内置库一致）
+            recs.append(RateRecord(date.fromisoformat(item["d"]), y1, y1, y1, y1, y5))
+        return recs
+    except Exception:
+        return []
+
+
+def save_lpr_extra(recs: List[RateRecord]) -> None:
+    """写回外置 LPR 补充数据（按日期去重、排序）"""
+    data = [
+        {"d": r.effective_date.isoformat(), "y1": r.rate_6m_1y, "y5": r.rate_5y_plus}
+        for r in sorted(recs, key=lambda r: r.effective_date)
+    ]
+    with open(LPR_EXTRA_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def merge_rate_db() -> List[RateRecord]:
+    """内置库 + 外置补充，按日期去重（外置优先），升序排序"""
+    merged = {r.effective_date: r for r in RATE_DATABASE}  # 此时 RATE_DATABASE 为内置库
+    for r in load_lpr_extra():
+        merged[r.effective_date] = r
+    db = list(merged.values())
+    db.sort(key=lambda r: r.effective_date)
+    return db
+
+
+def upsert_lpr_record(rec: RateRecord) -> None:
+    """写入/更新一期外置 LPR（同日覆盖）"""
+    recs = load_lpr_extra()
+    recs = [r for r in recs if r.effective_date != rec.effective_date]
+    recs.append(rec)
+    save_lpr_extra(recs)
+
+
+def reload_rate_db() -> None:
+    """重载全局 RATE_DATABASE（同步后调用，使本次计算即用最新）"""
+    global RATE_DATABASE
+    RATE_DATABASE = merge_rate_db()
+
+
+# 模块加载时即用「内置 + 外置」合并后的完整利率库
+RATE_DATABASE = merge_rate_db()
+
 
 # 档位属性
 _RATE_ATTRS = ["rate_6m", "rate_6m_1y", "rate_1_3y", "rate_3_5y", "rate_5y_plus"]
@@ -412,7 +492,7 @@ def _build_execution_sheet(
 
     # 说明
     ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=6)
-    _set_cell(ws, row, 1, f"日利率：{doubled_daily_rate:.4f}%（万分之{doubled_daily_rate*10000:.2f}）",
+    _set_cell(ws, row, 1, f"日利率：{doubled_daily_rate*100:.6f}%（万分之{doubled_daily_rate*10000:.2f}）",
               font=Font(name="宋体", size=9, color="666666"), border=False)
     row += 1
 
@@ -504,6 +584,53 @@ def generate_excel(
     return output_path
 
 
+# ======================== 联网校验 / 同步（best-effort） ========================
+# 注意：中国货币网等官方 LPR 页面为 JS 动态渲染，urllib 直抓常拿不到数字，
+# 故 --sync-lpr 为「尽力而为」：成功则自动写入 lpr_data.json，失败则提示改
+# 用 --set-lpr 手动填入。离线过期校验（stale_check）每次生成都会跑，零网络依赖。
+LPR_SOURCES = [
+    "https://www.chinamoney.com.cn/chinese/bklpr?tab=2",
+    "https://www.chinamoney.com.cn/index.html",
+]
+
+
+def fetch_latest_lpr(timeout: int = 10) -> Optional[dict]:
+    """尽力从官方源抓取最新一期 LPR。失败/无数字返回 None。"""
+    ctx = ssl.create_default_context()
+    try:
+        ctx.options |= ssl.OP_LEGACY_SERVER_CONNECT  # 兼容部分老旧 TLS 站点
+    except AttributeError:
+        pass
+    for url in LPR_SOURCES:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            html = urllib.request.urlopen(req, timeout=timeout, context=ctx).read().decode("utf-8", "ignore")
+            m1 = re.search(r"(?:1\s*年[期]?|1Y|一年期)[^\d]{0,20}(\d\.\d\d)", html, re.I)
+            m5 = re.search(r"(?:5\s*年[期以上]*|5Y|五年期以上)[^\d]{0,20}(\d\.\d\d)", html, re.I)
+            if m1 and m5:
+                dm = re.search(r"(\d{4})\D+(\d{1,2})\D+(\d{1,2})", html)
+                d = date(int(dm.group(1)), int(dm.group(2)), int(dm.group(3))) if dm else date.today().replace(day=20)
+                return {"d": d, "y1": float(m1.group(1)), "y5": float(m5.group(1))}
+        except Exception:
+            continue
+    return None
+
+
+def stale_check(threshold_days: int = 40) -> None:
+    """离线过期校验：利率库末条距今天超过一个公布周期则告警。零网络依赖。"""
+    if not RATE_DATABASE:
+        return
+    last = RATE_DATABASE[-1].effective_date
+    today = date.today()
+    gap = (today - last).days
+    if gap > threshold_days:
+        print(f"\n⚠️  利率库末条为 {last.isoformat()}，距今 {gap} 天，可能已落后于最新 LPR。")
+        print("    最新 LPR 请见中国货币网 https://www.chinamoney.com.cn （基准价格 → 贷款市场报价利率 LPR）")
+        print("    同步方式（二选一）：")
+        print("      · 自动联网：python3 generate_execution_interest.py ... --sync-lpr")
+        print("      · 手动填入：python3 generate_execution_interest.py ... --set-lpr YYYY-MM-DD 1Y 5Y")
+
+
 # ======================== CLI ========================
 
 def main():
@@ -519,7 +646,7 @@ def main():
     parser.add_argument("--general-end", required=True, help="一般债务利息截止日 YYYY-MM-DD")
     parser.add_argument(
         "--general-rate", type=float,
-        help="一般债务利息年利率（%，如 3.45）。提供即使用固定利率模式"
+        help="一般债务利息年利率（百分数值，如 3.45 即 3.45%%）。提供即使用固定利率模式"
     )
     parser.add_argument(
         "--general-rate-type", default="LPR",
@@ -542,12 +669,44 @@ def main():
     parser.add_argument("--submitter", default="", help="提交人姓名")
     parser.add_argument("--case-info", default="", help="案号等信息，显示在标题下方")
 
+    # LPR 联网校验 / 同步
+    parser.add_argument(
+        "--sync-lpr", action="store_true",
+        help="联网尽力同步最新一期 LPR 到 lpr_data.json（受官网反爬影响可能失败，失败请用 --set-lpr）"
+    )
+    parser.add_argument(
+        "--set-lpr", nargs=3, metavar=("DATE", "1Y", "5Y"),
+        help="手动写入一期 LPR，如 --set-lpr 2026-07-20 3.00 3.50（离线可靠，优先于 --sync-lpr）"
+    )
+
     args = parser.parse_args()
 
     general_start = date.fromisoformat(args.general_start)
     general_end = date.fromisoformat(args.general_end)
     doubled_start = date.fromisoformat(args.doubled_start)
     doubled_end = date.fromisoformat(args.doubled_end)
+
+    # ---- LPR 联网校验 / 同步（在计息前完成，确保本次即用最新） ----
+    if args.set_lpr:
+        d = date.fromisoformat(args.set_lpr[0])
+        y1 = float(args.set_lpr[1])
+        y5 = float(args.set_lpr[2])
+        upsert_lpr_record(RateRecord(d, y1, y1, y1, y1, y5))
+        reload_rate_db()
+        print(f"✅ 已写入/更新外置 LPR：{d.isoformat()}  1Y={y1}%  5Y+={y5}%")
+    elif args.sync_lpr:
+        print("🌐 正在联网获取最新 LPR ...")
+        rec = fetch_latest_lpr()
+        if rec:
+            upsert_lpr_record(RateRecord(rec["d"], rec["y1"], rec["y1"], rec["y1"], rec["y1"], rec["y5"]))
+            reload_rate_db()
+            print(f"✅ 已联网同步最新 LPR：{rec['d'].isoformat()}  1Y={rec['y1']}%  5Y+={rec['y5']}%")
+        else:
+            print("⚠️  联网获取失败（官网可能为 JS 动态渲染或当前无网络）。")
+            print("    请改用 --set-lpr YYYY-MM-DD 1Y 5Y 手动填入（从中国货币网查看最新值）。")
+
+    # 离线过期校验（每次生成都会跑，零网络依赖）
+    stale_check()
 
     # 确定利率模式和期间
     if args.general_rate is not None and args.general_rate > 0:

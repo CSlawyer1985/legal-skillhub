@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "view_type": "data-flow",
+  "scene": "retail-ecommerce-customer-service",
+  "title": "零售电商智能客服 · 数据流向图",
+  "eyebrow": "DATA FLOW · DIAGRAM DESIGN",
+  "desc": "用户对话与订单数据经采集、存储、处理、训练、推理各阶段，由人工复核与专业人员审核把关，最终归档删除；知情同意与合规审查作为治理贯穿全流程。",
+  "slug": "retail-dataflow",
+  "dark": false,
+  "lanes": [
+    {"key": "CON", "name": ["用户/客户", "CONSUMER"]},
+    {"key": "PLT", "name": ["数据平台", "PLATFORM"]},
+    {"key": "HUM", "name": ["专业人员", "HUMAN"]},
+    {"key": "GOV", "name": ["治理/合规", "GOVERNANCE"]}
+  ],
+  "steps": [
+    {"number": "01", "label": "采集"},
+    {"number": "02", "label": "存储"},
+    {"number": "03", "label": "处理"},
+    {"number": "04", "label": "训练", "focal": true},
+    {"number": "05", "label": "推理"},
+    {"number": "06", "label": "退出"}
+  ],
+  "nodes": [
+    {"lane": "CON", "step": 0, "title": "用户咨询/授权", "sub": "对话·下单·知情同意", "tool": "App/小程序", "chips": {"out": "WB"}},
+    {"lane": "PLT", "step": 0, "title": "数据采集/入口", "sub": "对话·订单→原始数据", "tool": "客服Agent入口", "chips": {"in": "WB", "out": "DB"}},
+    {"lane": "GOV", "step": 0, "title": "知情同意/伦理审查", "sub": "授权告知·隐私政策", "tool": "制度/系统", "color": "#b85450"},
+    {"lane": "PLT", "step": 1, "title": "数据存储/数据湖", "sub": "原始数据落库·分级", "tool": "数据湖/数仓", "chips": {"in": "DB", "out": "DB"}},
+    {"lane": "GOV", "step": 1, "title": "合规审查", "sub": "合法性·最小化·留存期", "tool": "合规系统", "color": "#7a8c47"},
+    {"lane": "PLT", "step": 2, "title": "处理/标注", "sub": "清洗·去标识化·标注", "tool": "标注平台", "chips": {"in": "DB", "out": "TB"}},
+    {"lane": "HUM", "step": 2, "title": "人工复核/质检", "sub": "样本复核·质量门", "tool": "质检台", "chips": {"in": "TB"}},
+    {"lane": "PLT", "step": 3, "title": "模型训练", "sub": "去标识数据→模型", "tool": "训练集群", "focal": true, "chips": {"in": "TB", "out": "FL"}},
+    {"lane": "PLT", "step": 4, "title": "推理服务", "sub": "模型→客服应答", "tool": "推理服务", "chips": {"in": "FL", "out": "FL"}},
+    {"lane": "HUM", "step": 4, "title": "专业人员审核", "sub": "推理输出·争议样本", "tool": "审核台", "chips": {"in": "FL"}},
+    {"lane": "CON", "step": 4, "title": "接收客服回复", "sub": "服务输出·结果反馈", "tool": "App/小程序", "chips": {"in": "FL"}},
+    {"lane": "PLT", "step": 5, "title": "日志归档/删除退出", "sub": "日志·备份·到期销毁", "tool": "归档系统", "color": "#8c6d3f", "chips": {"in": "LS"}}
+  ],
+  "arrows": [
+    {"from": {"lane": "CON", "step": 0}, "to": {"lane": "PLT", "step": 0}, "style": "muted"},
+    {"from": {"lane": "GOV", "step": 0}, "to": {"lane": "PLT", "step": 0}, "style": "trigger"},
+    {"from": {"lane": "PLT", "step": 0}, "to": {"lane": "PLT", "step": 1}, "style": "muted"},
+    {"from": {"lane": "GOV", "step": 1}, "to": {"lane": "PLT", "step": 1}, "style": "trigger"},
+    {"from": {"lane": "PLT", "step": 1}, "to": {"lane": "PLT", "step": 2}, "style": "muted"},
+    {"from": {"lane": "PLT", "step": 2}, "to": {"lane": "HUM", "step": 2}, "style": "trigger"},
+    {"from": {"lane": "CON", "step": 0}, "to": {"lane": "PLT", "step": 3}, "style": "accent", "label": "用户数据"},
+    {"from": {"lane": "PLT", "step": 2}, "to": {"lane": "PLT", "step": 3}, "style": "muted"},
+    {"from": {"lane": "PLT", "step": 3}, "to": {"lane": "PLT", "step": 4}, "style": "muted"},
+    {"from": {"lane": "PLT", "step": 4}, "to": {"lane": "HUM", "step": 4}, "style": "trigger"},
+    {"from": {"lane": "PLT", "step": 4}, "to": {"lane": "CON", "step": 4}, "style": "link"},
+    {"from": {"lane": "PLT", "step": 4}, "to": {"lane": "PLT", "step": 5}, "style": "muted"}
+  ]
+}

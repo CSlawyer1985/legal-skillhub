@@ -1,0 +1,23 @@
+entries:
+- id: pe-seconded-employees-no-pe
+  scenario_key: pe-seconded-employees
+  status: provisional
+  confidence: high
+  conclusion: 外派员工由境外子公司发薪、受子公司指导监督、仅为子公司工作,认定为子公司员工,不构成母公司在来源国的常设机构(PE)
+  detail: '判定两步法:① 员工归属测试(薪资发放者/指令下达者/专属服务对象)② 场所支配权(disposal test,企业是否对场所有支配、使用、控制权)。
+
+    即使供货协议含"检查权"条款,未实际行使的不构成 PE。
+
+    本经验来自印度 ITAT 2026-01-08 终审判决,经国税总局海外案例库收录,代表中国税务机关参考口径。
+
+    '
+  sources:
+  - 中印税收协定第5条
+  - 印度ITAT 2026-01-08判决
+  - 国家税务总局海外税收案例库(chinatax c5248453)
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 常设机构 外派员工 派遣人员
+  - 员工归属测试 常设机构
+  - disposal test 处置测试 PE

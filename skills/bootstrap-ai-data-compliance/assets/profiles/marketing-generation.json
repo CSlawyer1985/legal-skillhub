@@ -1,0 +1,101 @@
+{
+  "config_version": "1.1",
+  "id": "marketing-generation",
+  "display_name": "营销内容生成系统",
+  "jurisdiction": "中国大陆",
+  "scope": "适用于企业内部营销内容生成系统（广告文案、海报文案、社媒内容）的数据处理合规冷启动、证据组织与候选评估。模拟演示场景，用于验证场景配置参数化机制，不构成真实验证。",
+  "negative_boundary": ["不适用于面向消费者的直接客服对话", "不自动出具正式法律意见", "不进行未经授权的外部法律检索", "不将论文或公众号资料单独证明强制性法律义务"],
+  "roles": ["管理层", "营销业务", "内容运营", "数据安全", "供应商负责人"],
+  "interview_targets": ["管理层", "营销业务", "内容运营", "数据安全", "供应商负责人"],
+  "data_types": ["营销文案库", "用户画像标签", "投放反馈数据", "供应商模型调用记录"],
+  "p0_items": ["用例和内容边界", "营销素材库目录", "用户画像数据来源", "外部生成模型及API清单", "提示词与人工审核规则", "供应商合同及退出安排"],
+  "risk_themes": ["内容真实性", "用户画像使用", "营销夸大风险", "版权与素材来源", "人工审核机制", "供应商模型依赖"],
+  "banned_terms": ["脑机接口", "神经数据", "医疗器械", "R038", "R039", "R040", "R041", "R042", "R043", "A/B/C路径", "客服转接"],
+  "fact_gate_fields": {
+    "p0_registered": "P0资料已登记",
+    "interviews_confirmed": "访谈已完成并确认",
+    "data_map_complete": "数据地图已完整",
+    "system_map_complete": "系统地图已完整",
+    "role_matrix_complete": "角色矩阵已完整",
+    "authorization_and_suppliers_verified": "授权与供应商已核验",
+    "unconfirmed_facts_listed": "未确认事实已列明",
+    "scope_changes_recorded": "范围变化已记录",
+    "lawyer_review_fields_defined": "律师复核字段已定义"
+  },
+  "word_docs": {
+    "startup": [
+      {"doc_no": "00", "title": "营销合规启动包使用说明", "short_title": "使用说明", "purpose": "说明营销内容生成项目启动包的发送顺序、填写边界和证据编号规则。"},
+      {"doc_no": "01", "title": "营销内容项目启动说明及P0资料清单", "short_title": "P0资料清单", "purpose": "收集营销内容生成项目确认边界所需的第一批最低资料。"},
+      {"doc_no": "02", "title": "营销团队及跨部门访谈提纲", "short_title": "访谈提纲", "purpose": "按角色核验内容边界、素材来源、画像使用和供应商责任。"},
+      {"doc_no": "03", "title": "营销素材与用户画像调研表", "short_title": "素材与画像", "purpose": "记录素材库、画像数据来源、用途和授权。"},
+      {"doc_no": "04", "title": "生成模型及供应商调研表", "short_title": "模型与供应商", "purpose": "核验外部生成模型、接口、调用日志和退出安排。"},
+      {"doc_no": "05", "title": "营销合规风险评估及整改复验表", "short_title": "评估与复验", "purpose": "在事实核验后记录适用指标、营销风险、整改和复验。"},
+      {"doc_no": "06", "title": "营销内容发布准入核验表", "short_title": "发布准入", "purpose": "内容真实性和人工审核未满足时不得发布营销内容。"}
+    ],
+    "candidate": [
+      {"doc_no": "00", "title": "营销合规候选交付包成果索引", "short_title": "成果索引"},
+      {"doc_no": "01", "title": "营销合规管理层摘要", "short_title": "管理层摘要"},
+      {"doc_no": "02", "title": "营销内容项目范围及事实确认稿", "short_title": "事实确认稿"},
+      {"doc_no": "03", "title": "营销数据、角色与授权链说明", "short_title": "数据系统说明"},
+      {"doc_no": "04", "title": "营销合规法律适用性及证据矩阵", "short_title": "适用性矩阵"},
+      {"doc_no": "05", "title": "营销内容合规风险评估候选报告", "short_title": "风险评估"},
+      {"doc_no": "06", "title": "营销问题、整改及复验清单", "short_title": "整改复验"},
+      {"doc_no": "07", "title": "营销未决事项、律师确认及证据索引", "short_title": "未决与证据"}
+    ]
+  },
+  "seed_sources": [
+    {
+      "source_id": "SRC-LAW-001",
+      "external_id": "",
+      "source_type": "法律法规与规范性文件",
+      "title": "广告与个人信息保护相关现行规则（待逐条核验）",
+      "version": "待核验",
+      "effect_status": "待核验",
+      "authority_level": "法律及部门规章",
+      "official_url": "",
+      "file_location": "",
+      "locator": "待核验",
+      "verification_date": "",
+      "verification_status": "待核验",
+      "evidence_label": "需律师确认",
+      "evidence_boundary": "仅为演示场景占位，不构成项目法律意见"
+    }
+  ],
+  "seed_claims": [
+    {
+      "claim_id": "CLM-001",
+      "claim": "营销内容生成的素材来源、用户画像使用和外部模型调用须结合真实流程核验。",
+      "evidence_label": "需律师确认",
+      "legal_effect": "待核验",
+      "applicability_conditions": "面向营销内容生成并处理素材或画像数据时",
+      "source_ids": "SRC-LAW-001",
+      "locator": "",
+      "paths": "营销内容生成",
+      "events": "",
+      "risks": "内容真实性;用户画像使用;外部模型供应商",
+      "gates": "事实核验",
+      "documents": "启动包;候选报告",
+      "lawyer_review_status": "需律师确认",
+      "claim_boundary": "不证明具体违法或合规"
+    }
+  ],
+  "seed_assessments": [
+    {
+      "assessment_id": "ASM-001",
+      "source_id": "SRC-LAW-001",
+      "theme": "内容真实性",
+      "assessment_text": "核验营销生成内容是否有真实依据和人工审核。",
+      "method": "访谈;内容抽查;审核日志查验",
+      "criteria": "内容可溯源且未经审核不发布",
+      "expected_evidence": "审核记录;素材来源清单;发布日志",
+      "applicability_status": "通用适用",
+      "legal_effect": "评估指标，不单独证明法律义务",
+      "customer_fact_status": "待核实",
+      "assessment_status": "待评估",
+      "risk_level": "待评估",
+      "remediation_status": "未启动",
+      "retest_status": "未启动",
+      "lawyer_review_status": "需律师确认"
+    }
+  ]
+}

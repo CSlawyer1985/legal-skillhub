@@ -23,3 +23,5 @@ SOFTWARE.
 ---
 
 本技能参考了 FachuanHybridSystem（法穿）项目的设计思路，详见 references/ATTRIBUTION.md。
+
+Original Author: 陆凌燕（北京德恒（无锡）律师事务所）

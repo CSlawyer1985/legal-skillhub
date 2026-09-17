@@ -1,0 +1,39 @@
+{
+  "config_version": "1.1",
+  "id": "internal-knowledge-assistant",
+  "display_name": "内部知识助手",
+  "jurisdiction": "中国大陆",
+  "scope": "适用于企业内部文档检索与问答的知识助手数据处理合规冷启动、证据组织与候选评估。",
+  "negative_boundary": ["不适用于面向公众的消费者服务", "不自动出具正式法律意见", "不进行未经授权的外部法律检索", "不将论文或公众号资料单独证明强制性法律义务"],
+  "roles": ["管理层", "业务负责人", "知识库管理员", "信息安全", "供应商负责人"],
+  "interview_targets": ["管理层", "业务负责人", "知识库管理员", "信息安全", "供应商负责人"],
+  "data_types": ["企业内部文档", "员工身份与权限数据", "知识库内容", "提示词与日志"],
+  "p0_items": ["用例和用户范围", "内部知识库目录", "账号权限设计", "外部模型及API清单", "提示词和日志规则", "供应商合同及退出安排"],
+  "risk_themes": ["用途边界", "权限控制", "内部资料泄漏", "提示词及日志", "外部模型供应商", "输出人工复核"],
+  "banned_terms": ["脑机接口", "神经数据", "医疗器械", "R038", "R039", "R040", "R041", "R042", "R043", "A/B/C路径"],
+  "fact_gate_fields": {"p0_registered":"P0资料已登记","interviews_confirmed":"访谈已完成并确认","data_map_complete":"数据地图已完整","system_map_complete":"系统地图已完整","role_matrix_complete":"角色矩阵已完整","authorization_and_suppliers_verified":"授权与供应商已核验","unconfirmed_facts_listed":"未确认事实已列明","scope_changes_recorded":"范围变化已记录","lawyer_review_fields_defined":"律师复核字段已定义"},
+  "word_docs": {
+    "startup": [
+      {"doc_no":"00","title":"使用说明及文件索引","short_title":"使用说明","purpose":"说明发送顺序、填写边界、证据编号和阶段门禁。"},
+      {"doc_no":"01","title":"项目启动说明及P0资料清单","short_title":"P0资料清单","purpose":"收集确认项目边界所需的第一批最低资料。"},
+      {"doc_no":"02","title":"管理层及跨部门访谈提纲","short_title":"访谈提纲","purpose":"按角色核验用例、数据、系统、供应商和责任。"},
+      {"doc_no":"03","title":"数据资产、处理活动及授权链调研表","short_title":"数据与授权链","purpose":"记录数据来源、用途、处理活动、授权和共享。"},
+      {"doc_no":"04","title":"系统、供应商及外部模型调研表","short_title":"系统与供应商","purpose":"核验系统边界、接口、外部模型、日志和退出安排。"},
+      {"doc_no":"05","title":"数据安全风险评估及整改复验表","short_title":"评估与复验","purpose":"在事实核验后记录适用指标、问题、整改和复验。"},
+      {"doc_no":"06","title":"最小试点准入核验表","short_title":"试点准入","purpose":"事实和前置控制未满足时不得启动真实试点。"}
+    ],
+    "candidate": [
+      {"doc_no":"00","title":"候选交付包使用说明及成果索引","short_title":"成果索引"},
+      {"doc_no":"01","title":"管理层摘要","short_title":"管理层摘要"},
+      {"doc_no":"02","title":"项目范围及事实确认稿","short_title":"事实确认稿"},
+      {"doc_no":"03","title":"数据、系统、角色与授权链说明","short_title":"数据系统说明"},
+      {"doc_no":"04","title":"法律适用性及证据矩阵","short_title":"适用性矩阵"},
+      {"doc_no":"05","title":"AI数据安全风险评估候选报告","short_title":"风险评估"},
+      {"doc_no":"06","title":"问题、整改及复验清单","short_title":"整改复验"},
+      {"doc_no":"07","title":"未决事项、律师确认及证据索引","short_title":"未决与证据"}
+    ]
+  },
+  "seed_sources": [{"source_id":"SRC-LAW-001","external_id":"","source_type":"法律法规与规范性文件","title":"个人信息保护相关现行法律（待逐条核验）","version":"待核验","effect_status":"待核验","authority_level":"法律","official_url":"","file_location":"","locator":"待核验","verification_date":"","verification_status":"待核验","evidence_label":"需律师确认","evidence_boundary":"仅为冷启动占位，不构成项目法律意见"}],
+  "seed_claims": [{"claim_id":"CLM-001","claim":"内部知识助手的数据处理范围、访问权限和外部模型使用须结合真实架构核验。","evidence_label":"需律师确认","legal_effect":"待核验","applicability_conditions":"使用内部文件、员工账户或外部模型时","source_ids":"SRC-LAW-001","locator":"","paths":"内部使用","events":"","risks":"用途边界;权限控制;外部模型供应商","gates":"事实核验","documents":"启动包;候选报告","lawyer_review_status":"需律师确认","claim_boundary":"不证明具体违法或合规"}],
+  "seed_assessments": [{"assessment_id":"ASM-001","source_id":"SRC-LAW-001","theme":"权限控制","assessment_text":"核验知识库访问与模型调用权限是否最小化。","method":"访谈;文档查验;配置核验","criteria":"权限与岗位、用途相匹配","expected_evidence":"权限矩阵;访问日志;审批记录","applicability_status":"通用适用","legal_effect":"评估指标，不单独证明法律义务","customer_fact_status":"待核实","assessment_status":"待评估","risk_level":"待评估","remediation_status":"未启动","retest_status":"未启动","lawyer_review_status":"需律师确认"}]
+}

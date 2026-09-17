@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "scene": "retail-ecommerce-customer-service",
+  "title": "零售电商智能客服数据流向图",
+  "industry": "零售电商客服Agent",
+  "nodes": [
+    {"id": "E01", "label": "用户/客户", "kind": "external", "layer": "L0"},
+    {"id": "E02", "label": "业务部门/机构", "kind": "external", "layer": "L0"},
+    {"id": "C01", "label": "伦理审查/知情同意", "kind": "compliance", "layer": "GOV"},
+    {"id": "N01", "label": "数据采集/入口", "kind": "process", "layer": "L1"},
+    {"id": "N02", "label": "数据传输", "kind": "process", "layer": "L1"},
+    {"id": "C02", "label": "合规审查", "kind": "compliance", "layer": "GOV"},
+    {"id": "N03", "label": "数据存储/数据湖", "kind": "storage", "layer": "L2"},
+    {"id": "N04", "label": "处理/标注", "kind": "process", "layer": "L2"},
+    {"id": "H01", "label": "人工复核/质检", "kind": "human", "layer": "SUP"},
+    {"id": "N05", "label": "模型训练", "kind": "process", "layer": "L3"},
+    {"id": "N06", "label": "推理服务", "kind": "process", "layer": "L3"},
+    {"id": "H02", "label": "专业人员审核", "kind": "human", "layer": "SUP"},
+    {"id": "EXT01", "label": "外部模型/云服务商", "kind": "vendor", "layer": "L4"},
+    {"id": "X01", "label": "日志归档", "kind": "exit", "layer": "EXIT"},
+    {"id": "X02", "label": "删除/退出", "kind": "exit", "layer": "EXIT"}
+  ],
+  "flows": [
+    {"id": "D01", "from": "E01", "to": "N01", "side_from": "R", "side_to": "L"},
+    {"id": "D02", "from": "E02", "to": "N01", "side_from": "T", "side_to": "B"},
+    {"id": "D03", "from": "N01", "to": "N02", "side_from": "B", "side_to": "T"},
+    {"id": "D04", "from": "N02", "to": "N03", "side_from": "R", "side_to": "L"},
+    {"id": "D05", "from": "N03", "to": "N04", "side_from": "B", "side_to": "T", "bidirectional": true},
+    {"id": "D06", "from": "N03", "to": "N05", "side_from": "R", "side_to": "L"},
+    {"id": "D07", "from": "N04", "to": "N05", "side_from": "R", "side_to": "T"},
+    {"id": "D08", "from": "N05", "to": "N06", "side_from": "B", "side_to": "T"},
+    {"id": "D09", "from": "N06", "to": "EXT01", "side_from": "R", "side_to": "L", "dashed": true, "bidirectional": true},
+    {"id": "D10", "from": "N06", "to": "E01", "side_from": "L", "side_to": "T"},
+    {"id": "D11", "from": "N06", "to": "H02", "side_from": "B", "side_to": "T", "bidirectional": true},
+    {"id": "D12", "from": "N04", "to": "H01", "side_from": "B", "side_to": "T", "bidirectional": true},
+    {"id": "D13", "from": "C01", "to": "N01", "side_from": "B", "side_to": "T", "dashed": true},
+    {"id": "D14", "from": "C02", "to": "N03", "side_from": "B", "side_to": "T", "dashed": true},
+    {"id": "D15", "from": "N03", "to": "X01", "side_from": "R", "side_to": "T"},
+    {"id": "D16", "from": "X01", "to": "X02", "side_from": "B", "side_to": "B", "dashed": true}
+  ]
+}

@@ -1,3 +1,4 @@
+<!-- Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm. -->
 ---
 page:
   width: 21.0cm
@@ -31,6 +32,8 @@ styles:
     size: 14pt
     align: left
 ---
+
+<!-- Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm. -->
 
 # 委托代理合同
 

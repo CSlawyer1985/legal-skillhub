@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "extends": "generic",
+  "description": "零售电商客服Agent 产业专属 intake 问题集（在通用问题集基础上追加）",
+  "sections": [
+    {
+      "id": "channel_scope",
+      "title": "渠道与服务范围",
+      "required": true,
+      "questions": [
+        {"id": "CH-01", "text": "客服服务覆盖哪些渠道？", "hint": "例：APP/小程序/H5三端"},
+        {"id": "CH-02", "text": "覆盖哪些业务场景？", "hint": "例：售前咨询、订单查询、售后处理、物流跟踪、投诉受理"}
+      ]
+    },
+    {
+      "id": "conversation_data",
+      "title": "对话数据处理",
+      "required": true,
+      "questions": [
+        {"id": "CD-01", "text": "对话数据包含哪些字段？是否有用户上传的图片/语音？", "hint": "例：文本+商品瑕疵图+语音留言"},
+        {"id": "CD-02", "text": "对话数据是否用于模型训练/微调/检索增强？", "hint": "例：用于向量化检索增强，不用于微调"},
+        {"id": "CD-03", "text": "对话数据保留期限与删除机制？", "hint": "例：按用户协议保留，用户可申请删除"}
+      ]
+    },
+    {
+      "id": "transfer_human",
+      "title": "人工转接与复核",
+      "required": true,
+      "questions": [
+        {"id": "TH-01", "text": "哪些场景必须转人工？触发条件是什么？", "hint": "例：金额超500元索赔、食品安全、人身伤害投诉"},
+        {"id": "TH-02", "text": "转人工的SLA与流程如何？", "hint": "例：30秒内转接，客诉处理闭环"},
+        {"id": "TH-03", "text": "人工客服操作日志如何记录与审计？", "hint": "例：记录转接原因、处理结果、内部备注"}
+      ]
+    },
+    {
+      "id": "ai_identity",
+      "title": "AI身份告知与内容标识",
+      "required": false,
+      "questions": [
+        {"id": "AI-01", "text": "AI客服身份如何向用户告知？", "hint": "例：开场白声明AI身份"},
+        {"id": "AI-02", "text": "AI生成回复是否添加生成内容标识？", "hint": "例：回复末尾标注“由AI生成”"}
+      ]
+    }
+  ]
+}

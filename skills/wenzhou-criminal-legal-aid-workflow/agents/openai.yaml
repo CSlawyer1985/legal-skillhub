@@ -1,0 +1,4 @@
+interface:
+  display_name: "刑事法援全流程（温州模板版）"
+  short_description: "提取待核实时间线并分阶段生成刑事法援文书，支持地区模板包替换"
+  default_prompt: "Use $wenzhou-criminal-legal-aid-workflow to prepare a criminal legal-aid matter. If no process ledger exists, scan only local materials and produce an unverified candidate timeline with source locators before drafting. Confirm stage, custody status, institutions, dates, and legal basis; never invent recipient facts."

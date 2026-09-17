@@ -31,10 +31,10 @@
   ];
 
   let DATA = [];
-  /* 编辑推荐（人工精选）：8 个，其中 6 个中国大陆类 + 2 个其他法域 */
+  /* 编辑推荐（人工精选）：10 个，其中 6 个中国大陆类 + 4 个其他法域 */
   const CURATED = [
     "legal-research", "construction-contract-review", "fadawang-qa-plus",
-    "patent-invalidation", "litigation-hub", "civil-litigation-thinking",
+    "patent-invalidation", "mqc-timeline-master", "civil-litigation-thinking",
     "30b6-deposition", "analyse-dpa-fournisseur-hugo-salard",
     "litigation-deadline-calendar", "customs-trade-law-onur-kafkas",
   ];

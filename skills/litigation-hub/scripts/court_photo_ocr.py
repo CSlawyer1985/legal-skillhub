@@ -1,14 +1,18 @@
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 #!/usr/bin/env python3
 """
 法院文书照片 OCR + 结构解析脚本
-通过 MinerU flash-extract 提取文字（字符级精度），再解析为结构化数据。
+双级 OCR 策略：Tesseract（本地轻量）→ MinerU（云端高精度）。
+每级结果经质量门控判断是否「可接受」，通过则停止，不通过则降级到下一级。
 
 用法:
   python3 court_photo_ocr.py <image_path>
   python3 court_photo_ocr.py --text "手动输入文本..."
+  python3 court_photo_ocr.py --ocr-tier <tesseract|mineru> <image_path>
 
-依赖: mineru-open-api (npm install -g mineru-open-api)
-MinerU 不可用时自动尝试安装。
+依赖（按需安装）:
+  Tier 1: tesseract + chi_sim (brew install tesseract tesseract-lang)
+  Tier 2: mineru-open-api (npm install -g mineru-open-api)
 """
 
 import sys
@@ -17,11 +21,245 @@ import re
 import json
 import subprocess
 import shutil
+import tempfile
 from pathlib import Path
+
+# 图片预处理依赖（Tier 1 增强）
+try:
+    from PIL import Image, ImageEnhance
+    _HAS_PIL = True
+except ImportError:
+    _HAS_PIL = False
 
 
 # ============================================================
-#  MinerU OCR
+#  质量门控 — 判断 OCR 结果是否「可接受」
+# ============================================================
+
+# 法院文书关键字（只要命中一个即加 15 分）
+_COURT_DOC_KEYWORDS = [
+    '判决书', '裁定书', '传票', '起诉状', '答辩状',
+    '应诉通知书', '出庭通知书', '举证通知书', '受理通知书',
+    '上诉须知', '人民法院', '开庭', '案号', '案由',
+    '原告', '被告', '申请人', '被申请人',
+]
+
+
+def ocr_quality_score(text):
+    """
+    对 OCR 输出文本打分（0-100），判断是否可直接用于后续解析。
+    阈值：>= 50 分视为「可接受」，停止降级。
+
+    打分规则（第一性原理——法院文书 OCR 需要什么）:
+      - 有足够中文字符（>=10个，且占比>=20%）+30  （法院文书主体是中文）
+      - 长度 > 50 字符       +20  （太短可能是碎片/失败）
+      - 长度 > 200 字符      +20  （足够长说明覆盖了大部分内容）
+      - 可提取案号            +15  （核心字段，说明 OCR 质量好）
+      - 命中法院文书关键字    +15  （说明确实是法院文书）
+    """
+    if not text or not text.strip():
+        return 0
+
+    score = 0
+    stripped = text.strip()
+    total_len = len(stripped)
+
+    # 1. 是否有足够中文字符（CJK Unified Ideographs + 中文标点）
+    cjk_chars = re.findall(r'[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]', stripped)
+    cjk_count = len(cjk_chars)
+    # 排除垃圾输出：中文字符太少（<10个）或占比太低（<20%）→ 不给分
+    cjk_ratio = cjk_count / max(total_len, 1)
+    if cjk_count >= 10 and cjk_ratio >= 0.20:
+        score += 30
+
+    # 2. 文本长度
+    if total_len > 50:
+        score += 20
+    if total_len > 200:
+        score += 20
+
+    # 3. 是否可提取案号
+    if re.search(r'[（(]\s*\d{4}\s*[）)]\s*[^号]*?\d+号', stripped):
+        score += 15
+
+    # 4. 是否命中法院文书关键字
+    keyword_hits = sum(1 for kw in _COURT_DOC_KEYWORDS if kw in stripped)
+    if keyword_hits >= 1:
+        score += min(keyword_hits * 5, 15)  # 最多 15 分
+
+    return score
+
+
+def ocr_acceptable(text):
+    """OCR 结果是否满足最低质量要求"""
+    return ocr_quality_score(text) >= 50
+
+
+# ============================================================
+#  图片校验与预处理
+# ============================================================
+
+# 支持的图片格式
+_SUPPORTED_FORMATS = {'.png', '.jpg', '.jpeg', '.bmp', '.tiff', '.tif'}
+# 最大文件大小（20MB，超过可能是原始相机 RAW 或误传）
+_MAX_FILE_SIZE = 20 * 1024 * 1024
+
+
+def validate_image(image_path):
+    """
+    校验图片是否适合 OCR 处理。
+    返回 (ok: bool, reason: str)。
+    """
+    if not os.path.isfile(image_path):
+        return False, f"文件不存在: {image_path}"
+
+    path = Path(image_path)
+    ext = path.suffix.lower()
+    if ext not in _SUPPORTED_FORMATS:
+        return False, f"不支持的图片格式: {ext}，支持: {', '.join(sorted(_SUPPORTED_FORMATS))}"
+
+    size = os.path.getsize(image_path)
+    if size > _MAX_FILE_SIZE:
+        return False, f"文件过大: {size / 1024 / 1024:.1f}MB（上限 {_MAX_FILE_SIZE / 1024 / 1024:.0f}MB）"
+
+    if size < 100:
+        return False, "文件过小，可能不是有效图片"
+
+    return True, "ok"
+
+
+def preprocess_for_ocr(image_path):
+    """
+    Tesseract 图片预处理：灰度化 + 对比度增强。
+    对手机拍摄的法院文书照片效果显著——消除阴影、锐化文字边缘。
+
+    返回预处理后的临时文件路径，或原路径（PIL 不可用时）。
+    调用方负责清理临时文件。
+    """
+    if not _HAS_PIL:
+        return image_path
+
+    try:
+        img = Image.open(image_path)
+
+        # 超大图片缩放到合理尺寸（避免 Tesseract 处理 4000px+ 原图耗时过长）
+        w, h = img.size
+        max_dim = 3000
+        if w > max_dim or h > max_dim:
+            ratio = max_dim / max(w, h)
+            img = img.resize((int(w * ratio), int(h * ratio)), Image.LANCZOS)
+
+        # 转灰度
+        if img.mode != 'L':
+            img = img.convert('L')
+
+        # 对比度增强（1.5x），让文字更锐利
+        enhancer = ImageEnhance.Contrast(img)
+        img = enhancer.enhance(1.5)
+
+        # 保存到临时文件
+        tmp = tempfile.NamedTemporaryFile(suffix='.png', prefix='court_pre_', delete=False)
+        tmp_path = tmp.name
+        tmp.close()
+        img.save(tmp_path, 'PNG')
+
+        print(f"  🖼️  预处理: {w}x{h} → {img.size[0]}x{img.size[1]} 灰度+对比度增强", file=sys.stderr)
+        return tmp_path
+
+    except Exception as e:
+        print(f"  ⚠️  图片预处理失败 ({e})，使用原图", file=sys.stderr)
+        return image_path
+
+
+# ============================================================
+#  Tier 1 — Tesseract（本地轻量 OCR）
+# ============================================================
+
+def _has_tesseract():
+    return subprocess.run(['which', 'tesseract'], capture_output=True).returncode == 0
+
+
+def _check_tesseract_chinese():
+    """检查 tesseract 是否有中文语言包"""
+    r = subprocess.run(['tesseract', '--list-langs'], capture_output=True, text=True)
+    return 'chi_sim' in r.stdout
+
+
+def run_tesseract_ocr(image_path):
+    """
+    Tesseract 简体中文 OCR。
+    快、免费、本地、零网络依赖。适合清晰打印文书。
+    自动对图片做灰度化+对比度增强预处理，提升模糊照片成功率。
+    返回 (text, quality_score) 或 (None, 0)。
+    """
+    if not _has_tesseract():
+        print("⚠️  Tier 1: tesseract 未安装，跳过", file=sys.stderr)
+        print("   安装: brew install tesseract tesseract-lang", file=sys.stderr)
+        return None, 0
+
+    if not _check_tesseract_chinese():
+        print("⚠️  Tier 1: tesseract 缺少 chi_sim 语言包，跳过", file=sys.stderr)
+        print("   安装: brew install tesseract-lang", file=sys.stderr)
+        return None, 0
+
+    print("🔍 Tier 1: Tesseract (chi_sim) ...", file=sys.stderr)
+
+    # 图片预处理（灰度+增强对比度）
+    preprocessed = preprocess_for_ocr(image_path)
+    is_temp = preprocessed != image_path
+
+    try:
+        # 使用工作目录作为 tesseract 输出目录（避免 /tmp 沙箱隔离问题）
+        tmp_dir = tempfile.mkdtemp(prefix='court_tess_',
+                                    dir=os.path.dirname(image_path) if os.path.isdir(os.path.dirname(image_path)) else None)
+        out_base = os.path.join(tmp_dir, 'tess_output')
+
+        result = subprocess.run(
+            ['tesseract', preprocessed, out_base, '-l', 'chi_sim'],
+            capture_output=True, text=True, timeout=60
+        )
+
+        out_txt = out_base + '.txt'
+        if os.path.exists(out_txt):
+            with open(out_txt, 'r', encoding='utf-8', errors='replace') as f:
+                text = f.read().strip()
+        else:
+            text = ''
+
+        # 清理
+        try:
+            shutil.rmtree(tmp_dir)
+        except OSError:
+            pass
+
+        if not text:
+            print("  ❌ Tesseract 无输出", file=sys.stderr)
+            return None, 0
+
+        score = ocr_quality_score(text)
+        if ocr_acceptable(text):
+            print(f"  ✅ Tesseract 质量分 {score}/100，通过", file=sys.stderr)
+            return text, score
+        else:
+            print(f"  ⚠️  Tesseract 质量分 {score}/100，未达阈值(50)，降级", file=sys.stderr)
+            return text, score
+
+    except subprocess.TimeoutExpired:
+        print("  ❌ Tesseract 超时", file=sys.stderr)
+        return None, 0
+    except Exception as e:
+        print(f"  ❌ Tesseract 异常: {e}", file=sys.stderr)
+        return None, 0
+    finally:
+        if is_temp and os.path.exists(preprocessed):
+            try:
+                os.unlink(preprocessed)
+            except OSError:
+                pass
+
+
+# ============================================================
+#  Tier 2 — MinerU（云端高精度 OCR）
 # ============================================================
 
 def _has_mineru():
@@ -29,38 +267,178 @@ def _has_mineru():
 
 
 def _install_mineru():
-    """自动安装 mineru-open-api"""
-    print("📦 正在安装 MinerU OCR（仅首次需要，约需 30 秒）...", file=sys.stderr)
+    """自动安装 mineru-open-api（需用户确认，非静默下载）"""
+    print("", file=sys.stderr)
+    print("📦 Tier 2 需要 mineru-open-api（约 30MB，首次安装）。", file=sys.stderr)
+    print("   正在安装...", file=sys.stderr)
     r = subprocess.run(['npm', 'install', '-g', 'mineru-open-api'],
                        capture_output=True, text=True, timeout=120)
     if r.returncode != 0:
-        print(f"❌ MinerU 安装失败: {r.stderr}", file=sys.stderr)
+        print(f"❌ MinerU 安装失败: {r.stderr[:200]}", file=sys.stderr)
         print("   请手动运行: npm install -g mineru-open-api", file=sys.stderr)
         return False
     print("✅ MinerU 安装完成", file=sys.stderr)
     return True
 
 
-def run_ocr(image_path):
-    """MinerU flash-extract 文字提取"""
+def run_mineru_ocr(image_path):
+    """
+    MinerU flash-extract 云端 OCR。
+    高精度，适合复杂排版、手写体混排的法院文书。
+    需要网络连接。Tier 1 失败后自动尝试。
+    返回 (text, quality_score) 或 (None, 0)。
+    """
     if not _has_mineru():
+        print("⚠️  Tier 2: mineru-open-api 未安装，尝试自动安装...", file=sys.stderr)
         if not _install_mineru():
-            return None
+            return None, 0
 
-    result = subprocess.run(
-        ['mineru-open-api', 'flash-extract', image_path],
-        capture_output=True, text=True, timeout=120
-    )
+    print("🔍 Tier 2: MinerU (flash-extract) ...", file=sys.stderr)
 
-    if result.returncode != 0:
-        print(f"❌ MinerU 提取失败: {result.stderr}", file=sys.stderr)
-        return None
+    try:
+        result = subprocess.run(
+            ['mineru-open-api', 'flash-extract', image_path],
+            capture_output=True, text=True, timeout=120
+        )
 
-    text = result.stdout.strip()
-    if not text or len(text) < 10:
-        print("⚠️ OCR 结果为空或过短", file=sys.stderr)
-        return None
+        if result.returncode != 0:
+            stderr_text = result.stderr[:300]
+            # 区分错误类型
+            if 'ECONNREFUSED' in stderr_text or 'ENOTFOUND' in stderr_text or 'getaddrinfo' in stderr_text:
+                print(f"  ❌ MinerU 网络不可达，请检查网络连接", file=sys.stderr)
+            elif '401' in stderr_text or '403' in stderr_text or 'unauthorized' in stderr_text.lower():
+                print(f"  ❌ MinerU API 认证失败，请检查 API Key", file=sys.stderr)
+            elif 'timeout' in stderr_text.lower() or 'ETIMEDOUT' in stderr_text:
+                print(f"  ❌ MinerU 请求超时，服务器可能繁忙", file=sys.stderr)
+            else:
+                print(f"  ❌ MinerU 提取失败: {stderr_text}", file=sys.stderr)
+            return None, 0
 
+        text = result.stdout.strip()
+        if not text or len(text) < 10:
+            print("  ❌ MinerU 结果为空或过短", file=sys.stderr)
+            return None, 0
+
+        score = ocr_quality_score(text)
+        if ocr_acceptable(text):
+            print(f"  ✅ MinerU 质量分 {score}/100，通过", file=sys.stderr)
+            return text, score
+        else:
+            print(f"  ⚠️  MinerU 质量分 {score}/100，未达阈值(50)", file=sys.stderr)
+            return text, score
+
+    except subprocess.TimeoutExpired:
+        print("  ❌ MinerU 超时（网络慢或服务器无响应）", file=sys.stderr)
+        return None, 0
+    except Exception as e:
+        err_msg = str(e)
+        if 'timeout' in err_msg.lower() or 'timed out' in err_msg.lower():
+            print(f"  ❌ MinerU 网络超时，请检查网络连接", file=sys.stderr)
+        else:
+            print(f"  ❌ MinerU 异常: {err_msg[:200]}", file=sys.stderr)
+        return None, 0
+
+
+# ============================================================
+#  双级 OCR 编排器 — 核心入口
+# ============================================================
+
+def run_ocr_tiered(image_path, force_tier=None):
+    """
+    双级降级 OCR 主入口。
+
+    策略（第一性原理）:
+      Tier 1 (Tesseract)     → 本地/轻量/零成本，适合清晰打印件
+                                  自动灰度+对比度增强预处理
+      Tier 2 (MinerU)        → 云端/高精度，适合复杂排版/模糊照片
+
+    每级结果经质量门控（ocr_acceptable）判断，>=50 分即停止降级。
+    双级全部失败 → 返回最佳结果（最高分）+ 降级标记。
+
+    返回 (text, metadata_dict)
+      metadata: { tier, quality_score, acceptable, tiers_tried }
+    """
+    tiers = [
+        ('tesseract', run_tesseract_ocr, 'Tesseract'),
+        ('mineru', run_mineru_ocr, 'MinerU'),
+    ]
+
+    # 强制指定某级（调试/手动指定用）
+    if force_tier:
+        tiers = [(t[0], t[1], t[2]) for t in tiers if t[0] == force_tier]
+        if not tiers:
+            print(f"❌ 无效的 OCR 层级: {force_tier}", file=sys.stderr)
+            print(f"   可选: tesseract, mineru", file=sys.stderr)
+            return None, {'tier': None, 'quality_score': 0, 'acceptable': False, 'tiers_tried': []}
+
+    best_text = None
+    best_score = 0
+    best_tier = None
+    tiers_tried = []
+
+    for tier_id, ocr_func, tier_name in tiers:
+        tiers_tried.append(tier_id)
+        text, score = ocr_func(image_path)
+
+        if text and score > best_score:
+            best_text = text
+            best_score = score
+            best_tier = tier_id
+
+        if ocr_acceptable(text):
+            # 质量达标，停止降级
+            return text, {
+                'tier': tier_id,
+                'quality_score': score,
+                'acceptable': True,
+                'tiers_tried': tiers_tried,
+            }
+
+    # 全部未达标 → 返回最高分结果 + 降级标记
+    if best_text:
+        print(f"\n⚠️  双级 OCR 均未达质量阈值。", file=sys.stderr)
+        print(f"   最佳: {best_tier} (质量分 {best_score}/100)", file=sys.stderr)
+        print(f"   结果可能不完整，请人工核对。", file=sys.stderr)
+        _suggest_paddleocr()
+        return best_text, {
+            'tier': best_tier,
+            'quality_score': best_score,
+            'acceptable': False,
+            'tiers_tried': tiers_tried,
+        }
+
+    print(f"\n❌ 双级 OCR 全部失败", file=sys.stderr)
+    print(f"   💡 建议: 确认图片清晰、光线充足，或手动输入文本。", file=sys.stderr)
+    _suggest_paddleocr()
+    return None, {
+        'tier': None,
+        'quality_score': 0,
+        'acceptable': False,
+        'tiers_tried': tiers_tried,
+    }
+
+
+def _suggest_paddleocr():
+    """双级失败后，向用户建议 PaddleOCR 作为额外选项（不自动安装）。"""
+    print("", file=sys.stderr)
+    print("   ─────────────────────────────────────────────", file=sys.stderr)
+    print("   💡 如需更强的中文 OCR（约 500MB 磁盘空间）：", file=sys.stderr)
+    print("      pip install paddlepaddle paddleocr", file=sys.stderr)
+    print("      安装后无需任何配置，下次 OCR 会自动使用。", file=sys.stderr)
+    print("      PaddleOCR 中文法院文书场景精度最高，且无需网络。", file=sys.stderr)
+    print("   ─────────────────────────────────────────────", file=sys.stderr)
+
+
+# ============================================================
+#  兼容层 — 保留旧 run_ocr 接口
+# ============================================================
+
+def run_ocr(image_path):
+    """
+    旧接口兼容：直接调用双级 OCR 编排器。
+    行为与之前 run_ocr(image_path) 一致——返回纯文本或 None。
+    """
+    text, meta = run_ocr_tiered(image_path)
     return text
 
 
@@ -78,7 +456,8 @@ def parse_court_text(text):
     result = {
         "document_type": "未知", "case_no": None, "case_type": None,
         "parties": {}, "court_name": None, "hearing_time": None,
-        "hearing_location": None, "judge_name": None,
+        "hearing_location": None, "judge_name": None, "clerk_name": None,
+        "court_contacts": [],  # [{name, phone, role}]
         "appeal_deadline_days": None,
         "confidence": confidence, "review_required": False,
     }
@@ -91,6 +470,7 @@ def parse_court_text(text):
         types = [
             ('判决书', ['判决书', '民事判决书', '刑事判决书', '行政判决书']),
             ('裁定书', ['裁定书', '民事裁定书', '刑事裁定书']),
+            ('受理案件通知书', ['受理案件通知书', '受理案件通知', '案件受理通知']),
             ('应诉通知书', ['应诉通知书', '应诉通知']),
             ('出庭通知书', ['出庭通知书', '出庭通知']),
             ('起诉状', ['起诉状', '民事起诉状', '刑事自诉状']),
@@ -189,6 +569,23 @@ def parse_court_text(text):
     else:
         confidence['judge_name'] = 'low'
 
+    # 8b. 书记员
+    m = re.search(r'书记员\s*[：:]\s*([\u4e00-\u9fff]{2,4})', text)
+    if m:
+        result['clerk_name'] = m.group(1).strip(); confidence['clerk_name'] = 'high'
+    else:
+        confidence['clerk_name'] = 'low'
+
+    # 8c. 法院人员联系信息（传票/受理通知书时提取电话号）
+    if result['document_type'] in ('传票', '受理案件通知书', '应诉通知书', '出庭通知书'):
+        try:
+            from court_contacts import extract_from_pdf_text
+            contacts = extract_from_pdf_text(text)
+            result['court_contacts'] = contacts
+            confidence['court_contacts'] = 'high' if contacts else 'low'
+        except ImportError:
+            confidence['court_contacts'] = 'low'
+
     # 9. 上诉期限
     m = re.search(r'(?:送达之日|判决书送达|收到.*判决书).*?起\s*(\d+)\s*[日内天]', text)
     if m:
@@ -216,10 +613,19 @@ ROLE_NAMES = {
 
 def format_for_review(parsed):
     confidence = parsed.get('confidence', {})
+    ocr_meta = parsed.get('ocr_meta', {})
+
+    # OCR 引擎信息
+    tier_names = {'tesseract': 'Tesseract (轻量本地)', 'mineru': 'MinerU (云端高精度)'}
+    tier_name = tier_names.get(ocr_meta.get('tier', ''), '未知')
+    tier_score = ocr_meta.get('quality_score', '?')
+    tier_accept = '✅' if ocr_meta.get('acceptable') else '⚠️'
+
     lines = [
-        "=" * 50,
-        "📋 请复核以下 MinerU OCR 识别结果（⚠️ = 必须手动确认，❓ = 未识别）",
-        "=" * 50, "",
+        "=" * 55,
+        f"📋 请复核 OCR 识别结果",
+        f"   OCR引擎: {tier_name}  |  质量分: {tier_score}/100  {tier_accept}",
+        "=" * 55, "",
     ]
     for label, key in [('文书类型','document_type'),('案号','case_no'),('案由','case_type'),
                         ('法院','court_name'),('开庭时间','hearing_time'),
@@ -294,7 +700,7 @@ def find_case_folder(case_no, parties=None, search_dir=None):
                 for role, party_name in parties.items():
                     if not party_name:
                         continue
-                    # 拆分多当事人："耿平、朱玲秀" → ["耿平","朱玲秀"]
+                    # 拆分多当事人："张某、李某" → ["张某","李某"]
                     names = re.split(r'[、，,;\s]+', party_name)
                     for pn in names:
                         pn = pn.strip()
@@ -595,9 +1001,12 @@ def auto_file_photo(parsed, photo_path=None):
 def main():
     args = sys.argv[1:]
     if not args:
-        print("用法: python3 court_photo_ocr.py <image_path> [--to-folder <folder>]")
+        print("用法: python3 court_photo_ocr.py <image_path> [--to-folder <folder>] [--ocr-tier <tier>]")
         print("      python3 court_photo_ocr.py --text '文书文本...'")
-        print("依赖: mineru-open-api（自动安装）")
+        print("")
+        print("OCR 策略: Tesseract(轻量本地) → MinerU(云端高精度) 双级降级")
+        print("  --ocr-tier tesseract|mineru  强制使用指定 OCR（跳过降级）")
+        print("依赖: tesseract + chi_sim / mineru-open-api（按需安装）")
         sys.exit(1)
 
     # 律师确认后的归档模式：直接归档到指定案卷
@@ -607,22 +1016,38 @@ def main():
         to_folder = args[i + 1]
         args = args[:i] + args[i + 2:]
 
+    # 强制指定 OCR 层级
+    force_tier = None
+    if '--ocr-tier' in args:
+        i = args.index('--ocr-tier')
+        force_tier = args[i + 1]
+        args = args[:i] + args[i + 2:]
+
     if args and args[0] == '--text' and len(args) >= 2:
         text = args[1]
         image_path = None
+        ocr_meta = None
     else:
         image_path = args[0] if args else None
         if not image_path or image_path.startswith('-'):
             print("❌ 缺少图片路径", file=sys.stderr); sys.exit(1)
-        if not os.path.exists(image_path):
-            print(f"❌ 文件不存在: {image_path}", file=sys.stderr); sys.exit(1)
+
+        # 图片校验
+        ok, reason = validate_image(image_path)
+        if not ok:
+            print(f"❌ 图片校验失败: {reason}", file=sys.stderr); sys.exit(1)
+
         print(f"📷 正在 OCR: {image_path}", file=sys.stderr)
-        text = run_ocr(image_path)
+
+        text, ocr_meta = run_ocr_tiered(image_path, force_tier=force_tier)
         if not text:
-            print('{"error":"MinerU OCR 失败"}'); sys.exit(1)
+            print('{"error":"双级 OCR 全部失败"}', file=sys.stderr); sys.exit(1)
 
     result = parse_court_text(text)
     result['raw_text'] = text[:500]
+    # 追加 OCR 元数据
+    if ocr_meta:
+        result['ocr_meta'] = ocr_meta
 
     if to_folder:
         # 律师已确认 → 直接归档到指定案卷
@@ -640,6 +1065,33 @@ def main():
         # 自动归纳：匹配已有(待确认) 或 新建(自动)
         resolution = auto_file_photo(result, image_path)
         result.update(resolution)
+
+    # 法院人员通讯录保存（传票/受理通知书自动触发）
+    if (result['document_type'] in ('传票', '受理案件通知书', '应诉通知书', '出庭通知书')
+            and result.get('court_contacts')):
+        try:
+            from court_contacts import add_contacts_batch, export_vcf
+            court = result.get('court_name', '')
+            case = result.get('case_no', '')
+            for c in result['court_contacts']:
+                c['court'] = c.get('court', '') or court
+                c['case_no'] = c.get('case_no', '') or case
+            batch_result = add_contacts_batch(result['court_contacts'])
+            vcf_path = export_vcf(result['court_contacts'])
+            result['contacts_saved'] = {
+                'created': len(batch_result.get('created', [])),
+                'updated': len(batch_result.get('updated', [])),
+                'failed': len(batch_result.get('failed', [])),
+                'vcf_path': vcf_path,
+            }
+            total = result['contacts_saved']['created'] + result['contacts_saved']['updated']
+            if total > 0:
+                print(f"\n👤 通讯录: {total} 位法院人员已保存", file=sys.stderr)
+                for c in result['court_contacts']:
+                    print(f"   {c.get('role', '')}: {c.get('name', '')} - {c.get('phone', '')}", file=sys.stderr)
+                print(f"📱 vCard 已导出: {vcf_path}（可发手机导入）", file=sys.stderr)
+        except ImportError:
+            result['contacts_saved'] = {'error': 'court_contacts 模块不可用'}
 
     print(format_for_review(result), file=sys.stderr)
     print(file=sys.stderr)

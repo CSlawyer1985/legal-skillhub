@@ -1,0 +1,14 @@
+[
+  {
+    "firm_id": "demo",
+    "name": "示范（脱敏）",
+    "phase": 1,
+    "step": "阶段1·步骤⑥ 入库完成",
+    "masters_completed": 1,
+    "total_masters": 2,
+    "current_file_index": null,
+    "pack_id": "demo-civil-retainer",
+    "updated": "2026-08-04",
+    "notes": "内置示范包"
+  }
+]

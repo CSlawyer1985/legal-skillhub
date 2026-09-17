@@ -1,0 +1,114 @@
+{
+  "_version": "1.0.0",
+  "_updated_at": "2026-08-31",
+  "_说明": "知识层时效双轨校验策略（freshness_check.py 的唯一配置源）。时限参数一律外置，禁止硬编码于脚本；新增数据类型时在此注册 type 与 source 即可，无需改脚本。对应大纲 7.2 第 6 条双轨制。",
+  "_track_definitions": {
+    "content": "内容时效轨——固定周期重核，仅适用易变内容（当前为惯例类：看守所信息、办案惯例、地方规定）。条目『最新更新时间』距今超过 max_days 即列入内容超期清单。",
+    "effectiveness": "效力时效轨——状态核验＋事件触发，适用内容恒定的条目（法条／案例／量刑档次／立案标准）。不计算『超期』，改为核验效力状态标志；缺元数据字段按『待核实』列入效力待核清单。"
+  },
+  "types": {
+    "惯例类": {
+      "track": "content",
+      "max_days": 90,
+      "note": "地方惯例类条目超过 90 日输出前强制重核；无重核条件的明示『数据截至××日，需人工复核』。"
+    },
+    "法条": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "法条文本恒定，不设内容超期。引用时经两步校验核验现行效力；法规修订、司法解释更新经规范变化事件族触发重核。核验基准 law_effectiveness.json。"
+    },
+    "案例": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "裁判文书内容恒定，不设内容超期。输出前核验参照效力（未被再审改判、未与现行指导性案例及裁判规则冲突），冲突事件触发重核。"
+    },
+    "罪名索引": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "罪名体系随刑法修正案变动，随法条修订事件同步重核。"
+    },
+    "量刑档次": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "随法条修订事件同步重核。"
+    },
+    "立案标准": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "随法条修订事件同步重核。"
+    },
+    "效力库": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "效力库本身为两步校验第一步的基准数据，随规范变化事件族维护。"
+    },
+    "节假日日历": {
+      "track": "effectiveness",
+      "require_flags": [],
+      "note": "期限计算基础数据，不设时限；未覆盖区间按周末推算并强制标注『顺延待核实』（7.3 第 6 条）。"
+    }
+  },
+  "sources": [
+    {
+      "file": "assets/data/crime_index.json",
+      "type": "罪名索引",
+      "entry_path": "index"
+    },
+    {
+      "file": "assets/data/crime_sentencing_table.json",
+      "type": "量刑档次",
+      "entry_path": "crimes"
+    },
+    {
+      "file": "assets/data/case_filing_standards.json",
+      "type": "立案标准",
+      "entry_path": "crimes"
+    },
+    {
+      "file": "assets/data/crime_evidence_map.json",
+      "type": "罪名索引",
+      "entry_path": "crimes"
+    },
+    {
+      "file": "assets/data/crime_relations.json",
+      "type": "罪名索引",
+      "entry_path": ""
+    },
+    {
+      "file": "assets/data/law_effectiveness.json",
+      "type": "效力库",
+      "entry_path": ""
+    },
+    {
+      "file": "assets/data/sentencing_factors.json",
+      "type": "量刑档次",
+      "entry_path": "factors"
+    },
+    {
+      "file": "assets/data/crime_elements.json",
+      "type": "罪名索引",
+      "entry_path": "crimes"
+    },
+    {
+      "file": "assets/data/holiday_calendar.json",
+      "type": "节假日日历",
+      "entry_path": "years"
+    }
+  ],
+  "_pending_registration": [
+    {
+      "item": "localization/ 地方惯例（看守所信息、办案惯例、地方规定）",
+      "type": "惯例类",
+      "blocker": "当前为 .md 形态，脚本仅处理 JSON；按 I-1／L-3 转 JSON 后注册入 sources 即可纳入内容时效轨"
+    },
+    {
+      "item": "references/ 知识层条目",
+      "blocker": "知识层 md 条目尚未登记条目级更新时间元数据，待元数据补齐后纳入"
+    }
+  ],
+  "_mount_points": [
+    "① build_release.py 流水线第②步前置（--strict：内容超期与效力待核双清零方可打包）",
+    "② 法条数据包更新流程末步（8.8.6 第 4 条）",
+    "③ 会话内引用前单文件快查（python scripts/freshness_check.py --file <数据文件>）"
+  ]
+}

@@ -1,3 +1,4 @@
+<!-- Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm. -->
 ---
 page:
   width: 21.0cm
@@ -12,7 +13,7 @@ styles:
     space_after: 8pt
   "##":
     font: 宋体
-    size: 16pt
+    size: 14pt
     bold: true
     space_before: 8pt
     indent: false
@@ -55,6 +56,8 @@ styles:
 ## 被申请人：
 
  [被申请人姓名/名称]，[被申请人信息]
+
+[第二被申请人姓名/名称]，[第二被申请人信息]
 
 ## 请求事项：
 

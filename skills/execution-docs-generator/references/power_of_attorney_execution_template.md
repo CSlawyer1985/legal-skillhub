@@ -1,3 +1,4 @@
+<!-- Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm. -->
 ---
 page:
   width: 21.0cm
@@ -31,6 +32,8 @@ styles:
     align: right
     template: "{year}年  月  日"
 ---
+
+<!-- Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm. -->
 
 # 授权委托书
 

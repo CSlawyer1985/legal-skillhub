@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI数据合规冷启动"
+  short_description: "从项目初始化到候选交付包的证据化AI数据合规冷启动流程"
+  default_prompt: "Use $bootstrap-ai-data-compliance to cold-start this AI data compliance project and build an evidence-traceable candidate delivery package."

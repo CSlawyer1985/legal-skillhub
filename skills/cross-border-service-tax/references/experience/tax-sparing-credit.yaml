@@ -1,0 +1,32 @@
+entries:
+- id: ftc-sparing-not-exempt
+  scenario_key: tax-sparing-credit
+  status: provisional
+  confidence: medium
+  conclusion: 税收饶让是视同已缴非免税,中国仍按25%限额补差额;且须核查协定是否含饶让条款(非所有协定都有)
+  detail: '计算步骤(用 scripts/tax_calc.py ftc.calc --type sparing):
+
+    1. 视同已缴 = 所得 × 协定法定税率(饶让率)
+
+    2. 总视同 = 视同已缴 + 实际已缴
+
+    3. 限额 = 所得 × 25%
+
+    4. 抵免 = min(总视同, 限额)
+
+    5. 境内补税 = 限额 - 抵免(常见漏点:误以为饶让=全额免税)
+
+    饶让是协定条款,非国内法单方给予。中国与部分国家(如马/泰/韩,待核实现行有效)的协定含饶让。
+
+    降级备注(2026-08-12 crit 复查):原 confidence=high 仅满足"≥2 来源"表面门槛。crit 实测发现 sources 实质独立度不足——source[1]为"税收协定饶让条款(协定层面)"是普遍性类别引用,非具体协定文号,等于没引特定证据。降至
+    medium,需补具体协定(如中国-马来西亚税收协定)条款号后再升级。
+
+    '
+  sources:
+  - 税收协定饶让条款(协定层面,通则)
+  - 企业所得税法第23/24条(抵免机制)
+  captured_at: 2026-08-11
+  ref_count: 3
+  search_queries:
+  - 税收饶让 视同已缴 补税
+  - 饶让 免税 区别

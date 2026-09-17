@@ -1,0 +1,14 @@
+{
+  "file": "examples/示例合同_修改留痕版.docx",
+  "openable": true,
+  "paragraphs": 22,
+  "tables": 1,
+  "red_blocks": 7,
+  "missing_required_text": [],
+  "amounts_found": [
+    "2000000"
+  ],
+  "pdf": "examples/示例合同_修改留痕版.pdf",
+  "pdf_pages": 1,
+  "passed": true
+}

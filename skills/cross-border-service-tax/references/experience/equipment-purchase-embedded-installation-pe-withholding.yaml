@@ -1,0 +1,23 @@
+entries:
+- id: equipment-embedded-installation-pe
+  scenario_key: equipment-purchase-embedded-installation-pe-withholding
+  status: provisional
+  confidence: medium
+  conclusion: 设备采购合同的嵌入式安装调试服务未单独定价的,税务机关核定劳务收入;入境安装超协定门槛构成劳务型PE,按机构场所25%征税(非源泉扣缴10%)
+  detail: '双重风险:① 交易定性(嵌入式服务未定价→核定)② PE判断(入境安装天数超12个月门槛→构成劳务型PE)。
+
+    判断链:PE是锚点,先于税率。构成PE→25%机构场所口径;不构成PE→10%源泉扣缴。
+
+    出入境记录是PE天数判断的关键证据。
+
+    '
+  sources:
+  - 国税发〔2010〕19号(未定价劳务核定)
+  - 税收协定第5条(劳务型PE)
+  - 非居民承包工程作业和提供劳务税收管理暂行办法
+  - 中国税务报2017-05-23(大连H案)
+  captured_at: 2026-08-11
+  ref_count: 1
+  search_queries:
+  - 设备采购 嵌入式 安装 调试 代扣
+  - 劳务型常设机构 安装 天数

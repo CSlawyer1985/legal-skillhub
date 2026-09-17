@@ -1,3 +1,4 @@
+// Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 {
   "_description": "法院文书期限规则库。当 court-sms 识别到文书类型时，自动查表生成对应的日历 + 系统通知 + QQ 邮件提醒。",
   "_usage": "由 court_deadline_reminder.py 在文书归档完成后自动读取、匹配、设置提醒。",

@@ -1,0 +1,188 @@
+{
+ "_version": "1.0.0",
+ "_updated_at": "2026-09-02",
+ "_说明": "功能×发布形态矩阵（规格书 D-2）。单一数据源：README 第 3 节与 self_check 输出均引用本文件，版本更新时同步。数据规模一律以数据文件为事实源，本文件不硬编码快照数字。",
+ "version": "2.2.0",
+ "compatibility": {
+  "core": "2.2.0",
+  "law_pack": ">=1.0.0 <2.0.0",
+  "verified_combinations": [
+   {
+    "core": "2.2.0",
+    "law_pack": "1.0.0",
+    "verified_at": "2026-09-02",
+    "form": "本地完整版"
+   }
+  ],
+  "_note": "K-4：兼容声明从区间声明升级为『声明＋已验证组合留痕』，build_release.py 第③步双向机检后追记。"
+ },
+ "anonymization_snapshot": {
+  "anonymized_entries": 0,
+  "named_entries_source": "assets/data/crime_index.json（条目数以该文件为事实源）",
+  "mechanism": "运行时以各条目 has_*_data 标志为事实源；本版匿名化改造列遗留项 L-1，故快照为 0 条匿名",
+  "_note": "快照数字随关键词表配置变化；build_release.py 第③步核对文档记载数与实际计数一致性，防快照漂移。"
+ },
+ "features": [
+  {
+   "name": "条文原文核对",
+   "local_full": "全功能（两步校验完整）",
+   "skillhub": "降级（待核实标注；正式文书生成须告知＋两条出路）",
+   "notes": "依赖 cdiw-law-pack 三级挂载（8.8.4）"
+  },
+  {
+   "name": "法条效力校验",
+   "local_full": "全功能",
+   "skillhub": "全功能",
+   "notes": "效力库随主包，不受解耦影响"
+  },
+  {
+   "name": "期限计算与节假日双轨",
+   "local_full": "全功能",
+   "skillhub": "全功能",
+   "notes": "第105条双轨口径（在押期限自然日连续不顺延＋一般期间顺延＋机关/律师动作日往前推）；输出三类日期＋顺延/前移提示；日历未覆盖区间按周末推算＋强制『待核实』标注"
+  },
+  {
+   "name": "罪名辨析",
+   "local_full": "全量索引（含五族群辨析对）",
+   "skillhub": "走主包数据层匿名化索引（剥离辨析库）",
+   "notes": "hub 版以 crime_index／crime_sentencing_table／case_filing_standards 支撑罪名定位与档次查询"
+  },
+  {
+   "name": "量刑测算",
+   "local_full": "全功能",
+   "skillhub": "可用",
+   "notes": "省级细则为移植者配置项"
+  },
+  {
+   "name": "文书生成（L2）",
+   "local_full": "全功能（引用经两步校验）",
+   "skillhub": "形式可用、引用全量『待核实』，定稿前须人工逐条核对",
+   "notes": "7.2 第 5 条"
+  },
+  {
+   "name": "文书质检 47 条",
+   "local_full": "机检＋人工二态",
+   "skillhub": "同左",
+   "notes": "机检约 30 条、人工约 17 条，详见 references/quality_checklist.md"
+  },
+  {
+   "name": "标点自检",
+   "local_full": "全功能",
+   "skillhub": "全功能",
+   "notes": "作用域为正式文书目录"
+  },
+  {
+   "name": "排版转换 docx",
+   "local_full": "全功能（需 python-docx）",
+   "skillhub": "同左",
+   "notes": "依赖缺失时报错并给安装指引，禁止静默降级"
+  },
+  {
+   "name": "脱敏输出",
+   "local_full": "internal／external 双模式",
+   "skillhub": "同左",
+   "notes": "对外共享一律 external 模式"
+  },
+  {
+   "name": "证据指引库 104 罪名",
+   "local_full": "全功能（104 罪名证据指引）",
+   "skillhub": "不可用（按发布形态排除清单整体剥离）",
+   "notes": "含涉枪爆、性侵与未成年人、毒品、黑社会等章节描述，客观命中平台红线；hub 版降级为 S3 通用框架＋【通用框架】标注"
+  },
+  {
+   "name": "引用台账与核验",
+   "local_full": "全功能",
+   "skillhub": "全功能",
+   "notes": "citation_audit.py"
+  },
+  {
+   "name": "时效双轨校验",
+   "local_full": "全功能",
+   "skillhub": "全功能",
+   "notes": "策略外置于 assets/config/freshness_policy.json"
+  },
+  {
+   "name": "状态副本与回滚",
+   "local_full": "全功能",
+   "skillhub": "全功能",
+   "notes": "默认保留近 3 日，--retention-days 可调"
+  }
+ ],
+ "script_count": {
+  "total": 20,
+  "groups": {
+   "案件状态": [
+    "case_state_manager",
+    "backup_manager"
+   ],
+   "法条检索": [
+    "law_validator",
+    "law_text_lookup"
+   ],
+   "罪名量刑": [
+    "crime_lookup",
+    "sentencing_estimator"
+   ],
+   "期限日历": [
+    "limit_calculator",
+    "holiday_update"
+   ],
+   "质检脱敏": [
+    "pii_sanitizer",
+    "case_number_validator",
+    "intent_classifier",
+    "evidence_contradiction_checker",
+    "self_check"
+   ],
+   "产出质检": [
+    "punctuation_check",
+    "quality_checker",
+    "md2docx_formal",
+    "citation_audit",
+    "freshness_check",
+    "init_case_workspace",
+    "build_release"
+   ]
+  }
+ },
+ "release_exclusion": {
+  "config": "assets/config/release_exclusion.json",
+  "applied_by": "build_release.py 第④步（按 --target 套用）",
+  "local": {
+   "excluded": [],
+   "note": "本地完整版全量保留，不受平台审核约束"
+  },
+  "hub": {
+   "excluded": [
+    "references/evidence_guide/",
+    "references/crime_distinction/"
+   ],
+   "excluded_file_count": 17,
+   "degradation": {
+    "references/evidence_guide/": "S3 阅卷与证据审查技能库的通用框架，按【通用框架】标注",
+    "references/crime_distinction/": "主包数据层匿名化索引（crime_index.json、crime_sentencing_table.json、case_filing_standards.json）"
+   },
+   "unaffected": [
+    "期限计算",
+    "文书生成",
+    "程序合规",
+    "会见接待",
+    "机关沟通",
+    "检索与量刑",
+    "质检与脱敏",
+    "工作区初始化"
+   ],
+   "principle": "整体剥离而非逐文件剥离，避免索引指向被剥离文件造成悬空索引；内容不删不改，本地完整版全量保留"
+  }
+ },
+ "sensitive_content_policy": {
+  "risk": "平台内容合规过滤（关键词＋AI 语义理解）扫描全部附属文件且无法律类豁免通道，刑法分则特定章节描述客观命中红线，未剥离存在整包下架风险",
+  "real_case_data": "已脱敏：原附录 C3 示范表含 8 个真实案号与 6 个真实法院/检察院名，与「Skill 资产禁止残留真实案件数据」纪律冲突，已改为虚构示范数据（方法论结构保留）",
+  "legal_terms": "罪名与构成要件术语不删——删除将导致知识层不可用；改以发布形态分层处置",
+  "measured_baseline": {
+   "高风险命中": 452,
+   "中风险命中": 178,
+   "统计范围": "references/ 全部 md"
+  }
+ }
+}

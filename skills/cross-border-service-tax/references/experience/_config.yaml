@@ -1,0 +1,32 @@
+# 经验库配置 — cross-border-service-tax
+# 修改本文件可调整经验库的行为。模型每次执行经验固化前会读取本文件。
+
+# === 自动捕获开关 ===
+# true: 报告交付后,模型自动自问"本次有无可沉淀经验",有则生成草稿入库(默认)
+# false: 关闭自动学习,仅当用户明确要求"记下这条经验"时才入库
+auto_capture: true
+
+# === 加载门槛 ===
+# 低于此置信度的经验不进入主推理(仅 draft 永不加载)
+# 可选: high / medium / low
+min_confidence_to_load: medium
+
+# === 报告呈现 ===
+# 是否在报告中呈现 provisional(待验证)经验。开启时必须显式标注「[待验证经验]」
+include_provisional_in_report: true
+
+# === 暂存区保留期 ===
+# _pending/ 中的经验超过此天数未被复核,exp_lint 会报 warning
+pending_retention_days: 90
+
+# === 过期提醒 ===
+# verified 经验的 last_verified 超过此月数,exp_lint 报 warning(协定/口径会变)
+stale_warning_months: 12
+
+# === 自动渲染 ===
+# 入库后是否自动调用 exp_render.py 生成人类可读视图
+render_human_view: true
+
+# === 引用计数升级门 ===
+# provisional 经验累计被引用达到此次数后,须提示用户强制复核再升级(避免正反馈污染)
+provisional_review_threshold: 3

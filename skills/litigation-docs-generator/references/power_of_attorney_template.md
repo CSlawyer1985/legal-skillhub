@@ -1,3 +1,4 @@
+<!-- Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm. -->
 ---
 page:
   width: 21.0cm
@@ -12,7 +13,7 @@ styles:
     space_after: 8pt
   "##":
     font: 宋体
-    size: 16pt
+    size: 14pt
     bold: true
     space_before: 8pt
     indent: false
@@ -37,7 +38,7 @@ styles:
 
 委托人：[委托人姓名/名称]
 
-受托人：[律师姓名]，[律师事务所全称]律师，电话：[律师电话]
+受托人：[受托人全称]律师，电话：[律师电话]
 
 联系地址：[律所地址]
 

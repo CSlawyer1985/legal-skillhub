@@ -1,0 +1,516 @@
+{
+  "config_version": "1.1",
+  "id": "retail-ecommerce-customer-service",
+  "display_name": "零售电商客服Agent",
+  "jurisdiction": "中国大陆",
+  "scope": "适用于面向C端消费者的综合电商平台AI客服Agent（售前/售后/物流/投诉，人机协同模式）的数据处理合规冷启动、证据组织与候选评估。演示场景：基于AI生成的示例资料构建，用于验证场景配置参数化机制，不构成真实验证。",
+  "negative_boundary": [
+    "不适用于企业内部知识管理场景",
+    "不自动出具正式法律意见",
+    "不进行未经授权的外部法律检索",
+    "不将论文或公众号资料单独证明强制性法律义务"
+  ],
+  "roles": [
+    "管理层",
+    "业务负责人",
+    "数据安全负责人",
+    "法务合规负责人",
+    "供应商负责人",
+    "技术架构师",
+    "产品经理",
+    "客服运营",
+    "算法工程师"
+  ],
+  "interview_targets": [
+    "管理层",
+    "业务负责人",
+    "数据安全负责人",
+    "法务合规负责人",
+    "供应商负责人",
+    "技术架构师",
+    "产品经理",
+    "客服运营",
+    "算法工程师"
+  ],
+  "data_types": [
+    "用户对话记录",
+    "订单信息（含敏感个人信息）",
+    "物流轨迹信息",
+    "用户账户信息（含敏感个人信息）",
+    "商品详情文本/图片",
+    "售后政策/知识库文档",
+    "人工客服操作日志",
+    "向量库索引数据"
+  ],
+  "p0_items": [
+    "用例和产品边界",
+    "数据来源及授权链",
+    "系统架构",
+    "外部模型及API清单",
+    "权限和提示词规则",
+    "供应商合同及退出安排"
+  ],
+  "risk_themes": [
+    "个人信息泄露",
+    "权限越界与越权访问",
+    "输出内容失实与虚假承诺",
+    "生成内容标识缺失",
+    "数据跨境传输",
+    "算法歧视与不公平对待",
+    "高风险场景人工复核缺失",
+    "供应商连带责任不清",
+    "日志留存与审计追溯不足",
+    "提示词注入与越狱攻击"
+  ],
+  "banned_terms": [
+    "脑机接口",
+    "神经数据",
+    "医疗器械",
+    "医院",
+    "伦理审查",
+    "R038",
+    "R039",
+    "R040",
+    "R041",
+    "R042",
+    "R043",
+    "A/B/C路径"
+  ],
+  "fact_gate_fields": {
+    "p0_registered": "P0资料已登记",
+    "interviews_confirmed": "访谈已完成并确认",
+    "data_map_complete": "数据地图已完整",
+    "system_map_complete": "系统地图已完整",
+    "role_matrix_complete": "角色矩阵已完整",
+    "authorization_and_suppliers_verified": "授权与供应商已核验",
+    "unconfirmed_facts_listed": "未确认事实已列明",
+    "scope_changes_recorded": "范围变化已记录",
+    "lawyer_review_fields_defined": "律师复核字段已定义"
+  },
+  "word_docs": {
+    "startup": [
+      {
+        "doc_no": "00",
+        "title": "电商客服合规启动包使用说明",
+        "short_title": "使用说明",
+        "purpose": "说明电商客服Agent合规启动包的发送顺序、填写边界和证据编号规则。"
+      },
+      {
+        "doc_no": "01",
+        "title": "电商客服项目启动说明及P0资料清单",
+        "short_title": "P0资料清单",
+        "purpose": "收集电商客服Agent项目确认边界所需的第一批最低资料。"
+      },
+      {
+        "doc_no": "02",
+        "title": "电商客服团队及跨部门访谈提纲",
+        "short_title": "访谈提纲",
+        "purpose": "按角色核验用例、数据、系统、供应商和责任。"
+      },
+      {
+        "doc_no": "03",
+        "title": "对话数据与用户画像调研表",
+        "short_title": "对话与画像",
+        "purpose": "记录对话数据、订单/账户信息、用途和授权。"
+      },
+      {
+        "doc_no": "04",
+        "title": "客服模型及供应商调研表",
+        "short_title": "模型与供应商",
+        "purpose": "核验外部生成模型、接口、调用日志和退出安排。"
+      },
+      {
+        "doc_no": "05",
+        "title": "电商客服合规风险评估及整改复验表",
+        "short_title": "评估与复验",
+        "purpose": "在事实核验后记录适用指标、客服风险、整改和复验。"
+      },
+      {
+        "doc_no": "06",
+        "title": "AI客服上线准入核验表",
+        "short_title": "上线准入",
+        "purpose": "生成内容标识、人工复核和高风险转接未满足时不得上线。"
+      }
+    ],
+    "candidate": [
+      {
+        "doc_no": "00",
+        "title": "电商客服合规候选交付包成果索引",
+        "short_title": "成果索引"
+      },
+      {
+        "doc_no": "01",
+        "title": "电商客服合规管理层摘要",
+        "short_title": "管理层摘要"
+      },
+      {
+        "doc_no": "02",
+        "title": "电商客服项目范围及事实确认稿",
+        "short_title": "事实确认稿"
+      },
+      {
+        "doc_no": "03",
+        "title": "电商客服数据、角色与授权链说明",
+        "short_title": "数据系统说明"
+      },
+      {
+        "doc_no": "04",
+        "title": "电商客服合规法律适用性及证据矩阵",
+        "short_title": "适用性矩阵"
+      },
+      {
+        "doc_no": "05",
+        "title": "电商客服合规风险评估候选报告",
+        "short_title": "风险评估"
+      },
+      {
+        "doc_no": "06",
+        "title": "电商客服问题、整改及复验清单",
+        "short_title": "整改复验"
+      },
+      {
+        "doc_no": "07",
+        "title": "电商客服未决事项、律师确认及证据索引",
+        "short_title": "未决与证据"
+      }
+    ]
+  },
+  "seed_sources": [
+    {
+      "source_id": "SRC-LAW-001",
+      "external_id": "",
+      "source_type": "法律法规与规范性文件",
+      "title": "个人信息保护与生成式人工智能相关现行规则（待逐条核验）",
+      "version": "待核验",
+      "effect_status": "待核验",
+      "authority_level": "法律及部门规章",
+      "official_url": "",
+      "file_location": "",
+      "locator": "待核验",
+      "verification_date": "",
+      "verification_status": "待核验",
+      "evidence_label": "需律师确认",
+      "evidence_boundary": "仅为演示场景占位，不构成项目法律意见"
+    }
+  ],
+  "seed_claims": [
+    {
+      "claim_id": "CLM-001",
+      "claim": "电商客服Agent的用户告知、权限分层、人工转接、生成内容标识和供应商责任须结合真实服务流程核验。",
+      "evidence_label": "需律师确认",
+      "legal_effect": "待核验",
+      "applicability_conditions": "面向消费者并处理对话、订单或账户数据时",
+      "source_ids": "SRC-LAW-001",
+      "locator": "",
+      "paths": "消费者服务",
+      "events": "",
+      "risks": "个人信息泄露;权限越界;人工复核缺失;供应商连带责任",
+      "gates": "事实核验",
+      "documents": "启动包;候选报告",
+      "lawyer_review_status": "需律师确认",
+      "claim_boundary": "不证明具体违法或合规"
+    }
+  ],
+  "seed_assessments": [
+    {
+      "assessment_id": "ASM-001",
+      "source_id": "SRC-LAW-001",
+      "theme": "高风险场景人工复核缺失",
+      "assessment_text": "核验涉及金额超500元的索赔、食品安全投诉、人身伤害投诉等高风险场景是否可转人工复核。",
+      "method": "访谈;流程演练;日志查验",
+      "criteria": "高风险场景转人工条件明确并可执行",
+      "expected_evidence": "转接规则;流程图;演练记录;投诉台账",
+      "applicability_status": "通用适用",
+      "legal_effect": "评估指标，不单独证明法律义务",
+      "customer_fact_status": "待核实",
+      "assessment_status": "待评估",
+      "risk_level": "待评估",
+      "remediation_status": "未启动",
+      "retest_status": "未启动",
+      "lawyer_review_status": "需律师确认"
+    }
+  ],
+  "legal_bases": [
+    "个人同意",
+    "合同履行必要",
+    "法定义务",
+    "合法利益",
+    "公开信息"
+  ],
+  "interview_questions": {
+    "管理层": [
+      "客服Agent的立项背景与业务目标是什么？",
+      "日均500万+轮对话的规模下合规投入如何安排？",
+      "上线时间表与算法备案/标识义务如何衔接？",
+      "业务指标（转人工率、响应时效）与合规要求冲突时如何取舍？"
+    ],
+    "业务负责人": [
+      "人机协同分工规则如何设计（AI处理80%的边界）？",
+      "客诉处理SLA与转人工触发条件是什么？",
+      "物流/退款等高风险场景的转接流程如何闭环？",
+      "客服话术与知识库如何维护更新？"
+    ],
+    "数据安全负责人": [
+      "用户对话、订单、账户数据如何分类分级？",
+      "L1/L2/L3权限分层如何落地与校验？",
+      "对话数据加密与脱敏措施覆盖哪些环节？",
+      "数据泄露应急响应预案是否就绪并演练过？"
+    ],
+    "法务合规负责人": [
+      "算法备案进展如何？",
+      "用户协议与隐私政策是否已更新覆盖AI客服场景？",
+      "AI生成内容标识义务如何履行？",
+      "与阿里云/百度的供应商合同合规条款是否齐备？"
+    ],
+    "供应商负责人": [
+      "通义千问与文心一言的遴选标准如何设定？",
+      "合同中数据安全、委托处理与责任条款是否明确？",
+      "SLA与违约责任如何约定？",
+      "供应商退出时对话数据如何删除或返还？"
+    ],
+    "技术架构师": [
+      "系统架构中对话数据流向如何设计（WAF→网关→Agent→向量库）？",
+      "API鉴权与调用日志如何管理？",
+      "提示词注入与越狱攻击防护如何实现？",
+      "模型输出过滤与敏感信息屏蔽如何落地？"
+    ],
+    "产品经理": [
+      "AI客服功能边界如何定义（售前/售后/物流/投诉）？",
+      "用户交互中的AI身份告知与授权如何呈现？",
+      "转人工策略如何触发？",
+      "生成内容标识在UI上如何展示？"
+    ],
+    "客服运营": [
+      "人工客服操作日志如何记录与审计？",
+      "投诉升级路径如何设计？",
+      "涉及金额超500元索赔/食品安全/人身伤害投诉如何强制转人工？",
+      "客服培训与合规意识如何保障？"
+    ],
+    "算法工程师": [
+      "模型训练/检索数据来源与授权如何管理？",
+      "模型评测与公平性（算法歧视）如何验证？",
+      "对话日志留存与审计如何实现？",
+      "模型版本更新如何管控与回滚？"
+    ]
+  },
+  "data_assets": [
+    {
+      "name": "用户对话记录",
+      "category": "个人信息",
+      "source": "平台用户交互",
+      "purpose": "AI客服服务与检索增强",
+      "legal_basis": "个人同意/合同履行必要",
+      "storage": "生产数据库+向量库",
+      "retention": "按平台用户协议",
+      "sharing": "客服Agent/人工客服",
+      "cross_border": "否"
+    },
+    {
+      "name": "订单信息",
+      "category": "敏感个人信息",
+      "source": "电商交易系统",
+      "purpose": "订单查询与售后处理",
+      "legal_basis": "合同履行必要",
+      "storage": "生产数据库",
+      "retention": "按平台政策",
+      "sharing": "客服Agent（L2/L3）",
+      "cross_border": "否"
+    },
+    {
+      "name": "物流轨迹信息",
+      "category": "个人信息",
+      "source": "物流系统接口",
+      "purpose": "物流跟踪查询",
+      "legal_basis": "合同履行必要",
+      "storage": "生产数据库",
+      "retention": "按平台政策",
+      "sharing": "客服Agent（L2）",
+      "cross_border": "否"
+    },
+    {
+      "name": "用户账户信息",
+      "category": "敏感个人信息",
+      "source": "用户注册系统",
+      "purpose": "身份核验与会员服务",
+      "legal_basis": "个人同意/合同履行必要",
+      "storage": "生产数据库",
+      "retention": "按平台政策",
+      "sharing": "客服Agent（L3核验）",
+      "cross_border": "否"
+    },
+    {
+      "name": "商品详情文本/图片",
+      "category": "非个人信息",
+      "source": "商家上传",
+      "purpose": "商品咨询回复",
+      "legal_basis": "合同履行必要",
+      "storage": "商品库",
+      "retention": "按商家协议",
+      "sharing": "客服Agent检索",
+      "cross_border": "否"
+    },
+    {
+      "name": "售后政策/知识库文档",
+      "category": "内部商业信息",
+      "source": "平台客服体系",
+      "purpose": "标准话术与政策回复",
+      "legal_basis": "内部管理",
+      "storage": "知识库",
+      "retention": "持续维护",
+      "sharing": "客服Agent检索",
+      "cross_border": "否"
+    },
+    {
+      "name": "人工客服操作日志",
+      "category": "内部运营数据",
+      "source": "人工客服工作台",
+      "purpose": "转人工处理与审计",
+      "legal_basis": "法定义务/内部管理",
+      "storage": "日志系统",
+      "retention": "按平台政策",
+      "sharing": "内部审计",
+      "cross_border": "否"
+    },
+    {
+      "name": "向量库索引数据",
+      "category": "派生数据",
+      "source": "对话/知识库向量化",
+      "purpose": "语义检索增强",
+      "legal_basis": "合法利益",
+      "storage": "向量数据库",
+      "retention": "按平台政策",
+      "sharing": "客服Agent",
+      "cross_border": "否"
+    }
+  ],
+  "suppliers": [
+    {
+      "name": "阿里云（通义千问-Turbo）",
+      "service": "百炼大模型平台API（主模型）",
+      "role": "受托处理者",
+      "cross_border": "否",
+      "security": "加密传输、访问控制、调用日志、数据不用于训练",
+      "exit": "合同终止后删除或返还数据"
+    },
+    {
+      "name": "百度智能云（文心一言）",
+      "service": "文心一言API（备用模型）",
+      "role": "受托处理者",
+      "cross_border": "否",
+      "security": "加密传输、访问控制、调用日志、数据不用于训练",
+      "exit": "合同终止后删除或返还数据"
+    }
+  ],
+  "risk_matrix": [
+    {
+      "theme": "个人信息泄露",
+      "description": "AI在多轮对话中因上下文混淆意外透露其他用户信息",
+      "law": "PIPL 第9、51条",
+      "likelihood": "中",
+      "impact": "高",
+      "level": "高",
+      "controls": "对话隔离、敏感信息过滤、加密传输",
+      "residual": "中",
+      "remediation": "定期渗透测试与对话内容审计"
+    },
+    {
+      "theme": "权限越界与越权访问",
+      "description": "AI绕过L1/L2/L3权限层级访问未授权数据",
+      "law": "PIPL 第6条",
+      "likelihood": "中",
+      "impact": "高",
+      "level": "高",
+      "controls": "分层授权、登录态校验、越权检测",
+      "residual": "中",
+      "remediation": "权限定期复核与异常访问告警"
+    },
+    {
+      "theme": "输出内容失实与虚假承诺",
+      "description": "AI回复与最新规则不符或擅自承诺",
+      "law": "生成式AI办法 第4条",
+      "likelihood": "高",
+      "impact": "中",
+      "level": "高",
+      "controls": "知识库版本管理、话术模板、输出复核",
+      "residual": "中",
+      "remediation": "回复抽检与知识库定期更新"
+    },
+    {
+      "theme": "生成内容标识缺失",
+      "description": "AI生成回复未添加AI生成标识",
+      "law": "内容标识办法",
+      "likelihood": "中",
+      "impact": "中",
+      "level": "中",
+      "controls": "UI标识、接口强制注入",
+      "residual": "低",
+      "remediation": "上线前标识功能验收"
+    },
+    {
+      "theme": "数据跨境传输",
+      "description": "备用模型切换时数据可能传输至境外",
+      "law": "数据出境办法",
+      "likelihood": "低",
+      "impact": "高",
+      "level": "中",
+      "controls": "供应商境内部署、跨境场景禁用",
+      "residual": "中",
+      "remediation": "模型切换流程管控与出境评估"
+    },
+    {
+      "theme": "算法歧视与不公平对待",
+      "description": "对特定用户群体降低回复质量",
+      "law": "算法推荐规定 第21条",
+      "likelihood": "低",
+      "impact": "中",
+      "level": "中",
+      "controls": "评测集覆盖、公平性测试",
+      "residual": "中",
+      "remediation": "定期公平性评估与投诉监测"
+    },
+    {
+      "theme": "高风险场景人工复核缺失",
+      "description": "超500元索赔/食品安全/人身伤害未强制转人工",
+      "law": "生成式AI办法 第10条",
+      "likelihood": "中",
+      "impact": "高",
+      "level": "高",
+      "controls": "高风险关键词触发转人工",
+      "residual": "中",
+      "remediation": "转接规则测试与台账审计"
+    },
+    {
+      "theme": "供应商连带责任不清",
+      "description": "供应商数据处理责任边界模糊",
+      "law": "PIPL 委托处理",
+      "likelihood": "中",
+      "impact": "中",
+      "level": "中",
+      "controls": "合同责任条款、委托处理协议",
+      "residual": "低",
+      "remediation": "合同审阅与责任矩阵"
+    },
+    {
+      "theme": "日志留存与审计追溯不足",
+      "description": "对话与操作日志留存不完整",
+      "law": "PIPL 第51条",
+      "likelihood": "低",
+      "impact": "中",
+      "level": "中",
+      "controls": "日志系统、访问审计",
+      "residual": "低",
+      "remediation": "日志留存周期与审计流程"
+    },
+    {
+      "theme": "提示词注入与越狱攻击",
+      "description": "用户通过提示词诱导越权或泄露数据",
+      "law": "生成式AI办法",
+      "likelihood": "中",
+      "impact": "高",
+      "level": "高",
+      "controls": "防注入指令、输入过滤、输出校验",
+      "residual": "中",
+      "remediation": "红队测试与防护规则更新"
+    }
+  ]
+}

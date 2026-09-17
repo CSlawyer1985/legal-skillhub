@@ -1,0 +1,4 @@
+interface:
+  display_name: "继承纠纷举证质证要点"
+  short_description: "根据案情和诉讼角色生成继承纠纷举证质证及证据补强清单"
+  default_prompt: "使用 $inheritance-evidence-cross-examination，根据我的案情生成继承纠纷举证与质证要点。"

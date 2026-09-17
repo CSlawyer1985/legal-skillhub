@@ -1,3 +1,4 @@
+# Maintained by Lu Lingyan, Deheng (Wuxi) Law Firm.
 #!/usr/bin/env python3
 """
 法院开庭日历创建脚本（macOS / Windows 双平台）
@@ -57,6 +58,19 @@ def _escape_ps(s):
 
 def _uid(case_no):
     return hashlib.md5(case_no.encode()).hexdigest()[:8]
+
+def _resolve_email():
+    """解析 QQ 收件人邮箱（仅用于显示）。实际发信由 send_court_email.py 读取配置。"""
+    cfg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'config', 'user-preferences.json')
+    try:
+        with open(cfg_path, 'r', encoding='utf-8') as f:
+            cfg = json.load(f)
+        email = cfg.get('court_email', '').strip()
+        if email and 'YOUR_QQ_EMAIL' not in email:
+            return email
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+    return "YOUR_QQ_EMAIL@qq.com"
 
 def _fmt_date(dt):
     return dt.strftime("%Y年%m月%d日")
@@ -541,7 +555,7 @@ def create_court_calendar(case_no, case_type, hearing_time, location,
     1. 写入系统日历（macOS Apple Calendar / Windows Outlook）
     2. 调度提醒任务（launchd / schtasks），到点自动运行 hearing-notify 子命令
        → 弹系统通知 + 桌面生成 Markdown 提醒文件（含需准备材料清单）
-    3. QQ 邮件通知（发到 YOUR_QQ_EMAIL@qq.com，微信送达）
+    3. QQ 邮件通知（发到配置中的 QQ 邮箱，微信送达）
     """
     start_dt = datetime.strptime(hearing_time, "%Y-%m-%d %H:%M")
     end_dt = start_dt + timedelta(hours=2)
@@ -571,7 +585,7 @@ def create_court_calendar(case_no, case_type, hearing_time, location,
     email_ok = schedule_email_reminder(case_no, case_type, hearing_time,
                                        location, pdf_url, uid_hash)
     if email_ok:
-        print(f"  📧 QQ 邮件提醒已设置 → YOUR_QQ_EMAIL@qq.com")
+        print(f"  📧 QQ 邮件提醒已设置 → {_resolve_email()}")
 
     return True
 
@@ -661,7 +675,7 @@ def parse_hearing_info_from_pdf(pdf_path):
     result['case_no'] = m.group(0).strip() if (m := re.search(r'（(\d{4})[^）]*\d+号', text)) else None
     result['case_type'] = m.group(1).strip() if (m := re.search(r'案　?由[：:]\s*(.+)', text)) else None
 
-    m = re.search(r'(应到时间[：:]\s*(\d{4})年(\d{1,2})月(\d{1,2})日[^\n]{0,10}(\d{1,2})[：:](\d{2}))', text)
+    m = re.search(r'(应到时间\s*[：:]?\s*(\d{4})年(\d{1,2})月(\d{1,2})日[^\n]{0,10}(\d{1,2})[：:](\d{2}))', text)
     if m:
         result['hearing_time'] = f"{m.group(2)}-{m.group(3).zfill(2)}-{m.group(4).zfill(2)} {m.group(5)}:{m.group(6)}"
     else:
@@ -672,11 +686,11 @@ def parse_hearing_info_from_pdf(pdf_path):
         else:
             result['hearing_time'] = None
 
-    loc_m = re.search(r'(应到处所[：:]\s*(.+))', text)
+    loc_m = re.search(r'(应到处所\s*[：:]?\s*(.+))', text)
     if loc_m:
         result['location'] = loc_m.group(2).strip()
     else:
-        loc_m = re.search(r'开庭地点[：:]\s*(.+)', text)
+        loc_m = re.search(r'开庭地点\s*[：:]?\s*(.+)', text)
         result['location'] = loc_m.group(1).strip() if loc_m else None
 
     return result

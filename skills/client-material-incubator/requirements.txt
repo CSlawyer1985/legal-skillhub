@@ -1,0 +1,7 @@
+# 委托材料孵化器 · Python 依赖
+# 安装：pip install -r requirements.txt
+# 注意：faster-whisper 为录音通道可选依赖，不需要录音转写可跳过
+
+python-docx>=0.8.11
+faster-whisper>=1.0.0  # 可选：录音通道需要，100% 本地推理
+requests>=2.28.0

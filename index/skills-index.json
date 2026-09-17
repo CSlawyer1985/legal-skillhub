@@ -2228,6 +2228,112 @@
  },
  {
   "schema_version": "0.1",
+  "id": "administrative-relief-workflow",
+  "folder": "administrative-relief-workflow",
+  "name": "行政救济全流程",
+  "summary": "行政救济全流程AI技能。覆盖行政复议与行政诉讼的完整生命周期，从接案评估、受案范围判断、 被申请人适格性确认、行政行为分析、救济路径选择，到复议申请、证据整理、代理意见、 行政诉讼起诉、庭审准备、代理词撰写、二审再审、判决执行。 当用户涉及行政案件维权工作时触发，包括但不限于：\"帮我分析这个行政处罚能不能复议\" \"写行政复议申请书\"\"这个案件走复议还是诉讼\"\"确认被申请人是谁\"\"写行政起诉状\" \"",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": [
+     "contract-work",
+     "calculation"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "administrative",
+    "secondary": [
+     "litigation",
+     "civil-procedure"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "judiciary"
+   ],
+   "industries": [
+    "professional-services",
+    "ai"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "litigation-doc",
+    "evidence",
+    "contract"
+   ],
+   "outputs": [
+    "litigation-doc",
+    "advice"
+   ],
+   "automation_level": "L2",
+   "method_types": [
+    "retrieval-augmented"
+   ]
+  },
+  "skill_type": "knowledge-pack",
+  "complexity": "XL",
+  "structure_score": 3,
+  "files_count": 50,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "何梦宁",
+   "version": "1.1.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "523403b55d755318"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "行政救济全流程AI技能。覆盖行政复议与行政诉讼的完整生命周期，从接案评估、受案范围判断、 被申请人适格性确认、行政行为分析、救济路径选择，到复议申请、证据整理、代理意见、 行政诉讼起诉、庭审准备、代理词撰写、二审再审、判决执行。 当用户涉及行政案件维权工作时触发，包括但不限于：\"帮我分析这个行政处罚能不能复议\" \"写行",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "adoption-petition",
   "folder": "adoption-petition",
   "name": "adoption-petition",
@@ -19436,6 +19542,113 @@
  },
  {
   "schema_version": "0.1",
+  "id": "bootstrap-ai-data-compliance",
+  "folder": "bootstrap-ai-data-compliance",
+  "name": "bootstrap-ai-data-compliance",
+  "summary": "律师驱动的 AI 数据合规冷启动工作流：律师描述 AI+产业合规需求后，Skill 四步引导完成冷启动——产业信息收集 → 知识库构建 → 数据流图与评估报告 → 以《生成式AI行业网络数据安全风险评估工作手册》为指引的进企调研前文件包。适用于内部律师或 AI 协作代理快速搭建任意 AI 产业（客服/知识助手/营销生成/合同审查/医疗等）的数据合规项目；不用于自动出具正式法律意见、绕过律师复核、未",
+  "classification": {
+   "tasks": {
+    "primary": "contract-work",
+    "secondary": [
+     "compliance"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "data-privacy",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "healthcare",
+    "ai"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "contract",
+    "nl-question"
+   ],
+   "outputs": [
+    "json",
+    "risk-list",
+    "checklist"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 5,
+  "files_count": 51,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "api-call",
+    "file-read",
+    "network",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "马也",
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "ec2eb03c62bbf9a5"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "律师驱动的 AI 数据合规冷启动工作流：律师描述 AI+产业合规需求后，Skill 四步引导完成冷启动——产业信息收集 → 知识库构建 → 数据流图与评估报告 → 以《生成式AI行业网络数据安全风险评估工作手册》为指引的进企调研前文件包。适用于内部律师或 AI 协作代理快速搭建任意 AI 产业（客服/知识助手/营销生成",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "boundary-dispute-complaint",
   "folder": "boundary-dispute-complaint",
   "name": "boundary-dispute-complaint",
@@ -23715,6 +23928,112 @@
  },
  {
   "schema_version": "0.1",
+  "id": "case-archiver",
+  "folder": "case-archiver",
+  "name": "case-archiver",
+  "summary": "民事案件卷宗归档助手 V3。用户提出归档案件、先归档现有材料、完卷、补齐材料、生成归档表格或合并卷宗 PDF 时使用。按律所配置分类材料、提取字段、可靠填写 Word 表格、生成缺失清单；合并 PDF 必须先取得用户确认。",
+  "classification": {
+   "tasks": {
+    "primary": "doc-reading",
+    "secondary": [
+     "contract-work"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "arbitration-adr",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "judiciary"
+   ],
+   "industries": [
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "pdf"
+   ],
+   "outputs": [
+    "data-table",
+    "json",
+    "checklist"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "tool-calling"
+   ]
+  },
+  "skill_type": "code-package",
+  "complexity": "L",
+  "structure_score": 4,
+  "files_count": 15,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "api-call",
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "9f7cf43dcff0a57d"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "民事案件卷宗归档助手 V3。用户提出归档案件、先归档现有材料、完卷、补齐材料、生成归档表格或合并卷宗 PDF 时使用。按律所配置分类材料、提取字段、可靠填写 Word 表格、生成缺失清单；合并 PDF 必须先取得用户确认。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "case-briefer",
   "folder": "case-briefer",
   "name": "case-briefer",
@@ -25972,6 +26291,116 @@
   "confidence": {
    "jurisdiction": "medium",
    "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "cdiw-core",
+  "folder": "cdiw-core",
+  "name": "cdiw-core",
+  "summary": "调度刑事辩护全流程智能工作台的工作线。识别用户所处程序阶段与当前任务节点， 路由至对应工作流（会见、文书、期限、家属接待、机关沟通、强制措施、调查取证、 法律检索、量刑情节、程序合规十条工作线），维护案件状态与服务进程文件， 支持断点续接与跨工作线协调，内置法条效力校验、期限计算、量刑测算与自动脱敏。 当用户需要处理刑事案件、提供案件基本信息、询问办案流程、发起会见提纲生成、期限计算、 取保申请书",
+  "classification": {
+   "tasks": {
+    "primary": "legal-research",
+    "secondary": [
+     "litigation",
+     "contract-work"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "criminal",
+    "secondary": [
+     "litigation"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "public"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "evidence",
+    "nl-question"
+   ],
+   "outputs": [
+    "checklist",
+    "advice"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 5,
+  "files_count": 132,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": "2.2.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "eafd0344b75b3b1e"
+  },
+  "license": {
+   "spdx_id": "cc-by-nc-sa-4.0",
+   "risk": "restrictive-nc"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "调度刑事辩护全流程智能工作台的工作线。识别用户所处程序阶段与当前任务节点， 路由至对应工作流（会见、文书、期限、家属接待、机关沟通、强制措施、调查取证、 法律检索、量刑情节、程序合规十条工作线），维护案件状态与服务进程文件， 支持断点续接与跨工作线协调，内置法条效力校验、期限计算、量刑测算与自动脱敏。 当用户需要处理刑",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "low",
+   "area_of_law": "high"
   }
  },
  {
@@ -32173,6 +32602,105 @@
  },
  {
   "schema_version": "0.1",
+  "id": "civil-litigation-workflow",
+  "folder": "civil-litigation-workflow",
+  "name": "civil-litigation-workflow",
+  "summary": "民商事诉讼案件全流程办案工作流（编排层），以邹碧华《要件审判九步法》为思维底座，原告/被告双轨，覆盖接案评估、请求权基础分析、起诉应诉、保全、举证质证、庭前庭审、代理词、调解和解、上诉再审、执行、归档复盘十三个环节。Triggers when 用户需要办理民商事诉讼案件、分析案件诉讼方案、确定请求权基础、起草起诉状/答辩状/代理词、申请财产保全、整理争点、评估和解方案、分析判决书、申请强制执行，或",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": [
+     "civil-procedure",
+     "contract-law"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "construction",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "litigation-doc"
+   ],
+   "outputs": [
+    "litigation-doc"
+   ],
+   "automation_level": "L2",
+   "method_types": [
+    "retrieval-augmented"
+   ]
+  },
+  "skill_type": "knowledge-pack",
+  "complexity": "XL",
+  "structure_score": 3,
+  "files_count": 66,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "1dd0be867f3c3925"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "民商事诉讼案件全流程办案工作流（编排层），以邹碧华《要件审判九步法》为思维底座，原告/被告双轨，覆盖接案评估、请求权基础分析、起诉应诉、保全、举证质证、庭前庭审、代理词、调解和解、上诉再审、执行、归档复盘十三个环节。Triggers when 用户需要办理民商事诉讼案件、分析案件诉讼方案、确定请求权基础、起草起诉状/答",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "claim-construction-chart",
   "folder": "claim-construction-chart",
   "name": "claim-construction-chart",
@@ -34620,6 +35148,111 @@
   "confidence": {
    "jurisdiction": "low",
    "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "client-material-incubator",
+  "folder": "client-material-incubator",
+  "name": "委托材料孵化器",
+  "summary": "帮助律所把自有委托材料模板变量化建成母版库，再通过上传笔录/录音或输入案件信息，成套生成委托代理合同、授权委托书、风险告知书等委托材料。触发词：委托材料、委托材料模板、委托材料包、模板库搭建、委托材料生成、风险告知笔录、委托手续。",
+  "classification": {
+   "tasks": {
+    "primary": "legal-analysis",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "litigation-doc",
+    "contract",
+    "evidence"
+   ],
+   "outputs": [
+    "json",
+    "litigation-doc",
+    "checklist"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 4,
+  "files_count": 36,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "file-read",
+    "file-write",
+    "network"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": "3.3.3",
+   "collected_at": "2026-08-04",
+   "content_hash": "3d65dbba3c37c993"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "帮助律所把自有委托材料模板变量化建成母版库，再通过上传笔录/录音或输入案件信息，成套生成委托代理合同、授权委托书、风险告知书等委托材料。触发词：委托材料、委托材料模板、委托材料包、模板库搭建、委托材料生成、风险告知笔录、委托手续。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
   }
  },
  {
@@ -49151,6 +49784,114 @@
  },
  {
   "schema_version": "0.1",
+  "id": "contract-intelligence-cn",
+  "folder": "contract-intelligence-cn",
+  "name": "contract-intelligence-cn",
+  "summary": "Review and redline Chinese contracts with verification.",
+  "classification": {
+   "tasks": {
+    "primary": "contract-work",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "contract-law",
+    "secondary": [
+     "arbitration-adr",
+     "civil-procedure"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "investor"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "contract",
+    "judgment"
+   ],
+   "outputs": [
+    "redline",
+    "checklist",
+    "data-table"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "L",
+  "structure_score": 4,
+  "files_count": 21,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "戴永密律师, Hermes Agent",
+   "version": "2.2.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "1705c536b13249d0"
+  },
+  "license": {
+   "spdx_id": "cc-by-nc",
+   "risk": "restrictive-nc"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "Review and redline Chinese contracts with verification.",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "contract-intelligence-workflow-reviewer-carl-ditzler",
   "folder": "contract-intelligence-workflow-reviewer-carl-ditzler",
   "name": "contract-intelligence-workflow-reviewer-carl-ditzler",
@@ -59087,6 +59828,109 @@
   "confidence": {
    "jurisdiction": "low",
    "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "cross-border-service-tax",
+  "folder": "cross-border-service-tax",
+  "name": "cross-border-service-tax",
+  "summary": "办理中国跨境服务贸易涉税业务,完成尽职调查、税收协定待遇审查、代扣代缴税款计算与纳税申报/备案。Use whenever the user mentions 跨境服务贸易、跨境服务、跨境支付、向境外付款、付汇、代扣代缴、扣缴义务人、非居民企业、税收协定、协定待遇、常设机构、PE、特许权使用费、技术服务费、咨询费、租金、股息、利息、营业利润、零税率、跨境增值税、免税、一般计税、备案、税收居民、居民身",
+  "classification": {
+   "tasks": {
+    "primary": "contract-work",
+    "secondary": [
+     "calculation"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "tax",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "international"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "investor"
+   ],
+   "industries": [
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "nl-question"
+   ],
+   "outputs": [
+    "risk-list",
+    "checklist",
+    "json"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 4,
+  "files_count": 52,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "7ff781834634b40d"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": true,
+   "curated": false
+  },
+  "logic_summary": "办理中国跨境服务贸易涉税业务,完成尽职调查、税收协定待遇审查、代扣代缴税款计算与纳税申报/备案。Use whenever the user mentions 跨境服务贸易、跨境服务、跨境支付、向境外付款、付汇、代扣代缴、扣缴义务人、非居民企业、税收协定、协定待遇、常设机构、PE、特许权使用费、技术服务费、咨询费、租金、",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
   }
  },
  {
@@ -74975,6 +75819,112 @@
  },
  {
   "schema_version": "0.1",
+  "id": "element-based-plaintiff",
+  "folder": "element-based-plaintiff",
+  "name": "element-based-plaintiff",
+  "summary": "要素式起诉状生成技能（保留代理人/送达/电子送达模块，首次录入并持久化版）。当用户提交传统起诉状文本，要求转换为要素式起诉状时触发。支持买卖合同、民间借贷、金融借款、房屋买卖、房屋租赁、建设工程施工、物业服务合同、劳动争议、离婚、机动车交通事故责任、信用卡、融资租赁、保证保险、财产损失保险、人身保险、责任保险、证券虚假陈述等17种民事案由。输出样式严格对标最高人民法院《民事诉讼文书样式》民商式要素",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": [
+     "calculation"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": [
+     "real-estate",
+     "construction"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "public",
+    "judiciary"
+   ],
+   "industries": [
+    "finance",
+    "construction"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "litigation-doc",
+    "docx",
+    "contract"
+   ],
+   "outputs": [
+    "litigation-doc",
+    "checklist",
+    "data-table"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "M",
+  "structure_score": 1,
+  "files_count": 2,
+  "has": {
+   "scripts": false,
+   "references": false,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "a1bfd7d6f44017d9"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": true,
+   "curated": false
+  },
+  "logic_summary": "要素式起诉状生成技能（保留代理人/送达/电子送达模块，首次录入并持久化版）。当用户提交传统起诉状文本，要求转换为要素式起诉状时触发。支持买卖合同、民间借贷、金融借款、房屋买卖、房屋租赁、建设工程施工、物业服务合同、劳动争议、离婚、机动车交通事故责任、信用卡、融资租赁、保证保险、财产损失保险、人身保险、责任保险、证券虚假",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "high",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "element-complaint-filler",
   "folder": "element-complaint-filler",
   "name": "element-complaint-filler",
@@ -74993,11 +75943,12 @@
    ],
    "multi_jurisdictional": false,
    "user_roles": [
-    "judiciary",
-    "investor"
+    "lawyer",
+    "judiciary"
    ],
    "industries": [
-    "ai"
+    "ai",
+    "professional-services"
    ]
   },
   "capabilities": {
@@ -75018,7 +75969,7 @@
   "skill_type": "hybrid",
   "complexity": "M",
   "structure_score": 4,
-  "files_count": 6,
+  "files_count": 7,
   "has": {
    "scripts": true,
    "references": true,
@@ -75044,14 +75995,14 @@
   },
   "language": "zh-CN",
   "provenance": {
-   "author": null,
-   "version": "1.0.0",
+   "author": "陆凌燕（北京德恒（无锡）律师事务所）",
+   "version": "1.0.3",
    "collected_at": "2026-08-04",
-   "content_hash": "d5d1cecaabfe1152"
+   "content_hash": "33d86b7306f2e177"
   },
   "license": {
-   "spdx_id": "undeclared",
-   "risk": "undeclared"
+   "spdx_id": "mit",
+   "risk": "open"
   },
   "verification": {
    "status": "collected"
@@ -83425,14 +84376,15 @@
   "summary": "执行案件文书成套生成技能。上传生效法律文书后，自动完成申请执行时效校验、执行管辖确认、金钱债权金额计算，并一键生成强制执行申请书、利息计算表、失信/限消申请书、授权委托书、法定代表人身份证明、财产线索清单、委托代理合同等全套执行立案文书。",
   "classification": {
    "tasks": {
-    "primary": "calculation",
-    "secondary": []
+    "primary": "legal-research",
+    "secondary": [
+     "calculation",
+     "quality-control"
+    ]
    },
    "areas_of_law": {
-    "primary": "contract-law",
-    "secondary": [
-     "civil-procedure"
-    ]
+    "primary": "civil-procedure",
+    "secondary": []
    },
    "jurisdictions": [
     "china"
@@ -83440,7 +84392,7 @@
    "multi_jurisdictional": false,
    "user_roles": [
     "lawyer",
-    "judiciary"
+    "public"
    ],
    "industries": [
     "professional-services"
@@ -83466,7 +84418,7 @@
   "skill_type": "hybrid",
   "complexity": "L",
   "structure_score": 4,
-  "files_count": 14,
+  "files_count": 19,
   "has": {
    "scripts": true,
    "references": true,
@@ -83480,9 +84432,11 @@
    "dependencies": []
   },
   "data_security": {
-   "processing": "local",
+   "processing": "local-external-model",
    "permissions": [
-    "file-read"
+    "file-read",
+    "file-write",
+    "network"
    ]
   },
   "risk": {
@@ -83491,10 +84445,10 @@
   },
   "language": "zh-CN",
   "provenance": {
-   "author": null,
-   "version": "3.1.0",
+   "author": "陆凌燕（北京德恒（无锡）律师事务所）",
+   "version": "3.5.2",
    "collected_at": "2026-08-04",
-   "content_hash": "31f25e7b9be6aed1"
+   "content_hash": "803b155ae5846eb3"
   },
   "license": {
    "spdx_id": "mit",
@@ -97688,6 +98642,307 @@
  },
  {
   "schema_version": "0.1",
+  "id": "gp-bid-document",
+  "folder": "gp-bid-document",
+  "name": "gp-bid-document",
+  "summary": "根据政府采购招标或磋商文件和供应商真实资料，编制、补全或审查法律服务投标/响应文件，并生成逐项响应、评分证据映射和废标风险清单。用于写标书、响应文件、服务方案、按采购文件组稿或检查废标风险。服务于律师事务所等供应商。",
+  "classification": {
+   "tasks": {
+    "primary": "legal-analysis",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "general",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "government",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "evidence",
+    "xlsx"
+   ],
+   "outputs": [
+    "json",
+    "risk-list",
+    "checklist"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 5,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "cfd80ed6c24a1188"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "根据政府采购招标或磋商文件和供应商真实资料，编制、补全或审查法律服务投标/响应文件，并生成逐项响应、评分证据映射和废标风险清单。用于写标书、响应文件、服务方案、按采购文件组稿或检查废标风险。服务于律师事务所等供应商。",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "gp-bid-scoring-analysis",
+  "folder": "gp-bid-scoring-analysis",
+  "name": "gp-bid-scoring-analysis",
+  "summary": "拆解政府采购招标或磋商文件的资格门槛、实质性要求和评分办法，评估可得分、材料缺口、报价敏感性与投标决策。用于拆评分表、判断能否投、估算得分、报价和提分空间，并做采购文件合规初筛。默认从供应商/律师事务所投标视角工作。",
+  "classification": {
+   "tasks": {
+    "primary": "legal-analysis",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "general",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "government",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "evidence"
+   ],
+   "outputs": [
+    "json",
+    "checklist"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "tool-calling"
+   ]
+  },
+  "skill_type": "code-package",
+  "complexity": "M",
+  "structure_score": 4,
+  "files_count": 6,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "7f8e6cb560a4c137"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "拆解政府采购招标或磋商文件的资格门槛、实质性要求和评分办法，评估可得分、材料缺口、报价敏感性与投标决策。用于拆评分表、判断能否投、估算得分、报价和提分空间，并做采购文件合规初筛。默认从供应商/律师事务所投标视角工作。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "gp-challenge-complaint",
+  "folder": "gp-challenge-complaint",
+  "name": "gp-challenge-complaint",
+  "summary": "办理政府采购询问、质疑、投诉、答复及后续救济，先计算期限和核对受理条件，再整理证据、选择请求并起草文书。用于不服采购文件、采购过程或中标结果，质疑函、投诉书、期限计算、质疑答复和投诉决定后续处理。高风险结论必须依据项目属地与当时有效规则复核。",
+  "classification": {
+   "tasks": {
+    "primary": "contract-work",
+    "secondary": [
+     "litigation"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "ai",
+    "government"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "evidence"
+   ],
+   "outputs": [
+    "json",
+    "checklist",
+    "advice"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "tool-calling"
+   ]
+  },
+  "skill_type": "code-package",
+  "complexity": "M",
+  "structure_score": 4,
+  "files_count": 7,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "9a6dc74fb8c49bba"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "办理政府采购询问、质疑、投诉、答复及后续救济，先计算期限和核对受理条件，再整理证据、选择请求并起草文书。用于不服采购文件、采购过程或中标结果，质疑函、投诉书、期限计算、质疑答复和投诉决定后续处理。高风险结论必须依据项目属地与当时有效规则复核。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "gp-eval-criteria-designer",
   "folder": "gp-eval-criteria-designer",
   "name": "gp-eval-criteria-designer",
@@ -97795,6 +99050,306 @@
   "confidence": {
    "jurisdiction": "medium",
    "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "gp-lead-radar",
+  "folder": "gp-lead-radar",
+  "name": "gp-lead-radar",
+  "summary": "发现、筛选和持续监控浙江省政府采购法律服务机会，并按可投性、匹配度、竞争与投入产出排序。用于找标、本周政采线索、采购意向、法律顾问项目、续约窗口、竞对或采购人监控。仅处理浙江省项目；省外检索应改用适合该地区的数据源与规则。",
+  "classification": {
+   "tasks": {
+    "primary": "legal-analysis",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "general",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "government",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "evidence",
+    "contract",
+    "webpage"
+   ],
+   "outputs": [
+    "json",
+    "checklist"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 5,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "f6c5acb3defbbd38"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "发现、筛选和持续监控浙江省政府采购法律服务机会，并按可投性、匹配度、竞争与投入产出排序。用于找标、本周政采线索、采购意向、法律顾问项目、续约窗口、竞对或采购人监控。仅处理浙江省项目；省外检索应改用适合该地区的数据源与规则。",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "gp-mock-evaluation",
+  "folder": "gp-mock-evaluation",
+  "name": "gp-mock-evaluation",
+  "summary": "对政府采购投标或响应文件进行交标前模拟评审，依采购文件先审资格与符合性，再逐项评分，输出证据页码、失分、提分优先级和机器可读性问题。用于预评、模拟评委、交卷前检查、废标风险复核或判断还能提升多少分。",
+  "classification": {
+   "tasks": {
+    "primary": "legal-analysis",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "general",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "government"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "evidence",
+    "xlsx"
+   ],
+   "outputs": [
+    "json",
+    "checklist",
+    "data-table"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "tool-calling"
+   ]
+  },
+  "skill_type": "code-package",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 6,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "87621e6e8af4791d"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "对政府采购投标或响应文件进行交标前模拟评审，依采购文件先审资格与符合性，再逐项评分，输出证据页码、失分、提分优先级和机器可读性问题。用于预评、模拟评委、交卷前检查、废标风险复核或判断还能提升多少分。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "gp-procurement-inspection",
+  "folder": "gp-procurement-inspection",
+  "name": "gp-procurement-inspection",
+  "summary": "从采购人、代理机构或供应商视角，对政府采购项目进行合规体检、专项检查、迎检自查和证据化工作底稿编制。用于采购文件歧视性条款、程序合规、代理机构监督检查、虚假材料、围标串标线索以及整改建议。正式结论需结合项目属地和行为发生时有效规则。",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "contract-law",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "investor"
+   ],
+   "industries": [
+    "government",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "evidence",
+    "contract",
+    "webpage"
+   ],
+   "outputs": [
+    "checklist",
+    "json",
+    "advice"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 6,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "ce222a9d01c9a39f"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "从采购人、代理机构或供应商视角，对政府采购项目进行合规体检、专项检查、迎检自查和证据化工作底稿编制。用于采购文件歧视性条款、程序合规、代理机构监督检查、虚假材料、围标串标线索以及整改建议。正式结论需结合项目属地和行为发生时有效规则。",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
   }
  },
  {
@@ -107525,6 +109080,109 @@
  },
  {
   "schema_version": "0.1",
+  "id": "inheritance-evidence-cross-examination",
+  "folder": "inheritance-evidence-cross-examination",
+  "name": "inheritance-evidence-cross-examination",
+  "summary": "为中国大陆继承纠纷生成、审查和补强举证清单与质证意见。用于法定继承、代位继承、转继承、遗嘱效力、遗嘱执行、遗产范围与分割、被继承人债务、遗赠、遗赠扶养协议、遗产管理人、继承权丧失或恢复、诉讼程序与新旧法衔接等案件；也用于用户要求整理证据目录、举证目的、三性一力质证、原告或被告攻防、证据缺口、庭审提纲或法律依据时。",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": [
+     "legal-research"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "family",
+    "secondary": [
+     "litigation"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "public",
+    "lawyer"
+   ],
+   "industries": [
+    "insurance",
+    "government"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "evidence"
+   ],
+   "outputs": [
+    "evidence-list",
+    "checklist",
+    "data-table"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 5,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "f47b4004562e7e15"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "为中国大陆继承纠纷生成、审查和补强举证清单与质证意见。用于法定继承、代位继承、转继承、遗嘱效力、遗嘱执行、遗产范围与分割、被继承人债务、遗赠、遗赠扶养协议、遗产管理人、继承权丧失或恢复、诉讼程序与新旧法衔接等案件；也用于用户要求整理证据目录、举证目的、三性一力质证、原告或被告攻防、证据缺口、庭审提纲或法律依据时。",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "initial-board-resolutions",
   "folder": "initial-board-resolutions",
   "name": "initial-board-resolutions",
@@ -110935,6 +112593,110 @@
   "confidence": {
    "jurisdiction": "medium",
    "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "invoice-from-email",
+  "folder": "invoice-from-email",
+  "name": "invoice-from-email",
+  "summary": "从邮箱自动搜索下载发票/行程单附件，智能三级文字提取（PyMuPDF/Tesseract/PaddleOCR自动降级），发票+行程单合并排版到A4纸（火车票按真实车票尺寸上下排版），生成单Sheet费用清单Excel（行程并入备注、火车票标去返程）。零OCR依赖即可处理90%+电子发票。",
+  "classification": {
+   "tasks": {
+    "primary": "doc-reading",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "general",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "investor"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "pdf",
+    "xlsx",
+    "image"
+   ],
+   "outputs": [
+    "data-table",
+    "checklist",
+    "letter"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "tool-calling"
+   ]
+  },
+  "skill_type": "tool-wrapper",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 6,
+  "has": {
+   "scripts": true,
+   "references": false,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read",
+    "file-write"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "陆凌燕（北京德恒（无锡）律师事务所）",
+   "version": "1.0.6",
+   "collected_at": "2026-08-04",
+   "content_hash": "b491401b3990e548"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "从邮箱自动搜索下载发票/行程单附件，智能三级文字提取（PyMuPDF/Tesseract/PaddleOCR自动降级），发票+行程单合并排版到A4纸（火车票按真实车票尺寸上下排版），生成单Sheet费用清单Excel（行程并入备注、火车票标去返程）。零OCR依赖即可处理90%+电子发票。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "low"
   }
  },
  {
@@ -120124,6 +121886,107 @@
  },
  {
   "schema_version": "0.1",
+  "id": "lawyer-engineering-appraisal",
+  "folder": "lawyer-engineering-appraisal",
+  "name": "lawyer-engineering-appraisal",
+  "summary": "律师参与建设工程造价司法鉴定操作指引——全流程工作skill。覆盖鉴定准备、委托、材料举证质证、鉴定实施、意见审查质证、鉴定人出庭、专家辅助人出庭七大阶段。当律师代理建设工程施工合同纠纷案件需要处理造价鉴定相关事务时使用。",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "construction",
+    "secondary": [
+     "litigation"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "judiciary"
+   ],
+   "industries": [
+    "construction",
+    "ai"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "litigation-doc",
+    "contract",
+    "evidence"
+   ],
+   "outputs": [
+    "litigation-doc"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "M",
+  "structure_score": 2,
+  "files_count": 4,
+  "has": {
+   "scripts": false,
+   "references": false,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "58cdc87ddf470038"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "律师参与建设工程造价司法鉴定操作指引——全流程工作skill。覆盖鉴定准备、委托、材料举证质证、鉴定实施、意见审查质证、鉴定人出庭、专家辅助人出庭七大阶段。当律师代理建设工程施工合同纠纷案件需要处理造价鉴定相关事务时使用。",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "lawyer-fee-quote",
   "folder": "lawyer-fee-quote",
   "name": "lawyer-fee-quote",
@@ -123050,8 +124913,8 @@
     "in-house"
    ],
    "industries": [
-    "ai",
-    "professional-services"
+    "professional-services",
+    "ai"
    ]
   },
   "capabilities": {
@@ -123073,11 +124936,11 @@
   "skill_type": "hybrid",
   "complexity": "L",
   "structure_score": 4,
-  "files_count": 14,
+  "files_count": 19,
   "has": {
    "scripts": true,
    "references": true,
-   "assets": true,
+   "assets": false,
    "license": false
   },
   "compatibility": {
@@ -123090,7 +124953,8 @@
    "processing": "local",
    "permissions": [
     "file-read",
-    "file-write"
+    "file-write",
+    "shell"
    ]
   },
   "risk": {
@@ -123099,10 +124963,10 @@
   },
   "language": "zh-CN",
   "provenance": {
-   "author": null,
-   "version": "3.1.0",
+   "author": "陆凌燕（北京德恒（无锡）律师事务所）",
+   "version": "3.8.0",
    "collected_at": "2026-08-04",
-   "content_hash": "168ac7ef42777636"
+   "content_hash": "8744cf24c5ab046d"
   },
   "license": {
    "spdx_id": "mit",
@@ -140498,19 +142362,19 @@
   "id": "litigation-docs-generator",
   "folder": "litigation-docs-generator",
   "name": "litigation-docs-generator",
-  "summary": "民商事诉讼文书成套生成技能（诉状文本生成）。当用户要求起草民事起诉状、生成诉讼文书材料、准备立案材料时触发。自动生成8份配套文书：民事起诉状、诉讼保全申请书、担保书、授权委托书、法定代表人身份证明（仅原告为公司时）、律师接待笔录、利息损失计算表（Excel）、委托代理合同。核心流程：收集信息→法律检索（元典/北大法宝）→强制加载全部模板→逐份按模板生成。所有文书严格由 references/ 下的",
+  "summary": "民商事诉讼文书成套生成技能（诉状文本生成）。当用户要求起草民事起诉状、生成诉讼文书材料、准备立案材料时触发。自动生成10份配套文书：民事起诉状、诉讼保全申请书、担保书、授权委托书、所函（律所指派函）、法定代表人身份证明（仅原告为公司时）、律师接待笔录、利息损失计算表（Excel）、委托代理合同（另含风险告知书、律师工作反馈卡两份固定文书，每次生成原样复制德恒标准原件，防止遗漏材料），案由匹配时联动",
   "classification": {
    "tasks": {
-    "primary": "legal-research",
+    "primary": "contract-work",
     "secondary": [
      "litigation",
-     "contract-work"
+     "legal-research"
     ]
    },
    "areas_of_law": {
     "primary": "litigation",
     "secondary": [
-     "civil-procedure"
+     "contract-law"
     ]
    },
    "jurisdictions": [
@@ -140518,12 +142382,11 @@
    ],
    "multi_jurisdictional": false,
    "user_roles": [
-    "lawyer",
-    "public"
+    "lawyer"
    ],
    "industries": [
-    "ai",
-    "professional-services"
+    "professional-services",
+    "ai"
    ]
   },
   "capabilities": {
@@ -140546,7 +142409,7 @@
   "skill_type": "hybrid",
   "complexity": "L",
   "structure_score": 4,
-  "files_count": 11,
+  "files_count": 19,
   "has": {
    "scripts": true,
    "references": true,
@@ -140571,10 +142434,10 @@
   },
   "language": "zh-CN",
   "provenance": {
-   "author": null,
-   "version": "2.2.1",
+   "author": "陆凌燕（北京德恒（无锡）律师事务所）",
+   "version": "2.7.2",
    "collected_at": "2026-08-04",
-   "content_hash": "fe749fc802dc623a"
+   "content_hash": "08497f908cf3500f"
   },
   "license": {
    "spdx_id": "mit",
@@ -140585,7 +142448,7 @@
   },
   "tags_src": [],
   "badges": {
-   "freshness": false,
+   "freshness": true,
    "curated": false
   },
   "logic_summary": "民商事诉讼文书成套生成：收集案件信息后（可选经元典/北大法宝检索），强制加载 references/ 下全部模板，用 render_docx.py 按 YAML 格式声明渲染 8 份配套文书——民事起诉状、诉讼保全申请书、担保书、授权委托书、法定代表人身份证明（仅公司原告）、律师接待笔录、利息损失计算表（Excel）、委托代理合同，关键信息严格一致，数据库未连接时降级并醒目标注法条未核验。",
@@ -140974,8 +142837,8 @@
    ],
    "multi_jurisdictional": false,
    "user_roles": [
-    "lawyer",
-    "judiciary"
+    "judiciary",
+    "lawyer"
    ],
    "industries": [
     "professional-services"
@@ -141000,7 +142863,7 @@
   "skill_type": "hybrid",
   "complexity": "L",
   "structure_score": 5,
-  "files_count": 20,
+  "files_count": 25,
   "has": {
    "scripts": true,
    "references": true,
@@ -141014,10 +142877,11 @@
    "dependencies": []
   },
   "data_security": {
-   "processing": "local",
+   "processing": "local-external-model",
    "permissions": [
     "file-read",
     "file-write",
+    "network",
     "shell"
    ]
   },
@@ -141027,10 +142891,10 @@
   },
   "language": "zh-CN",
   "provenance": {
-   "author": "陆凌燕",
-   "version": "2.2.2",
+   "author": "陆凌燕（北京德恒（无锡）律师事务所）",
+   "version": "2.4.7",
    "collected_at": "2026-08-04",
-   "content_hash": "7a799ea1339f00c1"
+   "content_hash": "a25320df56752c5f"
   },
   "license": {
    "spdx_id": "mit",
@@ -141041,7 +142905,7 @@
   },
   "tags_src": [],
   "badges": {
-   "freshness": true,
+   "freshness": false,
    "curated": false
   },
   "logic_summary": "诉讼信息中枢：接收法院送达短信、送达链接或纸质文书照片，OCR/文本解析提取案号与开庭信息，匹配既有案卷并下载归档到标准目录，基于 12 种期限规则库自动匹配期限，通过系统日历、QQ 邮件与桌面 Markdown 三条线提醒，支持 macOS/Windows/Linux。",
@@ -141066,7 +142930,7 @@
    "complements": []
   },
   "confidence": {
-   "jurisdiction": "low",
+   "jurisdiction": "medium",
    "area_of_law": "medium"
   }
  },
@@ -142075,6 +143939,109 @@
     "起草诉讼文书"
    ]
   },
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "low",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "litigation-trial-prep",
+  "folder": "litigation-trial-prep",
+  "name": "litigation-trial-prep",
+  "summary": "诉讼律师孵化器——庭前准备与庭审推演专家。帮助执业律师在开庭前进行系统性准备： 分析案情与证据材料（民事起诉状、答辩状、证据目录、证据等，支持PDF/Word/MD格式）， 通过元典法律检索平台获取相关法条、司法解释与类案裁判规则， 针对不熟悉案由的律师自动加载案由画像库（程序特殊要求、证据特殊要求、常见陷阱）， 并对承办法官裁判思路与当地司法实践进行预研， 从法官视角推演庭审争议焦点、依职权发问",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": [
+     "civil-procedure"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "judiciary",
+    "lawyer"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "litigation-doc",
+    "docx",
+    "contract"
+   ],
+   "outputs": [
+    "litigation-doc",
+    "legal-opinion",
+    "letter"
+   ],
+   "automation_level": "L1",
+   "method_types": [
+    "rule-based"
+   ]
+  },
+  "skill_type": "instruction",
+  "complexity": "L",
+  "structure_score": 2,
+  "files_count": 18,
+  "has": {
+   "scripts": false,
+   "references": false,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "3c5f1c10b7255610"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "诉讼律师孵化器——庭前准备与庭审推演专家。帮助执业律师在开庭前进行系统性准备： 分析案情与证据材料（民事起诉状、答辩状、证据目录、证据等，支持PDF/Word/MD格式）， 通过元典法律检索平台获取相关法条、司法解释与类案裁判规则， 针对不熟悉案由的律师自动加载案由画像库（程序特殊要求、证据特殊要求、常见陷阱）， 并对",
+  "use_cases": null,
   "dependencies": [],
   "relations": {
    "alternatives": [],
@@ -143301,6 +145268,216 @@
   },
   "confidence": {
    "jurisdiction": "low",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "lvdian-legal-search",
+  "folder": "lvdian-legal-search",
+  "name": "lvdian-legal-search",
+  "summary": "法律法规与司法解释的精准检索、现行有效性核验与深度解读。当用户要求查法条、检索某部法规、找法律依据、确认某条规定、核实法规是否现行有效/施行日期/废止情况、解读法条构成要件/适用范围/例外情形，或需要带来源链接的可引用法条原文时触发。角色定位为资深法律研究员：先精准定位法条，再核验现行有效性（每条必附国家法律法规数据库 flk.npc.gov.cn 跳转链接 + 对应权威原文链接），再按需提炼核心",
+  "classification": {
+   "tasks": {
+    "primary": "legal-research",
+    "secondary": [
+     "legal-analysis",
+     "contract-work"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "general",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer"
+   ],
+   "industries": [
+    "ai",
+    "government"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "nl-question",
+    "contract",
+    "webpage"
+   ],
+   "outputs": [
+    "legal-opinion",
+    "json"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "L",
+  "structure_score": 4,
+  "files_count": 19,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "file-read",
+    "network"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": "1.0.3",
+   "collected_at": "2026-08-04",
+   "content_hash": "8d6832a04ca017ab"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "法律法规与司法解释的精准检索、现行有效性核验与深度解读。当用户要求查法条、检索某部法规、找法律依据、确认某条规定、核实法规是否现行有效/施行日期/废止情况、解读法条构成要件/适用范围/例外情形，或需要带来源链接的可引用法条原文时触发。角色定位为资深法律研究员：先精准定位法条，再核验现行有效性（每条必附国家法律法规数据库",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "low"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "lvshen-contract-review",
+  "folder": "lvshen-contract-review",
+  "name": "lvshen-contract-review",
+  "summary": "面向执业律师的合同审查工作流。当用户请求审查合同（含「审查/审合同/看下这份合同/甲方角度/乙方角度/帮我过一遍/把关/有没有坑」等表述）时使用：逐条扫描全合同、分级风险、双轨核验法条、输出可直接使用的修改建议。不适域：合同起草、翻译、模板制作、纯法律咨询。",
+  "classification": {
+   "tasks": {
+    "primary": "contract-work",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "contract-law",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "investor"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "contract",
+    "xlsx",
+    "evidence"
+   ],
+   "outputs": [
+    "checklist",
+    "data-table",
+    "risk-list"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "L",
+  "structure_score": 4,
+  "files_count": 24,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": "1.0.3",
+   "collected_at": "2026-08-04",
+   "content_hash": "4a4851d42ed5e94b"
+  },
+  "license": {
+   "spdx_id": "undeclared",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "面向执业律师的合同审查工作流。当用户请求审查合同（含「审查/审合同/看下这份合同/甲方角度/乙方角度/帮我过一遍/把关/有没有坑」等表述）时使用：逐条扫描全合同、分级风险、双轨核验法条、输出可直接使用的修改建议。不适域：合同起草、翻译、模板制作、纯法律咨询。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
    "area_of_law": "medium"
   }
  },
@@ -163162,6 +165339,234 @@
  },
  {
   "schema_version": "0.1",
+  "id": "mqc-chronicle-master",
+  "folder": "mqc-chronicle-master",
+  "name": "mqc-chronicle-master",
+  "summary": "大事记表大师。把一批案件材料整理成《案件大事记》，产出 Word 交付版、Excel 母表与一份供下游 skill 读取的案件事实底稿。照录原文、每行挂出处、不作法律判断。适用于诉前评估、起诉与答辩的事实部分、庭前准备。",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": [
+     "contract-law"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "judiciary",
+    "hr"
+   ],
+   "industries": [
+    "general"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "pdf",
+    "xlsx"
+   ],
+   "outputs": [
+    "json",
+    "letter",
+    "data-table"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 4,
+  "files_count": 34,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "api-call",
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "缪奇川",
+   "version": "1.0.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "3d5a7ee27a2ac05f"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [
+   "legal",
+   "litigation",
+   "chronicle",
+   "docx",
+   "xlsx",
+   "大事记",
+   "庭前三大法宝"
+  ],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "大事记表大师。把一批案件材料整理成《案件大事记》，产出 Word 交付版、Excel 母表与一份供下游 skill 读取的案件事实底稿。照录原文、每行挂出处、不作法律判断。适用于诉前评估、起诉与答辩的事实部分、庭前准备。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "mqc-legal-relation-master",
+  "folder": "mqc-legal-relation-master",
+  "name": "mqc-legal-relation-master",
+  "summary": "法律关系图大师。把一批案件材料推成一张法律关系图：谁与谁、就哪份合同或哪段工程、发生了什么关系。主体与客体并存，使用者指定的要害以深红标出。布局与走线由索引表查出、判据回读产物验过，出 SVG / PNG / PPTX / VSDX / drawio 五种可继续编辑的源文件，三种风格（奇川风 / 白描 / 歸藏风）每次只出所选的一种。适用于诉前梳理、起诉与答辩的事实部分、庭前准备与向当事人汇报。",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "public"
+   ],
+   "industries": [
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "contract",
+    "evidence",
+    "nl-question"
+   ],
+   "outputs": [
+    "json",
+    "checklist",
+    "slides"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 5,
+  "files_count": 71,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": "1.0.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "ac9eb600b59ffea7"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [
+   "法律",
+   "诉讼可视化",
+   "律师",
+   "法律关系",
+   "制图",
+   "庭前三大法宝"
+  ],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "法律关系图大师。把一批案件材料推成一张法律关系图：谁与谁、就哪份合同或哪段工程、发生了什么关系。主体与客体并存，使用者指定的要害以深红标出。布局与走线由索引表查出、判据回读产物验过，出 SVG / PNG / PPTX / VSDX / drawio 五种可继续编辑的源文件，三种风格（奇川风 / 白描 / 歸藏风）每次",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "mqc-litigation-visual-redraw",
   "folder": "mqc-litigation-visual-redraw",
   "name": "mqc-litigation-visual-redraw",
@@ -163173,21 +165578,18 @@
    },
    "areas_of_law": {
     "primary": "litigation",
-    "secondary": [
-     "environmental"
-    ]
+    "secondary": []
    },
    "jurisdictions": [
     "china"
    ],
    "multi_jurisdictional": false,
    "user_roles": [
-    "lawyer",
-    "judiciary"
+    "hr",
+    "investor"
    ],
    "industries": [
-    "ai",
-    "professional-services"
+    "ai"
    ]
   },
   "capabilities": {
@@ -163209,7 +165611,7 @@
   "skill_type": "hybrid",
   "complexity": "XL",
   "structure_score": 5,
-  "files_count": 58,
+  "files_count": 86,
   "has": {
    "scripts": true,
    "references": true,
@@ -163240,7 +165642,7 @@
    "author": "缪奇川",
    "version": "1.0.2",
    "collected_at": "2026-08-04",
-   "content_hash": "76a4bb61fbac2a14"
+   "content_hash": "9041af3254cb1bc7"
   },
   "license": {
    "spdx_id": "mit",
@@ -163249,14 +165651,7 @@
   "verification": {
    "status": "collected"
   },
-  "tags_src": [
-   "法律",
-   "诉讼可视化",
-   "律师",
-   "制图",
-   "时间轴",
-   "流程图"
-  ],
+  "tags_src": [],
   "badges": {
    "freshness": false,
    "curated": false
@@ -163278,6 +165673,235 @@
    "python3 ≥3.9 运行时",
    "graphviz（dot）",
    "rsvg-convert/inkscape/soffice 之一"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "mqc-timeline-master",
+  "folder": "mqc-timeline-master",
+  "name": "mqc-timeline-master",
+  "summary": "Turn raw case materials into a faithful, court-ready case timeline (SVG + PNG + PPTX + VSDX + drawio, plus a traceability index in Word). Use this whenever the user hands over litigation materials — a",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "hr"
+   ],
+   "industries": [
+    "finance",
+    "ai"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "litigation-doc",
+    "evidence"
+   ],
+   "outputs": [
+    "timeline",
+    "litigation-doc",
+    "evidence-list"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 5,
+  "files_count": 71,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "api-call",
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "缪奇川",
+   "version": "2.0.1",
+   "collected_at": "2026-08-04",
+   "content_hash": "76d8c38e6ef99f97"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [
+   "法律",
+   "诉讼可视化",
+   "律师",
+   "时间轴",
+   "案件经过",
+   "制图"
+  ],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "Turn raw case materials into a faithful, court-ready case timeline (SVG + PNG + PPTX + VSDX + drawio, plus a traceability index in Word). Use this whenever the ",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "mqc-trial-confrontation-master",
+  "folder": "mqc-trial-confrontation-master",
+  "name": "mqc-trial-confrontation-master",
+  "summary": "庭审对抗图大师。按要件审判九步法与请求权基础，把案件材料推成一张庭前对抗图与一份分析表。左为提出请求的一方、中为法院审查、右为抗辩的一方；深红标出决定性要件。供律师团队庭前推演与向当事人汇报，不对法院出示。",
+  "classification": {
+   "tasks": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "litigation",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "judiciary",
+    "lawyer"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "docx",
+    "litigation-doc",
+    "pdf"
+   ],
+   "outputs": [
+    "litigation-doc",
+    "json"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 4,
+  "files_count": 32,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "api-call",
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "缪奇川",
+   "version": "1.0.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "24a979355e588cc9"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [
+   "legal",
+   "litigation",
+   "九步法",
+   "请求权基础",
+   "庭审对抗",
+   "庭前三大法宝",
+   "svg",
+   "xlsx"
+  ],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "庭审对抗图大师。按要件审判九步法与请求权基础，把案件材料推成一张庭前对抗图与一份分析表。左为提出请求的一方、中为法院审查、右为抗辩的一方；深红标出决定性要件。供律师团队庭前推演与向当事人汇报，不对法院出示。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
   ],
   "relations": {
    "alternatives": [],
@@ -171375,6 +173999,108 @@
   },
   "confidence": {
    "jurisdiction": "medium",
+   "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "overseas-legal-compliance",
+  "folder": "overseas-legal-compliance",
+  "name": "overseas-legal-compliance",
+  "summary": "出海合规法律检索 — 自动安装MCP + 一站式查询全球230+法域法律法规。触发词：查外国法律、出海合规、GDPR、AI Act、HIPAA、CCPA、多国法规对比、跨境投资合规、数据保护合规、安全框架映射（ISO 27001↔NIST↔SOC2）。支持一键安装全部MCP数据库或按国家名称安装。",
+  "classification": {
+   "tasks": {
+    "primary": "compliance",
+    "secondary": []
+   },
+   "areas_of_law": {
+    "primary": "data-privacy",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "eu",
+    "us",
+    "jp",
+    "multi"
+   ],
+   "multi_jurisdictional": true,
+   "user_roles": [
+    "investor",
+    "lawyer"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "webpage"
+   ],
+   "outputs": [
+    "json",
+    "checklist",
+    "advice"
+   ],
+   "automation_level": "L2",
+   "method_types": [
+    "retrieval-augmented"
+   ]
+  },
+  "skill_type": "knowledge-pack",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 8,
+  "has": {
+   "scripts": false,
+   "references": true,
+   "assets": false,
+   "license": false
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read"
+   ]
+  },
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": "1.1.1",
+   "collected_at": "2026-08-04",
+   "content_hash": "9767ea668dccea40"
+  },
+  "license": {
+   "spdx_id": "mit",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "出海合规法律检索 — 自动安装MCP + 一站式查询全球230+法域法律法规。触发词：查外国法律、出海合规、GDPR、AI Act、HIPAA、CCPA、多国法规对比、跨境投资合规、数据保护合规、安全框架映射（ISO 27001↔NIST↔SOC2）。支持一键安装全部MCP数据库或按国家名称安装。",
+  "use_cases": null,
+  "dependencies": [],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "high",
    "area_of_law": "medium"
   }
  },
@@ -223207,6 +225933,116 @@
   "confidence": {
    "jurisdiction": "high",
    "area_of_law": "medium"
+  }
+ },
+ {
+  "schema_version": "0.1",
+  "id": "wenzhou-criminal-legal-aid-workflow",
+  "folder": "wenzhou-criminal-legal-aid-workflow",
+  "name": "wenzhou-criminal-legal-aid-workflow",
+  "summary": "办理中国大陆刑事法律援助案件的全流程文书与归档辅助，覆盖指派接收、分阶段会见、阅卷、认罪认罚、庭审、结案和回访。默认模板适配温州地区；其他地区须先导入当地模板包。用于真实刑事法援工作，不用于普通收费委托案件。",
+  "classification": {
+   "tasks": {
+    "primary": "doc-reading",
+    "secondary": [
+     "litigation",
+     "contract-work"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "criminal",
+    "secondary": []
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "judiciary"
+   ],
+   "industries": [
+    "ai",
+    "professional-services"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "contract",
+    "xlsx",
+    "image"
+   ],
+   "outputs": [
+    "json",
+    "timeline",
+    "legal-opinion"
+   ],
+   "automation_level": "L3",
+   "method_types": [
+    "retrieval-augmented",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 5,
+  "files_count": 55,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local-external-model",
+   "permissions": [
+    "api-call",
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": null,
+   "version": null,
+   "collected_at": "2026-08-04",
+   "content_hash": "b15cbb9073bde480"
+  },
+  "license": {
+   "spdx_id": "declared-only",
+   "risk": "undeclared"
+  },
+  "verification": {
+   "status": "collected"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "办理中国大陆刑事法律援助案件的全流程文书与归档辅助，覆盖指派接收、分阶段会见、阅卷、认罪认罚、庭审、结案和回访。默认模板适配温州地区；其他地区须先导入当地模板包。用于真实刑事法援工作，不用于普通收费委托案件。",
+  "use_cases": null,
+  "dependencies": [
+   "python3 运行时（含脚本，安装前请审阅 scripts/）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "medium",
+   "area_of_law": "high"
   }
  },
  {

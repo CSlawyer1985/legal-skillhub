@@ -1,6 +1,5 @@
 ---
 name: mqc-litigation-visual-redraw
-tags: [法律, 诉讼可视化, 律师, 制图, 时间轴, 流程图]
 metadata:
   author: 缪奇川
   version: 1.0.2
@@ -21,28 +20,6 @@ description: >-
   timeline/flowchart/relationship diagram" without naming this skill. Default
   scenario is Chinese litigation; internal instructions are in English.
 ---
-
-# 新诉讼可视化 · 重画
-
-把律师手上的丑图、截图、手绘，或者一段还没成形的案情文字，重画成一张克制专业、可直接提交的诉讼图。**不改一个字，不改法律含义，只改视觉表达。**
-
-**画三类共七种。** 时间轴（编号型、日期型、期间型）、流程图、关系图（网络型、树型，含 A/B 两列对比表）。只画这三类，不发明新图种。
-
-**三种视觉模式。** 奇川风（灰阶为底，一处深红标重点，向委托人与法官呈现）、歸藏风（克莱因蓝，对外传播）、白描（纯黑白线稿，专为打印与卷宗）。三者共用同一套几何，变的只是表达。
-
-**一次出五个文件。** `.svg` 母版、`.png` 定稿、`.pptx`、`.vsdx`、`.drawio`。后四种是真可编辑，方框能选中、文字能改，不是把图片贴进容器。五份全部由同一份母版转写，不会互相不一致。
-
-**四条工程原则。** 模型只输出语义 JSON，坐标与配色全部由确定性脚本计算；原文誊录是铁律；规矩由脚本强制而非模型自觉，说不清出处的深红会被渲染器剥掉；出图前的三个问题由脚本生成，答案由律师给出。
-
-**质量。** 136 条回归守卫、149 条断言，每条都做过"故意改坏必须报错"的验证；144 份产物逐字节可复现。零第三方依赖，纯 Python 3 标准库。
-
-**环境与依赖。** 需要 Python ≥ 3.9，仅用标准库，不安装任何第三方包。外部工具中，graphviz（`dot`）为流程图必需；PNG 光栅化需要 `rsvg-convert`、`inkscape` 或 `soffice` 三者之一。Pillow 与 poppler-utils 仅供可选的像素级自检使用，缺失时自动跳过，不影响出图。安装后运行 `python3 scripts/doctor.py` 可逐项核对。
-
-完整文档、守卫清单与更新记录：https://github.com/MiaoQichuan/mqc-litigation-visual-redraw
-
----
-
-以下为供 AI 读取的操作说明，请勿改写。
 
 # Litigation visual redraw
 
