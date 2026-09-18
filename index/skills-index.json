@@ -131396,6 +131396,131 @@
  },
  {
   "schema_version": "0.1",
+  "id": "legal-meta-skill",
+  "folder": "legal-meta-skill",
+  "name": "legal-meta-skill",
+  "summary": "CSlawyer 法律类元 Skill：面向中国大陆可复用法律 Skill 的创建、改造、审计与评测，覆盖意图收敛、法律能力模型、IR 建模、自包含封装、双轨评测和成熟度门禁。",
+  "classification": {
+   "tasks": {
+    "primary": "quality-control",
+    "secondary": [
+     "legal-analysis",
+     "knowledge-mgmt"
+    ]
+   },
+   "areas_of_law": {
+    "primary": "legal-profession",
+    "secondary": [
+     "ai-tech-law"
+    ]
+   },
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false,
+   "user_roles": [
+    "lawyer",
+    "in-house"
+   ],
+   "industries": [
+    "professional-services",
+    "ai"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "nl-question",
+    "evidence",
+    "batch"
+   ],
+   "outputs": [
+    "checklist",
+    "research-report",
+    "json"
+   ],
+   "automation_level": "L2",
+   "method_types": [
+    "retrieval-augmented",
+    "rule-based",
+    "tool-calling"
+   ]
+  },
+  "skill_type": "hybrid",
+  "complexity": "XL",
+  "structure_score": 5,
+  "files_count": 80,
+  "has": {
+   "scripts": true,
+   "references": true,
+   "assets": true,
+   "license": true
+  },
+  "compatibility": {
+   "host_platforms": [
+    "universal-markdown"
+   ],
+   "dependencies": []
+  },
+  "data_security": {
+   "processing": "local",
+   "permissions": [
+    "file-read",
+    "file-write",
+    "shell"
+   ]
+  },
+  "risk": {
+   "level": "high",
+   "human_review_required": true
+  },
+  "language": "zh-CN",
+  "provenance": {
+   "author": "CSlawyer",
+   "version": "1.0.0",
+   "collected_at": "2026-08-04",
+   "content_hash": "c1ddef9794163f26"
+  },
+  "license": {
+   "spdx_id": "apache-2.0",
+   "risk": "open"
+  },
+  "verification": {
+   "status": "metadata-reviewed"
+  },
+  "tags_src": [],
+  "badges": {
+   "freshness": false,
+   "curated": false
+  },
+  "logic_summary": "六阶段法律 Skill 工具链：先收敛任务边界与法域、时点、证据边界，再做只读研究、法律 Skill IR 建模、自包含封装、触发与输出双轨评测、质量门禁与交接。默认本地优先、数据不出机；不适用于一次性法律咨询、单份文书、普通翻译或摘要，或未经授权的发布和远程同步。",
+  "use_cases": {
+   "suitable": [
+    "创建或改造可复用的中国大陆法律 Skill",
+    "审计法律 Skill 的路由、法律来源、权限和安装风险",
+    "为法律 Skill 补充十二模块能力配置、输出契约和双轨评测",
+    "在本地生成、验证并交接自包含法律 Skill 包"
+   ],
+   "unsuitable": [
+    "一次性法律咨询、解释、翻译或摘要",
+    "只要求起草一份文书而不形成可复用工作流",
+    "替代律师、客户或责任人作出最终法律决定",
+    "未经授权的外传、发布、发送或远程同步"
+   ]
+  },
+  "dependencies": [
+   "Python 3 标准库（包内生成、验证、迁移和评测脚本）"
+  ],
+  "relations": {
+   "alternatives": [],
+   "complements": []
+  },
+  "confidence": {
+   "jurisdiction": "high",
+   "area_of_law": "high"
+  }
+ },
+ {
+  "schema_version": "0.1",
   "id": "legal-multi-dimension-analysis",
   "folder": "legal-multi-dimension-analysis",
   "name": "legal-multi-dimension-analysis",

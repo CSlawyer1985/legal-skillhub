@@ -1,0 +1,156 @@
+{
+  "schema_version": "universal-legal-core/v0.1",
+  "activation_policy": "mandatory-review-conditional-expansion",
+  "modules": {
+    "task_context": {
+      "label_zh": "任务目的与受众",
+      "status": "active",
+      "reason": "目标 Skill 必须说明重复任务、用户、受众、决策者和复核者",
+      "required_outputs": [
+        "task_type",
+        "decision_goal",
+        "target_users",
+        "audience",
+        "decision_owner",
+        "reviewer"
+      ]
+    },
+    "jurisdiction": {
+      "label_zh": "法域",
+      "status": "active",
+      "reason": "目标 Skill 必须检查地域连接点、准据法、管辖或仲裁地及跨法域冲突",
+      "required_outputs": [
+        "jurisdiction_scope",
+        "governing_law_basis",
+        "forum_or_seat",
+        "conflict_rules"
+      ]
+    },
+    "temporal": {
+      "label_zh": "时间",
+      "status": "active",
+      "reason": "目标 Skill 必须明确法律核验时点、事件时间线、规范版本和待核期限",
+      "required_outputs": [
+        "as_of_date",
+        "event_timeline",
+        "applicable_versions",
+        "limitation_and_deadline_checks",
+        "temporal_gaps"
+      ]
+    },
+    "actors": {
+      "label_zh": "主体角色",
+      "status": "active",
+      "reason": "目标 Skill 必须识别主体身份、法律地位、角色利益、授权能力和利益冲突",
+      "required_outputs": [
+        "actor_map",
+        "legal_status",
+        "roles_and_interests",
+        "authority_and_capacity",
+        "conflicts_of_interest"
+      ]
+    },
+    "matter": {
+      "label_zh": "法律事项",
+      "status": "active",
+      "reason": "目标 Skill 必须界定法律关系、问题范围、关键事实与明确排除项",
+      "required_outputs": [
+        "issue_scope",
+        "legal_relationships",
+        "issue_tree",
+        "material_facts",
+        "exclusions"
+      ]
+    },
+    "claims_and_elements": {
+      "label_zh": "请求与要件",
+      "status": "active",
+      "reason": "目标 Skill 必须将请求、抗辩和法律要件映射到事实并考虑反方论点",
+      "required_outputs": [
+        "claims_defenses",
+        "legal_elements",
+        "element_fact_mapping",
+        "remedies_requested",
+        "counterarguments"
+      ]
+    },
+    "authority_and_interpretation": {
+      "label_zh": "法源与解释",
+      "status": "active",
+      "reason": "目标 Skill 必须分层核验法源、记录解释方法、处理冲突并完成规则涵摄",
+      "required_outputs": [
+        "authority_inventory",
+        "authority_hierarchy",
+        "verification_status",
+        "interpretation_method",
+        "application_analysis",
+        "conflicting_authorities"
+      ]
+    },
+    "proof": {
+      "label_zh": "证明",
+      "status": "active",
+      "reason": "目标 Skill 必须逐项处理待证事实、证据定位、举证责任、证明标准、证据缺口和不利后果",
+      "required_outputs": [
+        "facts_to_prove",
+        "evidence_locator",
+        "burden_of_proof",
+        "standard_of_proof",
+        "evidence_gaps",
+        "adverse_consequences"
+      ]
+    },
+    "procedure": {
+      "label_zh": "程序",
+      "status": "active",
+      "reason": "目标 Skill 必须识别处理机构、程序阶段、前置条件、待核期限和程序风险",
+      "required_outputs": [
+        "forum_and_jurisdiction",
+        "procedural_posture",
+        "procedural_steps",
+        "deadlines_to_verify",
+        "admissibility_or_prerequisites",
+        "procedural_risks"
+      ]
+    },
+    "outcomes_and_enforcement": {
+      "label_zh": "结果与执行",
+      "status": "active",
+      "reason": "目标 Skill 必须区分可能结果、法律效果、责任敞口、可执行性和现实回收约束",
+      "required_outputs": [
+        "outcome_scenarios",
+        "legal_effects",
+        "liability_and_exposure",
+        "enforceability",
+        "enforcement_path",
+        "recovery_constraints"
+      ]
+    },
+    "strategy_and_uncertainty": {
+      "label_zh": "策略与不确定性",
+      "status": "active",
+      "reason": "目标 Skill 必须比较可选路径、显式记录假设与未知项并设置升级触发条件",
+      "required_outputs": [
+        "options",
+        "assumptions",
+        "uncertainties",
+        "scenario_analysis",
+        "recommended_actions",
+        "escalation_triggers"
+      ]
+    },
+    "governance": {
+      "label_zh": "职业治理",
+      "status": "active",
+      "reason": "目标 Skill 必须落实保密、数据边界、最小权限、人工复核、来源留痕和更新周期",
+      "required_outputs": [
+        "confidentiality_and_data_boundary",
+        "permissions",
+        "human_review",
+        "source_and_audit_trail",
+        "professional_responsibility_limits",
+        "review_cycle"
+      ]
+    }
+  }
+}

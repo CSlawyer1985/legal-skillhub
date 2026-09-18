@@ -1,0 +1,8 @@
+{
+  "schema_version": "trigger-cases/v0.1",
+  "cases": [
+    {"id": "should-trigger-01", "kind": "should-trigger", "prompt": "【填写自然触发语句】", "keywords": ["【填写 description 中可识别的关键词】"]},
+    {"id": "should-not-trigger-01", "kind": "should-not-trigger", "prompt": "【填写不应触发语句】", "keywords": []},
+    {"id": "near-neighbor-01", "kind": "near-neighbor", "prompt": "【填写近邻冲突语句】", "keywords": []}
+  ]
+}

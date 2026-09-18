@@ -1,0 +1,125 @@
+{
+  "schema_version": "trigger-cases/v0.1",
+  "cases": [
+    {
+      "id": "create-contract-skill",
+      "kind": "should-trigger",
+      "prompt": "把这套合同审核 SOP 做成一个可复用的法律 Skill，先补边界和触发评测。",
+      "keywords": ["合同", "法律 Skill", "触发评测"]
+    },
+    {
+      "id": "improve-litigation-skill",
+      "kind": "should-trigger",
+      "prompt": "优化现有案件分析 Skill，加入法条时效核验、证据映射和输出质量门禁。",
+      "keywords": ["案件分析", "Skill", "评测"]
+    },
+    {
+      "id": "pdf-evidence-skill",
+      "kind": "should-trigger",
+      "prompt": "把 PDF 证据处理流程封装成可安装的法律 Skill，并保留 input/scratch/output 文件契约。",
+      "keywords": ["PDF", "证据处理", "Skill"]
+    },
+    {
+      "id": "audit-legal-skill",
+      "kind": "should-trigger",
+      "prompt": "审计这个法律 Skill 的路由、法律来源、权限和安装风险，先不要修改。",
+      "keywords": ["审计", "法律 Skill", "权限"]
+    },
+    {
+      "id": "synthesize-meta-skills",
+      "kind": "should-trigger",
+      "prompt": "比较两个元 Skill 的优点，形成一个本地优先的中国大陆法律类综合版。",
+      "keywords": ["元 Skill", "本地优先", "法律类"]
+    },
+    {
+      "id": "research-legal-skills",
+      "kind": "should-trigger",
+      "prompt": "先用中英文分别研究同类法律 Skill，再把适合的机制内化到一个新的法律 Skill。",
+      "keywords": ["法律 Skill", "Skill"]
+    },
+    {
+      "id": "create-universal-litigation-gates",
+      "kind": "should-trigger",
+      "prompt": "创建一个诉讼分析 Skill，并把法域、期限、角色、请求权、举证责任和执行能力做成通用门禁。",
+      "keywords": ["诉讼分析", "法律 Skill", "Skill"]
+    },
+    {
+      "id": "audit-universal-legal-capabilities",
+      "kind": "should-trigger",
+      "prompt": "审计现有法律 Skill 是否遗漏法律关系、证明标准和人工复核。",
+      "keywords": ["审计", "法律 Skill", "人工复核"]
+    },
+    {
+      "id": "single-clause-analysis",
+      "kind": "should-not-trigger",
+      "prompt": "分析这份合同第 3.4 条的退出路径和违约风险。",
+      "keywords": []
+    },
+    {
+      "id": "draft-defense",
+      "kind": "should-not-trigger",
+      "prompt": "根据现有材料起草一份答辩状。",
+      "keywords": []
+    },
+    {
+      "id": "translate-legal-text",
+      "kind": "should-not-trigger",
+      "prompt": "把这段中文法律文本翻译成英文。",
+      "keywords": []
+    },
+    {
+      "id": "meeting-summary",
+      "kind": "should-not-trigger",
+      "prompt": "把今天的会议记录整理成确认事项、争议事项和行动清单。",
+      "keywords": []
+    },
+    {
+      "id": "one-off-prompt",
+      "kind": "near-neighbor",
+      "prompt": "帮我写一个一次性的法律分析提示词，不需要做成 Skill。",
+      "keywords": ["Skill"]
+    },
+    {
+      "id": "explain-ir",
+      "kind": "near-neighbor",
+      "prompt": "请解释 Skill IR 是什么，不创建文件。",
+      "keywords": ["Skill IR"]
+    },
+    {
+      "id": "ordinary-checklist",
+      "kind": "near-neighbor",
+      "prompt": "把这个流程整理成普通 checklist，不需要 Agent Skill。",
+      "keywords": ["Skill"]
+    },
+    {
+      "id": "explain-claim-elements",
+      "kind": "near-neighbor",
+      "prompt": "解释请求权基础和要件事实，不创建或修改 Skill。",
+      "keywords": ["请求权基础", "要件事实"]
+    },
+    {
+      "id": "create-drafting-skill",
+      "kind": "should-trigger",
+      "prompt": "把我们常用的合同起草流程固化成可复用的法律 Skill，每次都能产出文书正文和变量槽位清单。",
+      "keywords": ["起草", "法律 Skill", "复用"]
+    },
+    {
+      "id": "create-compliance-monitoring-skill",
+      "kind": "should-trigger",
+      "prompt": "做一个合规义务监测的法律 Skill，持续跟踪监管规范变化并输出义务清单和整改动作。",
+      "keywords": ["合规", "监测", "法律 Skill"]
+    },
+    {
+      "id": "one-off-compliance-opinion",
+      "kind": "should-not-trigger",
+      "prompt": "看一下我们这项业务有没有数据合规问题，给个一次性意见就行。",
+      "keywords": []
+    },
+    {
+      "id": "discuss-archetypes",
+      "kind": "near-neighbor",
+      "prompt": "介绍一下法律 Skill 有哪些场景原型，我还不想创建。",
+      "keywords": ["场景原型", "Skill"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "provider": "【填写实际提供方】",
+  "model": "【填写实际模型】",
+  "run_at": "【填写带时区的实际运行时间】",
+  "cases": [
+    {
+      "id": "【填写与 evals/trigger_cases.json 一致的 case id】",
+      "triggered": true,
+      "selected_skill": "【填写实际选中的 Skill；未触发时可为 null】"
+    }
+  ]
+}

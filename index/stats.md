@@ -1,11 +1,11 @@
 # Legal SkillHub 统计报告（机器生成）
 
-- 总数：2076
+- 总数：2077
 - 复核队列：1 条
 
 ## 法域分布
 
-- china: 829
+- china: 830
 - us: 654
 - general: 405
 - eu: 144
@@ -41,8 +41,8 @@
 - construction: 19
 - banking-finance: 19
 - civil-procedure: 16
+- legal-profession: 15
 - criminal: 15
-- legal-profession: 14
 - life-sciences: 12
 - investment-ma: 10
 - advertising: 8
@@ -71,16 +71,16 @@
 - education: 14
 - translation: 13
 - due-diligence: 3
-- quality-control: 2
+- quality-control: 3
 
 ## 语言分布
 
 - en: 1046
-- zh-CN: 1030
+- zh-CN: 1031
 
 ## 授权分布
 
-- apache-2.0: 930
+- apache-2.0: 931
 - undeclared: 763
 - mit: 170
 - agpl-3.0: 89
@@ -98,7 +98,7 @@
 - instruction: 1431
 - code-package: 210
 - knowledge-pack: 176
-- hybrid: 153
+- hybrid: 154
 - tool-wrapper: 94
 - prompt-template: 12
 
@@ -106,4 +106,4 @@
 
 - medium: 999
 - low: 717
-- high: 360
+- high: 361

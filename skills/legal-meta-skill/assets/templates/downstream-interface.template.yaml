@@ -1,0 +1,10 @@
+interface:
+  display_name: "【填写中文名称】"
+  short_description: "【填写二十五至六十四个字符的中文短描述】"
+  default_prompt: "使用 $replace-with-legal-skill 完成其定义的重复法律任务；逐项检查十二模块，独立核验易变依据，证据不足时停止或降级。"
+compatibility:
+  canonical_format: "agent-skills"
+  activation:
+    mode: "description"
+  trust:
+    generated_claims: "以证据为界"

@@ -1,0 +1,201 @@
+{
+  "schema_version": "legal-skill-intake/v0.1",
+  "name": "mainland-procurement-contract-review",
+  "version": "0.1.0",
+  "display_name": "中国大陆采购合同审查",
+  "description": "审查中国大陆法下反复出现的采购合同，输出交易结构、逐条风险、修改文本、谈判替代方案及待核材料；在用户要求形成可复用采购合同审查报告或批量审查同类合同时使用。不用于一次性解释单个条款、直接签发正式法律意见、自动向相对方发送文本，或未经授权审查劳动、投融资等其他合同类型。",
+  "short_description": "审查中国大陆采购合同并输出可追溯的逐条风险、修改与谈判建议",
+  "owner": "采购法务负责人",
+  "maturity": "library",
+  "branding_mode": "branded",
+  "scenario_archetype": "contract_review",
+  "target_platforms": ["openai", "generic"],
+  "skill_contract": {
+    "job": "对中国大陆法下重复出现的采购合同进行结构化审查，并形成可追溯的风险、修改和谈判建议",
+    "decision": {
+      "goal": "支持采购负责人决定合同是否可以签署、需要修改哪些条款以及哪些风险必须升级",
+      "owner": "采购负责人",
+      "supported_action": "提供审查、修改和谈判建议，不替代授权签署或正式律师签发"
+    },
+    "target_users": ["企业法务", "采购负责人", "外部承办律师"],
+    "inputs": ["采购合同正文及附件", "交易背景与双方主体资料", "付款交付验收要求", "企业风险偏好与审批规则"],
+    "outputs": ["交易结构摘要", "逐条风险与依据", "建议修改文本", "谈判替代方案", "待补材料和人工复核清单"],
+    "exclusions": ["替代有权人员签署合同", "在材料不足时断言合同效力", "未经授权扩张审查至其他交易", "自动发送、提交或覆盖原合同"],
+    "workflow": ["确认交易目标、主体和版本", "确定法域、时点和审查范围", "按交易闭环与条款逐项审查", "核验核心法律依据并形成修改建议", "汇总风险、谈判顺序和待补材料", "由责任人复核后交付"],
+    "decision_points": ["主体和授权是否足以支持签署", "关键附件是否完整", "重大责任与付款风险是否可接受", "争议解决与执行路径是否可行"],
+    "failure_modes": ["合同附件或交易背景缺失却输出确定结论", "把材料陈述直接当成已确认事实", "引用未核验法条或案例", "只有风险标签而没有修改文本和替代方案"]
+  },
+  "triggers": {
+    "should-trigger": [
+      {"prompt": "请用固定方法审查这一批采购合同并输出逐条修改建议。", "keywords": ["采购合同", "审查"]},
+      {"prompt": "按我们团队的采购合同审查流程检查付款、验收和违约条款。", "keywords": ["采购合同", "审查"]},
+      {"prompt": "把这份采购合同做成交易结构、风险、修改文本和谈判方案四联表。", "keywords": ["采购合同", "风险"]}
+    ],
+    "should-not-trigger": [
+      {"prompt": "只解释这份租赁合同中的不可抗力条款是什么意思。", "keywords": []},
+      {"prompt": "帮我直接给供应商发送一封接受全部条款的邮件。", "keywords": []}
+    ],
+    "near-neighbor": [
+      {"prompt": "起草一份全新的股权投资协议，不做采购合同审查。", "keywords": []},
+      {"prompt": "介绍一般合同审核方法，不处理具体采购合同。", "keywords": []}
+    ]
+  },
+  "intent_canvas_coverage": {
+    "job": "对中国大陆法下重复出现的商事采购合同进行结构化审查，从接收合同正文与交易背景开始，到交付风险、修改和谈判建议并由责任人复核结束",
+    "users": "企业法务和采购负责人日常使用，外部承办律师在升级审查时参与，实际受众为有权决定签署的采购负责人",
+    "decision": "支持采购负责人决定合同能否签署、需修改哪些条款、哪些风险必须升级；Skill 只提供审查与谈判建议，不代替授权签署",
+    "inputs": "必需输入为合同正文及附件、交易背景和双方主体资料；付款交付验收要求和企业风险偏好为必需项目约束；待补附件列入缺口清单",
+    "outputs": "交付交易结构摘要、逐条风险与依据、建议修改文本、谈判替代方案和待补材料清单，均为落盘到指定 output 目录的中文文档",
+    "exclusions": "不替代有权人员签署合同，不在材料不足时断言合同效力，不自动发信、提交或覆盖原合同，未经授权不扩张到其他合同类型",
+    "jurisdiction_bundle": "默认中国大陆法，适用民法典合同编及相关司法解释；争议解决条款可能约定境内法院或仲裁机构，涉外主体须运行时核验准据法与冲突规范",
+    "temporal_bundle": "以拟签日期为法律核验时点；关注合同版本、履行期间、质量异议期、付款账期和违约索赔期限，新旧法过渡按拟签时点核验",
+    "actors": "采购方、供应商及其签署授权人为核心主体；须检查签约主体资格、授权链条、关联履约主体和潜在利益冲突",
+    "matter": "事项为货物或服务采购合同关系，覆盖标的、交付、验收、付款、违约与争议解决的交易闭环，处于签署前审查或履行中争议两种生命周期状态",
+    "legal_profile": "默认中国大陆法与拟签时点；十二模块全部启用，不适用或受阻状态须逐案给出与采购审查相关的具体理由和停止路径",
+    "evidence": "合同文本和附件为原始材料，交易背景陈述为材料陈述，不直接当作已确认事实；每条风险须追溯到具体条款或待补材料位置",
+    "workspace_or_permissions": "默认本地只读处理，只写用户指定的 scratch 和 output；联网核验现行法须经授权，发信、签署、提交等外部动作一律不自动执行",
+    "human_control": "采购负责人为最终决定和签署责任人；效力判断、重大责任上限和争议升级建议不得自动定稿，模板、法源或权限变化必须重新核验",
+    "success": "完成为交付四联式审查结果且每条风险可追溯到条款与依据；通过触发评测、输出断言和律师盲评验证，每季度或核心依据变化后复核"
+  },
+  "legal_profile": {
+    "schema_version": "universal-legal-core/v0.1",
+    "activation_policy": "mandatory-review-conditional-expansion",
+    "modules": {
+      "task_context": {"label_zh": "任务目的与受众", "status": "active", "reason": "采购合同审查必须明确交易决定、实际受众、签署责任人和审查排除项", "required_outputs": ["task_type", "decision_goal", "target_users", "audience", "decision_owner", "reviewer"]},
+      "jurisdiction": {"label_zh": "法域", "status": "active", "reason": "采购合同可能出现跨地区主体、选择法、法院管辖或仲裁条款，必须运行时核验", "required_outputs": ["jurisdiction_scope", "governing_law_basis", "forum_or_seat", "conflict_rules"]},
+      "temporal": {"label_zh": "时间", "status": "active", "reason": "合同版本、履行期间、法律核验时点和索赔期限直接影响审查结论", "required_outputs": ["as_of_date", "event_timeline", "applicable_versions", "limitation_and_deadline_checks", "temporal_gaps"]},
+      "actors": {"label_zh": "主体角色", "status": "active", "reason": "供应商、采购方、签署人、关联方和履约主体的资格授权必须分别检查", "required_outputs": ["actor_map", "legal_status", "roles_and_interests", "authority_and_capacity", "conflicts_of_interest"]},
+      "matter": {"label_zh": "法律事项", "status": "active", "reason": "采购标的、交付、验收、付款和风险转移共同构成审查对象与交易闭环", "required_outputs": ["issue_scope", "legal_relationships", "issue_tree", "material_facts", "exclusions"]},
+      "claims_and_elements": {"label_zh": "请求与要件", "status": "active", "reason": "违约、解除、赔偿、质量担保和付款抗辩需要映射到合同与法定要件", "required_outputs": ["claims_defenses", "legal_elements", "element_fact_mapping", "remedies_requested", "counterarguments"]},
+      "authority_and_interpretation": {"label_zh": "法源与解释", "status": "active", "reason": "合同效力、格式条款、违约责任等核心判断必须使用经核验的现行依据", "required_outputs": ["authority_inventory", "authority_hierarchy", "verification_status", "interpretation_method", "application_analysis", "conflicting_authorities"]},
+      "proof": {"label_zh": "证明", "status": "active", "reason": "订单、签收、验收、发票和往来记录影响履约事实、举证责任与争议结果", "required_outputs": ["facts_to_prove", "evidence_locator", "burden_of_proof", "standard_of_proof", "evidence_gaps", "adverse_consequences"]},
+      "procedure": {"label_zh": "程序", "status": "active", "reason": "争议解决条款、通知送达、保全和索赔程序会影响权利实现", "required_outputs": ["forum_and_jurisdiction", "procedural_posture", "procedural_steps", "deadlines_to_verify", "admissibility_or_prerequisites", "procedural_risks"]},
+      "outcomes_and_enforcement": {"label_zh": "结果与执行", "status": "active", "reason": "责任上限、赔偿口径、履约能力和执行成本决定条款风险的实际敞口", "required_outputs": ["outcome_scenarios", "legal_effects", "liability_and_exposure", "enforceability", "enforcement_path", "recovery_constraints"]},
+      "strategy_and_uncertainty": {"label_zh": "策略与不确定性", "status": "active", "reason": "合同审查必须比较首选修改、可接受替代和不可退让底线并披露未知项", "required_outputs": ["options", "assumptions", "uncertainties", "scenario_analysis", "recommended_actions", "escalation_triggers"]},
+      "governance": {"label_zh": "职业治理", "status": "active", "reason": "采购合同含商业秘密和个人信息，正式签署前还需要权限、利益冲突和人工复核控制", "required_outputs": ["confidentiality_and_data_boundary", "permissions", "human_review", "source_and_audit_trail", "professional_responsibility_limits", "review_cycle"]}
+    }
+  },
+  "permissions": {
+    "network": "默认关闭；只有核验现行法或用户明确授权时进行只读检索",
+    "file_write": "只写用户指定的 scratch 和 output，不覆盖原合同",
+    "external_actions": "不得自动发信、签署、提交或向第三方上传合同"
+  },
+  "degradation": {
+    "missing_input": "列出缺失附件与受影响条款，只审查可确认部分",
+    "missing_authority": "停止效力、责任和期限的确定性结论，记录待核依据",
+    "missing_permission": "停止联网、外传和不可逆动作，保留本地只读审查"
+  },
+  "eval_plan": {
+    "routing": "检查采购合同批量或重复审查的自然触发、一次性解释排除和相邻合同类型冲突",
+    "output": "检查十二模块状态、依据真实性、条款风险闭环、修改文本和谈判替代方案",
+    "promotion": "静态检查通过后仍需提供方模型运行、律师盲评和真实项目回归才能提升声明",
+    "require_full_module_activation": false,
+    "require_lightweight_case": false
+  },
+  "evaluation_cases": [
+    {
+      "id": "complete-domestic-procurement",
+      "prompt": "审查一份主体、订单、验收和付款附件齐全的境内设备采购合同。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "proof", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": []},
+      "status_reasons": {},
+      "assertion_ids": ["source-fidelity", "risk-action-loop", "jurisdiction-bundle", "actor-authority-conflict", "relationship-claims-elements"],
+      "manual_review": ["重大责任上限和签署授权是否可接受"]
+    },
+    {
+      "id": "missing-acceptance-appendix",
+      "prompt": "采购合同引用验收附件但未提供，请限定审查并列出停止路径。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "procedure", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": ["proof", "outcomes_and_enforcement"]},
+      "status_reasons": {
+        "proof": {"gap": "缺少验收标准和验收记录附件", "fallback": "停止认定验收完成并列出需补附件", "human_owner": "采购负责人", "review_trigger": "收到完整验收附件后重新审查"},
+        "outcomes_and_enforcement": {"gap": "缺少验收失败对应的返工和退款口径", "fallback": "只提供条件化责任情景，不计算确定金额", "human_owner": "承办法务", "review_trigger": "责任与退款附件补齐后重新核验"}
+      },
+      "assertion_ids": ["stop-on-missing-authority", "four-layer-traceability", "proof-burden-standard", "remedy-quantification-enforcement"],
+      "manual_review": ["缺失附件是否构成禁止签署条件"]
+    },
+    {
+      "id": "cross-border-supplier",
+      "prompt": "供应商在境外、选择外国法但约定中国法院管辖，请审查冲突和执行路径。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "proof", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": []},
+      "status_reasons": {},
+      "assertion_ids": ["jurisdiction-bundle", "procedure-deadlines", "remedy-quantification-enforcement", "security-boundary"],
+      "manual_review": ["外国法内容和跨境执行意见须由相应法域专业人员复核"]
+    },
+    {
+      "id": "outdated-law-reference",
+      "prompt": "合同模板引用可能已经失效的规范，请核验版本并限制结论。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "actors", "matter", "claims_and_elements", "proof", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": ["temporal", "authority_and_interpretation"]},
+      "status_reasons": {
+        "temporal": {"gap": "未取得规范的生效失效记录和合同拟签日期", "fallback": "停止适用版本结论并列出核验日期", "human_owner": "承办法务", "review_trigger": "确认拟签日期和规范版本后重新核验"},
+        "authority_and_interpretation": {"gap": "核心规范当前效力状态尚未独立验证", "fallback": "仅标注检索线索，不作为修改结论依据", "human_owner": "法律检索复核人", "review_trigger": "取得权威法源原文和效力信息后重新分析"}
+      },
+      "assertion_ids": ["source-fidelity", "stop-on-missing-authority", "temporal-bundle"],
+      "manual_review": ["失效规范是否影响合同条款效力和修订方向"]
+    },
+    {
+      "id": "personal-information-appendix",
+      "prompt": "采购附件涉及员工个人信息处理和外部系统接入，请审查权限与责任。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "proof", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": []},
+      "status_reasons": {},
+      "assertion_ids": ["security-boundary", "ethics-privacy-human-review", "risk-action-loop", "workspace-contract"],
+      "manual_review": ["个人信息处理角色、范围和外传条件是否经过数据合规负责人确认"]
+    },
+    {
+      "id": "dispute-and-evidence-readiness",
+      "prompt": "合同已履行一半并出现质量争议，请审查通知、证据、救济和程序条款。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "proof", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": []},
+      "status_reasons": {},
+      "assertion_ids": ["four-layer-traceability", "proof-burden-standard", "procedure-deadlines", "adversarial-uncertainty", "remedy-quantification-enforcement"],
+      "manual_review": ["争议事实和证据状态必须与单纯合同文本审查分开"]
+    },
+    {
+      "id": "internal-style-only-review",
+      "prompt": "只检查采购合同模板的定义一致性和内部引用，不评价具体履约事实或争议程序。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "strategy_and_uncertainty", "governance"], "not_applicable": ["proof", "procedure", "outcomes_and_enforcement"], "blocked": []},
+      "status_reasons": {
+        "proof": "本次仅做未签署模板的内部一致性审查，不处理已经发生的待证事实和证据评价",
+        "procedure": "本次未进入争议或监管程序且用户明确排除程序方案设计",
+        "outcomes_and_enforcement": "本次只检查模板结构，不对具体金额敞口、资产或现实执行结果作评价"
+      },
+      "assertion_ids": ["relationship-claims-elements", "risk-action-loop", "ethics-privacy-human-review"],
+      "manual_review": ["不得把轻量模板检查扩张成虚构的履约争议分析"]
+    },
+    {
+      "id": "missing-authorization",
+      "prompt": "材料涉及关联主体和个人信息，但没有授权文件，请限定审查范围并停止外部动作。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "matter", "claims_and_elements", "authority_and_interpretation", "proof", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty"], "not_applicable": [], "blocked": ["actors", "governance"]},
+      "status_reasons": {
+        "actors": {"gap": "缺少主体资格和授权链文件", "fallback": "只整理材料陈述，不代表主体作出决定", "human_owner": "承办法务", "review_trigger": "收到授权文件后重新核验"},
+        "governance": {"gap": "没有读取敏感材料和外部动作授权", "fallback": "停止外传、发信和签署，仅保留本地审查", "human_owner": "项目负责人", "review_trigger": "权限书面确认后重新评估"}
+      },
+      "assertion_ids": ["actor-authority-conflict", "ethics-privacy-human-review", "security-boundary"],
+      "manual_review": ["是否把主体授权和材料事实分开", "是否停止所有外部动作"]
+    },
+    {
+      "id": "corrupt-evidence-package",
+      "prompt": "合同证据 PDF 损坏且附件数量不一致，请只列质量警告并停止证明力结论。",
+      "expected_modules": {"active": ["task_context", "jurisdiction", "temporal", "actors", "matter", "claims_and_elements", "authority_and_interpretation", "procedure", "outcomes_and_enforcement", "strategy_and_uncertainty", "governance"], "not_applicable": [], "blocked": ["proof"]},
+      "status_reasons": {
+        "proof": {"gap": "PDF 无法完整转换且文件数无法核对", "fallback": "只列可读取文件和质量警告，不评价证据链", "human_owner": "承办法务和文件管理员", "review_trigger": "取得完整 PDF 并完成页数、文件数和 evidence JSON 核对"}
+      },
+      "assertion_ids": ["pdf-evidence-contract", "proof-burden-standard", "workspace-contract"],
+      "manual_review": ["是否保留原始材料只读", "是否禁止由不完整材料推出证明力结论"]
+    }
+  ],
+  "prior_art": [
+    {
+      "source": "用户团队采购合同审查 SOP 与历史返工记录",
+      "decision": "转化后纳入",
+      "reason": "保留交易闭环和逐条修改方法，增加法域、时点、证据、程序与人工治理门禁",
+      "evidence": "设计优势；真实模型效果和律师盲评仍为证据缺失"
+    }
+  ],
+  "evidence_boundary": {
+    "present": ["完整静态 intake", "十二模块配置", "七类合成评测设计"],
+    "missing_evidence": ["provider-backed 模型运行", "独立律师盲评", "真实采购项目回归", "跨 Skill 路由冲突实测"]
+  },
+  "review": {
+    "owner": "采购法务负责人",
+    "cadence": "每次核心模板或法律依据实质变化后，至少每季度复核",
+    "reverification_triggers": ["采购模板重大修订", "核心法律规范变化", "真实项目出现重复遗漏", "处理权限或外部工具变化"]
+  }
+}

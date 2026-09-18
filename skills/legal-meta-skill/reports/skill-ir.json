@@ -1,0 +1,391 @@
+{
+  "schema_version": "legal-skill-ir/v0.3",
+  "generated_at": "2026-08-14",
+  "name": "legal-meta-skill",
+  "version": "1.0.0",
+  "owner": "CSlawyer",
+  "homepage": "https://chenshi.ai",
+  "branding_mode": "branded",
+  "provenance": {
+    "identity": "CSlawyer",
+    "homepage": "https://chenshi.ai",
+    "created_with": "legal-meta-skill",
+    "created_with_version": "1.0.0"
+  },
+  "downstream_attribution": {
+    "default": "include",
+    "new_skill": "作者 CSlawyer；主页 https://chenshi.ai；生成工具 legal-meta-skill",
+    "existing_skill": "保留原作者与许可证；增加由 CSlawyer 法律元技能优化或治理",
+    "white_label": "仅在用户明确要求时省略",
+    "business_deliverables": "不得自动注入品牌标识"
+  },
+  "quality_evidence_digests": {
+    "assets/templates/legal-skill-output-contract.md": "b8026bb23675a02cba4786ffed9023a2ba0c1464f994bf6de2d3119add8fd9d3",
+    "references/legal-method-core.md": "6ad120ebc155ff613a607205c5d42d2c226316e87d057beb9af6c669487ef250",
+    "evals/trigger_cases.json": "7d5fdf78ee09ea4433405ba54a6ef1fe97ad4cc5143f31a29e0d7b7726a39c58",
+    "evals/output_assertions.json": "597ff9c672fd1d09f899ec703445dc4494a0ccdb7753b6e1e1ac391d3f716078",
+    "evals/universal_legal_cases.json": "522bbd56921d9509838018b903a13c5ed3d6d851e1549b8fbac1dc31d1d6ee21",
+    "references/prior-art-and-trust.md": "159eba09f2b2bc361c3b40add97ce5fdaab8cf247e2e322a17216ed72776ee4d",
+    "reports/creation-handoff.md": "77c07013c9de11d6a6438c42fabeeef6ef6e45797c038df8514729434be4b986"
+  },
+  "self_containment": {
+    "external_skill_dependencies": [],
+    "rules": "bundled-references",
+    "checks": "bundled-scripts",
+    "templates": "bundled-assets",
+    "research": "bundled-source-guide",
+    "publishing": "bundled-release-guide"
+  },
+  "maturity": "library",
+  "maturity_label_zh": "基础设施级",
+  "description": "用于创建、改造、审计或评测可复用的中国大陆法律 Skill：以通用法律能力模型建立法域与时点、主体角色、法律关系与请求要件、法源解释、证据/举证责任/证明标准、程序期限、救济执行及人工复核的适用性记录，并完成建模、封装与双轨评测。适用于合同审核、案件分析、诉讼分析、PDF 证据处理与法律类元 Skill 治理；默认本地优先、数据不出机。不用于一次性法律咨询或解释（含请求权基础和要件事实）、单份文书、普通总结/翻译，或未获授权的发布、远程同步。",
+  "job": "把重复、证据敏感的中国大陆法律工作流创建、改造、审计或评测为可复用的 Agent Skill",
+  "decision": {
+    "goal": "决定目标法律工作流是否适合建成 Skill，并确定其能力、边界、成熟度和验证证据",
+    "owner": "目标 Skill 的用户或维护人",
+    "supported_action": "创建、改造、审计、评测和经单独授权的发布准备"
+  },
+  "target_users": [
+    "律师",
+    "法律助理",
+    "法律运营与知识管理人员",
+    "法律工作区中的 Agent"
+  ],
+  "inputs": [
+    "重复法律工作流",
+    "SOP 或既有提示词",
+    "代表性输入与优秀输出",
+    "既有 Skill",
+    "法律来源与项目约束",
+    "评测样例"
+  ],
+  "outputs": [
+    "自包含法律 Skill 包",
+    "法律能力配置",
+    "输出契约",
+    "触发与输出评测",
+    "证据边界",
+    "创建交接报告"
+  ],
+  "exclusions": [
+    "一次性法律咨询",
+    "单份文书起草",
+    "普通翻译或总结",
+    "替代律师作出最终法律决定",
+    "未经授权的外传与发布"
+  ],
+  "triggers": {
+    "should": [
+      "把这套合同审核 SOP 做成一个可复用的法律 Skill，先补边界和触发评测。",
+      "优化现有案件分析 Skill，加入法条时效核验、证据映射和输出质量门禁。",
+      "把 PDF 证据处理流程封装成可安装的法律 Skill，并保留 input/scratch/output 文件契约。",
+      "审计这个法律 Skill 的路由、法律来源、权限和安装风险，先不要修改。",
+      "比较两个元 Skill 的优点，形成一个本地优先的中国大陆法律类综合版。",
+      "先用中英文分别研究同类法律 Skill，再把适合的机制内化到一个新的法律 Skill。",
+      "创建一个诉讼分析 Skill，并把法域、期限、角色、请求权、举证责任和执行能力做成通用门禁。",
+      "审计现有法律 Skill 是否遗漏法律关系、证明标准和人工复核。",
+      "把我们常用的合同起草流程固化成可复用的法律 Skill，每次都能产出文书正文和变量槽位清单。",
+      "做一个合规义务监测的法律 Skill，持续跟踪监管规范变化并输出义务清单和整改动作。"
+    ],
+    "should_not": [
+      "分析这份合同第 3.4 条的退出路径和违约风险。",
+      "根据现有材料起草一份答辩状。",
+      "把这段中文法律文本翻译成英文。",
+      "把今天的会议记录整理成确认事项、争议事项和行动清单。",
+      "看一下我们这项业务有没有数据合规问题，给个一次性意见就行。"
+    ],
+    "near_neighbor": [
+      "帮我写一个一次性的法律分析提示词，不需要做成 Skill。",
+      "请解释 Skill IR 是什么，不创建文件。",
+      "把这个流程整理成普通 checklist，不需要 Agent Skill。",
+      "解释请求权基础和要件事实，不创建或修改 Skill。",
+      "介绍一下法律 Skill 有哪些场景原型，我还不想创建。"
+    ]
+  },
+  "workflow": [
+    "意图收敛",
+    "中英文只读研究",
+    "法律 Skill IR 建模",
+    "自包含封装",
+    "双轨评测",
+    "成熟度门禁与交接"
+  ],
+  "decision_points": [
+    "是否存在重复任务和可复用输出契约",
+    "十二模块分别处于适用、不适用或受阻状态",
+    "目标成熟度是否有相应证据",
+    "是否取得外部写入或发布授权"
+  ],
+  "failure_modes": [
+    "法域或法律时点不明",
+    "核心法律依据未核验",
+    "材料与事实混同",
+    "证据不足却输出确定结论",
+    "权限或人工复核缺失",
+    "把静态夹具冒充真实运行证据"
+  ],
+  "legal_profile": {
+    "schema_version": "universal-legal-core/v0.1",
+    "activation_policy": "mandatory-review-conditional-expansion",
+    "jurisdiction_default": "中国大陆",
+    "source_policy": "现行法、司法解释、权威案例与本地知识库分层并独立核验",
+    "evidence_policy": "材料、事实、法律评价、程序状态四层分离",
+    "privacy_default": "local-first-data-stays-local",
+    "pdf_policy": "遵守包内法律文件与工作空间规则",
+    "modules": {
+      "task_context": {
+        "label_zh": "任务目的与受众",
+        "status": "active",
+        "reason": "元技能生成或审查下游任务定义能力",
+        "required_outputs": [
+          "task_type",
+          "decision_goal",
+          "target_users",
+          "audience",
+          "decision_owner",
+          "reviewer"
+        ]
+      },
+      "jurisdiction": {
+        "label_zh": "法域",
+        "status": "active",
+        "reason": "元技能生成或审查下游法域建模能力",
+        "required_outputs": [
+          "jurisdiction_scope",
+          "governing_law_basis",
+          "forum_or_seat",
+          "conflict_rules"
+        ]
+      },
+      "temporal": {
+        "label_zh": "时间",
+        "status": "active",
+        "reason": "元技能生成或审查下游时间与期限建模能力",
+        "required_outputs": [
+          "as_of_date",
+          "event_timeline",
+          "applicable_versions",
+          "limitation_and_deadline_checks",
+          "temporal_gaps"
+        ]
+      },
+      "actors": {
+        "label_zh": "主体角色",
+        "status": "active",
+        "reason": "元技能生成或审查下游主体角色能力",
+        "required_outputs": [
+          "actor_map",
+          "legal_status",
+          "roles_and_interests",
+          "authority_and_capacity",
+          "conflicts_of_interest"
+        ]
+      },
+      "matter": {
+        "label_zh": "法律事项",
+        "status": "active",
+        "reason": "元技能生成或审查下游法律事项建模能力",
+        "required_outputs": [
+          "issue_scope",
+          "legal_relationships",
+          "issue_tree",
+          "material_facts",
+          "exclusions"
+        ]
+      },
+      "claims_and_elements": {
+        "label_zh": "请求与要件",
+        "status": "active",
+        "reason": "元技能生成或审查下游请求要件能力",
+        "required_outputs": [
+          "claims_defenses",
+          "legal_elements",
+          "element_fact_mapping",
+          "remedies_requested",
+          "counterarguments"
+        ]
+      },
+      "authority_and_interpretation": {
+        "label_zh": "法源与解释",
+        "status": "active",
+        "reason": "元技能生成或审查下游法源解释能力",
+        "required_outputs": [
+          "authority_inventory",
+          "authority_hierarchy",
+          "verification_status",
+          "interpretation_method",
+          "application_analysis",
+          "conflicting_authorities"
+        ]
+      },
+      "proof": {
+        "label_zh": "证明",
+        "status": "active",
+        "reason": "元技能生成或审查下游证明能力",
+        "required_outputs": [
+          "facts_to_prove",
+          "evidence_locator",
+          "burden_of_proof",
+          "standard_of_proof",
+          "evidence_gaps",
+          "adverse_consequences"
+        ]
+      },
+      "procedure": {
+        "label_zh": "程序",
+        "status": "active",
+        "reason": "元技能生成或审查下游程序能力",
+        "required_outputs": [
+          "forum_and_jurisdiction",
+          "procedural_posture",
+          "procedural_steps",
+          "deadlines_to_verify",
+          "admissibility_or_prerequisites",
+          "procedural_risks"
+        ]
+      },
+      "outcomes_and_enforcement": {
+        "label_zh": "结果与执行",
+        "status": "active",
+        "reason": "元技能生成或审查下游结果执行能力",
+        "required_outputs": [
+          "outcome_scenarios",
+          "legal_effects",
+          "liability_and_exposure",
+          "enforceability",
+          "enforcement_path",
+          "recovery_constraints"
+        ]
+      },
+      "strategy_and_uncertainty": {
+        "label_zh": "策略与不确定性",
+        "status": "active",
+        "reason": "元技能生成或审查下游策略与不确定性处理能力",
+        "required_outputs": [
+          "options",
+          "assumptions",
+          "uncertainties",
+          "scenario_analysis",
+          "recommended_actions",
+          "escalation_triggers"
+        ]
+      },
+      "governance": {
+        "label_zh": "职业治理",
+        "status": "active",
+        "reason": "元技能生成或审查下游职业治理能力",
+        "required_outputs": [
+          "confidentiality_and_data_boundary",
+          "permissions",
+          "human_review",
+          "source_and_audit_trail",
+          "professional_responsibility_limits",
+          "review_cycle"
+        ]
+      }
+    }
+  },
+  "capability_summary": {
+    "total": 12,
+    "active": 12,
+    "not_applicable": 0,
+    "blocked": 0
+  },
+  "migration_warnings": [],
+  "resources": {
+    "references": [
+      "references/domain-supplement.md",
+      "references/intent-and-scope.md",
+      "references/legal-core-rules.md",
+      "references/legal-eval-method.md",
+      "references/legal-method-core.md",
+      "references/legal-quality-gates.md",
+      "references/legal-scenario-archetypes.md",
+      "references/legal-skill-ir.md",
+      "references/legal-skill-publishing.md",
+      "references/legal-workspace-rules.md",
+      "references/prior-art-and-trust.md",
+      "references/skill-research-sources.md",
+      "references/universal-legal-capability-model.md",
+      "references/user-input-and-acceptance.md"
+    ],
+    "scripts": [
+      "scripts/create_legal_skill.py",
+      "scripts/evaluate_trigger_cases.py",
+      "scripts/export_legal_skill_ir.py",
+      "scripts/legal_meta.py",
+      "scripts/legal_meta_security.py",
+      "scripts/migrate_legal_skill.py",
+      "scripts/validate_legal_profile.py",
+      "scripts/validate_legal_skill.py"
+    ],
+    "evals": [
+      "evals/output_assertions.json",
+      "evals/trigger_cases.json",
+      "evals/universal_legal_cases.json"
+    ],
+    "assets": [
+      "assets/templates/downstream-creation-handoff.template.md",
+      "assets/templates/downstream-interface.template.yaml",
+      "assets/templates/downstream-manifest.template.json",
+      "assets/templates/downstream-output-assertions.json",
+      "assets/templates/downstream-skill.template.md",
+      "assets/templates/downstream-trigger-cases.template.json",
+      "assets/templates/legal-capability-profile.json",
+      "assets/templates/legal-scenario-checklists/compliance_regulatory.md",
+      "assets/templates/legal-scenario-checklists/contract_review.md",
+      "assets/templates/legal-scenario-checklists/dispute_resolution.md",
+      "assets/templates/legal-scenario-checklists/document_drafting.md",
+      "assets/templates/legal-scenario-checklists/document_review_redline.md",
+      "assets/templates/legal-scenario-checklists/evidence_files.md",
+      "assets/templates/legal-scenario-checklists/legal_research.md",
+      "assets/templates/legal-scenario-checklists/legal_retrieval.md",
+      "assets/templates/legal-skill-intake.json",
+      "assets/templates/legal-skill-output-contract.md",
+      "assets/templates/provider-trigger-observations.template.json"
+    ]
+  },
+  "permissions": {
+    "network": "默认关闭；必要或用户要求时只读研究",
+    "file_write": "仅目标 Skill 包、scratch 与用户指定 output",
+    "subprocess": "仅包内确定性检查和用户批准的可信工具",
+    "external_actions": "发布、发信、提交和远程同步必须单独授权"
+  },
+  "degradation": {
+    "no_network": "使用包内规则和用户资料，并标注未核验的外部来源",
+    "missing_authority": "停止相应确定性法律结论并列出补充路径",
+    "missing_permission": "停止外部或不可逆动作，保留本地只读交付"
+  },
+  "eval_plan": {
+    "routing": "should-trigger、should-not-trigger、near-neighbor",
+    "output": "十二模块状态、法律来源、事实证据分层、程序救济与治理边界",
+    "promotion": "只有对应成熟度的静态、模型运行和人工证据齐备后才提升声明",
+    "require_full_module_activation": true,
+    "require_lightweight_case": true
+  },
+  "evidence_boundary": {
+    "present": [
+      "static package checks",
+      "static trigger-case coverage",
+      "designed legal output assertions",
+      "deterministic golden downstream Skill generation",
+      "maturity-gate adversarial tests"
+    ],
+    "missing_evidence": [
+      "provider-backed model execution",
+      "independent human blind review",
+      "real-client telemetry",
+      "public release installation"
+    ]
+  },
+  "review": {
+    "owner": "CSlawyer",
+    "cadence": "每次实质迭代后，至少每季度复核",
+    "reverification_triggers": [
+      "Agent Skills 规范变化",
+      "通用法律能力模型升级",
+      "校验器或生成器变更",
+      "真实项目出现新的重复错误"
+    ]
+  }
+}

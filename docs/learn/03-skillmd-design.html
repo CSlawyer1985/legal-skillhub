@@ -89,7 +89,7 @@
   </ul>
 
   <h2>六、元技能推荐：让 AI 来写 SKILL.md</h2>
-  <p>前五节是徒手写 SKILL.md 的方法。实际动手时更快的路径是装一个<strong>元技能</strong>（制作 Skill 的 Skill）——把"把这个流程做成一个 Skill"这句话直接交给 AI，由它完成调研、起草、评测、发布的全流程。推荐三个，按工程化程度递进：</p>
+  <p>前五节是徒手写 SKILL.md 的方法。实际动手时更快的路径是装一个<strong>元技能</strong>（制作 Skill 的 Skill）——把"把这个流程做成一个 Skill"这句话直接交给 AI，由它完成调研、起草、评测、发布的全流程。下面推荐四个，按适用范围与工程化程度展开：</p>
 
   <h3>1. Anthropic 官方 skill-creator —— 官方口径的基线</h3>
   <p><a href="https://github.com/anthropics/skills/tree/main/skills/skill-creator" target="_blank" rel="noopener">anthropics/skills 仓库</a>中的官方元技能：负责意图澄清、起草 SKILL.md、生成测试用例、打包发布。它定义了 Anthropic 对 Skill 结构的官方理解（frontmatter + 正文 + references 分层），本讲前五节的规则大多源自它。三个中最轻，适合第一次接触元技能、想先理解官方口径的人。</p>
@@ -102,7 +102,11 @@
   <p><a href="https://github.com/yaojingang/yao-meta-skill" target="_blank" rel="noopener">YAO 元技能（yaojingang）</a>自称"Skill OS"，是三个中工程化最重的一个：先用平台中立的"技能 IR"（意图、触发器、输入输出、边界）建模，再编译到 Claude、OpenAI、Codex、VS Code 多平台；配 Output Eval Lab（输出断言、盲审 A/B 包）、Review Studio 单页审查门户、发布治理（安装模拟、权限探测、证据账本）和 SkillOps 持续迭代循环（采纳漂移检测、每日看护报告）。作者自评 91.5/100（对比官方 skill-creator 67.5、OpenAI 50.5），但仅有一次人工盲审，属自评参考。安装（需 Python 3.11+）：</p>
   <pre>npx -y skills add yaojingang/yao-meta-skill -a codex -g -y</pre>
 
-  <div class="note"><b>选型提示</b>：三个的差别本质是第 3 节的"任务自由度"——官方版最低（固定流程），乔木版是"流程刚性 + 判断弹性"的折中，YAO 版自由度最高、工程化最重。个人法律 Skill 起步用官方版或乔木版即可；需要跨平台分发、持续迭代治理的团队级资产，再上 YAO。</div>
+  <h3>4. <a class="case-link" href="../skill.html?f=legal-meta-skill">legal-meta-skill</a> —— 面向中国大陆法律 Skill 的治理型元技能</h3>
+  <p>这是 CSlawyer 设计的法律专用元技能：不是泛用的 SKILL.md 写作助手，而是把重复、证据敏感的中国大陆法律工作流，编译成可复用、可验证、边界清楚的 Skill 包。它按“意图收敛 → 只读研究 → 法律 Skill IR 建模 → 自包含封装 → 双轨评测 → 成熟度门禁与交接”推进，内置十二模块法律能力模型、输出契约、触发评测、法律输出断言、生成器和验证器；默认本地优先、数据不出机，并把静态检查、模型实跑、人工盲评和真实项目回归分开记录。适合创建、改造、审计或评测中国大陆法律 Skill，不适用于一次性法律咨询、单份文书、普通翻译/摘要或未经授权的发布与远程同步。</p>
+  <p>本页对应的 <a class="case-link" href="../skill.html?f=legal-meta-skill">SkillHub 条目</a> 可查看完整 Skill 包与文件树。</p>
+
+  <div class="note"><b>选型提示</b>：前三个是通用元技能，差别主要在第 3 节的"任务自由度"与工程化程度；<code>legal-meta-skill</code> 则针对中国大陆法律工作流，额外把法域、法律时点、证据边界、人工复核和成熟度证据写进创建契约。通用 Skill 从官方版或乔木版起步；需要跨平台分发、持续迭代治理的团队级资产可选 YAO；创建或治理中国大陆法律 Skill 时，优先看 <code>legal-meta-skill</code>。</div>
 
   <h2>下一讲</h2>
   <p>SKILL.md 写好了，它需要什么环境才能跑起来？带脚本的、要联网的、要处理 Word 的，各有什么配套条件？→ <a class="case-link" href="./04-environment.html">04 · 工作环境与配套条件</a></p>

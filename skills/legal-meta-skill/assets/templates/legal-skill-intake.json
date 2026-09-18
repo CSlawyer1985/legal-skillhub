@@ -1,0 +1,139 @@
+{
+  "schema_version": "legal-skill-intake/v0.3",
+  "template_only": true,
+  "name": "replace-with-legal-skill",
+  "version": "0.1.0",
+  "display_name": "【填写面向用户的中文名称】",
+  "description": "【填写做什么、何时触发，以及不应触发的近邻场景】",
+  "short_description": "【填写二十五至六十四个字符的中文短描述】",
+  "owner": "【填写维护人或团队】",
+  "maturity": "library",
+  "branding_mode": "branded",
+  "scenario_archetype": "【填写场景原型：dispute_resolution / contract_review / document_drafting / document_review_redline / legal_research / compliance_regulatory / legal_retrieval / evidence_files / other】",
+  "workspace_profile": {
+    "workflow_family": "【填写：case_analysis_v2 / due_diligence / contract_review / legal_research】",
+    "display_name_zh": "【填写中文工作流名称】",
+    "initialization_mode": "plan_only",
+    "root_policy": "user_selected"
+  },
+  "target_platforms": ["openai", "generic"],
+  "skill_contract": {
+    "job": "【填写一个明确、重复、可稳定完成的法律工作】",
+    "decision": {
+      "goal": "【填写最终支持什么决定】",
+      "owner": "【填写谁作出决定】",
+      "supported_action": "【填写 Skill 可以提供或执行的动作】"
+    },
+    "target_users": ["【填写实际使用者】"],
+    "inputs": ["【填写必要输入】"],
+    "outputs": ["【填写正式输出】"],
+    "exclusions": ["【填写明确不做事项】"],
+    "workflow": ["【填写第一步】", "【填写第二步】"],
+    "decision_points": ["【填写会改变路径的判断点】"],
+    "failure_modes": ["【填写典型失败方式及停止条件】"]
+  },
+  "triggers": {
+    "should-trigger": [
+      {"prompt": "【填写自然触发语句一】", "keywords": ["【填写关键词】"]},
+      {"prompt": "【填写自然触发语句二】", "keywords": ["【填写关键词】"]},
+      {"prompt": "【填写自然触发语句三】", "keywords": ["【填写关键词】"]}
+    ],
+    "should-not-trigger": [
+      {"prompt": "【填写不应触发语句一】", "keywords": []},
+      {"prompt": "【填写不应触发语句二】", "keywords": []}
+    ],
+    "near-neighbor": [
+      {"prompt": "【填写近邻语句一】", "keywords": []},
+      {"prompt": "【填写近邻语句二】", "keywords": []}
+    ]
+  },
+  "intent_canvas_coverage": {
+    "job": "【填写哪个重复出现的法律工作要被稳定完成，任务从哪里开始、到哪里结束；核心字段，必须实质回答，不允许 not_needed】",
+    "users": "【填写谁使用本 Skill、谁是实际受众；核心字段，必须实质回答，不允许 not_needed】",
+    "decision": "【填写最终支持什么决定、由谁作出，以及 Skill 提供信息、建议还是执行经授权动作；核心字段，必须实质回答，不允许 not_needed】",
+    "inputs": "【填写必需、可选和待补的文件、事实、规则、项目约束与可用工具；核心字段，必须实质回答，不允许 not_needed】",
+    "outputs": "【填写交付物的类型、最低字段、格式和落点；核心字段，必须实质回答，不允许 not_needed】",
+    "exclusions": "【填写明确不做事项，如最终法律决策、未经复核定稿、自动发信或不可逆提交；核心字段，必须实质回答，不允许 not_needed】",
+    "jurisdiction_bundle": "【填写实体法、程序法、法院或仲裁机构、监管机关、地域及准据法确定方式；条件字段，默认必须实质回答，仅当 scenario_archetype 放宽时可填 not_needed 并给具体理由】",
+    "temporal_bundle": "【填写事实期间、法律核验时点、新旧法过渡、诉讼时效和其他程序期限；条件字段，默认必须实质回答，仅当 scenario_archetype 放宽时可填 not_needed 并给具体理由】",
+    "actors": "【填写委托人、代理人、相对方和第三人的资格、授权、行为能力与利益冲突；条件字段，默认必须实质回答，仅当 scenario_archetype 放宽时可填 not_needed 并给具体理由】",
+    "matter": "【填写专业领域、法律关系、事项对象及所处生命周期状态；条件字段，默认必须实质回答，仅当 scenario_archetype 放宽时可填 not_needed 并给具体理由】",
+    "legal_profile": "【填写默认法域、适用时点、权威来源层级，以及十二模块适用、不适用或受阻的具体理由；核心字段，必须实质回答，不允许 not_needed】",
+    "evidence": "【填写原始材料、材料陈述、已确认事实、法律评价、程序记录的分层方式与结论追溯要求；条件字段，默认必须实质回答，仅当 scenario_archetype 放宽时可填 not_needed 并给具体理由】",
+    "workspace_or_permissions": "【填写运行环境、读写范围、联网与外部动作的授权条件；条件字段，默认必须实质回答，仅当 scenario_archetype 放宽时可填 not_needed 并给具体理由】",
+    "human_control": "【填写复核人、最终决定与签发责任人、不得自动定稿的结论和重新核验触发条件；核心字段，必须实质回答，不允许 not_needed】",
+    "success": "【填写完成标准、触发与输出的验证方式及复核周期；核心字段，必须实质回答，不允许 not_needed】"
+  },
+  "domain_supplement": [
+    {
+      "id": "replace-with-domain-rule-id",
+      "question": "【填写意图阶段第 3 层的领域路由问题；other 场景至少保留一项】",
+      "answer_summary": "【填写不含敏感原文的实质摘要】",
+      "internalized_rules": ["【填写将被运行时使用的可复用规则】"],
+      "question_source": "【填写问题来源：builtin-archetype / user-provided / authorized-research】",
+      "sensitivity": "internalized-only"
+    }
+  ],
+  "legal_profile": {
+    "schema_version": "universal-legal-core/v0.1",
+    "activation_policy": "mandatory-review-conditional-expansion",
+    "modules": {
+      "task_context": {"label_zh": "任务目的与受众", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["task_type", "decision_goal", "target_users", "audience", "decision_owner", "reviewer"]},
+      "jurisdiction": {"label_zh": "法域", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["jurisdiction_scope", "governing_law_basis", "forum_or_seat", "conflict_rules"]},
+      "temporal": {"label_zh": "时间", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["as_of_date", "event_timeline", "applicable_versions", "limitation_and_deadline_checks", "temporal_gaps"]},
+      "actors": {"label_zh": "主体角色", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["actor_map", "legal_status", "roles_and_interests", "authority_and_capacity", "conflicts_of_interest"]},
+      "matter": {"label_zh": "法律事项", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["issue_scope", "legal_relationships", "issue_tree", "material_facts", "exclusions"]},
+      "claims_and_elements": {"label_zh": "请求与要件", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["claims_defenses", "legal_elements", "element_fact_mapping", "remedies_requested", "counterarguments"]},
+      "authority_and_interpretation": {"label_zh": "法源与解释", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["authority_inventory", "authority_hierarchy", "verification_status", "interpretation_method", "application_analysis", "conflicting_authorities"]},
+      "proof": {"label_zh": "证明", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["facts_to_prove", "evidence_locator", "burden_of_proof", "standard_of_proof", "evidence_gaps", "adverse_consequences"]},
+      "procedure": {"label_zh": "程序", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["forum_and_jurisdiction", "procedural_posture", "procedural_steps", "deadlines_to_verify", "admissibility_or_prerequisites", "procedural_risks"]},
+      "outcomes_and_enforcement": {"label_zh": "结果与执行", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["outcome_scenarios", "legal_effects", "liability_and_exposure", "enforceability", "enforcement_path", "recovery_constraints"]},
+      "strategy_and_uncertainty": {"label_zh": "策略与不确定性", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["options", "assumptions", "uncertainties", "scenario_analysis", "recommended_actions", "escalation_triggers"]},
+      "governance": {"label_zh": "职业治理", "status": "active", "reason": "【填写与本重复任务相关的理由】", "required_outputs": ["confidentiality_and_data_boundary", "permissions", "human_review", "source_and_audit_trail", "professional_responsibility_limits", "review_cycle"]}
+    }
+  },
+  "permissions": {
+    "network": "【填写是否允许联网及授权条件】",
+    "file_write": "【填写允许写入的范围】",
+    "external_actions": "【填写不可逆动作的确认要求】"
+  },
+  "degradation": {
+    "missing_input": "【填写材料缺失时的降级或停止路径】",
+    "missing_authority": "【填写法律依据缺失时的降级或停止路径】",
+    "missing_permission": "【填写权限不足时的降级或停止路径】"
+  },
+  "eval_plan": {
+    "routing": "【填写触发轨评测目标】",
+    "output": "【填写输出轨评测目标】",
+    "promotion": "【填写成熟度提升条件】",
+    "require_full_module_activation": false,
+    "require_lightweight_case": false
+  },
+  "evaluation_cases": [
+    {
+      "id": "replace-with-case-id",
+      "prompt": "【填写脱敏或合成任务】",
+      "expected_modules": {"active": [], "not_applicable": [], "blocked": []},
+      "status_reasons": {},
+      "assertion_ids": ["source-fidelity"],
+      "manual_review": ["【填写人工复核点】"]
+    }
+  ],
+  "prior_art": [
+    {
+      "source": "【填写来源或包内既有机制】",
+      "decision": "转化后纳入",
+      "reason": "【填写采用、转化或不采用的理由】",
+      "evidence": "【填写设计证据、已验证证据、假设或证据缺失】"
+    }
+  ],
+  "evidence_boundary": {
+    "present": ["【填写已实际取得的证据】"],
+    "missing_evidence": ["provider-backed 模型运行", "独立人工盲评", "真实项目回归"]
+  },
+  "review": {
+    "owner": "【填写维护与复核责任人】",
+    "cadence": "【填写定期复核周期】",
+    "reverification_triggers": ["【填写必须重新核验的变化】"]
+  }
+}

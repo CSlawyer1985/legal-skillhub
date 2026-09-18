@@ -199,7 +199,7 @@ function renderHeader(active) {
       <a href="./about.html" ${active === "about" ? 'class="active"' : ""}>关于</a>
     </nav>
     <div class="header-right">
-      <div class="header-meta">2049 legal skills</div>
+      <div class="header-meta">2077 legal skills</div>
       <div class="mode-toggle" role="group" aria-label="配色模式">
         <button type="button" data-ground="ink" aria-pressed="true">ink</button>
         <button type="button" data-ground="paper" aria-pressed="false">paper</button>

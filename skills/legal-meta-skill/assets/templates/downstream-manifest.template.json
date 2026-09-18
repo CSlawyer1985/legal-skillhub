@@ -1,0 +1,34 @@
+{
+  "name": "replace-with-legal-skill",
+  "version": "0.1.0",
+  "owner": "【填写维护人】",
+  "license": "Apache-2.0",
+  "branding_mode": "branded",
+  "creator": {
+    "identity": "CSlawyer",
+    "homepage": "https://chenshi.ai",
+    "created_with": "legal-meta-skill",
+    "created_with_version": "1.0.0"
+  },
+  "maturity_tier": "production",
+  "maturity_label_zh": "专业复用级",
+  "scenario_archetype": "【填写场景原型：dispute_resolution / contract_review / document_drafting / legal_research / compliance_regulatory / legal_retrieval / evidence_files / other】",
+  "skill_contract": {
+    "job": "【填写重复工作】",
+    "decision": {"goal": "【填写决定】", "owner": "【填写责任人】", "supported_action": "【填写动作】"},
+    "target_users": ["【填写】"],
+    "inputs": ["【填写】"],
+    "outputs": ["【填写】"],
+    "exclusions": ["【填写】"],
+    "workflow": ["【填写】"],
+    "decision_points": ["【填写】"],
+    "failure_modes": ["【填写】"]
+  },
+  "legal_profile": "从 legal-capability-profile.json 复制完整对象并按任务逐模块填写",
+  "quality_evidence": {
+    "trigger_cases": "evals/trigger_cases.json",
+    "output_contract": "assets/legal-skill-output-contract.md",
+    "output_assertions": "evals/output_assertions.json",
+    "universal_cases": "evals/universal_legal_cases.json"
+  }
+}

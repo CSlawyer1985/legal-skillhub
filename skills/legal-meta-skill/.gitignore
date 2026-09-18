@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+*.pyc
+work/
+dist/
+reports/private-*
+reports/*-local*
+*.secret
+*.token

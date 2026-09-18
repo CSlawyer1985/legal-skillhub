@@ -1,0 +1,204 @@
+{
+  "skill": "legal-meta-skill",
+  "evaluated_at": "2026-08-14",
+  "evidence_kind": "static_only",
+  "provider_status": "not_run",
+  "not_model_trigger_rate": true,
+  "counts": {
+    "should-trigger": 10,
+    "should-not-trigger": 5,
+    "near-neighbor": 5
+  },
+  "results": [
+    {
+      "id": "create-contract-skill",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "合同",
+        "法律 Skill"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "improve-litigation-skill",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "案件分析",
+        "Skill",
+        "评测"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "pdf-evidence-skill",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "PDF",
+        "证据处理",
+        "Skill"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "audit-legal-skill",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "审计",
+        "法律 Skill"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "synthesize-meta-skills",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "元 Skill",
+        "本地优先",
+        "法律类"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "research-legal-skills",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "法律 Skill",
+        "Skill"
+      ],
+      "keyword_count": 2,
+      "static_coverage": true
+    },
+    {
+      "id": "create-universal-litigation-gates",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "诉讼分析",
+        "法律 Skill",
+        "Skill"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "audit-universal-legal-capabilities",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "审计",
+        "法律 Skill",
+        "人工复核"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "single-clause-analysis",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "draft-defense",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "translate-legal-text",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "meeting-summary",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "one-off-prompt",
+      "kind": "near-neighbor",
+      "keyword_hits": [
+        "Skill"
+      ],
+      "keyword_count": 1,
+      "static_coverage": true
+    },
+    {
+      "id": "explain-ir",
+      "kind": "near-neighbor",
+      "keyword_hits": [],
+      "keyword_count": 1,
+      "static_coverage": false
+    },
+    {
+      "id": "ordinary-checklist",
+      "kind": "near-neighbor",
+      "keyword_hits": [
+        "Skill"
+      ],
+      "keyword_count": 1,
+      "static_coverage": true
+    },
+    {
+      "id": "explain-claim-elements",
+      "kind": "near-neighbor",
+      "keyword_hits": [
+        "请求权基础",
+        "要件事实"
+      ],
+      "keyword_count": 2,
+      "static_coverage": true
+    },
+    {
+      "id": "create-drafting-skill",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "法律 Skill",
+        "复用"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "create-compliance-monitoring-skill",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "法律 Skill"
+      ],
+      "keyword_count": 3,
+      "static_coverage": true
+    },
+    {
+      "id": "one-off-compliance-opinion",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "discuss-archetypes",
+      "kind": "near-neighbor",
+      "keyword_hits": [
+        "Skill"
+      ],
+      "keyword_count": 2,
+      "static_coverage": true
+    }
+  ],
+  "observed_results": null,
+  "errors": [],
+  "missing_evidence": [
+    "provider-backed 模型触发运行",
+    "独立人工盲评",
+    "跨 Skill 路由冲突实测"
+  ]
+}

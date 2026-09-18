@@ -1,0 +1,4 @@
+interface:
+  display_name: "CSlawyer 法律类元 Skill"
+  short_description: "创建、改造、审计与评测中国大陆可复用法律 Skill"
+  default_prompt: "使用 $legal-meta-skill 创建、改造、审计或评测可复用的中国大陆法律 Skill。先完成 intake 与 12 模块适用性记录，再用包内生成器形成自包含目标包，并按声明成熟度运行结构、路由、法律输出和证据门禁。仅在用户授权范围内写入目标 Skill，未经授权不得发布或远程同步。"

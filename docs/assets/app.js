@@ -31,11 +31,11 @@
   ];
 
   let DATA = [];
-  /* 编辑推荐（人工精选）：10 个，其中 6 个中国大陆类 + 4 个其他法域 */
+  /* 编辑推荐（人工精选）：10 个，其中 7 个中国大陆类 + 3 个其他法域 */
   const CURATED = [
     "legal-research", "construction-contract-review", "fadawang-qa-plus",
     "patent-invalidation", "mqc-timeline-master", "civil-litigation-thinking",
-    "30b6-deposition", "analyse-dpa-fournisseur-hugo-salard",
+    "legal-meta-skill", "analyse-dpa-fournisseur-hugo-salard",
     "litigation-deadline-calendar", "customs-trade-law-onur-kafkas",
   ];
   const state = {
@@ -91,7 +91,7 @@
     if (!out) return;
     const lines = [
       "> initializing legal_skillhub ...",
-      "> mounting /skills .... [██████████] 2049/2049",
+      "> mounting /skills .... [██████████] 2077/2077",
       "> jurisdictions ... china·us·eu·fr·uk·intl",
       "> taxonomy ... 36 domains · 15 tasks",
       "> ready. scroll down ↓",
