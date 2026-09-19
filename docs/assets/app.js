@@ -229,7 +229,7 @@
       : d.lrisk === "copyleft" ? ["COPYLEFT", "COPYLEFT"]
       : d.lrisk === "restrictive-nc" ? ["NC-ONLY", "NC-ONLY"] : ["UNDECLARED", "CHECK"];
     const riskCls = d.lrisk;
-    return `<a class="skill-row" href="./skill.html?f=${encodeURIComponent(d.id)}">
+    return `<a class="skill-row" href="${skillHref(d.id)}">
       <div class="row-main">
         <div class="row-title"><span class="prompt">&gt;</span> <span class="sname">${escHtml(d.name)}</span> <span class="score" title="结构完整度：仅反映包结构（references/scripts/LICENSE/描述/文件数），不代表任务质量或法律准确性">${d.q}/5</span></div>
         <div class="row-desc">${escHtml(d.summary || "（暂无简介）")}</div>
@@ -266,7 +266,7 @@
     if (showTop) {
       const curated = CURATED.map(id => DATA.find(d => d.id === id)).filter(Boolean);
       $("#top-zone").innerHTML = `<div class="top-label">▍ 编辑精选 · TOP PERFORMING</div><div class="top-grid">${
-        curated.map(d => `<a class="top-card" href="./skill.html?f=${encodeURIComponent(d.id)}">
+        curated.map(d => `<a class="top-card ${d.id === "legal-meta-skill" ? "top-card-featured" : ""}" href="${skillHref(d.id)}">
           <div class="tc-score">${d.q}/5</div><div class="tc-name">&gt; ${escHtml(d.name)}</div>
           <div class="tc-desc">${escHtml((d.summary||"").slice(0,70))}</div></a>`).join("")}</div>`;
     }
@@ -294,10 +294,15 @@
     const html = order.filter(j => byJur[j]).map(j => {
       const cnt = byJur[j].length;
       return `<div class="dir-col"><h4>${lbl("jur", j)} <span class="dir-cnt">${cnt}</span></h4>
-        <div class="dir-links">${byJur[j].slice(0, 10).map(d => `<a href="./skill.html?f=${encodeURIComponent(d.id)}">${escHtml(d.name)}</a>`).join("")}
+        <div class="dir-links">${byJur[j].slice(0, 10).map(d => `<a class="${d.id === "legal-meta-skill" ? "dir-special" : ""}" href="${skillHref(d.id)}">${escHtml(d.name)}${d.id === "legal-meta-skill" ? " · 专题" : ""}</a>`).join("")}
         ${cnt > 10 ? `<a class="dir-more" href="#dim=jur&p=${j}">+${cnt - 10} more →</a>` : ""}</div></div>`;
     }).join("");
-    $("#directory").innerHTML = `<h2 class="dir-h">All ${DATA.length} Skills <span class="dir-sub">// 按法域浏览</span></h2><div class="dir-grid">${html}</div>`;
+    const special = `<a class="dir-special-callout" href="${skillHref("legal-meta-skill")}">
+      <span class="dir-special-kicker">专题入口 / FEATURED DEEP DIVE</span>
+      <strong>法律元SKILL</strong>
+      <span>查看它如何把重复法律工作流治理成可复用、可评测、可交接的 Agent Skill →</span>
+    </a>`;
+    $("#directory").innerHTML = `${special}<h2 class="dir-h">All ${DATA.length} Skills <span class="dir-sub">// 按法域浏览</span></h2><div class="dir-grid">${html}</div>`;
     $("#directory").querySelectorAll(".dir-more").forEach(a =>
       a.addEventListener("click", e => { e.preventDefault(); const m = a.getAttribute("href").match(/p=([^&]+)/); state.dim = "jur"; state.pills = new Set([m[1]]); state.page = 1; renderDimTabs(); refresh(); window.scrollTo(0, 300); }));
   }

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-mode="ink">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法律元SKILL · legal-meta-skill · Legal SkillHub</title>
+<meta name="description" content="legal-meta-skill：面向中国大陆可复用法律 Skill 的创建、改造、审计与评测专题页。">
+<meta property="og:title" content="法律元SKILL · legal-meta-skill · Legal SkillHub">
+<meta property="og:description" content="把重复、证据敏感的中国大陆法律工作流，治理成可复用、可评测、可交接的 Agent Skill。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skill.chenshi.ai/legal-meta-skill.html">
+<meta property="og:site_name" content="Legal SkillHub">
+<meta name="theme-color" content="#11111b">
+<link rel="icon" href="./assets/img/favicon.svg?v=cc4a928" type="image/svg+xml">
+<script src="./assets/mode.js?v=cc4a928"></script>
+<link rel="preload" href="./assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/jbmono-term.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./assets/style.css?v=cc4a928">
+</head>
+<body data-active="meta" data-prefix="./">
+<div id="header"></div>
+
+<main class="meta-page">
+  <section class="meta-hero">
+    <div class="meta-shell">
+      <div class="meta-kicker"><span>专题页 / 01</span><span>LEGAL META SKILL</span><span>LOCAL-FIRST · REVIEW-GATED</span></div>
+      <div class="meta-hero-grid">
+        <div class="meta-hero-copy">
+          <div class="meta-id"><span>&gt;</span> legal-meta-skill</div>
+          <h1>把法律经验，<em>封装成可复用能力</em></h1>
+          <p class="meta-lede">一套面向中国大陆法律工作的治理型元 Skill：先收敛任务，再研究法源、建立法律能力模型、封装文件包、执行双轨评测，最后按证据决定发布或交接。</p>
+          <div class="meta-hero-actions">
+            <a class="meta-primary-action" href="./skill.html?f=legal-meta-skill">查看普通详情 →</a>
+            <a class="meta-secondary-action" href="https://github.com/CSlawyer1985/legal-skillhub/tree/main/skills/legal-meta-skill" target="_blank" rel="noopener">GitHub 源码 ↗</a>
+          </div>
+          <div class="meta-signature"><span>CSlawyer</span><span>v1.0.0</span><span>Apache-2.0</span><span>中国大陆</span></div>
+        </div>
+        <div class="meta-terminal" aria-label="legal-meta-skill pipeline overview">
+          <div class="meta-terminal-bar"><span>legal_meta — pipeline</span><span class="meta-terminal-status">● RUNBOOK</span></div>
+          <div class="meta-terminal-body">
+            <div><span class="meta-term-dim">01</span> INTENT <b>收敛边界</b></div>
+            <div><span class="meta-term-dim">02</span> RESEARCH <b>核验法源</b></div>
+            <div><span class="meta-term-dim">03</span> MODEL <b>建立法律 Skill IR</b></div>
+            <div><span class="meta-term-dim">04</span> PACKAGE <b>最小入口 + 渐进披露</b></div>
+            <div><span class="meta-term-dim">05</span> EVALUATE <b>路由 + 输出双轨</b></div>
+            <div><span class="meta-term-dim">06</span> REVIEW <b>证据门禁 / 交接</b></div>
+            <div class="meta-terminal-cursor">ready<span>▊</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta-proof-strip" aria-label="skill facts">
+        <div><strong>12</strong><span>法律能力模块</span></div>
+        <div><strong>6</strong><span>阶段工作流</span></div>
+        <div><strong>2</strong><span>评测轨道</span></div>
+        <div><strong>LOCAL</strong><span>默认数据边界</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="meta-body meta-shell">
+    <aside class="meta-toc" aria-label="专题页目录">
+      <div class="meta-toc-label">ON THIS PAGE</div>
+      <a href="#purpose">01 / 它解决什么</a>
+      <a href="#mechanism">02 / 六阶段机制</a>
+      <a href="#contract">03 / 输入与输出</a>
+      <a href="#modules">04 / 十二模块能力模型</a>
+      <a href="#files">05 / 完整文件包</a>
+      <a href="#guardrails">06 / 边界与复核</a>
+    </aside>
+
+    <div class="meta-content">
+      <section class="meta-section" id="purpose">
+        <div class="meta-section-kicker">01 / PURPOSE</div>
+        <div class="meta-section-heading">
+          <h2>它不是回答一个法律问题，<br><em>而是制造一套能重复工作的法律能力。</em></h2>
+          <p>当一个法律任务反复出现、需要稳定的输入输出契约，并且对法域、时点、证据和人工复核有要求时，legal-meta-skill 负责把它治理成一个可复用的 Agent Skill 包。</p>
+        </div>
+        <div class="meta-split-note">
+          <div class="meta-note meta-note-positive"><span class="meta-note-mark">适合</span><p>重复法律工作流、既有 SOP、成熟提示词、代表性输入与优秀输出、现有 Skill 的改造与审计。</p></div>
+          <div class="meta-note meta-note-negative"><span class="meta-note-mark">不适合</span><p>一次性法律咨询、单份文书起草、普通翻译或总结，以及替代律师作出最终法律决定。</p></div>
+        </div>
+      </section>
+
+      <section class="meta-section" id="mechanism">
+        <div class="meta-section-kicker">02 / MECHANISM</div>
+        <div class="meta-section-heading">
+          <h2>六阶段工作流：<em>先建模，再交付。</em></h2>
+          <p>每一步都对应一类文件、一个判断门槛和一组可核验成果。流程允许判断，但不允许跳过边界、法源和证据。</p>
+        </div>
+        <div class="meta-phase-grid">
+          <article class="meta-phase"><span class="meta-phase-no">01</span><h3>意图 / Intent</h3><p>收敛任务目的、受众、法域、时点、主体、事项和排除范围，确认是否值得做成可复用 Skill。</p><span class="meta-phase-output">→ task scope / decision goal</span></article>
+          <article class="meta-phase"><span class="meta-phase-no">02</span><h3>研究 / Research</h3><p>只读研究相关法源、权威性、既有方案与许可证，记录保留、改造、拒绝或重新设计的理由。</p><span class="meta-phase-output">→ source map / prior art</span></article>
+          <article class="meta-phase"><span class="meta-phase-no">03</span><h3>建模 / Model</h3><p>把下游法律工作流映射到十二模块法律能力模型，先写 Skill IR，再决定缺口与门禁。</p><span class="meta-phase-output">→ legal Skill IR</span></article>
+          <article class="meta-phase"><span class="meta-phase-no">04</span><h3>封装 / Package</h3><p>保持 SKILL.md 作为最小入口，把方法、模板、案例和检查器放入自包含目录，支持渐进式披露。</p><span class="meta-phase-output">→ self-contained package</span></article>
+          <article class="meta-phase"><span class="meta-phase-no">05</span><h3>评测 / Evaluate</h3><p>分别评测“应该触发 / 不应触发 / 近邻场景”和输出契约、法律来源、证据分层与治理边界。</p><span class="meta-phase-output">→ trigger + output eval</span></article>
+          <article class="meta-phase"><span class="meta-phase-no">06</span><h3>审查 / Review</h3><p>把静态检查、模型运行、人工复核和真实项目证据分开，按成熟度决定发布、交接或停止。</p><span class="meta-phase-output">→ audit / handoff</span></article>
+        </div>
+      </section>
+
+      <section class="meta-section" id="contract">
+        <div class="meta-section-kicker">03 / CONTRACT</div>
+        <div class="meta-section-heading">
+          <h2>输入端要求与输出端成果</h2>
+          <p>它把模糊的“帮我做一个法律 Skill”，转换为可填写、可检查、可追溯的输入与交付契约。</p>
+        </div>
+        <div class="meta-contract-grid">
+          <div class="meta-contract-card">
+            <div class="meta-contract-label">INPUT / 需要带进来</div>
+            <ul>
+              <li>重复出现的中国大陆法律工作流</li>
+              <li>SOP、既有提示词或现有 Skill</li>
+              <li>代表性输入与优秀输出样例</li>
+              <li>法律来源、项目约束与权限边界</li>
+              <li>触发案例、反例与输出评测样例</li>
+            </ul>
+          </div>
+          <div class="meta-contract-arrow" aria-hidden="true">→</div>
+          <div class="meta-contract-card meta-contract-result">
+            <div class="meta-contract-label">OUTPUT / 最终留下</div>
+            <ul>
+              <li>自包含法律 Skill 包</li>
+              <li>法律能力配置与输入/输出契约</li>
+              <li>references、templates、evals 与 scripts</li>
+              <li>触发评测、输出断言与审计报告</li>
+              <li>证据边界、成熟度判断与创建交接报告</li>
+            </ul>
+          </div>
+        </div>
+        <div class="meta-contract-foot"><span>DEFAULT</span> 本地优先，数据默认留在本机；外部研究、发布、发送与远程同步必须单独授权。</div>
+      </section>
+
+      <section class="meta-section" id="modules">
+        <div class="meta-section-kicker">04 / LEGAL CAPABILITY MODEL</div>
+        <div class="meta-section-heading">
+          <h2>十二模块，不让法律任务只剩一个 Prompt</h2>
+          <p>每个模块都有自己的状态、理由和必需输出。它们共同构成下游 Skill 的法律能力骨架。</p>
+        </div>
+        <div class="meta-module-grid">
+          <div><span>01</span>任务目的与受众</div><div><span>02</span>法域</div><div><span>03</span>时间</div><div><span>04</span>主体角色</div>
+          <div><span>05</span>法律事项</div><div><span>06</span>请求与要件</div><div><span>07</span>法源与解释</div><div><span>08</span>证明</div>
+          <div><span>09</span>程序</div><div><span>10</span>结果与执行</div><div><span>11</span>策略与不确定性</div><div><span>12</span>职业治理</div>
+        </div>
+      </section>
+
+      <section class="meta-section meta-files-section" id="files">
+        <div class="meta-section-kicker">05 / PACKAGE EXPLORER</div>
+        <div class="meta-section-heading">
+          <h2>完整文件包：<em>入口、方法、检查器和证据一起看。</em></h2>
+          <p>左侧展示包内全部文件，默认打开核心 <code>SKILL.md</code>。点击任意文件，右侧阅读它的完整内容；隐藏配置文件也会被列入浏览器。</p>
+        </div>
+        <div class="meta-file-browser" id="meta-file-browser">
+          <aside class="meta-file-tree" id="meta-file-tree" aria-label="legal-meta-skill 文件树">
+            <div class="meta-file-tree-head">LOADING FILE TREE</div>
+          </aside>
+          <div class="meta-file-content" id="meta-file-content">
+            <div class="meta-file-loading">加载文件内容…</div>
+          </div>
+        </div>
+        <div class="meta-files-footer"><span id="meta-file-count">— files</span><span>source: <a href="https://github.com/CSlawyer1985/legal-skillhub/tree/main/skills/legal-meta-skill" target="_blank" rel="noopener">skills/legal-meta-skill ↗</a></span></div>
+      </section>
+
+      <section class="meta-section" id="guardrails">
+        <div class="meta-section-kicker">06 / GUARDRAILS</div>
+        <div class="meta-section-heading">
+          <h2>静态通过，不等于已经证明能在真实项目中工作。</h2>
+          <p>legal-meta-skill 会把“已检查”和“仍缺证据”分开。它的价值不在于承诺自动正确，而在于让缺口被看见、被记录、被复核。</p>
+        </div>
+        <div class="meta-guard-grid">
+          <div class="meta-guard"><span class="meta-guard-state state-present">PRESENT</span><h3>包内确定性检查</h3><p>结构、配置、触发案例、输出断言、生成器和成熟度门禁都有可重复运行的脚本与测试。</p></div>
+          <div class="meta-guard"><span class="meta-guard-state state-missing">MISSING EVIDENCE</span><h3>不能伪装成已验证</h3><p>模型提供商运行、独立人工盲审、真实客户遥测和公开安装回归，必须另行取得证据。</p></div>
+          <div class="meta-guard"><span class="meta-guard-state state-human">HUMAN REVIEW</span><h3>最后责任仍在人</h3><p>正式法律结论、发布、外传和不可逆外部动作，不由元 Skill 自动替用户决定。</p></div>
+        </div>
+        <div class="meta-end-cta"><span>想直接安装？</span><a href="./skill.html?f=legal-meta-skill">进入普通详情页查看安装命令 →</a></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+<script src="./assets/common.js?v=cc4a928"></script>
+<script src="./assets/legal-meta.js?v=cc4a928"></script>
+</body>
+</html>

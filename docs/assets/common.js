@@ -65,6 +65,14 @@ async function mirrorUrl(path) {
   return MIRRORS[_mirror](c, path);
 }
 
+/* 专题页：需要完整机制说明的 Skill 可跳转到独立专题，而不是普通详情页。 */
+const SPECIAL_SKILL_PAGES = {
+  "legal-meta-skill": "./legal-meta-skill.html",
+};
+function skillHref(id) {
+  return SPECIAL_SKILL_PAGES[id] || `./skill.html?f=${encodeURIComponent(id)}`;
+}
+
 async function fetchText(url, timeout = 15000) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), timeout);
@@ -196,6 +204,7 @@ function renderHeader(active) {
     <nav class="site-nav">
       <a href="./index.html" ${active === "home" ? 'class="active"' : ""}>技能库</a>
       <a href="./learn/index.html" ${active === "learn" ? 'class="active"' : ""}>学习中心</a>
+      <a href="./legal-meta-skill.html" ${active === "meta" ? 'class="active"' : ""}>法律元SKILL</a>
       <a href="./about.html" ${active === "about" ? 'class="active"' : ""}>关于</a>
     </nav>
     <div class="header-right">
