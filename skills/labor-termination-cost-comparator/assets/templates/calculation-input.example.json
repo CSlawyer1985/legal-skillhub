@@ -1,0 +1,25 @@
+{
+  "as_of_date": "2026-09-19",
+  "employment": {
+    "service_months": 92,
+    "monthly_average_wage_12m": 30000,
+    "last_month_wage": 30000,
+    "wage_base_verified": false,
+    "high_wage_cap_possible": true,
+    "high_wage_cap_verified": false,
+    "high_wage_tenure_cap_years": 12
+  },
+  "jurisdiction": {
+    "workplace_city": "待填",
+    "local_average_monthly_wage": null,
+    "local_average_wage_year": null,
+    "high_wage_multiplier": 3
+  },
+  "options": ["negotiated", "N", "N+1", "2N", "reinstatement"],
+  "addons": {
+    "unpaid_wages": {"amount": 0, "status": "待核", "formula": "待核工资支付记录"},
+    "unused_leave": {"amount": 0, "status": "待核", "formula": "待核年休假天数与日工资"},
+    "overtime": {"amount": 0, "status": "待核", "formula": "待核工时、证据和适用工时制度"},
+    "bonus_commission": {"amount": 0, "status": "待核", "formula": "待核制度、约定、发放惯例和归属期间"}
+  }
+}

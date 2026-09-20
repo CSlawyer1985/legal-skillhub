@@ -1,0 +1,320 @@
+{
+  "schema_version": "universal-legal-eval-cases/v0.1",
+  "cases": [
+    {
+      "id": "termination-normal-comparison",
+      "prompt": "合成事实：工作地点为中国大陆某设区市，劳动关系、入职日期、解除日期、前十二个月工资、上月工资、解除理由和通知材料齐全，请比较协商解除、N、N+1、2N及附随项目。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "proof",
+          "procedure",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [],
+        "blocked": []
+      },
+      "status_reasons": {},
+      "assertion_ids": [
+        "source-fidelity",
+        "four-layer-traceability",
+        "remedy-quantification-enforcement",
+        "relationship-claims-elements",
+        "ethics-privacy-human-review",
+        "risk-action-loop",
+        "actor-authority-conflict",
+        "jurisdiction-bundle",
+        "calculation-reproducibility",
+        "client-workpaper-separation"
+      ],
+      "manual_review": [
+        "解除路径定性和金额输入是否与材料一致",
+        "客户版和底稿是否完全分离"
+      ]
+    },
+    {
+      "id": "termination-service-rounding",
+      "prompt": "合成事实：工龄分别接近六个月和六个月以上，要求比较 N、2N 和继续履行期间工资；材料含跨关联单位工作年限线索。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "proof",
+          "procedure",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [],
+        "blocked": []
+      },
+      "status_reasons": {},
+      "assertion_ids": [
+        "temporal-bundle",
+        "proof-burden-standard",
+        "remedy-quantification-enforcement",
+        "adversarial-uncertainty"
+      ],
+      "manual_review": [
+        "工龄折算和连续工龄是否有证据",
+        "继续履行与赔偿金方案是否被错误叠加"
+      ]
+    },
+    {
+      "id": "termination-high-wage-cap",
+      "prompt": "合成事实：前十二个月平均应得工资可能超过当地上年度职工月平均工资三倍，但地方统计数据年份和用人单位所在地尚未确认。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "proof",
+          "procedure",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [],
+        "blocked": [
+          "authority_and_interpretation"
+        ]
+      },
+      "status_reasons": {
+        "authority_and_interpretation": {
+          "gap": "地方年度工资数据和适用规则尚未核验",
+          "fallback": "分别展示未封顶与按三倍封顶的条件区间，不输出唯一确定金额；取得官方数据后重算",
+          "human_owner": "承办律师",
+          "review_trigger": "确认工作地点、统计年度和官方数据后重新核验"
+        }
+      },
+      "assertion_ids": [
+        "stop-on-missing-authority",
+        "temporal-bundle",
+        "remedy-quantification-enforcement"
+      ],
+      "manual_review": [
+        "是否停止把地方工资上限当作已知输入",
+        "是否同时保留两种条件区间"
+      ]
+    },
+    {
+      "id": "termination-missing-wage-history",
+      "prompt": "合成事实：只有基本工资和最近一张工资单，没有前十二个月工资、奖金津贴和工资构成材料，但用户要求直接给出最终补偿金额。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "procedure",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [],
+        "blocked": [
+          "proof"
+        ]
+      },
+      "status_reasons": {
+        "proof": {
+          "gap": "前十二个月应得工资、奖金津贴和支付凭证不足",
+          "fallback": "只按已确认的基本工资生成待核算式和材料清单，不输出确定总额；取得工资流水、工资表和制度后重算",
+          "human_owner": "承办律师与财务/人事负责人",
+          "review_trigger": "完成工资构成和支付记录核对后"
+        }
+      },
+      "assertion_ids": [
+        "stop-on-missing-authority",
+        "proof-burden-standard",
+        "four-layer-traceability",
+        "remedy-quantification-enforcement"
+      ],
+      "manual_review": [
+        "是否把基本工资误当作月工资基数",
+        "客户版是否明确金额待核而非伪精确"
+      ]
+    },
+    {
+      "id": "termination-pdf-quality-failure",
+      "prompt": "合成证据包：含扫描解除通知和工资 PDF，但一份 PDF 转换失败、文件数与清单不一致，要求继续判断解除合法性并生成定稿。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "procedure",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [],
+        "blocked": [
+          "proof"
+        ]
+      },
+      "status_reasons": {
+        "proof": {
+          "gap": "PDF 转换失败且输入/输出数量不一致，解除通知和工资证据链不完整",
+          "fallback": "停止完整证据结论和定稿，只登记可读取材料、哈希、质量警告和人工复核清单；重新取得原件并完成转换后恢复",
+          "human_owner": "承办律师与材料管理员",
+          "review_trigger": "完成全量转换、页码和 evidence JSON 核验后"
+        }
+      },
+      "assertion_ids": [
+        "pdf-evidence-contract",
+        "workspace-contract",
+        "security-boundary",
+        "stop-on-missing-authority"
+      ],
+      "manual_review": [
+        "是否保留原始 PDF 只读",
+        "是否将质量警告写入底稿并禁止形成确定性结论"
+      ]
+    },
+    {
+      "id": "termination-procedure-risk",
+      "prompt": "合成事实：公司拟以不胜任为由解除，存在培训调岗记录缺失、工会通知时间不明和员工处于可能的保护性状态，要求比较直接解除与协商方案。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "proof",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [],
+        "blocked": [
+          "procedure"
+        ]
+      },
+      "status_reasons": {
+        "procedure": {
+          "gap": "培训调岗、工会通知和保护性状态的程序事实未核实",
+          "fallback": "只给条件化成本情景和补证清单，停止‘可以直接解除’的结论；由律师核对制度、通知、考核和保护状态",
+          "human_owner": "承办律师和用工决策人",
+          "review_trigger": "程序材料和保护状态完成核验后"
+        }
+      },
+      "assertion_ids": [
+        "procedure-deadlines",
+        "relationship-claims-elements",
+        "adversarial-uncertainty",
+        "stop-on-missing-authority"
+      ],
+      "manual_review": [
+        "是否区分实体理由与程序合法性",
+        "是否把零补偿的理论选项同时写成争议敞口"
+      ]
+    },
+    {
+      "id": "termination-docx-governance",
+      "prompt": "合成任务：已完成计算，要求生成客户版 Word 和内部底稿；输入含个人信息，不能把来源、提示词、批注和修订泄露给客户。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "proof",
+          "procedure",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty"
+        ],
+        "not_applicable": [],
+        "blocked": [
+          "governance"
+        ]
+      },
+      "status_reasons": {
+        "governance": {
+          "gap": "客户版脱敏、批注/修订清除和人工签发责任尚未完成",
+          "fallback": "只生成隔离的本地草稿和底稿，不交付客户版；使用 Office CLI 检查 OOXML、渲染结果和元数据后由签发人复核",
+          "human_owner": "签发律师",
+          "review_trigger": "清洁检查和人工视觉复核完成后"
+        }
+      },
+      "assertion_ids": [
+        "ethics-privacy-human-review",
+        "security-boundary",
+        "workspace-contract",
+        "four-layer-traceability",
+        "client-workpaper-separation",
+        "officecli-docx-clean"
+      ],
+      "manual_review": [
+        "是否删除内部批注和修订但保留底稿审计信息",
+        "是否清除文档作者、公司路径和隐藏内容"
+      ]
+    },
+    {
+      "id": "termination-calculation-only",
+      "prompt": "合成轻量任务：用户已经核验并明确告知解除类型、工作年限、前十二个月平均应得工资、上月工资和地方上年度职工月平均工资，只要求复算 N、N+1、2N 的数学结果，不要求判断解除合法性或程序。",
+      "expected_modules": {
+        "active": [
+          "task_context",
+          "jurisdiction",
+          "temporal",
+          "actors",
+          "matter",
+          "claims_and_elements",
+          "authority_and_interpretation",
+          "proof",
+          "outcomes_and_enforcement",
+          "strategy_and_uncertainty",
+          "governance"
+        ],
+        "not_applicable": [
+          "procedure"
+        ],
+        "blocked": []
+      },
+      "status_reasons": {
+        "procedure": "用户已明确排除程序判断，且本次仅复算已确认输入的数学结果；如用户随后要求判断合法解除、通知或仲裁节点，必须重新激活程序模块。"
+      },
+      "assertion_ids": [
+        "source-fidelity",
+        "remedy-quantification-enforcement",
+        "workspace-contract",
+        "ethics-privacy-human-review",
+        "calculation-reproducibility"
+      ],
+      "manual_review": [
+        "是否将已确认输入与法律结论分开",
+        "是否明示这是算术复核而不是解除合法性意见"
+      ]
+    }
+  ]
+}

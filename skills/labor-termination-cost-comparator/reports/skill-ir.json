@@ -1,0 +1,361 @@
+{
+  "schema_version": "legal-skill-ir/v0.3",
+  "generated_at": "2026-09-19",
+  "name": "labor-termination-cost-comparator",
+  "version": "0.1.0",
+  "owner": "项目维护律师",
+  "homepage": "https://chenshi.ai",
+  "branding_mode": "branded",
+  "provenance": {
+    "identity": "CSlawyer",
+    "homepage": "https://chenshi.ai",
+    "created_with": "legal-meta-skill",
+    "created_with_version": "1.0.0"
+  },
+  "downstream_attribution": {
+    "required_on_redistribution": "保留 LICENSE、NOTICE、版权声明及修改标记",
+    "business_deliverables": "不得自动注入品牌标识"
+  },
+  "quality_evidence_digests": {
+    "evals/trigger_cases.json": "276f404b57b393b3d8f43be832235263f17a0c51cabe6307c011d064de5fadbe",
+    "assets/legal-skill-output-contract.md": "67164bbe411216ced16325dd166aa7bf4df1283e9b52b489766ef1bbb983a682",
+    "evals/output_assertions.json": "0925287c2eb52685092a6f6dfba79d3bb05c500513f8bbeb4b91beddb4f244d0",
+    "evals/universal_legal_cases.json": "39b123eaa40749b176f013a4c8ebf0b86d53d443be452cd65b0de1ee2e0ef61b",
+    "reports/prior-art.md": "e7211bd3cd776ee971c410a8de0411939d9e301556516138e1223241cc120c68",
+    "reports/trust-review.md": "b7d34034275ef12cac7745759f411922cd13e9a6008609d6aa2ad8365e42e611",
+    "reports/creation-handoff.md": "8ef1d1373a5788f88d1f3f7fed83aea8e97998f67c03532ca21a33d17d1c0463"
+  },
+  "self_containment": {
+    "external_skill_dependencies": []
+  },
+  "maturity": "library",
+  "maturity_label_zh": "基础设施级",
+  "description": "\"当用户要把中国大陆劳动关系解除或终止的事实、合同、工资记录、通知或争议材料，转化为经济补偿金、代通知金、违法解除赔偿金及附随项目的合法方案和风险成本比较时触发；不用于一次性劳动法问答、单独起草解除通知、普通工资计算或未经授权的正式法律决定。\"",
+  "job": "把用户提供的劳动关系解除事实、材料和工资数据，整理为可追溯的法律定性、经济补偿金/赔偿金计算、合法与违法解除情景比较及下一步复核清单，并交付可直接审阅的 Word 客户版与独立 Word 内部底稿。",
+  "decision": {
+    "goal": "支持律师或授权决策人比较协商解除、合法单方解除、经济性裁员、过失性解除、违法解除赔偿及继续履行等方案的直接成本、附随成本、证据负担、程序风险和现金时点。",
+    "owner": "承办律师和经其确认的委托人或用工决策人；Skill 不替代最终法律定性、付款决定、解除决定或对外签发。",
+    "supported_action": "在授权项目根目录内只读接收材料、受控转换 PDF、建立事实与法源台账、运行确定性金额计算、生成方案比较和 Word 文件、执行格式与元数据检查；不发送、不发布、不代表任何主体提交仲裁或作出解除决定。"
+  },
+  "target_users": [
+    "劳动法律师",
+    "企业法务与人力资源负责人",
+    "经律师授权的用工决策人",
+    "法律助理或案件分析人员"
+  ],
+  "inputs": [
+    "文字事实、问卷或结构化 JSON",
+    "劳动合同、补充协议、规章制度、解除通知、协商记录和工资材料等 DOCX/PDF/图片/表格",
+    "入职、解除、工资、工作地点、工龄和程序日期",
+    "用户指定的本地知识库路径",
+    "经授权的官方或可信法律来源",
+    "可选的地方上年度职工月平均工资、最低工资和其他金额假设"
+  ],
+  "outputs": [
+    "正式客户版 Word：结论先行、方案比较、金额计算过程、关键假设、风险与行动清单",
+    "独立内部 Word 底稿：事实来源、证据定位、法源清单、核验日期、计算输入快照、公式、未决问题和人工复核记录",
+    "处理目录内的 PDF Markdown/evidence JSON、事实矩阵、法源核验记录、计算 JSON 和视觉核验记录"
+  ],
+  "exclusions": [
+    "不把模型记忆、二手文章或未核验地方口径当作核心法律依据",
+    "不在关键事实、工资基数、工龄、法域、法律时点或核心法源缺失时输出确定性金额或‘可以解除’结论",
+    "不自动代表用户决定解除、签署协议、发送通知、申请仲裁、发信、发布或向外部服务上传案卷",
+    "不把客户版 Word 写入内部审计批注、来源台账、模型提示词或品牌宣传标识",
+    "不覆盖与解除成本无关的完整劳动合规尽调；发现并行的工伤、歧视、竞业、社保、加班或集体裁员问题时仅按触发条件展开或列为升级事项"
+  ],
+  "triggers": {
+    "should": [
+      "我有一名员工准备解除，请根据合同、工资和入职日期比较协商解除、N+1 和违法解除 2N 的成本，并生成 Word 报告和底稿。",
+      "请把这批劳动合同、工资表和解除通知做成一份合法解除与违法解除的金额方案比较，事实来源和法条核验要能回查。",
+      "基于我上传的 PDF 和文字说明，测算经济补偿金、代通知金和赔偿金，并告诉我哪些数字是已核验、哪些需要律师确认。"
+    ],
+    "should_not": [
+      "请直接回答劳动合同法第四十七条的内容。",
+      "帮我单独写一份解除劳动合同通知书。"
+    ],
+    "near_neighbor": [
+      "创建一个只做劳动法条检索和法规知识库维护的 Skill，不处理个案材料或金额。",
+      "审查劳动合同中的竞业限制条款并给出修改文本，不做解除成本比较。"
+    ]
+  },
+  "workflow": [
+    "确认角色、法域、工作地点、法律核验时点、决策目标、项目根目录和人工责任人，输出目录规划后再初始化",
+    "将输入材料登记为只读快照；对 PDF 逐份全量转换为 Markdown 与 evidence JSON，核对数量、哈希、页数和质量警告",
+    "分离材料层、案件事实层、法律评价层和程序攻防层，建立事件时间线、工资基数表、证据定位表和缺口清单",
+    "按具体解除路径和时间点核验《劳动合同法》、实施条例、劳动争议司法解释、年休假等相关规范及适用的地方规则，记录效力层级和来源标签",
+    "使用显式输入运行 N、N+1、2N、继续履行及附随项目计算；计算器只做算术，解除是否合法由事实、要件、程序和法源共同决定",
+    "形成主方案、替代方案和最坏情景比较，分别列示法律直接成本、非法律商业成本、现金时点、证据负担、程序风险和现实可执行性",
+    "用 Office CLI 优先生成和渲染客户版 Word 与内部底稿，清除或核验批注、修订、隐藏文字、个人元数据和临时信息，进行视觉复核",
+    "将缺口、人工复核点、核验来源和复核责任写入底稿；经人工确认后才将客户版视为可对客交付"
+  ],
+  "decision_points": [
+    "是否存在中国大陆劳动关系以及是否有跨地区、派遣、关联公司或特殊用工安排",
+    "代表用人单位、劳动者还是中立复核；直接成本和风险敞口的受众是否不同",
+    "解除/终止的法律路径是协商、无过失解除、过失解除、经济性裁员、期满终止、违法解除还是继续履行争议",
+    "工作年限、前十二个月应得工资、上月工资、当地上年度职工月平均工资和工资构成是否已核验",
+    "是否触发三倍工资基数和十二年年限上限，或存在连续工龄、关联单位承继、特殊保护群体等问题",
+    "是否满足通知、工会、民主程序、培训调岗、裁员人数与报告等法定或证据条件",
+    "是否存在待结工资、未休年休假、加班费、奖金提成、社保、竞业限制、工伤或其他附随成本",
+    "关键法源、材料完整性、Office CLI 能力或人工复核是否缺失；缺失时是否必须暂停确定性结论"
+  ],
+  "failure_modes": [
+    "把 N、N+1、2N 当作可以自由叠加的固定报价，或把违法解除赔偿金误写成经济补偿金",
+    "用基本工资、税后工资或单月工资替代经核验的前十二个月平均应得工资",
+    "忽略高工资封顶、工龄折算、连续工龄、地方口径或解除日期造成的法律时点差异",
+    "把材料记载直接当作已确认事实，或把存在解除通知直接当作解除合法",
+    "PDF 转换不完整、文件数量不一致或 evidence JSON 有质量警告却继续形成完整证据链",
+    "把协商金额、诉讼概率、内部招聘成本或现金流假设写成法律必然结果",
+    "客户版 Word 混入内部来源、批注、修订、个人信息或生成痕迹",
+    "Office CLI 不可用、输出未渲染核验或存在批注/修订时仍宣称格式和清洁交付已通过"
+  ],
+  "legal_profile": {
+    "schema_version": "universal-legal-core/v0.1",
+    "activation_policy": "mandatory-review-conditional-expansion",
+    "modules": {
+      "task_context": {
+        "label_zh": "任务目的与受众",
+        "status": "active",
+        "reason": "解除成本比较必须明确代表角色、预算或争议决策、报告受众、决策人和签发复核人。",
+        "required_outputs": [
+          "task_type",
+          "decision_goal",
+          "target_users",
+          "audience",
+          "decision_owner",
+          "reviewer"
+        ]
+      },
+      "jurisdiction": {
+        "label_zh": "法域",
+        "status": "active",
+        "reason": "劳动合同履行地、用人单位所在地、实际用工主体和地方工资口径会影响实体规则、程序路径和金额上限。",
+        "required_outputs": [
+          "jurisdiction_scope",
+          "governing_law_basis",
+          "forum_or_seat",
+          "conflict_rules"
+        ]
+      },
+      "temporal": {
+        "label_zh": "时间",
+        "status": "active",
+        "reason": "解除日期、工资观察期、规范版本、年度平均工资和仲裁/通知期限直接影响金额与程序，必须逐项核验。",
+        "required_outputs": [
+          "as_of_date",
+          "event_timeline",
+          "applicable_versions",
+          "limitation_and_deadline_checks",
+          "temporal_gaps"
+        ]
+      },
+      "actors": {
+        "label_zh": "主体角色",
+        "status": "active",
+        "reason": "用人单位、劳动者、关联单位、派遣单位、工会、律师和决策人之间的资格与授权决定解除责任和可执行动作。",
+        "required_outputs": [
+          "actor_map",
+          "legal_status",
+          "roles_and_interests",
+          "authority_and_capacity",
+          "conflicts_of_interest"
+        ]
+      },
+      "matter": {
+        "label_zh": "法律事项",
+        "status": "active",
+        "reason": "必须先定性劳动关系、解除/终止事实及其生命周期，再确定是补偿、赔偿、继续履行或附随项目问题。",
+        "required_outputs": [
+          "issue_scope",
+          "legal_relationships",
+          "issue_tree",
+          "material_facts",
+          "exclusions"
+        ]
+      },
+      "claims_and_elements": {
+        "label_zh": "请求与要件",
+        "status": "active",
+        "reason": "N、N+1、2N和继续履行分别对应不同请求、解除要件、程序条件、抗辩和法律效果，不能只做算术。",
+        "required_outputs": [
+          "claims_defenses",
+          "legal_elements",
+          "element_fact_mapping",
+          "remedies_requested",
+          "counterarguments"
+        ]
+      },
+      "authority_and_interpretation": {
+        "label_zh": "法源与解释",
+        "status": "active",
+        "reason": "解除条件、经济补偿、赔偿金、工资口径、司法解释和地方规则必须按效力层级、时间点和来源独立核验。",
+        "required_outputs": [
+          "authority_inventory",
+          "authority_hierarchy",
+          "verification_status",
+          "interpretation_method",
+          "application_analysis",
+          "conflicting_authorities"
+        ]
+      },
+      "proof": {
+        "label_zh": "证明",
+        "status": "active",
+        "reason": "解除理由、制度公示、培训调岗、通知工会、工资构成、工龄和附随项目均需证据定位并分析举证责任与不利后果。",
+        "required_outputs": [
+          "facts_to_prove",
+          "evidence_locator",
+          "burden_of_proof",
+          "standard_of_proof",
+          "evidence_gaps",
+          "adverse_consequences"
+        ]
+      },
+      "procedure": {
+        "label_zh": "程序",
+        "status": "active",
+        "reason": "通知、工会、裁员程序、仲裁时效、管辖、送达、举证和执行节点会改变合法性和成本，应与实体结论同步检查。",
+        "required_outputs": [
+          "forum_and_jurisdiction",
+          "procedural_posture",
+          "procedural_steps",
+          "deadlines_to_verify",
+          "admissibility_or_prerequisites",
+          "procedural_risks"
+        ]
+      },
+      "outcomes_and_enforcement": {
+        "label_zh": "结果与执行",
+        "status": "active",
+        "reason": "本 Skill 的核心交付是金额、法律效果、支付时点、继续履行可能性和现实回收约束的情景比较。",
+        "required_outputs": [
+          "outcome_scenarios",
+          "legal_effects",
+          "liability_and_exposure",
+          "enforceability",
+          "enforcement_path",
+          "recovery_constraints"
+        ]
+      },
+      "strategy_and_uncertainty": {
+        "label_zh": "策略与不确定性",
+        "status": "active",
+        "reason": "方案比较必须展示成本、时效、风险、可逆性、商业影响、关键假设、最坏情景和升级触发条件。",
+        "required_outputs": [
+          "options",
+          "assumptions",
+          "uncertainties",
+          "scenario_analysis",
+          "recommended_actions",
+          "escalation_triggers"
+        ]
+      },
+      "governance": {
+        "label_zh": "职业治理",
+        "status": "active",
+        "reason": "输入涉及个人信息和敏感用工材料，且金额、解除、提交和对客签发均需要最小权限、来源留痕和人工责任。",
+        "required_outputs": [
+          "confidentiality_and_data_boundary",
+          "permissions",
+          "human_review",
+          "source_and_audit_trail",
+          "professional_responsibility_limits",
+          "review_cycle"
+        ]
+      }
+    }
+  },
+  "capability_summary": {
+    "total": 12,
+    "active": 12,
+    "not_applicable": 0,
+    "blocked": 0
+  },
+  "migration_warnings": [],
+  "resources": {
+    "references": [
+      "references/dispute_resolution.md",
+      "references/docx-officecli-and-clean-delivery.md",
+      "references/domain-supplement.md",
+      "references/labor-law-source-registry.md",
+      "references/labor-termination-method.md",
+      "references/legal-core-rules.md",
+      "references/legal-method-core.md",
+      "references/legal-scenario-archetypes.md",
+      "references/legal-skill-ir.md",
+      "references/legal-workflow-folder-design.md",
+      "references/legal-workspace-rules.md",
+      "references/oslaw-resource-catalog.md",
+      "references/project-folder-and-file-contract.md",
+      "references/resource-verifier-routing.md",
+      "references/universal-legal-capability-model.md",
+      "references/workflow-profiles/case-analysis-v2.md"
+    ],
+    "scripts": [
+      "scripts/calculate_termination_options.py",
+      "scripts/evaluate_trigger_cases.py",
+      "scripts/export_legal_skill_ir.py",
+      "scripts/initialize_labor_project.py",
+      "scripts/legal_meta.py",
+      "scripts/legal_meta_security.py",
+      "scripts/migrate_legal_skill.py",
+      "scripts/plan_legal_workspace.py",
+      "scripts/validate_legal_profile.py",
+      "scripts/validate_legal_skill.py",
+      "scripts/verify_docx_clean.py"
+    ],
+    "evals": [
+      "evals/output_assertions.json",
+      "evals/trigger_cases.json",
+      "evals/universal_legal_cases.json"
+    ],
+    "assets": [
+      "assets/legal-skill-output-contract.md",
+      "assets/templates/calculation-input.example.json",
+      "assets/templates/customer-report-outline.md",
+      "assets/templates/workpaper-outline.md"
+    ]
+  },
+  "permissions": {
+    "network": "默认允许为公共法律规范、最高人民法院/人力资源和社会保障部门官方信息及必要的地方公开工资数据做只读核验；未经单独授权不得上传真实案卷、个人信息、私人附件或调用需要外传材料的服务。",
+    "file_write": "只写入用户选择并确认的项目根目录；01_输入材料只读，02_处理过程保存中间产物，03_输出交付保存正式 Word；不修改用户规则、记忆、原始文件或既有项目。",
+    "external_actions": "不执行发送、发布、远程同步、仲裁/诉讼提交、解除通知发送、付款或其他不可逆动作；正式签发、外部传输和共享需由用户另行明确授权并由人工复核。"
+  },
+  "degradation": {
+    "missing_input": "将受影响模块标为 blocked，列明缺少的事实、文件或数据，先生成材料清单、可重算的条件区间和待确认项；缺少核心工资、工龄、解除类型或日期时不输出确定性总额或最终方案排序。",
+    "missing_authority": "暂停依赖未核验法源的确定性结论；保留检索式、已找到的官方线索、来源状态和待核问题，只能输出算式框架、条件化情景和人工补核路径。",
+    "missing_permission": "保留本地只读处理和不含外传动作的中间结果；停止外部检索上传、发送、发布、正式签发和不可逆项目写入，等待授权范围、人工责任人和目标路径被确认。"
+  },
+  "eval_plan": {
+    "routing": "覆盖三条明确触发、两条不触发和两条近邻用例，验证劳动解除成本比较与一次性法条问答、单份通知起草、普通劳动法检索之间的边界。",
+    "output": "至少七个合成输出用例覆盖正常方案、边界工龄、高工资封顶、关键输入缺失、法源/日期缺失、PDF 质量失败、程序风险和 Word 清洁交付；检查金额可重算、四层分离、法源标签、停止路径和人工复核。",
+    "promotion": "先以基础设施级交付；取得提供方实跑、至少一轮独立人工盲评、真实脱敏项目回归、Office CLI 视觉核验和更新后的法律源审计后，才考虑升为高风险治理级。",
+    "require_full_module_activation": true,
+    "require_lightweight_case": false
+  },
+  "evidence_boundary": {
+    "present": [
+      "已读取并应用 legal-meta-skill 的完整创建、法律能力、文件工作区和质量门禁规则",
+      "已静态只读审查本机三类劳动解除相关方案并记录取舍",
+      "已检索最高人民法院、人力资源和社会保障部、中国人大网及政府公开劳动法源线索",
+      "已形成完整 intake、十二模块法律能力配置、触发轨和七个输出评测用例设计"
+    ],
+    "missing_evidence": [
+      "提供方模型实跑",
+      "独立人工盲评",
+      "真实脱敏项目回归",
+      "Office CLI 对真实 Word 客户版和底稿的生成、渲染及清洁检查",
+      "地方工资数据和地方程序口径的全覆盖核验"
+    ]
+  },
+  "review": {
+    "owner": "项目维护律师",
+    "cadence": "每月一次，并在劳动合同法、司法解释、地方工资数据、PDF 转换管线、Office CLI 或 Word 模板发生变化时立即复核",
+    "reverification_triggers": [
+      "《劳动合同法》、实施条例、劳动争议司法解释或年休假规范修订/废止/新增",
+      "地方上年度职工月平均工资、最低工资或劳动争议程序口径变化",
+      "出现新的保护性解除、集体裁员、派遣/关联单位或工伤类失败样本",
+      "Office CLI 版本、DOCX 模板、批注/修订清洁策略或 PDF 转换工具变化",
+      "真实项目发现 N、N+1、2N、附随项目或客户版/底稿边界错误"
+    ]
+  }
+}

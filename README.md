@@ -2,10 +2,10 @@
 
 <div align="center">
 
-**2076 个法律 Agent Skill 的目录 · 说明书 · 分类体系 · 部署入口**
+**2086 个法律 Agent Skill 的目录 · 说明书 · 分类体系 · 部署入口**
 
 [![License](https://img.shields.io/badge/License-See%20individual%20skills-blue.svg)]()
-[![Skills](https://img.shields.io/badge/Skills-2076-brightgreen.svg)](index/master-index.md)
+[![Skills](https://img.shields.io/badge/Skills-2086-brightgreen.svg)](index/master-index.md)
 [![Author](https://img.shields.io/badge/author-Dr.CS(CS)-orange.svg)](https://github.com/CSlawyer1985)
 [![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/CSlawyer1985/legal-skillhub/pulls)
 
@@ -19,7 +19,7 @@
 
 ## 📖 项目简介
 
-**Legal SkillHub** 是一个面向法律人的 Agent Skill 聚合与学习平台。它将 2076 个法律 AI Skill 从互联网公开数据中整理收录，为每一份 Skill 提供：
+**Legal SkillHub** 是一个面向法律人的 Agent Skill 聚合与学习平台。它将 2086 个法律 AI Skill 从互联网公开数据中整理收录，为每一份 Skill 提供：
 
 - **盘点说明**：它到底能干什么、适用于什么法律和场景
 - **工作逻辑**：它是如何完成工作的（输入 → 处理步骤 → 产出）
@@ -31,7 +31,7 @@
 
 ## 🎯 核心价值
 
-💡 **目录** - 2076 个法律 Skill 全量收录，8 维标签体系（法域/领域/任务/角色/语言/授权/类型/自动化等级）多维筛选
+💡 **目录** - 2086 个法律 Skill 全量收录，8 维标签体系（法域/领域/任务/角色/语言/授权/类型/自动化等级）多维筛选
 🔍 **说明书** - 每个 Skill 独立详情页：一句话用途、工作逻辑、输入输出、适用/不适用场景、风险等级
 📚 **学习中心** - 七讲完整课程《把专业经验封装成 Agent Skill》+ 精选案例解剖，教法律人自己写 Skill
 🛠️ **部署入口** - 三种安装方式（curl 逐文件 / git sparse-checkout / AI 代装），含国内镜像切换
@@ -40,9 +40,9 @@
 
 ## 📊 项目数据
 
-- **🗂️ Skill 总数**：2076 个
-- **🌏 法域覆盖**：中国大陆 829 / 美国 654 / 法域中立 405 / 欧盟 144 / 跨境国际 71 / 法国 30 等 17 个法域
-- **📚 语言分布**：中文 1030 / 英文 1046
+- **🗂️ Skill 总数**：2086 个
+- **🌏 法域覆盖**：中国大陆 838 / 美国 654 / 法域中立 405 / 欧盟 145 / 跨境国际 71 / 法国 30 等 21 个法域
+- **📚 语言分布**：中文 1040 / 英文 1046
 - **🏷️ 标签维度**：8 维主分类 + 9 维高级筛选（法域/领域/任务/角色/行业/输入/输出/授权/风险等）
 - **📁 文件规模**：13,279 个文件，200MB（无单文件 >5MB，GitHub 友好）
 - **🛠️ 技能形态**：指令型 1431 / 代码包型 210 / 知识包型 176 / 混合型 153 / 工具封装型 94
@@ -134,7 +134,7 @@ cd legal-skillhub && git sparse-checkout set skills/legal-kb && cp -r skills/leg
 ## 📁 仓库结构
 
 ```
-├── skills/              # 2049 个 Skill 本体（每个一个文件夹：SKILL.md + 附属文件）
+├── skills/              # 2086 个 Skill 本体（每个一个文件夹：SKILL.md + 附属文件）
 ├── index/               # 索引区（建站基础）
 │   ├── taxonomy.md          # 标签体系权威定义 v0.1
 │   ├── skills-index.json    # 主索引（数据权威，机器生成）

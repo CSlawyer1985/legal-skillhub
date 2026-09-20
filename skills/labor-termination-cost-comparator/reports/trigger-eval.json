@@ -1,0 +1,80 @@
+{
+  "skill": "labor-termination-cost-comparator",
+  "evaluated_at": "2026-09-19",
+  "evidence_kind": "static_only",
+  "provider_status": "not_run",
+  "not_model_trigger_rate": true,
+  "counts": {
+    "should-trigger": 3,
+    "should-not-trigger": 2,
+    "near-neighbor": 2
+  },
+  "results": [
+    {
+      "id": "should-trigger-01",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "解除",
+        "成本"
+      ],
+      "keyword_count": 6,
+      "static_coverage": true
+    },
+    {
+      "id": "should-trigger-02",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "解除通知",
+        "违法解除"
+      ],
+      "keyword_count": 6,
+      "static_coverage": true
+    },
+    {
+      "id": "should-trigger-03",
+      "kind": "should-trigger",
+      "keyword_hits": [
+        "经济补偿金",
+        "代通知金",
+        "赔偿金"
+      ],
+      "keyword_count": 5,
+      "static_coverage": true
+    },
+    {
+      "id": "should-not-trigger-01",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "should-not-trigger-02",
+      "kind": "should-not-trigger",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "near-neighbor-01",
+      "kind": "near-neighbor",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    },
+    {
+      "id": "near-neighbor-02",
+      "kind": "near-neighbor",
+      "keyword_hits": [],
+      "keyword_count": 0,
+      "static_coverage": null
+    }
+  ],
+  "observed_results": null,
+  "errors": [],
+  "missing_evidence": [
+    "provider-backed 模型触发运行",
+    "独立人工盲评",
+    "跨 Skill 路由冲突实测"
+  ]
+}

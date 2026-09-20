@@ -1,0 +1,52 @@
+{
+  "说明": "MCP 数据源配置（企查查智能体数据平台 agent.qcc.com，工具名已于 2026-09-19 按 tools/list 实测校准）。复制本文件为 mcp_config.json，并设置环境变量 QCC_API_KEY（登录 agent.qcc.com → 右上角头像 → 获取我的 API KEY）。token 禁止写入本文件。",
+  "sources": [
+    {
+      "name": "qcc-company",
+      "label": "企查查-企业数据（工商/股东/董监高/财务）",
+      "transport": "stream-http",
+      "url": "https://agent.qcc.com/mcp/company/stream",
+      "token_env": "QCC_API_KEY",
+      "dimensions": {
+        "1_工商基本信息": {"tools": ["get_company_registration_info", "get_listing_info"], "query_field": "searchKey"},
+        "2_股权结构与实控人": {"tools": ["get_shareholder_info", "get_actual_controller", "get_beneficial_owners"], "query_field": "searchKey"},
+        "3_董监高": {"tools": ["get_key_personnel"], "query_field": "searchKey"},
+        "4_财务概况": {"tools": ["get_financial_data", "get_annual_reports"], "query_field": "searchKey"}
+      }
+    },
+    {
+      "name": "qcc-risk",
+      "label": "企查查-风险数据（司法/执行/处罚/破产）",
+      "transport": "stream-http",
+      "url": "https://agent.qcc.com/mcp/risk/stream",
+      "token_env": "QCC_API_KEY",
+      "dimensions": {
+        "5_诉讼与被执行": {"tools": ["get_judicial_documents", "get_judgment_debtor_info", "get_dishonest_info", "get_equity_freeze", "get_equity_pledge_info", "get_bankruptcy_reorganization", "get_high_consumption_restriction"], "query_field": "searchKey"},
+        "6_行政处罚与经营异常": {"tools": ["get_administrative_penalty", "get_business_exception", "get_serious_violation", "get_environmental_penalty", "get_tax_abnormal"], "query_field": "searchKey"}
+      }
+    },
+    {
+      "name": "qcc-ipr",
+      "label": "企查查-知识产权（专利/商标/软著）",
+      "transport": "stream-http",
+      "url": "https://agent.qcc.com/mcp/ipr/stream",
+      "token_env": "QCC_API_KEY",
+      "dimensions": {
+        "7_知识产权": {"tools": ["get_patent_info", "get_software_copyright_info", "get_trademark_info"], "query_field": "searchKey"}
+      }
+    },
+    {
+      "name": "qcc-operation",
+      "label": "企查查-经营与舆情",
+      "transport": "stream-http",
+      "url": "https://agent.qcc.com/mcp/operation/stream",
+      "token_env": "QCC_API_KEY",
+      "dimensions": {
+        "7b_资质荣誉": {"tools": ["get_qualifications", "get_honor_info"], "query_field": "searchKey"},
+        "8_舆情": {"tools": ["get_news_sentiment"], "query_field": "searchKey"}
+      }
+    }
+  ],
+  "备注": "企查查共 10 个 server；本配置已覆盖背调八个维度所需的 4 个 server、24 个工具。历史存档 server 需企业实名认证。积分：注册送 500、每日送 100，同一企业每自然月消耗封顶 100 积分。其余 server（executive/legal-case/tender 等）可按需增补。",
+  "fallback": "任一数据源不可用（未配置/token 缺失/调用失败）时，该维度自动降级为 WebSearch/FetchURL 公开检索，并在证据账本中标注来源类型为'公开网页检索'；全部不可用时整单降级，不得中断。"
+}

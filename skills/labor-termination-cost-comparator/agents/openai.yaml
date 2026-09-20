@@ -1,0 +1,4 @@
+interface:
+  display_name: "劳动关系解除成本方案比较"
+  short_description: "中国大陆劳动解除中 N、N+1、2N 与附随项目的成本测算和方案比较"
+  default_prompt: "使用 $labor-termination-cost-comparator 完成其定义的重复法律任务；逐项检查十二模块，独立核验易变法律依据，证据不足时执行停止或降级路径。"

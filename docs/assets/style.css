@@ -194,8 +194,51 @@ button { font-family: inherit; }
   color: var(--muted-2); text-transform: uppercase;
 }
 
+/* ── 临时活动专题入口：位于 Browse Skills 之前，不占用全站导航 ── */
+.event-banner {
+  --event-accent: #3bd29f;
+  max-width: var(--max); margin: 34px auto 0; padding: 0 24px;
+}
+[data-mode="paper"] .event-banner { --event-accent: #087a59; }
+.event-banner-link {
+  display: block; position: relative; overflow: hidden;
+  padding: 18px 20px 20px; border: 1px solid var(--line);
+  background:
+    linear-gradient(108deg, color-mix(in srgb, var(--event-accent) 12%, var(--bg-elevated)), var(--bg-elevated) 54%);
+  color: inherit; transition: border-color .16s, transform .16s, background .16s;
+}
+.event-banner-link::after {
+  content: ""; position: absolute; inset: 0 0 0 auto; width: 34%; pointer-events: none;
+  background: repeating-linear-gradient(135deg, transparent 0 16px, color-mix(in srgb, var(--event-accent) 7%, transparent) 16px 17px);
+  mask-image: linear-gradient(to left, #000, transparent);
+}
+.event-banner-link:hover {
+  border-color: var(--event-accent); transform: translateY(-1px); text-decoration: none;
+  background: linear-gradient(108deg, color-mix(in srgb, var(--event-accent) 17%, var(--bg-elevated)), var(--bg-elevated) 58%);
+}
+.event-banner-kicker {
+  position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 18px;
+  color: var(--event-accent); font: 700 .65rem/1.4 var(--mono); letter-spacing: .13em;
+}
+.event-banner-kicker span:last-child { color: var(--muted-2); }
+.event-banner-main {
+  position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px; align-items: end; margin-top: 16px;
+}
+.event-banner-main h2 {
+  color: var(--ink); font: 760 clamp(1.25rem, 2.4vw, 1.9rem)/1.15 var(--disp);
+  letter-spacing: -.03em; text-wrap: balance;
+}
+.event-banner-main p { color: var(--muted); margin-top: 7px; font-size: .83rem; line-height: 1.65; text-wrap: pretty; }
+.event-banner-cta {
+  display: inline-flex; align-items: center; gap: 20px; min-width: 126px; justify-content: space-between;
+  color: var(--ink); border-bottom: 1px solid var(--event-accent); padding: 0 0 6px;
+  white-space: nowrap; font: 700 .72rem var(--mono);
+}
+.event-banner-cta b { color: var(--event-accent); font-size: .92rem; }
+
 /* ── Browse 区（首页检索）── */
-.browse { padding: 40px 24px 8px; max-width: var(--max); margin: 0 auto; }
+.browse { padding: 34px 24px 8px; max-width: var(--max); margin: 0 auto; }
 .browse-h {
   font-family: var(--disp); font-weight: 800; letter-spacing: -.02em;
   color: var(--ink); font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.15;
@@ -645,6 +688,12 @@ button { font-family: inherit; }
 
   /* Browse 区 */
   .browse { padding: 28px 18px 6px; }
+  .event-banner { margin-top: 24px; padding: 0 18px; }
+  .event-banner-link { padding: 16px; }
+  .event-banner-kicker { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .event-banner-main { grid-template-columns: 1fr; gap: 17px; margin-top: 14px; }
+  .event-banner-main h2 { font-size: 1.28rem; }
+  .event-banner-cta { width: 100%; }
 
   /* 分类 pills / 维度 tab：横向滚动 */
   .pill-row { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 10px; }

@@ -34,7 +34,7 @@
             <div class="rel-title">${escHtml(d.name)}</div>
             <div class="rel-desc">${escHtml((d.summary||"").slice(0,70))}</div></a>`).join("") +
           `</div></section>` : ""}
-        <p style="margin-top:20px"><a class="case-link" href="./index.html">浏览全部 2049 个技能 →</a></p>`;
+        <p style="margin-top:20px"><a class="case-link" href="./index.html">浏览全部 2086 个技能 →</a></p>`;
       return;
     }
     FILES = await fetch("data/files.json").then(r => r.json());

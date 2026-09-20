@@ -1,0 +1,67 @@
+{
+  "schema_version": "trigger-cases/v0.1",
+  "cases": [
+    {
+      "id": "should-trigger-01",
+      "kind": "should-trigger",
+      "prompt": "我有一名员工准备解除，请根据合同、工资和入职日期比较协商解除、N+1 和违法解除 2N 的成本，并生成 Word 报告和底稿。",
+      "keywords": [
+        "解除",
+        "N+1",
+        "2N",
+        "成本",
+        "Word",
+        "底稿"
+      ]
+    },
+    {
+      "id": "should-trigger-02",
+      "kind": "should-trigger",
+      "prompt": "请把这批劳动合同、工资表和解除通知做成一份合法解除与违法解除的金额方案比较，事实来源和法条核验要能回查。",
+      "keywords": [
+        "劳动合同",
+        "工资表",
+        "解除通知",
+        "合法解除",
+        "违法解除",
+        "核验"
+      ]
+    },
+    {
+      "id": "should-trigger-03",
+      "kind": "should-trigger",
+      "prompt": "基于我上传的 PDF 和文字说明，测算经济补偿金、代通知金和赔偿金，并告诉我哪些数字是已核验、哪些需要律师确认。",
+      "keywords": [
+        "PDF",
+        "经济补偿金",
+        "代通知金",
+        "赔偿金",
+        "律师确认"
+      ]
+    },
+    {
+      "id": "should-not-trigger-01",
+      "kind": "should-not-trigger",
+      "prompt": "请直接回答劳动合同法第四十七条的内容。",
+      "keywords": []
+    },
+    {
+      "id": "should-not-trigger-02",
+      "kind": "should-not-trigger",
+      "prompt": "帮我单独写一份解除劳动合同通知书。",
+      "keywords": []
+    },
+    {
+      "id": "near-neighbor-01",
+      "kind": "near-neighbor",
+      "prompt": "创建一个只做劳动法条检索和法规知识库维护的 Skill，不处理个案材料或金额。",
+      "keywords": []
+    },
+    {
+      "id": "near-neighbor-02",
+      "kind": "near-neighbor",
+      "prompt": "审查劳动合同中的竞业限制条款并给出修改文本，不做解除成本比较。",
+      "keywords": []
+    }
+  ]
+}
