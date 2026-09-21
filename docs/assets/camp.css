@@ -1,15 +1,10 @@
 /* AI 法律服务产品设计训练营专题页：Mintlify 式克制技术编辑风 */
 .camp-page {
-  --camp-accent: #3bd29f;
-  --camp-accent-strong: #17b985;
+  --camp-accent: var(--accent);
+  --camp-accent-strong: var(--accent-dim);
   --camp-accent-soft: color-mix(in srgb, var(--camp-accent) 10%, transparent);
   border-top: 1px solid var(--line);
   overflow: hidden;
-}
-[data-mode="paper"] .camp-page {
-  --camp-accent: #087a59;
-  --camp-accent-strong: #066548;
-  --camp-accent-soft: color-mix(in srgb, var(--camp-accent) 8%, transparent);
 }
 .camp-shell { width: min(calc(100% - 48px), 1240px); margin-inline: auto; }
 .camp-hero { position: relative; border-bottom: 1px solid var(--line); }
@@ -45,11 +40,12 @@
 }
 .camp-eyebrow span { font-size: .58rem; }
 .camp-hero h1 {
-  color: var(--ink); margin: 22px 0 26px; max-width: 11ch;
-  font: 760 clamp(3.15rem, 6.4vw, 5.9rem)/1.02 var(--disp);
+  color: var(--ink); margin: 22px 0 26px; max-width: 14ch;
+  font: 760 clamp(2.7rem, 5.5vw, 5.2rem)/1.03 var(--disp);
   letter-spacing: -.058em; text-wrap: balance;
 }
-.camp-hero h1 em { display: block; color: var(--camp-accent); font-style: normal; white-space: nowrap; }
+.camp-title-line { display: block; }
+.camp-hero h1 em { display: block; color: var(--camp-accent); font-style: normal; }
 .camp-lede { max-width: 55ch; color: var(--muted); font-size: 1.04rem; line-height: 1.86; text-wrap: pretty; }
 .camp-event-meta { display: flex; flex-wrap: wrap; gap: 10px 25px; margin-top: 25px; color: var(--ink-soft); font-size: .78rem; }
 .camp-event-meta span { display: flex; gap: 9px; align-items: baseline; }
@@ -60,10 +56,8 @@
   min-width: 180px; padding: 10px 14px; border: 1px solid var(--line-strong);
   font: 700 .76rem var(--mono); transition: border-color .16s, background .16s, color .16s;
 }
-.camp-action-primary { color: #071c15; background: var(--camp-accent); border-color: var(--camp-accent) !important; }
-.camp-action-primary:hover { color: #071c15; background: var(--camp-accent-strong); text-decoration: none; }
-[data-mode="paper"] .camp-action-primary,
-[data-mode="paper"] .camp-action-primary:hover { color: #ffffff; }
+.camp-action-primary { color: var(--on-accent); background: var(--camp-accent); border-color: var(--camp-accent) !important; }
+.camp-action-primary:hover { color: var(--on-accent); background: var(--camp-accent-strong); text-decoration: none; }
 .camp-action-secondary { color: var(--ink-soft); background: color-mix(in srgb, var(--bg-elevated) 82%, transparent); }
 .camp-action-secondary:hover { color: var(--ink); border-color: var(--camp-accent); text-decoration: none; }
 .camp-map { border: 1px solid var(--line); background: color-mix(in srgb, var(--bg-elevated) 88%, transparent); box-shadow: 18px 18px 0 var(--camp-accent-soft); }
@@ -133,7 +127,7 @@
 
 @media (max-width: 920px) {
   .camp-hero-grid { grid-template-columns: 1fr; gap: 54px; }
-  .camp-hero h1 { max-width: 12ch; }
+  .camp-hero h1 { max-width: none; }
   .camp-map { max-width: 700px; }
   .camp-intro-grid, .camp-method-grid { grid-template-columns: 1fr; gap: 32px; }
   .camp-method-grid { margin-top: 25px; }

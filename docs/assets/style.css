@@ -196,10 +196,10 @@ button { font-family: inherit; }
 
 /* ── 临时活动专题入口：位于 Browse Skills 之前，不占用全站导航 ── */
 .event-banner {
-  --event-accent: #3bd29f;
+  --event-accent: var(--accent);
   max-width: var(--max); margin: 34px auto 0; padding: 0 24px;
 }
-[data-mode="paper"] .event-banner { --event-accent: #087a59; }
+.event-banner + .event-banner { margin-top: 12px; }
 .event-banner-link {
   display: block; position: relative; overflow: hidden;
   padding: 18px 20px 20px; border: 1px solid var(--line);
