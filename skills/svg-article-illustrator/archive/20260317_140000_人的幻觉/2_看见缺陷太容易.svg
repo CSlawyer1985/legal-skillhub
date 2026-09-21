@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#fff3e0"/>
+
+  <!-- 放大镜效果 -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="120" fill="#ffffff" stroke="#ff9800" stroke-width="8"/>
+    <text x="0" y="35" font-size="80" text-anchor="middle">🔍</text>
+    <!-- 脉冲动画 -->
+    <animateTransform attributeName="transform" type="scale"
+      values="1; 1.1; 1" dur="2s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 四周的缺陷气泡 -->
+  <g transform="translate(150, 120)">
+    <circle cx="0" cy="0" r="50" fill="#ffcdd2"/>
+    <text x="0" y="15" font-size="36" text-anchor="middle">❌</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-8; 0,0" dur="2.5s" repeatCount="indefinite"/>
+  </g>
+
+  <g transform="translate(650, 120)">
+    <circle cx="0" cy="0" r="50" fill="#ffcdd2"/>
+    <text x="0" y="15" font-size="36" text-anchor="middle">❌</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-8; 0,0" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
+  </g>
+
+  <g transform="translate(150, 320)">
+    <circle cx="0" cy="0" r="50" fill="#ffcdd2"/>
+    <text x="0" y="15" font-size="36" text-anchor="middle">❌</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-8; 0,0" dur="2.5s" repeatCount="indefinite" begin="0.6s"/>
+  </g>
+
+  <g transform="translate(650, 320)">
+    <circle cx="0" cy="0" r="50" fill="#ffcdd2"/>
+    <text x="0" y="15" font-size="36" text-anchor="middle">❌</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-8; 0,0" dur="2.5s" repeatCount="indefinite" begin="0.9s"/>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="400" y="400" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">看见缺陷太容易</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#eceff1"/>
+
+  <!-- 中心：警醒/思考 -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="100" fill="#ffffff" stroke="#607d8b" stroke-width="6"/>
+    <text x="0" y="35" font-size="80" text-anchor="middle">⚠️</text>
+    <animateTransform attributeName="transform" type="scale"
+      values="1; 1.1; 1" dur="1.5s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 左侧：❌ 判死刑 -->
+  <g transform="translate(200, 200)">
+    <circle cx="0" cy="0" r="60" fill="#ffcdd2"/>
+    <text x="0" y="15" font-size="50" text-anchor="middle">❌</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-8; 0,0" dur="2s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- 右侧：✨ 幻觉 -->
+  <g transform="translate(600, 200)">
+    <circle cx="0" cy="0" r="60" fill="#fff9c4"/>
+    <text x="0" y="15" font-size="50" text-anchor="middle">✨</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-8; 0,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="400" y="380" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">过早判死刑，也是一种幻觉</text>
+</svg>

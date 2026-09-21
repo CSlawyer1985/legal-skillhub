@@ -1,0 +1,24 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="75" font-size="36" font-weight="bold" fill="#2d3748" text-anchor="middle">抽象泄露</text>
+
+  <!-- 抽象层盒子 -->
+  <rect x="150" y="120" width="500" height="150" rx="12" fill="#E8F4F8" stroke="#4A90E2" stroke-width="4"/>
+  <text x="400" y="160" font-size="24" fill="#4A90E2" text-anchor="middle" font-weight="bold">抽象层</text>
+  <text x="400" y="220" font-size="50" text-anchor="middle">🛡️</text>
+
+  <!-- 穿透的箭头 -->
+  <line x1="250" y1="280" x2="250" y2="380" stroke="#E53E3E" stroke-width="5" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <line x1="400" y1="280" x2="400" y2="380" stroke="#E53E3E" stroke-width="5" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" begin="0.3s" repeatCount="indefinite"/>
+  </line>
+  <line x1="550" y1="280" x2="550" y2="380" stroke="#E53E3E" stroke-width="5" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" begin="0.6s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 底层细节 -->
+  <rect x="150" y="380" width="500" height="50" rx="8" fill="#FEE2E2" stroke="#E53E3E" stroke-width="2"/>
+  <text x="400" y="412" font-size="20" fill="#E53E3E" text-anchor="middle">底层细节 · 你终须面对</text>
+</svg>

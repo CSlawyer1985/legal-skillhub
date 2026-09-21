@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/resolution-context-v1.schema.json",
+  "title": "One-Contract Resolution Context",
+  "$comment": "context_hash hashes RFC 8785 canonical JSON with context_hash omitted. Relative references must resolve from the local registry. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "context_id",
+    "now",
+    "primary_type_id",
+    "secondary_type_ids",
+    "primary_domain_code",
+    "secondary_domain_codes",
+    "document_kind",
+    "our_role",
+    "scene_tags",
+    "contract_stage",
+    "classification",
+    "facts",
+    "client_profile_id",
+    "client_policy_snapshot_id",
+    "case_authorizations",
+    "context_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "context_id": {
+      "type": "string",
+      "pattern": "^rc_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "now": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "primary_type_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "secondary_type_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 120
+      }
+    },
+    "primary_domain_code": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^EC-[0-9]{2}$"
+    },
+    "secondary_domain_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^EC-[0-9]{2}$"
+      }
+    },
+    "document_kind": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "our_role": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 2,
+      "maxLength": 80
+    },
+    "scene_tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 100
+      }
+    },
+    "contract_stage": {
+      "type": "string",
+      "enum": [
+        "drafting",
+        "first_review",
+        "negotiation",
+        "signing",
+        "performance",
+        "termination",
+        "settlement"
+      ]
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "confidence",
+        "human_confirmed",
+        "evidence"
+      ],
+      "properties": {
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "human_confirmed": {
+          "type": "boolean"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/fact"
+      }
+    },
+    "client_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+    },
+    "client_policy_snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "case_authorizations": {
+      "type": "array",
+      "items": {
+        "$ref": "one-contract/case-authorization-v1.schema.json"
+      }
+    },
+    "context_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_key",
+        "value",
+        "evidence_state"
+      ],
+      "properties": {
+        "fact_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,119}$"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "array",
+            "object",
+            "null"
+          ]
+        },
+        "evidence_state": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "reasonable_assumption",
+            "major_choice",
+            "not_applicable"
+          ]
+        },
+        "source_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        }
+      }
+    }
+  }
+}

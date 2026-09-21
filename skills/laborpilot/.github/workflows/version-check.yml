@@ -1,0 +1,38 @@
+name: 版本一致性检查
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  version-check:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 安装 Pandoc
+        run: |
+          # Runner 预装的 Google Chrome 源偶发 Hash Sum mismatch，与 Pandoc 无关。
+          sudo rm -f /etc/apt/sources.list.d/google-chrome*.list \
+                     /etc/apt/sources.list.d/google-chrome-stable*.list
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends pandoc
+
+      - name: 校验版本同步
+        run: python3 scripts/sync_version.py --check
+
+      - name: 运行回归测试
+        run: python3 -m unittest discover -s tests -v

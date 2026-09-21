@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="70" font-size="28" font-weight="bold" fill="#2d3748" text-anchor="middle">降低门槛 ≠ 穿透抽象</text>
+
+  <!-- 低门槛入口 -->
+  <g transform="translate(80, 130)">
+    <rect x="0" y="0" width="180" height="200" rx="12" fill="#E8F5E8" stroke="#10B981" stroke-width="3"/>
+    <text x="90" y="40" font-size="20" fill="#10B981" text-anchor="middle" font-weight="bold">✅ 低门槛</text>
+    <text x="90" y="120" font-size="70" text-anchor="middle">🚪</text>
+    <text x="90" y="180" font-size="16" fill="#718096" text-anchor="middle">容易进入</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="280" y1="230" x2="340" y2="230" stroke="#4A90E2" stroke-width="4"/>
+  <polygon points="340,225 355,230 340,235" fill="#4A90E2"/>
+
+  <!-- AI框架 -->
+  <g transform="translate(320, 130)">
+    <rect x="0" y="0" width="160" height="200" rx="12" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3"/>
+    <text x="80" y="40" font-size="18" fill="#4A90E2" text-anchor="middle" font-weight="bold">AI 框架</text>
+    <text x="80" y="120" font-size="60" text-anchor="middle">📦</text>
+    <text x="80" y="180" font-size="14" fill="#718096" text-anchor="middle">封装抽象</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="500" y1="230" x2="560" y2="230" stroke="#E53E3E" stroke-width="4"/>
+  <polygon points="560,225 575,230 560,235" fill="#E53E3E"/>
+
+  <!-- 无法穿透的墙 -->
+  <g transform="translate(540, 130)">
+    <rect x="0" y="0" width="180" height="200" rx="12" fill="#FEE2E2" stroke="#E53E3E" stroke-width="4"/>
+    <text x="90" y="40" font-size="20" fill="#E53E3E" text-anchor="middle" font-weight="bold">❌ 无法穿透</text>
+    <text x="90" y="120" font-size="70" text-anchor="middle">🧱</text>
+    <text x="90" y="180" font-size="14" fill="#718096" text-anchor="middle">专业抽象</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <text x="400" y="400" font-size="20" fill="#718096" text-anchor="middle">框架让你进去，但专业判断仍需你自己</text>
+</svg>

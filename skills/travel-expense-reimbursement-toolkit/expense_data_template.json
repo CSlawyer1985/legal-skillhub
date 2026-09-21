@@ -1,0 +1,58 @@
+[
+  {
+    "case_short": "01_案件A",
+    "case_name": "案件A全称",
+    "items": [
+      {
+        "seq": 1,
+        "date": "2026-01-01",
+        "time": "08:00",
+        "type": "高铁-二等座 G1234",
+        "from": "广州南",
+        "to": "长沙南",
+        "amount": 250.00,
+        "img": "docx_01.png",
+        "note": "",
+        "date_source": "screenshot"
+      },
+      {
+        "seq": 2,
+        "date": "2026-01-01",
+        "time": "10:30",
+        "type": "快车",
+        "from": "长沙南站",
+        "to": "XX酒店",
+        "amount": 25.50,
+        "img": "standalone_01.jpg",
+        "note": ""
+      }
+    ],
+    "prepayment": {
+      "amount": 1000.00,
+      "date": "2025-12-30",
+      "note": "当事人预支差旅费",
+      "img": "prepayment.jpg"
+    },
+    "total": 0,
+    "item_count": 0
+  },
+  {
+    "case_short": "02_案件B",
+    "case_name": "案件B全称",
+    "items": [
+      {
+        "seq": 1,
+        "date": "2026-02-01",
+        "time": "14:00",
+        "type": "飞机-南航CZ1234",
+        "from": "广州",
+        "to": "北京",
+        "amount": 1280.00,
+        "img": "docx_01.png",
+        "note": ""
+      }
+    ],
+    "total": 0,
+    "item_count": 0
+  }
+]

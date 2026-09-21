@@ -1,0 +1,149 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">中国大陆模拟法庭 Skill / China Litigation Rehearsal</title>
+  <desc id="desc">A bilingual GitHub introduction card for a Codex skill that guides PRC civil and commercial litigation rehearsal.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f5ef; }
+      .ink { fill: #15202b; }
+      .muted { fill: #5f6b76; }
+      .soft { fill: #e9e2d5; }
+      .panel { fill: #fffdf8; stroke: #d6cbbc; stroke-width: 2; rx: 8; }
+      .panel-blue { fill: #eef6f6; stroke: #9fc5c5; stroke-width: 2; rx: 8; }
+      .panel-red { fill: #fff1ed; stroke: #d9a092; stroke-width: 2; rx: 8; }
+      .panel-gold { fill: #fff7df; stroke: #d6b75d; stroke-width: 2; rx: 8; }
+      .red { fill: #b23a2f; }
+      .teal { fill: #2f7773; }
+      .gold { fill: #b98b20; }
+      .rule { stroke: #d8cdbc; stroke-width: 2; }
+      .dash { stroke: #b6aa9b; stroke-width: 2; stroke-dasharray: 8 10; fill: none; }
+      .wire { stroke: #2f7773; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .wire-red { stroke: #b23a2f; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .mono { font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace; }
+      text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif; }
+      .h1 { font-size: 70px; font-weight: 800; letter-spacing: 0; }
+      .h2 { font-size: 32px; font-weight: 650; letter-spacing: 0; }
+      .body { font-size: 24px; font-weight: 450; letter-spacing: 0; }
+      .small { font-size: 18px; font-weight: 500; letter-spacing: 0; }
+      .tiny { font-size: 15px; font-weight: 550; letter-spacing: 0; }
+      .badge { font-size: 16px; font-weight: 700; letter-spacing: 0.8px; }
+      .num { font-size: 18px; font-weight: 800; }
+      .cmd { font-size: 22px; font-weight: 760; letter-spacing: 0; }
+      .flowtext { font-size: 22px; font-weight: 760; letter-spacing: 0; }
+    </style>
+    <pattern id="paperGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ebe3d6" stroke-width="1"/>
+    </pattern>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f7773"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b23a2f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <rect width="1600" height="900" fill="url(#paperGrid)" opacity="0.65"/>
+
+  <g transform="translate(72 62)">
+    <rect x="0" y="0" width="138" height="34" rx="8" fill="#15202b"/>
+    <text x="22" y="23" class="badge" fill="#fffdf8">CODEX SKILL</text>
+    <rect x="154" y="0" width="154" height="34" rx="8" fill="#e6efe8" stroke="#8eb79c"/>
+    <text x="174" y="23" class="badge teal">PRC LITIGATION</text>
+    <rect x="324" y="0" width="94" height="34" rx="8" fill="#f8e8dd" stroke="#d9a092"/>
+    <text x="348" y="23" class="badge red">v1.0</text>
+  </g>
+
+  <text x="72" y="165" class="h1 ink">中国大陆模拟法庭 Skill</text>
+  <text x="76" y="213" class="h2 red">庭前预演 · 红队攻防 · 法官追问 · 败诉风险排查</text>
+  <text x="78" y="252" class="body muted">China Litigation Rehearsal for PRC civil and commercial cases</text>
+
+  <g transform="translate(72 302)">
+    <rect class="panel" x="0" y="0" width="456" height="166" rx="8"/>
+    <text x="28" y="42" class="small muted">Start with guided mode</text>
+    <text x="28" y="76" class="body ink">在 Codex 中输入</text>
+    <text x="28" y="104" class="cmd ink mono">$china-litigation-rehearsal</text>
+    <path class="rule" d="M28 112 H428"/>
+    <text x="28" y="145" class="body ink">引导选择模式，补齐关键材料。</text>
+  </g>
+
+  <g transform="translate(578 302)">
+    <rect class="panel-blue" x="0" y="0" width="470" height="218" rx="8"/>
+    <text x="28" y="42" class="h2 ink">一条庭前预演流水线</text>
+    <text x="28" y="77" class="small muted">From facts to a hearing-ready playbook</text>
+
+    <g transform="translate(32 112)">
+      <circle cx="0" cy="0" r="10" class="teal"/>
+      <path class="wire" d="M12 0 H72" marker-end="url(#arrowTeal)"/>
+      <circle cx="92" cy="0" r="10" class="teal"/>
+      <path class="wire" d="M104 0 H164" marker-end="url(#arrowTeal)"/>
+      <circle cx="184" cy="0" r="10" class="teal"/>
+      <path class="wire" d="M196 0 H256" marker-end="url(#arrowTeal)"/>
+      <circle cx="276" cy="0" r="10" class="teal"/>
+      <path class="wire-red" d="M288 0 H348" marker-end="url(#arrowRed)"/>
+      <circle cx="368" cy="0" r="10" class="red"/>
+      <text x="-16" y="38" class="tiny muted">脱敏</text>
+      <text x="68" y="38" class="tiny muted">程序</text>
+      <text x="156" y="38" class="tiny muted">争点</text>
+      <text x="248" y="38" class="tiny muted">追问</text>
+      <text x="328" y="38" class="tiny red">排查</text>
+    </g>
+
+    <text x="28" y="188" class="flowtext ink">案情 → 程序 → 争点 → 追问 → 排查</text>
+  </g>
+
+  <g transform="translate(1090 282)">
+    <rect class="panel-red" x="0" y="0" width="438" height="286" rx="8"/>
+    <text x="28" y="48" class="h2 ink">三种主线模式</text>
+    <text x="28" y="82" class="small muted">中文默认 · English optional</text>
+
+    <g transform="translate(28 118)">
+      <rect x="0" y="0" width="382" height="48" rx="8" fill="#fffdf8" stroke="#e0c7bd"/>
+      <text x="18" y="31" class="num red">01</text>
+      <text x="64" y="31" class="body ink">快速体检</text>
+      <text x="276" y="31" class="small muted">scan</text>
+    </g>
+    <g transform="translate(28 176)">
+      <rect x="0" y="0" width="382" height="48" rx="8" fill="#fffdf8" stroke="#e0c7bd"/>
+      <text x="18" y="31" class="num red">02</text>
+      <text x="64" y="31" class="body ink">标准预演</text>
+      <text x="276" y="31" class="small muted">rehearse</text>
+    </g>
+    <g transform="translate(28 234)">
+      <rect x="0" y="0" width="382" height="48" rx="8" fill="#fffdf8" stroke="#e0c7bd"/>
+      <text x="18" y="31" class="num red">03</text>
+      <text x="64" y="31" class="body ink">深度打磨</text>
+      <text x="276" y="31" class="small muted">polish</text>
+    </g>
+  </g>
+
+  <g transform="translate(72 542)">
+    <rect class="panel-gold" x="0" y="0" width="956" height="214" rx="8"/>
+    <text x="28" y="48" class="h2 ink">输出不是“预测胜诉”，而是把风险写清楚</text>
+    <text x="30" y="87" class="body muted">Not a result prediction. A structured rehearsal surface for lawyers.</text>
+
+    <g transform="translate(34 120)">
+      <rect x="0" y="0" width="260" height="58" rx="8" fill="#fffdf8" stroke="#d6b75d"/>
+      <text x="24" y="36" class="body ink">对方律师红队</text>
+    </g>
+    <g transform="translate(324 120)">
+      <rect x="0" y="0" width="260" height="58" rx="8" fill="#fffdf8" stroke="#d6b75d"/>
+      <text x="24" y="36" class="body ink">法官追问脚本</text>
+    </g>
+    <g transform="translate(614 120)">
+      <rect x="0" y="0" width="286" height="58" rx="8" fill="#fffdf8" stroke="#d6b75d"/>
+      <text x="24" y="36" class="body ink">庭前实战手册</text>
+    </g>
+  </g>
+
+  <g transform="translate(1090 606)">
+    <rect class="panel" x="0" y="0" width="438" height="150" rx="8"/>
+    <text x="28" y="38" class="h2 ink">Disclaimer</text>
+    <text x="30" y="74" class="body red">仅作庭前演练，不构成法律意见</text>
+    <text x="30" y="103" class="small muted">Not legal advice or outcome prediction.</text>
+    <text x="30" y="126" class="small muted">Anonymize facts. Verify all authorities.</text>
+  </g>
+
+  <path class="dash" d="M72 804 H1528"/>
+  <text x="72" y="842" class="small muted">china-litigation-rehearsal</text>
+  <text x="1210" y="842" class="small muted">v1.0 · PRC civil hearing rehearsal</text>
+</svg>

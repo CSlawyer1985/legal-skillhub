@@ -1,0 +1,35 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="60" font-size="42" text-anchor="middle" fill="#333" font-weight="bold">AI协作能力四支柱</text>
+
+  <!-- 四个支柱 -->
+  <g transform="translate(130, 280)">
+    <rect x="-55" y="-100" width="110" height="140" fill="#E8F4F8" rx="10"/>
+    <text x="0" y="-40" font-size="50" text-anchor="middle">📚</text>
+    <text x="0" y="20" font-size="22" text-anchor="middle" fill="#333">知识管理</text>
+    <animateTransform attributeName="transform" type="translate" values="130,280; 130,270; 130,280" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(310, 280)">
+    <rect x="-55" y="-100" width="110" height="140" fill="#E8F5E8" rx="10"/>
+    <text x="0" y="-40" font-size="50" text-anchor="middle">📋</text>
+    <text x="0" y="20" font-size="22" text-anchor="middle" fill="#333">项目管理</text>
+    <animateTransform attributeName="transform" type="translate" values="310,280; 310,270; 310,280" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" begin="0.3s"/>
+  </g>
+
+  <g transform="translate(490, 280)">
+    <rect x="-55" y="-100" width="110" height="140" fill="#FFF3E0" rx="10"/>
+    <text x="0" y="-40" font-size="50" text-anchor="middle">✅</text>
+    <text x="0" y="20" font-size="22" text-anchor="middle" fill="#333">任务管理</text>
+    <animateTransform attributeName="transform" type="translate" values="490,280; 490,270; 490,280" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" begin="0.6s"/>
+  </g>
+
+  <g transform="translate(670, 280)">
+    <rect x="-55" y="-100" width="110" height="140" fill="#F3E8F8" rx="10"/>
+    <text x="0" y="-40" font-size="50" text-anchor="middle">🔗</text>
+    <text x="0" y="20" font-size="22" text-anchor="middle" fill="#333">上下文</text>
+    <animateTransform attributeName="transform" type="translate" values="670,280; 670,270; 670,280" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" begin="0.9s"/>
+  </g>
+</svg>

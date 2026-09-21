@@ -1,0 +1,69 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <title>马车夫与汽车</title>
+  <desc>马车夫面对汽车时的心态类比，象征守旧与变革的对比</desc>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A1A2E">马车夫面对汽车时的心态</text>
+
+  <!-- 左侧：马车（过去） -->
+  <g>
+    <!-- 马车底座 -->
+    <rect x="80" y="280" width="180" height="60" rx="8" fill="#8B7355"/>
+    <rect x="100" y="260" width="140" height="40" rx="6" fill="#A0522D"/>
+
+    <!-- 轮子 -->
+    <circle cx="120" cy="350" r="30" fill="none" stroke="#5D4E37" stroke-width="6"/>
+    <circle cx="120" cy="350" r="10" fill="#5D4E37"/>
+    <circle cx="220" cy="350" r="30" fill="none" stroke="#5D4E37" stroke-width="6"/>
+    <circle cx="220" cy="350" r="10" fill="#5D4E37"/>
+
+    <!-- 马 -->
+    <ellipse cx="170" cy="220" rx="50" ry="35" fill="#8B7355"/>
+    <circle cx="130" cy="195" r="20" fill="#8B7355"/>
+    <rect x="125" y="250" width="8" height="60" fill="#5D4E37"/>
+    <rect x="145" y="250" width="8" height="60" fill="#5D4E37"/>
+    <rect x="185" y="250" width="8" height="60" fill="#5D4E37"/>
+    <rect x="205" y="250" width="8" height="60" fill="#5D4E37"/>
+
+    <!-- 标签 -->
+    <text x="170" y="400" font-size="20" text-anchor="middle" fill="#8B7355" font-weight="bold">旧时代</text>
+    <text x="170" y="425" font-size="16" text-anchor="middle" fill="#999999">守旧者</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <g>
+    <line x1="310" y1="225" x2="480" y2="225" stroke="#E24A4A" stroke-width="4" stroke-dasharray="15,5">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="480,220 500,225 480,230" fill="#E24A4A">
+      <animateTransform attributeName="transform" type="translate" values="0,0;5,0;0,0" dur="1s" repeatCount="indefinite"/>
+    </polygon>
+    <text x="400" y="195" font-size="18" text-anchor="middle" fill="#E24A4A">时代变迁</text>
+  </g>
+
+  <!-- 右侧：汽车（未来） -->
+  <g>
+    <!-- 汽车车身 -->
+    <rect x="520" y="250" width="200" height="70" rx="15" fill="#4A90E2"/>
+    <rect x="540" y="220" width="160" height="50" rx="12" fill="#5BA3F0"/>
+    <rect x="560" y="235" width="50" height="30" rx="5" fill="#87CEEB" fill-opacity="0.7"/>
+    <rect x="630" y="235" width="50" height="30" rx="5" fill="#87CEEB" fill-opacity="0.7"/>
+
+    <!-- 车轮 -->
+    <circle cx="560" cy="330" r="28" fill="#333333"/>
+    <circle cx="560" cy="330" r="15" fill="#666666"/>
+    <circle cx="680" cy="330" r="28" fill="#333333"/>
+    <circle cx="680" cy="330" r="15" fill="#666666"/>
+
+    <!-- 标签 -->
+    <text x="620" y="400" font-size="20" text-anchor="middle" fill="#4A90E2" font-weight="bold">新时代</text>
+    <text x="620" y="425" font-size="16" text-anchor="middle" fill="#999999">拥抱变革</text>
+  </g>
+
+  <!-- 底部评论 -->
+  <rect x="150" y="120" width="500" height="60" rx="10" fill="#FFF5F5" stroke="#E24A4A" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="400" y="145" font-size="18" text-anchor="middle" fill="#E24A4A" font-weight="bold">批评者不会因为汽车的普及失去任何东西</text>
+  <text x="400" y="170" font-size="16" text-anchor="middle" fill="#666666">他们可以毫无尴尬地说："你看，我早就提醒过大家要小心。"</text>
+</svg>

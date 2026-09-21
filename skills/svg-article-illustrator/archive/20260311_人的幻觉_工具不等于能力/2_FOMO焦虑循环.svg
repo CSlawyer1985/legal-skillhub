@@ -1,0 +1,34 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FFF5F5"/>
+  <text x="400" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#C53030">FOMO 焦虑循环</text>
+  <g>
+    <circle cx="150" cy="225" r="60" fill="#FC8181" opacity="0.8"/>
+    <text x="150" y="225" font-size="36" text-anchor="middle" dominant-baseline="middle">😰</text>
+    <text x="150" y="310" font-family="system-ui" font-size="14" text-anchor="middle" fill="#742A2A">看到别人用</text>
+  </g>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0,0;10,0;0,0" dur="1s" repeatCount="indefinite"/>
+    <path d="M220 225 L320 225" stroke="#C53030" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+    <polygon points="320,215 340,225 320,235" fill="#C53030"/>
+  </g>
+  <g>
+    <circle cx="400" cy="225" r="70" fill="#F6AD55" opacity="0.8"/>
+    <text x="400" y="225" font-size="36" text-anchor="middle" dominant-baseline="middle">🤔</text>
+    <text x="400" y="320" font-family="system-ui" font-size="14" text-anchor="middle" fill="#7B341E">我是不是落后了</text>
+  </g>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0,0;10,0;0,0" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+    <path d="M480 225 L580 225" stroke="#C53030" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+    <polygon points="580,215 600,225 580,235" fill="#C53030"/>
+  </g>
+  <g>
+    <circle cx="650" cy="225" r="65" fill="#68D391" opacity="0.8"/>
+    <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite"/>
+    <text x="650" y="225" font-size="36" text-anchor="middle" dominant-baseline="middle">📦</text>
+    <text x="650" y="315" font-family="system-ui" font-size="14" text-anchor="middle" fill="#276749">赶紧装上</text>
+  </g>
+  <path d="M650 290 Q400 380 150 290" stroke="#C53030" stroke-width="2" fill="none" stroke-dasharray="6,3" opacity="0.6">
+    <animate attributeName="stroke-dashoffset" from="0" to="28" dur="3s" repeatCount="indefinite"/>
+  </path>
+  <text x="400" y="420" font-family="system-ui" font-size="16" text-anchor="middle" fill="#C53030" font-style="italic">循环继续，无法停下</text>
+</svg>

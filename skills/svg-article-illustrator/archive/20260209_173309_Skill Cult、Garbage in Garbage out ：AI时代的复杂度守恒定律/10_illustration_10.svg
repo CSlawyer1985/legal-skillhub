@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#E8F5E9" rx="10"/>
+
+  <defs>
+    <marker id="arrow7" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+  </defs>
+
+  <!-- 正确路径 -->
+  <g transform="translate(150, 225)">
+    <rect width="120" height="80" fill="#C8E6C9" rx="8" stroke="#27AE60" stroke-width="3"/>
+    <text x="60" y="50" font-size="32" fill="#2C3E50" text-anchor="middle">交付</text>
+  </g>
+
+  <line x1="270" y1="265" x2="340" y2="265" stroke="#27AE60" stroke-width="4"
+    marker-end="url(#arrow7)" stroke-dasharray="70" stroke-dashoffset="70">
+    <animate attributeName="stroke-dashoffset" from="70" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </line>
+
+  <g transform="translate(410, 225)">
+    <rect width="120" height="80" fill="#C8E6C9" rx="8" stroke="#27AE60" stroke-width="3"/>
+    <text x="60" y="50" font-size="32" fill="#2C3E50" text-anchor="middle">可复用</text>
+  </g>
+
+  <line x1="530" y1="265" x2="600" y2="265" stroke="#27AE60" stroke-width="4"
+    marker-end="url(#arrow7)" stroke-dasharray="70" stroke-dashoffset="70">
+    <animate attributeName="stroke-dashoffset" from="70" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </line>
+
+  <g transform="translate(600, 185)">
+    <circle r="80" fill="#4CAF50" stroke="#27AE60" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.7; 1; 0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="25" font-size="90" text-anchor="middle">✨</text>
+  </g>
+
+  <text x="400" y="410" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">正确路径</text>
+</svg>

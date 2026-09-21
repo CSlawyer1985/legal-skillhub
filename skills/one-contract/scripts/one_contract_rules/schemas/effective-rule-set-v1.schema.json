@@ -1,0 +1,658 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/effective-rule-set-v1.schema.json",
+  "title": "One-Contract Effective Rule Set",
+  "$comment": "All relative $ref values and payload_schema_id values MUST resolve only through the packaged, allowlisted local schema registry; network retrieval is forbidden. result_hash is SHA-256 over RFC 8785/JCS canonical JSON with only the top-level result_hash member omitted. The resolver MUST reject non-I-JSON values, validate each rule_payload with payload_schema_id, verify every content hash against its pinned source snapshot, and enforce uniqueness of business IDs before returning this object. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "resolver_semantics_version",
+    "public_snapshot_id",
+    "public_asset_fingerprint",
+    "client_profile_id",
+    "client_policy_snapshot_id",
+    "client_policy_snapshot_sha256",
+    "context_hash",
+    "effective_rules",
+    "excluded_rules",
+    "rule_conflicts",
+    "coverage_level",
+    "coverage_notice",
+    "resolution_trace",
+    "human_confirmation_required",
+    "result_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "resolver_semantics_version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "public_snapshot_id": {
+      "type": "string",
+      "pattern": "^public_sha256_[a-f0-9]{64}$"
+    },
+    "public_asset_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "client_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+    },
+    "client_policy_snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "client_policy_snapshot_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "context_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "effective_rules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/resolvedRule"
+      }
+    },
+    "excluded_rules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/excludedRule"
+      }
+    },
+    "rule_conflicts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/ruleConflict"
+      }
+    },
+    "coverage_level": {
+      "type": "string",
+      "enum": [
+        "global_only",
+        "domain_only",
+        "type_only",
+        "domain_and_type"
+      ]
+    },
+    "coverage_notice": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1000
+    },
+    "resolution_trace": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/traceItem"
+      }
+    },
+    "human_confirmation_required": {
+      "type": "boolean"
+    },
+    "result_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "client_profile_id": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "client_profile_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "client_policy_snapshot_id": {
+            "type": "null"
+          },
+          "client_policy_snapshot_sha256": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "client_policy_snapshot_id": {
+            "type": "string"
+          },
+          "client_policy_snapshot_sha256": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sourceLayer": {
+      "type": "string",
+      "enum": [
+        "global",
+        "domain",
+        "type",
+        "client",
+        "case_instruction"
+      ]
+    },
+    "normativeClass": {
+      "type": "string",
+      "enum": [
+        "global_hard_boundary",
+        "case_authorized_exception",
+        "client_mandatory",
+        "client_preferred",
+        "client_advisory",
+        "type_rule",
+        "domain_rule",
+        "global_soft_rule"
+      ]
+    },
+    "matchedScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "match_kind",
+        "applies_to_all",
+        "domain_codes",
+        "type_ids",
+        "roles",
+        "scene_tags",
+        "contract_stages",
+        "clause_groups"
+      ],
+      "properties": {
+        "match_kind": {
+          "type": "string",
+          "enum": [
+            "all",
+            "exact",
+            "partial",
+            "case_authorized"
+          ]
+        },
+        "applies_to_all": {
+          "type": "boolean"
+        },
+        "domain_codes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^EC-[0-9]{2}$"
+          }
+        },
+        "type_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 120
+          }
+        },
+        "roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+          }
+        },
+        "scene_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
+          }
+        },
+        "contract_stages": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "drafting",
+              "first_review",
+              "negotiation",
+              "signing",
+              "performance",
+              "termination",
+              "settlement"
+            ]
+          }
+        },
+        "clause_groups": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120
+          }
+        }
+      }
+    },
+    "conditionClause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_key",
+        "operator"
+      ],
+      "properties": {
+        "fact_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,119}$"
+        },
+        "operator": {
+          "type": "string",
+          "enum": [
+            "equals",
+            "not_equals",
+            "in",
+            "not_in",
+            "exists",
+            "contains",
+            "gte",
+            "lte"
+          ]
+        },
+        "value": {}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "const": "exists"
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "target_key",
+        "value"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "require",
+            "prefer",
+            "forbid",
+            "escalate",
+            "set_output"
+          ]
+        },
+        "target_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,159}$"
+        },
+        "value": {},
+        "reason_template": {
+          "type": "string",
+          "maxLength": 1500
+        }
+      }
+    },
+    "rulePayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "payload_version",
+        "instruction",
+        "conditions",
+        "effects",
+        "source_refs",
+        "human_confirmation_required",
+        "payload_content_sha256"
+      ],
+      "properties": {
+        "payload_version": {
+          "type": "string",
+          "pattern": "^[0-9]+[.][0-9]+$"
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 5000
+        },
+        "conditions": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/conditionClause"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 30,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        },
+        "human_confirmation_required": {
+          "type": "boolean"
+        },
+        "payload_content_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "resolvedRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "version",
+        "source_layer",
+        "source_snapshot",
+        "matched_scope",
+        "inclusion_reason",
+        "overridden_rule_ids",
+        "dependencies",
+        "normative_class",
+        "content_hash",
+        "payload_schema_id",
+        "rule_payload"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "source_layer": {
+          "$ref": "#/$defs/sourceLayer"
+        },
+        "source_snapshot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "matched_scope": {
+          "$ref": "#/$defs/matchedScope"
+        },
+        "inclusion_reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        },
+        "overridden_rule_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "normative_class": {
+          "$ref": "#/$defs/normativeClass"
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "payload_schema_id": {
+          "type": "string",
+          "pattern": "^(?:[A-Za-z0-9._/-]+[.]schema[.]json(?:#.*)?|urn:one-contract:rule-payload:[A-Za-z0-9._:-]+)$",
+          "maxLength": 240
+        },
+        "rule_payload": {
+          "$ref": "#/$defs/rulePayload"
+        }
+      }
+    },
+    "excludedRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "version",
+        "source_layer",
+        "source_snapshot",
+        "content_hash",
+        "exclusion_code",
+        "exclusion_reason"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "source_layer": {
+          "$ref": "#/$defs/sourceLayer"
+        },
+        "source_snapshot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "exclusion_code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{2,99}$"
+        },
+        "exclusion_reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1200
+        }
+      }
+    },
+    "ruleConflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conflict_id",
+        "rule_ids",
+        "conflict_kind",
+        "reason",
+        "resolution",
+        "human_confirmation_required"
+      ],
+      "properties": {
+        "conflict_id": {
+          "type": "string",
+          "pattern": "^cf_[a-z0-9][a-z0-9_-]{7,95}$"
+        },
+        "rule_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "conflict_kind": {
+          "type": "string",
+          "enum": [
+            "hard_boundary",
+            "authorization",
+            "dependency",
+            "same_class",
+            "scope",
+            "unknown_target",
+            "invalid_condition_type"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1500
+        },
+        "resolution": {
+          "type": "string",
+          "enum": [
+            "higher_class_wins",
+            "authorized_exception_applied",
+            "rule_excluded",
+            "blocked",
+            "pending_human_confirmation"
+          ]
+        },
+        "human_confirmation_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "traceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "rule_id",
+        "version",
+        "source_layer",
+        "source_snapshot",
+        "matched_scope",
+        "normative_class",
+        "decision",
+        "overridden_rule_ids",
+        "content_hash",
+        "reason"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rule_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "source_layer": {
+          "$ref": "#/$defs/sourceLayer"
+        },
+        "source_snapshot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "matched_scope": {
+          "$ref": "#/$defs/matchedScope"
+        },
+        "normative_class": {
+          "$ref": "#/$defs/normativeClass"
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "included",
+            "excluded",
+            "overridden",
+            "conflict",
+            "requires_confirmation"
+          ]
+        },
+        "overridden_rule_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1500
+        }
+      }
+    }
+  }
+}

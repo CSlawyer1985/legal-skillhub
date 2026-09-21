@@ -1,0 +1,10 @@
+# SZZZ Case Study Lite - Python 依赖
+# 安装方法：python3 -m pip install -r requirements.txt
+
+# PDF 解析
+pdfplumber>=0.10.0
+
+# DOCX 文档读取
+python-docx>=0.8.11
+
+# 旧式 DOC：macOS 使用系统 textutil；其他系统需另行安装 LibreOffice。

@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="65" font-size="28" font-weight="bold" fill="#2d3748" text-anchor="middle">甜蜜区：高杠杆 × 高控制</text>
+
+  <!-- 坐标轴 -->
+  <line x1="150" y1="380" x2="700" y2="380" stroke="#CBD5E0" stroke-width="3"/>
+  <line x1="150" y1="380" x2="150" y2="100" stroke="#CBD5E0" stroke-width="3"/>
+
+  <!-- X轴标签 -->
+  <text x="425" y="420" font-size="18" fill="#718096" text-anchor="middle">AI 杠杆 →</text>
+  <!-- Y轴标签 -->
+  <text x="100" y="240" font-size="18" fill="#718096" text-anchor="middle" transform="rotate(-90, 100, 240)">控制权 →</text>
+
+  <!-- 全交给AI（右下） -->
+  <circle cx="620" cy="330" r="35" fill="#FEE2E2" stroke="#E53E3E" stroke-width="2"/>
+  <text x="620" y="335" font-size="12" fill="#E53E3E" text-anchor="middle">全交给AI</text>
+
+  <!-- 完全不用AI（左上） -->
+  <circle cx="220" cy="150" r="35" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2"/>
+  <text x="220" y="155" font-size="12" fill="#4A90E2" text-anchor="middle">不用AI</text>
+
+  <!-- 甜蜜区（中间） -->
+  <ellipse cx="420" cy="240" rx="80" ry="60" fill="#E8F5E8" stroke="#10B981" stroke-width="4">
+    <animate attributeName="stroke-width" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  <text x="420" y="235" font-size="22" fill="#10B981" text-anchor="middle" font-weight="bold">甜蜜区</text>
+  <text x="420" y="260" font-size="14" fill="#10B981" text-anchor="middle">🎯</text>
+
+  <!-- 箭头指向甜蜜区 -->
+  <line x1="260" y1="180" x2="350" y2="220" stroke="#10B981" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="580" y1="300" x2="490" y2="260" stroke="#10B981" stroke-width="2" stroke-dasharray="5,3"/>
+</svg>

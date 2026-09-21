@@ -1,0 +1,45 @@
+# 右键神器 Python dependencies
+# 按工具分组，安装时会按需检查
+#
+# ── 国内用户加速安装 ──────────────────────────────
+# 如遇下载慢或连接超时，可使用以下任一国内镜像源：
+#
+#   临时使用（推荐）：
+#     pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+#
+#   清华镜像（全量同步，推荐）：
+#     https://pypi.tuna.tsinghua.edu.cn/simple
+#   阿里云镜像：
+#     https://mirrors.aliyun.com/pypi/simple/
+#   腾讯云镜像：
+#     https://mirrors.cloud.tencent.com/pypi/simple/
+#   中科大镜像：
+#     https://pypi.mirrors.ustc.edu.cn/simple/
+#
+#   永久配置（写入 ~/.pip/pip.conf）：
+#     [global]
+#     index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+#     trusted-host = pypi.tuna.tsinghua.edu.cn
+# ───────────────────────────────────────────────
+
+# word整理 / MD转Word
+python-docx>=0.8.11
+lxml>=4.9.0
+
+# Excel格式整理
+openpyxl>=3.0.0
+emoji>=2.0.0
+pandas>=1.3.0
+
+# PDF转MD
+pdfplumber>=0.10.0
+pdf2image>=1.16.0
+pytesseract>=0.3.10
+Pillow>=9.0.0
+
+# 系统命令依赖（需单独安装）：
+# pandoc:      brew install pandoc
+# LibreOffice: brew install --cask libreoffice
+# poppler:     brew install poppler（pdf2image 需要）
+# tesseract:   brew install tesseract（pytesseract OCR 需要）
+#   中文语言包:  brew install tesseract-lang

@@ -1,0 +1,6 @@
+- { query: "帮我解读这份新规并做成 HTML", should_trigger: true }
+- { query: "梳理这份行业标准的合规要点", should_trigger: true }
+- { query: "把这份法规做成可视化页面", should_trigger: true }
+- { query: "审查这份采购合同，我是乙方", should_trigger: false }
+- { query: "把 PPT 改成蓝色主题", should_trigger: false }
+- { query: "今天北京天气怎么样", should_trigger: false }

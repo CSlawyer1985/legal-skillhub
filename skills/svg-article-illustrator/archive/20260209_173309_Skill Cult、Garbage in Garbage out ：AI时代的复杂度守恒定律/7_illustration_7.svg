@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#E8F5E9" rx="10"/>
+
+  <!-- 决策前提清单 -->
+  <g transform="translate(400, 225)">
+    <rect x="-150" y="-120" width="300" height="240" fill="#C8E6C9" rx="10"
+      stroke="#27AE60" stroke-width="4" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- 核心图标 -->
+    <text x="0" y="-40" font-size="90" text-anchor="middle">📋</text>
+
+    <!-- 检查项 -->
+    <text x="-100" y="30" font-size="32" fill="#2C3E50">✓ 目标</text>
+    <text x="-100" y="70" font-size="32" fill="#2C3E50">✓ 边界</text>
+    <text x="-100" y="110" font-size="32" fill="#2C3E50">✓ 约束</text>
+  </g>
+
+  <text x="400" y="410" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">决策前提清单</text>
+</svg>

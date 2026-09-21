@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="70" font-size="30" font-weight="bold" fill="#2d3748" text-anchor="middle">法律合同：抽象泄露</text>
+
+  <!-- AI生成的合同 -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="200" height="250" rx="10" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3"/>
+    <text x="100" y="40" font-size="18" fill="#4A90E2" text-anchor="middle" font-weight="bold">AI 生成合同</text>
+    <text x="100" y="100" font-size="60" text-anchor="middle">📄</text>
+    <text x="100" y="160" font-size="14" fill="#10B981" text-anchor="middle">✓ 结构齐全</text>
+    <text x="100" y="185" font-size="14" fill="#10B981" text-anchor="middle">✓ 条款完整</text>
+    <text x="100" y="210" font-size="14" fill="#10B981" text-anchor="middle">✓ 措辞专业</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="320" y1="220" x2="380" y2="220" stroke="#E53E3E" stroke-width="4" stroke-dasharray="60" stroke-dashoffset="60">
+    <animate attributeName="stroke-dashoffset" from="60" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="380,215 395,220 380,225" fill="#E53E3E"/>
+
+  <!-- 泄露的问题 -->
+  <g transform="translate(420, 100)">
+    <rect x="0" y="0" width="280" height="250" rx="10" fill="#FEE2E2" stroke="#E53E3E" stroke-width="3" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="140" y="40" font-size="18" fill="#E53E3E" text-anchor="middle" font-weight="bold">需要专业判断</text>
+    <text x="140" y="90" font-size="14" fill="#718096" text-anchor="middle">❓ 违约责任是否过重？</text>
+    <text x="140" y="120" font-size="14" fill="#718096" text-anchor="middle">❓ 解除条件是否太死？</text>
+    <text x="140" y="150" font-size="14" fill="#718096" text-anchor="middle">❓ 条款会否制造摩擦？</text>
+    <text x="140" y="200" font-size="50" text-anchor="middle">⚖️</text>
+    <text x="140" y="240" font-size="16" fill="#E53E3E" text-anchor="middle">需要法律专业能力</text>
+  </g>
+</svg>

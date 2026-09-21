@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="45" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">单 Agent + 工具 · 足够强大</text>
+
+  <!-- 中心：单 Agent -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="80" fill="#E3F2FD" stroke="#1976D2" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="10" font-size="55" text-anchor="middle">🧠</text>
+    <text x="0" y="110" font-size="20" font-weight="bold" fill="#1565C0" text-anchor="middle">单 Agent</text>
+  </g>
+
+  <!-- 工具环绕 -->
+  <g transform="translate(180, 120)">
+    <circle cx="0" cy="0" r="40" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" font-size="28" text-anchor="middle">🔧</text>
+  </g>
+
+  <g transform="translate(620, 120)">
+    <circle cx="0" cy="0" r="40" fill="#FFF3E0" stroke="#FF9800" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" font-size="28" text-anchor="middle">📚</text>
+  </g>
+
+  <g transform="translate(180, 320)">
+    <circle cx="0" cy="0" r="40" fill="#F3E5F5" stroke="#9C27B0" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="14s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" font-size="28" text-anchor="middle">✍️</text>
+  </g>
+
+  <g transform="translate(620, 320)">
+    <circle cx="0" cy="0" r="40" fill="#FFEBEE" stroke="#E91E63" stroke-width="2">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" font-size="28" text-anchor="middle">🔍</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <rect x="150" y="380" width="500" height="45" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <text x="400" y="410" font-size="16" fill="#2E7D32" text-anchor="middle">提示词改进 &gt; 复杂多 Agent 架构</text>
+</svg>

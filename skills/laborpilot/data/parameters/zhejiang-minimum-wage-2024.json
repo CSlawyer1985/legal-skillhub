@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "package_id": "zhejiang-minimum-wage-2024",
+  "version": "2024.1",
+  "jurisdiction_scope": "local",
+  "applicable_jurisdictions": ["浙江省"],
+  "effective_from": "2024-01-01",
+  "effective_to": null,
+  "published_at": "2024-01-12",
+  "source": {
+    "title": "浙江省人民政府关于调整全省最低工资标准的通知",
+    "issuer": "浙江省人民政府",
+    "document_number": "浙政发〔2024〕3号",
+    "url": "https://www.zj.gov.cn/art/2024/1/15/art_1229017138_2510149.html",
+    "retrieved_at": "2026-08-24T00:00:00+08:00"
+  },
+  "values": {
+    "monthly_minimum_wage_tier_1": {
+      "value": "2490",
+      "unit": "CNY/month",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "source_locator": "第一条第一档",
+      "selection_note": "具体市、县（市、区）适用档次须依据当地公布文件另行核对。"
+    },
+    "monthly_minimum_wage_tier_2": {
+      "value": "2260",
+      "unit": "CNY/month",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "source_locator": "第一条第二档",
+      "selection_note": "具体市、县（市、区）适用档次须依据当地公布文件另行核对。"
+    },
+    "monthly_minimum_wage_tier_3": {
+      "value": "2010",
+      "unit": "CNY/month",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "source_locator": "第一条第三档",
+      "selection_note": "具体市、县（市、区）适用档次须依据当地公布文件另行核对。"
+    },
+    "hourly_minimum_wage_tier_1": {
+      "value": "24",
+      "unit": "CNY/hour",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "source_locator": "第二条第一档",
+      "selection_note": "具体市、县（市、区）适用档次须依据当地公布文件另行核对。"
+    },
+    "hourly_minimum_wage_tier_2": {
+      "value": "22",
+      "unit": "CNY/hour",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "source_locator": "第二条第二档",
+      "selection_note": "具体市、县（市、区）适用档次须依据当地公布文件另行核对。"
+    },
+    "hourly_minimum_wage_tier_3": {
+      "value": "20",
+      "unit": "CNY/hour",
+      "effective_from": "2024-01-01",
+      "effective_to": null,
+      "source_locator": "第二条第三档",
+      "selection_note": "具体市、县（市、区）适用档次须依据当地公布文件另行核对。"
+    }
+  }
+}

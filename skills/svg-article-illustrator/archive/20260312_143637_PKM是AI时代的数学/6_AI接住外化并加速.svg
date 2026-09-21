@@ -1,0 +1,50 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="32" text-anchor="middle" fill="#333" font-weight="bold">AI接住外化内容 → 加速</text>
+
+  <!-- 左侧：外化的内容 -->
+  <g transform="translate(150, 250)">
+    <text x="0" y="-100" font-size="24" text-anchor="middle" fill="#666">你外化的内容</text>
+    <rect x="-60" y="-60" width="120" height="120" fill="#E8F4F8" rx="10" stroke="#4A90E2" stroke-width="2"/>
+    <text x="0" y="-20" font-size="32" text-anchor="middle">🎯</text>
+    <text x="0" y="15" font-size="16" text-anchor="middle" fill="#333">目标</text>
+    <text x="0" y="45" font-size="14" text-anchor="middle" fill="#666">材料·约束</text>
+  </g>
+
+  <!-- 箭头1：接住 -->
+  <g>
+    <line x1="230" y1="250" x2="340" y2="250" stroke="#10B981" stroke-width="4" stroke-dasharray="110" stroke-dashoffset="110">
+      <animate attributeName="stroke-dashoffset" from="110" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="340,250 325,242 325,258" fill="#10B981"/>
+    <text x="285" y="230" font-size="16" text-anchor="middle" fill="#10B981">接住</text>
+  </g>
+
+  <!-- 中间：AI -->
+  <g transform="translate(400, 250)">
+    <circle cx="0" cy="0" r="50" fill="#4A90E2"/>
+    <text x="0" y="10" font-size="32" text-anchor="middle" fill="#fff" font-weight="bold">AI</text>
+    <animateTransform attributeName="transform" type="scale" values="1; 1.05; 1" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 箭头2：加速 -->
+  <g>
+    <line x1="460" y1="250" x2="570" y2="250" stroke="#4A90E2" stroke-width="4" stroke-dasharray="110" stroke-dashoffset="110">
+      <animate attributeName="stroke-dashoffset" from="110" to="0" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+    </line>
+    <polygon points="570,250 555,242 555,258" fill="#4A90E2"/>
+    <text x="515" y="230" font-size="16" text-anchor="middle" fill="#4A90E2">加速</text>
+  </g>
+
+  <!-- 右侧：加速后的结果 -->
+  <g transform="translate(650, 250)">
+    <text x="0" y="-100" font-size="24" text-anchor="middle" fill="#4A90E2">加速产出</text>
+    <rect x="-60" y="-60" width="120" height="120" fill="#E8F5E8" rx="10" stroke="#10B981" stroke-width="2"/>
+    <text x="0" y="-20" font-size="32" text-anchor="middle">🚀</text>
+    <text x="0" y="15" font-size="16" text-anchor="middle" fill="#333">结果</text>
+    <text x="0" y="45" font-size="14" text-anchor="middle" fill="#666">更快·更好</text>
+    <animateTransform attributeName="transform" type="translate" values="650,250; 650,240; 650,250" dur="2s" repeatCount="indefinite"/>
+  </g>
+</svg>

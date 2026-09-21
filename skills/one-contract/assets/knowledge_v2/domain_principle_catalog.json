@@ -1,0 +1,1532 @@
+{
+  "assets": [
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易属于公司治理、投资、股权、出资或企业资产并购安排",
+        "主大类已经确认且我方角色已知"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "文件名称与交易实质不一致",
+        "出资或权属状态未核实即安排交割",
+        "付款、登记和控制权移交脱节",
+        "治理权与经济权利冲突",
+        "退出、回购或赔偿机制缺少可履行路径"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 9,
+        "supported_type_ids": [
+          "type-business-asset-acquisition",
+          "type-capital-increase-investment",
+          "type-catalog-22adcacf81bb5aa39c21",
+          "type-catalog-d0c6ccc9d1385ef8aa70",
+          "type-company-merger-division",
+          "type-employee-holding-platform",
+          "type-equity-transfer",
+          "type-shareholders-agreement",
+          "type-valuation-adjustment-agreement"
+        ],
+        "total_type_count": 29,
+        "unsupported_type_ids": [
+          "type-catalog-002ff8ce0228506a801e",
+          "type-catalog-12df617bdb77503090c0",
+          "type-catalog-148b13f7280a58c488c4",
+          "type-catalog-2350b0cd7b2355cdbfc9",
+          "type-catalog-2510dfc407f4555b990b",
+          "type-catalog-3aae1d9310e15e799148",
+          "type-catalog-3d57b2a2bb2450c6baf5",
+          "type-catalog-495afdbf5e7b53a09c59",
+          "type-catalog-49fdac9516d2571c82f8",
+          "type-catalog-52ab4dae2a365aa39bf6",
+          "type-catalog-5452452865055a108b7b",
+          "type-catalog-7707b525c11054ac9bd3",
+          "type-catalog-860da73a42a6584f8a8a",
+          "type-catalog-89f130bee69552d1beb4",
+          "type-catalog-adfd121add9a54ca889c",
+          "type-catalog-b7fc193a3d5653bb8dd5",
+          "type-catalog-e2af5b27f8ca5186b3a1",
+          "type-catalog-e579cf3017a05b76af1f",
+          "type-catalog-eb11fb44968457ca8f63",
+          "type-catalog-f24f58e53c105fc691e5"
+        ]
+      },
+      "default_tendencies": [
+        "先建立全部交易文件、资金安排和实施文件清单，再审查单一条款",
+        "付款通常与尽调、内部决议、第三方同意、交割文件和控制权移交联动",
+        "治理、信息权、转让限制和退出安排按同一资本结构复核"
+      ],
+      "derived_module_ids": [
+        "mod-asset-acquisition-perimeter",
+        "mod-equity-transfer-closing",
+        "mod-equity-transfer-consideration",
+        "mod-equity-transfer-representations-indemnity",
+        "mod-investment-diligence-condition",
+        "mod-investment-exit",
+        "mod-investment-governance-protection",
+        "mod-investment-price-closing",
+        "mod-investment-structure",
+        "mod-representations-indemnity",
+        "mod-shareholders-deadlock"
+      ],
+      "derived_principle_ids": [
+        "doctrine-asset-acquisition-perimeter",
+        "doctrine-capital-contribution-real",
+        "doctrine-equity-debt-substance",
+        "doctrine-equity-incentive-vesting-exit",
+        "doctrine-equity-transfer-closing",
+        "doctrine-investment-governance-exit",
+        "doctrine-investment-instrument-routing",
+        "doctrine-merger-division-creditor",
+        "doctrine-shareholders-charter-governance",
+        "doctrine-vam-validity-performance"
+      ],
+      "domain_code": "EC-01",
+      "domain_doctrine_id": "domain-doctrine-ec-01",
+      "domain_name": "公司治理、投资与股权",
+      "hard_boundaries": [
+        "不得虚构出资、权属、审批、估值、对价、付款或登记状态",
+        "不得用内部协议声称排除依法不能对抗的公司、债权人、监管机关或其他第三人权利",
+        "多份文件、资金流或申报口径出现实质冲突时，只定向阻断依赖该冲突事实的自动动作并升级核验"
+      ],
+      "judgment_coordinates": [
+        "我方是投资人、原股东、受让方、转让方、目标公司还是管理层",
+        "取得的是股权、资产、收益权、债权还是混合工具",
+        "控制权、治理权、经济利益和退出权是否一致",
+        "是否涉及国资、外资、上市公司、特许行业或其他特别程序"
+      ],
+      "knowledge_gaps": [
+        "目录中尚未形成已批准资产的公司治理文书和特殊行业投资类型不得直接外推"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-investment-structure",
+            "mod-investment-diligence-condition",
+            "mod-asset-acquisition-perimeter"
+          ],
+          "topic": "交易结构与尽调"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-investment-price-closing",
+            "mod-equity-transfer-consideration",
+            "mod-equity-transfer-closing"
+          ],
+          "topic": "估值、对价与交割"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-investment-governance-protection",
+            "mod-investment-exit",
+            "mod-shareholders-deadlock"
+          ],
+          "topic": "治理与退出"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-representations-indemnity",
+            "mod-equity-transfer-representations-indemnity"
+          ],
+          "topic": "陈述保证与责任"
+        }
+      ],
+      "override_factors": [
+        "交易仅为内部重组或员工激励",
+        "国资、外资、上市或行业监管改变程序和交易结构",
+        "章程、股东协议或既有融资文件存在特别限制"
+      ],
+      "required_evidence": [
+        "章程及既有股东或投资协议",
+        "股权或资产权属与负担材料",
+        "出资和资金流水证据",
+        "决议、审批及第三方同意",
+        "交割清单和登记文件"
+      ],
+      "review_objectives": [
+        "识别股权、资产、出资、增资、债权或合作安排的真实交易结构与文件体系",
+        "核对权属、出资、审批、治理、对价、交割和退出是否形成可执行闭环",
+        "使公司内部安排、登记文件、资金流和对外申报保持一致"
+      ],
+      "review_sequence": [
+        "交易结构与文件体系",
+        "主体权限与标的权属",
+        "出资、估值与全部对价",
+        "治理与过渡安排",
+        "先决条件、交割与登记",
+        "陈述保证、赔偿与退出"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-academic-defective-equity-validity-2010",
+        "src-allbright-equity-change-2024",
+        "src-approved-migration-20260912",
+        "src-china-tax-news-dual-contract-2026",
+        "src-internal-equity-sample-aggregate-202608",
+        "src-internal-equity-user-template-system-20260814",
+        "src-internal-history-defective-equity-rescission-note",
+        "src-kwm-capital-liability-2024",
+        "src-prc-civil-code-2020",
+        "src-prc-company-law-2023",
+        "src-spc-contract-general-interpretation-2023",
+        "src-sta-equity-individual-income-tax-67",
+        "src-sta-equity-tax-67-explanation",
+        "src-thesis-equity-termination-effects-2022",
+        "src-wechat-deheng-zibo-equity-risk-20260814",
+        "src-wechat-fatianshi-equity-checklist-20230610",
+        "src-wechat-shangpu-equity-seven-20260616",
+        "src-wechat-sun-equity-cases-20240307",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易是货物、设备、原材料、承揽成果或其他可交付物的取得和处分",
+        "主大类和我方角色已经确认"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "框架协议与订单优先顺序不明",
+        "风险转移早于实际控制或验收",
+        "付款节点与交付验收脱节",
+        "质量标准、异议期或返工退换路径缺失",
+        "电子订单和签收记录无法归责"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 13,
+        "supported_type_ids": [
+          "type-annual-framework-sales-procurement",
+          "type-catalog-271a3344fbdb55ff9b11",
+          "type-catalog-3e1a84a93ef453168a33",
+          "type-catalog-5835b442936c59dfa5a2",
+          "type-catalog-75478e2ce5d058d69dcc",
+          "type-catalog-77cd83f2fffa5124ba69",
+          "type-catalog-91b6b43a193c50248803",
+          "type-catalog-d74b1085a9c0558887e0",
+          "type-catalog-dc66464f8f3d56429fb4",
+          "type-catalog-fdb96040c8065d369839",
+          "type-charitable-donation",
+          "type-equipment-material-procurement",
+          "type-finished-goods-sale"
+        ],
+        "total_type_count": 23,
+        "unsupported_type_ids": [
+          "type-catalog-10452732f0f25f17a02c",
+          "type-catalog-6be745f3317852a1bf36",
+          "type-catalog-922176eb0a245a788787",
+          "type-catalog-929e2ec7dc945188b628",
+          "type-catalog-a0c6a1e992b150b195ee",
+          "type-catalog-a461e3dd524c58ffb8bc",
+          "type-catalog-b41f559029c65d7fbb91",
+          "type-catalog-bc4107dc089451aa8270",
+          "type-catalog-d83b6a77a23257fd97db",
+          "type-catalog-da9e937a8b5a5d858e3d"
+        ]
+      },
+      "default_tendencies": [
+        "用订单、规格附件和版本规则固定标的",
+        "付款方立场下将重要付款与交付、验收和合格发票联动",
+        "收款方立场下保留既有合理付款结构并明确逾期责任",
+        "风险转移、所有权转移和验收分别表达，不相互替代"
+      ],
+      "derived_module_ids": [
+        "mod-breach-termination",
+        "mod-delivery-risk",
+        "mod-goods-scope",
+        "mod-goods-specification",
+        "mod-order-mechanism",
+        "mod-order-platform-evidence",
+        "mod-payment-acceptance",
+        "mod-quality-warranty",
+        "mod-work-acceptance"
+      ],
+      "derived_principle_ids": [
+        "doctrine-asset-acquisition-perimeter",
+        "doctrine-commission-possession-settlement",
+        "doctrine-gift-delivery-revocation",
+        "doctrine-goods-transaction-control",
+        "doctrine-work-contract-result-control"
+      ],
+      "domain_code": "EC-02",
+      "domain_doctrine_id": "domain-doctrine-ec-02",
+      "domain_name": "买卖、采购与供应",
+      "hard_boundaries": [
+        "不得虚构订单成立、货物交付、签收、验收、付款或发票状态",
+        "经核验属于禁止交易或不符合强制性标准的标的时，只阻断相应下单、交付或付款动作",
+        "材料缺失、合同漏写或订单未确认本身不单独构成 P0"
+      ],
+      "judgment_coordinates": [
+        "我方是买方、卖方、供应商、承揽人还是委托人",
+        "单笔买卖、框架订单、持续供货、承揽或代销的交易实质",
+        "货物是标准品、定制品、设备、原材料还是受监管商品",
+        "谁控制运输、签收、检验和质量证据"
+      ],
+      "knowledge_gaps": [
+        "受高度监管商品、跨境买卖和复杂供应链金融安排需要独立专项知识"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-goods-scope",
+            "mod-goods-specification",
+            "mod-order-mechanism",
+            "mod-order-platform-evidence"
+          ],
+          "topic": "标的与订单"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-delivery-risk",
+            "mod-payment-acceptance"
+          ],
+          "topic": "交付与风险"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-quality-warranty",
+            "mod-breach-termination",
+            "mod-work-acceptance"
+          ],
+          "topic": "质量与救济"
+        }
+      ],
+      "override_factors": [
+        "即时结清的低风险小额交易",
+        "危险品、进出口、食品药品或其他特别监管商品",
+        "寄售、行纪、赠与或资产包交易改变占有和责任结构"
+      ],
+      "required_evidence": [
+        "订单及变更记录",
+        "规格、图纸或质量标准",
+        "发货、运输、签收和验收证据",
+        "付款及发票材料",
+        "质量异议、返工、退换货记录"
+      ],
+      "review_objectives": [
+        "确认交易标的、订单和规格能够被唯一识别",
+        "把交付、风险转移、验收、付款、发票和质保组成履约闭环",
+        "为数量、质量、延误、退换货和解除保留可执行证据与救济"
+      ],
+      "review_sequence": [
+        "标的与订单成立",
+        "规格数量和价格",
+        "交付、签收与风险转移",
+        "检验验收与质量保证",
+        "付款、开票与留款",
+        "违约、退换货与解除"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-internal-procurement-review-opinions-202608",
+        "src-internal-procurement-sample-aggregate-202608",
+        "src-lawyer-sale-contract-guide",
+        "src-prc-civil-code-2020",
+        "src-prc-company-law-2023",
+        "src-spc-bankruptcy-interpretation-2-2020",
+        "src-spc-contract-general-interpretation-2023",
+        "src-spc-guarantee-interpretation-2020",
+        "src-spc-large-small-enterprise-payment-2024",
+        "src-spc-sale-contract-interpretation-2020",
+        "src-wechat-caigou-check68-202604",
+        "src-wechat-caigoubang-procurement-202607",
+        "src-wechat-heli-lawyer-procurement-202608",
+        "src-wechat-lvzhengfanqie-procurement-202607",
+        "src-wechat-welegal-procurement-202606",
+        "src-wechat-wulilaw-procurement-202412",
+        "src-wechat-xiaoli-procurement-202608",
+        "src-wechat-zhipaofeichuan-procurement-202501",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易是房屋、场地或设备的有偿使用",
+        "当前仅对房屋场地和设备租赁提供有限大类参考"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "租赁范围和交付状态不清",
+        "用途或装修条件与行政限制冲突",
+        "维修和故障责任失衡",
+        "押金返还缺少条件和期限",
+        "退出时恢复原状和资产处置无规则"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "limited",
+        "supported_type_count": 2,
+        "supported_type_ids": [
+          "type-equipment-lease",
+          "type-property-venue-lease"
+        ],
+        "total_type_count": 5,
+        "unsupported_type_ids": [
+          "type-catalog-87acccefd908509f870d",
+          "type-catalog-b387faf3bc9b578facac",
+          "type-catalog-ffd716e01fdc5ceca592"
+        ]
+      },
+      "default_tendencies": [
+        "用清单、平面图或设备编号固定租赁物",
+        "租金、押金和费用分别列明触发、结算和返还条件",
+        "使用维护、保险、故障替换和返还状态联动审查"
+      ],
+      "derived_module_ids": [
+        "mod-equipment-lease-delivery",
+        "mod-equipment-lease-object",
+        "mod-equipment-lease-return",
+        "mod-equipment-lease-use",
+        "mod-lease-object",
+        "mod-lease-title-sale",
+        "mod-renewal-exit",
+        "mod-rent-deposit",
+        "mod-use-maintenance"
+      ],
+      "derived_principle_ids": [
+        "doctrine-equipment-lease-use-return",
+        "doctrine-lease-use-exit-control"
+      ],
+      "domain_code": "EC-03",
+      "domain_doctrine_id": "domain-doctrine-ec-03",
+      "domain_name": "租赁与资产使用",
+      "hard_boundaries": [
+        "不得虚构租赁物权属、交付、登记备案、抵押查封或许可状态",
+        "不得通过合同约定排除依法不能免除的安全、消防或行政管理责任",
+        "材料缺失只触发核验，不自动推定出租人无权出租"
+      ],
+      "judgment_coordinates": [
+        "房屋场地还是设备租赁",
+        "我方是出租人还是承租人",
+        "租赁物是否存在抵押、查封、共有或其他使用限制",
+        "装修、转租、维护和保险由谁控制"
+      ],
+      "knowledge_gaps": [
+        "融资租赁、车辆船舶租赁和土地类使用安排尚无已批准类型资产",
+        "现有结论主要来自房屋场地与设备租赁，不得扩张为全部租赁类型的确定结论"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-lease-object",
+            "mod-equipment-lease-object",
+            "mod-equipment-lease-delivery"
+          ],
+          "topic": "标的与交付"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-rent-deposit",
+            "mod-use-maintenance",
+            "mod-equipment-lease-use"
+          ],
+          "topic": "费用与使用"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-lease-title-sale",
+            "mod-renewal-exit",
+            "mod-equipment-lease-return"
+          ],
+          "topic": "权利负担与退出"
+        }
+      ],
+      "override_factors": [
+        "融资租赁、车辆船舶、土地使用权或特种设备",
+        "租赁物处于在建、共有、抵押、查封或转租状态",
+        "我方对装修或持续经营存在重大依赖"
+      ],
+      "required_evidence": [
+        "权属、共有和负担材料",
+        "租赁物清单及交付状态",
+        "用途、规划、消防或行业许可材料",
+        "费用清单和押金记录",
+        "维修、保险和返还记录"
+      ],
+      "review_objectives": [
+        "核对租赁物权属、范围、状态和交付条件",
+        "协调用途、维护、费用、保险和第三人权利",
+        "建立续租、提前解除、返还和恢复原状的退出机制"
+      ],
+      "review_sequence": [
+        "租赁物与权属状态",
+        "交付和验收",
+        "租金押金与费用",
+        "用途、维护和保险",
+        "第三人权利与处分",
+        "续租、解除与返还"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-prc-civil-code-2020",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易是服务、委托、专业支持、运输保管、中介或业务外包",
+        "主大类与我方角色已确认"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "服务范围以概括性目标代替可验证任务",
+        "人员管理方式与约定关系不一致",
+        "验收和付款缺少对应成果",
+        "变更形成事实履行但没有费用与工期规则",
+        "终止后资料、数据、物品或客户关系无法交接"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 14,
+        "supported_type_ids": [
+          "type-business-outsourcing",
+          "type-catalog-1014ede879c758eda98f",
+          "type-catalog-16bd66a46cde5e32ab52",
+          "type-catalog-172b8263a626548ea367",
+          "type-catalog-2f1d542ce5325dce8b16",
+          "type-catalog-3a620311a1e65966a546",
+          "type-catalog-5a17061d515e5fbb8e4b",
+          "type-catalog-5f668e3efe5256128820",
+          "type-catalog-89be6c7df4b450f498ca",
+          "type-catalog-b605f55f2b8e5a20a898",
+          "type-catalog-bc06add6e44a51ec8f5d",
+          "type-catalog-cc0fdfe5365656ebb5c0",
+          "type-catalog-ed3838322a3e5157b17f",
+          "type-general-consulting-service"
+        ],
+        "total_type_count": 39,
+        "unsupported_type_ids": [
+          "type-catalog-1e9608029cad5220a551",
+          "type-catalog-2b4092aa91525340aba4",
+          "type-catalog-2bc324d063df5f639bea",
+          "type-catalog-3764ead2e6665fd2a0be",
+          "type-catalog-465201cc764e592ebbec",
+          "type-catalog-4a58e9fa92de54e88bda",
+          "type-catalog-5674b1cf054359c7b698",
+          "type-catalog-5f4f97c9add25194bac1",
+          "type-catalog-6c4f5b0d22e454dc9d8a",
+          "type-catalog-717b232855e954cb9274",
+          "type-catalog-772f918b6d54542bbc42",
+          "type-catalog-77793ea45d1f576e81fa",
+          "type-catalog-8427273be6de551eb602",
+          "type-catalog-86845e7606cd504a86e2",
+          "type-catalog-8c53e6e5d2b85672b163",
+          "type-catalog-97017f7cd26d5d809970",
+          "type-catalog-9783aa6d8c305d90aa90",
+          "type-catalog-9c03451c695951478de3",
+          "type-catalog-ad129727aac25fbabf27",
+          "type-catalog-b06abf3b3f9e534ab30f",
+          "type-catalog-bc34645b3f545d78ae6a",
+          "type-catalog-c101ddcd747e5d998bd9",
+          "type-catalog-c326e7cf2211539fb655",
+          "type-catalog-c7d9933caf115b66ae85",
+          "type-catalog-d7385f943baf5eaaa9a8"
+        ]
+      },
+      "default_tendencies": [
+        "先区分不同服务法律关系，再决定注意义务和责任标准",
+        "成果型服务将里程碑、验收、修改和付款联动",
+        "人员密集型服务审查指令、替换、资质和假外包风险",
+        "退出条款同时处理结算、交接、资料返还和存续义务"
+      ],
+      "derived_module_ids": [
+        "mod-change-control",
+        "mod-custody-receipt-record",
+        "mod-deliverables-acceptance",
+        "mod-fees-expenses",
+        "mod-outsourcing-fee-acceptance",
+        "mod-outsourcing-personnel-boundary",
+        "mod-outsourcing-transition",
+        "mod-service-scope",
+        "mod-transport-documents"
+      ],
+      "derived_principle_ids": [
+        "doctrine-brokerage-causation-fee",
+        "doctrine-custody-warehouse-evidence",
+        "doctrine-outsourcing-result-management",
+        "doctrine-property-service-governance-handover",
+        "doctrine-service-deliverable-control",
+        "doctrine-transport-cargo-delivery",
+        "doctrine-work-contract-result-control"
+      ],
+      "domain_code": "EC-04",
+      "domain_doctrine_id": "domain-doctrine-ec-04",
+      "domain_name": "服务、委托与专业支持",
+      "hard_boundaries": [
+        "不得虚构服务成果、工时、验收、资质、授权或费用发生事实",
+        "不得以外包名称掩盖与实际管理事实不符的用工关系",
+        "经核验缺少法定资质或实施被禁止时，只定向阻断依赖该资质的履行动作"
+      ],
+      "judgment_coordinates": [
+        "我方是委托方、服务方、保管方、承运人、中介还是外包承接方",
+        "义务属于结果义务、过程义务还是忠实勤勉义务",
+        "谁控制人员、数据、物品、验收和客户关系",
+        "服务是否要求资质、许可或独立专业判断"
+      ],
+      "knowledge_gaps": [
+        "金融、医疗等高度专业服务和跨境服务需要独立监管规则"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-service-scope",
+            "mod-change-control",
+            "mod-outsourcing-personnel-boundary"
+          ],
+          "topic": "范围、人员与变更"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-deliverables-acceptance",
+            "mod-fees-expenses",
+            "mod-outsourcing-fee-acceptance"
+          ],
+          "topic": "成果、验收与费用"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-custody-receipt-record",
+            "mod-transport-documents",
+            "mod-outsourcing-transition"
+          ],
+          "topic": "证据与退出"
+        }
+      ],
+      "override_factors": [
+        "服务属于法定专业活动或受许可监管",
+        "服务方仅提供机会信息而不承诺结果",
+        "委托方实际直接管理人员或控制作业安全"
+      ],
+      "required_evidence": [
+        "任务书、需求和服务清单",
+        "人员、资质和授权材料",
+        "里程碑、SLA、交付和验收记录",
+        "变更指令与费用凭证",
+        "终止和交接清单"
+      ],
+      "review_objectives": [
+        "把服务范围、人员权限、交付成果和质量标准转化为可验收义务",
+        "联动需求变更、计费、证据、违约和退出交接",
+        "识别委托、保管、运输、居间、物业和外包等不同服务关系"
+      ],
+      "review_sequence": [
+        "服务关系与职责边界",
+        "人员资质和第三方协作",
+        "成果、SLA与验收",
+        "变更和追加工作",
+        "费用、票据和证据",
+        "终止、交接和持续义务"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-prc-civil-code-2020",
+        "src-prc-labor-contract-law-2012",
+        "src-prc-labor-law-2018",
+        "src-spc-labor-dispute-interpretation-2-2025",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易以技术成果、软件服务、数据处理或知识产权处分为核心",
+        "主大类和我方角色已经确认"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "授权方不能证明权利链",
+        "开发成果与背景知识混同",
+        "许可范围与部署、用户或渠道不匹配",
+        "验收标准无法验证",
+        "服务终止后数据和业务无法迁移"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 13,
+        "supported_type_ids": [
+          "type-catalog-02da85dd09c65e989162",
+          "type-catalog-2e14d51f65905c1d83eb",
+          "type-catalog-7bd1e8a1ec8f50afb3f3",
+          "type-commissioned-technology-development",
+          "type-cooperative-technology-development",
+          "type-copyright-license",
+          "type-copyright-transfer",
+          "type-privacy-policy",
+          "type-saas-subscription",
+          "type-software-license",
+          "type-trademark-assignment",
+          "type-trademark-license",
+          "type-user-platform-terms"
+        ],
+        "total_type_count": 20,
+        "unsupported_type_ids": [
+          "type-catalog-419ab47a4b145c5d9cc1",
+          "type-catalog-5a5d8448396f51bfbbc4",
+          "type-catalog-ad44290ddaa05d9e9bc6",
+          "type-catalog-ca65285a6f8a5d4da0b3",
+          "type-catalog-e87416b301f85cacb84d",
+          "type-catalog-f82ed7ac53bc5663a8bb",
+          "type-system-operations-maintenance"
+        ]
+      },
+      "default_tendencies": [
+        "先列明背景知识、项目成果、改进和第三方材料，再分配权利",
+        "许可按权利种类、地域、期限、主体、用途和转授权拆分",
+        "开发与软件服务将交付、测试验收、源代码或文档、维护和退出联动",
+        "数据处理按角色、目的、范围、保存、安全和第三方流转形成闭环"
+      ],
+      "derived_module_ids": [
+        "mod-copyright-license-scope",
+        "mod-development-scope",
+        "mod-ip-ownership",
+        "mod-milestone-acceptance",
+        "mod-software-audit-exit",
+        "mod-software-data-security",
+        "mod-software-license-metrics",
+        "mod-software-update-support",
+        "mod-source-code-maintenance"
+      ],
+      "derived_principle_ids": [
+        "doctrine-copyright-rights-chain",
+        "doctrine-development-delivery-ip",
+        "doctrine-patent-validity-scope",
+        "doctrine-platform-terms-fair-notice",
+        "doctrine-privacy-lawful-transparent",
+        "doctrine-software-license-use-continuity",
+        "doctrine-trademark-license-quality",
+        "doctrine-trademark-transfer-registration"
+      ],
+      "domain_code": "EC-05",
+      "domain_doctrine_id": "domain-doctrine-ec-05",
+      "domain_name": "技术、数据与知识产权",
+      "hard_boundaries": [
+        "不得承诺超出可证明权利链的转让、许可或不侵权保证",
+        "不得以合同授权替代法律要求的个人信息处理基础、告知同意或安全义务",
+        "不得虚构权利登记、软件交付、测试验收、数据删除或安全状态"
+      ],
+      "judgment_coordinates": [
+        "我方是开发方、委托方、许可方、被许可方、平台还是数据处理参与方",
+        "交易属于开发、转让、许可、订阅还是持续运维",
+        "背景知识、项目成果、改进成果和第三方材料如何区分",
+        "是否处理个人信息、重要数据、跨境数据或高风险内容"
+      ],
+      "knowledge_gaps": [
+        "人工智能训练数据、算法责任、重要数据认定和跨境监管需另行核验"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-development-scope",
+            "mod-milestone-acceptance",
+            "mod-source-code-maintenance"
+          ],
+          "topic": "开发与交付"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-ip-ownership",
+            "mod-copyright-license-scope",
+            "mod-software-license-metrics"
+          ],
+          "topic": "权利链与许可"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-software-data-security",
+            "mod-software-update-support",
+            "mod-software-audit-exit"
+          ],
+          "topic": "数据与持续性"
+        }
+      ],
+      "override_factors": [
+        "开源软件、共同开发、职务成果或第三方平台规则",
+        "个人信息、敏感信息、未成年人或跨境处理",
+        "许可依赖登记、备案或权利持续有效"
+      ],
+      "required_evidence": [
+        "权利登记、创作开发和授权链材料",
+        "需求、版本、交付与测试记录",
+        "第三方软件、素材和开源清单",
+        "数据清单、处理角色和流转关系",
+        "SLA、日志、备份和退出迁移方案"
+      ],
+      "review_objectives": [
+        "确认技术、软件、数据和知识产权的权利链及可处分范围",
+        "把需求、交付、测试验收、许可使用和持续支持组成闭环",
+        "控制数据处理、安全事件、服务中断和退出迁移风险"
+      ],
+      "review_sequence": [
+        "技术或权利标的",
+        "权利链和许可边界",
+        "需求、交付和验收",
+        "数据处理与安全",
+        "升级维护与持续可用",
+        "终止、迁移和删除返还"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-prc-civil-code-2020",
+        "src-spc-contract-general-interpretation-2023",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易涉及劳动、人事、派遣、实习、返聘、个人劳务或人员外包",
+        "主大类和主体角色已经确认"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "合同名称与实际用工管理不一致",
+        "以约定排除法定工资社保或安全责任",
+        "规章制度未经合法程序即作为处分依据",
+        "竞业主体、期限或补偿不合规",
+        "解除事由、结算、交接和权利终结互相矛盾"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 11,
+        "supported_type_ids": [
+          "type-catalog-2cb6f95fd4675a41ac94",
+          "type-catalog-513d309f5f2557839489",
+          "type-catalog-b7189ac7d4465c3482e6",
+          "type-catalog-c6c35da909325b1e8010",
+          "type-employee-confidentiality",
+          "type-employment-mutual-termination",
+          "type-fixed-term-employment",
+          "type-noncompete",
+          "type-open-ended-employment",
+          "type-overage-worker-engagement",
+          "type-part-time-employment"
+        ],
+        "total_type_count": 20,
+        "unsupported_type_ids": [
+          "type-catalog-2dc870e1f6055134943b",
+          "type-catalog-5af4961525ff5148ae73",
+          "type-catalog-61d29ba69cfd5e4da1ed",
+          "type-catalog-7beb05c00b3c50f387db",
+          "type-catalog-81bb16f0581650dea74c",
+          "type-catalog-b49b3424995e5539abd0",
+          "type-catalog-c0b9f667c6d55844b8d4",
+          "type-catalog-d3a76842b3885564bf3e",
+          "type-catalog-edfd4fead6655d9b8d91"
+        ]
+      },
+      "default_tendencies": [
+        "关系性质以主体、管理和实际履行为核心，不只看合同名称",
+        "强制性劳动标准优先于商业便利安排",
+        "保密、知识产权和竞业分别审查适用对象、范围、期间、补偿和救济",
+        "解除文件同时核对事由、日期、补偿、社保、证明、交接和权利终结"
+      ],
+      "derived_module_ids": [
+        "mod-compensation-hours",
+        "mod-compensation-settlement",
+        "mod-confidential-information",
+        "mod-employment-exit",
+        "mod-employment-term",
+        "mod-handover-return",
+        "mod-ip-interface",
+        "mod-noncompete-compensation",
+        "mod-noncompete-scope",
+        "mod-personal-service-status",
+        "mod-position-location",
+        "mod-release-boundary"
+      ],
+      "derived_principle_ids": [
+        "doctrine-employment-confidentiality",
+        "doctrine-employment-exit-settlement",
+        "doctrine-employment-mandatory-boundaries",
+        "doctrine-labor-dispatch-triangle",
+        "doctrine-noncompete-enforceability",
+        "doctrine-overage-worker-current-status",
+        "doctrine-parttime-statutory-boundaries",
+        "doctrine-personal-service-status-safety",
+        "doctrine-student-internship-education-safety",
+        "doctrine-training-service-period"
+      ],
+      "domain_code": "EC-06",
+      "domain_doctrine_id": "domain-doctrine-ec-06",
+      "domain_name": "劳动、人事与用工",
+      "hard_boundaries": [
+        "不得通过合同排除依法不能放弃的工资、工时、社保、职业安全或劳动者基本权利",
+        "不得虚构考勤、工资支付、规章送达、培训费用、解除事由或交接事实",
+        "不得以劳务、实习或外包名称直接否定可能由实际履行形成的劳动关系"
+      ],
+      "judgment_coordinates": [
+        "主体身份、实际管理和经济从属性",
+        "全日制、非全日制、派遣、实习、返聘还是个人劳务",
+        "我方是用人单位、用工单位、劳动者还是服务提供者",
+        "约束发生在入职、在职、离职还是争议阶段"
+      ],
+      "knowledge_gaps": [
+        "集体用工、工会程序、涉外就业和平台用工需要专项资产"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-employment-term",
+            "mod-position-location",
+            "mod-compensation-hours",
+            "mod-personal-service-status"
+          ],
+          "topic": "关系、岗位与待遇"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-confidential-information",
+            "mod-ip-interface",
+            "mod-noncompete-scope",
+            "mod-noncompete-compensation"
+          ],
+          "topic": "保密与竞业"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-employment-exit",
+            "mod-compensation-settlement",
+            "mod-handover-return",
+            "mod-release-boundary"
+          ],
+          "topic": "解除与交接"
+        }
+      ],
+      "override_factors": [
+        "非全日制、学生实习、达到退休年龄或特殊岗位",
+        "集体合同、地方标准或行业制度",
+        "实际管理事实与书面约定不一致"
+      ],
+      "required_evidence": [
+        "主体和身份材料",
+        "劳动或服务合同及规章制度",
+        "考勤、工资、社保和休假记录",
+        "培训、保密、竞业和知识产权文件",
+        "解除通知、结算、交接和证明材料"
+      ],
+      "review_objectives": [
+        "按实际履行识别劳动、劳务、派遣、实习和外包关系",
+        "落实薪酬工时、社保、安全、规章制度等强制性边界",
+        "协调保密、知识产权、竞业限制、解除结算和交接"
+      ],
+      "review_sequence": [
+        "关系与主体资格",
+        "岗位期限和管理方式",
+        "报酬工时、休假与社保",
+        "安全、规章和纪律",
+        "保密、知识产权与竞业",
+        "解除、结算、证明与交接"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-internal-confidentiality-sample-aggregate-202608",
+        "src-internal-confidentiality-user-templates-202608",
+        "src-internal-noncompete-sample-aggregate-202608",
+        "src-internal-noncompete-user-templates-202608",
+        "src-internal-termination-review-opinions-202608",
+        "src-internal-termination-sample-aggregate-202608",
+        "src-mohrss-noncompete-guide-2025",
+        "src-prc-civil-code-2020",
+        "src-prc-labor-contract-law-2012",
+        "src-prc-labor-law-2018",
+        "src-spc-guiding-case-32-2022",
+        "src-spc-labor-dispute-interpretation-2-2025",
+        "src-spc-trade-secret-interpretation-2020",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易是借贷、融资、保证、抵押、质押或股债混合安排",
+        "主大类和我方角色已经确认"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "投资与借款性质相互矛盾",
+        "资金交付和用途证据不足",
+        "利息、罚息和费用重复计算",
+        "担保范围或期间表达不清",
+        "抵质押未完成必要登记、交付或控制"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 9,
+        "supported_type_ids": [
+          "type-catalog-1687876a608c58538e7d",
+          "type-catalog-660e2f0a63f3521d91d7",
+          "type-catalog-68da0a69155052c69fb1",
+          "type-catalog-c91a32ba9b6c52f28db1",
+          "type-catalog-e9720b90e8b6573cbc75",
+          "type-catalog-f1d84eb865c5520aabb6",
+          "type-enterprise-loan",
+          "type-guarantee-contract",
+          "type-movable-mortgage"
+        ],
+        "total_type_count": 24,
+        "unsupported_type_ids": [
+          "type-catalog-1e31927efc7c577e93b7",
+          "type-catalog-23195a6f119f51e4a292",
+          "type-catalog-268b8a3c7a1d5252b9a8",
+          "type-catalog-2e2307c8b857526981cf",
+          "type-catalog-374afccbff7d554fbb04",
+          "type-catalog-3bb7fe4aea7654f9b6d6",
+          "type-catalog-3f8b3104e3c157b28edb",
+          "type-catalog-49ae9013903757e2b52d",
+          "type-catalog-5cbf1deb0a855cb48e3f",
+          "type-catalog-6dc3b210ee615a47801d",
+          "type-catalog-a73a1b62be1b58d3b87f",
+          "type-catalog-cb58e72a453f56af941e",
+          "type-catalog-db8c893423205e3f92b7",
+          "type-catalog-ec41a68c1df85d58abc1",
+          "type-catalog-ec806f8826355bada787"
+        ]
+      },
+      "default_tendencies": [
+        "先固定主债权性质和资金实际交付，再配置收益与担保",
+        "利率、逾期利息、违约金和费用合并检查",
+        "担保范围、主债权变更、保证期间和诉讼时效联动",
+        "抵质押按权属、设立、公示、顺位、价值维护和实现顺序审查"
+      ],
+      "derived_module_ids": [
+        "mod-covenants-default",
+        "mod-guarantee-form",
+        "mod-guarantee-period",
+        "mod-guaranteed-obligation",
+        "mod-interest-fees",
+        "mod-loan-drawdown",
+        "mod-mortgage-enforcement",
+        "mod-mortgage-registration",
+        "mod-pledge-delivery-registration",
+        "mod-pledge-enforcement-release",
+        "mod-recourse-release",
+        "mod-repayment"
+      ],
+      "derived_principle_ids": [
+        "doctrine-equity-debt-substance",
+        "doctrine-guarantee-scope-period",
+        "doctrine-loan-repayment-security",
+        "doctrine-mortgage-perfection-priority",
+        "doctrine-pledge-perfection-control"
+      ],
+      "domain_code": "EC-07",
+      "domain_doctrine_id": "domain-doctrine-ec-07",
+      "domain_name": "融资、借贷与担保",
+      "hard_boundaries": [
+        "不得虚构资金交付、用途、债务余额、授权、担保物权属、登记或占有控制状态",
+        "不得用内部约定声称对抗依法需要公示、登记或交付才能取得的第三人效力",
+        "融资性质、实际收益或多项费用存在冲突时先核验，不以名称掩盖真实安排"
+      ],
+      "judgment_coordinates": [
+        "我方是出借人、借款人、保证人、担保权人还是担保物提供人",
+        "资金关系属于借款、投资、股债混合还是其他融资",
+        "担保种类、标的、登记交付和优先顺位",
+        "主债权变更、展期或转让对担保的影响"
+      ],
+      "knowledge_gaps": [
+        "金融机构授信、债券、保理、融资租赁和跨境担保需要专项监管知识"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-loan-drawdown",
+            "mod-interest-fees",
+            "mod-repayment",
+            "mod-covenants-default"
+          ],
+          "topic": "主债权与还款"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-guaranteed-obligation",
+            "mod-guarantee-form",
+            "mod-guarantee-period",
+            "mod-recourse-release"
+          ],
+          "topic": "保证"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-mortgage-registration",
+            "mod-mortgage-enforcement",
+            "mod-pledge-delivery-registration",
+            "mod-pledge-enforcement-release"
+          ],
+          "topic": "抵质押与实现"
+        }
+      ],
+      "override_factors": [
+        "金融机构、融资担保公司或其他受监管主体参与",
+        "最高额担保、循环授信、债权转让或重组展期",
+        "担保物存在共有、查封、在先权利或价值波动"
+      ],
+      "required_evidence": [
+        "借款或融资文件及资金流水",
+        "利息、费用和还款记录",
+        "保证人或担保物提供人授权",
+        "担保物权属、估值和负担材料",
+        "登记、交付、控制和顺位证明"
+      ],
+      "review_objectives": [
+        "确认主债权、资金交付、用途、收益和还款义务真实明确",
+        "使保证、抵押、质押等增信措施完成设立、公示和顺位控制",
+        "建立违约加速、担保实现、追偿和释放的执行链"
+      ],
+      "review_sequence": [
+        "融资性质与主债权",
+        "金额交付、用途和利息费用",
+        "期限、还款和加速到期",
+        "担保范围与授权",
+        "登记、交付、控制与顺位",
+        "实现、追偿和解除"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-prc-civil-code-2020",
+        "src-prc-company-law-2023",
+        "src-spc-guarantee-interpretation-2020",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易属于建设工程、工程专业服务、房地产、土地或合作开发",
+        "主大类和我方角色已经确认"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "资质、招标或分包安排存在结构性障碍",
+        "范围和界面不清导致漏项争议",
+        "现场指令和签证缺乏权限与留痕",
+        "付款、计量、验收和结算规则冲突",
+        "房屋土地权属、许可、资金监管和登记脱节"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "strong",
+        "supported_type_count": 18,
+        "supported_type_ids": [
+          "type-catalog-108431b0274d5eb19ffa",
+          "type-catalog-334efaa84d4653c5ac1f",
+          "type-catalog-52b0fd380db9532ba4c7",
+          "type-catalog-7ab06178906253e9aab3",
+          "type-catalog-abe9bdc8c200506c93cd",
+          "type-catalog-b0387ae377a85b2ea92c",
+          "type-catalog-dfd7bd98afd650ff925c",
+          "type-catalog-fdf42f59d0405718a6e5",
+          "type-construction-general-contract",
+          "type-construction-internal-contracting",
+          "type-expropriation-relocation-compensation",
+          "type-land-preliminary-cooperation",
+          "type-land-use-right-exchange",
+          "type-land-use-right-transfer",
+          "type-professional-subcontract",
+          "type-real-estate-joint-development",
+          "type-secondhand-housing-sale",
+          "type-state-owned-land-use-right-grant"
+        ],
+        "total_type_count": 19,
+        "unsupported_type_ids": [
+          "type-catalog-58084ee723815233aca9"
+        ]
+      },
+      "default_tendencies": [
+        "先核验资质、审批、许可和程序，再优化依赖这些事实的交易条款",
+        "工程范围、图纸、清单、界面和变更机制成组审查",
+        "工期、现场条件、签证索赔、计量付款和验收结算联动",
+        "房地产交易将权属、许可、资金监管、交付和登记组成闭环"
+      ],
+      "derived_module_ids": [
+        "mod-commercial-housing-payment-supervision",
+        "mod-commercial-housing-registration-remedies",
+        "mod-commercial-housing-sale-eligibility-permit",
+        "mod-completion-acceptance",
+        "mod-defects-breach",
+        "mod-joint-development-governance",
+        "mod-land-transfer-registration",
+        "mod-main-contract-interface",
+        "mod-measurement-payment",
+        "mod-project-management-authority",
+        "mod-project-scope",
+        "mod-schedule-change"
+      ],
+      "derived_principle_ids": [
+        "doctrine-commercial-housing-completed-sale",
+        "doctrine-commercial-housing-presale",
+        "doctrine-construction-performance-control",
+        "doctrine-construction-subcontract-control",
+        "doctrine-epc-integrated-responsibility",
+        "doctrine-internal-contract-no-transfer",
+        "doctrine-joint-development-risk-return",
+        "doctrine-land-exchange-approval-closing",
+        "doctrine-land-grant-public-law-interface",
+        "doctrine-land-option-no-circumvention",
+        "doctrine-land-transfer-conditions",
+        "doctrine-project-management-authority",
+        "doctrine-relocation-compensation-before-move",
+        "doctrine-secondhand-housing-closing",
+        "doctrine-supervision-independent-duty",
+        "doctrine-survey-design-quality"
+      ],
+      "domain_code": "EC-08",
+      "domain_doctrine_id": "domain-doctrine-ec-08",
+      "domain_name": "建设工程与房地产",
+      "hard_boundaries": [
+        "资质借用、必须招标未招标、转包违法分包或必要许可缺失只有经核验确认后，才定向阻断相应签约、付款、备案或交割动作",
+        "合同漏写、附件缺失或许可材料未提供只触发核验，不单独升级为 P0",
+        "不得虚构资质、许可、规划、签证、工程量、验收、结算、产权或登记状态"
+      ],
+      "judgment_coordinates": [
+        "工程建设、专业服务、商品房、二手房、土地还是合作开发",
+        "我方是发包人、承包人、开发商、购房人、土地权利人或项目合作方",
+        "资质、招投标、规划、许可和登记状态",
+        "项目资金、印章账户、现场指令和结算证据由谁控制"
+      ],
+      "knowledge_gaps": [
+        "城市更新、基础设施特许经营和复杂政府投资项目需要专项资产"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-project-scope",
+            "mod-schedule-change",
+            "mod-main-contract-interface"
+          ],
+          "topic": "工程范围与变更"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-measurement-payment",
+            "mod-completion-acceptance",
+            "mod-defects-breach"
+          ],
+          "topic": "付款、验收与质量"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-commercial-housing-sale-eligibility-permit",
+            "mod-commercial-housing-payment-supervision",
+            "mod-commercial-housing-registration-remedies"
+          ],
+          "topic": "房地产许可与交割"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-project-management-authority",
+            "mod-joint-development-governance",
+            "mod-land-transfer-registration"
+          ],
+          "topic": "项目治理"
+        }
+      ],
+      "override_factors": [
+        "政府投资、必须招标、国有土地或特许开发",
+        "总承包、分包、代建、监理、勘察设计等不同职责结构",
+        "预售、现售、二手房或土地交易的许可与登记差异"
+      ],
+      "required_evidence": [
+        "资质、许可、审批和招投标材料",
+        "图纸、清单、任务书和技术标准",
+        "现场指令、签证、变更和索赔记录",
+        "计量、付款、验收和结算资料",
+        "权属、资金监管、交付和登记材料"
+      ],
+      "review_objectives": [
+        "核对工程、房地产和土地交易的主体资质、审批许可及程序条件",
+        "把范围、工期、签证变更、计量付款、验收结算和质量责任组成闭环",
+        "控制产权、资金、交付登记、项目治理和失败退出"
+      ],
+      "review_sequence": [
+        "交易类型、主体与资质",
+        "审批许可和招投标程序",
+        "标的范围、图纸和界面",
+        "工期、签证、变更和索赔",
+        "计量、付款、验收和结算",
+        "质量保修、产权登记与退出"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-prc-civil-code-2020",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "applicability_conditions": [
+        "主交易属于合作、联营、经销、渠道或广告营销",
+        "当前仅对经销、投资型合作和广告服务提供有限参考"
+      ],
+      "approval_status": "active",
+      "common_failure_modes": [
+        "合作关系与投资、买卖或服务关系混同",
+        "投入和收益计算缺少可验证口径",
+        "价格或渠道政策忽略竞争合规",
+        "广告素材和事实依据没有审批留痕",
+        "终止后库存、客户、品牌和售后责任不清"
+      ],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "limited",
+        "supported_type_count": 3,
+        "supported_type_ids": [
+          "type-advertising-service",
+          "type-distribution-cooperation",
+          "type-project-cooperation-joint-operation"
+        ],
+        "total_type_count": 14,
+        "unsupported_type_ids": [
+          "type-catalog-127a5765f16d55c6b1e0",
+          "type-catalog-22d3a5ab521c51b386d6",
+          "type-catalog-2ec502f0843b50b48fca",
+          "type-catalog-46f96a835d24513fb744",
+          "type-catalog-5ed0d3c2e4975ec8a990",
+          "type-catalog-685002d85e7050109f44",
+          "type-catalog-7877aa067d0e5d0eb2d6",
+          "type-catalog-bcbe791b3ec1557bbc11",
+          "type-catalog-cb0ec097acd953bc87b3",
+          "type-catalog-cf56abf5e4915610b7c9",
+          "type-catalog-f32b1e358d14505c8bf7"
+        ]
+      },
+      "default_tendencies": [
+        "先识别合作、投资、经销和广告服务的主法律关系",
+        "投入、治理、收益、亏损和退出按同一项目口径复核",
+        "区域客户、价格政策、销售目标和返利联动审查",
+        "品牌素材、广告依据、审批、投放数据和违法内容处置成组审查"
+      ],
+      "derived_module_ids": [
+        "mod-advertising-content-approval",
+        "mod-advertising-illegal-content",
+        "mod-advertising-ip-personality",
+        "mod-advertising-role-scope",
+        "mod-inventory-exit",
+        "mod-investment-exit",
+        "mod-investment-governance-protection",
+        "mod-investment-structure",
+        "mod-price-policy",
+        "mod-sales-target",
+        "mod-territory-channel"
+      ],
+      "derived_principle_ids": [
+        "doctrine-advertising-content-media-control",
+        "doctrine-distribution-channel-control",
+        "doctrine-investment-instrument-routing"
+      ],
+      "domain_code": "EC-09",
+      "domain_doctrine_id": "domain-doctrine-ec-09",
+      "domain_name": "合作、经销与营销",
+      "hard_boundaries": [
+        "不得虚构投入、销售、流量、投放、结算或广告事实依据",
+        "不得通过合同要求制作、发布经核验属于违法或虚假误导的广告内容",
+        "价格、区域或排他政策存在竞争法疑问时先核验，不将商业控制偏好表述为当然合法"
+      ],
+      "judgment_coordinates": [
+        "合作、联营、经销、代理还是广告营销服务",
+        "我方控制品牌、产品、渠道、客户、媒体还是项目资源",
+        "是否形成共同投资治理或仅为买卖服务关系",
+        "价格、区域、客户和宣传限制是否触及强制规则"
+      ],
+      "knowledge_gaps": [
+        "现有知识只覆盖三个具体类型，不得直接外推至全部合作营销类型",
+        "特许经营、平台分销、直播电商和复杂竞争安排需专项资产"
+      ],
+      "legal_checked_at": "2026-09-17",
+      "module_index": [
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-investment-structure",
+            "mod-investment-governance-protection",
+            "mod-investment-exit"
+          ],
+          "topic": "合作治理与退出"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-territory-channel",
+            "mod-price-policy",
+            "mod-sales-target",
+            "mod-inventory-exit"
+          ],
+          "topic": "渠道与价格"
+        },
+        {
+          "applicability_note": "仅作议题导航；仍须按具体类型、我方角色、场景和模块active状态选择，不因本索引自动运行。",
+          "module_ids": [
+            "mod-advertising-role-scope",
+            "mod-advertising-content-approval",
+            "mod-advertising-ip-personality",
+            "mod-advertising-illegal-content"
+          ],
+          "topic": "广告与品牌"
+        }
+      ],
+      "override_factors": [
+        "安排实质构成特许经营、商业代理或共同投资",
+        "平台、直播、电商、代言或面向消费者营销",
+        "市场支配、转售价格或排他安排需要竞争法专项核验"
+      ],
+      "required_evidence": [
+        "合作方案、投入和治理文件",
+        "渠道、客户和区域清单",
+        "价格政策、销售目标和返利记录",
+        "品牌授权、素材及广告事实依据",
+        "投放数据、库存售后和结算材料"
+      ],
+      "review_objectives": [
+        "确认合作投入、治理、渠道、客户和收益分配边界",
+        "控制价格政策、品牌使用、广告内容和竞争合规",
+        "建立目标考核、库存售后、结算和退出机制"
+      ],
+      "review_sequence": [
+        "交易关系与投入",
+        "治理、决策与信息",
+        "区域、渠道和客户",
+        "价格、目标和返利",
+        "品牌、广告和知识产权",
+        "库存售后、结算与退出"
+      ],
+      "reviewed_at": "2026-09-17",
+      "reviewer": "马也（产品负责人）2026-09-17 授权启用；非律师逐条审核。激活前法核：EC-07 担保制度、EC-09 转售价格限制经元典精确条文核验（民法典686/692、担保制度解释30/32/33/34、反垄断法2022修正18/22，均现行有效）；其余七张硬边界经定向复核，与现行法一致且不引用条文号。",
+      "source_ids": [
+        "src-approved-migration-20260912",
+        "src-prc-civil-code-2020",
+        "src-prc-company-law-2023",
+        "src-yuandian-law-verification-20260912"
+      ],
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "applicability_conditions": [],
+      "approval_status": "candidate",
+      "common_failure_modes": [],
+      "content_status": "candidate_domain_layer_v0_1",
+      "coverage": {
+        "coverage_status": "gap",
+        "supported_type_count": 0,
+        "supported_type_ids": [],
+        "total_type_count": 21,
+        "unsupported_type_ids": [
+          "type-catalog-0ca0c9e6c6655775b5ea",
+          "type-catalog-1b0ad865afec581f957a",
+          "type-catalog-2410307a200a51d5a5c8",
+          "type-catalog-2575b37d458354d89625",
+          "type-catalog-297ef76b5b8b58bfbdd0",
+          "type-catalog-3a1fd463f5b95368aabf",
+          "type-catalog-4c5e894ff00b5a01be5d",
+          "type-catalog-69d423ebedae543abea2",
+          "type-catalog-7626302cab845f4e8fa7",
+          "type-catalog-83bd8551117257b4a812",
+          "type-catalog-94ed6fce6cb95ec5aa07",
+          "type-catalog-9705f826b74b5e40b4c1",
+          "type-catalog-a15726c4819b556896ce",
+          "type-catalog-ba9f4e4dffd05ca290ea",
+          "type-catalog-bbbb59f37d095773b32d",
+          "type-catalog-c6f8fa134a79514abed2",
+          "type-catalog-ed0a35b2baa45dcb874d",
+          "type-catalog-f0d3475ab8c95bacacb3",
+          "type-catalog-f2c498193999578886e9",
+          "type-catalog-f5657fad41845240b022",
+          "type-catalog-f64665adfeea5ee3bd81"
+        ]
+      },
+      "default_tendencies": [],
+      "derived_module_ids": [],
+      "derived_principle_ids": [],
+      "domain_code": "EC-10",
+      "domain_doctrine_id": "domain-doctrine-ec-10",
+      "domain_name": "结算、履约与通用配套",
+      "hard_boundaries": [],
+      "judgment_coordinates": [],
+      "knowledge_gaps": [
+        "债务确认、抵销、承担与结清",
+        "和解、清算与结算确认",
+        "催告、异议、澄清和送达",
+        "验收、交付、对账等履约证据",
+        "补充、延期、解除等合同变更文件",
+        "通用承诺与保密文件"
+      ],
+      "legal_checked_at": null,
+      "module_index": [],
+      "override_factors": [],
+      "required_evidence": [],
+      "review_objectives": [],
+      "review_sequence": [],
+      "reviewed_at": null,
+      "reviewer": null,
+      "source_ids": [],
+      "version": "0.1.0"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

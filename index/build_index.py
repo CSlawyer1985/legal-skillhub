@@ -722,9 +722,21 @@ def deep_merge(base, ov):
             base[k] = v
     return base
 
+def public_author(value):
+    if not value:
+        return None
+    author = str(value).strip()
+    author = re.sub(r"[（(][^）)]*(?:微信|wechat|vx)[^）)]*[）)]", "", author, flags=re.I)
+    author = re.sub(r"微信(?:号)?\s*[:：]?\s*[\w-]+", "", author, flags=re.I)
+    author = re.sub(r"(?<!\d)1[3-9]\d{9}(?!\d)", "", author)
+    author = re.sub(r"\s+", " ", author).strip(" 、，,;；")
+    return author or None
+
+
 def slim_record(r):
     return {
         "id": r["id"], "name": r["name"], "summary": r["summary"][:200],
+        "author": public_author(r.get("provenance", {}).get("author")),
         "jur": r["classification"]["jurisdictions"],
         "dom": [r["classification"]["areas_of_law"]["primary"]] + r["classification"]["areas_of_law"]["secondary"],
         "task": [r["classification"]["tasks"]["primary"]] + r["classification"]["tasks"]["secondary"],

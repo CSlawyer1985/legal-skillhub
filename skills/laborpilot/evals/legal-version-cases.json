@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "dataset_version": "2026-08-24.1",
+  "description": "劳动争议法律口径生效边界的版本化评测数据。仅保存公开的版本元数据和期望，不包含知识卡正文。",
+  "sources": [
+    {
+      "source_id": "spc-labor-interpretation-ii-2025",
+      "document_title": "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+      "document_number": "法释〔2025〕12号",
+      "issuing_authority": "最高人民法院",
+      "promulgated_on": "2025-07-31",
+      "effective_from": "2025-09-01",
+      "verification_source": "元典法规库现行有效检索；结果载明最高人民法院审判委员会第1942次会议通过，并自2025年9月1日起施行",
+      "retrieved_at": "2026-08-24T00:00:00+08:00"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "interpretation-i-article-32p1-supersession",
+      "subject": "法释〔2020〕26号第三十二条第一款被法释〔2025〕12号第二十一条自施行日起替换",
+      "source_id": "spc-labor-interpretation-ii-2025",
+      "selection_mode": "single_active",
+      "versions": [
+        {
+          "version_id": "interpretation-i-article-32p1",
+          "effective_from": null,
+          "effective_to": "2025-08-31",
+          "status": "historical_before_supersession"
+        },
+        {
+          "version_id": "interpretation-ii-2025-supersession-rule",
+          "effective_from": "2025-09-01",
+          "effective_to": null,
+          "status": "effective"
+        }
+      ],
+      "cases": [
+        {
+          "id": "published-but-not-effective-2025-08-01",
+          "relevant_date": "2025-08-01",
+          "expected_active_version_ids": ["interpretation-i-article-32p1"]
+        },
+        {
+          "id": "day-before-effective-2025-08-31",
+          "relevant_date": "2025-08-31",
+          "expected_active_version_ids": ["interpretation-i-article-32p1"]
+        },
+        {
+          "id": "effective-boundary-2025-09-01",
+          "relevant_date": "2025-09-01",
+          "expected_active_version_ids": ["interpretation-ii-2025-supersession-rule"]
+        },
+        {
+          "id": "post-effective-2026-08-24",
+          "relevant_date": "2026-08-24",
+          "expected_active_version_ids": ["interpretation-ii-2025-supersession-rule"]
+        }
+      ]
+    }
+  ]
+}

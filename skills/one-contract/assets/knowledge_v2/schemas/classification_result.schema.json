@@ -1,0 +1,91 @@
+{
+  "$id": "one-contract/classification-result-v2.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification_status": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "document_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "human_confirmation_required": {
+      "type": "boolean"
+    },
+    "our_role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "primary_domain_code": {
+      "pattern": "^EC-(0[1-9]|10)$",
+      "type": "string"
+    },
+    "primary_type_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_doctrines": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_modules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scene_tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "secondary_type_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "secondary_domain_codes": {
+      "items": {
+        "pattern": "^EC-(0[1-9]|10)$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "primary_type_id",
+    "secondary_type_ids",
+    "primary_domain_code",
+    "secondary_domain_codes",
+    "document_kind",
+    "our_role",
+    "scene_tags",
+    "classification_status",
+    "evidence",
+    "required_doctrines",
+    "required_modules",
+    "human_confirmation_required"
+  ],
+  "title": "Contract classification result v2",
+  "type": "object"
+}

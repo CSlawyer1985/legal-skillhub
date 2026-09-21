@@ -1,0 +1,56 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="36" text-anchor="middle" fill="#333" font-weight="bold">助理 vs 合伙人</text>
+
+  <!-- 左侧：助理 -->
+  <g transform="translate(200, 260)">
+    <rect x="-100" y="-120" width="200" height="240" fill="#f0f0f0" rx="12"/>
+
+    <!-- 人在上 -->
+    <circle cx="0" cy="-70" r="30" fill="#E8F4F8"/>
+    <text x="0" y="-60" font-size="28" text-anchor="middle">👤</text>
+    <text x="0" y="-25" font-size="16" text-anchor="middle" fill="#666">发命令</text>
+
+    <!-- 箭头向下 -->
+    <line x1="0" y1="-5" x2="0" y2="35" stroke="#999" stroke-width="3"/>
+    <polygon points="0,40 -8,25 8,25" fill="#999"/>
+
+    <!-- AI在下 -->
+    <circle cx="0" cy="70" r="30" fill="#999"/>
+    <text x="0" y="80" font-size="22" text-anchor="middle" fill="#fff">AI</text>
+    <text x="0" y="110" font-size="14" text-anchor="middle" fill="#666">执行</text>
+
+    <text x="0" y="150" font-size="18" text-anchor="middle" fill="#999">线性分工</text>
+  </g>
+
+  <!-- VS -->
+  <text x="400" y="260" font-size="32" text-anchor="middle" fill="#4A90E2" font-weight="bold">→</text>
+
+  <!-- 右侧：合伙人 -->
+  <g transform="translate(600, 260)">
+    <rect x="-100" y="-120" width="200" height="240" fill="#E8F4F8" rx="12" stroke="#4A90E2" stroke-width="2" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- 共享工作场 -->
+    <rect x="-70" y="-80" width="140" height="60" fill="#fff" rx="8"/>
+    <text x="0" y="-45" font-size="16" text-anchor="middle" fill="#4A90E2">共享工作场</text>
+
+    <!-- 人和AI并排 -->
+    <circle cx="-30" cy="20" r="25" fill="#E8F5E8"/>
+    <text x="-30" y="30" font-size="24" text-anchor="middle">👤</text>
+
+    <circle cx="30" cy="20" r="25" fill="#4A90E2"/>
+    <text x="30" y="30" font-size="18" text-anchor="middle" fill="#fff">AI</text>
+
+    <!-- 双向箭头 -->
+    <line x1="0" y1="-15" x2="0" y2="-5" stroke="#4A90E2" stroke-width="2"/>
+
+    <text x="0" y="80" font-size="14" text-anchor="middle" fill="#4A90E2">补位·试探·反馈</text>
+    <text x="0" y="110" font-size="14" text-anchor="middle" fill="#4A90E2">改写·推进</text>
+
+    <text x="0" y="145" font-size="18" text-anchor="middle" fill="#4A90E2">共同协作</text>
+  </g>
+</svg>

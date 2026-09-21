@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#F0F4F8" rx="10"/>
+
+  <!-- 护身符堆叠图 -->
+  <g transform="translate(400, 225)">
+    <!-- 第一层护身符 -->
+    <rect x="-120" y="-80" width="240" height="160" fill="#E8F4F8" rx="8" stroke="#4A90E2" stroke-width="3" opacity="0.6"/>
+    <!-- 第二层护身符 -->
+    <rect x="-110" y="-70" width="220" height="140" fill="#E8F4F8" rx="8" stroke="#4A90E2" stroke-width="3" opacity="0.7"/>
+    <!-- 第三层护身符 -->
+    <rect x="-100" y="-60" width="200" height="120" fill="#E8F4F8" rx="8" stroke="#4A90E2" stroke-width="3" opacity="0.8">
+      <animate attributeName="fill-opacity" values="0.8; 1; 0.8" dur="3s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- 浮动emoji -->
+    <g>
+      <text x="0" y="30" font-size="100" text-anchor="middle">📿</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"
+        calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+    </g>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="400" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">Skill收集症</text>
+</svg>

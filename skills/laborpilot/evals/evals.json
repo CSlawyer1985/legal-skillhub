@@ -1,0 +1,331 @@
+{
+  "schema_version": "2.0",
+  "dataset_version": "2026-09-07.1",
+  "package_version": "1.4.4",
+  "evaluated_capabilities": [
+    "single_issue_recall",
+    "composite_issue_recall",
+    "negative_context_precision",
+    "out_of_domain_precision",
+    "legal_version_resolution"
+  ],
+  "skill_name": "LaborPilot",
+  "version": "2.0",
+  "description": "劳动争议办案引擎评测:测争点路由、依据引用、浙口径适用、算式正确性",
+  "evals": [
+    {
+      "id": "illegal-termination-2n",
+      "case_type": "single",
+      "category": "解除终止",
+      "prompt": "张某在温州某制造公司工作了3年半，月工资8000元。公司以'组织架构调整'为由口头通知张某离职，未提前30日书面通知，未通知工会，也未支付任何补偿。张某不服，想知道能主张什么权利，金额大概多少。请分析。",
+      "expected_issue_terms": [
+        "违法解除",
+        "2N"
+      ],
+      "expected_result_range": [
+        2,
+        5
+      ],
+      "expected_law_refs": [
+        "劳动合同法§48",
+        "劳动合同法§87",
+        "实施条例§25"
+      ],
+      "expected_calculation": "2N = 3.5个月 × 8000 × 2 = 56000元（工龄恰为3年6个月）",
+      "expectations": [
+        "审查组织架构调整是否满足法定事由及程序，不能仅据口头通知即下结论",
+        "按劳动合同法第48、87条分析继续履行或赔偿",
+        "废止复核：不再把缺30日通知及代通知金当然等同2N；旧解答三Q9本身也不支持该概括",
+        "工龄恰为3年6个月按3.5个月计N，2N为56000元"
+      ]
+    },
+    {
+      "id": "overtime-pay-calc",
+      "case_type": "single",
+      "category": "工资工时",
+      "prompt": "李某在杭州某餐饮公司做厨师，月薪6000元。公司安排他每周工作6天，每天10小时，持续了2年。法定节假日也上班但没有额外报酬。请计算李某能主张多少加班费。",
+      "expected_issue_terms": [
+        "加班费",
+        "计算基数"
+      ],
+      "expected_result_range": [
+        2,
+        5
+      ],
+      "expected_law_refs": [
+        "劳动法§44",
+        "工资支付暂行规定§13"
+      ],
+      "expected_calculation": "延时150% + 休息日200% + 法定节假日300%，基数6000÷21.75÷8",
+      "expectations": [
+        "区分三类加班:延时150%/休息日200%/法定节假日300%",
+        "使用21.75天月计薪天数折算日工资/小时工资",
+        "基数按月工资6000元(正常工时应发)",
+        "休息日可主张补休替代(如未安排补休则200%)",
+        "法定节假日300%不能用补休替代",
+        "注意劳动报酬特殊时效(存续期间不受1年限制)"
+      ]
+    },
+    {
+      "id": "double-wage-statute",
+      "case_type": "single",
+      "category": "劳动合同订立",
+      "prompt": "王某2025年3月1日入职宁波某贸易公司，双方一直未签订书面劳动合同。2026年6月15日王某离职。王某现在(2026年8月)想主张二倍工资，还能主张吗？最多几个月？",
+      "expected_issue_terms": [
+        "未签书面合同",
+        "二倍工资"
+      ],
+      "expected_result_range": [
+        1,
+        3
+      ],
+      "expected_law_refs": [
+        "劳动合同法§82",
+        "实施条例§6-7"
+      ],
+      "expected_zhejiang": "废止复核：解答一Q4及解答二Q6已废止；二倍工资时效及起算另核，不预设旧起算日",
+      "expectations": [
+        "核未签期间为2025-04-01至2026-02-28，区分应付期间与仲裁时效",
+        "解释（二）第6—9条：按月计算、法定免责、续延、满一年视为无固定期限",
+        "不因旧解答推断2026年8月主张必然全部未过时效，列出起算争议与待核事项"
+      ]
+    },
+    {
+      "id": "colloquial-unsigned-employment-contract",
+      "case_type": "single",
+      "category": "劳动合同订立",
+      "prompt": "我入职以后一直没签劳动合同，现在还能要求公司承担责任吗？",
+      "expected_issue_terms": [
+        "未签书面合同",
+        "二倍工资"
+      ],
+      "forbidden_issue_terms": [
+        "电子劳动合同效力",
+        "违反劳动合同规定的赔偿"
+      ],
+      "expected_result_range": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "non-compete-compensation",
+      "case_type": "single",
+      "category": "竞业限制",
+      "prompt": "赵某原是温州某科技公司的高级工程师，离职时签了竞业限制协议，期限2年。协议约定竞业补偿为每月3000元(赵某离职前12个月平均工资为25000元)。赵某离职3个月后，公司一直未支付补偿。请分析赵某的权利和公司的风险。",
+      "expected_issue_terms": [
+        "竞业限制",
+        "保密义务"
+      ],
+      "expected_result_range": [
+        2,
+        4
+      ],
+      "expected_law_refs": [
+        "劳动合同法§23-24",
+        "解释(二)"
+      ],
+      "expected_zhejiang": "废止复核：旧解答三Q2已废止；未约定与约定过低分别审查，不能直接套用30%补足",
+      "expectations": [
+        "核解释（一）第36—39条及解释（二）第13—15条",
+        "未约定补偿与约定3000元补偿是不同情形，是否可调高须另核",
+        "核单位原因导致三个月未支付及劳动者请求解除的条件",
+        "区分保密义务、在职竞业与离职后竞业"
+      ]
+    },
+    {
+      "id": "work-injury-benefits",
+      "case_type": "single",
+      "category": "工伤保险",
+      "prompt": "陈某在绍兴某建筑公司工地工作时从脚手架坠落，经认定为工伤，劳动能力鉴定为九级伤残。陈某月工资5500元。公司与陈某签订了劳动合同但未参加工伤保险。陈某想解除劳动关系并主张工伤待遇。请列出陈某可主张的项目和计算方式。",
+      "expected_issue_terms": [
+        "一次性伤残待遇",
+        "停工留薪期",
+        "工伤职工解除限制"
+      ],
+      "expected_result_range": [
+        3,
+        5
+      ],
+      "expected_law_refs": [
+        "工伤保险条例§37",
+        "浙工伤保险条例§27",
+        "工伤保险条例§62"
+      ],
+      "expected_calculation": "一次性伤残补助金=9个月×5500;医疗补助金+就业补助金=4个月×解除时上年度全省社平",
+      "expectations": [
+        "列出三笔一次性:伤残补助金+工伤医疗补助金+伤残就业补助金",
+        "伤残补助金:9级=9个月×本人工资5500=49500元",
+        "引用浙江§27:医疗+就业补助金基数=解除时上年度全省社平(非本人工资)",
+        "浙江月数表:9级=4个月",
+        "未参保→单位按条例标准全额支付(§62)",
+        "停工留薪期工资按原工资福利不变(§33)"
+      ]
+    },
+    {
+      "id": "forced-resignation-social-insurance",
+      "case_type": "single",
+      "category": "被迫解除",
+      "prompt": "周某在台州某工厂工作了5年，月工资6500元。公司一直未给周某缴纳社会保险。周某2026年3月以'未依法缴纳社会保险费'为由书面提出解除劳动合同，并要求经济补偿。公司辩称周某入职时曾书面承诺自愿放弃参保。请分析。",
+      "expected_issue_terms": [
+        "劳动者被迫解除",
+        "经济补偿N",
+        "社保补缴"
+      ],
+      "expected_result_range": [
+        3,
+        5
+      ],
+      "expected_law_refs": [
+        "劳动合同法§38、46",
+        "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）§19、21"
+      ],
+      "expected_zhejiang": "废止复核：解答一Q11已废止；按解释（二）第19条核验承诺无效、解除补偿与补缴后的返还",
+      "expectations": [
+        "不得沿用浙江旧口径“不支持经济补偿”",
+        "满足第38条及解释（二）第19条条件时支持经济补偿；5年、月工资6500元的N为32500元",
+        "单位依法补缴后可依解释（二）第19条请求返还已支付的社保费补偿",
+        "结合案件日期与审理状态核验适用，不以解除／受理日机械下结论"
+      ]
+    },
+    {
+      "id": "annual-leave-300",
+      "case_type": "single",
+      "category": "年休假",
+      "prompt": "吴某在杭州某互联网公司工作了8年，公司从未安排过年休假。吴某月工资12000元。2026年1月吴某离职后想主张全部未休年假补偿。请分析可主张的金额和时效风险。",
+      "expected_issue_terms": [
+        "年休假天数",
+        "未休年休假"
+      ],
+      "expected_result_range": [
+        2,
+        4
+      ],
+      "expected_law_refs": [
+        "职工带薪年休假条例§3",
+        "实施办法§10-11"
+      ],
+      "expected_zhejiang": "废止复核：历史出处为解答二Q19，已废止；年休假正常工资与加付部分时效须分别核验",
+      "expectations": [
+        "累计8年工龄通常为5天年休假，核排除情形",
+        "300%含已支付的正常工资，通常另付200%",
+        "日工资按12000÷21.75计算",
+        "时效类型和起算另核现行依据及裁判，不机械据旧解答排除超过一年的部分"
+      ]
+    },
+    {
+      "id": "probation-termination",
+      "case_type": "single",
+      "category": "试用期",
+      "prompt": "郑某入职金华某电商公司，签了3年劳动合同，约定试用期6个月。试用期满5个月时，公司以'不符合录用条件'为由解除，但未提供任何考核记录。郑某想知道是否违法。请分析。",
+      "expected_issue_terms": [
+        "试用期",
+        "违法解除"
+      ],
+      "expected_result_range": [
+        2,
+        5
+      ],
+      "expected_law_refs": [
+        "劳动合同法§21",
+        "劳动合同法§39(一)"
+      ],
+      "expectations": [
+        "试用期解除限§39(一)不符合录用条件(§21限定)",
+        "须说明理由+举证(考核记录/录用条件明示)",
+        "公司无考核记录→举证不能→违法解除",
+        "违法后果:2N或继续履行，并联动违法解除后果",
+        "注意:试用期解除不适用§40(不胜任等)"
+      ]
+    },
+    {
+      "id": "composite-overtime-termination-social-noncompete",
+      "case_type": "composite",
+      "category": "复合争点",
+      "prompt": "公司长期安排我休息日和法定节假日加班但从未支付加班费，也一直没有缴纳社会保险。后来公司以组织架构调整为由口头辞退我；离职后又要求我履行竞业限制，但连续三个月没有支付竞业补偿。请把相关请求和抗辩路径一并梳理。",
+      "expected_issue_terms": [
+        "加班费",
+        "违法解除",
+        "社保补缴",
+        "竞业限制"
+      ],
+      "expected_result_range": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "composite-probation-contract-annual-leave",
+      "case_type": "composite",
+      "category": "复合争点",
+      "prompt": "我入职后一直没有签书面劳动合同，三年合同却约定了九个月试用期，公司也从未安排年休假。现在公司在试用期内以不符合录用条件为由解除，但拿不出考核记录。请分析全部相关争点。",
+      "expected_issue_terms": [
+        "未签书面合同",
+        "试用期",
+        "年休假",
+        "违法解除"
+      ],
+      "expected_result_range": [
+        6,
+        10
+      ]
+    },
+    {
+      "id": "negative-only-double-wage",
+      "case_type": "negative_context",
+      "category": "否定语境",
+      "prompt": "本案不是工伤，不涉及竞业限制，也没有加班；只咨询入职一年一直未签书面劳动合同的二倍工资。",
+      "expected_issue_terms": [
+        "未签书面合同",
+        "二倍工资"
+      ],
+      "forbidden_issue_terms": [
+        "工伤",
+        "停工留薪",
+        "竞业限制",
+        "加班费"
+      ],
+      "expected_result_range": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "negative-voluntary-resignation-annual-leave",
+      "case_type": "negative_context",
+      "category": "否定语境",
+      "prompt": "劳动者是主动离职，没有被辞退，也不主张违法解除或赔偿金；本次只核对未休年休假补偿。",
+      "expected_issue_terms": [
+        "年休假天数",
+        "未休年休假"
+      ],
+      "forbidden_issue_terms": [
+        "违法解除",
+        "2N",
+        "继续履行"
+      ],
+      "expected_result_range": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "out-of-domain-commercial-contract",
+      "case_type": "out_of_domain",
+      "category": "非劳动争议",
+      "prompt": "这是公司与供应商之间的买卖合同违约金和物业费争议，与劳动关系无关，也不是劳动争议。",
+      "expected_issue_terms": [],
+      "forbidden_issue_terms": [
+        "劳动关系",
+        "新就业形态",
+        "工资",
+        "解除"
+      ],
+      "expected_result_range": [
+        0,
+        0
+      ]
+    }
+  ],
+  "validity_review": "废止复核：旧解答仅历史参考；自然语言期望需法律审查，不以路由召回代替。"
+}

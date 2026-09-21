@@ -1,0 +1,7 @@
+interface:
+  display_name: "China Litigation Rehearsal"
+  short_description: "中国民商事诉讼庭前模拟、红队攻防与败诉风险排查工作流"
+  default_prompt: "Use $china-litigation-rehearsal in guided mode and walk me step by step through choosing the right PRC civil/commercial litigation rehearsal workflow."
+
+policy:
+  allow_implicit_invocation: false

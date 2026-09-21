@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "mode": "shadow",
+  "enabled": true,
+  "write_main_ledger": false,
+  "enable_content_dedup": true,
+  "enable_auto_link_supplement": false,
+  "enable_snapshot_refresh": false,
+  "enable_auto_close": false,
+  "enable_auto_reopen": false,
+  "overlap_minutes": 10,
+  "match": {
+    "auto_link_score": 85,
+    "manual_review_score": 60,
+    "minimum_gap": 20,
+    "require_strong_anchor_for_auto_link": true,
+    "strong_anchors": ["case_no", "quoted_source", "order_no", "source_media"],
+    "phone_multi_open_case_hard_veto": true
+  },
+  "closure": {
+    "score": 95,
+    "enabled": false,
+    "strong_anchors": ["case_no", "quoted_source", "order_no"]
+  },
+  "paths": {
+    "ledger": "shadow_event_ledger.jsonl",
+    "state": "intake_state_v2.json"
+  }
+}

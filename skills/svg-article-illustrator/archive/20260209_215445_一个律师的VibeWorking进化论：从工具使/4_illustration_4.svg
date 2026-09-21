@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EBF8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BEE3F8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad4)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#2C5282">三层上下文结构</text>
+
+  <!-- 第三层：技能上下文（底部） -->
+  <g transform="translate(400, 360)">
+    <rect x="-280" y="-30" width="560" height="60" fill="#E6FFFA" stroke="#38B2AC" stroke-width="3" rx="10" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="-220" y="8" text-anchor="middle" font-size="50">🎯</text>
+    <text x="-80" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="#2C7A7B">技能上下文</text>
+    <text x="120" y="8" text-anchor="middle" font-size="16" fill="#285E61">做事的方法</text>
+  </g>
+
+  <!-- 箭头向下 -->
+  <line x1="400" y1="310" x2="400" y2="340" stroke="#4299E1" stroke-width="4" marker-end="url(#arrowC1)" stroke-dasharray="40" stroke-dashoffset="40">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 第二层：项目上下文（中部） -->
+  <g transform="translate(400, 260)">
+    <rect x="-280" y="-30" width="560" height="60" fill="#FEEBC8" stroke="#DD6B20" stroke-width="3" rx="10" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite" begin="0.3s"/>
+    </rect>
+    <text x="-220" y="8" text-anchor="middle" font-size="50">📋</text>
+    <text x="-80" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="#C05621">项目上下文</text>
+    <text x="120" y="8" text-anchor="middle" font-size="16" fill="#7C2D12">当前任务与目标</text>
+  </g>
+
+  <!-- 箭头向下 -->
+  <line x1="400" y1="210" x2="400" y2="240" stroke="#4299E1" stroke-width="4" marker-end="url(#arrowC2)" stroke-dasharray="40" stroke-dashoffset="40">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.8s" repeatCount="indefinite" begin="0.3s"/>
+  </line>
+
+  <!-- 第一层：用户上下文（顶部） -->
+  <g transform="translate(400, 160)">
+    <rect x="-280" y="-30" width="560" height="60" fill="#FED7E2" stroke="#D53F8C" stroke-width="3" rx="10" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite" begin="0.6s"/>
+    </rect>
+    <text x="-220" y="8" text-anchor="middle" font-size="50">👤</text>
+    <text x="-80" y="8" text-anchor="middle" font-size="22" font-weight="bold" fill="#97266D">用户上下文</text>
+    <text x="120" y="8" text-anchor="middle" font-size="16" fill="#702459">你是谁、偏好、边界</text>
+  </g>
+
+  <!-- 右侧：Context Engineering 标签 -->
+  <g transform="translate(650, 210)">
+    <circle cx="0" cy="0" r="50" fill="#EBF8FF" stroke="#3182CE" stroke-width="3">
+      <animate attributeName="fill-opacity" values="0.6; 1; 0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="-5" text-anchor="middle" font-size="14" font-weight="bold" fill="#2C5282">Context</text>
+    <text x="0" y="15" text-anchor="middle" font-size="14" font-weight="bold" fill="#2C5282">Engineering</text>
+  </g>
+
+  <!-- 连接线 -->
+  <line x1="570" y1="210" x2="590" y2="210" stroke="#3182CE" stroke-width="3" marker-end="url(#arrowC3)" stroke-dasharray="30" stroke-dashoffset="30">
+    <animate attributeName="stroke-dashoffset" from="30" to="0" dur="0.6s" repeatCount="indefinite"/>
+  </line>
+
+  <defs>
+    <marker id="arrowC1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4299E1"/>
+    </marker>
+    <marker id="arrowC2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4299E1"/>
+    </marker>
+    <marker id="arrowC3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3182CE"/>
+    </marker>
+  </defs>
+</svg>

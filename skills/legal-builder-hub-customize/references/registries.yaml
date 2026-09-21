@@ -1,0 +1,41 @@
+# 监视的 skill 来源（检索顺序：法律元力 优先，再 GitHub）
+# API 契约见 references/yuanli-api.md
+
+registries:
+  - name: yuanli-cn
+    type: yuanli-api
+    description: "中国法律技能站（法律元力 https://yuanli.ailaw.cn）：工具包 + 站内 skill。公开读 API，无需鉴权。"
+    priority: 1
+    default_base_url: "https://yuanli.ailaw.cn"
+    api_reference: references/yuanli-api.md
+    # profile.md ## yuanli → base_url；未配置时用 default_base_url，再回退 catalog_file
+    catalog_file: references/yuanli-toolkits.yaml
+    endpoints:
+      toolkits_catalog: "/api/toolkits/catalog"
+      toolkits_search: "/api/toolkits"
+      toolkits_download: "/api/toolkits/{toolkit_id}/download"
+      skills_search: "/api/skills"
+      skills_detail: "/api/skills/{skill_id}"
+      skills_download: "/api/skills/{skill_id}/download"
+    last_synced: null
+
+  - name: lpm-skills
+    url: https://github.com/legalopsconsulting/lpm-skills
+    description: "法律项目管理社区 skill（14 个）。Practice 无关。第二来源。"
+    type: github-repo
+    priority: 2
+    last_synced: null
+
+  - name: lawvable-awesome-legal-skills
+    url: https://github.com/lawvable/awesome-legal-skills
+    description: "Lawvable curated 法律 AI skill 列表。"
+    type: github-repo
+    priority: 3
+    last_synced: null
+
+  - name: lawvable-agent-skills
+    url: https://github.com/lawvable/agent-skills
+    description: "Lawvable agent-skills 集合。"
+    type: github-repo
+    priority: 4
+    last_synced: null

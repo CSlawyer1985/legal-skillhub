@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "qcc-company": {
+      "type": "streamableHttp",
+      "url": "https://agent.qcc.com/mcp/company/stream",
+      "description": "企查查MCP：核查经营主体工商登记、资质许可、行政处罚、诉讼与被执行记录。用于五层分析中民事/行政角度（及刑事衔接专题）的客观事实印证。"
+    },
+    "yuandian-mcp": {
+      "type": "streamableHttp",
+      "description": "华宇元典法律数据MCP：核验法律法规有效性（yuandian_law_vector_search）、检索类案（yuandian_case_vector_search）、查询余额（yuandian_get_user_balance）。用于法条核验与案例检索。需用户在工作区连接器中启用 yuandian-mcp 后可用。",
+      "note": "华宇元典MCP的实际连接配置由用户在WorkBuddy连接器管理中完成；本skill运行时通过ToolSearch按工具名（mcp__yuandian-mcp__*）加载schema并调用。若未连接，skill将跳过MCP检索并在报告中标注。"
+    }
+  }
+}

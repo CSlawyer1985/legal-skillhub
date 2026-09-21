@@ -1,0 +1,10 @@
+defusedxml
+lxml
+python-docx
+
+# Rule Studio 运行时依赖（本地规则面板与契约校验）。
+# 兼容范围与 scripts/requirements-rule-studio-dev.txt 保持同一冻结区间。
+jsonschema>=4.21,<5
+# `referencing` 由 one_contract_rules/registry.py **直接 import**（离线 $ref 解析），
+# 不能只靠 jsonschema 的传递依赖——那是未声明的耦合。
+referencing>=0.30,<1

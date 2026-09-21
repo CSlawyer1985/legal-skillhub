@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <text x="400" y="50" font-size="28" text-anchor="middle" fill="#1A1A2E" font-weight="bold">推开门窗</text>
+
+  <!-- 墙壁 -->
+  <rect x="180" y="100" width="440" height="280" fill="#F5F5F5"/>
+
+  <!-- 门框 -->
+  <rect x="280" y="100" width="240" height="280" fill="#E8DCC8" stroke="#8B7355" stroke-width="8"/>
+
+  <!-- 门 -->
+  <g>
+    <rect x="285" y="105" width="110" height="270" fill="#A0522D" stroke="#5D4E37" stroke-width="4"/>
+    <circle cx="380" cy="240" r="8" fill="#D4AF37"/>
+    <rect x="300" y="130" width="80" height="60" rx="4" fill="#8B7355" fill-opacity="0.3"/>
+    <rect x="300" y="210" width="80" height="60" rx="4" fill="#8B7355" fill-opacity="0.3"/>
+    <animateTransform attributeName="transform" type="rotate"
+      values="0,285,105; -25,285,105; 0,285,105" dur="5s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 窗户 -->
+  <rect x="420" y="140" width="85" height="100" fill="#87CEEB" fill-opacity="0.6" stroke="#5D4E37" stroke-width="3"/>
+  <line x1="462" y1="140" x2="462" y2="240" stroke="#5D4E37" stroke-width="2"/>
+  <line x1="420" y1="190" x2="505" y2="190" stroke="#5D4E37" stroke-width="2"/>
+
+  <!-- 光芒 -->
+  <g>
+    <circle cx="530" cy="190" r="25" fill="#FFD700" fill-opacity="0.4">
+      <animate attributeName="r" values="25;35;25" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="560" cy="160" r="15" fill="#FFD700" fill-opacity="0.3">
+      <animate attributeName="r" values="15;25;15" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- 人物剪影 -->
+  <circle cx="160" cy="300" r="25" fill="#333"/>
+  <ellipse cx="160" cy="360" rx="20" ry="35" fill="#333"/>
+
+  <!-- 向门的箭头 -->
+  <line x1="200" y1="280" x2="260" y2="220" stroke="#333" stroke-width="4" stroke-dasharray="6,4">
+    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+</svg>

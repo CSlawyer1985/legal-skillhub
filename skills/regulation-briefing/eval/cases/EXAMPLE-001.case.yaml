@@ -1,0 +1,14 @@
+# 合成骨架，待律师金标增量。
+id: EXAMPLE-001
+topic: 个人信息合规更新
+time_window: 2026-Q2
+expected_items:
+  - id: B1
+    match_hints: [个人信息处理者, 合规制度]
+    source_required: true
+  - id: B2
+    match_hints: [敏感个人信息, 单独同意]
+    source_required: true
+  - id: B3
+    match_hints: [保存处理记录, 审计留痕]
+    source_required: true

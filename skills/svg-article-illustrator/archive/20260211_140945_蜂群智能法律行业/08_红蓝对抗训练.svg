@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%;max-width:800px;height:auto;margin:20px 0;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);border-radius:12px;">
+  <defs>
+    <linearGradient id="redTeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8787"/>
+      <stop offset="100%" style="stop-color:#fa5252"/>
+    </linearGradient>
+    <linearGradient id="blueTeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74c0fc"/>
+      <stop offset="100%" style="stop-color:#4dabf7"/>
+    </linearGradient>
+  </defs>
+  <!-- Red Team -->
+  <g transform="translate(200, 150)">
+    <circle cx="0" cy="0" r="55" fill="url(#redTeam)">
+      <animate attributeName="r" values="55;58;55" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" text-anchor="middle" font-size="32">🔴</text>
+    <text x="0" y="80" text-anchor="middle" font-size="15" fill="#c92a2a" font-weight="bold">红队 Agent</text>
+    <text x="0" y="100" text-anchor="middle" font-size="12" fill="#868e96">证据分析</text>
+  </g>
+  <!-- Blue Team -->
+  <g transform="translate(600, 150)">
+    <circle cx="0" cy="0" r="55" fill="url(#blueTeam)">
+      <animate attributeName="r" values="55;58;55" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" text-anchor="middle" font-size="32">🔵</text>
+    <text x="0" y="80" text-anchor="middle" font-size="15" fill="#1971c2" font-weight="bold">蓝队 Agent</text>
+    <text x="0" y="100" text-anchor="middle" font-size="12" fill="#868e96">风险评估</text>
+  </g>
+  <!-- Center interaction zone -->
+  <circle cx="400" cy="180" r="70" fill="none" stroke="#fab005" stroke-width="3" stroke-dasharray="10,5">
+    <animate attributeName="stroke-dashoffset" from="15" to="0" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="70;75;70" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <text x="400" y="175" text-anchor="middle" font-size="20" fill="#f08c00">⚔️</text>
+  <text x="400" y="198" text-anchor="middle" font-size="12" fill="#f08c00" font-weight="bold">对抗演练</text>
+  <!-- Interaction arrows -->
+  <g stroke-width="3" fill="none">
+    <path d="M 260 150 Q 330 120, 360 160" stroke="#ff6b6b" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 540 150 Q 470 120, 440 160" stroke="#4dabf7" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Strategy output -->
+  <rect x="250" y="280" width="300" height="80" rx="12" fill="#fff" stroke="#51cf66" stroke-width="2">
+    <animate attributeName="stroke-width" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="400" y="315" text-anchor="middle" font-size="28">🎯</text>
+  <text x="400" y="340" text-anchor="middle" font-size="14" fill="#51cf66" font-weight="bold">最优诉讼策略</text>
+  <!-- Output arrows -->
+  <g stroke="#51cf66" stroke-width="2" fill="none" stroke-dasharray="6,3">
+    <path d="M 360 210 Q 350 250, 350 280">
+      <animate attributeName="stroke-dashoffset" from="9" to="0" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 440 210 Q 450 250, 450 280">
+      <animate attributeName="stroke-dashoffset" from="9" to="0" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Round counter -->
+  <rect x="50" y="380" width="120" height="40" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="110" y="406" text-anchor="middle" font-size="13" fill="#495057">多轮迭代优化</text>
+  <g transform="translate(630, 380)">
+    <rect x="0" y="0" width="120" height="40" rx="8" fill="#e7f5ff" stroke="#339af0" stroke-width="1"/>
+    <text x="60" y="26" text-anchor="middle" font-size="13" fill="#1971c2" font-weight="bold">策略韧性↑</text>
+  </g>
+</svg>

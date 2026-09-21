@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <text x="400" y="45" font-size="28" text-anchor="middle" fill="#1A1A2E" font-weight="bold">多维探索</text>
+
+  <g>
+    <circle cx="400" cy="220" r="50" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-width="3">
+      <animate attributeName="r" values="50;55;50" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="400" y="235" font-size="40" text-anchor="middle">🔍</text>
+  </g>
+
+  <g>
+    <circle cx="200" cy="130" r="40" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2">
+      <animate attributeName="r" values="40;45;40" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="200" y="140" font-size="35" text-anchor="middle">📄</text>
+    <line x1="260" y1="160" x2="350" y2="190" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <g>
+    <circle cx="600" cy="130" r="40" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2">
+      <animate attributeName="r" values="40;45;40" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <text x="600" y="140" font-size="35" text-anchor="middle">⚖️</text>
+    <line x1="540" y1="160" x2="450" y2="190" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite" begin="0.3s"/>
+    </line>
+  </g>
+
+  <g>
+    <circle cx="200" cy="320" r="40" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2">
+      <animate attributeName="r" values="40;45;40" dur="2.5s" repeatCount="indefinite" begin="0.6s"/>
+    </circle>
+    <text x="200" y="330" font-size="35" text-anchor="middle">👥</text>
+    <line x1="260" y1="290" x2="350" y2="260" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite" begin="0.6s"/>
+    </line>
+  </g>
+
+  <g>
+    <circle cx="600" cy="320" r="40" fill="#FFF5F5" stroke="#E24A4A" stroke-width="2">
+      <animate attributeName="r" values="40;45;40" dur="2.5s" repeatCount="indefinite" begin="0.9s"/>
+    </circle>
+    <text x="600" y="330" font-size="35" text-anchor="middle">🔒</text>
+    <line x1="540" y1="290" x2="450" y2="260" stroke="#E24A4A" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="8" to="0" dur="1s" repeatCount="indefinite" begin="0.9s"/>
+    </line>
+  </g>
+</svg>

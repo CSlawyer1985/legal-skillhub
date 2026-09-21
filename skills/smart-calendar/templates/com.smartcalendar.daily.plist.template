@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  smart-calendar 每日 sync loop —— launchd 模板
+  作用：每天 18:00 从 Apple Calendar/Reminders 重建 tasks.json 本地缓存。
+
+  安装前替换两处 {{...}} 占位符：
+    {{PYTHON3}}     绝对路径，which python3 查（如 /usr/bin/python3 或 /opt/homebrew/bin/python3）
+    {{SKILL_PATH}}  task_manager.py 绝对路径
+                    （如 /Users/你的用户名/.claude/skills/smart-calendar/scripts/task_manager.py）
+
+  安装：
+    cp com.smartcalendar.daily.plist.template ~/Library/LaunchAgents/com.smartcalendar.daily.plist
+    # 编辑替换占位符后：
+    launchctl load -w ~/Library/LaunchAgents/com.smartcalendar.daily.plist
+  停用：
+    launchctl unload -w ~/Library/LaunchAgents/com.smartcalendar.daily.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.smartcalendar.daily</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>{{PYTHON3}}</string>
+        <string>{{SKILL_PATH}}</string>
+        <string>loop-tick</string>
+        <string>--mode</string>
+        <string>daily</string>
+    </array>
+
+    <!-- 每天 18:00 触发 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>18</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- loop-tick 自身已写 loop-state.json + 弹通知，这里仅留底日志 -->
+    <key>StandardOutPath</key>
+    <string>/tmp/smartcalendar-daily.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/smartcalendar-daily.err.log</string>
+
+    <!-- 不常驻，触发即跑一次 -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

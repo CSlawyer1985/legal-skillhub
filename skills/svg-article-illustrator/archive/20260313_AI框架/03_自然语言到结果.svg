@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="85" font-size="36" font-weight="bold" fill="#2d3748" text-anchor="middle">一句话，结果来</text>
+  <g transform="translate(100, 180)">
+    <text x="0" y="35" font-size="80" text-anchor="middle">💬</text>
+    <animateTransform attributeName="transform" type="translate" values="100,180; 100,170; 100,180" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+  <rect x="60" y="280" width="150" height="50" rx="8" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2"/>
+  <text x="135" y="312" font-size="16" fill="#4A90E2" text-anchor="middle">"帮我做..."</text>
+  <line x1="230" y1="220" x2="330" y2="220" stroke="#4A90E2" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="330,215 345,220 330,225" fill="#4A90E2">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+  </polygon>
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="30" r="60" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3"/>
+    <text x="0" y="50" font-size="60" text-anchor="middle">✨</text>
+    <animateTransform attributeName="transform" type="scale" values="1;1.05;1" dur="2s" repeatCount="indefinite" additive="sum"/>
+  </g>
+  <text x="400" y="300" font-size="20" fill="#718096" text-anchor="middle">AI</text>
+  <line x1="480" y1="220" x2="580" y2="220" stroke="#4A90E2" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="580,215 595,220 580,225" fill="#4A90E2">
+    <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+  </polygon>
+  <g transform="translate(680, 180)">
+    <text x="0" y="35" font-size="80" text-anchor="middle">📄</text>
+    <animateTransform attributeName="transform" type="translate" values="680,180; 680,170; 680,180" dur="3.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+  <text x="680" y="300" font-size="20" fill="#718096" text-anchor="middle">结果</text>
+</svg>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>证券虚假陈述投资者损失计算表（可视化版）</title>
+<style>
+  :root{
+    --navy:#1f3a5f; --navy2:#2c5282; --accent:#2b6cb0; --line:#e2e8f0;
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1a202c; --muted:#64748b;
+    --buy:#2b6cb0; --sell:#dd6b20; --loss:#c53030; --ok:#2f855a;
+    --warnbg:#fffbeb; --warnbd:#f6e05e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--ink);font-size:14px;line-height:1.5}
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px}
+  header h1{margin:0;font-size:20px;font-weight:700;letter-spacing:.5px}
+  header p{margin:4px 0 0;font-size:12.5px;opacity:.85}
+  .wrap{max-width:1180px;margin:0 auto;padding:18px 20px 60px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:16px;
+        box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card h2{margin:0 0 12px;font-size:15px;color:var(--navy);border-left:4px solid var(--accent);padding-left:9px}
+  .grid{display:grid;gap:12px}
+  .params{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
+  .field{display:flex;flex-direction:column;gap:4px}
+  .field label{font-size:12px;color:var(--muted)}
+  .field input,.field select{font-size:13px;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+  .field input:focus,.field select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  button{font:inherit;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff;
+         padding:6px 12px;border-radius:6px;font-size:13px}
+  button.ghost{background:#fff;color:var(--accent)}
+  button:hover{opacity:.9}
+  table{border-collapse:collapse;width:100%;font-size:12.5px}
+  th,td{border:1px solid var(--line);padding:5px 6px;text-align:center}
+  th{background:#eef2f7;color:var(--navy);font-weight:600;position:sticky;top:0}
+  td input{border:1px solid transparent;background:#fff;width:100%;text-align:center;font:inherit;padding:3px}
+  td input:focus{outline:1px solid var(--accent);border-radius:4px}
+  td.calc{background:#f1f5f9;color:#334155;font-variant-numeric:tabular-nums}
+  tr.qual td{background:#f0f9ff}
+  tr.predisc td{background:#fff7ed}
+  tr.postdisc td{background:#fef2f2}
+  .tag{font-size:11px;padding:1px 6px;border-radius:10px;color:#fff;display:inline-block}
+  .tag.q{background:var(--buy)} .tag.pd{background:var(--sell)} .tag.po{background:var(--loss)}
+  .res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .res{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:12px}
+  .res .k{font-size:12px;color:var(--muted)}
+  .res .v{font-size:20px;font-weight:700;margin-top:4px;font-variant-numeric:tabular-nums}
+  .res.total{background:#fef2f2;border-color:#fecaca}
+  .res.total .v{color:var(--loss)}
+  .res.strict{background:#fffbeb;border-color:var(--warnbd)}
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:880px){.charts{grid-template-columns:1fr}}
+  canvas{max-width:100%}
+  .note{font-size:12.5px;color:#334155}
+  .note ul{margin:6px 0 0;padding-left:20px}
+  .note li{margin:4px 0}
+  .warn{background:var(--warnbg);border:1px solid var(--warnbd);border-radius:8px;padding:12px 14px;font-size:12.5px;color:#744210}
+  .warn b{color:#92400e}
+  details{margin-top:8px}
+  summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:13px}
+  .pill{display:inline-block;background:#eef2f7;color:var(--navy);border-radius:6px;padding:2px 8px;font-size:11.5px;margin-right:6px}
+  .legend{font-size:12px;color:var(--muted);margin:6px 0 0}
+  .legend span{display:inline-block;margin-right:14px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:4px}
+  @media print{body{background:#fff}.card{box-shadow:none;break-inside:avoid}button{display:none}.toolbar{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>证券虚假陈述投资者损失计算表（可视化版）</h1>
+  <p>适用：上市公司欺诈/虚假陈述致投资者损失的民事赔偿索赔 · 移动加权平均法 · 可编辑、可复核、可打印（Ctrl/Cmd+P 导出 PDF）</p>
+</header>
+
+<div class="wrap">
+
+  <!-- 参数 -->
+  <div class="card">
+    <h2>一、基本参数（可编辑）</h2>
+    <div class="grid params" id="params">
+      <div class="field"><label>证券代码</label><input id="p_code" value="300212"></div>
+      <div class="field"><label>证券名称</label><input id="p_name" value="易华录"></div>
+      <div class="field"><label>实施日（暂定）</label><input id="p_impl" type="date" value="2025-12-26"></div>
+      <div class="field"><label>揭露日 / 更正日</label><input id="p_disc" type="date" value="2026-04-29"></div>
+      <div class="field"><label>基准日</label><input id="p_base" type="date" value="2026-05-25"></div>
+      <div class="field"><label>基准价（元）</label><input id="p_baseprice" type="number" step="0.001" value="6.91"></div>
+      <div class="field"><label>佣金率（‰）</label><input id="p_comm" type="number" step="0.0001" value="0.1"></div>
+      <div class="field"><label>印花税率（‰）</label><input id="p_stamp" type="number" step="0.0001" value="0.5"></div>
+    </div>
+    <p class="legend" style="margin-top:10px">
+      <span class="pill">买入均价</span>采用<b>移动加权平均法</b>（买入权重计价，卖出不改变成本价）
+      <span class="pill">佣金/印花税</span>按差额损失的固定比例估算（与附件口径一致）
+    </p>
+  </div>
+
+  <!-- 交易记录 -->
+  <div class="card">
+    <h2>二、交易记录（可编辑 / 增删行）</h2>
+    <div class="toolbar">
+      <button class="ghost" onclick="addRow()">+ 添加一行</button>
+      <button class="ghost" onclick="delRow()">− 删除末行</button>
+      <button class="ghost" onclick="loadExample()">载入示例数据</button>
+      <button onclick="recalc()">重新计算</button>
+      <button class="ghost" onclick="window.print()">打印 / 导出 PDF</button>
+    </div>
+    <div style="overflow:auto;max-height:430px">
+    <table id="trades">
+      <thead>
+        <tr>
+          <th>序号</th><th>发生日期</th><th>买卖类别</th><th>成交数量</th><th>成交价格</th>
+          <th>手续费</th><th>印花税</th><th>持仓</th><th>移动平均价</th><th>可索赔标记</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    </div>
+    <p class="legend">
+      <span><span class="dot" style="background:var(--buy)"></span>窗口内买入（实施日~揭露日）</span>
+      <span><span class="dot" style="background:var(--sell)"></span>揭露日前卖出（扣减可索赔股数）</span>
+      <span><span class="dot" style="background:var(--loss)"></span>揭露日~基准日卖出（按实际卖价）</span>
+    </p>
+  </div>
+
+  <!-- 计算结果 -->
+  <div class="card">
+    <h2>三、损失计算结果</h2>
+    <div class="res-grid">
+      <div class="res"><div class="k">买入均价（元）</div><div class="v" id="r_avg">—</div></div>
+      <div class="res"><div class="k">可索赔股数（股）</div><div class="v" id="r_qty">—</div></div>
+      <div class="res"><div class="k">投资差额损失（本表口径·基准价法）</div><div class="v" id="r_loss">—</div></div>
+      <div class="res"><div class="k">佣金（元）</div><div class="v" id="r_comm">—</div></div>
+      <div class="res"><div class="k">印花税（元）</div><div class="v" id="r_stamp">—</div></div>
+      <div class="res total"><div class="k">总损失（元）</div><div class="v" id="r_total">—</div></div>
+    </div>
+    <div class="res strict" style="margin-top:12px;padding:12px;border-radius:8px">
+      <div class="k" style="font-size:12px;color:#744210"><b>对照：严格司法解释口径（法释〔2022〕2号 第二十七条）</b></div>
+      <div style="font-size:13px;margin-top:6px">
+        投资差额损失 = <b id="r_loss_strict">—</b> 元 ｜ 总损失 = <b id="r_total_strict">—</b> 元
+        <span id="r_diff" style="color:#92400e"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 图表 -->
+  <div class="card">
+    <h2>四、可视化图表</h2>
+    <div class="charts">
+      <div>
+        <div style="font-weight:600;color:var(--navy);font-size:13px">成交价格走势（标注关键日期）</div>
+        <canvas id="chart_price" width="540" height="300"></canvas>
+      </div>
+      <div>
+        <div style="font-weight:600;color:var(--navy);font-size:13px">持仓数量变化</div>
+        <canvas id="chart_pos" width="540" height="300"></canvas>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <div style="font-weight:600;color:var(--navy);font-size:13px">损失构成（本表口径）</div>
+      <canvas id="chart_loss" width="540" height="220"></canvas>
+    </div>
+  </div>
+
+  <!-- 方法与风险 -->
+  <div class="card">
+    <h2>五、计算口径说明与风险提示</h2>
+    <div class="warn">
+      <b>口径差异提示：</b>本表默认采用附件所用「全部可索赔股数按基准价计算差额损失」的<b>保守口径</b>；
+      而《最高人民法院关于审理证券市场虚假陈述侵权民事赔偿案件的若干规定》（法释〔2022〕2号）第二十七条对
+      「揭露日~基准日期间已卖出」与「基准日后仍持有」的股票分别适用实际卖出价与基准价。两者可能得出不同金额，
+      实际索赔金额应以法院认定口径为准，建议就差额部分与承办法官/对方沟通或作区间主张。
+    </div>
+    <details open>
+      <summary>计算逻辑（可复核）</summary>
+      <div class="note">
+        <ul>
+          <li><b>买入均价</b> = 移动加权平均价：每笔买入后，<code>新均价 =（原均价×原持仓 + 本笔数量×本笔价格）÷ 新持仓</code>；卖出不改变均价。</li>
+          <li><b>可索赔股数</b> = 实施日之后、揭露日之前净买入数量 − 揭露日前已卖出数量（即揭露日时仍持有的净头寸）。</li>
+          <li><b>本表口径（基准价法）</b>：投资差额损失 = 可索赔股数 ×（买入均价 − 基准价）。</li>
+          <li><b>严格司法解释口径</b>：投资差额损失 = Σ（买入均价 − 实际卖出价）×揭露日~基准日卖出量 +（买入均价 − 基准价）×基准日仍持有量。</li>
+          <li><b>佣金 / 印花税</b> = 投资差额损失 × 对应比例（本表按差额损失估算，非实际发生费用；亦可改为按实际已付费用列示）。</li>
+          <li><b>总损失</b> = 投资差额损失 + 佣金 + 印花税（司法解释另可主张利息，本表未含，按需补充）。</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary>使用与合规提示</summary>
+      <div class="note">
+        <ul>
+          <li>实施日、揭露日、基准日、基准价属<b>案件关键事实/法院认定事项</b>，本表仅作计算工具，相关日期与价格须以行政处罚决定书、刑事判决书或法院文书为准，请勿直接采信示意值。</li>
+          <li>若（买入均价 − 基准价）或（买入均价 − 实际卖价）为负，说明该部分无差额损失，差额损失不为负。</li>
+          <li>本工具为律师办案辅助计算，不构成法律意见；最终索赔金额与可赔范围以司法裁判为准。</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<script>
+// =================== 示例数据（与附件一致） ===================
+const EXAMPLE = [
+  {date:'2026-03-02',type:'buy', qty:3500, price:11.96, fee:5,    stamp:0},
+  {date:'2026-03-03',type:'buy', qty:1000, price:11.87, fee:5,    stamp:0},
+  {date:'2026-03-03',type:'buy', qty:1000, price:11.72, fee:5,    stamp:0},
+  {date:'2026-03-03',type:'buy', qty:1200, price:11.48, fee:5,    stamp:0},
+  {date:'2026-03-03',type:'buy', qty:6000, price:11.34, fee:6.8,  stamp:0},
+  {date:'2026-03-03',type:'buy', qty:5900, price:11.36, fee:6.7,  stamp:0},
+  {date:'2026-03-03',type:'buy', qty:2800, price:11.15, fee:5,    stamp:0},
+  {date:'2026-03-04',type:'buy', qty:4500, price:11.14, fee:5.01, stamp:0},
+  {date:'2026-03-18',type:'buy', qty:2900, price:11.11, fee:5,    stamp:0},
+  {date:'2026-03-26',type:'buy', qty:3000, price:11.36, fee:5,    stamp:0},
+  {date:'2026-03-30',type:'buy', qty:2100, price:11.06, fee:5,    stamp:0},
+  {date:'2026-03-30',type:'sell',qty:2100, price:11.32, fee:5,    stamp:11.89},
+  {date:'2026-04-03',type:'buy', qty:2400, price:9.6,   fee:5,    stamp:0},
+  {date:'2026-04-27',type:'buy', qty:3300, price:8.17,  fee:5,    stamp:0},
+  {date:'2026-04-30',type:'sell',qty:37500,price:6.71,  fee:25.16,stamp:125.81}
+];
+
+let TRADES = JSON.parse(JSON.stringify(EXAMPLE));
+
+const $ = id => document.getElementById(id);
+const fmt = n => (n==null||isNaN(n)) ? '—' : n.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2});
+
+// =================== 表格渲染 ===================
+function renderTable(calc){
+  const tb = $('tbody'); tb.innerHTML='';
+  TRADES.forEach((t,i)=>{
+    const c = calc ? calc.rows[i] : null;
+    const tr = document.createElement('tr');
+    let cls = '';
+    if(c){ if(c.mark==='qual') cls='qual'; else if(c.mark==='predisc') cls='predisc'; else if(c.mark==='postdisc') cls='postdisc'; }
+    tr.className = cls;
+    tr.innerHTML = `
+      <td>${i+1}</td>
+      <td><input data-i="${i}" data-k="date" type="date" value="${t.date}"></td>
+      <td><select data-i="${i}" data-k="type">
+            <option value="buy" ${t.type==='buy'?'selected':''}>证券买入</option>
+            <option value="sell" ${t.type==='sell'?'selected':''}>证券卖出</option></select></td>
+      <td><input data-i="${i}" data-k="qty" type="number" step="1" value="${t.qty}"></td>
+      <td><input data-i="${i}" data-k="price" type="number" step="0.001" value="${t.price}"></td>
+      <td><input data-i="${i}" data-k="fee" type="number" step="0.01" value="${t.fee}"></td>
+      <td><input data-i="${i}" data-k="stamp" type="number" step="0.01" value="${t.stamp}"></td>
+      <td class="calc">${c?fmt(c.pos):''}</td>
+      <td class="calc">${c?fmt(c.avg):''}</td>
+      <td>${c?markTag(c.mark):''}</td>`;
+    tb.appendChild(tr);
+  });
+  tb.querySelectorAll('input,select').forEach(el=>{
+    el.addEventListener('change',onEdit); el.addEventListener('input',onEdit);
+  });
+}
+function markTag(m){
+  if(m==='qual') return '<span class="tag q">窗口买入</span>';
+  if(m==='predisc') return '<span class="tag pd">揭露前卖出</span>';
+  if(m==='postdisc') return '<span class="tag po">揭露后卖出</span>';
+  return '';
+}
+function onEdit(e){
+  const i=+e.target.dataset.i, k=e.target.dataset.k;
+  if(k==='type') TRADES[i].type=e.target.value;
+  else TRADES[i][k] = (k==='date')? e.target.value : (e.target.value===''?0:Number(e.target.value));
+  recalc();
+}
+
+// =================== 核心计算 ===================
+function d(s){ return new Date(s+'T00:00:00'); }
+function compute(){
+  const p = {
+    impl:d($('p_impl').value), disc:d($('p_disc').value), base:d($('p_base').value),
+    basePrice:+($('p_baseprice').value)||0,
+    commRate:(+$('p_comm').value||0)/1000,
+    stampRate:(+$('p_stamp').value||0)/1000
+  };
+  // 按日期升序
+  const idx = TRADES.map((t,i)=>i).sort((a,b)=> d(TRADES[a].date)-d(TRADES[b].date));
+  // 移动加权平均（逐笔四舍五入，整数分运算消除浮点漂移，与 Excel ROUND 一致）
+  // 权重采用"持仓"（含卖出影响），与附件 N 列公式 N=(N_prev*M_prev+F*G)/M_new 一致
+  let pos=0, avgCents=0, buyAvgCents=0;
+  const rows=[]; const sortedTrades=[];
+  idx.forEach(i=>{
+    const t=TRADES[i];
+    const dt=d(t.date);
+    let mark='';
+    if(t.type==='buy'){
+      const q=t.qty, pc=Math.round(t.price*100);
+      pos += q;
+      avgCents = Math.round((avgCents*(pos-q) + q*pc)/pos);
+      if(dt>p.impl && dt<p.disc){ mark='qual'; buyAvgCents = avgCents; }
+    }else{
+      if(dt<p.disc) mark='predisc';
+      else if(dt>=p.disc && dt<=p.base) mark='postdisc';
+      pos -= t.qty;
+    }
+    const avg = avgCents/100;
+    rows[i]={pos,avg,mark,dt,type:t.type,qty:t.qty,price:t.price};
+    sortedTrades.push({...t,dt,mark,posAfter:pos,avgAfter:avg});
+  });
+  // 买入均价 = 窗口内最后买入后的移动加权平均（附件 N15）
+  const buyAvg = buyAvgCents/100;
+
+  // 可索赔股数 = 窗口买入合计 - 揭露日前卖出合计
+  let qualBuy=0, prediscSell=0, postdiscSellQty=0, postdiscSellLoss=0, baseHeld=0;
+  idx.forEach(i=>{
+    const t=TRADES[i]; const dt=d(t.date);
+    if(t.type==='buy' && dt>p.impl && dt<p.disc) qualBuy+=t.qty;
+    if(t.type==='sell' && dt<p.disc) prediscSell+=t.qty;
+    if(t.type==='sell' && dt>=p.disc && dt<=p.base){
+      postdiscSellQty+=t.qty;
+      const diff = buyAvg - t.price;          // 实际卖出价
+      if(diff>0) postdiscSellLoss += diff*t.qty;
+    }
+  });
+  const claimQty = qualBuy - prediscSell;
+  // 基准日仍持有（可索赔部分）= 可索赔股数 - 揭露日至基准日已卖出
+  baseHeld = claimQty - postdiscSellQty;
+
+  // 本表口径（基准价法，保守）
+  const diffBase = buyAvg - p.basePrice;
+  const lossBase = diffBase>0 ? diffBase*claimQty : 0;
+  const commBase = lossBase*p.commRate, stampBase = lossBase*p.stampRate;
+  const totalBase = lossBase+commBase+stampBase;
+
+  // 严格司法解释口径
+  const lossStrict = postdiscSellLoss + (baseHeld>0 ? Math.max(0,(buyAvg-p.basePrice))*baseHeld : 0);
+  const commStrict = lossStrict*p.commRate, stampStrict = lossStrict*p.stampRate;
+  const totalStrict = lossStrict+commStrict+stampStrict;
+
+  return {p,rows,sortedTrades,buyAvg,claimQty,lossBase,commBase,stampBase,totalBase,
+          lossStrict,commStrict,stampStrict,totalStrict,diffBase};
+}
+
+// =================== 结果填充 + 图表 ===================
+function recalc(){
+  const r = compute();
+  $('r_avg').textContent = fmt(r.buyAvg);
+  $('r_qty').textContent = (r.claimQty||0).toLocaleString('zh-CN');
+  $('r_loss').textContent = fmt(r.lossBase);
+  $('r_comm').textContent = fmt(r.commBase);
+  $('r_stamp').textContent = fmt(r.stampBase);
+  $('r_total').textContent = fmt(r.totalBase);
+  $('r_loss_strict').textContent = fmt(r.lossStrict);
+  $('r_total_strict').textContent = fmt(r.totalStrict);
+  const delta = r.totalStrict - r.totalBase;
+  $('r_diff').textContent = (Math.abs(delta)<0.005)? '（两种口径一致）'
+      : ` ｜ 较本表口径${delta>0?'多':'少'} ${fmt(Math.abs(delta))} 元`;
+  renderTable(r);
+  drawPrice(r);
+  drawPos(r);
+  drawLoss(r);
+}
+
+// ---- Canvas 折线/面积图工具 ----
+function axes(ctx,W,H,pad){
+  ctx.clearRect(0,0,W,H);
+  ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(pad.l,pad.t); ctx.lineTo(pad.l,H-pad.b); ctx.lineTo(W-pad.r,H-pad.b); ctx.stroke();
+}
+function drawPrice(r){
+  const cv=$('chart_price'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  const pad={l:48,r:16,t:18,b:46};
+  axes(ctx,W,H,pad);
+  const ts=r.sortedTrades; if(!ts.length) return;
+  const prices=ts.map(t=>t.price);
+  let min=Math.min(...prices,r.p.basePrice), max=Math.max(...prices);
+  const span=(max-min)||1; min-=span*0.08; max+=span*0.08;
+  const x=i=> pad.l + (W-pad.l-pad.r)*(i/(ts.length-1||1));
+  const y=v=> H-pad.b - (H-pad.t-pad.b)*((v-min)/(max-min||1));
+  // 关键日期竖线
+  const dates=ts.map(t=>t.dt.getTime());
+  const dm={impl:r.p.impl,disc:r.p.disc,base:r.p.base};
+  const color={impl:'#718096',disc:'#c53030',base:'#2b6cb0'};
+  const label={impl:'实施日',disc:'揭露日',base:'基准日'};
+  for(const k in dm){
+    const t=dm[k].getTime();
+    if(t<dates[0]||t>dates[dates.length-1]) continue;
+    const i=ts.findIndex(tt=>tt.dt.getTime()>=t);
+    const xx=x(i);
+    ctx.strokeStyle=color[k]; ctx.setLineDash([4,3]); ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(xx,pad.t); ctx.lineTo(xx,H-pad.b); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle=color[k]; ctx.font='10px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(label[k],xx,pad.t+10);
+  }
+  // 价格线
+  ctx.strokeStyle='#1a202c'; ctx.lineWidth=1.5; ctx.beginPath();
+  ts.forEach((t,i)=>{ const xx=x(i),yy=y(t.price); i?ctx.lineTo(xx,yy):ctx.moveTo(xx,yy); }); ctx.stroke();
+  // 买卖点
+  ts.forEach((t,i)=>{
+    const xx=x(i),yy=y(t.price);
+    ctx.fillStyle = t.type==='buy'?'#2b6cb0':'#dd6b20';
+    ctx.beginPath(); ctx.arc(xx,yy,3.5,0,7); ctx.fill();
+  });
+  // Y 轴刻度
+  ctx.fillStyle='#64748b'; ctx.font='10px sans-serif'; ctx.textAlign='right';
+  for(let g=0;g<=4;g++){ const v=min+(max-min)*g/4; ctx.fillText(v.toFixed(2),pad.l-4,y(v)); }
+  ctx.textAlign='center'; ctx.fillText('基准价 '+r.p.basePrice.toFixed(2),W/2,H-6);
+}
+function drawPos(r){
+  const cv=$('chart_pos'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  const pad={l:52,r:16,t:18,b:30};
+  axes(ctx,W,H,pad);
+  const ts=r.sortedTrades; if(!ts.length) return;
+  const poss=ts.map(t=>t.posAfter); const max=Math.max(...poss,1);
+  const x=i=> pad.l + (W-pad.l-pad.r)*(i/(ts.length-1||1));
+  const y=v=> H-pad.b - (H-pad.t-pad.b)*(v/(max||1));
+  ctx.fillStyle='rgba(43,108,176,.15)'; ctx.strokeStyle='#2b6cb0'; ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ts.forEach((t,i)=>{ const xx=x(i),yy=y(t.posAfter); i?ctx.lineTo(xx,yy):ctx.moveTo(xx,yy); });
+  ctx.lineTo(x(ts.length-1),H-pad.b); ctx.lineTo(x(0),H-pad.b); ctx.closePath(); ctx.fill();
+  ctx.beginPath();
+  ts.forEach((t,i)=>{ const xx=x(i),yy=y(t.posAfter); i?ctx.lineTo(xx,yy):ctx.moveTo(xx,yy); }); ctx.stroke();
+  ctx.fillStyle='#64748b'; ctx.font='10px sans-serif'; ctx.textAlign='right';
+  for(let g=0;g<=4;g++){ const v=max*g/4; ctx.fillText(Math.round(v).toLocaleString(),pad.l-4,y(v)); }
+}
+function drawLoss(r){
+  const cv=$('chart_loss'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  ctx.clearRect(0,0,W,H);
+  const data=[['投资差额损失',r.lossBase,'#c53030'],['佣金',r.commBase,'#2b6cb0'],['印花税',r.stampBase,'#dd6b20']];
+  const total=data.reduce((s,a)=>s+a[1],0)||1;
+  let x0=150, y=40, barW=320, h=34;
+  ctx.font='13px sans-serif'; ctx.textBaseline='middle';
+  data.forEach((a,i)=>{
+    const w=barW*(a[1]/total);
+    ctx.fillStyle=a[2]; ctx.fillRect(x0,y,w,h);
+    ctx.fillStyle='#1a202c'; ctx.textAlign='right'; ctx.fillText(a[0],x0-10,y+h/2);
+    ctx.textAlign='left'; ctx.fillStyle='#fff'; ctx.fillText(fmt(a[1]),x0+6,y+h/2);
+    ctx.fillStyle='#64748b'; ctx.textAlign='left'; ctx.fillText((a[1]/total*100).toFixed(1)+'%',x0+w+8,y+h/2);
+    y+=h+18;
+  });
+  ctx.fillStyle='#1a202c'; ctx.textAlign='left'; ctx.font='bold 13px sans-serif';
+  ctx.fillText('总损失 '+fmt(total),x0,y+4);
+}
+
+// =================== 行操作 ===================
+function addRow(){ TRADES.push({date:TRADES.length?TRADES[TRADES.length-1].date:'2026-01-01',type:'buy',qty:0,price:0,fee:0,stamp:0}); recalc(); }
+function delRow(){ if(TRADES.length>1){ TRADES.pop(); recalc(); } }
+function loadExample(){ TRADES=JSON.parse(JSON.stringify(EXAMPLE)); recalc(); }
+
+// 参数变更
+['p_impl','p_disc','p_base','p_baseprice','p_comm','p_stamp'].forEach(id=>{
+  $(id).addEventListener('change',recalc); $(id).addEventListener('input',recalc);
+});
+
+recalc();
+</script>
+</body>
+</html>

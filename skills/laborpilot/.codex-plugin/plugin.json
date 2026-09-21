@@ -1,0 +1,40 @@
+{
+  "name": "LaborPilot",
+  "version": "1.4.4",
+  "description": "面向劳动者与用人单位的中国劳动争议办案插件，以全国规则为基座并内置浙江地方口径。",
+  "author": {
+    "name": "金莉珊",
+    "url": "https://jinlishan.com/"
+  },
+  "homepage": "https://jinlishan.com/",
+  "repository": "https://github.com/xxia-king/LaborPilot",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "labor-law",
+    "legal-analysis",
+    "litigation",
+    "arbitration",
+    "zhejiang"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "LaborPilot｜劳动争议办案系统",
+    "shortDescription": "全国规则与浙江口径的劳动争议办案工具",
+    "longDescription": "面向劳动者方与用人单位方，支持案件状态管理、争点识别、证据审查、法源核验、金额计算、文书初稿和交付前验证。内置知识组件可离线辅助办案，法律引用和正式文书仍须核验并经专业律师复核。",
+    "developerName": "金莉珊",
+    "category": "Productivity",
+    "capabilities": [
+      "Analyze",
+      "Research",
+      "Calculate",
+      "Draft",
+      "Validate"
+    ],
+    "websiteURL": "https://jinlishan.com/",
+    "defaultPrompt": [
+      "分析一宗劳动争议案件，先确认我方立场和程序阶段。",
+      "根据案件材料梳理争点、证据以及请求或抗辩。",
+      "计算劳动争议请求金额并生成律师复核初稿。"
+    ]
+  }
+}

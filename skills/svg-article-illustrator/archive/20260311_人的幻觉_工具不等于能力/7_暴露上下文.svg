@@ -1,0 +1,40 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FAFAFA"/>
+  <text x="400" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#2D3748">暴露上下文</text>
+  <g transform="translate(200, 230)">
+    <text font-size="90" text-anchor="middle">👤</text>
+    <text x="0" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="22" text-anchor="middle" fill="#718096">你的上下文</text>
+    <circle cx="0" cy="-30" r="50" fill="none" stroke="#3498DB" stroke-width="3" opacity="0.5">
+      <animate attributeName="r" values="40;60;40" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g>
+    <text x="350" y="180" font-size="50" text-anchor="middle" opacity="0.8">📄
+      <animate attributeName="x" values="280;380" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <g>
+    <text x="370" y="240" font-size="50" text-anchor="middle" opacity="0.8">📊
+      <animate attributeName="x" values="290;400" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.3;1" dur="3.5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <g transform="translate(600, 230)">
+    <text font-size="90" text-anchor="middle">🤖</text>
+    <text x="0" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="22" text-anchor="middle" fill="#718096">AI 助手</text>
+    <circle cx="0" cy="-30" r="40" fill="none" stroke="#9B59B6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <path d="M 280 230 L 480 230" stroke="#E74C3C" stroke-width="4" fill="none" marker-end="url(#arrow)">
+    <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E74C3C"/>
+    </marker>
+  </defs>
+  <text x="400" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="#718096">AI 需要你的上下文才能提供准确帮助</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEFCBF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FAF089;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad7)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="#744210">Agent → Skill 转变</text>
+
+  <!-- 左侧：Agent -->
+  <g transform="translate(200, 200)">
+    <rect x="-100" y="-70" width="200" height="140" fill="#FED7D7" stroke="#FC8181" stroke-width="3" rx="12"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="50">🤖</text>
+    <text x="0" y="25" text-anchor="middle" font-size="22" font-weight="bold" fill="#C53030">Agent</text>
+    <text x="0" y="50" text-anchor="middle" font-size="14" fill="#742A2A">复杂指令封装</text>
+    <animateTransform attributeName="transform" type="translate" values="200,200; 200,192; 200,200" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 转换箭头 -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="40" fill="#FEFCBF" stroke="#D69E2E" stroke-width="3">
+      <animate attributeName="fill-opacity" values="0.5; 1; 0.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="12" text-anchor="middle" font-size="40">➜</text>
+  </g>
+
+  <!-- 右侧：Skill -->
+  <g transform="translate(600, 200)">
+    <rect x="-100" y="-70" width="200" height="140" fill="#C6F6D5" stroke="#68D391" stroke-width="3" rx="12"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="50">🎯</text>
+    <text x="0" y="25" text-anchor="middle" font-size="22" font-weight="bold" fill="#276749">Skill</text>
+    <text x="0" y="50" text-anchor="middle" font-size="14" fill="#22543D">可复用流程资产</text>
+    <animateTransform attributeName="transform" type="translate" values="600,200; 600,192; 600,200" dur="3s" repeatCount="indefinite" begin="0.5s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 连接箭头 -->
+  <line x1="320" y1="200" x2="350" y2="200" stroke="#D69E2E" stroke-width="4" marker-end="url(#arrowE1)" stroke-dasharray="40" stroke-dashoffset="40">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="450" y1="200" x2="480" y2="200" stroke="#38A169" stroke-width="4" marker-end="url(#arrowE2)" stroke-dasharray="40" stroke-dashoffset="40">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.8s" repeatCount="indefinite" begin="0.3s"/>
+  </line>
+
+  <!-- 底部 Skill 定义 -->
+  <g transform="translate(400, 370)">
+    <rect x="-280" y="-30" width="560" height="60" fill="#FEFCBF" stroke="#D69E2E" stroke-width="2" rx="10"/>
+    <text x="-200" y="5" text-anchor="middle" font-size="28">📁</text>
+    <text x="-80" y="5" text-anchor="middle" font-size="18" fill="#744210">一个目录</text>
+    <text x="20" y="5" text-anchor="middle" font-size="24">+</text>
+    <text x="120" y="5" text-anchor="middle" font-size="18" fill="#744210">一个 SKILL.md</text>
+  </g>
+
+  <defs>
+    <marker id="arrowE1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#D69E2E"/>
+    </marker>
+    <marker id="arrowE2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38A169"/>
+    </marker>
+  </defs>
+</svg>

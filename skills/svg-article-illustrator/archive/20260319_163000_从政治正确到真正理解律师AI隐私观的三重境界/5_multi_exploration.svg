@@ -1,0 +1,68 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <title>多维探索</title>
+  <desc>建设型关注者在AI探索中的多个维度</desc>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A1A2E">隐私只是起点</text>
+
+  <!-- 中心圆 -->
+  <g>
+    <circle cx="400" cy="220" r="60" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-width="3"/>
+    <text x="400" y="210" font-size="40" text-anchor="middle">🔍</text>
+    <text x="400" y="245" font-size="14" text-anchor="middle" fill="#10B981" font-weight="bold">建设型关注</text>
+  </g>
+
+  <!-- 周围节点：各个探索方向 -->
+  <!-- 节点1：文档效率 -->
+  <g>
+    <circle cx="200" cy="130" r="45" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2">
+      <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="200" y="125" font-size="40" text-anchor="middle">📄</text>
+    <text x="200" y="155" font-size="12" text-anchor="middle" fill="#4A90E2">文档效率</text>
+    <line x1="260" y1="160" x2="340" y2="190" stroke="#4A90E2" stroke-width="2" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- 节点2：法律研究 -->
+  <g>
+    <circle cx="600" cy="130" r="45" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2">
+      <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <text x="600" y="125" font-size="40" text-anchor="middle">⚖️</text>
+    <text x="600" y="155" font-size="12" text-anchor="middle" fill="#4A90E2">法律研究</text>
+    <line x1="540" y1="160" x2="460" y2="190" stroke="#4A90E2" stroke-width="2" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+    </line>
+  </g>
+
+  <!-- 节点3：客户服务 -->
+  <g>
+    <circle cx="180" cy="310" r="45" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2">
+      <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <text x="180" y="305" font-size="40" text-anchor="middle">👥</text>
+    <text x="180" y="335" font-size="12" text-anchor="middle" fill="#4A90E2">客户服务</text>
+    <line x1="230" y1="280" x2="340" y2="250" stroke="#4A90E2" stroke-width="2" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" begin="1s"/>
+    </line>
+  </g>
+
+  <!-- 节点4：隐私保护 -->
+  <g>
+    <circle cx="620" cy="310" r="45" fill="#FFF5F5" stroke="#E24A4A" stroke-width="2">
+      <animate attributeName="r" values="45;50;45" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+    </circle>
+    <text x="620" y="305" font-size="40" text-anchor="middle">🔒</text>
+    <text x="620" y="335" font-size="12" text-anchor="middle" fill="#E24A4A">隐私保护</text>
+    <line x1="570" y1="280" x2="460" y2="250" stroke="#E24A4A" stroke-width="2" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" begin="1.5s"/>
+    </line>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="400" y="420" font-size="18" text-anchor="middle" fill="#666666">每一个问题，都是深入探索的入口</text>
+</svg>

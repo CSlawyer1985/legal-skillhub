@@ -1,0 +1,12 @@
+interface:
+  display_name: "对方律师审查"
+  short_description: "用对方律师视角审查中国大陆法律论证"
+  default_prompt: "使用 $prc-opposing-counsel-review 审查以下中国大陆法律材料，并优先核对法条与案例依据。"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "open.chineselaw.com"
+      description: "元典开放平台法律法规、案例文书、企业信息与幻觉检测 MCP"
+      transport: "streamable_http"
+      url: "https://open.chineselaw.com/mcp"

@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/rule-graph-v1.schema.json",
+  "title": "One-Contract Rule Graph Projection",
+  "$comment": "projection_hash is SHA-256 over the RFC 8785/JCS graph projection with projection_hash omitted. Candidate bodies must remain absent from runtime projections. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "public_snapshot_id",
+    "nodes",
+    "edges",
+    "projection_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "public_snapshot_id": {
+      "type": "string",
+      "pattern": "^public_sha256_[a-f0-9]{64}$"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ruleNode"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ruleEdge"
+      }
+    },
+    "projection_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "ruleNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node_id",
+        "node_kind",
+        "layer",
+        "title",
+        "version",
+        "approval_status",
+        "activation_status",
+        "body_visibility",
+        "body",
+        "domain_codes",
+        "type_ids",
+        "roles",
+        "scene_tags",
+        "source_refs",
+        "summary",
+        "content_hash"
+      ],
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "node_kind": {
+          "type": "string",
+          "enum": [
+            "global_document",
+            "domain_principle",
+            "contract_type",
+            "type_principle",
+            "module",
+            "module_group",
+            "trigger",
+            "source",
+            "client_rule"
+          ]
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "global",
+            "domain",
+            "type",
+            "client_overlay"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 80
+        },
+        "approval_status": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "activation_status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "inactive"
+          ]
+        },
+        "body_visibility": {
+          "type": "string",
+          "enum": [
+            "full_active",
+            "metadata_only_candidate",
+            "document_node",
+            "private_client",
+            "unavailable"
+          ]
+        },
+        "body": {
+          "type": [
+            "object",
+            "string",
+            "null"
+          ]
+        },
+        "domain_codes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "type_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "scene_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 2000
+        },
+        "updated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "body_visibility": {
+                "const": "metadata_only_candidate"
+              }
+            },
+            "required": [
+              "body_visibility"
+            ]
+          },
+          "then": {
+            "properties": {
+              "body": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ruleEdge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "edge_id",
+        "from_id",
+        "to_id",
+        "edge_kind",
+        "scope",
+        "source",
+        "status"
+      ],
+      "properties": {
+        "edge_id": {
+          "type": "string",
+          "maxLength": 220
+        },
+        "from_id": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "to_id": {
+          "type": "string",
+          "maxLength": 180
+        },
+        "edge_kind": {
+          "type": "string",
+          "enum": [
+            "contains",
+            "inherits",
+            "deepens",
+            "depends_on",
+            "conflicts_with",
+            "shared_by",
+            "sourced_from",
+            "client_overlays"
+          ]
+        },
+        "scope": {
+          "type": "object"
+        },
+        "source": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "broken",
+            "inactive"
+          ]
+        }
+      }
+    }
+  }
+}

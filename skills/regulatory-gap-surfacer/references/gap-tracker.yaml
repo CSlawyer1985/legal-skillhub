@@ -1,0 +1,112 @@
+# 内规差异台账结构定义模板（v3 —— 阶段 2 负责人模型 + 阶段 3 监管整改任务）
+#
+# 此文件作为 gap-tracker.yaml 的结构示例。
+# 实际运行时该文件位于：$LEGAL_AGENT_PROFILE_HOME/regulatory-legal/gap-tracker.yaml
+# 本文件仅供参考与新建初始化使用。
+#
+# v3（阶段 3）新增：gap_type: inspection-task —— 监管下发函拆解的整改事项。
+# inspection-task 类型的完整字段见 skills/incoming-letter/references/inspection-task-template.md
+
+gaps: []
+
+# 单条内规差异的完整结构示例（v2，阶段 2 负责人模型落地）：
+#
+# gaps:
+#   - id: GAP-001                          # 自增 ID，格式 GAP-NNN
+#     requirement: "规章要求什么 —— 具体到能执行的颗粒度"
+#     regulation: "监管名 + 引用（例：网信办《数据出境安全评估办法》第 X 条）"
+#     policy_affected: "受影响政策名（或'需要新政策'）"
+#     policy_section: "§4.3"               # 命中的具体章节（可选；命中跨章节或单层政策时留空）
+#     gap_type: "partial"                  # none | partial | full | new-policy | watch | comment-decision | inspection-task
+#
+#     # ───── 负责人模型（v2 阶段 2 引入两层分离）─────
+#     policy_owner:                        # 政策本身的归口负责人（默认 = 内规差异初始负责人）
+#       name: "李工"
+#       department: "信息安全部"
+#       dm_id: "feishu_user_id_or_workid"  # 飞书 / 钉钉 / 企业微信工号
+#     task_owner:                          # 整改任务的实际执行人（内规差异创建时可改派业务部门）
+#       name: "张工"
+#       department: "产品部"
+#       dm_id: "feishu_user_id_or_workid"
+#     section_owner:                       # 章节负责人（可选，跨部门复杂政策时启用）
+#       name: "王琳"
+#       department: "法务部"
+#       dm_id: "feishu_user_id_or_workid"
+#
+#     # ───── 时效 / 状态 ─────
+#     opened: 2026-03-01                   # 创建日期
+#     due: 2026-06-01                      # 规章生效日、内部截止日、或评议截止日
+#     status_verified: true                # 如果上游 policy-diff 不能确认规则现行有效则 false
+#     status: "open"                       # open | in-progress | closed | risk-accepted
+#
+#     # ───── 派单状态 ─────
+#     notified_task_owner: false           # task_owner 派单通知是否发出
+#     notified_policy_owner: false         # policy_owner 派单通知（一般在逾期时才触发）
+#     resolution: ""                       # 关闭时填写
+#     reminders_sent:                      # 提醒发送历史
+#       - date: 2026-05-01
+#         type: "30-day"
+#         to: "task_owner"
+#       - date: 2026-05-25
+#         type: "5-day"
+#         to: "task_owner"
+#       - date: 2026-05-30
+#         type: "overdue"
+#         to: "policy_owner"               # 逾期时升级到 policy_owner
+#
+#     # ───── 引用追溯 ─────
+#     source_tags:                         # 上游传过来的源标签，不剥离
+#       - "[国家法律法规数据库]"
+#       - "[元典法规]"
+
+# ─────────────────────────────────────────────
+# 派单逻辑说明
+# ─────────────────────────────────────────────
+#
+# 1. policy-diff 创建内规差异时：
+#    - policy_owner = 从政策库继承（如政策标了章节负责人且命中该章节，则 section_owner 也填）
+#    - task_owner   = 默认 = policy_owner，但 policy-diff 会**追问一次**："这条内规差异实际整改谁来动手？"
+#                     如用户改派业务部门，task_owner 改写
+#
+# 2. gap-surfacer DM 通知发送：
+#    - 派单通知 + 到期提醒：发给 task_owner
+#    - 逾期升级：发给 policy_owner（+ 抄送 task_owner）
+#    - 重大动作确认（关闭内规差异、合规承诺）：触发升级链会签
+#
+# 3. 状态报告分组：
+#    - "我归口的内规差异"视图：按 policy_owner 过滤
+#    - "我要动手的内规差异"视图：按 task_owner 过滤
+#    - 法务总监 / CCO 视图：按 escalation_path 触发条件过滤
+
+# ─────────────────────────────────────────────
+# v2 结构定义变更点（阶段 2 落地）
+# ─────────────────────────────────────────────
+# - 负责人 → policy_owner + task_owner + section_owner（可选）
+# - 负责人_DM → 各负责人嵌套 dm_id 字段
+# - notified → notified_task_owner + notified_policy_owner（区分两类通知）
+# - reminders_sent 加 `to` 字段标记发给哪类负责人
+# - source_tags 字段统一约定（之前已用）
+#
+# v1 → v2 迁移：旧条目的"负责人" → policy_owner（task_owner = policy_owner 默认值）
+
+# ─────────────────────────────────────────────
+# v3 结构定义变更点（阶段 3 监管来函处置落地）
+# ─────────────────────────────────────────────
+# - gap_type 新增枚举值：inspection-task —— 监管下发函拆解的整改事项
+# - inspection-task 用 INS- 前缀（区别于政策内规差异的 GAP- 前缀）
+# - inspection-task 含额外字段：
+#     inspection_letter_id    关联 letter.yaml
+#     inspection_category     6 分法归类
+#     inspection_subcategory  子类（如 2a / 2b）
+#     regulatory_deadline     监管硬截止日（区别于内部 due）
+#     submission_required     是否纳入对外上报
+#     submission_received     业务部门反馈状态
+#     submission_content      反馈内容摘要
+#     submission_supporting_docs  支持材料路径
+#     submission_status       已完成 / 进行中 / 风险接受
+# - 完整字段见 skills/incoming-letter/references/inspection-task-template.md
+#
+# inspection-task 相对普通内规差异的关键差异：
+# - 提醒节奏更紧：30/15/5 天三档预警（普通内规差异是 30 天单档）
+# - 状态报告中按 inspection_letter_id 分组单独成档
+# - 关闭条件更严：除任务关闭外，还需对应 letter.yaml 中监管回函通过验收

@@ -1,0 +1,1253 @@
+{
+  "assets": [
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "披露例外可具体识别且与索赔机制一致",
+        "基础保证、一般保证和专项赔偿的期限与上限分层一致",
+        "治理文件和实际控制移交与交易目的一致"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "重大历史风险没有进入披露函和专项赔偿",
+        "责任上限或短索赔期意外覆盖税务、出资或权属风险",
+        "转让比例与治理及控制移交不匹配"
+      ],
+      "member_module_ids": [
+        "mod-equity-transfer-document-tax-consistency",
+        "mod-equity-transfer-representations-indemnity",
+        "mod-equity-transfer-governance-transition"
+      ],
+      "module_group_id": "grp-ec-01-001-risk-governance-exit",
+      "name": "披露、赔偿与治理移交闭环",
+      "review_sequence": [
+        "mod-equity-transfer-document-tax-consistency",
+        "mod-equity-transfer-representations-indemnity",
+        "mod-equity-transfer-governance-transition"
+      ],
+      "type_code": "EC-01-001",
+      "type_id": "type-equity-transfer",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "标的、出资和章程记载一致",
+        "通知的同等条件与最终交易一致",
+        "付款、股东名册、章程和登记变更的触发条件一致",
+        "目标公司承担名册、章程或登记义务时，已有其签署、决议或其他可执行承诺"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "标的股权或出资状态未核清即付款",
+        "通知条件与签约条件不同",
+        "只办工商变更但未完成股东名册和配套文件"
+      ],
+      "member_module_ids": [
+        "mod-equity-transfer-object",
+        "mod-equity-transfer-preemption-charter",
+        "mod-equity-transfer-capital-liability",
+        "mod-equity-transfer-closing"
+      ],
+      "module_group_id": "grp-ec-01-001-title-procedure-closing",
+      "name": "权属、程序与交割闭环",
+      "review_sequence": [
+        "mod-equity-transfer-object",
+        "mod-equity-transfer-preemption-charter",
+        "mod-equity-transfer-capital-liability",
+        "mod-equity-transfer-closing"
+      ],
+      "type_code": "EC-01-001",
+      "type_id": "type-equity-transfer",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "同一标的的所有文本对价差异都有真实商业原因和证据",
+        "所有经济利益与资金流、付款比例及会计处理一致",
+        "纳税申报与经专业复核的真实交易安排一致",
+        "实质交易协议与登记备案表单的标的、对价、付款、税费和文件效力关系均已逐项勾稽"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "合同标的相同但对价不同",
+        "真实对价被拆分或改名后未被识别",
+        "申报、资金和会计记录无法相互印证"
+      ],
+      "member_module_ids": [
+        "mod-equity-transfer-object",
+        "mod-equity-transfer-consideration",
+        "mod-equity-transfer-document-tax-consistency"
+      ],
+      "module_group_id": "grp-ec-01-001-transaction-truth",
+      "name": "交易真实性与对价一致性闭环",
+      "review_sequence": [
+        "mod-equity-transfer-object",
+        "mod-equity-transfer-consideration",
+        "mod-equity-transfer-document-tax-consistency"
+      ],
+      "type_code": "EC-01-001",
+      "type_id": "type-equity-transfer",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-investment-amount",
+        "mod-conditions-closing",
+        "mod-governance-rights"
+      ],
+      "module_group_id": "grp-ec-01-002-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-investment-amount",
+        "mod-conditions-closing",
+        "mod-governance-rights"
+      ],
+      "type_code": "EC-01-002",
+      "type_id": "type-capital-increase-investment",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-governance-rights",
+        "mod-representations-indemnity",
+        "mod-exit-adjustment"
+      ],
+      "module_group_id": "grp-ec-01-002-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-governance-rights",
+        "mod-representations-indemnity",
+        "mod-exit-adjustment"
+      ],
+      "type_code": "EC-01-002",
+      "type_id": "type-capital-increase-investment",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "股性与债性权利义务口径一致",
+        "收益、转股/回购、担保和清偿顺位闭环"
+      ],
+      "content_status": "lawyer_approved_v1_migration_20260912",
+      "joint_failure_modes": [
+        "文件名称、资金流、会计税务和退出机制互相矛盾",
+        "固定收益与股东权利组合导致交易实质无法稳定判断"
+      ],
+      "member_module_ids": [
+        "mod-equity-debt-character",
+        "mod-equity-debt-return",
+        "mod-equity-debt-conversion",
+        "mod-equity-debt-security-exit"
+      ],
+      "module_group_id": "grp-equity-debt-substance-link",
+      "name": "股债混合工具实质、收益与退出联动",
+      "review_sequence": [
+        "mod-equity-debt-character",
+        "mod-equity-debt-return",
+        "mod-equity-debt-conversion",
+        "mod-equity-debt-security-exit"
+      ],
+      "type_code": "EC-01-002",
+      "type_id": "type-capital-increase-investment",
+      "version": "0.2.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "先确定具体投资工具再选类型",
+        "投资金额、权利取得、治理保护和退出机制一致"
+      ],
+      "content_status": "lawyer_approved_v1_migration_20260912",
+      "joint_failure_modes": [
+        "以投资协议总称掩盖增资、老股、借款或项目合作的真实结构",
+        "治理权、付款交割和退出安排分散在多份文件且互相冲突"
+      ],
+      "member_module_ids": [
+        "mod-investment-structure",
+        "mod-investment-diligence-condition",
+        "mod-investment-price-closing",
+        "mod-investment-governance-protection",
+        "mod-investment-exit"
+      ],
+      "module_group_id": "grp-investment-instrument-routing-link",
+      "name": "投资工具识别、交割与退出联动",
+      "review_sequence": [
+        "mod-investment-structure",
+        "mod-investment-diligence-condition",
+        "mod-investment-price-closing",
+        "mod-investment-governance-protection",
+        "mod-investment-exit"
+      ],
+      "type_code": "EC-01-002",
+      "type_id": "type-capital-increase-investment",
+      "version": "0.2.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-goods-scope",
+        "mod-order-mechanism",
+        "mod-payment-acceptance"
+      ],
+      "module_group_id": "grp-ec-02-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-goods-scope",
+        "mod-order-mechanism",
+        "mod-payment-acceptance"
+      ],
+      "type_code": "EC-02-001",
+      "type_id": "type-annual-framework-sales-procurement",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-payment-acceptance",
+        "mod-delivery-risk",
+        "mod-breach-termination"
+      ],
+      "module_group_id": "grp-ec-02-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-payment-acceptance",
+        "mod-delivery-risk",
+        "mod-breach-termination"
+      ],
+      "type_code": "EC-02-001",
+      "type_id": "type-annual-framework-sales-procurement",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "范围/标的与履行对象一致，清单与订单、交付、发票口径一致",
+        "付款触发与交付、验收节点一致，对价平衡",
+        "风险转移时点与交付方式、运费归属一致",
+        "背靠背付款、所有权保留等配套安排与付款/交付条款联动",
+        "多文本（主合同/订单/补充协议）的标的、价格、交付、付款口径一致",
+        "签约主体/收款账户/履约主体一致性",
+        "技术协议/图纸/封样等附件与主合同效力排序明确",
+        "主合同/订单/补充协议版本关系清晰"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "标的物清单与订单/技术协议/交付内容不一致",
+        "交付时间、地点、风险转移时点与付款节点脱节",
+        "付款条件（背靠背/定金/质保金）与交付、验收未联动",
+        "主合同、订单、技术协议、质保协议多文本口径冲突（众能补充协议类）"
+      ],
+      "member_module_ids": [
+        "mod-goods-specification",
+        "mod-delivery-risk",
+        "mod-payment-acceptance"
+      ],
+      "module_group_id": "grp-ec-02-002-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-goods-specification",
+        "mod-delivery-risk",
+        "mod-payment-acceptance"
+      ],
+      "type_code": "EC-02-002",
+      "type_id": "type-equipment-material-procurement",
+      "version": "0.4.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致",
+        "质量异议期间、质保期、合理期限、二年期限关系理顺",
+        "违约金与定金、赔偿损失的选择关系明确，且在司法支持区间",
+        "质保责任与返修/更换/退换程序、质保金联动",
+        "违约责任与核心义务一一对应且双方对等",
+        "上下游合同违约责任平衡，无责任倒挂",
+        "变更程序书面化与版本管理，防止默许变更"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "验收异议期与质保期关系混乱，买受人救济被限缩",
+        "违约金过高被司法调整，救济力度名不副实",
+        "解除后价款返还、货物返还、损失赔偿未成组处理",
+        "质量免责条款过宽（供方只担本体、不担加工损失）未提示边界"
+      ],
+      "member_module_ids": [
+        "mod-payment-acceptance",
+        "mod-quality-warranty",
+        "mod-breach-termination"
+      ],
+      "module_group_id": "grp-ec-02-002-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-payment-acceptance",
+        "mod-quality-warranty",
+        "mod-breach-termination"
+      ],
+      "type_code": "EC-02-002",
+      "type_id": "type-equipment-material-procurement",
+      "version": "0.4.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-goods-scope",
+        "mod-price-tax-invoice",
+        "mod-delivery-risk"
+      ],
+      "module_group_id": "grp-ec-02-003-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-goods-scope",
+        "mod-price-tax-invoice",
+        "mod-delivery-risk"
+      ],
+      "type_code": "EC-02-003",
+      "type_id": "type-finished-goods-sale",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-delivery-risk",
+        "mod-payment-acceptance",
+        "mod-breach-termination"
+      ],
+      "module_group_id": "grp-ec-02-003-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-delivery-risk",
+        "mod-payment-acceptance",
+        "mod-breach-termination"
+      ],
+      "type_code": "EC-02-003",
+      "type_id": "type-finished-goods-sale",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-lease-object",
+        "mod-rent-deposit",
+        "mod-use-maintenance"
+      ],
+      "module_group_id": "grp-ec-03-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-lease-object",
+        "mod-rent-deposit",
+        "mod-use-maintenance"
+      ],
+      "type_code": "EC-03-001",
+      "type_id": "type-property-venue-lease",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-use-maintenance",
+        "mod-renewal-exit",
+        "mod-breach-termination"
+      ],
+      "module_group_id": "grp-ec-03-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-use-maintenance",
+        "mod-renewal-exit",
+        "mod-breach-termination"
+      ],
+      "type_code": "EC-03-001",
+      "type_id": "type-property-venue-lease",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-service-scope",
+        "mod-deliverables-acceptance",
+        "mod-fees-expenses"
+      ],
+      "module_group_id": "grp-ec-04-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-service-scope",
+        "mod-deliverables-acceptance",
+        "mod-fees-expenses"
+      ],
+      "type_code": "EC-04-001",
+      "type_id": "type-general-consulting-service",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-fees-expenses",
+        "mod-change-control",
+        "mod-breach-termination"
+      ],
+      "module_group_id": "grp-ec-04-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-fees-expenses",
+        "mod-change-control",
+        "mod-breach-termination"
+      ],
+      "type_code": "EC-04-001",
+      "type_id": "type-general-consulting-service",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-development-scope",
+        "mod-milestone-acceptance",
+        "mod-change-control"
+      ],
+      "module_group_id": "grp-ec-05-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-development-scope",
+        "mod-milestone-acceptance",
+        "mod-change-control"
+      ],
+      "type_code": "EC-05-001",
+      "type_id": "type-commissioned-technology-development",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-change-control",
+        "mod-ip-ownership",
+        "mod-source-code-maintenance"
+      ],
+      "module_group_id": "grp-ec-05-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-change-control",
+        "mod-ip-ownership",
+        "mod-source-code-maintenance"
+      ],
+      "type_code": "EC-05-001",
+      "type_id": "type-commissioned-technology-development",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-subscription-scope",
+        "mod-sla-support",
+        "mod-data-processing"
+      ],
+      "module_group_id": "grp-ec-05-002-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-subscription-scope",
+        "mod-sla-support",
+        "mod-data-processing"
+      ],
+      "type_code": "EC-05-002",
+      "type_id": "type-saas-subscription",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-data-processing",
+        "mod-fee-renewal",
+        "mod-exit-portability"
+      ],
+      "module_group_id": "grp-ec-05-002-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-data-processing",
+        "mod-fee-renewal",
+        "mod-exit-portability"
+      ],
+      "type_code": "EC-05-002",
+      "type_id": "type-saas-subscription",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-maintenance-scope",
+        "mod-sla-response",
+        "mod-change-access"
+      ],
+      "module_group_id": "grp-ec-05-003-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-maintenance-scope",
+        "mod-sla-response",
+        "mod-change-access"
+      ],
+      "type_code": "EC-05-003",
+      "type_id": "type-system-operations-maintenance",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-change-access",
+        "mod-security-incident",
+        "mod-handover-exit"
+      ],
+      "module_group_id": "grp-ec-05-003-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-change-access",
+        "mod-security-incident",
+        "mod-handover-exit"
+      ],
+      "type_code": "EC-05-003",
+      "type_id": "type-system-operations-maintenance",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-employment-term",
+        "mod-position-location",
+        "mod-compensation-hours"
+      ],
+      "module_group_id": "grp-ec-06-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-employment-term",
+        "mod-position-location",
+        "mod-compensation-hours"
+      ],
+      "type_code": "EC-06-001",
+      "type_id": "type-fixed-term-employment",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-compensation-hours",
+        "mod-rules-discipline",
+        "mod-employment-exit"
+      ],
+      "module_group_id": "grp-ec-06-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-compensation-hours",
+        "mod-rules-discipline",
+        "mod-employment-exit"
+      ],
+      "type_code": "EC-06-001",
+      "type_id": "type-fixed-term-employment",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "保密范围与岗位实际接触匹配",
+        "在职/离职义务与例外明确",
+        "返还/删除/账号退出可核验"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "保密范围过宽不可识别",
+        "在职/离职使用限制不明导致泄露",
+        "资料/数据/账号未返还删除留隐患"
+      ],
+      "member_module_ids": [
+        "mod-confidential-information",
+        "mod-employee-use-restriction",
+        "mod-return-destruction"
+      ],
+      "module_group_id": "grp-ec-06-002-performance-loop",
+      "name": "保密范围-使用限制-返还删除闭环",
+      "review_sequence": [
+        "mod-confidential-information",
+        "mod-employee-use-restriction",
+        "mod-return-destruction"
+      ],
+      "type_code": "EC-06-002",
+      "type_id": "type-employee-confidentiality",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "职务成果权属与保密义务衔接不冲突",
+        "违约救济与法律边界一致",
+        "保密与竞业/交接/离职确认书衔接"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "保密义务与职务成果权属冲突",
+        "违约金过高或与损失不匹配",
+        "离职后保密与竞业/交接衔接缺失"
+      ],
+      "member_module_ids": [
+        "mod-return-destruction",
+        "mod-ip-interface",
+        "mod-confidentiality-remedies"
+      ],
+      "module_group_id": "grp-ec-06-002-risk-exit-loop",
+      "name": "保密救济-知识产权-离职衔接闭环",
+      "review_sequence": [
+        "mod-return-destruction",
+        "mod-ip-interface",
+        "mod-confidentiality-remedies"
+      ],
+      "type_code": "EC-06-002",
+      "type_id": "type-employee-confidentiality",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "员工适格性（高管/高级技工/保密义务人）已确认",
+        "竞业范围/期限/地域与保密事项匹配",
+        "补偿按月约定且不低于法定底线"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "员工不适格被签竞业（无效风险）",
+        "范围/地域过宽与保密事项不匹配",
+        "未约定按月补偿或标准不明"
+      ],
+      "member_module_ids": [
+        "mod-noncompete-scope",
+        "mod-noncompete-term-region",
+        "mod-noncompete-compensation"
+      ],
+      "module_group_id": "grp-ec-06-003-performance-loop",
+      "name": "适格-范围-补偿闭环",
+      "review_sequence": [
+        "mod-noncompete-scope",
+        "mod-noncompete-term-region",
+        "mod-noncompete-compensation"
+      ],
+      "type_code": "EC-06-003",
+      "type_id": "type-noncompete",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "书面通知启动/免于履行机制明确",
+        "未启动则员工无需履行离职竞业",
+        "救济条款与法律边界一致且提示谈判风险"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "竞业启动机制不明致员工义务不确定",
+        "未通知启动员工却承担义务",
+        "违约金/返还/损失赔偿关系不明"
+      ],
+      "member_module_ids": [
+        "mod-noncompete-compensation",
+        "mod-noncompete-release",
+        "mod-noncompete-remedies"
+      ],
+      "module_group_id": "grp-ec-06-003-risk-exit-loop",
+      "name": "启动-解除-救济闭环",
+      "review_sequence": [
+        "mod-noncompete-compensation",
+        "mod-noncompete-release",
+        "mod-noncompete-remedies"
+      ],
+      "type_code": "EC-06-003",
+      "type_id": "type-noncompete",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "解除日/生效日/最后工作日/工资社保截止日一致",
+        "结算分项可核验且与经济补偿依法匹配",
+        "交接清单可完成可确认且不阻断法定支付"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "解除日期与工资/社保计算截止日不一致",
+        "结算总额掩盖分项或法定义务",
+        "交接条件单方控制阻断付款"
+      ],
+      "member_module_ids": [
+        "mod-termination-date",
+        "mod-compensation-settlement",
+        "mod-handover-return"
+      ],
+      "module_group_id": "grp-ec-06-004-performance-loop",
+      "name": "解除-结算-交接闭环",
+      "review_sequence": [
+        "mod-termination-date",
+        "mod-compensation-settlement",
+        "mod-handover-return"
+      ],
+      "type_code": "EC-06-004",
+      "type_id": "type-employment-mutual-termination",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "active",
+      "approval_status": "active",
+      "consistency_checks": [
+        "法定程序义务与可协商款项分离",
+        "权利终结以实际履行为条件且范围具体",
+        "特殊保护事实已核验（工伤/职业病/医疗期/孕期）"
+      ],
+      "content_status": "user_approved_active_20260913",
+      "joint_failure_modes": [
+        "社保/证明/档案等程序义务被现金买断或附条件",
+        "权利终结范围无限掩盖未解决争议",
+        "工伤/职业病/医疗期/孕期等特殊保护被普通终结掩盖"
+      ],
+      "member_module_ids": [
+        "mod-handover-return",
+        "mod-certificate-social-insurance",
+        "mod-release-boundary"
+      ],
+      "module_group_id": "grp-ec-06-004-risk-exit-loop",
+      "name": "程序义务-权利终结-特殊保护闭环",
+      "review_sequence": [
+        "mod-handover-return",
+        "mod-certificate-social-insurance",
+        "mod-release-boundary"
+      ],
+      "type_code": "EC-06-004",
+      "type_id": "type-employment-mutual-termination",
+      "version": "0.3.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-loan-drawdown",
+        "mod-interest-fees",
+        "mod-repayment"
+      ],
+      "module_group_id": "grp-ec-07-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-loan-drawdown",
+        "mod-interest-fees",
+        "mod-repayment"
+      ],
+      "type_code": "EC-07-001",
+      "type_id": "type-enterprise-loan",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-repayment",
+        "mod-covenants-default",
+        "mod-security-interface"
+      ],
+      "module_group_id": "grp-ec-07-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-repayment",
+        "mod-covenants-default",
+        "mod-security-interface"
+      ],
+      "type_code": "EC-07-001",
+      "type_id": "type-enterprise-loan",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-guaranteed-obligation",
+        "mod-guarantee-form",
+        "mod-guarantee-period"
+      ],
+      "module_group_id": "grp-ec-07-002-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-guaranteed-obligation",
+        "mod-guarantee-form",
+        "mod-guarantee-period"
+      ],
+      "type_code": "EC-07-002",
+      "type_id": "type-guarantee-contract",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-guarantee-period",
+        "mod-defense-notice",
+        "mod-recourse-release"
+      ],
+      "module_group_id": "grp-ec-07-002-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-guarantee-period",
+        "mod-defense-notice",
+        "mod-recourse-release"
+      ],
+      "type_code": "EC-07-002",
+      "type_id": "type-guarantee-contract",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-project-scope",
+        "mod-schedule-change",
+        "mod-measurement-payment"
+      ],
+      "module_group_id": "grp-ec-08-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-project-scope",
+        "mod-schedule-change",
+        "mod-measurement-payment"
+      ],
+      "type_code": "EC-08-001",
+      "type_id": "type-construction-general-contract",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-measurement-payment",
+        "mod-completion-acceptance",
+        "mod-defects-breach"
+      ],
+      "module_group_id": "grp-ec-08-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-measurement-payment",
+        "mod-completion-acceptance",
+        "mod-defects-breach"
+      ],
+      "type_code": "EC-08-001",
+      "type_id": "type-construction-general-contract",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-subcontract-scope",
+        "mod-main-contract-interface",
+        "mod-schedule-coordination"
+      ],
+      "module_group_id": "grp-ec-08-002-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-subcontract-scope",
+        "mod-main-contract-interface",
+        "mod-schedule-coordination"
+      ],
+      "type_code": "EC-08-002",
+      "type_id": "type-professional-subcontract",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-schedule-coordination",
+        "mod-payment-acceptance",
+        "mod-safety-defects"
+      ],
+      "module_group_id": "grp-ec-08-002-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-schedule-coordination",
+        "mod-payment-acceptance",
+        "mod-safety-defects"
+      ],
+      "type_code": "EC-08-002",
+      "type_id": "type-professional-subcontract",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-territory-channel",
+        "mod-sales-target",
+        "mod-price-policy"
+      ],
+      "module_group_id": "grp-ec-09-001-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-territory-channel",
+        "mod-sales-target",
+        "mod-price-policy"
+      ],
+      "type_code": "EC-09-001",
+      "type_id": "type-distribution-cooperation",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-price-policy",
+        "mod-brand-compliance",
+        "mod-inventory-exit"
+      ],
+      "module_group_id": "grp-ec-09-001-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-price-policy",
+        "mod-brand-compliance",
+        "mod-inventory-exit"
+      ],
+      "type_code": "EC-09-001",
+      "type_id": "type-distribution-cooperation",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "范围/标的与履行对象一致",
+        "付款触发与交付、验收节点一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-cooperation-scope",
+        "mod-input-contribution",
+        "mod-governance-decision"
+      ],
+      "module_group_id": "grp-ec-09-002-performance-loop",
+      "name": "履行与对价闭环",
+      "review_sequence": [
+        "mod-cooperation-scope",
+        "mod-input-contribution",
+        "mod-governance-decision"
+      ],
+      "type_code": "EC-09-002",
+      "type_id": "type-project-cooperation-joint-operation",
+      "version": "0.1.0"
+    },
+    {
+      "activation_status": "inactive",
+      "approval_status": "candidate",
+      "consistency_checks": [
+        "解除触发与违约责任、结算后果一致",
+        "返还、交接、数据/资料处置与退出机制一致"
+      ],
+      "content_status": "candidate_framework_only",
+      "joint_failure_modes": [
+        "待填充：历史失败案例",
+        "待填充：常见联动冲突"
+      ],
+      "member_module_ids": [
+        "mod-governance-decision",
+        "mod-revenue-cost",
+        "mod-exit-settlement"
+      ],
+      "module_group_id": "grp-ec-09-002-risk-exit-loop",
+      "name": "风险、解除与退出闭环",
+      "review_sequence": [
+        "mod-governance-decision",
+        "mod-revenue-cost",
+        "mod-exit-settlement"
+      ],
+      "type_code": "EC-09-002",
+      "type_id": "type-project-cooperation-joint-operation",
+      "version": "0.1.0"
+    }
+  ],
+  "schema_version": "2.2.0"
+}

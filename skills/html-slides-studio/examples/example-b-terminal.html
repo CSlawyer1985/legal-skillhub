@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template B · Dark Terminal</title>
+<style>
+/* ═══════════════════════════════════
+   TEMPLATE B · DARK TERMINAL
+   哲学：终端美学，代码即内容，机器感
+   ═══════════════════════════════════ */
+
+:root {
+  --bg:          #0A0E0D;
+  --bg-2:        #0F1512;
+  --bg-panel:    #141A18;
+  --bg-raise:    #1C2420;
+  --green:       #00FF88;
+  --green-dim:   #00CC6A;
+  --green-faint: rgba(0,255,136,0.12);
+  --green-line:  rgba(0,255,136,0.22);
+  --amber:       #FFB340;
+  --red:         #FF4F4F;
+  --text-main:   #D4E8D4;
+  --text-sub:    #7A9E88;
+  --text-faint:  #3A5040;
+  --cursor-col:  #00FF88;
+
+  --font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  --font-sans:   'IBM Plex Sans', 'Helvetica Neue', sans-serif;
+
+  --slide-w: 100vw;
+  --slide-h: 100vh;
+  --pad: clamp(2rem, 4vw, 4rem);
+  --small: clamp(0.65rem, 0.9vw, 0.78rem);
+  --body:  clamp(0.78rem, 1.1vw, 0.92rem);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  overflow: hidden;
+}
+
+/* Scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Slide container ── */
+.deck { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--pad);
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+.slide.active {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+.slide.exit {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+/* ── Header bar ── */
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: clamp(1.2rem, 2.5vw, 2.4rem);
+  font-size: var(--small);
+  color: var(--text-faint);
+}
+.term-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+.term-bar .dot.r { background: #FF5F57; }
+.term-bar .dot.y { background: #FFBD2E; }
+.term-bar .dot.g { background: #28CA41; }
+.term-bar .path { color: var(--green-dim); margin-left: 0.5rem; }
+.term-bar .cursor-blink {
+  display: inline-block;
+  width: 0.55em; height: 1.1em;
+  background: var(--green);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ── Slide number ── */
+.slide-num {
+  position: absolute;
+  bottom: var(--pad);
+  right: var(--pad);
+  font-size: var(--small);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+.slide-num span { color: var(--green-dim); }
+
+/* ── Typography ── */
+.kicker {
+  font-size: var(--small);
+  font-family: var(--font-mono);
+  color: var(--green);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.kicker::before { content: '// '; color: var(--text-faint); }
+
+h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+h1 .hl { color: var(--green); }
+
+h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.8rem;
+}
+
+p {
+  font-size: var(--body);
+  color: var(--text-sub);
+  line-height: 1.75;
+}
+
+/* ── Code block ── */
+.code-block {
+  background: var(--bg-panel);
+  border: 1px solid var(--green-line);
+  border-left: 3px solid var(--green);
+  border-radius: 6px;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: var(--small);
+  color: var(--text-main);
+  line-height: 1.9;
+  position: relative;
+  box-shadow: 0 0 24px rgba(0,255,136,0.04);
+}
+.code-block .prompt { color: var(--green); user-select: none; }
+.code-block .cmd { color: #D4E8D4; }
+.code-block .arg { color: var(--amber); }
+.code-block .comment { color: var(--text-faint); }
+.code-block .output { color: var(--text-sub); font-style: italic; }
+
+/* ── Cards ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  flex: 1;
+}
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--green-line);
+  border-radius: 8px;
+  padding: clamp(0.8rem, 1.4vw, 1.2rem);
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--green);
+  opacity: 0.6;
+}
+.card h3 {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1.05vw, 0.85rem);
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.card p, .card li {
+  font-size: var(--small);
+  color: var(--text-sub);
+  line-height: 1.8;
+}
+.card.amber::before { background: var(--amber); }
+.card.amber h3 { color: var(--amber); }
+.card.red::before { background: var(--red); }
+.card.red h3 { color: var(--red); }
+
+/* ── Status line ── */
+.status-line {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--green-line);
+  font-size: var(--small);
+  color: var(--text-faint);
+}
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Navigation ── */
+.nav {
+  position: fixed;
+  bottom: clamp(1rem, 2vw, 1.8rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 100;
+}
+.nav-dot {
+  width: 20px; height: 3px;
+  background: var(--text-faint);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+}
+.nav-dot.active {
+  background: var(--green);
+  width: 32px;
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* ── Part transition ── */
+.slide.part {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.slide.part h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+.part-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--green-line);
+  border: 1px solid var(--green-line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+.part-cell {
+  background: var(--bg-2);
+  padding: 0.8rem 1rem;
+  font-size: var(--small);
+  color: var(--text-faint);
+  text-align: center;
+}
+.part-cell.active-cell {
+  background: var(--green-faint);
+  color: var(--green);
+}
+
+/* ── Reveal animation ── */
+.reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.reveal.shown { opacity: 1; transform: none; }
+
+/* ── Cover special ── */
+.cover-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--green-faint);
+  border: 1px solid var(--green-line);
+  border-radius: 4px;
+  padding: 0.25rem 0.7rem;
+  font-size: var(--small);
+  color: var(--green);
+  margin-bottom: 1.5rem;
+}
+
+.big-quote {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+  font-weight: 300;
+  color: var(--text-main);
+  line-height: 1.5;
+  border-left: 3px solid var(--green);
+  padding-left: 1.2rem;
+  margin: 1.5rem 0;
+}
+.big-quote em { color: var(--green); font-style: normal; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+  <section class="slide active" data-index="0">
+    <div class="term-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span class="path">~/html-slides-studio/example.md</span>
+      <span style="margin-left:auto">Public Example</span>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center">
+      <div class="cover-tag reveal" style="--i:0">
+        <span class="status-dot"></span> STYLE B ? DARK TERMINAL
+      </div>
+      <div class="kicker reveal" style="--i:1">AI SLIDES DEMO</div>
+      <h1 class="reveal" style="--i:2">Build Better <span class="hl">HTML Slides</span><br>with Structure First</h1>
+      <p class="reveal" style="--i:3; margin-top:1.2rem; max-width:520px; font-size:clamp(0.82rem,1.3vw,1rem)">
+        Outline ? Page Plan ? HTML ? Export<br>
+        <span style="color:var(--text-faint); font-size:var(--small)">Placeholder Speaker ? Sample Organization ? 2026.03</span>
+      </p>
+    </div>
+    <div class="status-line">
+      <div class="status-dot"></div>
+      <span>session_ready</span>
+      <span style="margin-left:auto; color:var(--text-faint)">press SPACE / ? to advance</span>
+    </div>
+  </section>
+
+  <section class="slide" data-index="1">
+    <div class="term-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <span class="path">~/html-slides-studio/notes.txt</span>
+      <span style="margin-left:auto">Preview</span>
+    </div>
+    <div style="flex:1; display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(1.5rem,3vw,3rem); align-items:center">
+      <div>
+        <div class="kicker reveal" style="--i:0">WHAT TO INSPECT</div>
+        <h2 class="reveal" style="--i:1; margin-top:0.9rem">Use this example to evaluate the style system</h2>
+        <p class="reveal" style="--i:2; margin-top:1rem; max-width:640px">
+          This public example is intentionally generic. It exists to show motion, spacing, typography, and navigation behavior without exposing real workshop content.
+        </p>
+      </div>
+      <div style="display:grid; gap:0.9rem">
+        <div class="reveal" style="--i:3; border:1px solid var(--green-line); background:var(--bg-panel); padding:1rem; border-radius:12px">
+          <strong style="color:var(--green)">01</strong><br>Terminal chrome and code-like cover treatment
+        </div>
+        <div class="reveal" style="--i:4; border:1px solid var(--green-line); background:var(--bg-panel); padding:1rem; border-radius:12px">
+          <strong style="color:var(--green)">02</strong><br>Monospace-heavy hierarchy and restrained motion
+        </div>
+        <div class="reveal" style="--i:5; border:1px solid var(--green-line); background:var(--bg-panel); padding:1rem; border-radius:12px">
+          <strong style="color:var(--green)">03</strong><br>Suitable for AI, tooling, and workflow topics
+        </div>
+      </div>
+    </div>
+    <div class="status-line">
+      <div class="status-dot"></div>
+      <span>preview_mode</span>
+      <span style="margin-left:auto; color:var(--text-faint)">B / 02</span>
+    </div>
+  </section>
+</div>
+<nav class="nav" id="nav"></nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const nav = document.getElementById('nav');
+let cur = 0;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'nav-dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  nav.appendChild(d);
+});
+
+function revealSlide(slide) {
+  const els = slide.querySelectorAll('.reveal');
+  els.forEach((el, i) => {
+    const delay = (el.style.getPropertyValue('--i') || i) * 120;
+    setTimeout(() => el.classList.add('shown'), delay + 80);
+  });
+}
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('exit');
+  setTimeout(() => slides[cur].classList.remove('exit'), 350);
+  cur = n;
+  slides[cur].classList.add('active');
+  document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  revealSlide(slides[cur]);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (cur < slides.length-1) goTo(cur+1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); if (cur > 0) goTo(cur-1); }
+});
+
+revealSlide(slides[0]);
+</script>
+</body>
+</html>

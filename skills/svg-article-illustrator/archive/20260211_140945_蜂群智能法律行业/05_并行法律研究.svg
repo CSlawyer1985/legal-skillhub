@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%;max-width:800px;height:auto;margin:20px 0;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);border-radius:12px;">
+  <defs>
+    <linearGradient id="parallelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#69db7c"/>
+      <stop offset="100%" style="stop-color:#51cf66"/>
+    </linearGradient>
+    <linearGradient id="resultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4dabf7"/>
+      <stop offset="100%" style="stop-color:#339af0"/>
+    </linearGradient>
+  </defs>
+  <!-- Task input -->
+  <rect x="60" y="200" width="100" height="50" rx="8" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/>
+  <text x="110" y="230" text-anchor="middle" font-size="14" fill="#495057">📋 案件输入</text>
+  <!-- Parallel agents -->
+  <g transform="translate(250, 80)">
+    <rect x="0" y="0" width="140" height="70" rx="10" fill="url(#parallelGrad)" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="70" y="30" text-anchor="middle" font-size="20">📚</text>
+    <text x="70" y="52" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">专利检索</text>
+  </g>
+  <g transform="translate(250, 190)">
+    <rect x="0" y="0" width="140" height="70" rx="10" fill="url(#parallelGrad)" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="70" y="30" text-anchor="middle" font-size="20">💰</text>
+    <text x="70" y="52" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">赔偿分析</text>
+  </g>
+  <g transform="translate(250, 300)">
+    <rect x="0" y="0" width="140" height="70" rx="10" fill="url(#parallelGrad)" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="70" y="30" text-anchor="middle" font-size="20">🔍</text>
+    <text x="70" y="52" text-anchor="middle" font-size="13" fill="#fff" font-weight="bold">证据评估</text>
+  </g>
+  <!-- Distribution arrows -->
+  <g stroke="#51cf66" stroke-width="2" fill="none">
+    <path d="M 160 215 C 200 115, 200 115, 250 115">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 160 225 L 250 225">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" begin="0.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 160 235 C 200 335, 200 335, 250 335">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" begin="0.4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Result integration -->
+  <rect x="520" y="175" width="160" height="100" rx="12" fill="url(#resultGrad)">
+    <animate attributeName="width" values="160;170;160" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="600" y="210" text-anchor="middle" font-size="28">📊</text>
+  <text x="600" y="240" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">整合分析报告</text>
+  <text x="600" y="260" text-anchor="middle" font-size="11" fill="#e7f5ff">⚡ 分钟级完成</text>
+  <!-- Result arrows -->
+  <g stroke="#339af0" stroke-width="2" fill="none">
+    <path d="M 390 115 C 460 115, 460 200, 520 215">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 390 225 L 520 225">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1.2s" begin="0.3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 390 335 C 460 335, 460 250, 520 235">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1.2s" begin="0.6s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Time comparison -->
+  <g transform="translate(100, 400)">
+    <text x="0" y="0" font-size="12" fill="#868e96">传统模式: </text>
+    <text x="60" y="0" font-size="12" fill="#dc3545">数小时 → 数天</text>
+  </g>
+  <g transform="translate(500, 400)">
+    <text x="0" y="0" font-size="12" fill="#868e96">蜂群智能: </text>
+    <text x="60" y="0" font-size="12" fill="#51cf66" font-weight="bold">⚡ 分钟级</text>
+  </g>
+</svg>

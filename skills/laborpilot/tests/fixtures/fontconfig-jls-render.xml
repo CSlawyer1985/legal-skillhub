@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <include ignore_missing="yes">/opt/homebrew/etc/fonts/fonts.conf</include>
+  <match target="pattern">
+    <test name="family" qual="any">
+      <string>仿宋_GB2312</string>
+    </test>
+    <edit name="family" mode="assign" binding="strong">
+      <string>STFangsong</string>
+    </edit>
+  </match>
+</fontconfig>

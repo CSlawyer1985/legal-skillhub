@@ -1,0 +1,24 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="70" font-size="36" font-weight="bold" fill="#2d3748" text-anchor="middle">人的幻觉</text>
+
+  <!-- 表面（看起来简单） -->
+  <rect x="100" y="120" width="600" height="120" rx="12" fill="#E8F5E8" stroke="#10B981" stroke-width="3"/>
+  <text x="400" y="160" font-size="24" fill="#10B981" text-anchor="middle" font-weight="bold">表面：顺滑入口</text>
+  <text x="400" y="210" font-size="50" text-anchor="middle">😊 看起来很简单</text>
+
+  <!-- 分隔线 -->
+  <line x1="100" y1="260" x2="700" y2="260" stroke="#CBD5E0" stroke-width="2" stroke-dasharray="10,5"/>
+
+  <!-- 底层（隐藏的复杂性） -->
+  <rect x="100" y="280" width="600" height="120" rx="12" fill="#FEE2E2" stroke="#E53E3E" stroke-width="3">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="400" y="320" font-size="24" fill="#E53E3E" text-anchor="middle" font-weight="bold">底层：隐藏的复杂性</text>
+  <text x="250" y="370" font-size="35" text-anchor="middle">⚙️</text>
+  <text x="400" y="370" font-size="35" text-anchor="middle">🔧</text>
+  <text x="550" y="370" font-size="35" text-anchor="middle">📊</text>
+
+  <!-- 底部结论 -->
+  <text x="400" y="430" font-size="22" fill="#718096" text-anchor="middle">⚠️ 被隐藏 ≠ 不存在</text>
+</svg>

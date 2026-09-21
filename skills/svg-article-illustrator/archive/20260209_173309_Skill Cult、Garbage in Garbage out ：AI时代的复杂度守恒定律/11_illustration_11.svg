@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#FFF3E0" rx="10"/>
+
+  <defs>
+    <marker id="arrow8" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF9800"/>
+    </marker>
+  </defs>
+
+  <!-- 问题 -->
+  <g transform="translate(180, 225)">
+    <circle r="70" fill="#FFE5CC" stroke="#FF9800" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.6; 1; 0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="20" font-size="80" text-anchor="middle">❓</text>
+  </g>
+
+  <!-- 箭头：逼迫 -->
+  <line x1="250" y1="225" x2="370" y2="225" stroke="#FF9800" stroke-width="5"
+    marker-end="url(#arrow8)" stroke-dasharray="120" stroke-dashoffset="120">
+    <animate attributeName="stroke-dashoffset" from="120" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 思考过程 -->
+  <g transform="translate(470, 225)">
+    <rect x="-100" y="-70" width="200" height="140" fill="#FFE5CC" rx="10"
+      stroke="#FF9800" stroke-width="4" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="20" font-size="70" text-anchor="middle">💡</text>
+  </g>
+
+  <!-- 箭头：产出 -->
+  <line x1="570" y1="225" x2="580" y2="225" stroke="#FF9800" stroke-width="5"
+    marker-end="url(#arrow8)" stroke-dasharray="10" stroke-dashoffset="10">
+    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 清晰表达 -->
+  <g transform="translate(650, 225)">
+    <circle r="70" fill="#4CAF50" stroke="#27AE60" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.7; 1; 0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="20" font-size="80" text-anchor="middle">✅</text>
+  </g>
+
+  <text x="400" y="410" font-size="44" fill="#2C3E50" text-anchor="middle" font-weight="bold">逼你说清楚</text>
+</svg>

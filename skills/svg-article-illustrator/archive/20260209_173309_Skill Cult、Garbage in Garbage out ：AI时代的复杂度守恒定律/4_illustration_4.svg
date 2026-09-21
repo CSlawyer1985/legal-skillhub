@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#FFF5E6" rx="10"/>
+
+  <!-- 护身符图标 -->
+  <g transform="translate(250, 200)">
+    <g>
+      <text x="0" y="20" font-size="90" text-anchor="middle">🧿</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,-8; 0,0" dur="2.5s" repeatCount="indefinite"
+        calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+    </g>
+  </g>
+
+  <g transform="translate(400, 200)">
+    <g>
+      <text x="0" y="20" font-size="90" text-anchor="middle">🔮</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"
+        calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+    </g>
+  </g>
+
+  <g transform="translate(550, 200)">
+    <g>
+      <text x="0" y="20" font-size="90" text-anchor="middle">🪬</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 0,-12; 0,0" dur="2.8s" repeatCount="indefinite"
+        calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+    </g>
+  </g>
+
+  <!-- 焦虑表情 -->
+  <text x="400" y="320" font-size="100" text-anchor="middle">😰</text>
+
+  <text x="400" y="410" font-size="42" fill=" #2C3E50 " text-anchor="middle" font-weight="bold">SKill Cult 症候群</text>
+</svg>

@@ -1,0 +1,85 @@
+# 评议台账 schema 模板（v2，阶段 2 — 负责人模型 + filing-via-association 落地）
+#
+# 此文件作为 comment-tracker.yaml 的 schema 示例。
+# 实际运行时该文件位于：$LEGAL_AGENT_PROFILE_HOME/regulatory-legal/comment-tracker.yaml
+# 本文件仅供参考与新建初始化使用。
+
+comments: []
+
+# 单条评议条目的完整 schema 示例（v2）：
+#
+# comments:
+#   - id: CMT-001                          # 自增 ID，格式 CMT-NNN
+#     regulation: "征求意见稿名称 + 发布机关"
+#     deadline: 2026-06-30                 # 监管要求的评议截止日
+#     opened: 2026-05-31                   # 登记日期
+#
+#     # ───── 负责人模型（v2 与 gap-tracker 对齐）─────
+#     decision_owner:                      # 评议决策负责人（一般是法务）
+#       name: "王琳"
+#       department: "法务部"
+#       dm_id: "feishu_user_id_or_workid"
+#     drafting_owner:                      # 评议正文起草负责人（可能是律所外聘律师，可选）
+#       name: "外聘律师"
+#       department: "金诚同达律所"
+#       dm_id: ""
+#
+#     # ───── 决策状态 ─────
+#     decision: "undecided"                # undecided | filing | filing-via-association | not-filing | waived
+#     rationale: ""                        # 决策理由（决策时填写）
+#
+#     # ───── filing 类决策的细节 ─────
+#     filing_deadline: ""                  # 决策为 filing 时，内部截止日（评议截止日 -5 个工作日）
+#
+#     # ───── filing-via-association 类决策的细节（v2 新增）─────
+#     association: ""                      # 通过哪个协会汇总，如"中支付清算协会"、"中互金协"
+#     association_contact: ""              # 协会接口人姓名
+#     association_deadline: ""             # 协会内部汇总截止日（早于监管截止日）
+#     association_meeting: ""              # 行业意见汇总会议时间（如有）
+#
+#     # ───── 跟踪状态 ─────
+#     reminders_sent:
+#       - date: 2026-06-09
+#         type: "21-day"
+#         to: "decision_owner"
+#       - date: 2026-06-27
+#         type: "3-day"
+#         to: "decision_owner"
+#     source: "金管总局公开栏目"            # 信息源
+#     source_tags:                         # 上游传过来的源标签（与 gap-tracker 对齐）
+#       - "[金管总局公开栏目]"
+#     link: ""                             # 一手出处 URL
+
+# ─────────────────────────────────────────────
+# 决策状态枚举说明（v2 完整版）
+# ─────────────────────────────────────────────
+# - undecided:               评议决策未定（默认状态）
+# - filing:                  公司直接向监管提交评议意见
+# - filing-via-association:  通过行业协会汇总提交（**中国语境特色**，v2 启用）
+# - not-filing:              主动决定不提交（需理由 + 律师 / 法务总监确认）
+# - waived:                  评议期错过，已确认不提交
+
+# ─────────────────────────────────────────────
+# 重大动作确认环节（comments 技能 consequential-action gate）
+# ─────────────────────────────────────────────
+# 决策为 filing 或 filing-via-association 时：
+#
+# 1. 触发 escalation_path 中的"重大业务影响决策"或"显著不符合项目会签"
+# 2. 提示用户："提交评议是公开行为，进入立法档案。Practice profile 显示需要 [角色 A] + [角色 B] 会签。是否已完成？"
+# 3. 决策为 filing-via-association 时**额外**检查：
+#    - association 字段是否填写
+#    - association_contact 是否就位
+#    - association_deadline 是否早于监管截止日
+# 4. 未完成上述检查，**不**登记决策为 filing 或 filing-via-association
+
+# ─────────────────────────────────────────────
+# v2 schema 变更点（阶段 2 落地）
+# ─────────────────────────────────────────────
+# - 负责人 → decision_owner + drafting_owner（区分决策人和起草人）
+# - 负责人_DM → 各 owner 嵌套 dm_id 字段
+# - decision 枚举 + filing-via-association
+# - 新增 association / association_contact / association_deadline / association_meeting 字段
+# - reminders_sent 加 `to` 字段
+# - source_tags 字段统一约定
+#
+# v1 → v2 迁移：旧条目的"负责人" → decision_owner；decision = "filing" 的可手动评估是否改为 "filing-via-association"

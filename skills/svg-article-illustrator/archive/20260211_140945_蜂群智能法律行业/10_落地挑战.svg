@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%;max-width:800px;height:auto;margin:20px 0;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);border-radius:12px;">
+  <defs>
+    <linearGradient id="warnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa94d"/>
+      <stop offset="100%" style="stop-color:#ff922b"/>
+    </linearGradient>
+  </defs>
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" font-size="20" fill="#495057" font-weight="bold">⚠️ 落地挑战</text>
+  <!-- Challenge 1: Data Security -->
+  <g transform="translate(130, 150)">
+    <rect x="0" y="0" width="160" height="180" rx="12" fill="#fff" stroke="#ffa94d" stroke-width="2">
+      <animate attributeName="stroke-width" values="2;3;2" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="80" cy="50" r="30" fill="url(#warnGrad)">
+      <animate attributeName="r" values="30;33;30" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="80" y="58" text-anchor="middle" font-size="24">🔒</text>
+    <text x="80" y="100" text-anchor="middle" font-size="14" fill="#495057" font-weight="bold">数据安全</text>
+    <text x="80" y="125" text-anchor="middle" font-size="11" fill="#868e96">隐私保护</text>
+    <text x="80" y="145" text-anchor="middle" font-size="11" fill="#868e96">合规要求</text>
+    <text x="80" y="165" text-anchor="middle" font-size="11" fill="#868e96">访问控制</text>
+  </g>
+  <!-- Challenge 2: Explainability -->
+  <g transform="translate(320, 150)">
+    <rect x="0" y="0" width="160" height="180" rx="12" fill="#fff" stroke="#ffa94d" stroke-width="2">
+      <animate attributeName="stroke-width" values="2;3;2" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="80" cy="50" r="30" fill="url(#warnGrad)">
+      <animate attributeName="r" values="30;33;30" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="80" y="58" text-anchor="middle" font-size="24">🔍</text>
+    <text x="80" y="100" text-anchor="middle" font-size="14" fill="#495057" font-weight="bold">可解释性</text>
+    <text x="80" y="125" text-anchor="middle" font-size="11" fill="#868e96">决策透明</text>
+    <text x="80" y="145" text-anchor="middle" font-size="11" fill="#868e96">推理追踪</text>
+    <text x="80" y="165" text-anchor="middle" font-size="11" fill="#868e96">黑箱问题</text>
+  </g>
+  <!-- Challenge 3: Skill Library -->
+  <g transform="translate(510, 150)">
+    <rect x="0" y="0" width="160" height="180" rx="12" fill="#fff" stroke="#ffa94d" stroke-width="2">
+      <animate attributeName="stroke-width" values="2;3;2" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="80" cy="50" r="30" fill="url(#warnGrad)">
+      <animate attributeName="r" values="30;33;30" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="80" y="58" text-anchor="middle" font-size="24">📚</text>
+    <text x="80" y="100" text-anchor="middle" font-size="14" fill="#495057" font-weight="bold">Skill 库</text>
+    <text x="80" y="125" text-anchor="middle" font-size="11" fill="#868e96">标准化</text>
+    <text x="80" y="145" text-anchor="middle" font-size="11" fill="#868e96">专业参与</text>
+    <text x="80" y="165" text-anchor="middle" font-size="11" fill="#868e96">本土化适配</text>
+  </g>
+  <!-- Bottom message -->
+  <rect x="200" y="380" width="400" height="40" rx="20" fill="#fff4e6" stroke="#ffa94d" stroke-width="1"/>
+  <text x="400" y="406" text-anchor="middle" font-size="13" fill="#e67700" font-weight="bold">挑战与机遇并存 · 需要审慎推进</text>
+</svg>

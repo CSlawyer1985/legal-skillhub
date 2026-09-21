@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%;max-width:800px;height:auto;margin:20px 0;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);border-radius:12px;">
+  <defs>
+    <linearGradient id="prosecutor" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#fa5252"/>
+    </linearGradient>
+    <linearGradient id="defense" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#51cf66"/>
+      <stop offset="100%" style="stop-color:#40c057"/>
+    </linearGradient>
+    <linearGradient id="judge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#845ef7"/>
+      <stop offset="100%" style="stop-color:#7950f2"/>
+    </linearGradient>
+  </defs>
+  <!-- Court background -->
+  <rect x="50" y="50" width="700" height="350" rx="16" fill="#fff" stroke="#dee2e6" stroke-width="2"/>
+  <!-- Judge at top center -->
+  <g transform="translate(400, 120)">
+    <circle cx="0" cy="0" r="50" fill="url(#judge)">
+      <animate attributeName="r" values="50;53;50" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" text-anchor="middle" font-size="32">⚖️</text>
+    <text x="0" y="70" text-anchor="middle" font-size="14" fill="#5f3dc4" font-weight="bold">法官 Agent</text>
+  </g>
+  <!-- Prosecutor left -->
+  <g transform="translate(180, 280)">
+    <circle cx="0" cy="0" r="45" fill="url(#prosecutor)">
+      <animate attributeName="r" values="45;48;45" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" text-anchor="middle" font-size="28">⚔️</text>
+    <text x="0" y="65" text-anchor="middle" font-size="14" fill="#c92a2a" font-weight="bold">控方 Agent</text>
+  </g>
+  <!-- Defense right -->
+  <g transform="translate(620, 280)">
+    <circle cx="0" cy="0" r="45" fill="url(#defense)">
+      <animate attributeName="r" values="45;48;45" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="8" text-anchor="middle" font-size="28">🛡️</text>
+    <text x="0" y="65" text-anchor="middle" font-size="14" fill="#2b8a3e" font-weight="bold">辩方 Agent</text>
+  </g>
+  <!-- Clash sparks -->
+  <g transform="translate(400, 240)">
+    <text x="0" y="0" text-anchor="middle" font-size="24" fill="#ffd43b">
+      ⚡
+      <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+    </text>
+    <text x="-30" y="10" text-anchor="middle" font-size="16" fill="#fa5252" opacity="0">
+      💥
+      <animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.3s" repeatCount="indefinite"/>
+    </text>
+    <text x="30" y="10" text-anchor="middle" font-size="16" fill="#51cf66" opacity="0">
+      💥
+      <animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.6s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <!-- Argument arrows -->
+  <g stroke-width="2">
+    <path d="M 225 280 Q 300 240, 360 200" stroke="#ff6b6b" fill="none" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 575 280 Q 500 240, 440 200" stroke="#51cf66" fill="none" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Emerge label -->
+  <rect x="320" y="370" width="160" height="30" rx="15" fill="#f1f3f5"/>
+  <text x="400" y="391" text-anchor="middle" font-size="13" fill="#495057">✨ 涌现智能</text>
+</svg>

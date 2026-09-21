@@ -1,0 +1,21 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FAFAFA"/>
+  <text x="400" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#2D3748">工具放大原有结构</text>
+  <g transform="translate(200, 250)">
+    <rect x="-70" y="-50" width="140" height="100" rx="10" fill="#E2E8F0"/>
+    <text x="0" y="-10" font-size="60" text-anchor="middle">📁</text>
+    <text x="0" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="#718096">原有结构</text>
+  </g>
+  <g transform="translate(400, 250)">
+    <text font-size="50" text-anchor="middle" fill="#4299E1">→</text>
+    <animateTransform attributeName="transform" type="translate" values="400,250;420,250;400,250" dur="1s" repeatCount="indefinite"/>
+  </g>
+  <g transform="translate(600, 250)">
+    <rect x="-80" y="-60" width="160" height="120" rx="10" fill="#FED7D7">
+      <animate attributeName="fill" values="#FED7D7;#FEB2B2;#FED7D7" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-15" font-size="60" text-anchor="middle">📁📁📁</text>
+    <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="#C53030">放大后的结构</text>
+  </g>
+  <text x="400" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="#718096">没有结构？放大只是失控</text>
+</svg>

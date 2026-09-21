@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 左侧：马车 -->
+  <g transform="translate(180, 200)">
+    <circle cx="0" cy="0" r="80" fill="#e3f2fd"/>
+    <text x="0" y="35" font-size="80" text-anchor="middle">🐎</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-12; 0,0" dur="3s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 右侧：汽车 -->
+  <g transform="translate(620, 200)">
+    <circle cx="0" cy="0" r="80" fill="#e8f5e8"/>
+    <text x="0" y="35" font-size="80" text-anchor="middle">🚗</text>
+    <animateTransform attributeName="transform" type="translate"
+      values="0,0; 0,-12; 0,0" dur="3s" repeatCount="indefinite" begin="0.5s"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 中间：方向箭头 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2196f3"/>
+    </marker>
+  </defs>
+  <line x1="280" y1="200" x2="500" y2="200" stroke="#2196f3" stroke-width="6"
+    stroke-dasharray="240" stroke-dashoffset="240" marker-end="url(#arrowhead)">
+    <animate attributeName="stroke-dashoffset" from="240" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 底部文字 -->
+  <text x="400" y="380" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">方向比速度更重要</text>
+
+  <!-- 底部标签 -->
+  <text x="180" y="330" font-size="24" fill="#666" text-anchor="middle">过去</text>
+  <text x="620" y="330" font-size="24" fill="#666" text-anchor="middle">未来</text>
+</svg>

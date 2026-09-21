@@ -1,0 +1,1207 @@
+{
+  "assets": [
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "赵宇霞",
+      "content_verification": "1页期刊论文已提取。仅保留知情状态、有偿或无偿转让与瑕疵披露的分析坐标；文章时间较早，依据旧合同法和旧公司法，不直接采信其效力结论。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_research",
+        "judicial_tendency_candidate"
+      ],
+      "published_at": "2010-09",
+      "source_id": "src-academic-defective-equity-validity-2010",
+      "source_kind": "academic_article_local_fulltext",
+      "title": "瑕疵出资股权转让合同效力问题探究",
+      "used_for": [
+        "受让人知情状态",
+        "瑕疵出资披露",
+        "效力争议历史脉络"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "approval_status": "active",
+      "author": "朱政、王佳怡／锦天城律师事务所",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "judicial_tendency",
+        "risk_control"
+      ],
+      "published_at": "2024-10-29",
+      "source_id": "src-allbright-equity-change-2024",
+      "source_kind": "verified_practice_article",
+      "title": "新公司法视域下有限责任公司股权变动生效时点研究",
+      "url": "https://www.allbrightlaw.com/SH/CN/10475/17b3c1c86b5d01a4.aspx",
+      "used_for": [
+        "股东名册",
+        "登记与交割时点",
+        "交割证据"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "access_scope": "project_internal_approval_artifacts_not_exported",
+      "activated_at": "2026-09-13",
+      "approval_status": "active",
+      "author": "项目律师与 One-Contract 迁移流程",
+      "content_verification": "64项迁移决定全部由用户确认；导出仅保留去标识化提炼结果",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "migration",
+        "lawyer-approved",
+        "deidentified"
+      ],
+      "published_at": "2026-09-12",
+      "source_id": "src-approved-migration-20260912",
+      "source_kind": "lawyer_approved_deidentified_migration_digest",
+      "title": "经律师确认的合同类型知识迁移摘要（去标识化）",
+      "used_for": [
+        "principle",
+        "module",
+        "taxonomy"
+      ],
+      "verified_at": "2026-09-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "楼义兰、张树飚、虞立教",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "risk_control",
+        "failure_case"
+      ],
+      "published_at": "2026-03-24",
+      "source_id": "src-china-tax-news-dual-contract-2026",
+      "source_kind": "official_media_tax_case",
+      "title": "去除价格伪装 追征股权交易税款",
+      "url": "https://www.ctaxnews.net.cn/paper/pc/con/202603/24/content_234830.html",
+      "used_for": [
+        "阴阳合同稽查",
+        "资金流与付款比例核验",
+        "对价改名识别"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地合同库脱敏汇总",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-internal-confidentiality-sample-aggregate-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "内部员工保密协议合同族脱敏汇总",
+      "used_for": [
+        "离职保密协议",
+        "保密承诺函",
+        "保密范围观察"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "用户提供模板",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "user_template"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-internal-confidentiality-user-templates-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "用户提供员工保密/交接确认书模板脱敏汇总",
+      "used_for": [
+        "离职保密交接确认书",
+        "通用/采购岗位版",
+        "正式员工保密协议"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地合同库脱敏汇总",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision",
+        "failure_case"
+      ],
+      "published_at": "2026-08-10",
+      "source_id": "src-internal-equity-sample-aggregate-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "内部股权转让合同族脱敏汇总",
+      "used_for": [
+        "10个AI暂行金标准样本",
+        "3个代表合同族",
+        "多文本与资金安排异常观察"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地用户材料脱敏汇总",
+      "content_verification": "5份DOCX已完整提取；包含简式登记备案文本和一份实质多方协议；候选Skill不保存原文、路径、主体或金额。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision",
+        "failure_case",
+        "client_policy_candidate"
+      ],
+      "published_at": "2026-08-14",
+      "source_id": "src-internal-equity-user-template-system-20260814",
+      "source_kind": "internal_sample_aggregate",
+      "title": "用户提供的股权转让多文本模板组脱敏汇总",
+      "used_for": [
+        "多文本体系识别",
+        "简式备案文件边界",
+        "多个转让人价款分配",
+        "尽调免责反例"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "本地合同库历史研究材料",
+      "content_verification": "已提取检索要点。仅用于提示隐瞒瑕疵出资、欺诈、撤销期间及登记或参与经营对救济的影响；引用的旧地方意见和旧公司法表述不作为现行法结论。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_research",
+        "failure_case"
+      ],
+      "published_at": "undated",
+      "source_id": "src-internal-history-defective-equity-rescission-note",
+      "source_kind": "internal_historical_research",
+      "title": "瑕疵出资股权转让合同撤销问题历史检索笔记",
+      "used_for": [
+        "瑕疵出资披露",
+        "欺诈与撤销问题清单",
+        "历史案例检索线索"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地合同库脱敏汇总",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-internal-noncompete-sample-aggregate-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "内部竞业限制协议书合同族脱敏汇总",
+      "used_for": [
+        "竞业限制协议",
+        "竞业禁止保密协议",
+        "补偿/违约金观察"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "用户提供模板",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "user_template"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-internal-noncompete-user-templates-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "用户提供竞业/保密一体化协议模板脱敏汇总",
+      "used_for": [
+        "保密与竞业限制一体化协议",
+        "正式员工竞业京修版"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地律师审查记录",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision",
+        "review_dimension"
+      ],
+      "published_at": "2026-08-19",
+      "source_id": "src-internal-procurement-review-opinions-202608",
+      "source_kind": "internal_historical_review",
+      "title": "内部采购合同审查意见与修改建议脱敏汇总",
+      "used_for": [
+        "昆山弘讯供货质保审查意见",
+        "大明阪和修改建议",
+        "众能评审意见",
+        "众能合同补充"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地合同库脱敏汇总",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision",
+        "failure_case"
+      ],
+      "published_at": "2026-08-19",
+      "source_id": "src-internal-procurement-sample-aggregate-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "内部设备原材料采购合同族脱敏汇总",
+      "used_for": [
+        "工作服采购/扫描枪/钢材/药水/产品购销等模板族",
+        "验收异议/违约金/风险负担观察"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地律师审查记录+v1参考资料",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision",
+        "review_dimension"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-internal-termination-review-opinions-202608",
+      "source_kind": "internal_historical_review",
+      "title": "内部协商解除审查意见与v1素材脱敏汇总",
+      "used_for": [
+        "v1审查原则/案例/反模式",
+        "审查联动清单"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_aggregate_only",
+      "approval_status": "active",
+      "author": "本地合同库脱敏汇总",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_revision"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-internal-termination-sample-aggregate-202608",
+      "source_kind": "internal_sample_aggregate",
+      "title": "内部协商解除/离职协议合同族脱敏汇总",
+      "used_for": [
+        "协商解除协议族",
+        "离职协议族",
+        "结算条款观察"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "active",
+      "author": "史留芳／金杜律师事务所",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "judicial_tendency",
+        "risk_control"
+      ],
+      "published_at": "2024-04-23",
+      "source_id": "src-kwm-capital-liability-2024",
+      "source_kind": "verified_practice_article",
+      "title": "新公司法专栏（四）：转得走的股权，转不走的出资责任",
+      "url": "https://www.kingandwood.com/cn/zh/insights/latest-thinking/on-prc-new-company-law-capital-contribution-liability-of-the-equity-transferor.html",
+      "used_for": [
+        "未届期出资",
+        "转让方补充责任",
+        "受让方资信审查"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "中华全国律师协会",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension"
+      ],
+      "published_at": "2020-01-01",
+      "source_id": "src-lawyer-sale-contract-guide",
+      "source_kind": "industry_guideline",
+      "title": "律师办理买卖合同法律事务操作指引",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/48e7be725777141c1b4ceddbce18aea3",
+      "used_for": [
+        "交付风险审查清单",
+        "定金与违约金并用",
+        "所有权保留实务"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "approval_status": "active",
+      "author": "人力资源社会保障部",
+      "effective_at": "2025-09-04",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "guidance",
+        "risk_dimension"
+      ],
+      "note": "行政指导文件，非强制，但反映监管态度",
+      "published_at": "2025-09-04",
+      "source_id": "src-mohrss-noncompete-guide-2025",
+      "source_kind": "guideline",
+      "title": "人力资源社会保障部《企业实施竞业限制合规指引》",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/d346c6a6268f97ac44563e0303273a04",
+      "used_for": [
+        "竞业限制补偿30%指引",
+        "违约金5倍指引",
+        "期限2年",
+        "报告义务"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "activated_at": "2026-09-13",
+      "approval_status": "active",
+      "author": "全国人民代表大会",
+      "effective_at": "2021-01-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2020-05-28",
+      "source_id": "src-prc-civil-code-2020",
+      "source_kind": "official_law",
+      "title": "中华人民共和国民法典",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/233181.html",
+      "used_for": [
+        "真实意思表示",
+        "虚假意思表示",
+        "合同效力"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "全国人民代表大会常务委员会",
+      "effective_at": "2024-07-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2023-12-29",
+      "source_id": "src-prc-company-law-2023",
+      "source_kind": "official_law",
+      "title": "中华人民共和国公司法（2023修订）",
+      "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/art/2023/art_067c072db6ef4679a2e0180996be4cf8.html",
+      "used_for": [
+        "优先购买权",
+        "股东名册",
+        "出资责任",
+        "变更程序"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "全国人民代表大会常务委员会",
+      "effective_at": "2013-07-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2012-12-28",
+      "source_id": "src-prc-labor-contract-law-2012",
+      "source_kind": "official_law",
+      "title": "中华人民共和国劳动合同法（2012修正）",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/fcbd048a51afb0009908bd782b664546",
+      "used_for": [
+        "协商解除",
+        "经济补偿",
+        "竞业限制",
+        "保密义务",
+        "违法解除赔偿"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "candidate",
+      "author": "国务院",
+      "effective_at": "2008-09-18",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2008-09-18",
+      "source_id": "src-prc-labor-contract-reg-2008",
+      "source_kind": "administrative_regulation",
+      "title": "中华人民共和国劳动合同法实施条例",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/73045b6c551f16715bcdbe22dbc8dabc",
+      "used_for": [
+        "劳务派遣经济补偿"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "active",
+      "author": "全国人民代表大会常务委员会",
+      "effective_at": "2018-12-29",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2018-12-29",
+      "source_id": "src-prc-labor-law-2018",
+      "source_kind": "official_law",
+      "title": "中华人民共和国劳动法（2018修正）",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/7d3dfe179787e6e0141b648ef6093d14",
+      "used_for": [
+        "协商解除",
+        "经济补偿",
+        "保密约定",
+        "特殊保护"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "candidate",
+      "author": "全国人民代表大会常务委员会",
+      "effective_at": "2022-07-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2021-06-10",
+      "source_id": "src-prc-stamp-tax-law",
+      "source_kind": "official_law",
+      "title": "中华人民共和国印花税法",
+      "url": "https://fgk.chinatax.gov.cn/zcfgk/c100009/c5193058/content.html",
+      "used_for": [
+        "股权转让书据印花税计税依据"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "全国人民代表大会常务委员会",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2001-04-28",
+      "source_id": "src-prc-tax-collection-law",
+      "source_kind": "official_law",
+      "title": "中华人民共和国税收征收管理法",
+      "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_1dbea81872cb4fda9ab3ccc45c627531.html",
+      "used_for": [
+        "虚假申报和少缴税款后果"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2021-01-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary",
+        "bankruptcy_interface"
+      ],
+      "published_at": "2020-12-29",
+      "source_id": "src-spc-bankruptcy-interpretation-2-2020",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于适用《中华人民共和国企业破产法》若干问题的规定（二）（2020修正）",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/68b5390a6d159c01d2d8d5fd1cf591df",
+      "used_for": [
+        "所有权保留与破产程序联动"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "judicial_tendency"
+      ],
+      "published_at": "2017-08-25",
+      "source_id": "src-spc-company-law-interpretation-iv",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于适用《中华人民共和国公司法》若干问题的规定（四）",
+      "url": "https://gongbao.court.gov.cn/Details/2b7af709142a3eb2e8034d0f2b877a.html",
+      "used_for": [
+        "同等条件",
+        "优先购买权"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2024-07-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary",
+        "judicial_tendency"
+      ],
+      "published_at": "2024-06-29",
+      "source_id": "src-spc-company-law-time-effect-2024",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于适用《中华人民共和国公司法》时间效力的若干规定",
+      "url": "https://www.court.gov.cn/zixun/xiangqing/436481.html",
+      "used_for": [
+        "新旧公司法时间效力"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2023-12-05",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary",
+        "judicial_tendency"
+      ],
+      "published_at": "2023-12-04",
+      "source_id": "src-spc-contract-general-interpretation-2023",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》合同编通则若干问题的解释",
+      "url": "https://gongbao.court.gov.cn/Details/f4722cf61c92a585f04b2ecd334f5b.html",
+      "used_for": [
+        "同一交易多份合同",
+        "隐藏合同",
+        "交易实质识别"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2021-01-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2020-12-31",
+      "source_id": "src-spc-guarantee-interpretation-2020",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于适用《中华人民共和国民法典》有关担保制度的解释",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/e3cfa868b51e6ff51be863e70da29044",
+      "used_for": [
+        "所有权保留取回权实现程序"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "case_clue",
+        "legal_boundary"
+      ],
+      "published_at": "2022-07-04",
+      "source_id": "src-spc-guiding-case-32-2022",
+      "source_kind": "guiding_case",
+      "title": "最高人民法院第32批指导性案例（竞业限制审查）",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/0a3244ed5bbcaef41f27cec04b0efb3c",
+      "used_for": [
+        "竞业限制适格主体",
+        "期限依补偿月数确定",
+        "防止过度限制择业"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2025-09-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2025-08-01",
+      "source_id": "src-spc-labor-dispute-interpretation-2-2025",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于审理劳动争议案件适用法律问题的解释（二）",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/56bd2a98c2db41943056e0b69891e26c",
+      "used_for": [
+        "在职竞业限制效力",
+        "违反竞业返还补偿并付违约金"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2024-08-27",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary",
+        "payment_condition"
+      ],
+      "published_at": "2024-08-27",
+      "source_id": "src-spc-large-small-enterprise-payment-2024",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于大型企业与中小企业约定以第三方支付款项为付款前提条款效力问题的批复",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/81a906a78ac0acf79d2a3d812b73285b",
+      "used_for": [
+        "背靠背付款条款效力",
+        "付款期限与逾期利息"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2021-01-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2020-12-29",
+      "source_id": "src-spc-sale-contract-interpretation-2020",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于审理买卖合同纠纷案件适用法律问题的解释（2020修正）",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/72883c57715650274aa0db1488af523b",
+      "used_for": [
+        "质量异议期限",
+        "风险负担",
+        "违约金调整",
+        "逾期付款损失计算",
+        "所有权保留"
+      ],
+      "verified_at": "2026-08-19"
+    },
+    {
+      "approval_status": "active",
+      "author": "最高人民法院",
+      "effective_at": "2020-09-12",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary"
+      ],
+      "published_at": "2020-08-24",
+      "source_id": "src-spc-trade-secret-interpretation-2020",
+      "source_kind": "judicial_interpretation",
+      "title": "最高人民法院关于审理侵犯商业秘密民事案件适用法律若干问题的规定",
+      "url": "https://ydzk.chineselaw.com/zxt/statuteDetail/detailPage/8192e40cd6f0e4d8d47332f75a5f3831",
+      "used_for": [
+        "法定保密义务",
+        "商业秘密定义",
+        "侵权赔偿"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "approval_status": "active",
+      "author": "国家税务总局",
+      "effective_at": "2015-01-01",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "legal_boundary",
+        "risk_control"
+      ],
+      "published_at": "2014-12-07",
+      "source_id": "src-sta-equity-individual-income-tax-67",
+      "source_kind": "official_tax_rule",
+      "title": "股权转让所得个人所得税管理办法（试行）",
+      "url": "https://www.chinatax.gov.cn/chinatax/n810341/n810765/n812141/n812222/c1520568/content.html",
+      "used_for": [
+        "全部转让收入",
+        "公平交易原则",
+        "明显偏低与核定",
+        "申报资料"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "active",
+      "author": "国家税务总局",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "risk_control"
+      ],
+      "published_at": "2014-12-12",
+      "source_id": "src-sta-equity-tax-67-explanation",
+      "source_kind": "official_explanation",
+      "title": "关于《股权转让所得个人所得税管理办法》的解读",
+      "url": "https://www.chinatax.gov.cn/chinatax/n810341/n810760/c1393965/content.html",
+      "used_for": [
+        "不论形式或名义的全部回报",
+        "核定收入"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "何婷／中南财经政法大学",
+      "content_verification": "55页学位论文已提取。用于搭建交割后解除的股权回转、价款和收益返还、第三人障碍、折价补偿和损失计算问题清单；其他股东同意权等旧法论述必须由现行公司法更新。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "historical_research",
+        "risk_control"
+      ],
+      "published_at": "2022-06-02",
+      "source_id": "src-thesis-equity-termination-effects-2022",
+      "source_kind": "academic_thesis_local_fulltext",
+      "title": "股权转让合同解除的法律效果研究",
+      "used_for": [
+        "交割后解除",
+        "股权回转",
+        "价款及孳息返还",
+        "第三人障碍",
+        "损失和违约金边界"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "每天学点知识专栏",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "checklist"
+      ],
+      "published_at": "2026-04-26",
+      "source_id": "src-wechat-caigou-check68-202604",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "采购审合同，到底审什么？2026最全审核清单",
+      "url": "",
+      "used_for": [
+        "主体8条",
+        "标的12条",
+        "价格付款10条",
+        "交付11条",
+        "验收质量9条",
+        "违约合规10条",
+        "特殊8条"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "采购帮课程服务",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "case_clue"
+      ],
+      "published_at": "2026-07-28",
+      "source_id": "src-wechat-caigoubang-procurement-202607",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "采购合同审查7大关键细节",
+      "url": "",
+      "used_for": [
+        "主体KYC",
+        "验收三方定位",
+        "所有权保留登记",
+        "预付款比例",
+        "违约金倒挂",
+        "管辖不可谈判"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "孙友臻、张文娟、牛戈婷／北京德和衡（淄博）律师事务所",
+      "content_verification": "6页PDF全文已提取；用于双边尽调、价款、税费和交割的一般风险清单。未采信未履行优先购买程序当然导致无效或可撤销、登记股东当然因公司债务被追加等概括结论。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "risk_control",
+        "negotiation"
+      ],
+      "published_at": "2026-08-14",
+      "source_id": "src-wechat-deheng-zibo-equity-risk-20260814",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "股权转让稍有不慎，可能赔掉半套房！股权转让风险防控清单",
+      "used_for": [
+        "转让方与受让方双边风险清单",
+        "付款与登记联动",
+        "税费分工提醒"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "法天使／中国合同库微信公众号",
+      "content_verification": "8页PDF全文已提取；流程和文件体系检查具有参考价值，尤其明确提示备案协议与正式协议应一致及低价备案逃税风险。文章早于2023年公司法实施，优先购买权等旧法表述必须由现行法覆盖。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "risk_control",
+        "negotiation",
+        "failure_case"
+      ],
+      "published_at": "2023-06-10",
+      "source_id": "src-wechat-fatianshi-equity-checklist-20230610",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "股权转让协议审查清单，23个审查要点需留意",
+      "used_for": [
+        "宏观中观微观审查路径",
+        "多主体价款分配",
+        "阴阳合同风险提示",
+        "付款先决条件和交割"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "approval_status": "candidate",
+      "author": "环球律师事务所微信公众号",
+      "content_verification": "title_account_and_summary_only; direct_full_text_not_obtained_as_of_2026-08-12; not_used_for_legal_conclusion",
+      "discovery_channel": "搜狗微信搜索",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "judicial_tendency",
+        "risk_control"
+      ],
+      "published_at": "2024-04-29",
+      "source_id": "src-wechat-globallaw-equity-liability-2024-discovery",
+      "source_kind": "wechat_practice_article_discovery",
+      "title": "新《公司法》解读系列｜股权转让后的出资责任——从债权人角度探析",
+      "used_for": [
+        "后续人工补充候选"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "approval_status": "candidate",
+      "author": "国枫律师事务所微信公众号",
+      "content_verification": "title_account_and_summary_only; full_text_fetch_blocked_by_sogou_captcha_on_2026-08-12; not_used_for_legal_conclusion",
+      "discovery_channel": "搜狗微信搜索",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "risk_control"
+      ],
+      "published_at": "2018-09-04",
+      "source_id": "src-wechat-guofeng-equity-review-2018-discovery",
+      "source_kind": "wechat_practice_article_discovery",
+      "title": "国枫观察｜股权转让合同起草及审查的特殊风险防范（上）",
+      "used_for": [
+        "后续人工补充及时效校验候选"
+      ],
+      "verified_at": "2026-08-12"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "贺东梅律师",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "judicial_approach",
+        "case_clue"
+      ],
+      "published_at": "2026-08-20",
+      "source_id": "src-wechat-heli-lawyer-procurement-202608",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "采购合同审查要点和纠纷审理思路PPT",
+      "url": "",
+      "used_for": [
+        "合同首部",
+        "品质机动幅度公差",
+        "检验权归属",
+        "样品封存",
+        "无书面合同认定",
+        "所有权转移裁判规则"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "律政番茄酱",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "checklist",
+        "case_clue"
+      ],
+      "published_at": "2026-07-06",
+      "source_id": "src-wechat-lvzhengfanqie-procurement-202607",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "采购合同审查要点指引——七步构建采购合同风控体系",
+      "url": "",
+      "used_for": [
+        "主体",
+        "标的",
+        "价格支付",
+        "交付验收",
+        "违约责任",
+        "特殊条款",
+        "争议解决",
+        "36项自查清单"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "唐青林、赵佳星（转载账号：山西尚普并购咨询）",
+      "content_verification": "6页PDF全文已提取；仅采用标的、付款、交割、保证、过渡期和违约的清单框架。未采信无出处的比例数据、工商登记即取得全部股东权利及公司债务由转让方承担等过度概括。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "risk_control",
+        "negotiation"
+      ],
+      "published_at": "2026-06-16",
+      "source_id": "src-wechat-shangpu-equity-seven-20260616",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "股权转让协议必须写清的7个核心条款，否则必踩大坑",
+      "used_for": [
+        "七类核心机制检查",
+        "控制权交接提醒",
+        "过渡期限制候选"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "access_scope": "local_fulltext_private",
+      "approval_status": "active",
+      "author": "孙丽琼／孙律的视界微信公众号",
+      "content_verification": "9页PDF全文已提取并记录案例库编号；可作为案例线索和争议类型索引。部分案例源于旧法且人民法院案例库完整页面需要登录，使用前仍须按现行公司法、时间效力规则及官方原文复核。",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "judicial_tendency",
+        "risk_control"
+      ],
+      "published_at": "2024-03-07",
+      "source_id": "src-wechat-sun-equity-cases-20240307",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "股权转让合同签订和审查要点——从人民法院案例库第一批公布的涉股权转让纠纷裁判要旨看",
+      "used_for": [
+        "主体资格",
+        "分期付款解除",
+        "出资责任",
+        "未披露债务",
+        "利润归属",
+        "合同目的和解除后果"
+      ],
+      "verified_at": "2026-08-14"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "法律追梦人（WELEGAL法务联盟）",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "model_clause"
+      ],
+      "published_at": "2026-06-10",
+      "source_id": "src-wechat-welegal-procurement-202606",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "你有一份采购合同避坑指南待签收",
+      "url": "",
+      "used_for": [
+        "主体履约能力现场考察",
+        "货到付款",
+        "运输风险",
+        "违约金条款示例",
+        "履行监管台账"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "薛钰（屋里Law）",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "model_clause"
+      ],
+      "published_at": "2024-12-11",
+      "source_id": "src-wechat-wulilaw-procurement-202412",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "法务入门必看——合同审查要点⑤采购合同",
+      "url": "",
+      "used_for": [
+        "费用全包条款",
+        "验收仅外观确认",
+        "质保期重算",
+        "责任上限",
+        "知识产权不侵权",
+        "廉洁条款"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "小理聊法",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "case_clue"
+      ],
+      "published_at": "2026-08-19",
+      "source_id": "src-wechat-xiaoli-procurement-202608",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "合同风险｜采购合同最容易出问题的7个地方",
+      "url": "",
+      "used_for": [
+        "采购标的",
+        "交付风险",
+        "验收标准",
+        "背靠背付款2025条例",
+        "质保救济阶梯",
+        "合同变更",
+        "违约救济"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "local_fulltext_only",
+      "approval_status": "active",
+      "author": "仝婉婉律师（知产飞船）",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "review_dimension",
+        "case_clue"
+      ],
+      "published_at": "2025-01-06",
+      "source_id": "src-wechat-zhipaofeichuan-procurement-202501",
+      "source_kind": "wechat_practice_article_local_fulltext",
+      "title": "办案札记｜采购合同审查要点",
+      "url": "",
+      "used_for": [
+        "格式合同单方违约条款",
+        "材质歧义",
+        "主体资质",
+        "保证条款",
+        "隐蔽缺陷"
+      ],
+      "verified_at": "2026-08-20"
+    },
+    {
+      "access_scope": "project_internal_retrieval_archive_not_exported",
+      "activated_at": "2026-09-13",
+      "approval_status": "active",
+      "author": "元典开放平台检索结果与项目律师复核",
+      "content_verification": "仅作为法条时效与检索追溯入口；正式结论仍须核对具体法条",
+      "jurisdiction": "CN",
+      "knowledge_tags": [
+        "official-law",
+        "current-law",
+        "yuandian",
+        "verification"
+      ],
+      "published_at": "2026-09-12",
+      "source_id": "src-yuandian-law-verification-20260912",
+      "source_kind": "official_law_research_digest",
+      "title": "元典开放平台现行法分组核验摘要（2026-09-12）",
+      "used_for": [
+        "principle",
+        "module",
+        "legal-update"
+      ],
+      "verified_at": "2026-09-12"
+    },
+    {
+      "source_id": "src-skill1",
+      "source_kind": "user_provided_skill_package",
+      "title": "skill1",
+      "author": "用户提供",
+      "jurisdiction": "CN",
+      "published_at": "undated",
+      "verified_at": "2026-09-17",
+      "knowledge_tags": [
+        "user_provided",
+        "practice_experience",
+        "review_method",
+        "rigid_rule"
+      ],
+      "used_for": [
+        "通用条款审查要点（七模块）",
+        "审查方法与验收标准",
+        "动作模型与修改方法",
+        "具体类型的条款级审查要点"
+      ],
+      "approval_status": "candidate",
+      "access_scope": "user_provided_licensed",
+      "content_verification": "用户提供的合同审查技能包（内部代号 skill1）。**版权状态：已授权**（用户 2026-09-17 明示）。\n**交付边界：交付包与对外文件中不得出现原作品名称或作者名，统一以 `skill1` 指代。**\n素材条目以规则号追溯（`R-`/`S-`/`C-` 加章-序，如 `R-07-01`）；规则号的承载字段与粒度见 `references/knowledge-asset-governance.md`「skill1 来源与规则号标注」。",
+      "note": "书籍类素材。使用形态为『提炼方法与要点、表达全部重写』，不整篇打包。"
+    },
+    {
+      "source_id": "src-franchise-reg-2007",
+      "source_kind": "administrative_regulation",
+      "title": "商业特许经营管理条例",
+      "author": "国务院",
+      "jurisdiction": "CN",
+      "published_at": "2007-05-01",
+      "verified_at": "2026-09-17",
+      "knowledge_tags": [
+        "legal_boundary",
+        "franchise"
+      ],
+      "used_for": [
+        "特许经营合同的法定必备内容、信息披露、备案与罚则"
+      ],
+      "approval_status": "candidate",
+      "access_scope": "public",
+      "content_verification": "经元典检索核验为现行有效，全文已调取。",
+      "note": "公法源，可对外引用。"
+    },
+    {
+      "source_id": "src-franchise-disclosure-2012",
+      "source_kind": "administrative_regulation",
+      "title": "商业特许经营信息披露管理办法(2012修订)",
+      "author": "商务部",
+      "jurisdiction": "CN",
+      "published_at": "2012-04-01",
+      "verified_at": "2026-09-17",
+      "knowledge_tags": [
+        "legal_boundary",
+        "franchise"
+      ],
+      "used_for": [
+        "特许经营合同的法定必备内容、信息披露、备案与罚则"
+      ],
+      "approval_status": "candidate",
+      "access_scope": "public",
+      "content_verification": "经元典检索核验为现行有效，全文已调取。",
+      "note": "公法源，可对外引用。"
+    },
+    {
+      "source_id": "src-franchise-filing-2023",
+      "source_kind": "administrative_regulation",
+      "title": "商业特许经营备案管理办法(2023修订)",
+      "author": "商务部",
+      "jurisdiction": "CN",
+      "published_at": "2023-12-29",
+      "verified_at": "2026-09-17",
+      "knowledge_tags": [
+        "legal_boundary",
+        "franchise"
+      ],
+      "used_for": [
+        "特许经营合同的法定必备内容、信息披露、备案与罚则"
+      ],
+      "approval_status": "candidate",
+      "access_scope": "public",
+      "content_verification": "经元典检索核验为现行有效，全文已调取。",
+      "note": "公法源，可对外引用。"
+    }
+  ],
+  "required_fields": [
+    "source_id",
+    "source_kind",
+    "title",
+    "author",
+    "jurisdiction",
+    "published_at",
+    "verified_at",
+    "approval_status"
+  ],
+  "schema_version": "2.2.0",
+  "status": "equity_transfer_sources_researched_awaiting_lawyer_approval"
+}

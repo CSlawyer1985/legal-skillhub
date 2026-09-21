@@ -1,0 +1,131 @@
+{
+  "skill_name": "opc-legal-counsel",
+  "version": "1.0.2",
+  "answer_file_convention": "<outputs-dir>/<eval_id>.md",
+  "policy": "所有 hard 断言必须通过；soft 断言达到 soft_minimum。任何 hard 失败不得被其他命中项抵消。",
+  "cases": [
+    {
+      "eval_id": "business-01-founder-equity",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "split-business-tools", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "贡献", "terms": ["贡献", "投入"]}, {"label": "归属", "terms": ["归属", "兑现", "成熟"]}, {"label": "退出", "terms": ["退出", "回收", "离开"]}]},
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "VERIFIED_AS_OF_DATE", "CONFLICTING_SOURCES", "RETRIEVAL_UNAVAILABLE"]},
+        {"id": "no-direct-ratio", "severity": "hard", "type": "not_contains_any", "terms": ["平均分股最合理", "50:50 最佳", "直接给顾问股即可", "这个比例法律允许所以没问题"]},
+        {"id": "ip-source", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "代码", "terms": ["代码", "既有成果"]}, {"label": "第三方", "terms": ["第三方", "开源", "前雇主"]}]}
+      ]
+    },
+    {
+      "eval_id": "business-02-contract-scope",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "scope-and-change", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "范围", "terms": ["范围", "排除项", "依赖", "基线"]}, {"label": "变更", "terms": ["变更", "变更程序", "变更单"]}, {"label": "对应", "terms": ["验收", "交付", "付款", "权利移转"]}]},
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "VERIFIED_AS_OF_DATE", "CONFLICTING_SOURCES", "RETRIEVAL_UNAVAILABLE"]},
+        {"id": "no-vague-payment", "severity": "hard", "type": "not_contains_any", "terms": ["项目完成即可要求付款", "完成即视为付款条件", "法定付款比例为", "法律标准比例"]},
+        {"id": "ip-and-third-party", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "知识产权", "terms": ["知识产权", "成果归属", "权利"]}, {"label": "第三方", "terms": ["第三方", "既有", "通用组件", "开源"]}]}
+      ]
+    },
+    {
+      "eval_id": "business-03-private-account",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "stop-and-reconstruct", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "停止", "terms": ["停止", "暂停"]}, {"label": "还原", "terms": ["逐笔", "台账", "还原"]}, {"label": "原始记录", "terms": ["流水", "原始记录", "平台账单"]}]},
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "VERIFIED_AS_OF_DATE", "CONFLICTING_SOURCES", "RETRIEVAL_UNAVAILABLE"]},
+        {"id": "no-simple-cure", "severity": "hard", "type": "not_contains_any", "terms": ["转回公司即可解决", "补开发票就没有问题", "统一补成借款", "问题不大无需处理"]},
+        {"id": "dual-review", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "会计", "terms": ["会计师", "税务师"]}, {"label": "律师", "terms": ["律师", "法律"]}]}
+      ]
+    },
+    {
+      "eval_id": "retrieval-01-entity-local",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "RETRIEVAL_UNAVAILABLE", "CONFLICTING_SOURCES"]},
+        {"id": "retrieval-contract", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "地域", "terms": ["成都", "司法辖区", "登记地"]}, {"label": "日期", "terms": ["截至", "判断日期", "核验时间"]}, {"label": "来源", "terms": ["发布机关", "官方来源", "法律数据库", "来源"]}]},
+        {"id": "no-cross-local", "severity": "hard", "type": "not_contains_any", "terms": ["全国都按成都办理", "其他城市也是同样材料", "内置地方政策显示", "青岛指引适用于成都"]},
+        {"id": "business-fit", "severity": "soft", "type": "contains_any", "terms": ["经营目标", "主体适配", "责任隔离", "客户要求"]}
+      ]
+    },
+    {
+      "eval_id": "retrieval-02-current-tax-policy",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "must-retrieve", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "状态", "terms": ["NEEDS_RETRIEVAL", "RETRIEVAL_UNAVAILABLE", "VERIFIED_CURRENT"]}, {"label": "期间", "terms": ["期间", "今年", "截至"]}, {"label": "主体", "terms": ["纳税主体", "主体", "纳税身份"]}]},
+        {"id": "authority-and-calculation", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "权威来源", "terms": ["官方来源", "税务机关", "法律数据库", "权威来源"]}, {"label": "专业计算", "terms": ["会计师", "税务师", "计算"]}]},
+        {"id": "no-memory-rate", "severity": "hard", "type": "not_contains_any", "terms": ["根据记忆当前税率", "全国统一税率就是", "三年前政策今年当然有效", "无需核验优惠条件"]},
+        {"id": "facts", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "业务", "terms": ["业务模式", "业务"]}, {"label": "申报", "terms": ["申报", "收入", "成本"]}]}
+      ]
+    },
+    {
+      "eval_id": "retrieval-03-ai-public-launch",
+      "soft_minimum": 2,
+      "assertions": [
+        {"id": "product-controls", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "数据最小化", "terms": ["最小化", "最小必要"]}, {"label": "人工", "terms": ["人工复核", "转人工"]}, {"label": "停止回滚", "terms": ["停止", "回滚", "关闭"]}, {"label": "投诉", "terms": ["投诉", "反馈"]}]},
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "VERIFIED_AS_OF_DATE", "CONFLICTING_SOURCES", "RETRIEVAL_UNAVAILABLE"]},
+        {"id": "no-unverified-current-rule", "severity": "hard", "type": "not_contains_any", "terms": ["当前全国一律无需备案", "只要有隐私政策即可上线", "第三方模型承担全部责任", "无需核验上游条款"]},
+        {"id": "model-chain", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "模型", "terms": ["模型", "上游"]}, {"label": "数据", "terms": ["数据", "工单"]}, {"label": "供应商", "terms": ["供应商", "第三方"]}]},
+        {"id": "evidence-binding", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "来源", "terms": ["来源", "数据库"]}, {"label": "时间", "terms": ["核验时间", "检索时间", "截至"]}]}
+      ]
+    },
+    {
+      "eval_id": "business-04-data-breach",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "contain-and-preserve", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "阻断", "terms": ["阻断", "停止扩散", "暂停访问"]}, {"label": "日志", "terms": ["保全日志", "封存日志", "日志"]}, {"label": "时间线", "terms": ["时间线", "影响范围"]}]},
+        {"id": "required-escalation", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "律师", "terms": ["律师"]}, {"label": "安全", "terms": ["安全团队", "信息安全", "安全负责人"]}]},
+        {"id": "no-destruction", "severity": "hard", "type": "not_contains_any", "terms": ["删日志", "删除日志", "不要留记录", "先承认全部责任", "压住消息即可"]},
+        {"id": "retrieval-state", "severity": "soft", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "RETRIEVAL_UNAVAILABLE"]}
+      ]
+    },
+    {
+      "eval_id": "business-05-contractor-control",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "dual-track", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "身份", "terms": ["劳动", "劳务", "顾问", "实际管理", "实质"]}, {"label": "成果", "terms": ["成果归属", "代码", "职务", "知识产权", "权利"]}]},
+        {"id": "evidence-preserve", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "证据", "terms": ["证据", "固定", "保全", "留痕"]}, {"label": "权限", "terms": ["权限", "账号", "代码库", "回收", "分级"]}]},
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "VERIFIED_AS_OF_DATE", "CONFLICTING_SOURCES", "RETRIEVAL_UNAVAILABLE"]},
+        {"id": "required-escalation", "severity": "hard", "type": "contains_any", "terms": ["律师"]},
+        {"id": "no-title-only", "severity": "hard", "type": "not_contains_any", "terms": ["顾问协议所以代码归他", "签了顾问协议就不存在劳动关系", "付款记录证明代码归公司", "删除对方代码记录"]},
+        {"id": "leave-handling", "severity": "soft", "type": "contains_any", "terms": ["交接", "离职", "离开", "争议"]}
+      ]
+    },
+    {
+      "eval_id": "business-06-regulatory-inquiry",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "preserve-evidence", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "修改前后", "terms": ["修改前后", "改前", "改后", "历史页面", "版本"]}, {"label": "投放", "terms": ["投放", "宣传", "广告", "页面"]}]},
+        {"id": "confirm-nature", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "联系性质", "terms": ["联系性质", "权限", "主体", "身份", "范围"]}, {"label": "期限", "terms": ["期限", "回复", "明天", "时间"]}]},
+        {"id": "retrieval-state", "severity": "hard", "type": "contains_any", "terms": ["NEEDS_RETRIEVAL", "VERIFIED_CURRENT", "VERIFIED_AS_OF_DATE", "CONFLICTING_SOURCES", "RETRIEVAL_UNAVAILABLE"]},
+        {"id": "no-case-closed", "severity": "hard", "type": "not_contains_any", "terms": ["页面改了就不用管", "改完即无问题", "无需再处理", "直接承认违法"]},
+        {"id": "single-voice", "severity": "soft", "type": "contains_any", "terms": ["对外口径", "统一口径", "单一口径", "指定发言人"]}
+      ]
+    },
+    {
+      "eval_id": "fault-01-retrieval-unavailable",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "explicit-unavailable", "severity": "hard", "type": "contains_all", "terms": ["RETRIEVAL_UNAVAILABLE"]},
+        {"id": "no-fabrication", "severity": "hard", "type": "not_contains_any", "terms": ["已核验上海官方", "法定办理时限为", "最新税率为", "全部材料如下并且保证准确"]},
+        {"id": "safe-fallback", "severity": "soft", "type": "contains_any_per_group", "groups": [{"label": "待核", "terms": ["待核", "检索任务", "官方渠道"]}, {"label": "业务判断", "terms": ["主体选择", "经营目标", "责任隔离"]}]}
+      ]
+    },
+    {
+      "eval_id": "fault-02-conflicting-sources",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "explicit-conflict", "severity": "hard", "type": "contains_all", "terms": ["CONFLICTING_SOURCES"]},
+        {"id": "show-conflict", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "效力", "terms": ["效力", "文件类型"]}, {"label": "时间", "terms": ["日期", "新旧"]}, {"label": "地域", "terms": ["地域", "当地", "地方"]}]},
+        {"id": "no-arbitrary-choice", "severity": "hard", "type": "not_contains_any", "terms": ["窗口说了就一定按窗口", "数据库一定优先无需核对", "地方电话就是全国规则", "任选一个执行即可"]},
+        {"id": "written-confirmation", "severity": "soft", "type": "contains_any", "terms": ["书面确认", "可追溯", "正式答复", "补正通知"]}
+      ]
+    },
+    {
+      "eval_id": "fault-03-as-of-date",
+      "soft_minimum": 1,
+      "assertions": [
+        {"id": "historical-only", "severity": "hard", "type": "contains_any", "terms": ["VERIFIED_AS_OF_DATE", "NEEDS_RETRIEVAL"]},
+        {"id": "validity-chain", "severity": "hard", "type": "contains_any_per_group", "groups": [{"label": "效力", "terms": ["效力", "有效"]}, {"label": "后续文件", "terms": ["修改", "废止", "后续文件"]}, {"label": "今年", "terms": ["今年", "当前", "截至"]}]},
+        {"id": "no-official-equals-current", "severity": "hard", "type": "not_contains_any", "terms": ["官方解读所以今年当然有效", "三年前条件可以直接沿用", "无需查后续文件"]},
+        {"id": "no-commit-before-check", "severity": "soft", "type": "contains_any", "terms": ["不要据此报价", "不据此申报", "核验前", "暂不承诺"]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML Slides Studio"
+  short_description: "浠庤缁嗗ぇ绾茬敓鎴愰珮瀹＄編鍗曟枃浠?HTML slides锛屽厛閫夐鏍间笌椤电翰锛屽啀鍑轰唬鐮?
+  default_prompt: "Use $html-slides-studio to turn my detailed outline or manuscript into a high-aesthetic single-file HTML slide deck. Start by having me choose A/B/C/D, collect missing inputs, propose a page-by-page plan, wait for confirmation, then generate the deck."

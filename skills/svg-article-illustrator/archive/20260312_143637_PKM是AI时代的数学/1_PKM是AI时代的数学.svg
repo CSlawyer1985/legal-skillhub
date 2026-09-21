@@ -1,0 +1,28 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 左侧：数学符号 -->
+  <g transform="translate(200, 225)">
+    <text x="0" y="20" font-size="80" text-anchor="middle" fill="#4A90E2">∑</text>
+    <animateTransform attributeName="transform" type="translate" values="200,225; 200,215; 200,225" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 等号 -->
+  <g transform="translate(400, 225)">
+    <rect x="-30" y="-15" width="60" height="8" fill="#666" rx="2"/>
+    <rect x="-30" y="7" width="60" height="8" fill="#666" rx="2"/>
+  </g>
+
+  <!-- 右侧：PKM + AI -->
+  <g transform="translate(600, 225)">
+    <rect x="-80" y="-50" width="160" height="100" fill="#E8F4F8" rx="12" stroke="#4A90E2" stroke-width="3" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-5" font-size="36" text-anchor="middle" fill="#4A90E2" font-weight="bold">PKM</text>
+    <text x="0" y="30" font-size="24" text-anchor="middle" fill="#666">AI时代</text>
+    <animateTransform attributeName="transform" type="translate" values="600,225; 600,215; 600,225" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1" begin="0.5s"/>
+  </g>
+
+  <!-- 标题 -->
+  <text x="400" y="60" font-size="48" text-anchor="middle" fill="#333" font-weight="bold">PKM = AI时代的数学</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#FFF9E6" rx="10"/>
+
+  <!-- 陷阱示意 -->
+  <g transform="translate(400, 225)">
+    <!-- 虚线框 -->
+    <rect x="-140" y="-90" width="280" height="180" fill="none"
+      stroke="#F39C12" stroke-width="4" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- 中心符号 -->
+    <circle r="60" fill="#FFE5CC" stroke="#F39C12" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.6; 1; 0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="25" font-size="90" text-anchor="middle">⚠️</text>
+  </g>
+
+  <text x="400" y="410" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">形式陷阱</text>
+</svg>

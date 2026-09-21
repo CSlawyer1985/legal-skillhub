@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "parameter-package.schema.json",
+  "title": "LaborPilot versioned calculation parameter package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "package_id", "version", "jurisdiction_scope",
+    "applicable_jurisdictions", "effective_from", "effective_to", "published_at",
+    "source", "values"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "package_id": {"type": "string", "pattern": "^[A-Za-z0-9_-]{1,80}$"},
+    "version": {"type": "string", "minLength": 1},
+    "jurisdiction_scope": {"enum": ["national", "local"]},
+    "applicable_jurisdictions": {
+      "type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}
+    },
+    "effective_from": {"type": "string", "format": "date"},
+    "effective_to": {"type": ["string", "null"], "format": "date"},
+    "published_at": {"type": "string", "format": "date"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "issuer", "document_number", "url", "retrieved_at"],
+      "properties": {
+        "title": {"type": "string", "minLength": 4},
+        "issuer": {"type": "string", "minLength": 2},
+        "document_number": {"type": ["string", "null"]},
+        "url": {"type": "string", "format": "uri"},
+        "retrieved_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "values": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["value", "unit", "effective_from", "effective_to", "source_locator"],
+        "properties": {
+          "value": {"type": ["string", "number"]},
+          "unit": {"type": "string", "minLength": 1},
+          "effective_from": {"type": "string", "format": "date"},
+          "effective_to": {"type": ["string", "null"], "format": "date"},
+          "source_locator": {"type": "string", "minLength": 1},
+          "selection_note": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

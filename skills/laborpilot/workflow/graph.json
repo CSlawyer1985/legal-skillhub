@@ -1,0 +1,110 @@
+{
+  "graph_version": "1.3",
+  "entry_node": "task_intake",
+  "terminal_node": "stage_close",
+  "transitions": [
+    {"from": "task_intake", "on": "pass", "to": "material_ingestion"},
+    {"from": "task_intake", "on": "pause", "to": "task_intake"},
+    {"from": "material_ingestion", "on": "pass", "to": "intake"},
+    {"from": "material_ingestion", "on": "pause", "to": "material_ingestion"},
+    {"from": "intake", "on": "pass", "to": "issue_analysis"},
+    {"from": "intake", "on": "pause", "to": "intake"},
+    {"from": "issue_analysis", "on": "pass", "to": ["evidence_analysis", "authority_research"]},
+    {"from": "issue_analysis", "on": "return", "to": "intake"},
+    {"from": "evidence_analysis", "on": "pass", "to": "claims_procedure"},
+    {"from": "evidence_analysis", "on": "return", "to": "intake"},
+    {"from": "authority_research", "on": "pass", "to": "claims_procedure"},
+    {"from": "authority_research", "on": "return", "to": "issue_analysis"},
+    {"from": "claims_procedure", "on": "pass", "to": "strategy_approval"},
+    {"from": "claims_procedure", "on": "return", "to": "evidence_analysis"},
+    {"from": "strategy_approval", "on": "approved", "to": "drafting"},
+    {"from": "strategy_approval", "on": "return", "to": "issue_analysis"},
+    {"from": "drafting", "on": "pass", "to": "validation"},
+    {"from": "validation", "on": "pass", "to": "lawyer_approval"},
+    {"from": "validation", "on": "return", "to": "drafting"},
+    {"from": "validation", "on": "escalate", "to": "lawyer_approval"},
+    {"from": "lawyer_approval", "on": "approved", "to": "stage_close"},
+    {"from": "lawyer_approval", "on": "return", "to": "drafting"}
+  ],
+  "risk_routes": {
+    "standard": {"required_validations": ["deterministic", "adversarial"]},
+    "complex": {"required_validations": ["deterministic", "adversarial", "authority_second_pass"]},
+    "high": {"required_validations": ["deterministic", "adversarial", "authority_second_pass"], "mandatory_escalation": true}
+  },
+  "approval_gates": {
+    "strategy_approval": ["representation", "stage", "requested_document", "provisional_strategy"],
+    "lawyer_approval": ["validated_draft", "residual_risks", "submission_decision"]
+  },
+  "node_requirements": {
+    "material_ingestion": [
+      {
+        "id": "traceable_material",
+        "type": "traceable_material",
+        "waiver_allowed": true,
+        "message": "至少登记一份具有 material_id、来源路径和 SHA-256 的可追溯材料。"
+      }
+    ],
+    "intake": [
+      {
+        "id": "structured_fact",
+        "type": "structured_facts",
+        "waiver_allowed": true,
+        "message": "至少登记一条具有事实陈述、状态和可核验来源关系的结构化事实。"
+      }
+    ],
+    "issue_analysis": [
+      {
+        "id": "structured_issue",
+        "type": "structured_issues",
+        "waiver_allowed": true,
+        "message": "至少登记一个已复核的请求／抗辩矩阵争点，并写明构成要件、事实链接、双方路径、备选路径和失败后果。"
+      }
+    ],
+    "evidence_analysis": [
+      {
+        "id": "structured_evidence",
+        "type": "structured_evidence_chains",
+        "waiver_allowed": false,
+        "message": "每个争点构成要件都必须建立证据链或缺口链，并写明举证主体、证据控制方、责任转移、不利后果和补证行动。"
+      }
+    ],
+    "authority_research": [
+      {
+        "id": "verified_authority",
+        "type": "verified_authority",
+        "waiver_allowed": false,
+        "message": "每个争点构成要件均须关联已核验且适用的法源，并保存完整条文、来源、效力、地域和时间锚点。"
+      }
+    ],
+    "claims_procedure": [
+      {
+        "id": "structured_claim",
+        "type": "claims_ready",
+        "waiver_allowed": false,
+        "message": "至少登记一个已复核请求或抗辩；金额型项目必须关联可重算的专业计算记录，且不得存在待确认输入。"
+      },
+      {
+        "id": "reviewed_procedure_path",
+        "type": "procedure_ready",
+        "waiver_allowed": false,
+        "message": "每个争点都必须完成时效、管辖、一裁终局、临时救济和后续救济路径复核，且不得存在待确认项。"
+      }
+    ],
+    "drafting": [
+      {
+        "id": "draft_artifact",
+        "type": "transition_output_artifact",
+        "waiver_allowed": false,
+        "message": "必须登记真实存在的初稿产物，并在通过节点时以 --output-artifact 明确关联。"
+      }
+    ],
+    "validation": [
+      {
+        "id": "report_backed_validations",
+        "type": "report_backed_validations",
+        "waiver_allowed": false,
+        "message": "全部必需验证类型必须关联真实存在的 JSON 报告；正常通过时均为 pass，升级律师时可为 escalate。"
+      }
+    ]
+  }
+}

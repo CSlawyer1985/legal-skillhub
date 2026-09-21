@@ -1,0 +1,21 @@
+# Rule Studio 专用开发依赖（W1 冻结）
+#
+# 契约来源：TASKS.md W1「冻结唯一新运行依赖」、ADR-012、ADR-029。
+#
+# 产品运行范围为 Python >=3.10,<3.14。
+# 本机的 /usr/bin/python3 为 3.9.6，**在支持范围之外**，不得用于契约冻结或验收证据。
+# 已验证的解释器：Python 3.12.14（venv ~/.venvs/rule-studio-dev）。
+#
+# 唯一新增运行依赖：JSON Schema 校验器。
+# jsonschema 4.x 需要 Python >=3.10；4.26.0 为本项目当前验证版本。
+jsonschema>=4.21,<5
+# 同上：registry.py 直接 import referencing（离线 $ref 解析），须显式声明。
+referencing>=0.30,<1
+
+# 以下为 One-Contract 既有运行依赖，Rule Studio 沿用，不新增：
+#   defusedxml / lxml / python-docx   （见 scripts/requirements.txt）
+#
+# 明确不引入：
+#   - Node / npm 构建链（ADR-012，前端为原生静态资源）
+#   - 任何 Web 框架（本地 HTTP 使用 Python 标准库）
+#   - 任何遥测、CDN 或默认外联组件（RS-HC-009）

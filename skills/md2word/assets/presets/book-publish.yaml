@@ -1,0 +1,187 @@
+name: "书籍出版格式"
+description: "中文书籍出版规范：正文仿宋、标题仿宋加粗、英文/数字 Times New Roman、TOC + 章间分页 + 页眉书名；用于 --book 全书多章合并导出"
+
+# 书籍元信息（页眉显示，按实际书名修改）
+book:
+  title: "法律 AI Skill 实战"
+
+# 页面设置
+page:
+  width: 21.0       # cm (A4)
+  height: 29.7      # cm (A4)
+  margin_top: 2.54
+  margin_bottom: 2.54
+  margin_left: 3.0
+  margin_right: 3.0
+
+# 字体设置（出版：正文仿宋；英文/数字 Times New Roman，对齐 legal 配置）
+fonts:
+  default:
+    name: "仿宋"
+    name_alt: "仿宋_GB2312"
+    ascii: "Times New Roman"
+    size: 12        # pt (小四)
+    color: "#000000"
+
+# 标题设置（出版：中文仿宋加粗；英文/数字 Times New Roman）
+titles:
+  level1:
+    size: 16        # pt (三号，章标题)
+    bold: true
+    align: "center"
+    space_before: 18
+    space_after: 12
+    indent: 0
+    font: "仿宋"
+    font_alt: "Times New Roman"   # 标题里的英文/数字
+  level2:
+    size: 14        # pt (四号，节标题)
+    bold: true
+    align: "justify"
+    indent: 24      # 首行缩进 2 字符（中文节标题样式，对齐样章）
+    space_before: 12
+    space_after: 6
+    font: "仿宋"
+    font_alt: "Times New Roman"
+  level3:
+    size: 12        # pt (小四，小节)
+    bold: true
+    align: "justify"
+    indent: 24      # 首行缩进 2 字符（中文节标题样式，对齐样章）
+    space_before: 6
+    space_after: 3
+    font: "仿宋"
+    font_alt: "Times New Roman"
+  level4:
+    size: 12        # pt (小四)
+    bold: true
+    align: "left"
+    indent: 0
+    font: "仿宋"
+    font_alt: "Times New Roman"
+
+# 段落设置
+paragraph:
+  line_spacing: 1.5
+  first_line_indent: 24   # 2 字符
+  align: "justify"
+
+# 页码设置
+page_number:
+  enabled: true
+  format: "1/x"
+  font: "Times New Roman"
+  size: 10.5       # pt (五号)
+  position: "center"
+
+# 引号设置
+quotes:
+  convert_to_chinese: true
+
+# 表格设置（FIGURES-OUTLINE 配图风格规范配色）
+# 主蓝 #2C5282 / 浅灰 #EDF2F7 / 边框 #CBD5E0 / 文字深灰 #2D3436（T139 方案 A）
+table:
+  border_enabled: true
+  border_color: "#CBD5E0"          # 边框：浅灰细线
+  border_width: 4
+  line_spacing: 1.2
+  row_height_cm: 0.8
+  alignment: "center"
+  cell_margin:
+    top: 30
+    bottom: 30
+    left: 60
+    right: 60
+  vertical_align: "center"
+  rounded_corners: true            # 圆角边框
+
+  # 表格标题行（第一行）格式：主蓝底 + 白字
+  header:
+    font: "Times New Roman"
+    size: 10.5
+    bold: true
+    color: "#FFFFFF"                # 白字
+    background_color: "#2C5282"     # 主蓝底纹（点缀用）
+
+  # 表格正文格式
+  body:
+    font: "仿宋"
+    font_alt: "仿宋_GB2312"
+    size: 10.5
+    color: "#2D3436"                # 深灰主色（T139 方案 A）
+
+  # 隔行底纹（斑马纹）：浅灰交替
+  row_even:
+    background_color: "#EDF2F7"     # 偶数行浅灰底纹
+  row_odd:
+    background_color: "#FFFFFF"     # 奇数行白底
+
+# 代码块设置（出版级：等宽字体 + 浅灰底纹 + 细边框 + 关拼写检查）
+code_block:
+  label:
+    enabled: false
+    font: "Times New Roman"
+    size: 10
+    color: "#808080"
+  content:
+    font: "JetBrains Mono"
+    east_asia_font: "等线"
+    size: 9
+    color: "#333333"
+    left_indent: 0
+    line_spacing: 1.2
+    background_color: "#F5F5F5"
+    border_color: null
+    border_size: 4
+    no_proofread: true
+
+# 行内代码设置（等宽 + 浅灰底，与代码块风格一致）
+inline_code:
+  font: "JetBrains Mono"
+  east_asia_font: "等线"
+  size: 10
+  color: "#333333"
+  background_color: "#F0F0F0"
+
+# 引用块设置（无视觉样式：与正文一致，不加底纹/边框/缩进）
+quote:
+  background_color: null
+  left_indent_inches: 0
+  border_color: null
+  font_size: null
+  line_spacing: null
+
+# 数学公式设置
+math:
+  font: "Times New Roman"
+  size: 11
+  italic: true
+  color: "#00008B"
+
+# 图片设置（出版印刷 300dpi）
+image:
+  display_ratio: 1.0
+  max_width_cm: 14.64
+  target_dpi: 600
+  show_caption: true
+
+# 分割线设置
+horizontal_rule:
+  character: "─"
+  repeat_count: 55
+  font: "Times New Roman"
+  size: 12
+  color: "#808080"
+  alignment: "center"
+
+# 列表设置
+lists:
+  bullet:
+    marker: "•"
+    indent: 24
+  numbered:
+    indent: 24
+    preserve_format: true
+  task:
+    unchecked: "☐"
+    checked: "☑"

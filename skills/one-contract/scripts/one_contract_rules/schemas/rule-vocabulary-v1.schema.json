@@ -1,0 +1,515 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/rule-vocabulary-v1.schema.json",
+  "title": "One-Contract Controlled Rule Vocabulary",
+  "$comment": "This document is the closed local vocabulary for executable rule facts, operators, effect targets, and hard-boundary guards. It MUST be loaded only from the packaged, allowlisted local schema/data registry; network retrieval and dynamic code loading are forbidden. content_sha256 is SHA-256 over RFC 8785/JCS canonical JSON with only the top-level content_sha256 member omitted. The loader MUST reject non-I-JSON values, duplicate IDs, unknown cross-references, disallowed operator/value-type combinations, and any client rule that attempts to alter or disable a global_hard_boundary guard. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "vocabulary_version",
+    "resolver_semantics_version",
+    "fact_keys",
+    "operators",
+    "effect_targets",
+    "guards",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "vocabulary_version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "resolver_semantics_version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "fact_keys": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/factKey"
+      }
+    },
+    "operators": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/operator"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "equals"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "not_equals"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "in"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "not_in"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "exists"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "contains"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "gte"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "operator_id": {
+                "const": "lte"
+              }
+            },
+            "required": [
+              "operator_id"
+            ]
+          }
+        }
+      ]
+    },
+    "effect_targets": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/effectTarget"
+      }
+    },
+    "guards": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/guard"
+      }
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "valueType": {
+      "type": "string",
+      "enum": [
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "string_array",
+        "number_array"
+      ]
+    },
+    "operatorId": {
+      "type": "string",
+      "enum": [
+        "equals",
+        "not_equals",
+        "in",
+        "not_in",
+        "exists",
+        "contains",
+        "gte",
+        "lte"
+      ]
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "require",
+        "prefer",
+        "forbid",
+        "escalate",
+        "set_output"
+      ]
+    },
+    "normativeClass": {
+      "type": "string",
+      "enum": [
+        "global_hard_boundary",
+        "case_authorized_exception",
+        "client_mandatory",
+        "client_preferred",
+        "client_advisory",
+        "type_rule",
+        "domain_rule",
+        "global_soft_rule"
+      ]
+    },
+    "factKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_key",
+        "description",
+        "value_type",
+        "nullable",
+        "sensitive",
+        "allowed_operators"
+      ],
+      "properties": {
+        "fact_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,119}$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "value_type": {
+          "$ref": "#/$defs/valueType"
+        },
+        "nullable": {
+          "type": "boolean"
+        },
+        "sensitive": {
+          "type": "boolean"
+        },
+        "allowed_operators": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/operatorId"
+          }
+        },
+        "enum_values": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    "operator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operator_id",
+        "operand_mode",
+        "accepted_fact_types",
+        "accepted_operand_types",
+        "comparison_semantics",
+        "normalizations",
+        "type_mismatch_outcome"
+      ],
+      "properties": {
+        "operator_id": {
+          "$ref": "#/$defs/operatorId"
+        },
+        "operand_mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "scalar",
+            "list"
+          ]
+        },
+        "accepted_fact_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/valueType"
+          }
+        },
+        "accepted_operand_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/valueType"
+          }
+        },
+        "comparison_semantics": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "normalizations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "unicode_nfc",
+              "preserve_json_type",
+              "preserve_array_order",
+              "reject_non_finite_number",
+              "no_implicit_coercion"
+            ]
+          }
+        },
+        "type_mismatch_outcome": {
+          "const": "INVALID_CONDITION_TYPE"
+        }
+      }
+    },
+    "effectTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_key",
+        "description",
+        "value_type",
+        "allowed_actions",
+        "allowed_normative_classes",
+        "client_writable"
+      ],
+      "properties": {
+        "target_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,159}$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "value_type": {
+          "$ref": "#/$defs/valueType"
+        },
+        "allowed_actions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/action"
+          }
+        },
+        "allowed_normative_classes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/normativeClass"
+          }
+        },
+        "client_writable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "guardCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_key",
+        "operator"
+      ],
+      "properties": {
+        "fact_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,119}$"
+        },
+        "operator": {
+          "$ref": "#/$defs/operatorId"
+        },
+        "value": {}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "const": "exists"
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      ]
+    },
+    "blockedEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_key",
+        "actions",
+        "source_normative_classes"
+      ],
+      "properties": {
+        "target_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,159}$"
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/action"
+          }
+        },
+        "source_normative_classes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/normativeClass"
+          }
+        }
+      }
+    },
+    "guard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guard_id",
+        "title",
+        "guard_kind",
+        "boundary_rule_id",
+        "condition_mode",
+        "when",
+        "blocked_effects",
+        "outcome",
+        "reason_code"
+      ],
+      "properties": {
+        "guard_id": {
+          "type": "string",
+          "pattern": "^guard_[a-z0-9][a-z0-9_.-]{3,119}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "guard_kind": {
+          "type": "string",
+          "enum": [
+            "global_hard_boundary",
+            "human_confirmation_gate"
+          ]
+        },
+        "boundary_rule_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "condition_mode": {
+          "type": "string",
+          "enum": [
+            "all",
+            "any"
+          ]
+        },
+        "when": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/guardCondition"
+          }
+        },
+        "blocked_effects": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/blockedEffect"
+          }
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "block",
+            "human_confirmation_required"
+          ]
+        },
+        "reason_code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]{2,99}$"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,409 @@
+{
+ "assets": [
+  {
+   "activation_status": "active",
+   "approval_status": "active",
+   "experience_id": "exp-eq-internal-multi-document-001",
+   "limits": "本卡仅记录脱敏的结构性观察，未对该具体交易的税务性质作律师结论。",
+   "observation": "本地历史样本和本轮用户模板均出现同一交易配置多份文件、实质协议与登记备案文本价格或履行口径不同的结构。该结构可能有合法文件分工，也可能隐藏真实对价，必须先核对全部文件、资金和申报。",
+   "review_rule": "相同交易方、目标公司和接近时间的多文本必须聚类核对，不得以单个文件的标题或价款字段得出结论。",
+   "source_ids": [
+    "src-internal-equity-sample-aggregate-202608",
+    "src-internal-equity-user-template-system-20260814"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "title": "内部样本已出现名义文本与实际安排分离",
+   "type_id": "type-equity-transfer"
+  },
+  {
+   "activation_status": "active",
+   "approval_status": "active",
+   "experience_id": "exp-eq-tax-investigation-2026-001",
+   "limits": "媒体报道为稽查经验来源，不代替对具体税法适用的专业意见。",
+   "observation": "公开稽查案例中，申报价与资产价值不匹配引发调查；检查人员核对银行流水、转账备注、受让人提供的真实合同及付款比例，最终还原全部交易价款。",
+   "review_rule": "价格真实性审查至少需要文件、资金、估值和申报四组证据交叉验证。",
+   "source_ids": [
+    "src-china-tax-news-dual-contract-2026"
+   ],
+   "source_status": "public_case_report_verified",
+   "title": "税务稽查会用资金流、付款比例和真实合同还原对价",
+   "type_id": "type-equity-transfer"
+  },
+  {
+   "activation_status": "active",
+   "approval_status": "active",
+   "experience_id": "exp-eq-representative-drafting-001",
+   "limits": "未经用户律师批准，不得称为成熟母版。",
+   "observation": "3个暂行代表合同族的结构较完整且可编辑，但仍出现附件闭环不足、条款编号冲突、付款后果句子不完整、合同生效与付款节点混同等问题。",
+   "review_rule": "代表合同只提供结构和历史经验，进入母版前仍须逐条校正、补附件、做法律时效核验并完成脱敏。",
+   "source_ids": [
+    "src-internal-equity-sample-aggregate-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "title": "成熟文本选取不能只看篇幅和可编辑性",
+   "type_id": "type-equity-transfer"
+  },
+  {
+   "activation_status": "active",
+   "approval_status": "active",
+   "experience_id": "exp-eq-user-template-system-20260814",
+   "limits": "仅记录匿名结构性观察，未判断任何具体交易已经实施、申报或构成违法。",
+   "observation": "一组用户模板由数份简式登记备案文本和一份多方实质协议构成；简式文本缺少付款条件、权属保证、交割和赔偿闭环，并与实质协议存在重大价格差异。",
+   "review_rule": "将登记备案表单识别为实施文件，逐项与实质协议核对；不得把简式表单当作成熟母版，也不得以内部效力优先条款替代真实申报。",
+   "source_ids": [
+    "src-internal-equity-user-template-system-20260814"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "title": "登记备案表单不能独立承担完整交易风险分配",
+   "type_id": "type-equity-transfer"
+  },
+  {
+   "activation_status": "active",
+   "approval_status": "active",
+   "experience_id": "exp-eq-history-payment-remedy-20260814",
+   "limits": "历史修改只说明谈判路径，不代表该强度适用于所有交易或已获律师批准。",
+   "observation": "一份历史修订将简单的逾期退回股权，改为宽限期、逾期违约金、继续履行或部分解除选择、股权回转及激励份额失效的成组机制。",
+   "review_rule": "付款违约不能只补一个违约金比例；同步核对已交割股权如何回转、价款如何返还、公司登记如何恢复以及附随激励是否失效。",
+   "source_ids": [
+    "src-internal-equity-sample-aggregate-202608"
+   ],
+   "source_status": "local_anonymised_revision_aggregate",
+   "title": "分期付款违约必须同时处理宽限、解除、股权回转和激励失效",
+   "type_id": "type-equity-transfer"
+  },
+  {
+   "activation_status": "active",
+   "approval_status": "active",
+   "experience_id": "exp-eq-history-negotiation-deletion-20260814",
+   "limits": "未取得谈判背景，不能推定删除原因或将历史立场自动套用到新交易。",
+   "observation": "历史修订中，完税凭证要求及零对价激励份额的期限、登记和违约机制曾被削弱或删除，显示这些条款具有明显立场和谈判敏感性。",
+   "review_rule": "不要把最终签署稿中的删除等同于专业上不需要；将其保存为强保护候选，并记录被删除原因、我方角色和可交换条件。",
+   "source_ids": [
+    "src-internal-equity-sample-aggregate-202608"
+   ],
+   "source_status": "local_anonymised_revision_aggregate",
+   "title": "被删除的税务与零对价保护应保留为谈判分支",
+   "type_id": "type-equity-transfer"
+  },
+  {
+   "experience_id": "exp-gd-acceptance-window-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "验收异议期过短被限缩为外观异议，需与实际检验能力匹配",
+   "observation": "本地多份采购合同约定收货后数日内提出质量异议，但标的物为需要安装调试或分批使用的设备/原材料，短时间内无法完成全面检验；部分合同还同时以‘使用前发现’限定异议范围。",
+   "review_rule": "检验期限应匹配标的物性质和实际检验能力；过短期限依民法典622仅视为外观瑕疵异议期，审查时应提示并给出与质保期联动的合理期限。",
+   "limits": "本卡为脱敏结构观察，具体合理期限取决于标的物性质、交易习惯和检验能力，不作统一数字结论。",
+   "source_ids": [
+    "src-prc-civil-code-2020",
+    "src-internal-procurement-sample-aggregate-202608",
+    "src-internal-procurement-review-opinions-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-penalty-overreach-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "违约金或处罚金额过高，超出司法支持区间需提示调整",
+   "observation": "真实供货质保协议中出现500-1000元/箱的处罚、‘缺一罚百’、违约金达合同总额50%-60%等条款；律师审查时明确提示金额过高并建议删除或下调。",
+   "review_rule": "违约金高于损失30%通常被认定过分高于损失（民法典585+通则解释65）；审查应识别过高违约金并给出匹配司法支持区间的修改建议，不静默保留。",
+   "limits": "本卡基于本地审查记录；违约金是否过高需结合损失、履行情况和过错综合判断。",
+   "source_ids": [
+    "src-prc-civil-code-2020",
+    "src-spc-contract-general-interpretation-2023",
+    "src-internal-procurement-review-opinions-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-delivery-risk-redline-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "在途风险、逾期交货违约金和收货迟延责任是供需双方拉锯焦点",
+   "observation": "采购方补充条款常约定‘在途损毁灭失风险由供方承担’、出厂逾期1个月违约金50%；供应方文本则写‘交付承运人后风险转移’、买方逾期收货风险自违约时转移。双方通过补充协议来回调整风险归属。",
+   "review_rule": "交付风险归属与逾期后果必须写明；审查按我方立场落笔（采购方：签收前供方担风险+逾期违约金；供应方：交付承运人后转移+买方逾期收货责任），并用批注说明依据。",
+   "limits": "风险转移规则允许当事人约定，本卡不构成对具体约定的效力判断。",
+   "source_ids": [
+    "src-prc-civil-code-2020",
+    "src-internal-procurement-sample-aggregate-202608",
+    "src-internal-procurement-review-opinions-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-tech-agreement-interface-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "设备采购必须联动技术协议、知识产权和质保，不能只审购销正文",
+   "observation": "设备采购（如机器人焊缝跟踪系统）正文简略，核心的技术标准、验收基准、知识产权归属和质保范围落在技术协议与附件；质保还区分非人为损坏、备件来源、改装和使用规范等除外情形。",
+   "review_rule": "设备采购审查必须读取技术协议/图纸/样品基准，联动核对技术标准、验收、质保范围、知识产权和所有权保留；正文与附件口径冲突时以明确的主次约定落笔统一。",
+   "limits": "技术协议内容高度定制，本卡仅提示联动维度，不预设具体技术条款。",
+   "source_ids": [
+    "src-internal-procurement-sample-aggregate-202608",
+    "src-internal-procurement-review-opinions-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-raw-material-measurement-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "原材料购销要写清计量差异、质量异议和加工连带责任边界",
+   "observation": "钢材等原材料现价现货合同约定数量差异3‰内由需方负责、加工后发现质量问题按使用前/后区分处理；供应方只担材料本身损失，不担加工费、误工费、下家损失等间接损失。",
+   "review_rule": "原材料购销审查重点：计量单位与差异容忍度、质量异议时点（使用前/后）与程序、供方责任边界（本体vs加工间接损失）是否平衡；按我方立场落笔并提示损失边界风险。",
+   "limits": "间接损失排除条款在商事主体间通常有效，但需提示其效力边界（民法典618故意/重大过失除外）。",
+   "source_ids": [
+    "src-prc-civil-code-2020",
+    "src-internal-procurement-sample-aggregate-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-exit-renegotiation-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "供货框架的退出机制、订货周期和质保处罚需兼顾供需平衡",
+   "observation": "真实供货协议审查意见显示：JIT订货周期需与产能匹配、退出机制过严应放宽为提前30天通知、处罚方案金额过高应下调、直接扣货款条款宜删除；这些修改同时保护双方履约可持续性。",
+   "review_rule": "框架供货协议审查应平衡订货承诺、交货期限、退出机制和质保处罚，防止条款过严导致交易难以为继；审查意见进批注或落笔时说明交易阻力。",
+   "limits": "本卡基于单一供货框架审查意见，具体参数（周期、通知期、处罚）需结合行业和双方能力。",
+   "source_ids": [
+    "src-internal-procurement-review-opinions-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-format-contract-unilateral-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "供货方格式合同只约定单方违约责任，显失公平导致高额违约金不获支持",
+   "observation": "真实案例：采购方直接使用供货方上市公司提供的格式文本，磋商承诺的优惠条件未纳入主文，且合同仅约定采购方取消订单的高额违约金、未约定供货方违约责任。供货方诉请近200万元违约金，一审以条款显失公平未予支持。",
+   "review_rule": "审查格式合同须识别单方违约责任与未兑现的商业承诺；将磋商承诺的优惠条件落入正文或附件，违约责任约定双方对等，防止条款显失公平被司法否定。",
+   "limits": "本卡基于公开办案札记案例，具体认定取决于合同文本与实际履行证据。",
+   "source_ids": [
+    "src-wechat-zhipaofeichuan-procurement-202501"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-hidden-defect-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "隐蔽缺陷必须与外观验收区分，签收不等于质量无异议",
+   "observation": "专业文章与判例均强调：现场验收仅为感观/外观确认，使用中发现的材质、工艺、内部结构等隐蔽缺陷仍应由供方负责；只写符合国标而不明确指标，可能被供方以国标限值抗辩成功（面粉砷超标案）。",
+   "review_rule": "验收条款须区分外观瑕疵与隐蔽缺陷，明确隐蔽缺陷不因签收/付款/使用而视为放弃；质量条款量化到具体指标与检测方法，防止空心化。",
+   "limits": "隐蔽缺陷的举证责任与范围需结合合同约定与司法实践个案判断。",
+   "source_ids": [
+    "src-wechat-caigoubang-procurement-202607",
+    "src-wechat-xiaoli-procurement-202608",
+    "src-wechat-wulilaw-procurement-202412"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-liability-inversion-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "违约责任倒挂使下游风险单向转移，需核对上下游合同",
+   "observation": "判例：汽车座椅供应商对主机厂按日0.5%违约金，与二级供应商约定仅0.1%，二级迟延致主机厂索赔2000万，供应商仅能向二级追偿300万。法院以比例差超70%认定显失公平。",
+   "review_rule": "审查供应链采购合同须核对上下游违约责任的平衡，防止对终端客户承担高违约金而向上游追偿不足；违约金比例与风险承受能力匹配。",
+   "limits": "责任倒挂的认定需结合交易背景、损失与过错综合判断，本卡为审查提示。",
+   "source_ids": [
+    "src-wechat-caigoubang-procurement-202607",
+    "src-wechat-xiaoli-procurement-202608"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-warranty-ladder-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "质保条款不能只写负责维修，需设置救济阶梯与起算规则",
+   "observation": "判例与实务：800万生产设备多次调试不达标，最终通过调解达成技术改造协议；质保期自验收合格日起算而非交付日，更换/修理后重新计算，救济按修理→复验→更换→退货/解除递进。",
+   "review_rule": "质保条款须明确起算时点、响应时限、救济阶梯、费用承担和留痕要求；反复维修仍不达标应有换货/退货/解除机制。",
+   "limits": "救济阶梯的具体设置需结合设备性质、故障严重度和行业惯例。",
+   "source_ids": [
+    "src-wechat-xiaoli-procurement-202608",
+    "src-wechat-wulilaw-procurement-202412",
+    "src-wechat-lvzhengfanqie-procurement-202607"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-change-control-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "合同变更须书面留痕，口头和即时沟通难以证明变更合意",
+   "observation": "实务案例：合同约定变更须盖章，实际却长期通过微信调整数量/型号/交期；另有书面协议与实际履行不一致，法院以实际行为认定合同变更。变更内容约定不明时推定为未变更（民法典544）。",
+   "review_rule": "采购合同审查须明确变更权限、书面形式和版本管理；重要微信/邮件最终回填补充协议或变更单，防止默许形成不利履行证据。",
+   "limits": "实际履行是否构成变更需综合判断，本卡为程序性审查提示。",
+   "source_ids": [
+    "src-wechat-xiaoli-procurement-202608",
+    "src-wechat-lvzhengfanqie-procurement-202607"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-gd-integrity-clause-202608",
+   "type_id": "type-equipment-material-procurement",
+   "title": "廉洁条款与主体准入是采购合同的第一道防线",
+   "observation": "实务与判例：采购代表收受好处费致设备价格虚高约70%，法院依民法典154条认定行为无效按市价结算；主体不适格（注销清算公司）导致合同无效、预付款无法追回。",
+   "review_rule": "采购合同须含廉洁条款（反商业贿赂）与主体资质、收款账户一致性核验；对特殊行业核验经营许可，识别空壳/失信/注销主体。",
+   "limits": "廉洁条款的具体表述需符合企业合规政策与反商业贿赂法规。",
+   "source_ids": [
+    "src-wechat-caigoubang-procurement-202607",
+    "src-wechat-lvzhengfanqie-procurement-202607",
+    "src-wechat-welegal-procurement-202606"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-et-compensation-proposer-202608",
+   "type_id": "type-employment-mutual-termination",
+   "title": "经济补偿是否应付取决于提出方，协议须写明",
+   "observation": "真实模板中协商解除协议常只写支付补偿金，未写明提出方。劳动合同法46条2项：用人单位提出协商解除须支付经济补偿；劳动者主动提出则不适用。提出方不明会导致补偿判断错误。",
+   "review_rule": "协商解除协议先确认提出方：用人单位提出→依法支付补偿；劳动者主动提出→一般不适用，但协议应明确表述提出方，避免事后争议。",
+   "limits": "提出方需结合事实（通知/辞职书/谈判记录）判断，不能仅凭协议表述。",
+   "source_ids": [
+    "src-prc-labor-contract-law-2012",
+    "src-internal-termination-sample-aggregate-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-et-total-settlement-transparency-202608",
+   "type_id": "type-employment-mutual-termination",
+   "title": "一次性结算总额须分项，防掩盖法定义务",
+   "observation": "协商解除协议常约定一笔总额涵盖全部补偿项目。若金额含经济补偿、未休年假工资、代通知金等不同性质款项而未分项，无法核验是否足额、税务处理也混乱。",
+   "review_rule": "离职结算用分项清单（工资/奖金/加班/未休年假/经济补偿/代通知金/竞业补偿），写明基数/期间/税务属性；总额和解须充分披露争议项目。",
+   "limits": "总额和解不必然无效，但须以充分披露和真实对价为基础。",
+   "source_ids": [
+    "src-internal-termination-review-opinions-202608",
+    "src-internal-termination-sample-aggregate-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-et-procedural-obligations-nonwaivable-202608",
+   "type_id": "type-employment-mutual-termination",
+   "title": "社保/证明/档案等程序义务不得以现金买断",
+   "observation": "个别离职协议把社保补缴、离职证明、档案转移与一次性补偿混同，或以劳动者自愿放弃为条件。这些是法定程序义务，不以协议放弃而消灭。",
+   "review_rule": "社保/公积金/离职证明/档案转移与可协商款项分离，写明缴费截至月/转移/证明出具；不把法定程序义务写成可放弃。",
+   "limits": "地方经办口径不同，需核验当地规则。",
+   "source_ids": [
+    "src-prc-labor-contract-law-2012",
+    "src-internal-termination-review-opinions-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-cf-confidentiality-not-paid-202608",
+   "type_id": "type-employee-confidentiality",
+   "title": "保密义务不以支付保密费为前提，保密费约定可提示",
+   "observation": "合并版保密协议常约定保密费已含在工资中无需另行支付。这在法律上有效（保密义务不以支付为对价，劳动合同法仅对竞业限制要求按月补偿），但从劳动者角度提示了信息价值与义务不对等。",
+   "review_rule": "保密义务是法定/约定义务，不以支付保密费为前提；若协议声明保密费已含工资，审查时从劳动者立场提示，不认定无效。",
+   "limits": "保密义务与竞业限制补偿的法律要求不同，不得混同。",
+   "source_ids": [
+    "src-prc-labor-contract-law-2012",
+    "src-internal-confidentiality-user-templates-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-cf-return-deletion-checklist-202608",
+   "type_id": "type-employee-confidentiality",
+   "title": "离职保密交接须用清单固定，防留存争议",
+   "observation": "离职保密交接确认书（通用/采购岗位版）用清单逐项列明资料/数据/账号/权限的返还/删除/退出，并设公司核验栏——这是可执行可举证的交接机制。缺少清单的协议离职后留存争议难查证。",
+   "review_rule": "保密交接用清单机制（逐项列明+员工处理情况+公司核验），注明不适用项；离职后发现留存资料保留追责权。",
+   "limits": "清单须与实际岗位匹配，避免形式化。",
+   "source_ids": [
+    "src-internal-confidentiality-user-templates-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-nc-compensation-floor-guideline-202608",
+   "type_id": "type-noncompete",
+   "title": "竞业补偿低于30%平均工资是谈判风险而非违法",
+   "observation": "真实模板约定竞业补偿按最低工资标准，远低于30%平均工资。人社部2025合规指引建议不低于30%（期限超1年宜50%），但属行政指导无强制力；按最低工资合法但显著偏低，对劳动者不利。",
+   "review_rule": "竞业补偿按最低工资或低于30%平均工资：从劳动者立场提示谈判风险（指引建议），不直接改写；从用人单位立场确认合法性。",
+   "limits": "30%/50%为指引建议非强制；但补偿不得低于履行地最低工资。",
+   "source_ids": [
+    "src-mohrss-noncompete-guide-2025",
+    "src-internal-noncompete-user-templates-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-nc-penalty-multiple-guideline-202608",
+   "type_id": "type-noncompete",
+   "title": "竞业违约金按已付补偿数倍是常见设计，5倍为指引建议",
+   "observation": "真实模板约定违反竞业按已付补偿3倍支付违约金。人社部指引建议违约金一般不宜超过补偿总额5倍，但属建议；3倍在建议范围内。违约金从工资中扣除、损失按营业额10倍等设计对劳动者过重。",
+   "review_rule": "竞业违约金（倍数/固定金额）合法但过高时提示谈判风险；违约金与损失赔偿关系、是否从工资扣除等设计从劳动者立场提示。",
+   "limits": "违约金条款合法有效，不得直接下调；从工资扣除须符合劳动法规定。",
+   "source_ids": [
+    "src-mohrss-noncompete-guide-2025",
+    "src-internal-noncompete-user-templates-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-nc-eligibility-gate-202608",
+   "type_id": "type-noncompete",
+   "title": "竞业限制先审主体适格，普通员工条款无效风险",
+   "observation": "最高法指导案例与劳动人事争议典型案例：保安等普通岗位员工不掌握商业秘密，竞业限制条款无效。真实模板存在对普通员工广泛签署竞业的现象。",
+   "review_rule": "审查竞业限制先确认员工适格性（高管/高级技工/保密义务人）；不适格则提示无效风险，从用人单位立场确认签署必要性。",
+   "limits": "适格性需结合岗位实际知悉的保密事项判断。",
+   "source_ids": [
+    "src-spc-guiding-case-32-2022",
+    "src-internal-noncompete-sample-aggregate-202608"
+   ],
+   "source_status": "public_case_report_verified",
+   "approval_status": "active",
+   "activation_status": "active"
+  },
+  {
+   "experience_id": "exp-nc-trigger-clarity-202608",
+   "type_id": "type-noncompete",
+   "title": "竞业限制须书面启动，未通知则员工无需履行",
+   "observation": "优质模板（合并版）明确：离职时未书面通知启动竞业限制的，员工无需履行，单位亦无需付补偿。这避免员工在竞业是否启动不明时承担义务或丧失择业机会。",
+   "review_rule": "竞业限制启动机制须书面通知；未通知启动则员工无需履行离职竞业；连续三个月未付补偿员工可解除竞业约定。",
+   "limits": "在职竞业限制与离职竞业限制的启动要求不同（劳动争议解释二）。",
+   "source_ids": [
+    "src-prc-labor-contract-law-2012",
+    "src-spc-labor-dispute-interpretation-2-2025",
+    "src-internal-noncompete-user-templates-202608"
+   ],
+   "source_status": "local_anonymised_aggregate",
+   "approval_status": "active",
+   "activation_status": "active"
+  }
+ ],
+ "schema_version": "2.1.0"
+}

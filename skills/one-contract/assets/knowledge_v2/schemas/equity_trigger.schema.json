@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/equity-trigger-v2.schema.json",
+  "title": "Structural-risk trigger",
+  "type": "object",
+  "required": [
+    "trigger_id", "version", "type_id", "name", "severity", "hard_signals",
+    "false_positive_guards", "evidence_state", "human_confirmation_required",
+    "auto_action", "required_modules", "required_outputs", "prohibited_outputs",
+    "source_ids", "approval_status", "activation_status"
+  ],
+  "properties": {
+    "trigger_id": {"type": "string", "pattern": "^TRG-[A-Z0-9-]+$", "description": "触发器标识。本条曾在股权转让试点期写死为 TRG-EQ- 前缀，实际已扩展出 GD/ET/CF/NC 等类型缩写。TRG-<类型缩写>-<风险点> 的语义结构保留，前缀不再限定。"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "type_id": {"type": "string", "enum": ["type-equity-transfer", "type-equipment-material-procurement", "type-employment-mutual-termination", "type-employee-confidentiality", "type-noncompete"], "description": "关联的具体类型标识，须与 taxonomy_v2.json 的 catalog_types 对应。本条曾写死为 type-equity-transfer，实际已覆盖 5 个类型；集合由 trigger_catalog.json 实测导出。"},
+    "name": {"type": "string", "minLength": 1},
+    "severity": {"enum": ["P0", "P1", "P2"]},
+    "hard_signals": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "supporting_signals": {"type": "array", "items": {"type": "string"}},
+    "false_positive_guards": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "evidence_state": {"enum": ["confirmed", "major_choice", "reasonable_assumption"], "description": "触发时所依赖的事实认定状态。本条曾写死为 major_choice，实际以 confirmed 为主；集合由 trigger_catalog.json 实测导出。"},
+    "human_confirmation_required": {"type": "boolean", "description": "是否必须人工确认后才能继续。本条曾写死为 true，实际部分触发器可自动执行。"},
+    "auto_action": {"enum": ["directed_block_only", "comment_and_request_evidence", "revise", "list_risks_not_block"], "description": "自动动作类型。后两项 revise 与 list_risks_not_block 为试点后新增，本条原枚举未收录，集合由 trigger_catalog.json 实测导出。"},
+    "directed_block_scope": {"type": "string", "minLength": 1, "description": "定向阻断的作用域。为可选字段，缺失时表示该触发器不附加定向阻断。"},
+    "required_modules": {"type": "array", "items": {"type": "string"}},
+    "required_outputs": {"type": "array", "items": {"type": "string"}},
+    "prohibited_outputs": {"type": "array", "items": {"type": "string"}},
+    "source_ids": {"type": "array", "items": {"type": "string"}},
+    "approval_status": {"enum": ["candidate", "lawyer_approved", "regression_passed", "active", "deprecated"]},
+    "activation_status": {"enum": ["inactive", "active"]}
+  },
+  "additionalProperties": false
+}

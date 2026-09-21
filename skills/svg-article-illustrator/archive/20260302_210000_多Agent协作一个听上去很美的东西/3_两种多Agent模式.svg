@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <marker id="arrow3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90E2"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">两种多 Agent 模式</text>
+
+  <!-- 左边：多 Agent 系统 -->
+  <g transform="translate(200, 220)">
+    <rect x="-120" y="-80" width="240" height="160" rx="12" fill="#E8F5E9" stroke="#4CAF50" stroke-width="3"/>
+    <text x="0" y="-45" font-size="22" font-weight="bold" fill="#2E7D32" text-anchor="middle">多 Agent 系统</text>
+    <text x="0" y="-10" font-size="40" text-anchor="middle">🧠</text>
+    <text x="0" y="35" font-size="16" fill="#333" text-anchor="middle">同一个大脑内部</text>
+    <text x="0" y="55" font-size="14" fill="#666" text-anchor="middle">Claude Code / Sub-agent</text>
+  </g>
+
+  <!-- VS -->
+  <text x="400" y="220" font-size="36" font-weight="bold" fill="#9E9E9E" text-anchor="middle">VS</text>
+
+  <!-- 右边：多 Agent 配置 -->
+  <g transform="translate(600, 220)">
+    <rect x="-120" y="-80" width="240" height="160" rx="12" fill="#FFEBEE" stroke="#E57373" stroke-width="3"/>
+    <text x="0" y="-45" font-size="22" font-weight="bold" fill="#C62828" text-anchor="middle">多 Agent 配置</text>
+    <text x="0" y="-10" font-size="40" text-anchor="middle">💻</text>
+    <text x="0" y="35" font-size="16" fill="#333" text-anchor="middle">独立进程通信</text>
+    <text x="0" y="55" font-size="14" fill="#666" text-anchor="middle">OpenClaw 多 Agent</text>
+  </g>
+
+  <!-- 底部结论 -->
+  <rect x="150" y="350" width="500" height="50" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="400" y="382" font-size="18" fill="#1565C0" text-anchor="middle">前者有效 · 后者代价高</text>
+</svg>

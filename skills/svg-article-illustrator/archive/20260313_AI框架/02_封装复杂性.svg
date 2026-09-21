@@ -1,0 +1,28 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="90" font-size="42" font-weight="bold" fill="#2d3748" text-anchor="middle">封装复杂性</text>
+  <g transform="translate(120, 180)">
+    <text x="0" y="35" font-size="60" text-anchor="middle">📝</text>
+    <text x="0" y="100" font-size="20" fill="#718096" text-anchor="middle">技能</text>
+  </g>
+  <g transform="translate(200, 260)">
+    <text x="0" y="35" font-size="60" text-anchor="middle">🧠</text>
+    <text x="0" y="100" font-size="20" fill="#718096" text-anchor="middle">判断</text>
+  </g>
+  <g transform="translate(120, 320)">
+    <text x="0" y="35" font-size="60" text-anchor="middle">🔄</text>
+    <text x="0" y="100" font-size="20" fill="#718096" text-anchor="middle">流程</text>
+  </g>
+  <line x1="280" y1="250" x2="480" y2="250" stroke="#4A90E2" stroke-width="4" stroke-dasharray="200" stroke-dashoffset="200">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="480,245 495,250 480,255" fill="#4A90E2"/>
+  <rect x="500" y="140" width="220" height="220" rx="16" fill="#E8F4F8" stroke="#4A90E2" stroke-width="4" stroke-dasharray="15,8">
+    <animate attributeName="stroke-dashoffset" from="46" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(610, 220)">
+    <text x="0" y="35" font-size="70" text-anchor="middle">📦</text>
+    <animateTransform attributeName="transform" type="translate" values="610,220; 610,210; 610,220" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+  <text x="610" y="330" font-size="22" fill="#4A90E2" text-anchor="middle" font-weight="bold">顺滑入口</text>
+</svg>

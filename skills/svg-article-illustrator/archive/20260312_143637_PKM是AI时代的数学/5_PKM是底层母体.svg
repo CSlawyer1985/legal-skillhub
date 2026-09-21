@@ -1,0 +1,37 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="36" text-anchor="middle" fill="#333" font-weight="bold">PKM是底层母体</text>
+
+  <!-- 底层大圆 - PKM -->
+  <circle cx="400" cy="280" r="150" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3" stroke-dasharray="10,5">
+    <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="400" y="290" font-size="48" text-anchor="middle" fill="#4A90E2" font-weight="bold">PKM</text>
+  <text x="400" y="330" font-size="20" text-anchor="middle" fill="#666">底层母体</text>
+
+  <!-- 上层应用 - 围绕PKM -->
+  <g transform="translate(250, 120)">
+    <rect x="-45" y="-25" width="90" height="50" fill="#E8F5E8" rx="8"/>
+    <text x="0" y="8" font-size="18" text-anchor="middle" fill="#333">AI协作</text>
+    <animateTransform attributeName="transform" type="translate" values="250,120; 250,110; 250,120" dur="3s" repeatCount="indefinite"/>
+  </g>
+
+  <g transform="translate(400, 90)">
+    <rect x="-45" y="-25" width="90" height="50" fill="#FFF3E0" rx="8"/>
+    <text x="0" y="8" font-size="18" text-anchor="middle" fill="#333">知识管理</text>
+    <animateTransform attributeName="transform" type="translate" values="400,90; 400,80; 400,90" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+  </g>
+
+  <g transform="translate(550, 120)">
+    <rect x="-45" y="-25" width="90" height="50" fill="#F3E8F8" rx="8"/>
+    <text x="0" y="8" font-size="18" text-anchor="middle" fill="#333">项目管理</text>
+    <animateTransform attributeName="transform" type="translate" values="550,120; 550,110; 550,120" dur="3s" repeatCount="indefinite" begin="1s"/>
+  </g>
+
+  <!-- 连接线 -->
+  <line x1="250" y1="145" x2="300" y2="180" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="400" y1="115" x2="400" y2="130" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3"/>
+  <line x1="550" y1="145" x2="500" y2="180" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3"/>
+</svg>

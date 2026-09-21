@@ -1,0 +1,34 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FAFAFA"/>
+  <text x="400" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#2D3748">数字闲置</text>
+  <g transform="translate(300, 200)">
+    <rect x="-60" y="100" width="320" height="20" rx="10" fill="#CBD5E0"/>
+    <g transform="translate(0, 0)">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite"/>
+      <text font-size="80" text-anchor="middle" dominant-baseline="middle" opacity="0.4">🔧</text>
+    </g>
+    <g transform="translate(100, 20)">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-8;0,0" dur="3.5s" repeatCount="indefinite"/>
+      <text font-size="80" text-anchor="middle" dominant-baseline="middle" opacity="0.4">📝</text>
+    </g>
+    <g transform="translate(200, -10)">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-6;0,0" dur="2.8s" repeatCount="indefinite"/>
+      <text font-size="80" text-anchor="middle" dominant-baseline="middle" opacity="0.4">💻</text>
+    </g>
+    <circle cx="30" cy="30" r="3" fill="#A0AEC0" opacity="0.6">
+      <animate attributeName="cy" values="30;20;30" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="10" r="2" fill="#A0AEC0" opacity="0.6">
+      <animate attributeName="cy" values="10;0;10" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="40" r="3" fill="#A0AEC0" opacity="0.6">
+      <animate attributeName="cy" values="40;30;40" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g transform="translate(600, 200)">
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#FED7D7" stroke="#F56565" stroke-width="2"/>
+    <text x="0" y="8" font-family="system-ui, -apple-system, sans-serif" font-size="32" text-anchor="middle" fill="#C53030" font-weight="bold">闲置</text>
+    <animateTransform attributeName="transform" type="scale" values="1;1.05;1" dur="2s" repeatCount="indefinite" additive="sum"/>
+  </g>
+  <text x="400" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="22" text-anchor="middle" fill="#718096">没有问题的工具 = 数字垃圾</text>
+</svg>

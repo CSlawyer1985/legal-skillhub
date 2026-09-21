@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/client-snapshot-v1.schema.json",
+  "title": "One-Contract Client Rule Snapshot",
+  "$comment": "All relative $ref values MUST resolve only through the packaged, allowlisted local schema registry; network retrieval is forbidden. content_sha256 is SHA-256 over RFC 8785/JCS canonical JSON with only the top-level content_sha256 member omitted. The publisher MUST reject non-I-JSON values before hashing and MUST verify that prepare_audit_event_id identifies the matching prepared audit evidence in evidence_refs. Cross-record ID/hash equality and evidence-file existence are business-validator duties because JSON Schema cannot dereference evidence records or compare sibling values. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "client_profile_id",
+    "previous_snapshot_id",
+    "published_at",
+    "published_by",
+    "publish_transaction_id",
+    "prepare_audit_event_id",
+    "public_snapshot_id",
+    "public_asset_fingerprint",
+    "resolver_semantics_version",
+    "rules",
+    "validation_summary",
+    "evidence_refs",
+    "immutable",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "client_profile_id": {
+      "type": "string",
+      "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+    },
+    "previous_snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "published_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "publish_reason": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "publish_transaction_id": {
+      "type": "string",
+      "pattern": "^ptx_[a-z0-9][a-z0-9_-]{7,95}$"
+    },
+    "prepare_audit_event_id": {
+      "type": "string",
+      "pattern": "^ev_[a-z0-9][a-z0-9_-]{7,95}$"
+    },
+    "public_snapshot_id": {
+      "type": "string",
+      "pattern": "^public_sha256_[a-f0-9]{64}$"
+    },
+    "public_asset_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "resolver_semantics_version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "rules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "allOf": [
+          {
+            "$ref": "one-contract/client-rule-v1.schema.json"
+          },
+          {
+            "properties": {
+              "approval_status": {
+                "const": "active"
+              },
+              "activation_status": {
+                "const": "active"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "validation_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overall_result",
+        "checks"
+      ],
+      "properties": {
+        "overall_result": {
+          "const": "passed"
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/validationCheck"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "check_kind": {
+                    "const": "schema_validation"
+                  }
+                },
+                "required": [
+                  "check_kind"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "check_kind": {
+                    "const": "reference_validation"
+                  }
+                },
+                "required": [
+                  "check_kind"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "check_kind": {
+                    "const": "conflict_resolution"
+                  }
+                },
+                "required": [
+                  "check_kind"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "check_kind": {
+                    "const": "privacy_validation"
+                  }
+                },
+                "required": [
+                  "check_kind"
+                ]
+              },
+              "minContains": 1
+            },
+            {
+              "contains": {
+                "properties": {
+                  "check_kind": {
+                    "const": "regression"
+                  }
+                },
+                "required": [
+                  "check_kind"
+                ]
+              },
+              "minContains": 1
+            }
+          ]
+        }
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "one-contract/governance-evidence-v1.schema.json#/$defs/evidenceReference"
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "evidence_kind": {
+                "const": "audit"
+              },
+              "result": {
+                "const": "prepared"
+              }
+            },
+            "required": [
+              "evidence_kind",
+              "result"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "evidence_kind": {
+                "const": "lawyer_approval"
+              },
+              "result": {
+                "const": "approved"
+              }
+            },
+            "required": [
+              "evidence_kind",
+              "result"
+            ]
+          },
+          "minContains": 1
+        },
+        {
+          "contains": {
+            "properties": {
+              "evidence_kind": {
+                "const": "regression"
+              },
+              "result": {
+                "const": "passed"
+              }
+            },
+            "required": [
+              "evidence_kind",
+              "result"
+            ]
+          },
+          "minContains": 1
+        }
+      ]
+    },
+    "immutable": {
+      "const": true
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "validationCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "check_id",
+        "check_kind",
+        "result",
+        "evidence_refs"
+      ],
+      "properties": {
+        "check_id": {
+          "type": "string",
+          "pattern": "^chk_[a-z0-9][a-z0-9_-]{7,95}$"
+        },
+        "check_kind": {
+          "type": "string",
+          "enum": [
+            "schema_validation",
+            "reference_validation",
+            "conflict_resolution",
+            "privacy_validation",
+            "regression",
+            "hard_boundary_validation",
+            "business_validation"
+          ]
+        },
+        "result": {
+          "const": "passed"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "one-contract/governance-evidence-v1.schema.json#/$defs/evidenceReference"
+          }
+        }
+      }
+    }
+  }
+}

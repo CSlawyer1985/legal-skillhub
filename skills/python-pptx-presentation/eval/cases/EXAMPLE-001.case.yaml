@@ -1,0 +1,14 @@
+# 合成骨架，待律师金标增量。
+id: EXAMPLE-001
+materials:
+  - ./materials/EXAMPLE-001.md
+audience: 内部汇报
+target_pages: 4
+prompt: "把这些材料整理成大成风格 PPT。"
+expected_findings:
+  - id: P1
+    match_hints: [项目背景, 合规制度]
+  - id: P2
+    match_hints: [实施路径, 单独同意]
+  - id: P3
+    match_hints: [下一步, 审计留痕]

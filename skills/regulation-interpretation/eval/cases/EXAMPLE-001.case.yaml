@@ -1,0 +1,13 @@
+# 合成骨架，结构需含矩阵/清单/时间线，待律师金标增量。
+id: EXAMPLE-001
+document: ./documents/EXAMPLE-001.txt
+audience: 内部参考
+focus: 个人信息合规要点
+prompt: "解读这份法规并做成自包含 HTML。"
+expected_findings:
+  - id: I1
+    match_hints: [个人信息处理者, 合规制度]
+  - id: I2
+    match_hints: [敏感个人信息, 单独同意]
+  - id: I3
+    match_hints: [违法处理, 责令改正]

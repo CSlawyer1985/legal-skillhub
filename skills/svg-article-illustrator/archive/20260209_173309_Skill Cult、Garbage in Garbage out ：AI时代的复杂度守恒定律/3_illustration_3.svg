@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#E8F4F8" rx="10"/>
+
+  <!-- 上下文资产 -->
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27AE60"/>
+    </marker>
+  </defs>
+
+  <!-- 左侧：上下文 -->
+  <g transform="translate(200, 225)">
+    <circle r="80" fill="#D5F5E3" stroke="#27AE60" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.7; 1; 0.7" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="20" font-size="90" text-anchor="middle">📚</text>
+  </g>
+
+  <!-- 箭头动画 -->
+  <line x1="280" y1="225" x2="520" y2="225" stroke="#27AE60" stroke-width="5"
+    marker-end="url(#arrow2)" stroke-dasharray="240" stroke-dashoffset="240">
+    <animate attributeName="stroke-dashoffset" from="240" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 右侧：资产化 -->
+  <g transform="translate(600, 225)">
+    <rect x="-70" y="-70" width="140" height="140" fill="#D5F5E3" rx="10"
+      stroke="#27AE60" stroke-width="4" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="20" font-size="90" text-anchor="middle">💎</text>
+  </g>
+
+  <text x="400" y="400" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">上下文资产化</text>
+</svg>

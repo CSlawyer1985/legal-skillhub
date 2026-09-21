@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#FAF8F5" rx="10"/>
+
+  <!-- 热潮曲线 -->
+  <defs>
+    <marker id="arrow1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E74C3C"/>
+    </marker>
+  </defs>
+
+  <!-- 曲线路径 -->
+  <path d="M 100 300 Q 200 280, 300 200 T 500 100 T 700 250"
+    fill="none" stroke="#E74C3C" stroke-width="5"
+    stroke-dasharray="600" stroke-dashoffset="600" marker-end="url(#arrow1)">
+    <animate attributeName="stroke-dashoffset" from="600" to="0" dur="2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- 注意力标记 -->
+  <g transform="translate(500, 100)">
+    <circle r="60" fill="#FFE5E5">
+      <animate attributeName="fill-opacity" values="0.6; 1; 0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="20" font-size="80" text-anchor="middle">👀</text>
+  </g>
+
+  <text x="400" y="400" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">热潮曲线</text>
+</svg>

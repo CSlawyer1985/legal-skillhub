@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/public-rule-proposal-v1.schema.json",
+  "title": "One-Contract Public Rule Proposal",
+  "$comment": "content_sha256 is SHA-256 over RFC 8785/JCS canonical JSON with only content_sha256 omitted. A proposal is never executable and cannot mutate active public assets. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "operation",
+    "layer",
+    "target_rule_id",
+    "base_public_fingerprint",
+    "title",
+    "rationale",
+    "source_refs",
+    "proposed_rule",
+    "impact",
+    "status",
+    "created_at",
+    "created_by",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "proposal_id": {
+      "type": "string",
+      "pattern": "^pr_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "create",
+        "supersede",
+        "deprecate"
+      ]
+    },
+    "layer": {
+      "type": "string",
+      "enum": [
+        "global",
+        "domain",
+        "type"
+      ]
+    },
+    "target_rule_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 160
+    },
+    "base_public_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3000
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      }
+    },
+    "proposed_rule": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "impact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "affected_rule_ids",
+        "affected_type_ids",
+        "required_regression_ids",
+        "human_review_required"
+      ],
+      "properties": {
+        "affected_rule_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 160
+          }
+        },
+        "affected_type_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 120
+          }
+        },
+        "required_regression_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "human_review_required": {
+          "const": true
+        },
+        "impact_note": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "candidate",
+        "lawyer_approved",
+        "regression_passed",
+        "accepted",
+        "rejected",
+        "deprecated"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "create"
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "target_rule_id": {
+            "type": "null"
+          },
+          "proposed_rule": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "supersede"
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "target_rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "proposed_rule": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "deprecate"
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      },
+      "then": {
+        "properties": {
+          "target_rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "proposed_rule": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+skill: python-pptx-presentation
+cases:
+  - { query: "把这份报告做成 PPT", should_trigger: true }
+  - { query: "整理成一份客户方案 deck", should_trigger: true }
+  - { query: "根据这些材料做个培训幻灯片", should_trigger: true }
+  - { query: "审查这份采购合同", should_trigger: false }
+  - { query: "解读这份法规并做成 HTML", should_trigger: false }
+  - { query: "生成一个 Excel 报表", should_trigger: false }

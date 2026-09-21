@@ -1,0 +1,27 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="80" font-size="36" font-weight="bold" fill="#2d3748" text-anchor="middle">复杂性被收纳</text>
+  <path d="M200 140 L600 140 L500 350 L300 350 Z" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3"/>
+  <g>
+    <text x="280" y="130" font-size="40" text-anchor="middle">⚙️</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 5,-8; 0,0" dur="2s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <text x="400" y="125" font-size="40" text-anchor="middle">🔧</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; -5,-10; 0,0" dur="2.5s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <text x="520" y="130" font-size="40" text-anchor="middle">📊</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 8,-6; 0,0" dur="3s" repeatCount="indefinite"/>
+  </g>
+  <line x1="400" y1="180" x2="400" y2="280" stroke="#4A90E2" stroke-width="4" stroke-dasharray="100" stroke-dashoffset="100">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="395,280 400,295 405,280" fill="#4A90E2"/>
+  <g transform="translate(400, 330)">
+    <text x="0" y="20" font-size="50" text-anchor="middle">📦</text>
+    <animateTransform attributeName="transform" type="scale" values="1;1.08;1" dur="2s" repeatCount="indefinite"/>
+  </g>
+  <text x="620" y="150" font-size="20" fill="#4A90E2">顺滑入口</text>
+  <text x="620" y="330" font-size="20" fill="#718096">复杂度仍在</text>
+</svg>

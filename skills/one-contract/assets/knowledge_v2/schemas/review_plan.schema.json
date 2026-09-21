@@ -1,0 +1,409 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/review-plan-v2.schema.json",
+  "title": "One-Contract review plan v2",
+  "type": "object",
+  "required": [
+    "meta",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0"
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "contract_name",
+        "party_role",
+        "edit_policy"
+      ],
+      "properties": {
+        "contract_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "party_role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edit_policy": {
+          "enum": [
+            "revise-first",
+            "balanced",
+            "comment-first"
+          ]
+        },
+        "primary_type_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "summary": {
+      "type": "object"
+    },
+    "transaction_facts": {
+      "type": "object"
+    },
+    "safety": {
+      "type": "object",
+      "properties": {
+        "trigger_results": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "risk_level",
+          "evidence_state",
+          "action",
+          "legal_basis"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "risk_level": {
+            "enum": [
+              "P0",
+              "P1",
+              "P2"
+            ]
+          },
+          "evidence_state": {
+            "enum": [
+              "confirmed",
+              "reasonable_assumption",
+              "major_choice",
+              "not_applicable"
+            ]
+          },
+          "action": {
+            "enum": [
+              "auto",
+              "comment",
+              "report-only",
+              "delete",
+              "insert",
+              "replace",
+              "none",
+              "skip"
+            ]
+          },
+          "legal_basis": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            ]
+          },
+          "rule_hit": {
+            "type": "string",
+            "description": "命中的库内明确规则（写规则所在文件与条号，如「common-clause-doctrine 3.5.2 保险安排」）。一旦填写，direction_clear 必填；且该 finding 不得记 evidence_state=major_choice——「有明确规则可依 + 方向明确」正是 1.5 所说的落笔情形，不是「该由客户决定的结构性选择」。"
+          },
+          "direction_clear": {
+            "type": "boolean",
+            "description": "改动方向是否明确。与 rule_hit 成对出现。rule_hit 非空且 direction_clear=true 时，evidence_state 只能是 confirmed 或 reasonable_assumption（不得为 major_choice）——由 validate_plan 强制校验。"
+          },
+          "pending_kind": {
+            "enum": [
+              "fill",
+              "verify",
+              "authorization"
+            ]
+          },
+          "report_bucket": {
+            "enum": [
+              "general",
+              "tax",
+              "mixed"
+            ]
+          },
+          "tax_advice": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            ]
+          },
+          "output_kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trigger_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "directed_block": {
+            "type": "object",
+            "required": [
+              "active",
+              "reason",
+              "scope"
+            ],
+            "properties": {
+              "active": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope": {
+                "const": "this_finding"
+              },
+              "prohibited_actions": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "auto",
+                    "comment",
+                    "report-only",
+                    "delete",
+                    "insert",
+                    "replace"
+                  ]
+                },
+                "uniqueItems": true
+              },
+              "prohibited_outputs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "required_outputs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "trigger_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "responses": {
+      "type": "array",
+      "description": "对源文档既有批注的逐条回复（可选）。执行器据此在审阅件中形成线程化回复。审查人不是当事人：回复只用核对口径（现稿已体现／本轮已补充／未按该意见修改／仍需填写），不使用「采纳、同意、接受、认可」这类当事人表态。stance=already_present 时必须给出 evidence（条文号或其他落点）——没有依据不得声称现稿已覆盖，更不得把现稿本就有的内容写成本轮成果。",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "stance",
+          "text"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "object",
+            "description": "定位源批注：comment_id，或 anchor_text（同时匹配锚定正文与批注内容）+ occurrence。",
+            "properties": {
+              "comment_id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "anchor_text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occurrence": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "additionalProperties": false,
+            "anyOf": [
+              {
+                "required": [
+                  "comment_id"
+                ]
+              },
+              {
+                "required": [
+                  "anchor_text"
+                ]
+              }
+            ]
+          },
+          "stance": {
+            "enum": [
+              "already_present",
+              "added_this_round",
+              "declined",
+              "pending_fill"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "description": "现稿已体现的依据／落点（stance=already_present 时必填）。"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_text": {
+            "type": "string",
+            "description": "源意见摘要（写进报告的处理表）。"
+          },
+          "source_author": {
+            "type": "string"
+          },
+          "linked_clauses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "stance"
+              ],
+              "properties": {
+                "stance": {
+                  "const": "already_present"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "evidence"
+              ],
+              "properties": {
+                "evidence": {
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "linkage_checklist": {
+      "type": "object",
+      "description": "条款联动必检清单（可选字段，但新审查必须登记）：五组逐组给出 checked，或 not_applicable + reason。缺整张清单不阻断执行，但会在审查意见书中报为未闭合事项。",
+      "properties": {
+        "payment_delivery_acceptance": {
+          "$ref": "#/$defs/linkageEntry"
+        },
+        "change_termination_breach": {
+          "$ref": "#/$defs/linkageEntry"
+        },
+        "confidentiality_data_ip": {
+          "$ref": "#/$defs/linkageEntry"
+        },
+        "liability_insurance": {
+          "$ref": "#/$defs/linkageEntry"
+        },
+        "role_and_third_party": {
+          "$ref": "#/$defs/linkageEntry"
+        },
+        "expiry_exit_handover": {
+          "$ref": "#/$defs/linkageEntry"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "linkageEntry": {
+      "type": "object",
+      "description": "一组的检查结论：checked，或 not_applicable 并写明 reason。",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "checked",
+            "not_applicable"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string",
+          "description": "结论落点（条文号或 finding id）"
+        }
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "const": "not_applicable"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reason"
+            ],
+            "properties": {
+              "reason": {
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "name": "LaborPilot",
+  "install": "sudo apt-get update\nsudo apt-get install -y --no-install-recommends pandoc"
+}

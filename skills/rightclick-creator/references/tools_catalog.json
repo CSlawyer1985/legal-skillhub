@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "seed_workflow": "docx2pdf",
+  "install_base_dir": "~/.rightclick-creator",
+  "tools": [
+    {
+      "id": "docx-clean",
+      "name": "word整理",
+      "category": "格式整理",
+      "description": "清洗Word文档修订痕迹、字体混乱、Markdown符号、emoji",
+      "file_types": [
+        "org.openxmlformats.wordprocessingml.document",
+        "com.microsoft.word.doc"
+      ],
+      "dependencies": [
+        "python-docx",
+        "lxml",
+        "pandoc"
+      ],
+      "script_files": [
+        "docx_format_cleaner.py",
+        "docx2md_converter.py",
+        "md2docx_plain.py"
+      ],
+      "script_dir": "docx_format_cleaner",
+      "shell_script": "#!/bin/bash\nexport PATH=\"$HOME/usr/local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH\"\n\nLOG_FILE=\"$HOME/.rightclick-creator/logs/docx_format_cleaner.log\"\nmkdir -p \"$HOME/.rightclick-creator/logs\"\necho \"===== word整理开始 $(date) =====\" >> \"$LOG_FILE\"\n\nSCRIPT=\"$HOME/.rightclick-creator/tools/docx_format_cleaner/docx_format_cleaner.py\"\nif [ ! -f \"$SCRIPT\" ]; then\n    echo \"错误：找不到脚本 $SCRIPT\" >> \"$LOG_FILE\"\n    /usr/bin/osascript -e 'display notification \"找不到word整理脚本，请重新安装\" with title \"word整理错误\"'\n    exit 1\nfi\n\n# 动态探测 python3\nif [ -f \"/opt/homebrew/bin/python3\" ]; then\n    PYTHON=\"/opt/homebrew/bin/python3\"\nelif [ -f \"/usr/local/bin/python3\" ]; then\n    PYTHON=\"/usr/local/bin/python3\"\nelse\n    PYTHON=\"/usr/bin/python3\"\nfi\n\nfor f in \"$@\"\ndo\n    echo \"处理: $f\" >> \"$LOG_FILE\"\n    if [[ \"$f\" == *.docx ]] || [[ \"$f\" == *.doc ]] || \\\n       [[ \"$f\" == *.DOCX ]] || [[ \"$f\" == *.DOC ]]; then\n        \"$PYTHON\" \"$SCRIPT\" \"$f\" >> \"$LOG_FILE\" 2>&1\n        STATUS=$?\n        BASENAME=$(basename \"$f\")\n        if [ $STATUS -eq 0 ]; then\n            /usr/bin/osascript -e \"display notification \\\"整理完成: ${BASENAME}\\\" with title \\\"word整理\\\"\"\n        else\n            /usr/bin/osascript -e \"display notification \\\"处理失败: ${BASENAME}\\\" with title \\\"word整理错误\\\"\"\n        fi\n    else\n        echo \"跳过不支持的文件: $f\" >> \"$LOG_FILE\"\n    fi\ndone\n\necho \"===== word整理结束 $(date) =====\" >> \"$LOG_FILE\"\n",
+      "path_mappings": {}
+    },
+    {
+      "id": "word-table-landscape",
+      "name": "Word表格横排",
+      "category": "文档转换",
+      "description": "将Word文档中的表格页面方向改为横向",
+      "file_types": [
+        "org.openxmlformats.wordprocessingml.document",
+        "com.microsoft.word.doc"
+      ],
+      "dependencies": [
+        "python-docx",
+        "lxml"
+      ],
+      "script_files": [
+        "word_table_landscape.py"
+      ],
+      "script_dir": "word_table_landscape",
+      "shell_script": "#!/bin/bash\n\n# 动态探测 python3\nif [ -f \"/opt/homebrew/bin/python3\" ]; then\n    PYTHON=\"/opt/homebrew/bin/python3\"\nelif [ -f \"/usr/local/bin/python3\" ]; then\n    PYTHON=\"/usr/local/bin/python3\"\nelse\n    PYTHON=\"/usr/bin/python3\"\nfi\n\nfor f in \"$@\"\ndo\n    if [[ \"$f\" == *.docx ]] || [[ \"$f\" == *.DOCX ]]; then\n        \"$PYTHON\" \"$HOME/.rightclick-creator/tools/word_table_landscape/word_table_landscape.py\" \"$f\"\n    fi\ndone",
+      "path_mappings": {
+        "~/Library/Services/右键工具集/word_table_landscape/": "$HOME/.rightclick-creator/tools/word_table_landscape/",
+        "~/.tools/logs/": "$HOME/.rightclick-creator/logs/",
+        "$HOME/.tools/logs/": "$HOME/.rightclick-creator/logs/"
+      }
+    },
+    {
+      "id": "excel-format",
+      "name": "Excel格式整理",
+      "category": "格式整理",
+      "description": "统一Excel文件格式、列宽、字体等",
+      "file_types": [
+        "org.openxmlformats.spreadsheetml.sheet",
+        "com.microsoft.excel.xls"
+      ],
+      "dependencies": [
+        "openpyxl",
+        "emoji",
+        "pandas"
+      ],
+      "script_files": [
+        "excel_format.py"
+      ],
+      "script_dir": "excel_format",
+      "shell_script": "#!/bin/bash\n\nLOG_FILE=\"$HOME/.rightclick-creator/logs/excel_format_$(date +%Y%m%d).log\"\nmkdir -p \"$HOME/.rightclick-creator/logs\"\necho \"===== Excel格式整理开始 $(date) =====\" >> \"$LOG_FILE\"\n\nPYTHON=\"/opt/homebrew/bin/python3\"\nif [ ! -f \"$PYTHON\" ]; then\n    PYTHON=\"/usr/local/bin/python3\"\nfi\nif [ ! -f \"$PYTHON\" ]; then\n    PYTHON=\"/usr/bin/python3\"\nfi\n\nSCRIPT=\"$HOME/.rightclick-creator/tools/excel_format/excel_format.py\"\n\nif [ ! -f \"$SCRIPT\" ]; then\n    echo \"错误：找不到脚本 $SCRIPT\" >> \"$LOG_FILE\"\n    /usr/bin/osascript -e 'display notification \"找不到Excel格式整理脚本\" with title \"错误\"'\n    exit 1\nfi\n\nfor f in \"$@\"\ndo\n    echo \"处理文件: $f\" >> \"$LOG_FILE\"\n    \n    if [[ \"$f\" == *.xlsx ]] || [[ \"$f\" == *.xls ]] || [[ \"$f\" == *.XLSX ]] || [[ \"$f\" == *.XLS ]]; then\n        \"$PYTHON\" \"$SCRIPT\" \"$f\" >> \"$LOG_FILE\" 2>&1\n        if [ $? -eq 0 ]; then\n            echo \"处理成功: $f\" >> \"$LOG_FILE\"\n        else\n            echo \"处理失败: $f\" >> \"$LOG_FILE\"\n        fi\n    else\n        echo \"跳过非Excel文件: $f\" >> \"$LOG_FILE\"\n    fi\ndone\n\necho \"===== Excel格式整理结束 $(date) =====\" >> \"$LOG_FILE\"",
+      "path_mappings": {
+        "~/Library/Services/右键工具集/excel_format_tool/": "$HOME/.rightclick-creator/tools/excel_format/",
+        "~/.tools/logs/": "$HOME/.rightclick-creator/logs/",
+        "$HOME/.tools/logs/": "$HOME/.rightclick-creator/logs/"
+      }
+    },
+    {
+      "id": "docx2pdf",
+      "name": "word转PDF",
+      "category": "文档转换",
+      "description": "将Word文档转换为PDF格式（使用LibreOffice）",
+      "file_types": [
+        "org.openxmlformats.wordprocessingml.document",
+        "com.microsoft.word.doc"
+      ],
+      "dependencies": [],
+      "script_files": [],
+      "script_dir": null,
+      "shell_script": "for f in \"$@\"\ndo\n    if [[ \"$f\" == *.docx ]] || [[ \"$f\" == *.DOCX ]] || [[ \"$f\" == *.doc ]] || [[ \"$f\" == *.DOC ]]; then\n        /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf --outdir \"$(dirname \"$f\")\" \"$f\"\n    fi\ndone",
+      "path_mappings": {}
+    },
+    {
+      "id": "md2word",
+      "name": "MD转Word",
+      "category": "文档转换",
+      "description": "将Markdown文件转换为Word文档",
+      "file_types": [
+        "net.daringfireball.markdown",
+        "public.plain-text"
+      ],
+      "dependencies": [
+        "python-docx",
+        "lxml"
+      ],
+      "script_files": [
+        "md2docx_plain.py"
+      ],
+      "script_dir": "md2docx_plain",
+      "shell_script": "#!/bin/bash\n# MD转Word工具\n\nexport PATH=\"$HOME/usr/local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\n# 日志文件\nLOG_FILE=\"$HOME/.rightclick-creator/logs/md2word.log\"\nmkdir -p \"$HOME/.rightclick-creator/logs\"\necho \"===== MD转Word开始 $(date) =====\" > \"$LOG_FILE\"\n\n# 查找脚本\nSCRIPT=\"$HOME/.rightclick-creator/tools/md2docx_plain/md2docx_plain.py\"\nif [ ! -f \"$SCRIPT\" ]; then\n    echo \"错误：找不到脚本 $SCRIPT\" >> \"$LOG_FILE\"\n    /usr/bin/osascript -e 'display notification \"找不到MD转Word脚本，请重新安装\" with title \"MD转Word错误\"'\n    exit 1\nfi\n\n# 获取Python\nif [ -f \"/opt/homebrew/bin/python3\" ]; then\n    PYTHON=\"/opt/homebrew/bin/python3\"\nelif [ -f \"/usr/local/bin/python3\" ]; then\n    PYTHON=\"/usr/local/bin/python3\"\nelse\n    PYTHON=\"/usr/bin/python3\"\nfi\n\n# 处理每个选中的文件\nfor f in \"$@\"\ndo\n    echo \"处理: $f\" >> \"$LOG_FILE\"\n    if [[ \"$f\" == *.md ]] || [[ \"$f\" == *.MD ]] || [[ \"$f\" == *.markdown ]] || [[ \"$f\" == *.txt ]] || [[ \"$f\" == *.TXT ]]; then\n        \"$PYTHON\" \"$SCRIPT\" \"$f\" >> \"$LOG_FILE\" 2>&1\n    else\n        echo \"跳过不支持的文件: $f\" >> \"$LOG_FILE\"\n    fi\ndone\n\necho \"===== MD转Word结束 $(date) =====\" >> \"$LOG_FILE\"\n",
+      "path_mappings": {
+        "~/Library/Services/右键工具集/MD转Word工具/": "$HOME/.rightclick-creator/tools/md2docx_plain/",
+        "~/.tools/logs/": "$HOME/.rightclick-creator/logs/",
+        "$HOME/.tools/logs/": "$HOME/.rightclick-creator/logs/"
+      }
+    },
+    {
+      "id": "infographic",
+      "name": "生成信息图",
+      "category": "信息生成",
+      "description": "将Word或Markdown文档内容生成信息图（HTML+PDF）",
+      "file_types": [
+        "org.openxmlformats.wordprocessingml.document",
+        "com.microsoft.word.doc",
+        "net.daringfireball.markdown",
+        "public.plain-text"
+      ],
+      "dependencies": [
+        "pandoc"
+      ],
+      "script_files": [
+        "generate_infographic.py"
+      ],
+      "script_dir": "infographic",
+      "shell_script": "#!/bin/bash\n\nLOG_FILE=\"$HOME/.rightclick-creator/logs/infographic_generator.log\"\nmkdir -p \"$HOME/.rightclick-creator/logs\"\necho \"=== 开始处理 $(date) ===\" > \"$LOG_FILE\"\n\n# 动态探测 pandoc\nif command -v pandoc >/dev/null 2>&1; then\n    PANDOC=\"pandoc\"\nelif [ -f \"$HOME/.rightclick-creator/bin/pandoc\" ]; then\n    PANDOC=\"$HOME/.rightclick-creator/bin/pandoc\"\nelif [ -f \"/opt/homebrew/bin/pandoc\" ]; then\n    PANDOC=\"/opt/homebrew/bin/pandoc\"\nelif [ -f \"/usr/local/bin/pandoc\" ]; then\n    PANDOC=\"/usr/local/bin/pandoc\"\nelse\n    PANDOC=\"pandoc\"\nfi\n\n# 加载配置文件\nCONFIG_FILE=\"$HOME/.rightclick-creator/config/infographic.json\"\nCONFIG_DIR=\"$HOME/.rightclick-creator/config\"\n\n# 确保配置目录存在\nmkdir -p \"$CONFIG_DIR\"\n\n# 初始化配置文件（如果不存在）\nif [ ! -f \"$CONFIG_FILE\" ]; then\n    echo '{\"deepseek_api_key\":\"\",\"qwen_api_key\":\"\"}' > \"$CONFIG_FILE\"\n    echo \"创建配置文件: $CONFIG_FILE\" >> \"$LOG_FILE\"\nfi\n\n# 读取配置\ndeepseek_key=$(python3 -c \"import json; print(json.load(open('$CONFIG_FILE')).get('deepseek_api_key',''))\" 2>/dev/null)\nqwen_key=$(python3 -c \"import json; print(json.load(open('$CONFIG_FILE')).get('qwen_api_key',''))\" 2>/dev/null)\n\n# 自动选择模型：优先 DeepSeek，其次千问\nif [ -n \"$deepseek_key\" ]; then\n    model_choice=\"DeepSeek\"\n    ai_suffix=\"ds\"\n    api_key=\"$deepseek_key\"\n    api_url=\"https://api.deepseek.com/v1/chat/completions\"\n    model_name=\"deepseek-v4-pro\"\nelif [ -n \"$qwen_key\" ]; then\n    model_choice=\"千问3.5-plus\"\n    ai_suffix=\"qwen\"\n    api_key=\"$qwen_key\"\n    api_url=\"https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions\"\n    model_name=\"qwen-plus\"\nelse\n    echo \"API Key 未配置，跳过处理\" >> \"$LOG_FILE\"\n    echo \"请通过 WorkBuddy / Claude 配置 API Key 后重试\" >> \"$LOG_FILE\"\n    exit 0\nfi\n\necho \"自动选择模型: $model_choice\" >> \"$LOG_FILE\"\n\nfor f in \"$@\"\ndo\n    echo \"处理文件: $f\" >> \"$LOG_FILE\"\n    \n    # 检查文件类型\n    if [[ \"$f\" != *.docx ]] && [[ \"$f\" != *.DOCX ]] && [[ \"$f\" != *.doc ]] && [[ \"$f\" != *.DOC ]] && [[ \"$f\" != *.md ]] && [[ \"$f\" != *.MD ]]; then\n        echo \"跳过不支持的文件格式: $f\" >> \"$LOG_FILE\"\n        continue\n    fi\n    \n    # 提取目录和文件名\n    dir=$(dirname \"$f\")\n    base_name=$(basename \"$f\")\n    base_name=\"${base_name%.docx}\"\n    base_name=\"${base_name%.DOCX}\"\n    base_name=\"${base_name%.doc}\"\n    base_name=\"${base_name%.DOC}\"\n    base_name=\"${base_name%.md}\"\n    base_name=\"${base_name%.MD}\"\n    \n    # 构建带 AI 来源标识的输出文件路径\n    html_file=\"$dir/${base_name}_${ai_suffix}.html\"\n    pdf_file=\"$dir/${base_name}_${ai_suffix}.pdf\"\n    \n    echo \"输出文件: $html_file, $pdf_file\" >> \"$LOG_FILE\"\n    \n    # 显示进度通知\n    osascript -e \"display notification \\\"正在使用 $model_choice 生成信息图，请稍候...\\\" with title \\\"生成信息图\\\"\"\n    \n    # 转换文档为 Markdown\n    if [[ \"$f\" == *.docx ]] || [[ \"$f\" == *.DOCX ]] || [[ \"$f\" == *.doc ]] || [[ \"$f\" == *.DOC ]]; then\n        md_content=$(\"$PANDOC\" \"$f\" -f docx -t markdown 2>/dev/null)\n        if [ -z \"$md_content\" ]; then\n            md_content=$(cat \"$f\")\n        fi\n    else\n        md_content=$(cat \"$f\")\n    fi\n    \n    # 保存到临时文件\n    temp_md=$(mktemp)\n    echo \"$md_content\" > \"$temp_md\"\n    \n    echo \"使用模型: $model_name\" >> \"$LOG_FILE\"\n    \n    # 调用 Python 脚本处理\n    python3 \"$HOME/.rightclick-creator/tools/infographic/generate_infographic.py\" \"$temp_md\" \"$html_file\" \"$api_key\" \"$api_url\" \"$model_name\" \"$ai_suffix\" >> \"$LOG_FILE\" 2>&1\n    python_exit_code=$?\n    \n    echo \"Python exit code: $python_exit_code\" >> \"$LOG_FILE\"\n    \n    # 检查 HTML 是否生成成功\n    if [ -f \"$html_file\" ] && [ -s \"$html_file\" ] && [ $python_exit_code -eq 0 ]; then\n        echo \"HTML 生成成功\" >> \"$LOG_FILE\"\n        \n        # 使用 Chrome 打印为 PDF（带背景）\n        echo \"正在打印 PDF（带背景）...\" >> \"$LOG_FILE\"\n        \n        # 方法1：使用 Chrome headless 打印（推荐）\n        if command -v /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome >/dev/null 2>&1; then\n            /Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome                 --headless                 --disable-gpu                 --print-to-pdf-no-header                 --run-all-compositor-stages-before-draw                 --print-to-pdf=\"$pdf_file\"                 \"file://$html_file\"                 2>> \"$LOG_FILE\"\n        elif command -v /Applications/Chromium.app/Contents/MacOS/Chromium >/dev/null 2>&1; then\n            /Applications/Chromium.app/Contents/MacOS/Chromium                 --headless                 --disable-gpu                 --print-to-pdf-no-header                 --run-all-compositor-stages-before-draw                 --print-to-pdf=\"$pdf_file\"                 \"file://$html_file\"                 2>> \"$LOG_FILE\"\n        else\n            # 方法2：使用 WeasyPrint（备选）\n            echo \"Chrome 未找到，使用 WeasyPrint...\" >> \"$LOG_FILE\"\n            python3 -m weasyprint \"$html_file\" \"$pdf_file\" 2>> \"$LOG_FILE\"\n        fi\n        \n        if [ -f \"$pdf_file\" ] && [ -s \"$pdf_file\" ]; then\n            echo \"PDF 生成成功\" >> \"$LOG_FILE\"\n            osascript -e \"display notification \\\"信息图已生成！[$ai_suffix]\\\" with title \\\"生成信息图\\\"\"\n            open \"$html_file\"\n            open \"$pdf_file\"\n        else\n            echo \"PDF 生成失败\" >> \"$LOG_FILE\"\n            osascript -e \"display notification \\\"PDF生成失败，但HTML已生成[$ai_suffix]\\\" with title \\\"生成信息图\\\"\"\n            open \"$html_file\"\n        fi\n    else\n        echo \"HTML 生成失败\" >> \"$LOG_FILE\"\n        osascript -e \"display notification \\\"生成失败，请查看日志\\\" with title \\\"生成信息图\\\"\"\n    fi\n    \n    # 清理临时文件\n    rm -f \"$temp_md\"\ndone\n\necho \"=== 处理完成 $(date) ===\" >> \"$LOG_FILE\"\n",
+      "path_mappings": {
+        "~/Library/Services/右键工具集/生成信息图/": "$HOME/.rightclick-creator/tools/infographic/",
+        "/tmp/infographic_generator.log": "$HOME/.rightclick-creator/logs/infographic_generator.log"
+      }
+    },
+    {
+      "id": "pdf2md",
+      "name": "PDF转MD",
+      "category": "文档转换",
+      "description": "将PDF文件智能转换为Markdown格式",
+      "file_types": [
+        "com.adobe.pdf"
+      ],
+      "dependencies": [
+        "pdfplumber",
+        "pdf2image",
+        "pytesseract",
+        "Pillow",
+        "poppler",
+        "tesseract",
+        "tesseract-lang"
+      ],
+      "script_files": [
+        "pdf2md_converter.py"
+      ],
+      "script_dir": "pdf2md",
+      "shell_script": "#!/bin/bash\n# PDF转MD工具 - 智能转换\n\nexport PATH=\"$HOME/usr/local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\n# 日志文件\nLOG_FILE=\"$HOME/.rightclick-creator/logs/pdf2md.log\"\nmkdir -p \"$HOME/.rightclick-creator/logs\"\necho \"===== PDF转MD开始 $(date) =====\" > \"$LOG_FILE\"\n\n# 查找脚本\nSCRIPT=\"$HOME/.rightclick-creator/tools/pdf2md/pdf2md_converter.py\"\nif [ ! -f \"$SCRIPT\" ]; then\n    echo \"错误：找不到脚本 $SCRIPT\" >> \"$LOG_FILE\"\n    /usr/bin/osascript -e 'display notification \"找不到PDF转MD脚本，请重新安装\" with title \"PDF转MD错误\"'\n    exit 1\nfi\n\n# 获取Python\nif [ -f \"/opt/homebrew/bin/python3\" ]; then\n    PYTHON=\"/opt/homebrew/bin/python3\"\nelif [ -f \"/usr/local/bin/python3\" ]; then\n    PYTHON=\"/usr/local/bin/python3\"\nelse\n    PYTHON=\"/usr/bin/python3\"\nfi\n\n# 处理每个选中的文件\nfor f in \"$@\"\ndo\n    echo \"处理: $f\" >> \"$LOG_FILE\"\n    if [[ \"$f\" == *.pdf ]] || [[ \"$f\" == *.PDF ]]; then\n        \"$PYTHON\" \"$SCRIPT\" \"$f\" >> \"$LOG_FILE\" 2>&1\n    else\n        echo \"跳过非PDF文件: $f\" >> \"$LOG_FILE\"\n    fi\ndone\n\necho \"===== PDF转MD结束 $(date) =====\" >> \"$LOG_FILE\"\n",
+      "path_mappings": {
+        "~/.tools/bin/pdf2md_converter.py": "$HOME/.rightclick-creator/tools/pdf2md/pdf2md_converter.py",
+        "~/.tools/logs/": "$HOME/.rightclick-creator/logs/",
+        "$HOME/.tools/logs/": "$HOME/.rightclick-creator/logs/"
+      }
+    },
+    {
+      "id": "md-clean",
+      "name": "MD整理",
+      "category": "格式整理",
+      "description": "整理和格式化Markdown文件",
+      "file_types": [
+        "net.daringfireball.markdown",
+        "public.plain-text"
+      ],
+      "dependencies": [],
+      "script_files": [
+        "md_cleaner.py"
+      ],
+      "script_dir": "md_cleaner",
+      "shell_script": "#!/bin/bash\n# MD整理工具 - 调用Python脚本处理Markdown文件\n\n# 获取Python路径\nif [ -f \"/opt/homebrew/bin/python3\" ]; then\n    PYTHON=\"/opt/homebrew/bin/python3\"\nelif [ -f \"/usr/local/bin/python3\" ]; then\n    PYTHON=\"/usr/local/bin/python3\"\nelse\n    PYTHON=\"/usr/bin/python3\"\nfi\n\n# 日志文件\nLOG_FILE=\"$HOME/.rightclick-creator/logs/md_cleaner.log\"\nmkdir -p \"$HOME/.rightclick-creator/logs\"\necho \"===== MD整理开始 $(date) =====\" > \"$LOG_FILE\"\n\n# 查找脚本\nSCRIPT=\"$HOME/.rightclick-creator/tools/md_cleaner/md_cleaner.py\"\nif [ ! -f \"$SCRIPT\" ]; then\n    echo \"错误：找不到脚本 $SCRIPT\" >> \"$LOG_FILE\"\n    /usr/bin/osascript -e 'display notification \"找不到MD整理脚本，请重新安装\" with title \"MD整理错误\"'\n    exit 1\nfi\n\n# 处理每个选中的文件\nfor f in \"$@\"\ndo\n    echo \"处理文件: $f\" >> \"$LOG_FILE\"\n    if [[ \"$f\" == *.md ]] || [[ \"$f\" == *.markdown ]] || [[ \"$f\" == *.MD ]] || [[ \"$f\" == *.MARKDOWN ]]; then\n        \"$PYTHON\" \"$SCRIPT\" \"$f\" >> \"$LOG_FILE\" 2>&1\n        echo \"处理完成: $f\" >> \"$LOG_FILE\"\n    else\n        echo \"跳过非Markdown文件: $f\" >> \"$LOG_FILE\"\n    fi\ndone\n\necho \"===== MD整理结束 $(date) =====\" >> \"$LOG_FILE\"\n\n# 显示完成通知\n/usr/bin/osascript -e 'display notification \"MD整理完成\" with title \"MD整理\"'\n",
+      "path_mappings": {
+        "~/.tools/bin/md_cleaner.py": "$HOME/.rightclick-creator/tools/md_cleaner/md_cleaner.py",
+        "~/.tools/logs/": "$HOME/.rightclick-creator/logs/",
+        "$HOME/.tools/logs/": "$HOME/.rightclick-creator/logs/"
+      }
+    },
+    {
+      "id": "tianyancha",
+      "name": "查询天眼查",
+      "category": "信息查询",
+      "description": "选中企业名称，右键直接跳转天眼查搜索页面",
+      "input_type": "text",
+      "file_types": null,
+      "dependencies": [],
+      "script_files": [
+        "controller.js",
+        "automate.js",
+        "package.json"
+      ],
+      "script_dir": "tianyancha",
+      "script_type": "nodejs",
+      "shell_script": "#!/bin/bash\ncompany_name=\"$1\"\n\n# 动态探测 node\nif command -v node >/dev/null 2>&1; then\n    NODE=\"node\"\nelif [ -f \"$HOME/.nvm/versions/node/v20.20.0/bin/node\" ]; then\n    NODE=\"$HOME/.nvm/versions/node/v20.20.0/bin/node\"\nelif [ -f \"/opt/homebrew/bin/node\" ]; then\n    NODE=\"/opt/homebrew/bin/node\"\nelif [ -f \"/usr/local/bin/node\" ]; then\n    NODE=\"/usr/local/bin/node\"\nelse\n    NODE=\"node\"\nfi\n\nSCRIPT_DIR=\"$HOME/.rightclick-creator/tools/tianyancha\"\nif [ ! -f \"$SCRIPT_DIR/controller.js\" ]; then\n    /usr/bin/osascript -e 'display notification \"天眼查脚本未找到，请重新安装\" with title \"天眼查错误\"'\n    exit 1\nfi\n\n\"$NODE\" \"$SCRIPT_DIR/controller.js\" \"$company_name\"\n",
+      "path_mappings": {}
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10B981"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f8fafc"/>
+
+  <!-- Team Organization -->
+  <g transform="translate(400, 100)">
+    <text x="0" y="0" text-anchor="middle" font-size="22" font-weight="bold" fill="#1e293b">按角色划分 Agent</text>
+  </g>
+
+  <!-- Role Cards Row -->
+  <g transform="translate(120, 200)">
+    <rect x="-70" y="-50" width="140" height="100" fill="#dbeafe" stroke="#2563eb" stroke-width="3" rx="12"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="40">👔</text>
+    <text x="0" y="15" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e40af">CEO Agent</text>
+    <text x="0" y="35" text-anchor="middle" font-size="12" fill="#3b82f6">决策 &amp; 指挥</text>
+  </g>
+
+  <g transform="translate(300, 200)">
+    <rect x="-70" y="-50" width="140" height="100" fill="#dcfce7" stroke="#16a34a" stroke-width="3" rx="12"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="40">💻</text>
+    <text x="0" y="15" text-anchor="middle" font-size="16" font-weight="bold" fill="#166534">Dev Agent</text>
+    <text x="0" y="35" text-anchor="middle" font-size="12" fill="#22c55e">写代码</text>
+  </g>
+
+  <g transform="translate(480, 200)">
+    <rect x="-70" y="-50" width="140" height="100" fill="#fef3c7" stroke="#d97706" stroke-width="3" rx="12"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="40">🧪</text>
+    <text x="0" y="15" text-anchor="middle" font-size="16" font-weight="bold" fill="#92400e">QA Agent</text>
+    <text x="0" y="35" text-anchor="middle" font-size="12" fill="#f59e0b">做测试</text>
+  </g>
+
+  <g transform="translate(660, 200)">
+    <rect x="-70" y="-50" width="140" height="100" fill="#fce7f3" stroke="#db2777" stroke-width="3" rx="12"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="40">📋</text>
+    <text x="0" y="15" text-anchor="middle" font-size="16" font-weight="bold" fill="#9d174d">审核 Agent</text>
+    <text x="0" y="35" text-anchor="middle" font-size="12" fill="#ec4899">审查代码</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="400" y1="280" x2="400" y2="330" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow2)" stroke-dasharray="50" stroke-dashoffset="50">
+    <animate attributeName="stroke-dashoffset" from="50" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- Question mark -->
+  <g transform="translate(400, 380)">
+    <circle cx="0" cy="0" r="35" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+    <text x="0" y="12" text-anchor="middle" font-size="36" fill="#64748b">?</text>
+    <animateTransform attributeName="transform" type="scale" values="1; 1.1; 1" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <text x="400" y="435" text-anchor="middle" font-size="14" fill="#64748b">但它真的有效吗？</text>
+</svg>

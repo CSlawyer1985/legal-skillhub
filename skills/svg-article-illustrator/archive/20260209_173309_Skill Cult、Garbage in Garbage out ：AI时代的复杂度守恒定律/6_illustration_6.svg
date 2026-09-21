@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#FFE5E5" rx="10"/>
+
+  <defs>
+    <marker id="arrow4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#E74C3C"/>
+    </marker>
+  </defs>
+
+  <!-- 左侧：垃圾输入 -->
+  <g transform="translate(200, 225)">
+    <circle r="75" fill="#FADBD8" stroke="#E74C3C" stroke-width="4"/>
+    <text x="0" y="25" font-size="90" text-anchor="middle">🗑️</text>
+  </g>
+
+  <!-- 中间箭头 -->
+  <line x1="275" y1="225" x2="525" y2="225" stroke="#E74C3C" stroke-width="5"
+    marker-end="url(#arrow4)" stroke-dasharray="250" stroke-dashoffset="250">
+    <animate attributeName="stroke-dashoffset" from="250" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 右侧：垃圾输出 -->
+  <g transform="translate(600, 225)">
+    <circle r="75" fill="#FADBD8" stroke="#E74C3C" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.6; 1; 0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="25" font-size="90" text-anchor="middle">💩</text>
+  </g>
+
+  <text x="400" y="400" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">GIGO定律</text>
+</svg>

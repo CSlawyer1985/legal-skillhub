@@ -1,0 +1,59 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow7" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10B981"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="#f0fdf4"/>
+
+  <!-- Title -->
+  <g transform="translate(400, 40)">
+    <text x="0" y="0" text-anchor="middle" font-size="24" font-weight="bold" fill="#166534">独立 Workspace - 高阶玩法</text>
+  </g>
+
+  <!-- Three separate workspaces -->
+  <g transform="translate(150, 200)">
+    <rect x="-100" y="-70" width="200" height="140" fill="#dcfce7" stroke="#16a34a" stroke-width="3" rx="12"/>
+    <text x="0" y="-45" text-anchor="middle" font-size="16" font-weight="bold" fill="#166534">Workspace A</text>
+    <rect x="-80" y="-25" width="160" height="60" fill="#fff" stroke="#86efac" stroke-width="2" rx="6"/>
+    <text x="0" y="0" text-anchor="middle" font-size="12" fill="#15803d">🔍 搜索技能</text>
+    <text x="0" y="20" text-anchor="middle" font-size="12" fill="#15803d">📁 搜索记忆</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="3s" repeatCount="indefinite"/>
+  </g>
+
+  <g transform="translate(400, 200)">
+    <rect x="-100" y="-70" width="200" height="140" fill="#dbeafe" stroke="#3b82f6" stroke-width="3" rx="12"/>
+    <text x="0" y="-45" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e40af">Workspace B</text>
+    <rect x="-80" y="-25" width="160" height="60" fill="#fff" stroke="#93c5fd" stroke-width="2" rx="6"/>
+    <text x="0" y="0" text-anchor="middle" font-size="12" fill="#1d4ed8">✍️ 写作技能</text>
+    <text x="0" y="20" text-anchor="middle" font-size="12" fill="#1d4ed8">📁 写作记忆</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+  </g>
+
+  <g transform="translate(650, 200)">
+    <rect x="-100" y="-70" width="200" height="140" fill="#fef3c7" stroke="#d97706" stroke-width="3" rx="12"/>
+    <text x="0" y="-45" text-anchor="middle" font-size="16" font-weight="bold" fill="#92400e">Workspace C</text>
+    <rect x="-80" y="-25" width="160" height="60" fill="#fff" stroke="#fcd34d" stroke-width="2" rx="6"/>
+    <text x="0" y="0" text-anchor="middle" font-size="12" fill="#b45309">📋 审核技能</text>
+    <text x="0" y="20" text-anchor="middle" font-size="12" fill="#b45309">📁 审核记忆</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="3s" begin="1s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Benefits -->
+  <g transform="translate(250, 380)">
+    <rect x="-100" y="-25" width="200" height="50" fill="#ecfccb" stroke="#65a30d" stroke-width="2" rx="8"/>
+    <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="bold" fill="#3f6212">✅ 上下文隔离</text>
+  </g>
+
+  <g transform="translate(550, 380)">
+    <rect x="-100" y="-25" width="200" height="50" fill="#ecfccb" stroke="#65a30d" stroke-width="2" rx="8"/>
+    <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="bold" fill="#3f6212">✅ 技能聚焦</text>
+  </g>
+
+  <!-- Warning -->
+  <g transform="translate(400, 430)">
+    <rect x="-300" y="-15" width="600" height="25" fill="#fef2f2" stroke="#ef4444" stroke-width="2" rx="6"/>
+    <text x="0" y="5" text-anchor="middle" font-size="12" fill="#b91c1c">⚠️ 高阶玩法：需独立配置 SOUL.md、AGENTS.md、skill、memory</text>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <title>三种心态对比</title>
+  <desc>展示型、建设型、防御型三种律师心态的对比图</desc>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A1A2E">三种心态</text>
+
+  <!-- 三列布局 -->
+  <!-- 第一列：展示型 -->
+  <g>
+    <rect x="60" y="90" width="200" height="280" rx="12" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2"/>
+    <text x="160" y="130" font-size="24" font-weight="bold" text-anchor="middle" fill="#4A90E2">展示型</text>
+    <text x="160" y="160" font-size="18" text-anchor="middle" fill="#666666">关注问题存在</text>
+
+    <!-- 图标区域 -->
+    <circle cx="160" cy="220" r="50" fill="#4A90E2" fill-opacity="0.2"/>
+    <text x="160" y="235" font-size="50" text-anchor="middle">📋</text>
+
+    <text x="160" y="300" font-size="16" text-anchor="middle" fill="#444444">政治正确语境</text>
+    <text x="160" y="325" font-size="16" text-anchor="middle" fill="#444444">让问题被看见</text>
+    <text x="160" y="350" font-size="16" text-anchor="middle" fill="#888888">停留在表态</text>
+  </g>
+
+  <!-- 第二列：建设型 -->
+  <g>
+    <rect x="300" y="90" width="200" height="280" rx="12" fill="#E8F5E8" stroke="#10B981" stroke-width="3"/>
+    <text x="400" y="130" font-size="24" font-weight="bold" text-anchor="middle" fill="#10B981">建设型</text>
+    <text x="400" y="160" font-size="18" text-anchor="middle" fill="#666666">寻找解决路径</text>
+
+    <!-- 图标区域 -->
+    <circle cx="400" cy="220" r="50" fill="#10B981" fill-opacity="0.2"/>
+    <text x="400" y="235" font-size="50" text-anchor="middle">🔧</text>
+
+    <text x="400" y="300" font-size="16" text-anchor="middle" fill="#444444">探索技术方案</text>
+    <text x="400" y="325" font-size="16" text-anchor="middle" fill="#444444">通向技术认知</text>
+    <text x="400" y="350" font-size="16" text-anchor="middle" fill="#10B981" font-weight="bold">持续深入</text>
+  </g>
+
+  <!-- 第三列：防御型 -->
+  <g>
+    <rect x="540" y="90" width="200" height="280" rx="12" fill="#FFF5F5" stroke="#E24A4A" stroke-width="2"/>
+    <text x="640" y="130" font-size="24" font-weight="bold" text-anchor="middle" fill="#E24A4A">防御型</text>
+    <text x="640" y="160" font-size="18" text-anchor="middle" fill="#666666">构筑心理防线</text>
+
+    <!-- 图标区域 -->
+    <circle cx="640" cy="220" r="50" fill="#E24A4A" fill-opacity="0.2"/>
+    <text x="640" y="235" font-size="50" text-anchor="middle">🛡️</text>
+
+    <text x="640" y="300" font-size="16" text-anchor="middle" fill="#444444">永远不输策略</text>
+    <text x="640" y="325" font-size="16" text-anchor="middle" fill="#444444">立场之争</text>
+    <text x="640" y="350" font-size="16" text-anchor="middle" fill="#888888">错失成长</text>
+  </g>
+
+  <!-- 箭头指向：建设型是正确方向 -->
+  <line x1="270" y1="380" x2="530" y2="380" stroke="#10B981" stroke-width="4" stroke-dasharray="10,5" stroke-opacity="0.5"/>
+  <polygon points="530,375 545,380 530,385" fill="#10B981" fill-opacity="0.5"/>
+</svg>

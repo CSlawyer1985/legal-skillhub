@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEFCBF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F6E05E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad9)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="400" y="45" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="#744210">蜂巢智能 Hive Intelligence</text>
+
+  <!-- 中心：主控 Agent -->
+  <g transform="translate(400, 225)">
+    <circle cx="0" cy="0" r="65" fill="#FED7D7" stroke="#D53F8C" stroke-width="4">
+      <animate attributeName="r" values="65; 70; 65" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="15" text-anchor="middle" font-size="55">👑</text>
+    <text x="0" y="100" text-anchor="middle" font-size="14" fill="#742A2A">主控 Agent</text>
+  </g>
+
+  <!-- 周围的专业 Agent -->
+  <g transform="translate(200, 120)">
+    <circle cx="0" cy="0" r="45" fill="#E6FFFA" stroke="#38B2AC" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="35">📋</text>
+    <text x="0" y="65" text-anchor="middle" font-size="12" fill="#285E61">尽职调查</text>
+    <animateTransform attributeName="transform" type="translate" values="200,120; 200,113; 200,120" dur="2.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(600, 120)">
+    <circle cx="0" cy="0" r="45" fill="#BEE3F8" stroke="#3182CE" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="35">💰</text>
+    <text x="0" y="65" text-anchor="middle" font-size="12" fill="#1A365D">财务分析</text>
+    <animateTransform attributeName="transform" type="translate" values="600,120; 600,113; 600,120" dur="2.5s" repeatCount="indefinite" begin="0.4s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(150, 250)">
+    <circle cx="0" cy="0" r="45" fill="#FED7E2" stroke="#D53F8C" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="35">⚖️</text>
+    <text x="0" y="65" text-anchor="middle" font-size="12" fill="#702459">法律合规</text>
+    <animateTransform attributeName="transform" type="translate" values="150,250; 150,243; 150,250" dur="2.5s" repeatCount="indefinite" begin="0.8s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(650, 250)">
+    <circle cx="0" cy="0" r="45" fill="#E9D8FD" stroke="#805AD5" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="35">📊</text>
+    <text x="0" y="65" text-anchor="middle" font-size="12" fill="#44337A">风险评估</text>
+    <animateTransform attributeName="transform" type="translate" values="650,250; 650,243; 650,250" dur="2.5s" repeatCount="indefinite" begin="1.2s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(250, 350)">
+    <circle cx="0" cy="0" r="40" fill="#C6F6D5" stroke="#38A169" stroke-width="3"/>
+    <text x="0" y="10" text-anchor="middle" font-size="30">📝</text>
+    <text x="0" y="60" text-anchor="middle" font-size="12" fill="#22543D">文档生成</text>
+    <animateTransform attributeName="transform" type="translate" values="250,350; 250,344; 250,350" dur="2.5s" repeatCount="indefinite" begin="1.6s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(550, 350)">
+    <circle cx="0" cy="0" r="40" fill="#FEEBC8" stroke="#DD6B20" stroke-width="3"/>
+    <text x="0" y="10" text-anchor="middle" font-size="30">🤝</text>
+    <text x="0" y="60" text-anchor="middle" font-size="12" fill="#7C2D12">谈判支持</text>
+    <animateTransform attributeName="transform" type="translate" values="550,350; 550,344; 550,350" dur="2.5s" repeatCount="indefinite" begin="2s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 连接线 - 从中心向外 -->
+  <g>
+    <line x1="355" y1="185" x2="235" y2="145" stroke="#D69E2E" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+    <line x1="445" y1="185" x2="565" y2="145" stroke="#D69E2E" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+    <line x1="345" y1="260" x2="185" y2="255" stroke="#D69E2E" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+    <line x1="455" y1="260" x2="615" y2="255" stroke="#D69E2E" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+    <line x1="365" y1="275" x2="285" y2="325" stroke="#D69E2E" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+    <line x1="435" y1="275" x2="515" y2="325" stroke="#D69E2E" stroke-width="2" opacity="0.5" stroke-dasharray="5,3"/>
+  </g>
+
+  <!-- 蜂巢装饰 -->
+  <g transform="translate(80, 80)">
+    <path d="M30 0 L60 17 L60 52 L30 70 L0 52 L0 17 Z" fill="none" stroke="#D69E2E" stroke-width="2" opacity="0.3"/>
+  </g>
+  <g transform="translate(700, 380)">
+    <path d="M20 0 L40 11 L40 34 L20 45 L0 34 L0 11 Z" fill="none" stroke="#D69E2E" stroke-width="2" opacity="0.3"/>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="32" text-anchor="middle" fill="#333" font-weight="bold">两种协作模式</text>
+
+  <!-- 左侧：问答式 -->
+  <g transform="translate(200, 260)">
+    <text x="0" y="-130" font-size="24" text-anchor="middle" fill="#999">问答式</text>
+
+    <!-- 人 -->
+    <circle cx="-60" cy="-30" r="25" fill="#E8F4F8"/>
+    <text x="-60" y="-20" font-size="24" text-anchor="middle">👤</text>
+
+    <!-- AI -->
+    <circle cx="60" cy="-30" r="25" fill="#999"/>
+    <text x="60" y="-20" font-size="20" text-anchor="middle" fill="#fff">AI</text>
+
+    <!-- 双向箭头 -->
+    <line x1="-30" y1="-30" x2="30" y2="-30" stroke="#999" stroke-width="2"/>
+    <polygon points="30,-30 20,-35 20,-25" fill="#999"/>
+
+    <!-- 对话气泡 -->
+    <text x="0" y="30" font-size="14" text-anchor="middle" fill="#666">"帮我写..."</text>
+    <text x="0" y="55" font-size="14" text-anchor="middle" fill="#666">"好的，这是..."</text>
+
+    <!-- 特点 -->
+    <rect x="-90" y="80" width="180" height="50" fill="#f0f0f0" rx="8"/>
+    <text x="0" y="100" font-size="14" text-anchor="middle" fill="#666">每次从零开始</text>
+    <text x="0" y="120" font-size="14" text-anchor="middle" fill="#666">上下文清空</text>
+  </g>
+
+  <!-- VS -->
+  <text x="400" y="260" font-size="36" text-anchor="middle" fill="#4A90E2" font-weight="bold">VS</text>
+
+  <!-- 右侧：协作式 -->
+  <g transform="translate(600, 260)">
+    <text x="0" y="-130" font-size="24" text-anchor="middle" fill="#4A90E2">协作式</text>
+
+    <!-- 共享工作场 -->
+    <rect x="-100" y="-80" width="200" height="100" fill="#E8F4F8" rx="10" stroke="#4A90E2" stroke-width="2" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-25" font-size="16" text-anchor="middle" fill="#4A90E2">共享知识场</text>
+
+    <!-- 人和AI在一起 -->
+    <circle cx="-30" cy="50" r="25" fill="#E8F4F8"/>
+    <text x="-30" y="60" font-size="24" text-anchor="middle">👤</text>
+
+    <circle cx="30" cy="50" r="25" fill="#4A90E2"/>
+    <text x="30" y="60" font-size="20" text-anchor="middle" fill="#fff">AI</text>
+
+    <!-- 连接线 -->
+    <line x1="0" y1="20" x2="0" y2="0" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,3"/>
+
+    <!-- 特点 -->
+    <rect x="-90" y="90" width="180" height="50" fill="#E8F4F8" rx="8"/>
+    <text x="0" y="110" font-size="14" text-anchor="middle" fill="#4A90E2">持续存在</text>
+    <text x="0" y="130" font-size="14" text-anchor="middle" fill="#4A90E2">共同推进</text>
+  </g>
+</svg>

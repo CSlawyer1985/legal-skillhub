@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="75" font-size="32" font-weight="bold" fill="#2d3748" text-anchor="middle">成本的转移</text>
+
+  <!-- 时间轴 -->
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#CBD5E0" stroke-width="3"/>
+  <text x="100" y="380" font-size="18" fill="#718096">开始</text>
+  <text x="700" y="380" font-size="18" fill="#718096">后期</text>
+
+  <!-- 显性成本（下降） -->
+  <g>
+    <line x1="150" y1="150" x2="350" y2="280" stroke="#10B981" stroke-width="5" stroke-dasharray="200" stroke-dashoffset="200">
+      <animate attributeName="stroke-dashoffset" from="200" to="0" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle cx="150" cy="150" r="12" fill="#10B981"/>
+    <circle cx="350" cy="280" r="12" fill="#10B981"/>
+    <text x="130" y="130" font-size="18" fill="#10B981" font-weight="bold">显性成本</text>
+    <text x="370" y="270" font-size="16" fill="#10B981">↓ 降低</text>
+  </g>
+
+  <!-- 隐性成本（上升） -->
+  <g>
+    <line x1="450" y1="280" x2="650" y2="150" stroke="#E53E3E" stroke-width="5" stroke-dasharray="200" stroke-dashoffset="200">
+      <animate attributeName="stroke-dashoffset" from="200" to="0" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle cx="450" cy="280" r="12" fill="#E53E3E"/>
+    <circle cx="650" cy="150" r="12" fill="#E53E3E"/>
+    <text x="430" y="310" font-size="18" fill="#E53E3E" font-weight="bold">隐性成本</text>
+    <text x="660" y="145" font-size="16" fill="#E53E3E">↑ 增加</text>
+  </g>
+
+  <!-- 箭头指示转移 -->
+  <path d="M380,220 Q400,200 420,220" stroke="#4A90E2" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <text x="400" y="195" font-size="16" fill="#4A90E2" text-anchor="middle">转移</text>
+
+  <!-- 底部标签 -->
+  <g transform="translate(200, 400)">
+    <rect x="0" y="0" width="120" height="30" rx="6" fill="#10B981"/>
+    <text x="60" y="22" font-size="14" fill="white" text-anchor="middle">立即支付</text>
+  </g>
+  <g transform="translate(480, 400)">
+    <rect x="0" y="0" width="120" height="30" rx="6" fill="#E53E3E"/>
+    <text x="60" y="22" font-size="14" fill="white" text-anchor="middle">延期结算</text>
+  </g>
+</svg>

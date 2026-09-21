@@ -1,0 +1,381 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/review-plan-extension-v1.schema.json",
+  "title": "One-Contract Review Plan Rule Studio Extension",
+  "$comment": "This immutable extension pins the exact public projection, explicitly selected client snapshot (or an explicit no-client decision), resolution context, EffectiveRuleSet hash, and complete resolver trace used by a review. All relative $ref values MUST resolve only through the packaged, allowlisted local schema registry; network retrieval is forbidden. content_sha256 is SHA-256 over RFC 8785/JCS canonical JSON with only the top-level content_sha256 member omitted. The writer MUST reject non-I-JSON values and verify that applied_rule_refs and resolution_trace are exact projections of the EffectiveRuleSet identified by effective_rule_set.result_hash. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "extension_id",
+    "recorded_at",
+    "public_snapshot",
+    "client_selection",
+    "resolution_context",
+    "effective_rule_set",
+    "applied_rule_refs",
+    "resolution_trace",
+    "rule_conflict_refs",
+    "case_authorization_refs",
+    "human_confirmation_required",
+    "immutable",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "extension_id": {
+      "const": "one_contract.rule_studio"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "public_snapshot": {
+      "$ref": "#/$defs/publicSnapshotBinding"
+    },
+    "client_selection": {
+      "$ref": "#/$defs/clientSelectionBinding"
+    },
+    "resolution_context": {
+      "$ref": "#/$defs/resolutionContextBinding"
+    },
+    "effective_rule_set": {
+      "$ref": "#/$defs/effectiveRuleSetBinding"
+    },
+    "applied_rule_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/appliedRuleRef"
+      }
+    },
+    "resolution_trace": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "effective-rule-set.schema.json#/$defs/traceItem"
+      }
+    },
+    "rule_conflict_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/conflictRef"
+      }
+    },
+    "case_authorization_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/caseAuthorizationRef"
+      }
+    },
+    "human_confirmation_required": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "const": true
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "publicSnapshotBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "public_snapshot_id",
+        "public_asset_fingerprint",
+        "projection_hash",
+        "resolver_semantics_version",
+        "source_release_version"
+      ],
+      "properties": {
+        "public_snapshot_id": {
+          "type": "string",
+          "pattern": "^public_sha256_[a-f0-9]{64}$"
+        },
+        "public_asset_fingerprint": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "projection_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "resolver_semantics_version": {
+          "type": "string",
+          "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+        },
+        "source_release_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        }
+      }
+    },
+    "clientSelectionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "client_profile_id",
+        "client_policy_snapshot_id",
+        "client_policy_snapshot_sha256",
+        "selected_by",
+        "selected_at"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "explicit"
+          ]
+        },
+        "client_profile_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+        },
+        "client_policy_snapshot_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+        },
+        "client_policy_snapshot_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "selected_by": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "selected_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "none"
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "client_profile_id": {
+                "type": "null"
+              },
+              "client_policy_snapshot_id": {
+                "type": "null"
+              },
+              "client_policy_snapshot_sha256": {
+                "type": "null"
+              },
+              "selected_by": {
+                "type": "null"
+              },
+              "selected_at": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "client_profile_id": {
+                "type": "string"
+              },
+              "client_policy_snapshot_id": {
+                "type": "string"
+              },
+              "client_policy_snapshot_sha256": {
+                "type": "string"
+              },
+              "selected_by": {
+                "type": "string",
+                "minLength": 1
+              },
+              "selected_at": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "resolutionContextBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "context_id",
+        "context_hash"
+      ],
+      "properties": {
+        "context_id": {
+          "type": "string",
+          "pattern": "^rc_[a-z0-9][a-z0-9_-]{7,79}$"
+        },
+        "context_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "effectiveRuleSetBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "resolver_semantics_version",
+        "result_hash"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0"
+        },
+        "resolver_semantics_version": {
+          "type": "string",
+          "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+        },
+        "result_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    },
+    "appliedRuleRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "version",
+        "source_layer",
+        "source_snapshot",
+        "normative_class",
+        "content_hash",
+        "payload_schema_id",
+        "trace_sequence"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "source_layer": {
+          "$ref": "effective-rule-set.schema.json#/$defs/sourceLayer"
+        },
+        "source_snapshot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "normative_class": {
+          "$ref": "effective-rule-set.schema.json#/$defs/normativeClass"
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "payload_schema_id": {
+          "type": "string",
+          "pattern": "^(?:[A-Za-z0-9._/-]+[.]schema[.]json(?:#.*)?|urn:one-contract:rule-payload:[A-Za-z0-9._:-]+)$",
+          "maxLength": 240
+        },
+        "trace_sequence": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "conflictRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conflict_id",
+        "rule_ids",
+        "resolution",
+        "human_confirmation_required"
+      ],
+      "properties": {
+        "conflict_id": {
+          "type": "string",
+          "pattern": "^cf_[a-z0-9][a-z0-9_-]{7,95}$"
+        },
+        "rule_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "maxLength": 180
+          }
+        },
+        "resolution": {
+          "type": "string",
+          "enum": [
+            "higher_class_wins",
+            "authorized_exception_applied",
+            "rule_excluded",
+            "blocked",
+            "pending_human_confirmation"
+          ]
+        },
+        "human_confirmation_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "caseAuthorizationRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorization_id",
+        "valid_for_context_hash",
+        "content_sha256"
+      ],
+      "properties": {
+        "authorization_id": {
+          "type": "string",
+          "pattern": "^ca_[a-z0-9][a-z0-9_-]{7,79}$"
+        },
+        "valid_for_context_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    }
+  }
+}

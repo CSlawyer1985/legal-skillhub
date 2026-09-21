@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <text x="400" y="50" font-size="28" text-anchor="middle" fill="#1A1A2E" font-weight="bold">永远不输</text>
+
+  <g>
+    <circle cx="400" cy="220" r="60" fill="#FFF5F5" stroke="#E24A4A" stroke-width="3"/>
+    <text x="400" y="235" font-size="55" text-anchor="middle">🛡️</text>
+  </g>
+
+  <g>
+    <circle cx="150" cy="220" r="50" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2"/>
+    <text x="150" y="235" font-size="40" text-anchor="middle">📉</text>
+    <line x1="200" y1="220" x2="330" y2="220" stroke="#E24A4A" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="8" to="0" dur="0.8s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <g>
+    <circle cx="650" cy="220" r="50" fill="#E8F5E8" stroke="#10B981" stroke-width="2"/>
+    <text x="650" y="235" font-size="40" text-anchor="middle">📈</text>
+    <line x1="470" y1="220" x2="600" y2="220" stroke="#10B981" stroke-width="2" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="8" to="0" dur="0.8s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>

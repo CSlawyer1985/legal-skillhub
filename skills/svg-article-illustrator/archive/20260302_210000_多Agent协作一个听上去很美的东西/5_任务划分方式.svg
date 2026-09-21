@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <marker id="arrow5" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4CAF50"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">任务划分方式</text>
+
+  <!-- 错误方式：按角色 -->
+  <g transform="translate(200, 200)">
+    <rect x="-130" y="-100" width="260" height="200" rx="12" fill="#FFEBEE" stroke="#E57373" stroke-width="3"/>
+    <text x="0" y="-65" font-size="20" font-weight="bold" fill="#C62828" text-anchor="middle">❌ 按角色划分</text>
+    <text x="0" y="-25" font-size="40" text-anchor="middle">👔</text>
+    <text x="0" y="15" font-size="14" fill="#333" text-anchor="middle">法律 Agent</text>
+    <text x="0" y="40" font-size="14" fill="#333" text-anchor="middle">研究 Agent</text>
+    <text x="0" y="65" font-size="14" fill="#333" text-anchor="middle">写作 Agent</text>
+    <text x="0" y="95" font-size="14" fill="#666" text-anchor="middle">持续协调开销</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="340" y1="200" x2="460" y2="200" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrow5)" stroke-dasharray="120" stroke-dashoffset="120">
+    <animate attributeName="stroke-dashoffset" from="120" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 正确方式：按上下文 -->
+  <g transform="translate(600, 200)">
+    <rect x="-130" y="-100" width="260" height="200" rx="12" fill="#E8F5E9" stroke="#4CAF50" stroke-width="3"/>
+    <text x="0" y="-65" font-size="20" font-weight="bold" fill="#2E7D32" text-anchor="middle">✓ 按上下文划分</text>
+    <text x="0" y="-25" font-size="40" text-anchor="middle">🗂️</text>
+    <text x="0" y="15" font-size="14" fill="#333" text-anchor="middle">研究路径 A</text>
+    <text x="0" y="40" font-size="14" fill="#333" text-anchor="middle">组件 B</text>
+    <text x="0" y="65" font-size="14" fill="#333" text-anchor="middle">验证 C</text>
+    <text x="0" y="95" font-size="14" fill="#2E7D32" text-anchor="middle">边界清晰</text>
+  </g>
+</svg>

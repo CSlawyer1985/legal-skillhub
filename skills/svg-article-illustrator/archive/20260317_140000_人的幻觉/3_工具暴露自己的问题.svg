@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#f3e5f5"/>
+
+  <!-- 中心：镜子/反思 -->
+  <g transform="translate(400, 200)">
+    <circle cx="0" cy="0" r="100" fill="#ffffff" stroke="#9c27b0" stroke-width="6"/>
+    <text x="0" y="35" font-size="80" text-anchor="middle">🪞</text>
+    <!-- 脉冲动画 -->
+    <animateTransform attributeName="transform" type="scale"
+      values="1; 1.08; 1" dur="2s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 四周反射的问题 -->
+  <g transform="translate(200, 100)">
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#e1bee7"/>
+    <text x="0" y="8" font-size="20" fill="#4a148c" text-anchor="middle">任务拆分？</text>
+  </g>
+
+  <g transform="translate(600, 100)">
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#e1bee7"/>
+    <text x="0" y="8" font-size="20" fill="#4a148c" text-anchor="middle">知识散乱？</text>
+  </g>
+
+  <g transform="translate(200, 320)">
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#e1bee7"/>
+    <text x="0" y="8" font-size="20" fill="#4a148c" text-anchor="middle">流程不清？</text>
+  </g>
+
+  <g transform="translate(600, 320)">
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#e1bee7"/>
+    <text x="0" y="8" font-size="20" fill="#4a148c" text-anchor="middle">上下文？</text>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="400" y="410" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">工具暴露的，是自己的问题</text>
+</svg>

@@ -1,0 +1,72 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <title>推开门窗</title>
+  <desc>AI不是威胁，而是一扇窗，可以放大你的能力边界</desc>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A1A2E">推开门窗</text>
+
+  <!-- 门/窗框架 -->
+  <g>
+    <!-- 墙壁背景 -->
+    <rect x="200" y="100" width="400" height="280" fill="#F5F5F5"/>
+
+    <!-- 门框 -->
+    <rect x="280" y="100" width="240" height="280" fill="#E8DCC8" stroke="#8B7355" stroke-width="8"/>
+
+    <!-- 门本身（半开状态） -->
+    <g>
+      <!-- 门体 -->
+      <rect x="285" y="105" width="110" height="270" fill="#A0522D" stroke="#5D4E37" stroke-width="4"/>
+      <!-- 门把手 -->
+      <circle cx="380" cy="240" r="8" fill="#D4AF37"/>
+      <!-- 门上装饰 -->
+      <rect x="300" y="130" width="80" height="60" rx="4" fill="#8B7355" fill-opacity="0.3"/>
+      <rect x="300" y="210" width="80" height="60" rx="4" fill="#8B7355" fill-opacity="0.3"/>
+
+      <!-- 动画：门打开 -->
+      <animateTransform attributeName="transform" type="rotate"
+        values="0,285,105; -30,285,105; 0,285,105" dur="4s" repeatCount="indefinite"
+        calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+    </g>
+
+    <!-- 窗户（门外/光） -->
+    <rect x="420" y="140" width="85" height="100" fill="#87CEEB" fill-opacity="0.6" stroke="#5D4E37" stroke-width="3"/>
+    <line x1="462" y1="140" x2="462" y2="240" stroke="#5D4E37" stroke-width="2"/>
+    <line x1="420" y1="190" x2="505" y2="190" stroke="#5D4E37" stroke-width="2"/>
+
+    <!-- 门外光芒 -->
+    <g>
+      <circle cx="510" cy="190" r="30" fill="#FFD700" fill-opacity="0.3">
+        <animate attributeName="r" values="30;40;30" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="fill-opacity" values="0.3;0.5;0.3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="540" cy="160" r="20" fill="#FFD700" fill-opacity="0.2">
+        <animate attributeName="r" values="20;30;20" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <!-- 人物剪影（推门） -->
+  <g>
+    <circle cx="200" cy="300" r="30" fill="#333333"/>
+    <ellipse cx="200" cy="370" rx="25" ry="40" fill="#333333"/>
+    <!-- 手臂伸向门 -->
+    <rect x="220" y="290" width="70" height="12" rx="6" fill="#333333" transform="rotate(-20,220,290)"/>
+  </g>
+
+  <!-- 底部文字 -->
+  <rect x="150" y="400" width="500" height="40" rx="8" fill="#10B981" fill-opacity="0.1"/>
+  <text x="400" y="427" font-size="20" text-anchor="middle" fill="#10B981" font-weight="bold">AI带来的不是威胁，而是一扇窗</text>
+
+  <!-- 向外的光线箭头 -->
+  <g>
+    <line x1="560" y1="280" x2="620" y2="280" stroke="#FFD700" stroke-width="3" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="620,275 640,280 620,285" fill="#FFD700">
+      <animateTransform attributeName="transform" type="translate" values="0,0;5,0;0,0" dur="1s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#FFF3E0" rx="10"/>
+
+  <defs>
+    <marker id="arrow5" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#F39C12"/>
+    </marker>
+  </defs>
+
+  <!-- 中心：天平 -->
+  <g transform="translate(400, 225)">
+    <!-- 天平支点 -->
+    <circle r="15" fill="#F39C12"/>
+
+    <!-- 左侧重量 -->
+    <g>
+      <line x1="-120" y1="-30" x2="120" y2="-30" stroke="#F39C12" stroke-width="6"/>
+      <circle cx="-120" cy="-30" r="60" fill="#FFE5CC" stroke="#F39C12" stroke-width="4">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,10; 0,0" dur="3s" repeatCount="indefinite"
+          calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </circle>
+      <text x="-120" y="-10" font-size="70" text-anchor="middle">⚙️</text>
+    </g>
+
+    <!-- 右侧重量 -->
+    <g>
+      <circle cx="120" cy="-30" r="60" fill="#FFE5CC" stroke="#F39C12" stroke-width="4">
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"
+          calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+      </circle>
+      <text x="120" y="-10" font-size="70" text-anchor="middle">📝</text>
+    </g>
+  </g>
+
+  <text x="400" y="410" font-size="48" fill="#2C3E50" text-anchor="middle" font-weight="bold">复杂度天平</text>
+</svg>

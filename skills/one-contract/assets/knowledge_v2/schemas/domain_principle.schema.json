@@ -1,0 +1,118 @@
+{
+  "$id": "one-contract/domain-principle-v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "One-Contract domain principle card v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "domain_doctrine_id",
+    "domain_code",
+    "domain_name",
+    "version",
+    "coverage",
+    "review_objectives",
+    "judgment_coordinates",
+    "review_sequence",
+    "common_failure_modes",
+    "default_tendencies",
+    "applicability_conditions",
+    "override_factors",
+    "hard_boundaries",
+    "required_evidence",
+    "module_index",
+    "derived_principle_ids",
+    "derived_module_ids",
+    "source_ids",
+    "knowledge_gaps",
+    "approval_status",
+    "activation_status",
+    "reviewer",
+    "reviewed_at",
+    "legal_checked_at",
+    "content_status"
+  ],
+  "properties": {
+    "domain_doctrine_id": {
+      "type": "string",
+      "pattern": "^domain-doctrine-ec-(0[1-9]|10)$"
+    },
+    "domain_code": {
+      "type": "string",
+      "pattern": "^EC-(0[1-9]|10)$"
+    },
+    "domain_name": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_type_count",
+        "supported_type_count",
+        "coverage_status",
+        "supported_type_ids",
+        "unsupported_type_ids"
+      ],
+      "properties": {
+        "total_type_count": {"type": "integer", "minimum": 1},
+        "supported_type_count": {"type": "integer", "minimum": 0},
+        "coverage_status": {"enum": ["strong", "limited", "gap"]},
+        "supported_type_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "unsupported_type_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    },
+    "review_objectives": {"$ref": "#/$defs/stringArray"},
+    "judgment_coordinates": {"$ref": "#/$defs/stringArray"},
+    "review_sequence": {"$ref": "#/$defs/stringArray"},
+    "common_failure_modes": {"$ref": "#/$defs/stringArray"},
+    "default_tendencies": {"$ref": "#/$defs/stringArray"},
+    "applicability_conditions": {"$ref": "#/$defs/stringArray"},
+    "override_factors": {"$ref": "#/$defs/stringArray"},
+    "hard_boundaries": {"$ref": "#/$defs/stringArray"},
+    "required_evidence": {"$ref": "#/$defs/stringArray"},
+    "module_index": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic", "module_ids", "applicability_note"],
+        "properties": {
+          "topic": {"type": "string", "minLength": 1},
+          "module_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "pattern": "^mod-[a-z0-9-]+$"},
+            "uniqueItems": true
+          },
+          "applicability_note": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "derived_principle_ids": {"$ref": "#/$defs/stringArray"},
+    "derived_module_ids": {"$ref": "#/$defs/stringArray"},
+    "source_ids": {"$ref": "#/$defs/stringArray"},
+    "knowledge_gaps": {"$ref": "#/$defs/stringArray"},
+    "approval_status": {
+      "enum": ["candidate", "lawyer_approved", "regression_passed", "active", "deprecated"]
+    },
+    "activation_status": {"enum": ["inactive", "active", "deprecated"]},
+    "reviewer": {"type": ["string", "null"]},
+    "reviewed_at": {"type": ["string", "null"]},
+    "legal_checked_at": {"type": ["string", "null"]},
+    "content_status": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  }
+}

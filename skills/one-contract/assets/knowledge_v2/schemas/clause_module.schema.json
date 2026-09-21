@@ -1,0 +1,253 @@
+{
+  "$id": "one-contract/clause-module-v2.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activated_at": {
+      "description": "本条模块被激活的日期，ISO 8601 日期形式（YYYY-MM-DD）。仅记录激活事件时间，不承载生效判断，是否生效以 activation_status 为准。用 format:date 而非 pattern——pattern 只能校验形状，拦不住 2026-13-45 这类非法月日。",
+      "format": "date",
+      "type": "string"
+    },
+    "activation_basis": {
+      "description": "本条模块获准激活的依据说明，记录批准来源与授权范围，用于追溯为何该模块进入 active 集合。",
+      "minLength": 1,
+      "type": "string"
+    },
+    "activation_status": {
+      "enum": ["inactive", "active", "deprecated"]
+    },
+    "approval_status": {
+      "enum": [
+        "candidate",
+        "lawyer_approved",
+        "regression_passed",
+        "active",
+        "deprecated"
+      ]
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "clause_group": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "conflicts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dependencies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dependencies_by_type": {
+      "additionalProperties": {
+        "items": {"type": "string"},
+        "type": "array"
+      },
+      "type": "object"
+    },
+    "directed_block_policy": {
+      "additionalProperties": false,
+      "description": "定向阻断策略。当 activation_condition 成立时，只允许产出 allowed_outputs 列举的内容，禁止产出 blocked_outputs 列举的内容。对应选择器 rule_precedence 中的 p0_policy=directed_block_only 语义：硬边界不被普通偏好覆盖，而是收窄可输出范围并转人工。",
+      "properties": {
+        "activation_condition": {
+          "description": "触发定向阻断的受控判定条件标识，形如 confirmed_no_valid_presale_permit。",
+          "minLength": 1,
+          "type": "string"
+        },
+        "allowed_outputs": {
+          "description": "条件成立时仍允许产出的内容类别。",
+          "items": {"type": "string"},
+          "minItems": 1,
+          "type": "array"
+        },
+        "blocked_outputs": {
+          "description": "条件成立时必须阻断的产出动作。",
+          "items": {"type": "string"},
+          "minItems": 1,
+          "type": "array"
+        },
+        "non_trigger": {
+          "description": "明确不触发本策略的排除条件标识，形如 contract_omission_or_missing_attachment_only。",
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "description": "本策略的作用域标识，限定于许可依赖的签署、付款、备案或交割动作。",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "activation_condition",
+        "allowed_outputs",
+        "blocked_outputs",
+        "non_trigger",
+        "scope"
+      ],
+      "type": "object"
+    },
+    "failure_mode": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "legal_checked_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "legal_basis_notes": {
+      "items": {"type": "string"},
+      "type": "array"
+    },
+    "module_id": {
+      "pattern": "^mod-[a-z0-9-]+$",
+      "type": "string"
+    },
+    "placeholders": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "requiredness": {
+      "enum": [
+        "required",
+        "conditional",
+        "optional"
+      ]
+    },
+    "recommended_actions": {
+      "items": {"type": "string"},
+      "type": "array"
+    },
+    "remediation_steps": {
+      "items": {"type": "string"},
+      "type": "array"
+    },
+    "review_objective": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "review_checks": {
+      "items": {"type": "string"},
+      "type": "array"
+    },
+    "reviewed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reviewer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "risk_examples": {
+      "items": {"type": "string"},
+      "type": "array"
+    },
+    "scene_tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_family_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_status": {"type": "string"},
+    "content_status": {"type": "string"},
+    "type_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "type_ids": {
+      "items": {"type": "string"},
+      "minItems": 1,
+      "type": "array"
+    },
+    "type_codes": {
+      "items": {"type": "string"},
+      "minItems": 1,
+      "type": "array"
+    },
+    "variants": {
+      "properties": {
+        "balanced": {
+          "type": "string"
+        },
+        "concession": {
+          "type": "string"
+        },
+        "strong_protection": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "strong_protection",
+        "balanced",
+        "concession"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "module_id",
+    "version",
+    "type_id",
+    "clause_group",
+    "review_objective",
+    "failure_mode",
+    "roles",
+    "scene_tags",
+    "requiredness",
+    "assumptions",
+    "placeholders",
+    "variants",
+    "dependencies",
+    "conflicts",
+    "source_ids",
+    "source_family_ids",
+    "approval_status",
+    "reviewer",
+    "reviewed_at",
+    "legal_checked_at"
+  ],
+  "title": "Contract clause module v2",
+  "type": "object"
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/knowledge-source-v2.schema.json",
+  "title": "Knowledge source record",
+  "type": "object",
+  "required": [
+    "source_id", "source_kind", "title", "author", "jurisdiction",
+    "published_at", "verified_at", "knowledge_tags", "used_for", "approval_status"
+  ],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^src-[a-z0-9-]+$"},
+    "source_kind": {"type": "string"},
+    "title": {"type": "string", "minLength": 1},
+    "author": {"type": "string", "minLength": 1},
+    "jurisdiction": {"type": "string"},
+    "published_at": {"type": "string", "minLength": 1, "description": "发布日期。刻意不加 format:date——实际存在 '2010-09'（只到月份）与 'undated' 两种非完整日期取值，加格式约束会误杀真实数据。"},
+    "effective_at": {"type": "string", "format": "date", "description": "生效日期。全部取值均通过 format:date 校验。"},
+    "verified_at": {"type": "string", "format": "date", "description": "来源核验日期。全部取值均通过 format:date 校验。"},
+    "activated_at": {
+      "description": "来源被激活的日期，ISO 8601 日期形式（YYYY-MM-DD）。可选：并非所有来源都记录激活时间，缺失不代表未生效，是否生效以 approval_status 为准。",
+      "format": "date",
+      "type": "string"
+    },
+    "note": {
+      "description": "来源的补充说明，用于记录效力层级或适用边界等人工判断，例如行政指导文件非强制但反映监管态度。",
+      "minLength": 1,
+      "type": "string"
+    },
+    "url": {"type": "string"},
+    "access_scope": {"type": "string"},
+    "discovery_channel": {"type": "string"},
+    "content_verification": {"type": "string"},
+    "knowledge_tags": {"type": "array", "items": {"type": "string"}},
+    "used_for": {"type": "array", "items": {"type": "string"}},
+    "approval_status": {
+      "description": "来源的批准状态。采用与 clause_module 同构的审批轴（candidate < lawyer_approved < regression_passed < active < deprecated），不采用 activation_status 的执行轴，因此这里不出现 inactive。",
+      "enum": [
+        "candidate",
+        "lawyer_approved",
+        "regression_passed",
+        "active",
+        "deprecated"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

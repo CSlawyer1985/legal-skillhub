@@ -1,0 +1,1078 @@
+{
+  "manifest_version": "1.0.0",
+  "package_version": "1.4.4",
+  "generated_on": "2026-09-07",
+  "statistics_scope": {
+    "source_documents": "法规汇编拆分后的独立文档编号及哈希承诺，不含原文和标题。",
+    "knowledge_cards": "当前公开 issue_router.py 内嵌编译载荷。",
+    "route_categories": "22 个细分案由标签加 1 个劳动合同纠纷兜底运行路由，共 23 类；由 14 张案由门卡承载。"
+  },
+  "knowledge_payload": {
+    "total_cards": 96,
+    "issue_card_count": 82,
+    "gate_card_count": 14,
+    "zhejiang_guidance_card_count": 81,
+    "statutory_leaf_route_count": 22,
+    "operational_fallback_route_count": 1,
+    "total_route_category_count": 23,
+    "compiled_blob_sha256": "4af9c4ef36cec9b43942d710f52c57480979e9eecc925925f39883eb463afd6d",
+    "marshalled_payload_sha256": "804873aeb0857105f7a0658c7b61d2c4eb996feadfcfe56f72001562b652ebd3",
+    "canonical_cards_sha256": "bf67619870d151b4797e8e39323909f09b3433d8c293bd18866944763cd29aef",
+    "card_id_set_sha256": "c974fbf394b265a51605e760a8a5756c14c3a3a93f43af43dc4fef85fb45ae8b",
+    "issue_gate_label_set_sha256": "0600c9ce9469210c2f90f4c93f42ef505364ef6b1662bb901ed018c98ea57be7"
+  },
+  "source_inventory": {
+    "document_count": 149,
+    "scope_counts": {
+      "zhejiang": 63,
+      "national_or_other": 86
+    },
+    "entries_sha256": "dd3328d8193b5568922126e57a77f037c9f4400b9575ca12c9bd82d3cda396a2",
+    "entries": [
+      {
+        "source_id": "SRC-001",
+        "scope": "national_or_other",
+        "size_bytes": 38254,
+        "title_sha256": "46d15af5ecd9bbab5bb180cd0afc6cc523afc6eb7c2b8e94e80cdce1ce455e08",
+        "content_sha256": "9f60f54edf1ab7977feb975b24f263ecc3527ab7d373682eebced70dd46c45ca"
+      },
+      {
+        "source_id": "SRC-002",
+        "scope": "national_or_other",
+        "size_bytes": 47567,
+        "title_sha256": "b8ace83c159fb2ed4b3a986ed5393e2701411e02cfbdc3074dc0e6e3ab0bea69",
+        "content_sha256": "253950e752aa056a41b9674a3b91d859529eaa4de18343441c31ccf7050a3ae3"
+      },
+      {
+        "source_id": "SRC-003",
+        "scope": "national_or_other",
+        "size_bytes": 4267,
+        "title_sha256": "b29faba8e22c2524d77a2655f463a256a0bd01fc4ea1264a1727bce3ed1269ac",
+        "content_sha256": "560b8bf6206fd9fd74fe1c4d9891d1fc520c3cd9b104c65fe104a4afbb1beff6"
+      },
+      {
+        "source_id": "SRC-004",
+        "scope": "national_or_other",
+        "size_bytes": 18196,
+        "title_sha256": "68e506930d6ea7de3ff4e4dc7c950d84aed20f9c6eab68c68a2068299a7eecd7",
+        "content_sha256": "2489f24d06a6357918e5c7a4300abf8f7785bb70488af09cfe5202e258a2795a"
+      },
+      {
+        "source_id": "SRC-005",
+        "scope": "national_or_other",
+        "size_bytes": 9520,
+        "title_sha256": "f4eef3f4d1bbbd44c9c00d5fbb59c4a2fac4f50fef385e4d50562af7dc3549a0",
+        "content_sha256": "d7bff36da515570d58af665ccd19ad1989daff503a43457ab2295032510385f7"
+      },
+      {
+        "source_id": "SRC-006",
+        "scope": "national_or_other",
+        "size_bytes": 36138,
+        "title_sha256": "40030aad06610ea78282e7f4501d36a21946aaf9bbedc37cc7ea53950f1f3dda",
+        "content_sha256": "88ccfb7b2df7e85bd7952a64d1ec382fa436abe387ff2ddece3a548dfe7a15b8"
+      },
+      {
+        "source_id": "SRC-007",
+        "scope": "national_or_other",
+        "size_bytes": 14245,
+        "title_sha256": "83241c9c1719a248327681c32c672b0010dac9d992188bbe3b73791b6fca4df0",
+        "content_sha256": "0b67e3cda91cc9b8f2c8c2b3456052c9035dc185e30b6d3412a8ff0af27c20ce"
+      },
+      {
+        "source_id": "SRC-008",
+        "scope": "national_or_other",
+        "size_bytes": 5102,
+        "title_sha256": "d2e113251a81cc42d148e5237c5c9181da13b147860e068389515a8baec57771",
+        "content_sha256": "af2838daa0d8049b6812664565abf480c2a20c1fbdbaf2292598ba2b7f61923b"
+      },
+      {
+        "source_id": "SRC-009",
+        "scope": "national_or_other",
+        "size_bytes": 64915,
+        "title_sha256": "e43245c01d9c099567cb3a8a80c412d353765986e29a59ca1a324f548dce1193",
+        "content_sha256": "38e80bee9f2f9e2c0716d84551f5ef75ceef4cb62c9b7818c47647f516cb1920"
+      },
+      {
+        "source_id": "SRC-010",
+        "scope": "zhejiang",
+        "size_bytes": 17464,
+        "title_sha256": "62d73cedb184c236dab651cc252febcca1fdcb408e7aa62ed6f06bf79967f0bf",
+        "content_sha256": "f249c755aa21168f54586c8acabb1df95f82573ba2f68bc92a9f4756388988f6"
+      },
+      {
+        "source_id": "SRC-011",
+        "scope": "zhejiang",
+        "size_bytes": 11769,
+        "title_sha256": "0b96dec483ae60b5f1a8030c7a2a1e900503caecc4b0da75f420f6b853004eea",
+        "content_sha256": "4cb56f81bd9364f1cee3d15905b082971333146f1ec66daf119fa583c49a114e"
+      },
+      {
+        "source_id": "SRC-012",
+        "scope": "national_or_other",
+        "size_bytes": 14097,
+        "title_sha256": "9c30703ef270a6b28834e5dff43ef8145013fc2661e8b53fc4274b736cf0134b",
+        "content_sha256": "381623b4f383367f5d0e585114fc4c6fdb92cb4ff5f842f349a26b1b962b3ebf"
+      },
+      {
+        "source_id": "SRC-013",
+        "scope": "national_or_other",
+        "size_bytes": 10369,
+        "title_sha256": "6da0887ffc43802573637ea8d96ab49ee700b04f58008899f1ed07d983095a48",
+        "content_sha256": "08f737ca2c74d73243e58a9cfe26f0d37fd4e68844733029f68bbeed5783ab5f"
+      },
+      {
+        "source_id": "SRC-014",
+        "scope": "national_or_other",
+        "size_bytes": 37132,
+        "title_sha256": "cef91d797a1e004a9d1b3a7922c2b1e4cf6a4ce18433bc7130582348dd0816ab",
+        "content_sha256": "0ef5120cab667727afeb32c448a3ed99371da1947ca14d52f78433647c8963b3"
+      },
+      {
+        "source_id": "SRC-015",
+        "scope": "national_or_other",
+        "size_bytes": 6866,
+        "title_sha256": "7620e5ef10dd444b9d441699a5be965895b164023947c650025b8c8e0489fe82",
+        "content_sha256": "7d9c02c57e81b0ce1182226163f94448b6bde25109853df1a9a14ec575db5067"
+      },
+      {
+        "source_id": "SRC-016",
+        "scope": "national_or_other",
+        "size_bytes": 3223,
+        "title_sha256": "c3e10b4fc12e0475d2cb86c91398dd242496e4d4cdce49293fda6e0daa02eea2",
+        "content_sha256": "7743211886afc1fa019945e6cf87a3ff54cd4d2eb82147dde4aea7eb2f39b43a"
+      },
+      {
+        "source_id": "SRC-017",
+        "scope": "national_or_other",
+        "size_bytes": 1807,
+        "title_sha256": "81d81945d503088e1611d82bcb3609054d733148eec9ff57cc776944f664496a",
+        "content_sha256": "5b1298e805b7de31dbf0515f55b952c04fe5f7da5ec58a67011a46fa2e1772b2"
+      },
+      {
+        "source_id": "SRC-018",
+        "scope": "zhejiang",
+        "size_bytes": 3652,
+        "title_sha256": "5993f440641ce82fbfb8040dacb5aaa8f4db1b0d62bef4800a31416b1bee1ce7",
+        "content_sha256": "37448dea072b11b5f1cab5152e7278d0025d4272148fcb2559b2188c501068d6"
+      },
+      {
+        "source_id": "SRC-019",
+        "scope": "zhejiang",
+        "size_bytes": 19867,
+        "title_sha256": "81939f457c34296d3c0b74a739569993435662e528354c3517c70ea7a44d86ea",
+        "content_sha256": "c4284ba64b64a7c18f4ba519d7858c6c11ce967e439ba34dc98e63e4518291bf"
+      },
+      {
+        "source_id": "SRC-020",
+        "scope": "zhejiang",
+        "size_bytes": 2335,
+        "title_sha256": "b3334d589e58843165ed54d55b3807ae1385d681b51745324b1ad05494a5de04",
+        "content_sha256": "a6473614d170253e8af64067cb06dc522e4658f35ae33de0dd322b3368bd2466"
+      },
+      {
+        "source_id": "SRC-021",
+        "scope": "national_or_other",
+        "size_bytes": 1607,
+        "title_sha256": "0f159f2e2bd6431eba7e1e946e7dfc715b968321954ed957483f1dfbe8e96625",
+        "content_sha256": "8e3d63637de787d6b9c83c796a11194cfdd2bcf554010a28a01d995376fac204"
+      },
+      {
+        "source_id": "SRC-022",
+        "scope": "national_or_other",
+        "size_bytes": 2996,
+        "title_sha256": "ccc0d9a180c8a7d3c34afd40464641feef540310b32647b54a9b910359a0d7ac",
+        "content_sha256": "551ef4b62e67d43bab3ac4da4678504302e33334a852bcaff4edfc3b4cba29db"
+      },
+      {
+        "source_id": "SRC-023",
+        "scope": "national_or_other",
+        "size_bytes": 2131,
+        "title_sha256": "73c85e297e874bff72ef43dc1ca6189d764b7763276c2870122e403936713a90",
+        "content_sha256": "9ec16229ac1e8cce2216f6cd7ec2e81397fa53f562d2dff330d5a662847c435e"
+      },
+      {
+        "source_id": "SRC-024",
+        "scope": "national_or_other",
+        "size_bytes": 20350,
+        "title_sha256": "6f7a2ea0903c18b875d2da0274ac4f4806992807cb9ad708054eefded8927893",
+        "content_sha256": "91c979d54f08ac830c910c6eb02434b546eafe2dccb6c2dc859a2a2ef14cacdc"
+      },
+      {
+        "source_id": "SRC-025",
+        "scope": "national_or_other",
+        "size_bytes": 6141,
+        "title_sha256": "e327c4f7d7e0c9a7081dbafee65a3e0e42c187bbcfa9e6202c118f42c457fa1c",
+        "content_sha256": "c5e256460ad41d7b49e52c117f3787dbf318ac094b018c520eec0a2f97d3251c"
+      },
+      {
+        "source_id": "SRC-026",
+        "scope": "national_or_other",
+        "size_bytes": 16329,
+        "title_sha256": "f896ec8f2b5cb7b2d4fe885a74870041b9e61bd27bbce9df735b62916f6066ed",
+        "content_sha256": "565901e8d8e3d159747ac9400b98d7e55a01e2ad9b0b713d38cbd7b98eb66e58"
+      },
+      {
+        "source_id": "SRC-027",
+        "scope": "national_or_other",
+        "size_bytes": 10364,
+        "title_sha256": "ab735b87130d81167244133f08e5b37569e7c652fd787d7217fa9d7516f431a0",
+        "content_sha256": "0bc7ecf1c3247a1dfcbf38205fbac06304bd6275e47c5a83f32f560fe0d7e591"
+      },
+      {
+        "source_id": "SRC-028",
+        "scope": "national_or_other",
+        "size_bytes": 32257,
+        "title_sha256": "1449850f416cf34b70ae9c7d1d1db12b1add08f98351f5de43d3ce94565e9f71",
+        "content_sha256": "133a82b2119cd8df9e00b8357127dce7925d20a6a8434151079a6e451a049a76"
+      },
+      {
+        "source_id": "SRC-029",
+        "scope": "national_or_other",
+        "size_bytes": 9955,
+        "title_sha256": "3390c10efabd71e4e1846a09c85c72640b16b69d0f9cbcf7b454909953c2cfd8",
+        "content_sha256": "8dec19ee8df60c091f8c903bb7f3ec34c929459fc6a4cb3d4f0493cdd50b7789"
+      },
+      {
+        "source_id": "SRC-030",
+        "scope": "zhejiang",
+        "size_bytes": 16218,
+        "title_sha256": "7afe3d7322c1b0086c46f2bb3ff6f2bbc3d778fe2ac8ab42df4059500c0b7333",
+        "content_sha256": "7c4209be549049777908de47df93b3850b72ea859bb4f6bd1dbf9a7eb26439f0"
+      },
+      {
+        "source_id": "SRC-031",
+        "scope": "national_or_other",
+        "size_bytes": 5401,
+        "title_sha256": "27ad32630bf4a94223c99f28a752bdad318c4f70b3fa5a7c2ca300dae9fc8acf",
+        "content_sha256": "3548240f3ab46844028a65c082ac49991e7bbd8e21cb7ebbd1e491b78f11dd36"
+      },
+      {
+        "source_id": "SRC-032",
+        "scope": "zhejiang",
+        "size_bytes": 2995,
+        "title_sha256": "33d3d0f95fca66333a87b0cd3dc5af957717b503f3c64167626d934e85512d25",
+        "content_sha256": "e7c2be8a100719d3c2796fd6b8700cb3ccfa2cec7736b77c1c8eddd809980f9f"
+      },
+      {
+        "source_id": "SRC-033",
+        "scope": "zhejiang",
+        "size_bytes": 6995,
+        "title_sha256": "55f7aa33fee40d3181c602478e4e09fe546a06b1035c0891aafa87dba3b2ffc9",
+        "content_sha256": "d367decfa9b2c5a13aa5f6771ff3ef3526d65bbd9a699dd60fcc1f789acc0ec5"
+      },
+      {
+        "source_id": "SRC-034",
+        "scope": "zhejiang",
+        "size_bytes": 1341,
+        "title_sha256": "b7cbbffc9a168bcc596528ad04cbe36cf4cce16636f34093d605a8797286b7e9",
+        "content_sha256": "c8bb19bea317ed9b963b1cfd23e86bbbf006204001360e9ae60d4fb1685591b0"
+      },
+      {
+        "source_id": "SRC-035",
+        "scope": "zhejiang",
+        "size_bytes": 1847,
+        "title_sha256": "3ea651add8cc808cb7fec6b5f53963c2ff3c47e1e8fd0bb02685f84eb9e049f3",
+        "content_sha256": "92e472543cbea9b3b1f045b11d458c1070bfc0ae4ba5779936bcf42a8e61fbd3"
+      },
+      {
+        "source_id": "SRC-036",
+        "scope": "national_or_other",
+        "size_bytes": 3427,
+        "title_sha256": "e0e99b138719db6c5515758b83f1379b63b2415aca49c08e89e62111acfeae12",
+        "content_sha256": "8705adb6f17a9864795fe59aac56b4709093736ea8eb890faa020021f2fa590b"
+      },
+      {
+        "source_id": "SRC-037",
+        "scope": "national_or_other",
+        "size_bytes": 7996,
+        "title_sha256": "52575918fd39529e5f280f1c3da3bfdb6a964f1ebe85561a9ff2f66329b60875",
+        "content_sha256": "2c853028ff3e96b467aa673969f5498508f754dd7c3afece8f52558c135a43ac"
+      },
+      {
+        "source_id": "SRC-038",
+        "scope": "national_or_other",
+        "size_bytes": 8110,
+        "title_sha256": "cb60ed2cb0e6dd8a8551a0785e5f79ecd9f84d71b28940693fc4fd90182f65b6",
+        "content_sha256": "0052c40f701707f0485f1b87acdbea6d3917db9a1725227f9797790c8d23f1a9"
+      },
+      {
+        "source_id": "SRC-039",
+        "scope": "national_or_other",
+        "size_bytes": 2030,
+        "title_sha256": "cef49f13c2b2532add5248f36799d99de4dfcf1a504814330ab402baebf6317e",
+        "content_sha256": "b263c2eaea4dc10349fccf6f8a12e0f6d1b4f1f5464be0151ae2487a7c491be1"
+      },
+      {
+        "source_id": "SRC-040",
+        "scope": "zhejiang",
+        "size_bytes": 2371,
+        "title_sha256": "66f559c92217bf349dece3fd0f8c77319d006cd6962ef256a07273a97c744508",
+        "content_sha256": "16d6499dc94f33d152ec092486994eeb528b5342aff5a2f62a5399191376ed32"
+      },
+      {
+        "source_id": "SRC-041",
+        "scope": "zhejiang",
+        "size_bytes": 1511,
+        "title_sha256": "932d5a71e57389c5ee292283d6ba8467463df0d7f068e24ea77b90900202ea0b",
+        "content_sha256": "56256d1d7208bf8e7a3dc1354505b259d3b6d883681098d772fa2cdcefef3140"
+      },
+      {
+        "source_id": "SRC-042",
+        "scope": "national_or_other",
+        "size_bytes": 3365,
+        "title_sha256": "bc9b338760d0a38fbf9cada5b8968ca708b5d79ff6973beb8eb39291799a36f9",
+        "content_sha256": "dd6661d5b74e9fa6c6c09de8cba14e79eed0cc920285a7a17223299adc75453b"
+      },
+      {
+        "source_id": "SRC-043",
+        "scope": "national_or_other",
+        "size_bytes": 4757,
+        "title_sha256": "c1c09ebb149c3ef9893d894698529e653e301c6db39f4a40539e455e43d55bbd",
+        "content_sha256": "c755576035cd31c761d1650f8849643239214ea19262c31e5f432a810ef5e61b"
+      },
+      {
+        "source_id": "SRC-044",
+        "scope": "national_or_other",
+        "size_bytes": 8243,
+        "title_sha256": "03277ba8924f9047a961093d13353817dfedc092ff7d3c4a1d8eb7485baab5eb",
+        "content_sha256": "c560fc27af24a8af20609656a9bd203a75922f7cb4adfeed54d4a6fb8695e6c1"
+      },
+      {
+        "source_id": "SRC-045",
+        "scope": "national_or_other",
+        "size_bytes": 6922,
+        "title_sha256": "7d9988abcb5eca869ef5cbe9b2705c220cb6fccc5f1bfdc6327577ec9d09b244",
+        "content_sha256": "b81be1e70641d2ca831d2bc745e84433824fafd3101ffaca5ee531f3ae7fb2ab"
+      },
+      {
+        "source_id": "SRC-046",
+        "scope": "national_or_other",
+        "size_bytes": 1488,
+        "title_sha256": "c3b8b3615ff2dc778f95cef48f1577bbbf9b2a45fc37b2feadcf41eb8a0e49e4",
+        "content_sha256": "aba4ba6c6e04e71864b8b9a27e63534c884042e92ad8551ec4c9405fd9ec311d"
+      },
+      {
+        "source_id": "SRC-047",
+        "scope": "national_or_other",
+        "size_bytes": 2113,
+        "title_sha256": "c3f0663d94c772ee3463331b42097bbab546ae3704f94a21d5011d92e0344e33",
+        "content_sha256": "48c5c5177aba4bca7de92a6f65bf54438fb708d22a889ce034971f73a4e835ce"
+      },
+      {
+        "source_id": "SRC-048",
+        "scope": "national_or_other",
+        "size_bytes": 1501,
+        "title_sha256": "c09b01d3f8d91445b33588051dd618e9606cd0aec76e25fed8d6c6051ab8a7c7",
+        "content_sha256": "ac1e0d933fc77b9073906b05423fd259eb4e247f9dc8bf5b6bffc18d37625782"
+      },
+      {
+        "source_id": "SRC-049",
+        "scope": "zhejiang",
+        "size_bytes": 4392,
+        "title_sha256": "910674c499fbd0a5f98aa50b2c17b8f549da7c79141c7dc8ea990d435ed8a8dc",
+        "content_sha256": "b57e225160b67f3ab9909d4ba827912c975b45f14c184e0c341c033061d52599"
+      },
+      {
+        "source_id": "SRC-050",
+        "scope": "zhejiang",
+        "size_bytes": 7204,
+        "title_sha256": "3a5097394f99e1aa7f4e70ae0ecb46951a6b12d6b5f48e910fdf76e6cc68c17d",
+        "content_sha256": "2fe6b73da8428b43e0be6d2302f1e4a9627ec37f9aec88405712a0dfed10572a"
+      },
+      {
+        "source_id": "SRC-051",
+        "scope": "national_or_other",
+        "size_bytes": 43135,
+        "title_sha256": "1761a9c26e23eeed9f20985aad572153bb517c79b6d063e15840e254c7f47e12",
+        "content_sha256": "9518f986a547c1419ff226b2e4ec92054d245f1ab3560d5c7858c04a41baaed9"
+      },
+      {
+        "source_id": "SRC-052",
+        "scope": "national_or_other",
+        "size_bytes": 15848,
+        "title_sha256": "c7cc4561d62a95cfbdf368539be9354db250d3be2dec3500f193ee84a1ff1a5a",
+        "content_sha256": "33ab8664fda8ffb503403da513898ea1300e3c0625ae4ba4843d048d27297d05"
+      },
+      {
+        "source_id": "SRC-053",
+        "scope": "national_or_other",
+        "size_bytes": 4884,
+        "title_sha256": "08376877baab7891c8f74b80c784d68eb897102b528c0857b1d71200b0843f22",
+        "content_sha256": "166efea3035e7cfb3c87b41677b0e9072b1f95d93003af074417f921977a16af"
+      },
+      {
+        "source_id": "SRC-054",
+        "scope": "national_or_other",
+        "size_bytes": 2196,
+        "title_sha256": "6bff9de9a6ab86101af989dbe256508d1c833129404a30677ee98214b9252663",
+        "content_sha256": "bc3cad03e1f2b00f6af1897a172eb87bdd9cf1447174f7b772ca794227c7ef0e"
+      },
+      {
+        "source_id": "SRC-055",
+        "scope": "national_or_other",
+        "size_bytes": 9468,
+        "title_sha256": "998d2c411e9ac56826a057fae740bcc89531c102277bc6d06bb0f68770c09b44",
+        "content_sha256": "b74892e01a1a4f626c15105decba54674b3f2f90676d13f65baa1e9c962726d6"
+      },
+      {
+        "source_id": "SRC-056",
+        "scope": "national_or_other",
+        "size_bytes": 22564,
+        "title_sha256": "781bdbabbe37184682177b83d4b4a34d3c03999200b797662533a79b43aeed38",
+        "content_sha256": "c3c07db63c48fa219b0efc83f9654d339696b6be42daf466613878da053e1049"
+      },
+      {
+        "source_id": "SRC-057",
+        "scope": "zhejiang",
+        "size_bytes": 31939,
+        "title_sha256": "ccba4763f03258e6d56b81ac0d16acb2cd92134108b29cdc093631d5179c4637",
+        "content_sha256": "6ce155b2e4ae156adb7f05de871d5a53ea4d1030192ec427b4aa948bbabd7cb2"
+      },
+      {
+        "source_id": "SRC-058",
+        "scope": "zhejiang",
+        "size_bytes": 20833,
+        "title_sha256": "ffd93742aaef2e9552c274e290184e1c294495c031364d72dbed4d93dc3ff545",
+        "content_sha256": "e50197676667413e3284dc5004e13d38d8e3f3d4e0a7051ed55024fbc4a00644"
+      },
+      {
+        "source_id": "SRC-059",
+        "scope": "zhejiang",
+        "size_bytes": 10873,
+        "title_sha256": "283acbddabd48aa5f80158f3eb411fbf9bc951654f7dc4f6ee2a568ee067ce54",
+        "content_sha256": "4a0106541c1a13a4a0f00049abb35d95059cb58e6a051c714480366c465b294b"
+      },
+      {
+        "source_id": "SRC-060",
+        "scope": "zhejiang",
+        "size_bytes": 5618,
+        "title_sha256": "784525af10ec898bab3cffe349a9d4245c46f7ce59caa50ec26f84ef91c25c6d",
+        "content_sha256": "a2ffdb77bce6ab71030b3886defe918205d9db758e44c4e8795c715c65921283"
+      },
+      {
+        "source_id": "SRC-061",
+        "scope": "zhejiang",
+        "size_bytes": 7412,
+        "title_sha256": "a15a2551b5ecbdd3eada98683ca949e56cbe05d941579cb24c48cc6612a7e08d",
+        "content_sha256": "0cb1661ddb39d98c31690aa343ebb72d888fd03b201ed5821dd8ec621d52fd8b"
+      },
+      {
+        "source_id": "SRC-062",
+        "scope": "zhejiang",
+        "size_bytes": 7178,
+        "title_sha256": "abf447cefa66fbff8ed9386608919a57e2522391168732850af1bb4c95b3c299",
+        "content_sha256": "8a47f627f42399b985222fee259160f59c6858286fb20b2717c36de01860ee7e"
+      },
+      {
+        "source_id": "SRC-063",
+        "scope": "zhejiang",
+        "size_bytes": 6435,
+        "title_sha256": "037fdf4d138a2ec7167578b940720dda7a86cd8a6661634a950606b14184602a",
+        "content_sha256": "9e50426c7b2dac6d65b009bbf51340a8ba63f72313476af8fa8ce0c323d47d8a"
+      },
+      {
+        "source_id": "SRC-064",
+        "scope": "national_or_other",
+        "size_bytes": 53473,
+        "title_sha256": "940caf72d81a3ea2254699fb3b855152ea1af6a0d4c8a53260d5b1d3aa7ec5f4",
+        "content_sha256": "c18be067156c561cab74d080b81121d788bda9d06a4841142b21d1145c8a0801"
+      },
+      {
+        "source_id": "SRC-065",
+        "scope": "national_or_other",
+        "size_bytes": 8067,
+        "title_sha256": "04decfa33bd7d3f57596c47abfd9fe3dcc14c12699292403e7b4272b39edae47",
+        "content_sha256": "92082db7419a77965b30d10609e1ea5cf446f5900ff2c816c20049094f0dbdcc"
+      },
+      {
+        "source_id": "SRC-066",
+        "scope": "national_or_other",
+        "size_bytes": 37160,
+        "title_sha256": "2c073092ce8d974ddb6eca6cb66a63b032c44a572abc4dea3890d0f5589eb791",
+        "content_sha256": "5f08220743e065dbaaf9630e1bd4a22486999c16d82e18eea85bc2c5f7edfcf3"
+      },
+      {
+        "source_id": "SRC-067",
+        "scope": "zhejiang",
+        "size_bytes": 25381,
+        "title_sha256": "e6e531aa318630bb9d278e609c880b120f0236d12ce2bb9961dae7dc476cc7ec",
+        "content_sha256": "b4de9d34519d3439dae12d7d0f537ed997975981bed9e7787936b68481620055"
+      },
+      {
+        "source_id": "SRC-068",
+        "scope": "national_or_other",
+        "size_bytes": 11624,
+        "title_sha256": "e71b91b605092e92f73b59304afc7157f57b13980063c9838a14e65de0f95055",
+        "content_sha256": "fa5174e6a74d4eed597932b4a94fa6320aaaee9684c1cc196a273c13a58b3495"
+      },
+      {
+        "source_id": "SRC-069",
+        "scope": "national_or_other",
+        "size_bytes": 3834,
+        "title_sha256": "6e8ec20ddfe0a32e4ad400c442e26e2ec25b3c52ead9a2954596abc1bd1b8fce",
+        "content_sha256": "825fd6dacab9def2a651236b428c3d0fd55143533ac0d2131eb9c6f1c98748e3"
+      },
+      {
+        "source_id": "SRC-070",
+        "scope": "national_or_other",
+        "size_bytes": 4966,
+        "title_sha256": "e2ecc395b8b6f603791279ba8e09b84081aae7f63a1dade03061e33b74d87da6",
+        "content_sha256": "6895797b1ccb64ba2a7ac54a133ba649f5ce6e11560e98adab49b9f402949482"
+      },
+      {
+        "source_id": "SRC-071",
+        "scope": "national_or_other",
+        "size_bytes": 3126,
+        "title_sha256": "a4db9efc9a07cddd3caa685841a7f6f55761fbcb8c2d825121f5d9e4ad8a1124",
+        "content_sha256": "324680413c95e8760a28bf0f2f7b3006dc491dfb06867b1175d9e782333c2ac7"
+      },
+      {
+        "source_id": "SRC-072",
+        "scope": "national_or_other",
+        "size_bytes": 1318,
+        "title_sha256": "2bd3d8ee52d9f0c8ce83929cdd9529631b3e693053a78e324aa8c3be79c0c958",
+        "content_sha256": "c48accd7d5e90158d798ee6c42643260e11ab7960ac3694d3848d045acdf2697"
+      },
+      {
+        "source_id": "SRC-073",
+        "scope": "national_or_other",
+        "size_bytes": 3957,
+        "title_sha256": "f50727e0a0d5915ca942102db8f4a29dce83628aba6c1dbd63fbf1b099000f7d",
+        "content_sha256": "707f8dca8d502360a17a4606212b2b642dbaf1c33d77ab96a3796b2621368975"
+      },
+      {
+        "source_id": "SRC-074",
+        "scope": "national_or_other",
+        "size_bytes": 2090,
+        "title_sha256": "c9518f99e5444eb9e52b6ef985713ba65b5b6a2224a284d1e90c76e31176d401",
+        "content_sha256": "007e9ed762a28cdb7f3565324ee5dac9b77c3fdfdda21ab618abfc0a2f88d3ab"
+      },
+      {
+        "source_id": "SRC-075",
+        "scope": "national_or_other",
+        "size_bytes": 5423,
+        "title_sha256": "c9944470abccabda396ea8b288b8aaf98b52279f3e29989d76e3674962f50baa",
+        "content_sha256": "1375eb115ae85eec51cf86fedbbc4a0838b1ffbc4978d4b82d3788d8064a6748"
+      },
+      {
+        "source_id": "SRC-076",
+        "scope": "national_or_other",
+        "size_bytes": 4794,
+        "title_sha256": "27b6b72b8b9f15bbd1daf6dd25167b85cf66eb48b5adfc49a142097368088177",
+        "content_sha256": "c6b25631acff5e561132c51cb0ff7a326317a8f37928adfb276d60a4788c6aa4"
+      },
+      {
+        "source_id": "SRC-077",
+        "scope": "national_or_other",
+        "size_bytes": 2148,
+        "title_sha256": "f0b39a46bffafebd340abea4d27b8fb70f0e60f02164827a7ee672a82545858f",
+        "content_sha256": "70f5b96c8abf7b7b47894e9adc105bd80f7a4099ea65d338c8ff60ddc1aa885c"
+      },
+      {
+        "source_id": "SRC-078",
+        "scope": "zhejiang",
+        "size_bytes": 1660,
+        "title_sha256": "62a6b3aa576dc468dee24bc372be55ae16c9efeb363e010c17a92f6271868e0a",
+        "content_sha256": "7ca61391b6211ddcee7db96763a509d5f45a3753b99fd4c6ea69c784987041be"
+      },
+      {
+        "source_id": "SRC-079",
+        "scope": "zhejiang",
+        "size_bytes": 2345,
+        "title_sha256": "4fd6769d831325b8236939368b4ae4294fb66e56a89cdbf1d700c8a17a0b7def",
+        "content_sha256": "17d817dac69609857ea3482ccf66720ba3c1862a16589e4b6150976c940905cb"
+      },
+      {
+        "source_id": "SRC-080",
+        "scope": "zhejiang",
+        "size_bytes": 5448,
+        "title_sha256": "b081437b274b55fbb8f7874a084d8dbf7875f2acb8fc7bc5c984be8445ce30ca",
+        "content_sha256": "aabed6ae1eb54906e74ee2a3423daca5f5e8ccf1d990c08280fed36b196750b4"
+      },
+      {
+        "source_id": "SRC-081",
+        "scope": "zhejiang",
+        "size_bytes": 8826,
+        "title_sha256": "984d0472e165bccf0c7ef5039ff15a8ccace2d51c41ce3cb0a23ba25e9a93b02",
+        "content_sha256": "dfa199e8f664724e8130142011b6fb7ea2152f3df0c2aaeea036e165890cac36"
+      },
+      {
+        "source_id": "SRC-082",
+        "scope": "zhejiang",
+        "size_bytes": 3490,
+        "title_sha256": "7489c7c44b8a0ef91aa9fa61b20cbe71381858d61a0d1f8a66c46cdbf9fcd885",
+        "content_sha256": "8ec6fc5250fc5b42ba27e88d1a8c1847981a037fd507a36fb4d715fd1861755b"
+      },
+      {
+        "source_id": "SRC-083",
+        "scope": "zhejiang",
+        "size_bytes": 18521,
+        "title_sha256": "920787cd1a9eb5534fbb73ee944712ff54b638da1d63d9988343189a7ce26603",
+        "content_sha256": "6f005c1f4f0826eb702b6d830307dbb3759ea0e7c1f83036e667e1f201134f8c"
+      },
+      {
+        "source_id": "SRC-084",
+        "scope": "zhejiang",
+        "size_bytes": 3885,
+        "title_sha256": "bf6716818f777642468cbf8a346f3d1cc93dd21967edcd74b086a2a2f22f56c0",
+        "content_sha256": "9222471013b49470015b7b3e9173b0f0fae6b602f2bef6ed284b5509436416c6"
+      },
+      {
+        "source_id": "SRC-085",
+        "scope": "national_or_other",
+        "size_bytes": 10147,
+        "title_sha256": "996ce3008e7287e56b5ba7ce2d118ac5fa3f6164f3171b1178f358e6bc84f035",
+        "content_sha256": "77cad21375ffbfebd3b8db0ea7eef8a920b657690ee7b27ae4da2a96cb2b1148"
+      },
+      {
+        "source_id": "SRC-086",
+        "scope": "national_or_other",
+        "size_bytes": 50255,
+        "title_sha256": "05a3b03f3443a1038a2bf07379f4a32f53e35f1d2a91a2fb62ad2ed0cacd3938",
+        "content_sha256": "c83d8bc5b877eac6f48495eacf89b76359e72377f2754391c12ff7a5d8fab047"
+      },
+      {
+        "source_id": "SRC-087",
+        "scope": "national_or_other",
+        "size_bytes": 36370,
+        "title_sha256": "b6453385bc2e25113556ab33c9afa8b4b987fb86fd3acd8e5c98d55130bb4567",
+        "content_sha256": "b3d296406c4fd2da0e4d5981f66979b6db0a0ea5c0c646995a1aa8c8b0e123f8"
+      },
+      {
+        "source_id": "SRC-088",
+        "scope": "national_or_other",
+        "size_bytes": 14544,
+        "title_sha256": "b5df4aa63077a25d9b98e9911cf91e20ded7413d65a3eb7f0ecd6603f7f5ac99",
+        "content_sha256": "cee1ded866a37c253e1c3dc38ad210f7381d9983010ef4e56e71e6a7c837862c"
+      },
+      {
+        "source_id": "SRC-089",
+        "scope": "national_or_other",
+        "size_bytes": 12771,
+        "title_sha256": "fd22865d4467ef37c62d591dc85bd3ed19ea38be47ec3f25f34aea31998105b5",
+        "content_sha256": "d7609ceea237e78510fe3ae9357428e56bb371e01e3c42a7a0bb6792d91722a8"
+      },
+      {
+        "source_id": "SRC-090",
+        "scope": "national_or_other",
+        "size_bytes": 27069,
+        "title_sha256": "e4b13c110310782da08ac78162975a9086360e17c7d15b3312dc27413c5d3048",
+        "content_sha256": "cadb3b028a99a46a330132ae7902af45857ac0e8118253bc20ff9ee94646256c"
+      },
+      {
+        "source_id": "SRC-091",
+        "scope": "national_or_other",
+        "size_bytes": 22504,
+        "title_sha256": "82b45504de0fc99ec5ec6317c22ee19903991fea13f1f2f2f794f7e27df3d239",
+        "content_sha256": "86e036ba9e3c428a4bf0fac4593b3d292f83ad46965a78461c2863d2720bbeec"
+      },
+      {
+        "source_id": "SRC-092",
+        "scope": "national_or_other",
+        "size_bytes": 19836,
+        "title_sha256": "a029dbe0b33ed3fe3cb87d2d54df4c0409290d174888d4cab0d690f309efb30b",
+        "content_sha256": "e2fbb104c4c1b3f4e796804dbc3c01f102c4030e74f6c6a906c2bf10fea28548"
+      },
+      {
+        "source_id": "SRC-093",
+        "scope": "zhejiang",
+        "size_bytes": 1432,
+        "title_sha256": "3608b1337f8c7778d9afc619a0dc3c170782a0af3c24c5ffa9acc7fb89af5406",
+        "content_sha256": "d9baaab068c24910b5764726e0249d19e68d25c2659b48152e422de414970cab"
+      },
+      {
+        "source_id": "SRC-094",
+        "scope": "national_or_other",
+        "size_bytes": 15806,
+        "title_sha256": "f844d09e1381e0eecd7171096d98f4da78bd9d345d4f797703ffd49ed877f07d",
+        "content_sha256": "7b0f21f18958ced2f316e40fe50b931de36f806a62399ffd21e42176c754ab41"
+      },
+      {
+        "source_id": "SRC-095",
+        "scope": "national_or_other",
+        "size_bytes": 7642,
+        "title_sha256": "bb1148371cdebe399d46c5777ab9789494291fe6f0465c89b2b18b3acd944910",
+        "content_sha256": "95182f92e2f675d5b4c134c61889def4ef503a0f86a97b2f34f5c20401c3e894"
+      },
+      {
+        "source_id": "SRC-096",
+        "scope": "zhejiang",
+        "size_bytes": 26949,
+        "title_sha256": "1d7a864a98b9bd927a9bdc6fb25f972d44760d2b51307a379ca4dda00f8a5ff8",
+        "content_sha256": "c22c2919325853eb4bca4e92da049f86b6f2bb75637fc7e1aa1e2cfa02a0d4e7"
+      },
+      {
+        "source_id": "SRC-097",
+        "scope": "zhejiang",
+        "size_bytes": 8257,
+        "title_sha256": "4d7fc583f86c105d29589c9552253c5127762845a06c11f116bbd68244b0f47e",
+        "content_sha256": "354115eea95d39c0054e71949cd5d62ca429e94b20dc1076e9ca71313d1edd26"
+      },
+      {
+        "source_id": "SRC-098",
+        "scope": "zhejiang",
+        "size_bytes": 6347,
+        "title_sha256": "4377642ff9420db35362f028a72f0c089e9a4ee3b5a5b5f33f3f64ac702007ca",
+        "content_sha256": "6867ab3db70a09521d02df9e23fc93929407383434764e71086d42fa0159a6fa"
+      },
+      {
+        "source_id": "SRC-099",
+        "scope": "zhejiang",
+        "size_bytes": 8696,
+        "title_sha256": "acbc16497e015945aa4d405c67102795e7d8d3b3929f18658575e6f04d2e868b",
+        "content_sha256": "9d510be6f4aa673d0ad645384bb082818eaaa7fc3b52cddf0a6fef8c3139286a"
+      },
+      {
+        "source_id": "SRC-100",
+        "scope": "national_or_other",
+        "size_bytes": 7592,
+        "title_sha256": "c2a0708e5aa05b1c6c7d8579a3bf82601bdfeb6b33f848118d426de63ace40a9",
+        "content_sha256": "c6644b0e7192d0997800f471353d35dfec41d993dc71afd980b1bf8847273ec0"
+      },
+      {
+        "source_id": "SRC-101",
+        "scope": "zhejiang",
+        "size_bytes": 6689,
+        "title_sha256": "3bba5e4b353433baf5a8be5d3ba57c3e5ff5205fb3e0fd321e47909cca79878e",
+        "content_sha256": "33ee9ef99cfdfeb47249bf16609c4399a1922c181f05a154042d940ee36bc85a"
+      },
+      {
+        "source_id": "SRC-102",
+        "scope": "zhejiang",
+        "size_bytes": 13387,
+        "title_sha256": "14ab1fc6279a5d8fde7210fddea0a719fd0264b8719b6957a623d4794da5361e",
+        "content_sha256": "363305fda6777d872f1aaf4602d8d9f6b2dcbdb980590e40f9d83bc0c544232b"
+      },
+      {
+        "source_id": "SRC-103",
+        "scope": "zhejiang",
+        "size_bytes": 6567,
+        "title_sha256": "4b1aab04376e05dddd6bb35e42a0423ff703ccda9dc09a70087313fed5ca5eb7",
+        "content_sha256": "38aa12f883e8b0fd1ad7f722c80f8ec8d1fa79af3d0742ce2b7c0f32ee0d6253"
+      },
+      {
+        "source_id": "SRC-104",
+        "scope": "zhejiang",
+        "size_bytes": 3350,
+        "title_sha256": "588153ffd5b440c209f35f43c8ae1bce9699bbb13500d53d3c70bd61db0f78d6",
+        "content_sha256": "a842cc64407c142cb53d91810dc9d476a0ae0797327c3f07278a0f15870c5836"
+      },
+      {
+        "source_id": "SRC-105",
+        "scope": "zhejiang",
+        "size_bytes": 10749,
+        "title_sha256": "74ea8f00fc2a20e420ae17bbab249e6d0dfd2d00f0e3291f1888c831aeb64fff",
+        "content_sha256": "6e06c5a6ba643c852c6c3a49bd5bffd7d529f23bc3edb9dce4c2bb07342aa52a"
+      },
+      {
+        "source_id": "SRC-106",
+        "scope": "zhejiang",
+        "size_bytes": 12641,
+        "title_sha256": "525a97c3b279c9d2b15364f56547f41d7a33aab706adc4e7edb1ee226f21479c",
+        "content_sha256": "b909ccd891210db416710217fd7ab39f45218b8ff5b41d6685e7a990ecd22425"
+      },
+      {
+        "source_id": "SRC-107",
+        "scope": "national_or_other",
+        "size_bytes": 23732,
+        "title_sha256": "581e3e1283c975b7a9287b029a17f6a5ef3f870acde8e8006125e8f93eaa02aa",
+        "content_sha256": "3595baa5fd475c80d4fb0916cb21c746cfede44df9799fad59b6ed941e338b97"
+      },
+      {
+        "source_id": "SRC-108",
+        "scope": "zhejiang",
+        "size_bytes": 27350,
+        "title_sha256": "13aa72c5f3041d3059dabc5e18c668e8bc8f391e8a8955114f7d8ab3a7ae0941",
+        "content_sha256": "f59f14655e5389a1e7edb015cf3444d1d87852f17ad5c59117ce265a262ff41b"
+      },
+      {
+        "source_id": "SRC-109",
+        "scope": "national_or_other",
+        "size_bytes": 39862,
+        "title_sha256": "03cbc5ee8e11a114e10d1fce40d3df6de6c452450930282c985394a6c00715b2",
+        "content_sha256": "a5c138eb439f376a4f26248ed08154cf17917b1c6f66081516399bf9006c9a9c"
+      },
+      {
+        "source_id": "SRC-110",
+        "scope": "national_or_other",
+        "size_bytes": 15794,
+        "title_sha256": "707678a5687aa1255d35cdcfcd8ad2cfc74c2a1400919ddedeae5c32b0ba0b5d",
+        "content_sha256": "3517737a7890d281854e99934262c4cd65e294e777357b311375822c7a7ed98a"
+      },
+      {
+        "source_id": "SRC-111",
+        "scope": "national_or_other",
+        "size_bytes": 19343,
+        "title_sha256": "30afa3fdd2e3df4d323d0c749dcc1f0f4c63d4329316e67ab67d695939076b3d",
+        "content_sha256": "500cb532be4f674a8954668873acbb6b87777ec7767f9dd4b0ce798cdd010092"
+      },
+      {
+        "source_id": "SRC-112",
+        "scope": "national_or_other",
+        "size_bytes": 8184,
+        "title_sha256": "360f8eebc64105b66d5f7ee7fa998debcb856bce465f844a786e6c0f58148744",
+        "content_sha256": "7f9d21e91587f8c3cf5a49abb37049d15fc33de7951ff9040259778d62668bc2"
+      },
+      {
+        "source_id": "SRC-113",
+        "scope": "national_or_other",
+        "size_bytes": 2071,
+        "title_sha256": "c8e0731d2b46bf52aa8f9076651cf817a4cf90cef939c7117de8e1d7ce8b62f0",
+        "content_sha256": "3ff612ff18adf92caaf495c17e7490b8f829c4309b469f1b5e9a6016ea05bcfb"
+      },
+      {
+        "source_id": "SRC-114",
+        "scope": "national_or_other",
+        "size_bytes": 1284,
+        "title_sha256": "e1fb9ae201a0049419f02843fb5e62d3ca35236783f622a25838e0593bd19be5",
+        "content_sha256": "75c3ac27157a5795489736bfb8de389e51338004d5e96345f46d0111e080141c"
+      },
+      {
+        "source_id": "SRC-115",
+        "scope": "national_or_other",
+        "size_bytes": 9906,
+        "title_sha256": "7f9aacaf363968610b443c15d8f83444d35ab3a81389e6a96224ccb6c0e681d1",
+        "content_sha256": "0d079646a306d8749538acb1cd29f9d4a0fcbec543a4936610c92bd83dae00e7"
+      },
+      {
+        "source_id": "SRC-116",
+        "scope": "national_or_other",
+        "size_bytes": 3400,
+        "title_sha256": "de3ce633989352b4373394503e8cb36122c0deb2eafa265e0ff61c453c6551fc",
+        "content_sha256": "baeecd9f6aec4dca67667062acf4240087d0e60e5a54c37db4a84debc5bc2955"
+      },
+      {
+        "source_id": "SRC-117",
+        "scope": "national_or_other",
+        "size_bytes": 17242,
+        "title_sha256": "d931a1dcf5f7b5b0f73af8946491517d825ac65b08f256396d4997a63fbd63ad",
+        "content_sha256": "eea086727904442bab936c6cda786eb33980483052df41927dd1da4312a476ea"
+      },
+      {
+        "source_id": "SRC-118",
+        "scope": "national_or_other",
+        "size_bytes": 8242,
+        "title_sha256": "cb3c248c42313b248d5d612a7b0051e9f7676e186fc20fd1b16fe76aeaf2aac8",
+        "content_sha256": "8e473c35dc24debe73e5c8742c569dfe84cc63a6f3b9bec5af054f186d570ea0"
+      },
+      {
+        "source_id": "SRC-119",
+        "scope": "national_or_other",
+        "size_bytes": 29683,
+        "title_sha256": "0fc014fcfb6c925b4cbbd2e53007e0115a4b9108f2df237fc4300067445e4563",
+        "content_sha256": "a69acde7f78ed4878e20ee8bd93f989ad8f51a0678a8c1bb341fac0464afbe26"
+      },
+      {
+        "source_id": "SRC-120",
+        "scope": "national_or_other",
+        "size_bytes": 12939,
+        "title_sha256": "f4f41cb0b2a4ce4b46bf8ffca9ef5c4fe880790d5576c6c6c09ef697b1c7908d",
+        "content_sha256": "b3cea4addd95b69ef9055a450b21f0be0241bac9444d1dfa6781c5e8cc0f0bbe"
+      },
+      {
+        "source_id": "SRC-121",
+        "scope": "national_or_other",
+        "size_bytes": 1984,
+        "title_sha256": "8b917495e600d1eb199bd5a6cc0d2c525c19fa9cc83cee5124524d3dfd2c1ff3",
+        "content_sha256": "a5855fbfa382e0a22b6e81c815385c2b771f7c08425c3fc321ab6781819a98e8"
+      },
+      {
+        "source_id": "SRC-122",
+        "scope": "national_or_other",
+        "size_bytes": 2248,
+        "title_sha256": "880e9048d84d7ca88de0a81e0eb5dbeb42acc6dc44e25a0fcee9ee7c940415c5",
+        "content_sha256": "a3be25710b82517818dbfc26fdc7dcf70dfa3b6ce8f0cf9f6573585dc97286b9"
+      },
+      {
+        "source_id": "SRC-123",
+        "scope": "national_or_other",
+        "size_bytes": 1959,
+        "title_sha256": "739f02fd5c068f3ac543da6030b0c982d93d4416c56a60f274e75e337375aa22",
+        "content_sha256": "0c9438b742ee384448e1114b000941f12305aa801045a6c9a0d6889d569c6338"
+      },
+      {
+        "source_id": "SRC-124",
+        "scope": "zhejiang",
+        "size_bytes": 25375,
+        "title_sha256": "f79a1390d6b197df99a14ab5a9542bfeab40d97ec446f2c821f4c25494ce6381",
+        "content_sha256": "962a46bec984905895780b8f187466b883eab06cdb1eae57c77a0d22dc23d3a6"
+      },
+      {
+        "source_id": "SRC-125",
+        "scope": "zhejiang",
+        "size_bytes": 25007,
+        "title_sha256": "efa891c80c2b85079a8de23da9106abd6eac733930200bfa09745d61fc2d9ef4",
+        "content_sha256": "5ea892a93d46f0999562819791e64a952bd7472d12af040d9143440778b4fe6e"
+      },
+      {
+        "source_id": "SRC-126",
+        "scope": "zhejiang",
+        "size_bytes": 5191,
+        "title_sha256": "18537b21528f595f4c8a3f2968db6c82bc30c20b60baa66f4f196756ac48a8ae",
+        "content_sha256": "00a08132ed4131f12b405d6a734efd6e9da604f52660ec4e7988ae01ac67313e"
+      },
+      {
+        "source_id": "SRC-127",
+        "scope": "zhejiang",
+        "size_bytes": 17881,
+        "title_sha256": "bc0be32e5bd21273644667c47d7598b7a4716c7c30dc0d06f2105fbe43f4c463",
+        "content_sha256": "b4bf56dc79d739cdd198b9bcec802b795c15898ca5cd2370c87d9e5c9e7aaf59"
+      },
+      {
+        "source_id": "SRC-128",
+        "scope": "zhejiang",
+        "size_bytes": 11123,
+        "title_sha256": "e52871be5c6676974dc07c7aa40ecded578826c6b30f87bf8cfe357e8e89084a",
+        "content_sha256": "249564354be8783b39c773f447acf9eb9e11493755dd1f923e50b5a5021d5ce0"
+      },
+      {
+        "source_id": "SRC-129",
+        "scope": "zhejiang",
+        "size_bytes": 13333,
+        "title_sha256": "adb323e2798a1637e038c9aa161d5e62372bdd6d892d1171d05b66162e35a4cd",
+        "content_sha256": "b1b54267275ba3f7867c3bdd325715206920166318dddcbd46f4eaf09d1b15f3"
+      },
+      {
+        "source_id": "SRC-130",
+        "scope": "zhejiang",
+        "size_bytes": 11422,
+        "title_sha256": "993e0433e022443a0a2df9af3e11a29d850df1ce2d8759e85740da3b94a29b4b",
+        "content_sha256": "7fc682f1c7e5f66a5abc0c97a11f063183026aad86001f8a0a7fe0f393966bb5"
+      },
+      {
+        "source_id": "SRC-131",
+        "scope": "zhejiang",
+        "size_bytes": 8688,
+        "title_sha256": "bc9d7db4b125f6b593163bb3853bed0c1695d1b9cc1dd988f8f4c970777f3297",
+        "content_sha256": "6412328216a64b6bec3db98f8c2c9a2c9b7b415d491b1405eb884e6641375be3"
+      },
+      {
+        "source_id": "SRC-132",
+        "scope": "zhejiang",
+        "size_bytes": 9750,
+        "title_sha256": "77ae230b067eac3d675db21e7842d0b46d2c0e296dbc74a4ff57084762150459",
+        "content_sha256": "dd9f9986df992903f4b90b22f7cf775c405ab5c5b9087fd300b8df7c297c9834"
+      },
+      {
+        "source_id": "SRC-133",
+        "scope": "zhejiang",
+        "size_bytes": 12935,
+        "title_sha256": "2c0c87a0d0d23ad63d1b3a9c4df4b5361ce1f4741726ff60918b532faaf30958",
+        "content_sha256": "3e9540796018c9a260649ebbe0e068e38cca33e3d6906b7b087ba89b00503057"
+      },
+      {
+        "source_id": "SRC-134",
+        "scope": "zhejiang",
+        "size_bytes": 7723,
+        "title_sha256": "17d3b0c2e5fdc8f06859caf0b0a5efce1fc702336b71898b2cc5881073e5eb1d",
+        "content_sha256": "f47c2722bf9a5f68a4345e1287cdff3be3314bde28785fc040ac1a9a3510dc42"
+      },
+      {
+        "source_id": "SRC-135",
+        "scope": "zhejiang",
+        "size_bytes": 19565,
+        "title_sha256": "78c906ef2ca440bdbc6c9b2f0e91873da7600c33bd5d471ef410b345ed129af5",
+        "content_sha256": "7bf74ba2c041959fb44b6bfd899a3874df9d9c84b26856f1ff2572ed764eed19"
+      },
+      {
+        "source_id": "SRC-136",
+        "scope": "zhejiang",
+        "size_bytes": 10608,
+        "title_sha256": "e6ba7065f32a1aedbc34577ffc9529196515602d0bc7d7158b2f40577de10c99",
+        "content_sha256": "9f17f0e19645d19ff1ad0949b89f5896066789aa2005559636f56dc4bb00c23c"
+      },
+      {
+        "source_id": "SRC-137",
+        "scope": "national_or_other",
+        "size_bytes": 3329,
+        "title_sha256": "3cda0631a2ead54e356da973a6eaabd512063d72613555c8ac552d9f2af5f991",
+        "content_sha256": "bfb335faed0ce233c317256d6e5543622c46ba265584c95b7a302626eabd7ef6"
+      },
+      {
+        "source_id": "SRC-138",
+        "scope": "zhejiang",
+        "size_bytes": 11237,
+        "title_sha256": "65ec85658a8de96b258a68bd4a68d31363230a29894c5f08955f5f21d277c052",
+        "content_sha256": "c3ea52e50fafef14434cff7c7f51ca43845ed3a70289646ed34346c0e9cd0409"
+      },
+      {
+        "source_id": "SRC-139",
+        "scope": "zhejiang",
+        "size_bytes": 6949,
+        "title_sha256": "6d2bb63b34e26a2b312a0babe5ae7d18c8d209a7a7b0393fe65b666fdaa4223e",
+        "content_sha256": "079fce450e6881f25fc82635b3b5ad75747b1c30f200361025d6009c7d4d603b"
+      },
+      {
+        "source_id": "SRC-140",
+        "scope": "zhejiang",
+        "size_bytes": 6339,
+        "title_sha256": "5ebf1b2919eba18b0a9675ed0b6ffc09d74ca97d1b7840253b082727c3474d11",
+        "content_sha256": "c2d097a13c647a00604d069085e8af526e5fa663fce47e5161f88fa4c1e0a956"
+      },
+      {
+        "source_id": "SRC-141",
+        "scope": "zhejiang",
+        "size_bytes": 6623,
+        "title_sha256": "f3bb9d1164eebb619e45b3fbfc35f03bc9ab787a1ed0e39c2919c356368d3fa6",
+        "content_sha256": "45abf5dd708d92ee975d99a62522ffc7acdbc995e3bcf51b31fbbe751f4f8750"
+      },
+      {
+        "source_id": "SRC-142",
+        "scope": "zhejiang",
+        "size_bytes": 18438,
+        "title_sha256": "c7329bf5c352a9d68b56c1e721edba4ab17395e2112ca6759f0da96568f96d5b",
+        "content_sha256": "4cea8e3ca7b5664aae53fbd207e6b8f046b15eefe3333ea77584c3bcf9e44d11"
+      },
+      {
+        "source_id": "SRC-143",
+        "scope": "zhejiang",
+        "size_bytes": 16189,
+        "title_sha256": "2260e85c352ace3e68d0b8edcfbd3176813d27eca6f3c6ee72d0c986b625117c",
+        "content_sha256": "e77183a774b9597d25d80e11e91fb6223e86d9070383b4851ddcb6f2b57ea3ec"
+      },
+      {
+        "source_id": "SRC-144",
+        "scope": "zhejiang",
+        "size_bytes": 8776,
+        "title_sha256": "783aecf7f5e427d2a6e9b61d05a602e2a262a323459f28eb1d8539e1b2c2e08a",
+        "content_sha256": "105b7f2a4b0ffba166dcd381be4fb9b67bcb0a4f248ce349e481cf823ffaa98d"
+      },
+      {
+        "source_id": "SRC-145",
+        "scope": "zhejiang",
+        "size_bytes": 7849,
+        "title_sha256": "5b6eeaf80104b592fb3fed7993ac09efb8f34963608be478dde07ecd02be5b45",
+        "content_sha256": "82447514e692fb1221c0c9e70176fffac5ca5e818e3956bf38995ab056fa9a65"
+      },
+      {
+        "source_id": "SRC-146",
+        "scope": "zhejiang",
+        "size_bytes": 14489,
+        "title_sha256": "5f5197efbfe58b0d4326ca238af90356e8dcec99ae0867d02fcd66691879ea0e",
+        "content_sha256": "c264af7b005e2d4cdd0155565ae061cea74a9ffecd2a0854a60dcbe469aadc16"
+      },
+      {
+        "source_id": "SRC-147",
+        "scope": "national_or_other",
+        "size_bytes": 12307,
+        "title_sha256": "b7cca9457b3b4be397bc1a4b75904bacb68cc1e666c5fe13c6ec8d6dab7bf19b",
+        "content_sha256": "5d691f7710f27646824c1b250b148d01f8f45b44ceea6e697e3856481c729d05"
+      },
+      {
+        "source_id": "SRC-148",
+        "scope": "national_or_other",
+        "size_bytes": 47420,
+        "title_sha256": "4fab0e4fca28a2432dd922e00ef454fe4e3de2c9d5fd900fead069a1a90dee46",
+        "content_sha256": "6c3629a191165d0dcb93d7a16825fa1ec29485df8b683b22953cd759bccc9ec5"
+      },
+      {
+        "source_id": "SRC-149",
+        "scope": "national_or_other",
+        "size_bytes": 56495,
+        "title_sha256": "ca070115466824120d6df1127e68f6cbaf49841c91a77cc9a3d76803685ee6d6",
+        "content_sha256": "0e793c7667bbcedd02805918143ad9b29dee05219323a6113a85ceb85acc3fdf"
+      }
+    ]
+  },
+  "validity_review": "废止复核：保留149份历史与现行来源，非149份现行有效法源。"
+}

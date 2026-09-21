@@ -1,0 +1,34 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <text x="400" y="50" font-size="28" text-anchor="middle" fill="#1A1A2E" font-weight="bold">马车 vs 汽车</text>
+
+  <g>
+    <ellipse cx="150" cy="250" rx="60" ry="40" fill="#8B7355"/>
+    <circle cx="110" cy="220" r="25" fill="#8B7355"/>
+    <rect x="140" y="270" width="8" height="50" fill="#5D4E37"/>
+    <rect x="160" y="270" width="8" height="50" fill="#5D4E37"/>
+    <circle cx="120" cy="330" r="25" fill="none" stroke="#5D4E37" stroke-width="5"/>
+    <circle cx="180" cy="330" r="25" fill="none" stroke="#5D4E37" stroke-width="5"/>
+    <text x="150" y="400" font-size="18" text-anchor="middle" fill="#8B7355">旧</text>
+  </g>
+
+  <g>
+    <line x1="280" y1="250" x2="480" y2="250" stroke="#E24A4A" stroke-width="4" stroke-dasharray="10,5">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="480,245 510,250 480,255" fill="#E24A4A">
+      <animateTransform attributeName="transform" type="translate" values="0,0;5,0;0,0" dur="1s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <g>
+    <rect x="530" y="230" width="160" height="60" rx="15" fill="#4A90E2"/>
+    <rect x="550" y="200" width="120" height="40" rx="10" fill="#5BA3F0"/>
+    <rect x="570" y="215" width="35" height="20" rx="3" fill="#87CEEB" fill-opacity="0.8"/>
+    <rect x="620" y="215" width="35" height="20" rx="3" fill="#87CEEB" fill-opacity="0.8"/>
+    <circle cx="570" cy="310" r="22" fill="#333"/>
+    <circle cx="650" cy="310" r="22" fill="#333"/>
+    <text x="610" y="400" font-size="18" text-anchor="middle" fill="#4A90E2">新</text>
+  </g>
+</svg>

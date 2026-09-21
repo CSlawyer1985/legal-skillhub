@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FED7E2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad8)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="#97266D">专业能力沉淀 = Skill</text>
+
+  <!-- 中心：律师 -->
+  <g transform="translate(400, 240)">
+    <circle cx="0" cy="0" r="70" fill="#FED7E2" stroke="#D53F8C" stroke-width="4">
+      <animate attributeName="fill-opacity" values="0.6; 1; 0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="15" text-anchor="middle" font-size="60">👨‍⚖️</text>
+  </g>
+
+  <!-- 环绕的 Skill -->
+  <g transform="translate(200, 150)">
+    <circle cx="0" cy="0" r="50" fill="#E6FFFA" stroke="#38B2AC" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="40">⚖️</text>
+    <text x="0" y="75" text-anchor="middle" font-size="14" fill="#285E61">合同审查</text>
+    <animateTransform attributeName="transform" type="translate" values="200,150; 200,142; 200,150" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(600, 150)">
+    <circle cx="0" cy="0" r="50" fill="#FEEBC8" stroke="#DD6B20" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="40">📋</text>
+    <text x="0" y="75" text-anchor="middle" font-size="14" fill="#7C2D12">文书生成</text>
+    <animateTransform attributeName="transform" type="translate" values="600,150; 600,142; 600,150" dur="3s" repeatCount="indefinite" begin="0.5s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(150, 280)">
+    <circle cx="0" cy="0" r="50" fill="#BEE3F8" stroke="#3182CE" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="40">🔍</text>
+    <text x="0" y="75" text-anchor="middle" font-size="14" fill="#1A365D">案例分析</text>
+    <animateTransform attributeName="transform" type="translate" values="150,280; 150,272; 150,280" dur="3s" repeatCount="indefinite" begin="1s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(650, 280)">
+    <circle cx="0" cy="0" r="50" fill="#E9D8FD" stroke="#805AD5" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="40">📊</text>
+    <text x="0" y="75" text-anchor="middle" font-size="14" fill="#44337A">证据整理</text>
+    <animateTransform attributeName="transform" type="translate" values="650,280; 650,272; 650,280" dur="3s" repeatCount="indefinite" begin="1.5s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <g transform="translate(400, 120)">
+    <circle cx="0" cy="0" r="45" fill="#C6F6D5" stroke="#38A169" stroke-width="3"/>
+    <text x="0" y="12" text-anchor="middle" font-size="35">🎯</text>
+    <text x="0" y="70" text-anchor="middle" font-size="14" fill="#22543D">策略制定</text>
+    <animateTransform attributeName="transform" type="translate" values="400,120; 400,113; 400,120" dur="3s" repeatCount="indefinite" begin="2s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 连接线 -->
+  <line x1="270" y1="175" x2="340" y2="210" stroke="#D53F8C" stroke-width="2" opacity="0.4" stroke-dasharray="5,3"/>
+  <line x1="530" y1="175" x2="460" y2="210" stroke="#D53F8C" stroke-width="2" opacity="0.4" stroke-dasharray="5,3"/>
+  <line x1="210" y1="265" x2="340" y2="260" stroke="#D53F8C" stroke-width="2" opacity="0.4" stroke-dasharray="5,3"/>
+  <line x1="590" y1="265" x2="460" y2="260" stroke="#D53F8C" stroke-width="2" opacity="0.4" stroke-dasharray="5,3"/>
+  <line x1="400" y1="175" x2="400" y2="165" stroke="#D53F8C" stroke-width="2" opacity="0.4" stroke-dasharray="5,3"/>
+
+  <!-- 底部说明 -->
+  <text x="400" y="410" text-anchor="middle" font-size="18" fill="#97266D">行业一线从业者创造符合实践需求的 Skill</text>
+</svg>

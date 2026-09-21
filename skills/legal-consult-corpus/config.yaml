@@ -1,0 +1,133 @@
+# 法律咨询口径固化平台 - 通用配置模板
+# 接入实际数据时，只需修改本文件
+
+# ═══════════════════════════════════════
+# 数据源配置
+# ═══════════════════════════════════════
+sources:
+  # 钉钉群（dws chat 格式）
+  dingtalk_groups: []
+  #   - group_id: "cidXXXXXX"
+  #     name: "业务法务咨询群"
+  #   - group_id: "cidYYYYYY"
+  #     name: "产品合规群"
+
+  # 飞书群（lark-cli 格式）
+  lark_groups: []
+  #   - chat_id: "oc_xxxxxx"
+  #     name: "法务支持群"
+
+  # 本地文件（测试用）
+  local_files: []
+  #   - path: "./test_data/sample_consults.json"
+
+# ═══════════════════════════════════════
+# 采集触发规则
+# ═══════════════════════════════════════
+triggers:
+  # 触发词正则（命中任一即识别为法律咨询）
+  patterns:
+    - "能不能|是否合法|怎么处理|合规吗|有风险吗"
+    - "条款|协议|隐私|数据|个人信息"
+    - "退款|续费|扣费|自动续"
+    - "侵权|版权|商标|专利"
+    - "劳动法|裁员|竞业|期权"
+    - "合同.*审|审.*合同|看看.*条款"
+
+  # 排除规则（命中则跳过）
+  exclude_patterns:
+    - "^(收到|好的|OK|ok|谢谢|感谢)"
+    - "^@.*已处理"
+    - "^(审批|流程|签批).*(已|正在)"
+
+  # 同人+同领域 合并窗口（小时）
+  merge_window_hours: 24
+
+# ═══════════════════════════════════════
+# 法律领域分类
+# ═══════════════════════════════════════
+domains:
+  数据合规:
+    keywords: ["个人信息", "数据出境", "隐私", "个保法", "数据安全", "PIPL", "GDPR", "Cookie", "同意", "授权"]
+  合同:
+    keywords: ["合同", "协议", "条款", "违约", "解除", "续签", "转售", "许可", "授权"]
+  知识产权:
+    keywords: ["商标", "专利", "版权", "著作权", "开源", "FTO", "侵权", "SEP"]
+  消费者保护:
+    keywords: ["退款", "续费", "扣费", "消费者", "用户投诉", "12315", "虚假宣传", "三包"]
+  劳动人事:
+    keywords: ["劳动", "裁员", "竞业", "期权", "离职", "入职", "社保", "工伤"]
+  公司治理:
+    keywords: ["股权", "股东", "董事会", "决议", "章程", "工商变更"]
+  诉讼争议:
+    keywords: ["起诉", "应诉", "仲裁", "法院", "传票", "证据", "保全"]
+  广告营销:
+    keywords: ["广告", "宣传", "营销", "推广", "绝对化", "极限词", "抽奖"]
+  出海合规:
+    keywords: ["出海", "海外", "出口管制", "制裁", "EAR", "实体清单", "跨境"]
+  其他:
+    keywords: []
+
+# ═══════════════════════════════════════
+# 起草风格参数
+# ═══════════════════════════════════════
+draft_style:
+  # 字数上限
+  max_chars: 100
+  # 结论先行
+  conclusion_first: true
+  # 附法条依据
+  include_legal_basis: true
+  # 法条展开程度：none=只列条文号, brief=一句话解释, full=展开论述
+  legal_basis_depth: "brief"
+  # 标注个案确认
+  mark_case_specific: true
+  # 语气：formal(正式函件) / professional(专业但不生硬) / casual(群聊口语)
+  tone: "professional"
+  # 禁用表述
+  forbidden_phrases:
+    - "建议进一步研判"
+    - "需结合具体业务场景"
+    - "以上仅供参考"
+
+# ═══════════════════════════════════════
+# 阈值配置
+# ═══════════════════════════════════════
+thresholds:
+  # 口径匹配相似度阈值
+  reuse_similarity: 0.7
+  # 低相似度自动沉淀阈值（新问题）
+  auto_deposit_similarity: 0.5
+  # 领域口径数低于此值时自动沉淀
+  auto_deposit_domain_threshold: 5
+  # 口径库质量评分下限（低于此分标记"需更新"）
+  quality_floor: 3
+  # 响应时长告警（小时）
+  response_alert_hours: 48
+
+# ═══════════════════════════════════════
+# 台账配置
+# ═══════════════════════════════════════
+ledger:
+  # 存储类型：aitable / sqlite / json
+  storage: "json"
+  # AITable 配置（storage=aitable 时使用）
+  aitable:
+    base_id: ""
+    table_id: ""
+    field_mapping: {}
+  # SQLite 配置（storage=sqlite 时使用）
+  sqlite:
+    path: "./data/consult_ledger.db"
+  # JSON 配置（storage=json 时使用）
+  json:
+    path: "./data/consult_ledger.json"
+
+# ═══════════════════════════════════════
+# 度量与看板
+# ═══════════════════════════════════════
+metrics:
+  # 度量输出路径
+  output: "./data/metrics.json"
+  # 看板输出路径
+  dashboard: "./outputs/consult_dashboard.html"

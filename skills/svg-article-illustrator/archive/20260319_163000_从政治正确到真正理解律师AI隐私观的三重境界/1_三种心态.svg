@@ -1,0 +1,23 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <g>
+    <circle cx="160" cy="200" r="80" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3"/>
+    <text x="160" y="210" font-size="60" text-anchor="middle">📋</text>
+    <text x="160" y="310" font-size="22" text-anchor="middle" fill="#4A90E2" font-weight="bold">展示型</text>
+  </g>
+
+  <g>
+    <circle cx="400" cy="200" r="90" fill="#E8F5E8" stroke="#10B981" stroke-width="4"/>
+    <text x="400" y="210" font-size="70" text-anchor="middle">🔧</text>
+    <text x="400" y="315" font-size="22" text-anchor="middle" fill="#10B981" font-weight="bold">建设型</text>
+  </g>
+
+  <g>
+    <circle cx="640" cy="200" r="80" fill="#FFF5F5" stroke="#E24A4A" stroke-width="3"/>
+    <text x="640" y="210" font-size="60" text-anchor="middle">🛡️</text>
+    <text x="640" y="310" font-size="22" text-anchor="middle" fill="#E24A4A" font-weight="bold">防御型</text>
+  </g>
+
+  <line x1="100" y1="380" x2="700" y2="380" stroke="#DDD" stroke-width="2" stroke-dasharray="8,4"/>
+</svg>

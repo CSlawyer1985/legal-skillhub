@@ -1,0 +1,43 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="36" text-anchor="middle" fill="#333" font-weight="bold">PKM是AI时代的基础学科</text>
+
+  <!-- 底层：PKM -->
+  <rect x="100" y="300" width="600" height="100" fill="#4A90E2" rx="10"/>
+  <text x="400" y="360" font-size="48" text-anchor="middle" fill="#fff" font-weight="bold">PKM</text>
+
+  <!-- 上层应用 -->
+  <g transform="translate(200, 200)">
+    <rect x="-60" y="-35" width="120" height="70" fill="#E8F4F8" rx="8" stroke="#4A90E2" stroke-width="2"/>
+    <text x="0" y="0" font-size="20" text-anchor="middle" fill="#333">AI协作</text>
+    <animateTransform attributeName="transform" type="translate" values="200,200; 200,195; 200,200" dur="3s" repeatCount="indefinite"/>
+  </g>
+
+  <g transform="translate(400, 200)">
+    <rect x="-60" y="-35" width="120" height="70" fill="#E8F5E8" rx="8" stroke="#10B981" stroke-width="2"/>
+    <text x="0" y="0" font-size="20" text-anchor="middle" fill="#333">知识管理</text>
+    <animateTransform attributeName="transform" type="translate" values="400,200; 400,195; 400,200" dur="3s" repeatCount="indefinite" begin="0.3s"/>
+  </g>
+
+  <g transform="translate(600, 200)">
+    <rect x="-60" y="-35" width="120" height="70" fill="#FFF3E0" rx="8" stroke="#F5A623" stroke-width="2"/>
+    <text x="0" y="0" font-size="20" text-anchor="middle" fill="#333">项目管理</text>
+    <animateTransform attributeName="transform" type="translate" values="600,200; 600,195; 600,200" dur="3s" repeatCount="indefinite" begin="0.6s"/>
+  </g>
+
+  <!-- 连接箭头 -->
+  <line x1="200" y1="235" x2="250" y2="300" stroke="#4A90E2" stroke-width="2" stroke-dasharray="50" stroke-dashoffset="50">
+    <animate attributeName="stroke-dashoffset" from="50" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <line x1="400" y1="235" x2="400" y2="300" stroke="#10B981" stroke-width="2" stroke-dasharray="65" stroke-dashoffset="65">
+    <animate attributeName="stroke-dashoffset" from="65" to="0" dur="1s" repeatCount="indefinite" begin="0.2s"/>
+  </line>
+  <line x1="600" y1="235" x2="550" y2="300" stroke="#F5A623" stroke-width="2" stroke-dasharray="50" stroke-dashoffset="50">
+    <animate attributeName="stroke-dashoffset" from="50" to="0" dur="1s" repeatCount="indefinite" begin="0.4s"/>
+  </line>
+
+  <!-- 副标题 -->
+  <text x="400" y="120" font-size="24" text-anchor="middle" fill="#666">不显眼，却决定深度</text>
+</svg>

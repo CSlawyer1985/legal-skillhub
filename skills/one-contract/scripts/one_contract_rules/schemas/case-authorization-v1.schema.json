@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/case-authorization-v1.schema.json",
+  "title": "One-Contract Case Authorization",
+  "$comment": "content_sha256 hashes RFC 8785 canonical JSON with content_sha256 omitted. Resolve this schema only from the local registry. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "authorization_id",
+    "valid_for_context_hash",
+    "client_profile_id",
+    "authorized_action",
+    "overrides_rule_ids",
+    "reason",
+    "authorized_by",
+    "authentication_level",
+    "authorized_at",
+    "expires_at",
+    "evidence_refs",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "authorization_id": {
+      "type": "string",
+      "pattern": "^ca_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "valid_for_context_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "client_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+    },
+    "authorized_action": {
+      "type": "string",
+      "enum": [
+        "override_client_policy",
+        "suspend_client_policy",
+        "allow_scoped_exception"
+      ]
+    },
+    "overrides_rule_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 180
+      }
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "authorized_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "authentication_level": {
+      "type": "string",
+      "enum": [
+        "self_asserted_local",
+        "external_signed"
+      ]
+    },
+    "authorized_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      }
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  }
+}

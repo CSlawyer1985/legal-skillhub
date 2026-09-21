@@ -1,0 +1,4 @@
+interface:
+  display_name: "One-Contract 3.2 Preview"
+  short_description: "合同审查、三层规则与顾问单位口径的本地评估版"
+  default_prompt: "使用 $one-contract 审查这份合同；如我明确选择顾问单位，先固定其客户规则快照，再形成可执行修订、真实批注并完成最终 DOCX 质量验证。"

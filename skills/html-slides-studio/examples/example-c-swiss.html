@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template C · Swiss Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════
+   TEMPLATE C · SWISS GRID / BAUHAUS
+   哲学：纯粹构成主义，黑白 + 一色
+   信息即设计，网格即秩序
+   ═══════════════════════════════════ */
+
+:root {
+  --bg:     #F2F0EB;
+  --ink:    #0D0D0D;
+  --mid:    #555;
+  --faint:  #AAA;
+  --rule:   #0D0D0D;
+  --accent: #E63329;  /* 包豪斯红 */
+  --accent-pale: rgba(230,51,41,0.08);
+
+  --f-display: 'Bebas Neue', 'Impact', sans-serif;
+  --f-body:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --f-mono:    'Space Mono', monospace;
+
+  --pad: clamp(2rem, 5vw, 5rem);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  overflow: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+}
+.cursor.hover { transform: translate(-50%,-50%) scale(3); background: transparent; border: 1px solid var(--accent); }
+
+/* ── Deck ── */
+.deck { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  display: grid;
+}
+.slide.active { opacity: 1; pointer-events: all; }
+
+/* ── Grid overlay ── */
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--faint) 1px, transparent 1px);
+  background-size: clamp(40px, 5vw, 60px) clamp(40px, 5vh, 60px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ── Number ── */
+.n {
+  font-family: var(--f-display);
+  font-size: clamp(10rem, 22vw, 18rem);
+  line-height: 0.85;
+  color: var(--ink);
+  opacity: 0.04;
+  position: absolute;
+  bottom: -0.1em;
+  right: -0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Rule ── */
+.rule-h {
+  width: 100%;
+  height: 2px;
+  background: var(--rule);
+}
+.rule-v {
+  width: 2px;
+  background: var(--rule);
+  align-self: stretch;
+}
+.rule-accent {
+  width: 48px;
+  height: 4px;
+  background: var(--accent);
+  display: block;
+}
+
+/* ── Typography ── */
+.label {
+  font-family: var(--f-mono);
+  font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.label.red { color: var(--accent); }
+
+h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+h1 .accent { color: var(--accent); }
+
+h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--f-body);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+p {
+  font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+  line-height: 1.7;
+  color: var(--mid);
+  font-weight: 300;
+}
+
+/* ── Cover ── */
+.slide-cover {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+.cover-meta {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--pad) var(--pad) 1.5rem;
+  border-bottom: 2px solid var(--ink);
+}
+.cover-body {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem var(--pad);
+  border-right: 2px solid var(--ink);
+}
+.cover-right {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem var(--pad);
+}
+.cover-foot {
+  grid-column: 1 / -1;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  padding: 1rem var(--pad);
+  gap: 2rem;
+}
+.red-block {
+  background: var(--accent);
+  color: white;
+  font-family: var(--f-display);
+  font-size: clamp(0.9rem, 1.6vw, 1.4rem);
+  padding: 0.2em 0.5em;
+  letter-spacing: 0.05em;
+}
+
+/* ── Content slide ── */
+.slide-content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+}
+.content-label {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1rem, 2vw, 1.8rem) var(--pad);
+  border-bottom: 2px solid var(--ink);
+}
+.content-sidebar {
+  border-right: 2px solid var(--ink);
+  padding: 2rem clamp(1rem, 2vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.sidebar-num {
+  font-family: var(--f-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
+  color: var(--accent);
+}
+.content-main {
+  padding: 2rem var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ── Item rows ── */
+.item-row {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.item-row:last-child { border-bottom: none; }
+.item-index {
+  font-family: var(--f-mono);
+  font-size: clamp(0.6rem, 0.85vw, 0.7rem);
+  color: var(--accent);
+  min-width: 2.5em;
+  padding-top: 0.1em;
+}
+.item-text h3 { margin-bottom: 0.2rem; }
+
+/* ── Part slide ── */
+.slide-part {
+  display: flex;
+  flex-direction: column;
+}
+.part-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1rem, 2vw, 1.8rem) var(--pad);
+  border-bottom: 2px solid var(--ink);
+}
+.part-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--pad);
+  gap: 3rem;
+}
+.part-num {
+  font-family: var(--f-display);
+  font-size: clamp(8rem, 18vw, 15rem);
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.08;
+  user-select: none;
+}
+.part-title-block { flex: 1; }
+.part-progress {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+.prog-seg {
+  height: 3px;
+  flex: 1;
+  background: rgba(0,0,0,0.12);
+  border-radius: 2px;
+}
+.prog-seg.done { background: var(--ink); }
+.prog-seg.active { background: var(--accent); }
+
+/* ── Takeaway ── */
+.slide-take {
+  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+}
+.take-header {
+  padding: clamp(1rem, 2vw, 1.8rem) var(--pad);
+  border-bottom: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.take-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 3rem var(--pad);
+}
+.take-quote {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  max-width: 720px;
+}
+.take-quote em { color: var(--accent); font-style: normal; }
+
+/* ── Nav ── */
+.nav {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  z-index: 100;
+}
+.nav-seg {
+  width: 20px; height: 2px;
+  background: rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-seg.active { background: var(--accent); width: 36px; }
+
+/* ── Reveal ── */
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.shown { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<div class="deck" id="deck">
+  <section class="slide slide-cover active" data-index="0">
+    <div class="cover-meta">
+      <div class="label">PUBLIC EXAMPLE ? 2026.03</div>
+      <div class="label">SWISS GRID ? STYLE C</div>
+    </div>
+    <div class="cover-body">
+      <span class="rule-accent" style="margin-bottom:1.5rem"></span>
+      <h1 class="reveal" style="--i:0">HTML<br><span class="accent">Slides</span><br>System</h1>
+      <p class="reveal" style="--i:1; margin-top:1.2rem; max-width:280px">
+        A public sample for inspecting grid discipline, contrast, and layout rhythm.
+      </p>
+    </div>
+    <div class="cover-right">
+      <div class="n">01</div>
+      <div style="display:flex; flex-direction:column; gap:0.8rem">
+        <div class="label reveal" style="--i:2">CHECKPOINTS</div>
+        <div class="item-row reveal" style="--i:3; border-color:rgba(0,0,0,0.1)">
+          <span class="item-index">01</span>
+          <div class="item-text"><h3>Grid</h3><p>Spacing, lines, and hierarchy</p></div>
+        </div>
+        <div class="item-row reveal" style="--i:4; border-color:rgba(0,0,0,0.1)">
+          <span class="item-index">02</span>
+          <div class="item-text"><h3>Contrast</h3><p>Typography and accent color usage</p></div>
+        </div>
+        <div class="item-row reveal" style="--i:5; border-color:rgba(0,0,0,0.1)">
+          <span class="item-index">03</span>
+          <div class="item-text"><h3>Use Case</h3><p>Framework talks, product decks, system demos</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-foot">
+      <div class="red-block">PUBLIC</div>
+      <div class="label">Placeholder content only</div>
+    </div>
+  </section>
+
+  <section class="slide slide-content" data-index="1">
+    <div class="content-label">
+      <span class="rule-accent"></span>
+      <div>
+        <h2>What this example is for</h2>
+        <p style="margin-top:0.2rem">A clean sample for evaluating the visual language only</p>
+      </div>
+      <div class="label red" style="margin-left:auto">STYLE C</div>
+    </div>
+    <div class="content-sidebar">
+      <div class="sidebar-num reveal" style="--i:0">03</div>
+      <div class="rule-h" style="background:var(--accent)"></div>
+      <p class="reveal" style="--i:1">Use this deck to judge whether the grid, type scale, and composition feel intentional enough.</p>
+    </div>
+    <div class="content-main">
+      <div class="item-row reveal" style="--i:2">
+        <span class="item-index">01</span>
+        <div class="item-text">
+          <h3>Minimal but not empty</h3>
+          <p>The example should stay generic while still showing the template's real visual character.</p>
+        </div>
+      </div>
+      <div class="item-row reveal" style="--i:3">
+        <span class="item-index">02</span>
+        <div class="item-text">
+          <h3>System before decoration</h3>
+          <p>This style depends more on layout discipline and contrast than on visual effects.</p>
+        </div>
+      </div>
+      <div class="item-row reveal" style="--i:4">
+        <span class="item-index">03</span>
+        <div class="item-text">
+          <h3>Public-safe by default</h3>
+          <p>No real speaker names, organizations, or workshop topics should appear in the repository example.</p>
+        </div>
+      </div>
+      <div class="n">02</div>
+    </div>
+  </section>
+</div>
+<nav class="nav" id="nav"></nav>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+// Slides
+const slides = document.querySelectorAll('.slide');
+const nav = document.getElementById('nav');
+let cur = 0;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'nav-seg' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  nav.appendChild(d);
+});
+
+function revealSlide(slide) {
+  slide.querySelectorAll('.reveal').forEach((el, i) => {
+    const delay = (parseFloat(el.style.getPropertyValue('--i')) || i) * 130;
+    setTimeout(() => el.classList.add('shown'), delay + 100);
+  });
+}
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  document.querySelectorAll('.nav-seg').forEach((d, i) => d.classList.toggle('active', i === cur));
+  revealSlide(slides[cur]);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (cur < slides.length-1) goTo(cur+1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); if (cur > 0) goTo(cur-1); }
+});
+
+revealSlide(slides[0]);
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FAFAFA"/>
+  <text x="400" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#2D3748">三条建议</text>
+  <g>
+    <rect x="60" y="100" width="200" height="180" fill="#3498DB" rx="10">
+      <animate attributeName="fill" values="#3498DB;#5DADE2;#3498DB" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="160" y="160" font-size="55" text-anchor="middle">🔍</text>
+    <text x="160" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white">先找问题</text>
+    <text x="160" y="255" font-family="system-ui, -apple-system, sans-serif" font-size="18" text-anchor="middle" fill="white">明确需求</text>
+  </g>
+  <g>
+    <rect x="300" y="100" width="200" height="180" fill="#9B59B6" rx="10">
+      <animate attributeName="fill" values="#9B59B6;#AF7AC5;#9B59B6" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+    </rect>
+    <text x="400" y="160" font-size="55" text-anchor="middle">🧠</text>
+    <text x="400" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white">学设计逻辑</text>
+    <text x="400" y="255" font-family="system-ui, -apple-system, sans-serif" font-size="18" text-anchor="middle" fill="white">理解原理</text>
+  </g>
+  <g>
+    <rect x="540" y="100" width="200" height="180" fill="#27AE60" rx="10">
+      <animate attributeName="fill" values="#27AE60;#52BE80;#27AE60" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="640" y="160" font-size="55" text-anchor="middle">✅</text>
+    <text x="640" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="white">接受学不会</text>
+    <text x="640" y="255" font-family="system-ui, -apple-system, sans-serif" font-size="18" text-anchor="middle" fill="white">工具思维</text>
+  </g>
+  <path d="M 270 190 L 290 190" stroke="#E74C3C" stroke-width="3" marker-end="url(#arrow2)"/>
+  <path d="M 510 190 L 530 190" stroke="#E74C3C" stroke-width="3" marker-end="url(#arrow2)"/>
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E74C3C"/>
+    </marker>
+  </defs>
+  <text x="400" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="#34495E">AI 是工具，不是你的能力</text>
+  <text x="400" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="18" text-anchor="middle" fill="#7F8C8D">会用工具 ≠ 拥有技能</text>
+</svg>

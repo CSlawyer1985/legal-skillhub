@@ -1,0 +1,693 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/governance-evidence-v1.schema.json",
+  "title": "One-Contract Governance Evidence",
+  "$comment": "An Agent may create technical evidence but MUST NOT impersonate a lawyer or product owner. All relative $ref values MUST resolve only through the packaged, allowlisted local schema registry; network retrieval is forbidden. content_sha256 is SHA-256 over RFC 8785/JCS canonical JSON with only the top-level content_sha256 member omitted. Evidence consumers MUST load the referenced local evidence file, recalculate its content hash, and compare every duplicated field in evidenceReference; a reference object alone is not proof. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "evidence_kind",
+    "subject_type",
+    "subject_id",
+    "subject_sha256",
+    "candidate_sha256",
+    "actor",
+    "recorded_at",
+    "result",
+    "input_hashes",
+    "output_hashes",
+    "environment",
+    "details",
+    "signature",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^ev_[a-z0-9][a-z0-9_-]{7,95}$"
+    },
+    "evidence_kind": {
+      "$ref": "#/$defs/evidenceKind"
+    },
+    "subject_type": {
+      "$ref": "#/$defs/subjectType"
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 180
+    },
+    "subject_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "candidate_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "actor": {
+      "$ref": "#/$defs/actor"
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "result": {
+      "$ref": "#/$defs/evidenceResult"
+    },
+    "acceptance_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]+-[0-9]{3}$"
+      }
+    },
+    "input_hashes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^sha256:[a-f0-9]{64}$"
+      }
+    },
+    "output_hashes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^sha256:[a-f0-9]{64}$"
+      }
+    },
+    "tool": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 200
+    },
+    "environment": {
+      "$ref": "#/$defs/environment"
+    },
+    "details": {
+      "$ref": "#/$defs/details"
+    },
+    "signature": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/signature"
+        }
+      ]
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "actor": {
+            "properties": {
+              "authentication_level": {
+                "enum": [
+                  "lawyer_authored_external_record",
+                  "external_signed"
+                ]
+              }
+            },
+            "required": [
+              "authentication_level"
+            ]
+          }
+        },
+        "required": [
+          "actor"
+        ]
+      },
+      "then": {
+        "properties": {
+          "signature": {
+            "$ref": "#/$defs/signature"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "technical_verification"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor": {
+            "properties": {
+              "role": {
+                "const": "independent_verifier"
+              },
+              "authentication_level": {
+                "enum": [
+                  "independent_agent_record",
+                  "external_signed"
+                ]
+              }
+            }
+          },
+          "result": {
+            "enum": [
+              "passed",
+              "failed"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "lawyer_approval"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor": {
+            "properties": {
+              "role": {
+                "const": "lawyer"
+              },
+              "authentication_level": {
+                "enum": [
+                  "self_asserted_local",
+                  "lawyer_authored_external_record",
+                  "external_signed"
+                ]
+              }
+            }
+          },
+          "result": {
+            "enum": [
+              "approved",
+              "rejected"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "lawyer_uat"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor": {
+            "properties": {
+              "role": {
+                "const": "lawyer"
+              },
+              "authentication_level": {
+                "enum": [
+                  "lawyer_authored_external_record",
+                  "external_signed"
+                ]
+              }
+            }
+          },
+          "result": {
+            "enum": [
+              "passed",
+              "failed"
+            ]
+          },
+          "signature": {
+            "$ref": "#/$defs/signature"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "enum": [
+              "accepted_deferral",
+              "product_release_decision"
+            ]
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor": {
+            "properties": {
+              "role": {
+                "const": "product_owner"
+              },
+              "authentication_level": {
+                "enum": [
+                  "self_asserted_local",
+                  "external_signed"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "accepted_deferral"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "const": "accepted"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "product_release_decision"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "enum": [
+              "approved",
+              "rejected"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "regression"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "enum": [
+              "passed",
+              "failed"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence_kind": {
+            "const": "audit"
+          }
+        },
+        "required": [
+          "evidence_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "result": {
+            "enum": [
+              "prepared",
+              "committed",
+              "recovered_commit",
+              "aborted"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "evidenceKind": {
+      "type": "string",
+      "enum": [
+        "lawyer_approval",
+        "regression",
+        "audit",
+        "technical_verification",
+        "lawyer_uat",
+        "accepted_deferral",
+        "product_release_decision"
+      ]
+    },
+    "subjectType": {
+      "type": "string",
+      "enum": [
+        "client_rule",
+        "client_snapshot",
+        "public_proposal",
+        "work_package",
+        "release_candidate"
+      ]
+    },
+    "evidenceResult": {
+      "type": "string",
+      "enum": [
+        "prepared",
+        "committed",
+        "recovered_commit",
+        "aborted",
+        "passed",
+        "failed",
+        "approved",
+        "rejected",
+        "accepted"
+      ]
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claimed_name",
+        "role",
+        "authentication_level"
+      ],
+      "properties": {
+        "claimed_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "local_operator",
+            "lawyer",
+            "independent_verifier",
+            "product_owner",
+            "system"
+          ]
+        },
+        "authentication_level": {
+          "type": "string",
+          "enum": [
+            "self_asserted_local",
+            "independent_agent_record",
+            "lawyer_authored_external_record",
+            "external_signed",
+            "system_record"
+          ]
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relative_path",
+        "sha256"
+      ],
+      "properties": {
+        "relative_path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)[.]{1,2}(?:/|$))[A-Za-z0-9._/-]{1,300}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "media_type": {
+          "type": "string",
+          "maxLength": 120
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "os_name",
+        "os_version",
+        "architecture",
+        "runtime_name",
+        "runtime_version"
+      ],
+      "properties": {
+        "os_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "os_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "architecture": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "runtime_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "runtime_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "dependency_lock_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "locale": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 40
+        },
+        "timezone": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 80
+        }
+      }
+    },
+    "details": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "artifact_refs"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000
+        },
+        "publish_transaction_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ptx_[a-z0-9][a-z0-9_-]{7,95}$"
+        },
+        "command_label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        },
+        "acceptance_map_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        },
+        "passed_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "failed_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 3000
+        },
+        "artifact_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/artifactRef"
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "signature_kind",
+        "signer_claimed_name",
+        "signed_at",
+        "signed_subject_sha256",
+        "signature_artifact_sha256"
+      ],
+      "properties": {
+        "signature_kind": {
+          "type": "string",
+          "enum": [
+            "detached_signature",
+            "platform_signature",
+            "external_document_attestation"
+          ]
+        },
+        "signer_claimed_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "signed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "signed_subject_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "signature_artifact_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "verification_note": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1000
+        }
+      }
+    },
+    "evidenceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_schema_id",
+        "evidence_id",
+        "evidence_kind",
+        "subject_type",
+        "subject_id",
+        "subject_sha256",
+        "candidate_sha256",
+        "recorded_at",
+        "result",
+        "content_sha256"
+      ],
+      "properties": {
+        "evidence_schema_id": {
+          "const": "governance-evidence.schema.json"
+        },
+        "evidence_id": {
+          "type": "string",
+          "pattern": "^ev_[a-z0-9][a-z0-9_-]{7,95}$"
+        },
+        "evidence_kind": {
+          "$ref": "#/$defs/evidenceKind"
+        },
+        "subject_type": {
+          "$ref": "#/$defs/subjectType"
+        },
+        "subject_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "subject_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "candidate_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result": {
+          "$ref": "#/$defs/evidenceResult"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      }
+    }
+  }
+}

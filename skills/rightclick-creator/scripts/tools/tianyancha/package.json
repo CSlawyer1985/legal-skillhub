@@ -1,0 +1,14 @@
+{
+  "name": "tianyancha-query",
+  "version": "1.0.0",
+  "description": "macOS 右键天眼查查询工具",
+  "main": "controller.js",
+  "scripts": {
+    "start": "node controller.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

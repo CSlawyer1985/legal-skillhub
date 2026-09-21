@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/experience-card-v2.schema.json",
+  "title": "Anonymised review experience card",
+  "type": "object",
+  "required": [
+    "experience_id", "type_id", "title", "source_ids", "source_status",
+    "observation", "review_rule", "limits", "approval_status", "activation_status"
+  ],
+  "properties": {
+    "experience_id": {"type": "string", "pattern": "^exp-[a-z0-9-]+$"},
+    "type_id": {"type": "string", "minLength": 1, "description": "关联的具体类型标识，须与 taxonomy_v2.json 的 catalog_types 对应。本条曾在股权转让试点期写死为单一类型，现已泛化到多个合同类型。"},
+    "title": {"type": "string", "minLength": 1},
+    "source_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "source_status": {"enum": ["local_anonymised_aggregate", "local_anonymised_revision_aggregate", "public_case_report_verified"], "description": "经验来源的脱敏等级。取值集合由 experience_catalog.json 实测导出，不是人工枚举。"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "observation": {"type": "string", "minLength": 1},
+    "review_rule": {"type": "string", "minLength": 1},
+    "limits": {"type": "string", "minLength": 1},
+    "approval_status": {
+      "enum": ["candidate", "lawyer_approved", "regression_passed", "active", "deprecated"],
+      "description": "审批轴。与 clause_module / knowledge_source 同构。本条曾写死为 candidate，与已全部 active 的实际数据冲突。"
+    },
+    "activation_status": {
+      "enum": ["inactive", "active", "deprecated"],
+      "description": "执行轴。与 clause_module 同构。运行只消费 approval_status 与 activation_status 同为 active 的资产。"
+    }
+  },
+  "additionalProperties": false
+}

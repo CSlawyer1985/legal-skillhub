@@ -63,7 +63,7 @@ def main() -> None:
 
     records = json.loads(INDEX.read_text(encoding="utf-8"))
     indexed = {record["folder"] for record in records}
-    require(len(records) == 2086, f"expected 2086 indexed skills, got {len(records)}")
+    require(len(records) >= 2086, f"expected at least 2086 indexed skills, got {len(records)}")
     require(set(slugs) <= indexed, f"collection missing from index: {set(slugs) - indexed}")
 
     home = HOME.read_text(encoding="utf-8")

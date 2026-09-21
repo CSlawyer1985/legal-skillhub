@@ -1,0 +1,37 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="36" text-anchor="middle" fill="#333" font-weight="bold">可接入性</text>
+
+  <!-- 左侧：思考（人脑） -->
+  <g transform="translate(180, 250)">
+    <ellipse cx="0" cy="0" rx="80" ry="100" fill="#E8F4F8" stroke="#4A90E2" stroke-width="3"/>
+    <text x="0" y="-20" font-size="60" text-anchor="middle">🧠</text>
+    <text x="0" y="40" font-size="18" text-anchor="middle" fill="#333">你的思考</text>
+    <text x="0" y="120" font-size="16" text-anchor="middle" fill="#666">内化的、模糊的</text>
+  </g>
+
+  <!-- 转换箭头 -->
+  <g>
+    <path d="M280,250 Q350,180 420,250" fill="none" stroke="#10B981" stroke-width="4" stroke-dasharray="140" stroke-dashoffset="140">
+      <animate attributeName="stroke-dashoffset" from="140" to="0" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="420,250 405,242 408,262" fill="#10B981"/>
+    <text x="350" y="160" font-size="18" text-anchor="middle" fill="#10B981">外化 + 结构化</text>
+  </g>
+
+  <!-- 右侧：可接入的知识 -->
+  <g transform="translate(580, 250)">
+    <rect x="-100" y="-100" width="200" height="200" fill="#E8F5E8" rx="15" stroke="#10B981" stroke-width="3" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-70" y="-70" width="140" height="30" fill="#fff" rx="5"/>
+    <rect x="-70" y="-30" width="140" height="30" fill="#fff" rx="5"/>
+    <rect x="-70" y="10" width="140" height="30" fill="#fff" rx="5"/>
+    <rect x="-70" y="50" width="140" height="30" fill="#fff" rx="5"/>
+    <text x="0" y="130" font-size="16" text-anchor="middle" fill="#666">可被AI接入的</text>
+
+    <animateTransform attributeName="transform" type="scale" values="1; 1.02; 1" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+.DS_Store
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+~$*
+
+# Local notes and unpublished case materials
+private/
+local/
+drafts/
+case-files/
+client-materials/
+*.pdf
+*.doc
+*.docx
+*.xlsx
+*.xls
+
+# Generated outputs
+outputs/
+exports/
+rendered/

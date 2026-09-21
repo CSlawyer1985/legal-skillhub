@@ -1,0 +1,29 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FAFAFA"/>
+  <text x="400" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#2D3748">简单表面 · 复杂后台</text>
+  <rect x="150" y="90" width="200" height="280" fill="#FFFFFF" stroke="#3498DB" stroke-width="3" rx="10"/>
+  <rect x="150" y="90" width="200" height="40" fill="#3498DB" rx="10"/>
+  <text x="250" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="white">🎨 简单界面</text>
+  <rect x="170" y="150" width="160" height="25" fill="#ECF0F1" rx="5">
+    <animate attributeName="fill" values="#ECF0F1;#D5DBDB;#ECF0F1" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="170" y="185" width="160" height="25" fill="#ECF0F1" rx="5">
+    <animate attributeName="fill" values="#ECF0F1;#D5DBDB;#ECF0F1" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="170" y="220" width="160" height="25" fill="#ECF0F1" rx="5">
+    <animate attributeName="fill" values="#ECF0F1;#D5DBDB;#ECF0F1" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="170" y="255" width="160" height="25" fill="#ECF0F1" rx="5">
+    <animate attributeName="fill" values="#ECF0F1;#D5DBDB;#ECF0F1" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="170" y="290" width="160" height="25" fill="#ECF0F1" rx="5">
+    <animate attributeName="fill" values="#ECF0F1;#D5DBDB;#ECF0F1" dur="2s" begin="2s" repeatCount="indefinite"/>
+  </rect>
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0,0;5,0;0,0" dur="3s" repeatCount="indefinite"/>
+    <text x="600" y="200" font-size="100" text-anchor="middle">⚙️</text>
+    <text x="600" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="24" text-anchor="middle" fill="#E74C3C" font-weight="bold">复杂功能</text>
+    <text x="600" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="18" text-anchor="middle" fill="#C0392B">Skill / Session / 上下文</text>
+  </g>
+  <text x="400" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="20" text-anchor="middle" fill="#718096">表面简单 ≠ 容易上手</text>
+</svg>

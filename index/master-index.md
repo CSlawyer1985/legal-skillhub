@@ -1,6 +1,6 @@
 # Legal SkillHub 主索引（机器生成，禁手改）
 
-- 总数：**2086 个 Skill**
+- 总数：**2303 个 Skill**
 - 标签体系：`index/taxonomy.md` v0.1
 - 数据权威：`index/skills-index.json`（本文件由其渲染）
 
@@ -16,2079 +16,2296 @@
 | 8 | `access-indemnity-agreement` | Drafts U.S. commercial real estate access and indemnity (rig… | us | contract-law | contract-work | en | apache-2.0 |
 | 9 | `ad-citation-compliance` | 基于《广告法》第11条及2026年第20号公告《广告引证内容执法指南》（正式版），对广告文案引证内容执行六维度28条规则… | china | advertising | doc-reading | zh-CN | undeclared |
 | 10 | `ad-compliance` | 交互式广告合规审查助手（广告合规交互式审查）。通过四步提问收集广告信息，自动进行八大维度风险识别（绝对化用语、虚假宣传、… | china | advertising | legal-research | zh-CN | undeclared |
-| 11 | `ad-compliance-consumer-rights-ai-review-plus` | 基于《广告法》《电子商务法》《消费者权益保护法》及司法解释，结合食品、化妆品、医疗器械、纺织、玩具、电子产品等领域实务案… | china | consumer | legal-research | zh-CN | undeclared |
-| 12 | `ad-compliance-consumer-rights-review-plus` | 基于《广告法》《电子商务法》《消费者权益保护法》及司法解释，结合食品、化妆品、医疗器械、纺织、玩具、电子产品等领域实务案… | china | consumer | legal-research | zh-CN | undeclared |
-| 13 | `ad-compliance-lawyer` | 专注于广告文案、详情页、直播脚本、宣传物料的法律合规审查及广告法相关法律咨询。 当用户提交广告文案/落地页/详情页/直播… | china | ip | compliance | zh-CN | undeclared |
-| 14 | `ad-compliance-review` | 广宣合规审查助手。对广告文案进行违禁词扫描、法定标识检测、主动识别物料字体并与版权风险库比对、行业特殊表述审查，输出结构… | china | ip | compliance | zh-CN | undeclared |
-| 15 | `ad-compliance-review-jicheng` | 广告合规审核技能，用于审核广告素材是否符合中国广告法及相关法规。适用场景：(1) 用户提交广告文案、广告素材要求合规审核… | china | advertising | contract-work | zh-CN | undeclared |
-| 16 | `ad-compliance-review-wuxue20260207` | 广告公司 AI 合规审查。基于客户品牌调性与违禁词库，对广告/营销文案做合规风险审查（广告法违禁词、绝对化用语、医疗功效… | china | advertising | contract-work | zh-CN | undeclared |
-| 17 | `ad-content-compliance-checker` | 广告内容合规检测工具，广告法违禁词检测与整改建议助手。当用户需要检测广告文案、审核宣传内容、检查违禁词、广告合规审核、营… | china | advertising | compliance | zh-CN | undeclared |
-| 18 | `ad-filing-compliance-helper` | 广告备案合规助手：检查广告投放前的备案要求、准备申报材料并跟踪提交状态。需确认广告是否符合监管备案要求时使用。 | china | general | legal-analysis | en | undeclared |
-| 19 | `ad-fund-agreement` | Drafts franchise advertising fund contribution agreements or… | general | contract-law | contract-work | en | apache-2.0 |
-| 20 | `ada-accommodation-complaint` | Drafts an ADA failure-to-accommodate complaint for federal o… | us | litigation | contract-work | en | apache-2.0 |
-| 21 | `ada-failure-to-accommodate-complaint` | Drafts a court-ready ADA failure-to-accommodate complaint un… | us | litigation | litigation | en | apache-2.0 |
-| 22 | `administrative-relief-workflow` | 行政救济全流程AI技能。覆盖行政复议与行政诉讼的完整生命周期，从接案评估、受案范围判断、 被申请人适格性确认、行政行为分… | china | administrative | litigation | zh-CN | undeclared |
-| 23 | `adoption-petition` | Drafts a Petition for Adoption for U.S. family law courts (s… | us | litigation | litigation | en | apache-2.0 |
-| 24 | `adoption-summary` | Produces structured U.S. adoption-law summaries for litigati… | us | general | legal-analysis | en | apache-2.0 |
-| 25 | `adr-outcomes-summary` | Generates structured summaries of mediation and arbitration … | general | contract-law | doc-reading | en | apache-2.0 |
-| 26 | `advance-directive-vs-polst` | Produces a plain-language comparison of advance directives a… | general | general | legal-analysis | en | apache-2.0 |
-| 27 | `advance-health-care-directive` | Drafts jurisdiction-specific Advance Health Care Directive p… | us | general | contract-work | en | apache-2.0 |
-| 28 | `adversary-proceeding-complaint` | Drafts adversary proceeding complaints for U.S. Bankruptcy C… | us | litigation | litigation | en | apache-2.0 |
-| 29 | `adverse-event-reporting-policy` | Drafts an Adverse Event Reporting Policy compliant with 21 C… | us/international | life-sciences | contract-work | en | apache-2.0 |
-| 30 | `adverse-possession-claim` | Drafts adverse possession complaints and quiet title pleadin… | general | litigation | litigation | en | apache-2.0 |
-| 31 | `advisory-summary` | Drafts U.S. regulatory client advisory summaries translating… | us | general | legal-analysis | en | apache-2.0 |
-| 32 | `afrexai-childcare-compliance` | 美国托育机构合规助手：覆盖州许可、师生比、背景调查、健康安全与补贴审计。开办或运营儿童照护中心、家庭托育时使用。 | us | general | legal-analysis | en | undeclared |
-| 33 | `afrexai-compliance-audit` | 合规审计生成器：对照 SOC 2、ISO 27001、GDPR、HIPAA、PCI DSS、SOX 等框架生成差距分析与… | us/eu | data-privacy | legal-analysis | en | undeclared |
-| 34 | `afrexai-compliance-engine` | 初创企业合规引擎：从现状评估到审计就绪，覆盖 SOC 2、ISO 27001、GDPR、HIPAA、PCI DSS 的框… | us/eu | securities | legal-analysis | en | undeclared |
-| 35 | `afrexai-contract-review` | 英文商业合同审查助手：标记不利条款、检查缺失保护条款、输出风险评分与谈判清单。签署 NDA、SaaS、供应商合同前使用。 | general | contract-law | contract-work | en | undeclared |
-| 36 | `afrexai-epa-compliance` | 美国环保合规管理：识别 EPA 及州监管要求、跟踪许可证与报告期限、生成检查准备清单。制造业、建筑业等有环保义务的企业使… | us | construction | legal-analysis | en | undeclared |
-| 37 | `afrexai-export-compliance` | 美国出口管制合规：ECCN 分类、OFAC 制裁筛查、许可证判定与红旗清单。出口产品、软件或技术前进行贸易合规检查时使用… | us | intl-trade | legal-writing | en | undeclared |
-| 38 | `afrexai-hipaa-compliance` | HIPAA 合规助手：为部署 AI 的医疗机构生成合规清单、风险评估与泄露响应流程。处理 PHI 的 AI 系统上线前使… | us | general | legal-analysis | en | undeclared |
-| 39 | `afrexai-pharmacy-compliance` | 美国药房合规专家：DEA 管制药品、USP 调配标准、DSCSA 追溯、PDMP 与 PBM 审计应对。药房合规管理与检… | us | environmental | legal-analysis | en | undeclared |
-| 40 | `afrexai-regulatory-compliance` | 跨域合规审计：按美英欧框架（SOC 2、GDPR、HIPAA、FCA 等）做 8 领域差距分析、风险评分与整改时间表。年… | us/eu/uk | data-privacy | legal-analysis | en | undeclared |
-| 41 | `afrexai-renewal-management` | 合同与订阅续约管理：120 天续约节奏、客户健康评分、定价策略与流失挽回。管理 SaaS 续约管线、降低非自愿流失时使用… | general | contract-law | contract-work | en | undeclared |
-| 42 | `afrexai-workers-comp` | 美国工伤赔偿合规：NCCI 分类码、经验系数优化、索赔管理与 50 州要求映射。企业管理工伤保险、控制保费成本时使用。 | us | general | legal-analysis | en | undeclared |
-| 43 | `agent-authority-charter-builder-arkadiy-miteiko` | 在部署前为企业或受监管的 AI 智能体创建《智能体权限宪章》（Agent Authority Charter）。当用户需… | china | general | contract-work | zh-CN | agpl-3.0 |
-| 44 | `agent-bom-compliance` | AI compliance and policy engine — evaluate scan results agai… | eu | general | legal-analysis | en | apache-2.0 |
-| 45 | `agent-code-no7-legal-hunter` | 中国法律检索特工：跨库检索法律法规、司法解释与判例，归纳裁判观点并生成法律意见书框架。需要法规检索与案例分析时使用。 | china | general | legal-analysis | zh-CN | undeclared |
-| 46 | `agent-commercial-contract` | Agent 间商业合同框架：为 AI Agent 提供合同签署、托管支付、争议解决的法律基础设施。构建 Agent 市场… | general | contract-law | contract-work | en | undeclared |
-| 47 | `agent-court-v2026` | 模拟庭审训练：用户扮演原告或被告走完民事庭审流程，检验主张与证据链。庭前演练、法律思维训练或律师-当事人配合练习时使用。 | china | contract-law | litigation | zh-CN | undeclared |
-| 48 | `ai-act-knowledge` | 欧盟 AI 法案知识引擎——以 70 份官方欧盟来源文件为基础的权威监管问答（包括 2026 年委员会关于 Art. 6… | eu | contract-law | legal-analysis | zh-CN | agpl-3.0 |
-| 49 | `ai-audit-trail-larissa-meredith-flister` | 本技能构建 AI 辅助任务的结构化审计轨迹：工具被要求做什么、提供了什么材料、产出了什么、输出如何被验证、最终依赖了什么… | china | general | legal-analysis | zh-CN | agpl-3.0 |
-| 50 | `ai-company-clo` | AI公司首席法务官技能包。合同治理、知识产权保护、AI专项法务（算法审计/AIGC合规/数据供应链）。覆盖GDPR/CC… | eu/us/china | contract-law | contract-work | zh-CN | mit-0 |
-| 51 | `ai-compliance` | AI compliance analysis for EU AI Act, ISO 42001, NIST AI RMF… | eu | ai-tech-law | contract-work | en | undeclared |
-| 52 | `ai-compliance-docs` | 面向AI企业的专业合规文档生成工具。覆盖算法备案、数据安全评估、个人信息保护影响评估（PIA/DPIA）、AI伦理审查、… | china/international | data-privacy | compliance | zh-CN | mit |
-| 53 | `ai-contract-review` | 合同审查（民法典）。基于《中华人民共和国民法典》及最新司法解释，对合同进行逐条智能审查。五维风险评估（合法性/公平性/完… | china | contract-law | contract-work | zh-CN | undeclared |
-| 54 | `ai-contract-risk-officer` | AI合同风控官 - 智能合同审查与法律风险检测专家级工具。支持多国法律体系（中国/美国/英国/新加坡/德国/日本/澳大利… | multi | contract-law | contract-work | zh-CN | undeclared |
-| 55 | `ai-engineering-legal` | 基于「AI工程造价+法律知识库」（1394人订阅，3149个内容）的造价+法律交叉领域AI技能。当用户需要进行工程造价司… | china | construction | contract-work | zh-CN | mit-0 |
-| 56 | `ai-governance-reviewer-carl-ditzler` | 当用户希望对内部 AI 用例、AI 产品功能、LLM 工作流或第三方 AI 供应商进行 AI 治理、法律风险、隐私、合规… | china | general | contract-work | zh-CN | apache-2.0 |
-| 57 | `ai-intelligent-contract-review` | 自动化合同审查，风险识别 + 条款分析。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 58 | `ai-knowhow-updater` | 根据最新的AI领域资讯或周报，持续迭代更新AI全球监管政策Know How知识库。当用户需要基于资讯更新AI监管知识库，… | multi | ai-tech-law | legal-analysis | zh-CN | undeclared |
-| 59 | `ai-legal-assistant-pro` | China legal triage assistant. Input a contract, labor disput… | china | contract-law | litigation | zh-CN | undeclared |
-| 60 | `ai-legal-assistant-pro-yjkj` | 面向中国用户的法律辅助 skill，用于合同风险初筛、条款改写、劳动纠纷与诉讼成本估算、起诉前决策，以及民事起诉状 / … | china | contract-law | litigation | zh-CN | undeclared |
-| 61 | `ai-legal-case-workflow` | 由程建都律师基于一线诉讼办案流程开发的中国民事诉讼 AI 协作技能，面向执业律师和诉讼团队，覆盖民事一审 1–7 七阶段… | china | litigation | litigation | zh-CN | declared-only |
-| 62 | `akylegal-applications` | Comprehensive legal applications skill covering civil/crimin… | general | litigation | contract-work | en | undeclared |
-| 63 | `aladin-drama-portrait` | 阿拉丁·AI短剧数字人肖像权合规工坊把「AI 演员/数字人/换脸/声音克隆做完却因肖像权没授权被投诉下架、数字人授权到期… | china | general | contract-work | zh-CN | mit |
-| 64 | `alibi-notice` | Drafts a Notice of Alibi Defense under Fed. R. Crim. P. 12.1… | general | litigation | litigation | en | apache-2.0 |
-| 65 | `alta-settlement-statement` | Drafts a mathematically balanced ALTA Settlement Statement f… | us | general | contract-work | en | apache-2.0 |
-| 66 | `ambiguity-report` | 将法律文本（合同、法规、规章或司法意见）的诠释性歧义审查转化为精美的交付物。可生成多页面网站（默认）、单页面交互式网站、… | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 67 | `ambiguity-stress-test` | 对法律文本——合同、法规、规章或裁判文书——进行对抗式压力测试，检验其解释上的歧义： 找出受其约束的人们日后会对其含义产… | us | contract-law | contract-work | zh-CN | apache-2.0 |
-| 68 | `amended-restated-certificate` | Drafts a Delaware Amended and Restated Certificate of Incorp… | us | investment-ma | legal-analysis | en | apache-2.0 |
-| 69 | `amended-restated-certificate-of-incorporation` | Drafts filing-ready Delaware Amended and Restated Certificat… | us | investment-ma | contract-work | en | apache-2.0 |
-| 70 | `amicus-brief` | Drafts and analyzes U.S. appellate amicus curiae briefs for … | us | general | contract-work | en | apache-2.0 |
-| 71 | `amicus-coalition` | Manages end-to-end workflow for multi-organization amicus co… | general | corporate | legal-analysis | en | apache-2.0 |
-| 72 | `amicus-coalition-management` | Manages multi-organization appellate amicus briefs with sing… | general | general | legal-analysis | en | apache-2.0 |
-| 73 | `amicus-curiae-brief` | Drafts filing-ready U.S. amicus curiae briefs with rule-anch… | us | litigation | litigation | en | apache-2.0 |
-| 74 | `amicus-interest-statement` | Drafts the "Interest of Amicus Curiae" section of an amicus … | general | general | litigation | en | apache-2.0 |
-| 75 | `aml-compliance-program` | Drafts board-ready Anti-Money Laundering compliance programs… | us | banking-finance | legal-research | en | apache-2.0 |
-| 76 | `aml-review` | 反洗钱（AML）审查与合规检查技能。当用户需要进行反洗钱审查、可疑交易分析、客户尽职调查、制裁名单筛查、交易监测报告、合… | china/international | banking-finance | contract-work | zh-CN | undeclared |
-| 77 | `analyse-dpa-fournisseur-hugo-salard` | 依据 RGPD 第 28 条、EDPB 07/2020 和 02/2024 号指南、2021 年标准合同条款（CCT）（… | fr/eu | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 78 | `analyze-claims` | Deep analysis of competitor patent claims: element decomposi… | china | ip | legal-analysis | zh-CN | undeclared |
-| 79 | `animal-law-case-summary` | Produces litigation-grade case summaries for animal law disp… | general | litigation | legal-analysis | en | apache-2.0 |
-| 80 | `annual-meeting-notice` | Drafts legally compliant Notice of Annual Shareholders Meeti… | us | corporate | legal-analysis | en | apache-2.0 |
-| 81 | `annual-report-charity-bureau` | Generates a cross-referenced U.S. nonprofit annual filing pa… | us | general | contract-work | en | apache-2.0 |
-| 82 | `answer-affirmative-defenses` | Drafts U.S. civil litigation Answers with paragraph-by-parag… | us | litigation | contract-work | en | apache-2.0 |
-| 83 | `answer-to-harassment-complaint` | Drafts a defendant employer's Answer to a workplace harassme… | us | litigation | legal-analysis | en | apache-2.0 |
-| 84 | `answer-with-invalidity-contentions` | Drafts a defendant's Answer with Invalidity Contentions resp… | us | litigation | litigation | en | apache-2.0 |
-| 85 | `antitrust-investigation-summary` | Drafts privilege-protective, board-ready executive summary m… | us | contract-law | contract-work | en | apache-2.0 |
-| 86 | `anythingbutlaw` | 法外功夫 — Non-legal business skills for lawyers. Decision analy… | china | contract-law | legal-analysis | zh-CN | mit |
-| 87 | `api-acceptable-use-policy` | Drafts a standalone API Acceptable Use Policy (AUP) for inco… | general | contract-law | contract-work | en | apache-2.0 |
-| 88 | `api-constraints-exhibit` | Extracts technical API constraints from OpenAPI/Swagger spec… | general | contract-law | contract-work | en | apache-2.0 |
-| 89 | `api-license-agreement` | Drafts a clickwrap-ready US API License Agreement for compan… | us | ip | contract-work | en | apache-2.0 |
-| 90 | `app-compliance-review` | 中国APP个人信息保护合规检查技能。面向公司法务、数据合规律师或合规顾问，对移动应用程序（APP）开展完整的个人信息保护… | china | data-privacy | compliance | zh-CN | cc-by-nc-nd-4.0 |
-| 91 | `app-privacy-compliance` | App/小程序隐私合规全流程助手，专为中国大陆市场上架和运营的移动应用（iOS App、Android App、微信小程… | china/eu/us | data-privacy | contract-work | zh-CN | undeclared |
-| 92 | `appeal-document-summary` | Produces structured U.S. appellate document summaries mappin… | us | litigation | legal-analysis | en | apache-2.0 |
-| 93 | `appeal-summary` | Generates structured analytical summaries of appellate docum… | general | litigation | doc-reading | en | apache-2.0 |
-| 94 | `appellant-brief` | Drafts the appellant's opening brief challenging a lower cou… | general | litigation | contract-work | en | apache-2.0 |
-| 95 | `appellate-formatting` | Generates appellate-filing-ready Tables of Contents, Tables … | us | general | legal-analysis | en | apache-2.0 |
-| 96 | `appellate-formatting-certification` | Generates appellate-brief TOC, TOA, and Certificate of Compl… | us | general | litigation | en | apache-2.0 |
-| 97 | `appellate-mandate` | Drafts formal appellate mandates that conclude the appeal pr… | general | corporate | litigation | en | apache-2.0 |
-| 98 | `appellee-response-brief` | Drafts appellee response briefs for federal and state appell… | general | general | contract-work | en | apache-2.0 |
-| 99 | `appellees-response-brief` | Drafts an Appellee's Response Brief defending the trial cour… | general | litigation | contract-work | en | apache-2.0 |
-| 100 | `arbitration-clause-design-and-review-hafez-virjee` | 商事仲裁条款设计与审查：起草条款、识别病态条款、评估仲裁地与规则选择并按严重度输出修改建议。起草或审查跨境合同争议解决条… | international | contract-law | contract-work | zh-CN | cc-by-4.0 |
-| 101 | `archive-ip-pdfs` | 知识产权官文自动归档技能。当用户需要批量处理知识产权官文 PDF 文件（专利、商标、软著），将其解析、归档、生成报表时触… | china | ip | legal-analysis | zh-CN | undeclared |
-| 102 | `area-development-agreement` | Drafts Area Development Agreements granting exclusive multi-… | us | contract-law | contract-work | en | apache-2.0 |
-| 103 | `art-law-summaries` | Generates structured U.S. art law summaries with Bluebook ci… | us | ip | legal-analysis | en | apache-2.0 |
-| 104 | `article-summary` | Generates structured 500-800 word summaries of legal article… | us | general | legal-analysis | en | apache-2.0 |
-| 105 | `articles-of-dissolution` | Drafts Articles of Dissolution (Certificate of Dissolution) … | us | corporate | legal-analysis | en | apache-2.0 |
-| 106 | `articles-of-incorporation` | Drafts jurisdiction-compliant U.S. Articles of Incorporation… | us | contract-law | contract-work | en | apache-2.0 |
-| 107 | `articles-of-incorporation-nonprofit` | Drafts filing-ready Articles of Incorporation for U.S. non-p… | us | tax | contract-work | en | apache-2.0 |
-| 108 | `asbestos-abatement-plan` | Drafts an asbestos abatement plan compliant with OSHA 29 CFR… | general | general | contract-work | en | apache-2.0 |
-| 109 | `asset-enforcement-report` | Generates a post-judgment asset and enforcement report synth… | us | litigation | legal-analysis | en | apache-2.0 |
-| 110 | `asset-liability-summaries` | Produces structured asset and liability summaries from finan… | general | family | doc-reading | en | apache-2.0 |
-| 111 | `asset-purchase-agreement` | Drafts a U.S. Asset Purchase Agreement for deals where a buy… | us | contract-law | contract-work | en | apache-2.0 |
-| 112 | `asset-purchase-loi` | Drafts a U.S. asset purchase letter of intent (LOI) separati… | us | contract-law | contract-work | en | apache-2.0 |
-| 113 | `assignation-refere-communication-associe-selim-brihi` | 起草向商事法院或经济活动法院提起的紧急程序传票（assignation en référé），以主张股东的查阅权。当用户… | china/fr | general | legal-analysis | zh-CN | agpl-3.0 |
-| 114 | `assignation-refere-recouvrement-creance-selim-brihi` | 起草向商事法院或经济活动法院提交的快速程序传唤状（assignation en référé）以追讨商业债权。当用户要求… | china/fr | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 115 | `assignment-and-assumption-of-leases` | Drafts an Assignment and Assumption of Leases transferring t… | general | real-estate | contract-work | en | apache-2.0 |
-| 116 | `assignment-assumption` | Drafts Assignment and Assumption Agreements transferring con… | us | contract-law | contract-work | en | apache-2.0 |
-| 117 | `assistant-juridique-fr` | 法国法领域的法律助理专家。法律研究、法律咨询、法律文书起草、反论证、合同与文件分析、法律动态跟踪、参考文献核验与统一。生… | china | contract-law | legal-research | zh-CN | cc-by-nc-nd-4.0 |
-| 118 | `at-will-employment-offer-letter` | Drafts a U.S. at-will employment offer letter with unambiguo… | us | contract-law | contract-work | en | apache-2.0 |
-| 119 | `atm-equity-distribution-agreement` | Drafts a market-standard At-The-Market (ATM) Equity Distribu… | general | contract-law | contract-work | en | apache-2.0 |
-| 120 | `attorney` | A comprehensive AI agent skill for navigating legal situatio… | general | environmental | legal-analysis | en | undeclared |
-| 121 | `attorney-representation-agreement` | Drafts U.S. litigation attorney representation agreements fo… | us | contract-law | contract-work | en | apache-2.0 |
-| 122 | `attorneys-fees-motion` | Drafts post-judgment motions for attorneys' fees using the l… | us | litigation | contract-work | en | apache-2.0 |
-| 123 | `audit-compensation-charter` | Drafts board-adopted charters establishing Audit and Compens… | us | corporate | contract-work | en | apache-2.0 |
-| 124 | `audit-compensation-committee-charter` | Drafts a combined Audit and Compensation Committee charter f… | us | corporate | contract-work | en | apache-2.0 |
-| 125 | `audit-rgpd-site-internet` | 对网站进行全面 GDPR 合规审计。按照 10 个部分的检查清单（法律声明、 托管服务商、表单、新闻通讯、隐私政策、co… | fr/eu | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
-| 126 | `audit-summary` | Produces structured U.S. legal audit summaries that distill … | us | general | doc-reading | en | apache-2.0 |
-| 127 | `auth-packet-summary` | Validates and summarizes the four required authorization for… | us | contract-law | doc-reading | en | apache-2.0 |
-| 128 | `authority-verification` | Verifies legal citations and retrieves source material using… | general | general | legal-analysis | en | apache-2.0 |
-| 129 | `aviation-law-summary` | Produces structured aviation law summaries with Bluebook cit… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 130 | `aviation-summary` | Generates structured U.S. aviation-law summaries by synthesi… | us | general | legal-analysis | en | apache-2.0 |
-| 131 | `awa-compliance-audit` | Produces an enforcement-aware Animal Welfare Act compliance … | us | environmental | legal-analysis | en | apache-2.0 |
-| 132 | `awlm2026472` | 用 fraction.js 做份额/股权比例精算。当用户要分数运算、股权比例、fraction.js 时使用。轻量接入：… | china | general | legal-analysis | zh-CN | mit |
-| 133 | `az-eu-website-privacy-audit` | 审计网站是否符合阿塞拜疆《个人数据法》（Law on Personal Data No. 998-IIIQ），并在适用时… | eu | data-privacy | legal-analysis | zh-CN | cc-by-4.0 |
-| 134 | `ba-capability-105` | 担保管理专家。高效处理信用证开立与接收，严格审核资信及条款风险，全流程管控确保合规性，保障跨境贸易安全履约 | international | general | legal-analysis | zh-CN | undeclared |
-| 135 | `bacen-compliance-sentinel-rafael-mastronardi` | 关于巴西中央银行法规合规的完整指引：《国民货币委员会第 4,893/2021 号决议》（网络安全政策）、《巴西中央银行第… | br | banking-finance | compliance | zh-CN | agpl-3.0 |
-| 136 | `background-check-summary` | Summarizes raw background check data into structured executi… | us | intl-trade | legal-analysis | en | apache-2.0 |
-| 137 | `bad-actor-disqualification-review` | Produces a Rule 506(d) bad actor disqualification review for… | us | securities | legal-analysis | en | apache-2.0 |
-| 138 | `bad-faith-demand` | Drafts time-limited policy-limits demand letters that create… | us | general | contract-work | en | apache-2.0 |
-| 139 | `baichen-legal` | 百宸律师事务所法律AI助手。基于百宸法律智能体知识库，提供民商事诉讼、刑事辩护、合同审查、 公司治理、劳动合规、私募股权… | sg | corporate | litigation | zh-CN | undeclared |
-| 140 | `bail-hearing-summary` | Generates structured bail hearing summaries from transcripts… | us | litigation | doc-reading | en | apache-2.0 |
-| 141 | `bail-reduction-motion` | Drafts a Motion for Bail Reduction for criminal defense pret… | us | general | legal-analysis | en | apache-2.0 |
-| 142 | `bank-account-resolution` | Drafts U.S. corporate board resolutions authorizing bank acc… | us | corporate | legal-analysis | en | apache-2.0 |
-| 143 | `bank-compliance` | AI-powered bank compliance and regulatory review assistant -… | china | banking-finance | compliance | zh-CN | undeclared |
-| 144 | `bank-compliance-review` | AI-powered bank compliance and regulatory review assistant -… | china | banking-finance | compliance | zh-CN | undeclared |
-| 145 | `bankruptcy-interest-calculation` | Calculates pre-petition interest for bankruptcy proofs of cl… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 146 | `bankruptcy-proof-of-claim` | Drafts filing-ready proofs of claim for U.S. bankruptcy proc… | us | general | contract-work | en | apache-2.0 |
-| 147 | `bankruptcy-restructuring` | 「破产清算与重整」—— 债权人申报→破产撤销权→重整计划→清算分配全流程，市场经济优胜劣汰下的高频法律服务需求 | china | labor | litigation | zh-CN | undeclared |
-| 148 | `baozheng` | 一站式法律服务平台 — 专业法律咨询 + 要素式/通用起诉状起草 + 刑事专项材料辅助 + 法条分析与法规检索。flk.… | china | litigation | legal-research | zh-CN | undeclared |
-| 149 | `bates-citation-verification` | Citation format and verification protocol for legal document… | general | litigation | legal-analysis | en | apache-2.0 |
-| 150 | `belgian-gaap-compliance-suite` | 比利时会计准则合规套件：覆盖科目表、增值税、可扣除性、年终结账与年度申报全流程。处理比利时企业账务与申报时使用。 | eu | tax | legal-analysis | en | undeclared |
-| 151 | `biaoshu-writer-audit` | 上传投标文件（可配套招标文件），AI 输出分级合规审查报告：高风险/待复核/提示三级清单，每条附招标依据与修改建议，支持… | china | general | contract-work | zh-CN | undeclared |
-| 152 | `biaoshu-writer-review-pro` | 凭 App Key 调用百炼®标书开放 API，完成「招标文件智能解读 → 抽取分包 → 生成成品投标文件(.docx)… | china | general | contract-work | zh-CN | undeclared |
-| 153 | `bid-compliance-checker` | 投标合规检查：对照招标文件生成完整性清单，识别废标风险点与资质缺口。投标准备、截止前合规自查时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 154 | `bid-compliance-risk-watcher` | name: bid-compliance-risk-watcher slug: bid-compliance-risk-… | china | general | compliance | zh-CN | undeclared |
-| 155 | `bid-related-party-expert` | 投标企业关联关系识别专家（基于公开工商信息版）。当用户需要识别多个投标主体之间是否存在法定禁止的关联投标——单位负责人为… | china | corporate | legal-research | zh-CN | undeclared |
-| 156 | `bidding-compliance-advisor` | 投标人侧「投标文件合规检查」技能：对照招标文件系统检查投标文件的格式、资质、签字盖章、密封、份数、实质性响应等完整性，输… | china | general | legal-research | zh-CN | undeclared |
-| 157 | `bidding-compliance-engine` | 招标文件合规审查引擎。当用户上传招标文件并要求审查、合规检查、风险分析，或说"审查招标文件"、"检查合规性"、"合规审查… | china | antitrust | contract-work | zh-CN | undeclared |
-| 158 | `bill-of-costs-appeal` | Drafts an itemized Bill of Costs on Appeal under FRAP 39 or … | general | litigation | litigation | en | apache-2.0 |
-| 159 | `bill-of-costs-on-appeal` | Drafts a verified U.S. appellate Bill of Costs itemizing tax… | us | litigation | litigation | en | apache-2.0 |
-| 160 | `bill-of-lading` | Drafts a U.S. ocean Bill of Lading (B/L) functioning as rece… | us | contract-law | contract-work | en | apache-2.0 |
-| 161 | `bill-of-sale` | Drafts a U.S. Bill of Sale for transferring personal propert… | us | general | legal-analysis | en | apache-2.0 |
-| 162 | `bill-of-sale-and-assignment` | Drafts a Bill of Sale, Assignment and Assumption Agreement f… | general | ip | contract-work | en | apache-2.0 |
-| 163 | `bill-of-sale-personal-property` | Drafts a U.S. CRE personal property Bill of Sale transferrin… | us | general | contract-work | en | apache-2.0 |
-| 164 | `bill-summary` | Produces neutral, section-pinned U.S. legislative bill summa… | us | general | doc-reading | en | apache-2.0 |
-| 165 | `billable-time-stephane-boghossian` | 当您的律师协会来问"给我看看您是如何为 AI 辅助工作计费的"——而 ABA 512、佛罗里达 24-1、加利福尼亚、纽… | china | legal-profession | contract-work | zh-CN | agpl-3.0 |
-| 166 | `billing-cycle-manager-scott-margetts` | 法律事项的运营性计费执行。月度账单准备和计费指示、LC 发票审查和代垫款处理、客户账单质询回应、现金流建模（LC 付款义… | china | tax | legal-analysis | zh-CN | apache-2.0 |
-| 167 | `billing-summary` | Produces privilege-safe U.S. corporate legal billing summari… | us | general | doc-reading | en | apache-2.0 |
-| 168 | `biotech-patent-summaries` | Summarizes biotech patent families and disputes into litigat… | general | general | doc-reading | en | apache-2.0 |
-| 169 | `biz-legal-ip` | 管理商标专利著作权与商业秘密，含申请策略与侵权应对。 | china | ip | contract-work | zh-CN | undeclared |
-| 170 | `blockchain-legal-advisor` | 提供加密货币、Web3、区块链领域的法律咨询服务；当用户询问虚拟货币交易风险、OTC合规、发币募资、交易所合规、Web3… | hk | general | compliance | zh-CN | undeclared |
-| 171 | `blue-sky-filings` | Produces a practitioner-grade Blue Sky compliance memorandum… | us | securities | legal-analysis | en | apache-2.0 |
-| 172 | `board-committee-charter` | Drafts board committee charters for Audit and Compensation C… | us | corporate | legal-analysis | en | apache-2.0 |
-| 173 | `board-compliance-disclosure` | 欢迎关注IMA知识号@搬砖小能手。服务于 A 股上市公司董办的合规与信息披露综合判断助手。当用户就某一事项需要判断是否应… | china | corporate | legal-research | zh-CN | undeclared |
-| 174 | `board-meeting-minutes` | Drafts U.S. corporate board-of-directors meeting minutes int… | us | corporate | contract-work | en | apache-2.0 |
-| 175 | `board-meeting-summary` | Produces a structured, objective summary of corporate board … | general | contract-law | contract-work | en | apache-2.0 |
-| 176 | `board-minutes` | Drafts corporate board of directors meeting minutes. Trigger… | general | corporate | contract-work | en | apache-2.0 |
-| 177 | `board-resolution-dissolution` | Drafts a board resolution authorizing voluntary corporate di… | us | corporate | legal-analysis | en | apache-2.0 |
-| 178 | `body-camera-incident-summary` | Transforms police body camera transcripts into structured 10… | general | general | legal-analysis | en | apache-2.0 |
-| 179 | `book-lawyer` | Book lawyer services through Lokuli MCP. Use when user needs… | general | general | legal-analysis | en | undeclared |
-| 180 | `bootstrap-ai-data-compliance` | 律师驱动的 AI 数据合规冷启动工作流：律师描述 AI+产业合规需求后，Skill 四步引导完成冷启动——产业信息收集 … | china | data-privacy | contract-work | zh-CN | mit |
-| 181 | `boundary-dispute-complaint` | Drafts a U.S. state-court complaint to establish the true bo… | us | litigation | contract-work | en | apache-2.0 |
-| 182 | `brand-monitoring-strategies` | When the user wants to monitor brand mentions, detect tradem… | general | general | legal-analysis | en | undeclared |
-| 183 | `brand-protection` | When the user faces brand impersonation, fake websites, phis… | general | ip | legal-analysis | en | undeclared |
-| 184 | `brand-protection-organizer` | 发现并处理假网站、钓鱼站、商标侵权和抢注域名，整理证据、举报路径与预防动作，降低品牌和客户损失。 | china | ip | legal-analysis | zh-CN | mit |
-| 185 | `brand-protection-shopify` | Shopify/DTC brand protection toolkit. Detect counterfeit sto… | general | ip | legal-analysis | en | undeclared |
-| 186 | `breach-notification` | Drafts legally compliant data breach notification letters to… | us | general | legal-analysis | en | apache-2.0 |
-| 187 | `breach-of-purchase-agreement-complaint` | Drafts a filing-ready U.S. complaint for breach of a purchas… | us | contract-law | contract-work | en | apache-2.0 |
-| 188 | `breach-purchase-complaint` | Drafts a state-court complaint for breach of a real property… | general | contract-law | contract-work | en | apache-2.0 |
-| 189 | `breach-summary` | Summarizes cybersecurity breach incidents into structured le… | eu/us | data-privacy | doc-reading | en | apache-2.0 |
-| 190 | `brief` | Generate contextual briefings for legal work. Supports three… | general | contract-law | contract-work | en | undeclared |
-| 191 | `broker-dealer-customer-agreement` | Drafts SEC/FINRA-compliant Broker-Dealer Customer Agreements… | us | contract-law | contract-work | en | apache-2.0 |
-| 192 | `brownfields-agreement` | Drafts Brownfields Agreements for contaminated-property tran… | general | contract-law | contract-work | en | apache-2.0 |
-| 193 | `bsa-risk-assessment` | Drafts a BSA/AML Risk Assessment for U.S. financial institut… | us | banking-finance | contract-work | en | apache-2.0 |
-| 194 | `budget-and-fee-manager-scott-margetts` | 案件预算和持续的 WIP/偏差监控。在案件设立时构建分阶段费用估算，按法域或工作流运行自下而上预算，计算应急准备金，并构… | general | general | contract-work | zh-CN | apache-2.0 |
-| 195 | `build-family-law-practice-service-comparison-landing-page` | Generate a conversion-focused landing page that compares off… | general | general | contract-work | en | undeclared |
-| 196 | `build-legal-services-faq-page` | Generate customer-facing answers for common legal services q… | general | general | contract-work | en | undeclared |
-| 197 | `build-out-allowance-agreement` | Drafts a Build-Out Allowance Agreement as a commercial lease… | general | contract-law | contract-work | en | apache-2.0 |
-| 198 | `builder-quiz-m01-law` | 建造师刷题库·模块：建设工程法规——按章节生成一/二级建造师《建设工程法规及相关知识》练习题，覆盖基本法律、施工许可、发… | china | construction | contract-work | zh-CN | mit |
-| 199 | `builder-quiz-m02-manage` | 建造师刷题库·模块：建设工程项目管理——按章节生成一/二级建造师《建设工程项目管理》（二建为施工管理）练习题，覆盖组织、… | china | construction | contract-work | zh-CN | mit |
-| 200 | `builder-quiz-m03-economy` | 建造师刷题库·模块：建设工程经济——按章节生成一级建造师《建设工程经济》练习题，覆盖工程经济、工程财务、工程估价。题目由… | china | construction | education | zh-CN | mit |
-| 201 | `bulk-document-extraction-review` | Extracts structured data from large sets of legal documents … | general | contract-law | doc-reading | en | apache-2.0 |
-| 202 | `bulk-sales-compliance` | Drafts U.S. bulk sales compliance packages for asset purchas… | us | general | legal-analysis | en | apache-2.0 |
-| 203 | `business-bankruptcy-marketing-kit` | 内华达企业破产律师营销套件：生成符合州律协规范的广告、网站内容与获客方案。服务 Chapter 11/Subchapte… | us | bankruptcy | legal-analysis | en | undeclared |
-| 204 | `business-entity-disputes-kit` | 内华达商事争议律师营销套件：围绕 LLC 纠纷、董事信义义务等州法要点生成合规营销内容。内华达商事诉讼律所获客时使用。 | us | contract-law | legal-analysis | en | undeclared |
-| 205 | `business-legal-counsel` | [user] Business Legal Counsel / CLO level contract drafting,… | hk | contract-law | contract-work | zh-CN | undeclared |
-| 206 | `business-search` | 天机商查，一款完全免费的商查技能。通过收集企业相关情报，包括企业工商信息、股东结构、经营状态、司法风险、新闻动态、融资上… | china | securities | legal-analysis | zh-CN | undeclared |
-| 207 | `bylaw-amendment-resolution` | Drafts a formal Bylaw Amendment Resolution for U.S. corporat… | us | corporate | contract-work | en | apache-2.0 |
-| 208 | `byod-policy` | Drafts a Bring Your Own Device (BYOD) policy for U.S. employ… | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
-| 209 | `c-tpat-security-profile` | Drafts a U.S. C-TPAT Security Profile for CBP submission cov… | us | general | legal-analysis | en | apache-2.0 |
-| 210 | `ca-discovery-response` | Drafts code-compliant California responses to Requests for P… | us | contract-law | contract-work | en | apache-2.0 |
-| 211 | `ca-discovery-verification` | Drafts California Superior Court discovery verification page… | us | litigation | contract-work | en | apache-2.0 |
-| 212 | `ca-privilege-log` | Generates California-compliant privilege logs for withheld o… | us | litigation | contract-work | en | apache-2.0 |
-| 213 | `cafa-notice-of-removal` | Drafts a Notice of Removal under the Class Action Fairness A… | us | corporate | legal-analysis | en | apache-2.0 |
-| 214 | `calculate-ant-ss-556` | 为蚂蚁社保核心用户处理“现金与股权薪酬组合税负比较”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群，… | international | tax | legal-analysis | zh-CN | undeclared |
-| 215 | `canned-responses-anthropic` | 为常见法律询问生成模板化回复，并识别何时需要个案化处理。在回复常规法律问题时使用——数据主体请求、供应商询问、保密协议请… | eu/us | data-privacy | contract-work | zh-CN | apache-2.0 |
-| 216 | `capital-call-notice` | Drafts U.S. capital call notices for PE, VC, or fund-managed… | us | general | legal-writing | en | apache-2.0 |
-| 217 | `career-law-advisor` | 专为职场新人设计的劳动法法律顾问Skill。当用户咨询劳动合同、工资社保、工伤认定、违法调岗、违法辞退、加班费、经济补偿… | china | labor | litigation | zh-CN | undeclared |
-| 218 | `case-analysis-report-legal-relationship-analysis-method-plus` | 法律关系分析法案件分析技能。当用户要求"分析案件""写案件分析报告""用法学方法分析""法律关系分析法" "案件研判""… | china | construction | legal-research | zh-CN | undeclared |
-| 219 | `case-analysis-wang-request-rights` | 案件分析报告（参考王泽鉴请求权基础分析法）Plus。 作者：浙江金道律师事务所 龚家勇律师。 触发条件（用户说出以下任一… | china | construction | legal-research | zh-CN | undeclared |
-| 220 | `case-archiver` | 民事案件卷宗归档助手 V3。用户提出归档案件、先归档现有材料、完卷、补齐材料、生成归档表格或合并卷宗 PDF 时使用。按… | china | arbitration-adr | doc-reading | zh-CN | undeclared |
-| 221 | `case-briefer` | 以固定的九节结构生成美国司法意见书的详细法学院案件简报：记忆钩子、事实、程序历史、 法官投票、判决要旨、逐意见分析、五个… | us | general | legal-research | zh-CN | apache-2.0 |
-| 222 | `case-briefs` | Generates structured case briefs from judicial opinions. Use… | general | general | legal-analysis | en | apache-2.0 |
-| 223 | `case-chronology` | Produces U.S. litigation case chronologies with dated timeli… | us | contract-law | doc-reading | en | apache-2.0 |
-| 224 | `case-file-review` | 案卷阅卷与证据分析 Skill。支持两种输入模式：(a) 仅证据材料 — OCR 后快速给出结论，逐条标注源头，自动标记… | china | litigation | litigation | zh-CN | mit |
-| 225 | `case-intake-initial-fact-memo` | Generates a structured attorney work product memorandum from… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 226 | `case-research` | 中国财税法律案例与法规检索助手。当用户需要检索税务相关判例、行政复议决定、税收法规政策、国家税务总局公告、各地税务实践案… | china | tax | legal-research | zh-CN | undeclared |
-| 227 | `case-retrieval` | 案例检索 Skill — 面向法律从业者及普通用户的裁判文书智能检索工具。当用户需要检索裁判案例、查找类案裁判规则、按案… | china | general | legal-research | zh-CN | undeclared |
-| 228 | `case-retrieval-analysis-master` | 案例检索与类案分析大师：帮助法律工作者掌握案例检索方法、制作类案检索报告 核心能力： 1. 类案识别与判断标准 2. 检… | china | general | legal-research | zh-CN | undeclared |
-| 229 | `case-retrieval-report` | 类案检索报告生成 Skill — 面向律师、法官助理及法务人员的类案检索全流程自动化工具。基于待决案件信息，通过调用得理… | china | general | legal-research | zh-CN | undeclared |
-| 230 | `case-retrieval-report-chinese-mainland-court-case-plus` | v3.8.0 — 检索提速优化（不影响检索质量）： ① 默认四省市检索改为单轮全国检索 + 本地按地域归类（原"分4次串… | china | litigation | doc-reading | zh-CN | undeclared |
-| 231 | `case-summary` | Produces an attorney-ready memo from a corpus of legal docum… | general | litigation | legal-analysis | en | apache-2.0 |
-| 232 | `case-summary-report` | Synthesizes multiple case summaries into one unified Case Su… | general | general | doc-reading | en | apache-2.0 |
-| 233 | `case-viability-report` | Produces internal case viability and conflict check memos fo… | general | general | legal-analysis | en | apache-2.0 |
-| 234 | `cash-collateral-motion` | Drafts motions to use cash collateral under 11 U.S.C. § 363.… | us | litigation | contract-work | en | apache-2.0 |
-| 235 | `cbp-binding-ruling` | Drafts U.S. Customs and Border Protection binding ruling req… | us | general | contract-work | en | apache-2.0 |
-| 236 | `ccpa` | 加州消费者隐私法（CCPA）和加州隐私权法（CPRA）合规顾问——企业门槛分析、消费者权利履行（访问、删除、更正、退出出… | eu/us | data-privacy | contract-work | zh-CN | mit |
-| 237 | `ccpa-compliance` | 美国加州消费者隐私法（CCPA/CPRA）合规检查、风险评估和文档生成工具。 为涉及加州消费者数据的业务提供全面的CCP… | china/eu/us/multi | data-privacy | compliance | zh-CN | undeclared |
-| 238 | `ccpa-policy` | Drafts a CCPA/CPRA-compliant privacy policy covering all req… | us | general | contract-work | en | apache-2.0 |
-| 239 | `cd-tolerance-reference` | Guides the agent through TRID tolerance compliance under 12 … | general | general | legal-analysis | en | apache-2.0 |
-| 240 | `cda-certified-claim` | Drafts U.S. Contract Disputes Act (CDA) certified claims for… | us | contract-law | doc-reading | en | apache-2.0 |
-| 241 | `cdiw-core` | 调度刑事辩护全流程智能工作台的工作线。识别用户所处程序阶段与当前任务节点， 路由至对应工作流（会见、文书、期限、家属接待… | china | criminal | legal-research | zh-CN | cc-by-nc-sa-4.0 |
-| 242 | `cementops-environmental-compliance` | Stay ahead of EPA enforcement at cement plants. Free CementO… | general | environmental | legal-analysis | en | undeclared |
-| 243 | `cementops-msha-compliance` | Prevent MSHA citations at cement plants before the inspector… | general | general | legal-analysis | en | undeclared |
-| 244 | `cert-petition` | Drafts a Petition for Writ of Certiorari to the U.S. Supreme… | us | general | contract-work | en | apache-2.0 |
-| 245 | `certificate-of-incumbency` | Drafts a Certificate of Incumbency certifying current office… | us | corporate | legal-analysis | en | apache-2.0 |
-| 246 | `certificate-of-interested-persons` | Drafts a FRAP 26.1-compliant Certificate of Interested Perso… | us | litigation | litigation | en | apache-2.0 |
-| 247 | `certificate-of-origin` | Drafts USMCA/NAFTA Certificates of Origin for preferential t… | ca | general | legal-research | en | apache-2.0 |
-| 248 | `certificate-of-service` | Drafts certificates of service (proofs of service) for court… | us | environmental | legal-analysis | en | apache-2.0 |
-| 249 | `certificate-of-trust` | Drafts a Certificate of Trust (Abstract/Memorandum of Trust)… | us | general | contract-work | en | apache-2.0 |
-| 250 | `certificate-of-withdrawal-foreign-corp` | Drafts a Certificate of Withdrawal for a foreign corporation… | general | corporate | legal-research | en | apache-2.0 |
-| 251 | `change-in-control-agreement` | Drafts U.S. executive Change in Control Agreements with doub… | us | corporate | legal-analysis | en | apache-2.0 |
-| 252 | `chapter-11-reorg-plan` | Drafts a Chapter 11 Plan of Reorganization under 11 U.S.C. §… | us | litigation | contract-work | en | apache-2.0 |
-| 253 | `charitable-remainder-trust` | Drafts IRC 664–compliant Charitable Remainder Trust agreemen… | us | contract-law | contract-work | en | apache-2.0 |
-| 254 | `charitable-solicitation-registration` | Prepares jurisdiction-specific charitable solicitation regis… | us | general | contract-work | en | apache-2.0 |
-| 255 | `charity-annual-report` | Drafts filing-ready Annual Reports for State Charity Bureaus… | us | corporate | contract-work | en | apache-2.0 |
-| 256 | `charity-filing-thresholds` | Researches state-specific charitable solicitation filing req… | us | general | legal-analysis | en | apache-2.0 |
-| 257 | `chart-audit-protocol` | Drafts healthcare chart audit protocols covering clinical do… | general | general | contract-work | en | apache-2.0 |
-| 258 | `check-ant-ss-212` | 为蚂蚁社保个人用户处理“工伤保险参保状态核验”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办… | china | labor | legal-analysis | zh-CN | undeclared |
-| 259 | `check-ant-ss-214` | 为蚂蚁社保个人用户处理“工伤认定时限提醒”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办理路… | china | labor | legal-analysis | zh-CN | undeclared |
-| 260 | `check-ant-ss-216` | 为蚂蚁社保个人用户处理“工伤医疗费用结算”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办理路… | china | labor | legal-analysis | zh-CN | undeclared |
-| 261 | `check-ant-ss-219` | 为蚂蚁社保个人用户处理“一次性工伤医疗补助金查询”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料… | china | labor | legal-analysis | zh-CN | undeclared |
-| 262 | `check-ant-ss-276` | 为蚂蚁社保个人用户处理“离婚后公积金贷款资格核验”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料… | china | labor | legal-analysis | zh-CN | undeclared |
-| 263 | `check-ant-ss-387` | 为蚂蚁社保个人用户处理“创业担保贷款资格初筛”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办… | china | labor | legal-analysis | zh-CN | undeclared |
-| 264 | `check-ant-ss-463` | 为蚂蚁社保个人用户处理“超过法定退休年龄人员工伤权益查询”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条… | china | labor | legal-analysis | zh-CN | undeclared |
-| 265 | `check-ant-ss-545` | 为蚂蚁社保核心用户处理“股权激励递延纳税资格核验”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群，通… | international | tax | legal-analysis | zh-CN | undeclared |
-| 266 | `check-ant-ss-546` | 为蚂蚁社保核心用户处理“上市公司股权激励年度汇算核验”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群… | international | tax | legal-analysis | zh-CN | undeclared |
-| 267 | `check-ant-ss-547` | 为蚂蚁社保核心用户处理“非上市公司股权奖励税务路径”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群，… | international | tax | legal-analysis | zh-CN | undeclared |
-| 268 | `check-ant-ss-548` | 为蚂蚁社保核心用户处理“离职前后股权激励纳税归属判断”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群… | international | tax | legal-analysis | zh-CN | undeclared |
-| 269 | `check-ant-ss-573` | 为蚂蚁社保核心用户处理“跨省通勤人员工伤责任提示”，面向在北京、上海、广州、深圳等城市之间工作、居住或迁移的中高收入家庭… | international | labor | legal-analysis | zh-CN | undeclared |
-| 270 | `check-ant-ss-609` | 为蚂蚁社保核心用户处理“知识产权成果归属条款核验”，面向咨询顾问、设计师、程序员、自媒体人等自由职业者，通过必要信息采集… | international | tax | legal-analysis | zh-CN | undeclared |
-| 271 | `check-ant-ss-646` | 为蚂蚁社保核心用户处理“平台众包协议工伤责任初筛”，面向网约车司机、骑手、主播、达人和多平台接单人员，通过必要信息采集、… | international | labor | legal-analysis | zh-CN | undeclared |
-| 272 | `check-ant-ss-770` | 为蚂蚁社保核心用户处理“离婚后住房资格与社保记录核验”，面向在一线城市租房、换房、购房或申请保障性住房的中高收入家庭，通… | international | tax | legal-analysis | zh-CN | undeclared |
-| 273 | `checking-cn-patent-format` | 使用多Agent并行架构审查中国专利申请文件(.docx/.doc)，生成带修订追踪和批注的docx副本。当用户要求检查… | china | ip | contract-work | zh-CN | undeclared |
-| 274 | `checking-patdocx-cn-single-agent` | 检查中国专利申请文件(.docx/.doc)中的撰写问题，按照专利法、专利法实施细则和专利审查指南的规则审查摘要、权利要… | china | ip | doc-reading | zh-CN | undeclared |
-| 275 | `child-support-worksheet` | Drafts a child support guidelines worksheet by extracting fi… | general | general | contract-work | en | apache-2.0 |
-| 276 | `china-business-risk-copyright-detection` | 面向中国中小企业经营与协作团队，在经营决策、项目协作、会议、文档或组织管理中完成商品图片版权侵权风险检查，输出可执行方案… | china | ip | legal-analysis | zh-CN | mit |
-| 277 | `china-business-risk-text-trademark-detection` | 面向中国中小企业经营与协作团队，在经营决策、项目协作、会议、文档或组织管理中完成商品文案商标侵权风险检查，输出可执行方案… | china | ip | legal-analysis | zh-CN | mit |
-| 278 | `china-business-risk-trademark-graphic-detection` | 面向中国中小企业经营与协作团队，在经营决策、项目协作、会议、文档或组织管理中完成商品图片商标相似度与侵权检查，输出可执行… | china | ip | legal-analysis | zh-CN | mit |
-| 279 | `china-contract-review` | 中国合同审查工具。Use when user needs to review contracts, identify r… | china | contract-law | contract-work | zh-CN | declared-only |
-| 280 | `china-data-compliance` | Ensure applications comply with Chinese data protection laws… | china/eu/international | data-privacy | compliance | zh-CN | mit-0 |
-| 281 | `china-fire-code` | 中国消防法律法规与技术标准条文智能检索助手。覆盖消防法、行政法规、部门规章(部令)、 国家标准(GB)、行业标准(XF/… | china | general | legal-research | zh-CN | mit |
-| 282 | `china-legal-analysis` | 中国法律场景解析工具。Use when user needs to analyze legal scenarios, u… | china | labor | litigation | zh-CN | declared-only |
-| 283 | `china-legal-query` | 中国法律法规查询工具。Use when user needs to search Chinese laws, regul… | china | ip | legal-research | zh-CN | declared-only |
-| 284 | `china-tax-guidance` | 中国税务全业务办理指南与合规指引专项助手。聚焦电子税务局全流程操作实务，覆盖新办办税、税务登记与信息确认、发票票种核定与… | china | tax | compliance | zh-CN | mit-0 |
-| 285 | `china-tax-law` | 中国财税法律专业知识助手。当用户涉及中国税法咨询、税务筹划分析、税务合规审查、税收政策解读、税务争议处理等任务时，应使用… | china | tax | legal-analysis | zh-CN | undeclared |
-| 286 | `chinese-compliance-checker` | Global compliance checker with API-powered regulations datab… | multi/china | data-privacy | compliance | zh-CN | undeclared |
-| 287 | `chinese-legal-doc-drafting` | 中文合同起草与公文撰写 Skill。起草符合中国法律要求的合同（租房/劳务/采购/合作/股权）及党政机关公文（通知/报告… | china | corporate | contract-work | zh-CN | undeclared |
-| 288 | `chinese-patent` | 从代码或技术方案出发，撰写符合 CNIPA 规范的中国专利申请文件。核心能力：① 扫描代码提取可专利特征并抽象提炼 ② … | china | ip | doc-reading | zh-CN | mit |
-| 289 | `chinese-seo-compliance` | Chinese advertising law compliance & banned words scanner to… | china | advertising | compliance | zh-CN | undeclared |
-| 290 | `chronology-builder-andrew-bird` | 直接从披露文件包构建诉讼时间线——每条记录都归属其来源文件，并置于 CPR 31.22 默示承诺检查之后，因为在英格兰诉… | china | general | doc-reading | zh-CN | mit |
-| 291 | `ciia-agreement` | Drafts Confidentiality and Invention Assignment Agreements (… | us | contract-law | contract-work | en | apache-2.0 |
-| 292 | `cip-policy` | Drafts a U.S. Customer Identification Program (CIP) policy c… | us | intl-trade | contract-work | en | apache-2.0 |
-| 293 | `citation-bluebook` | Formats legal citations per The Bluebook (21st ed.) using Bl… | us | general | legal-analysis | en | apache-2.0 |
-| 294 | `civil-appeal-petition-ai-structured-writing-plus` | 基于一审裁判文书和用户材料，按模版结构化书写民事上诉状，支持引用法律法规、交互修改、导出docx | china | litigation | litigation | zh-CN | undeclared |
-| 295 | `civil-complaint-generator` | 中国民商事起诉状智能生成技能。当用户提出生成XX起诉状、帮我写民间借贷起诉状、买卖合同纠纷起诉状等需求时触发。自动从 i… | china | litigation | legal-research | zh-CN | undeclared |
-| 296 | `civil-litigation-drafting-expert` | Analyze Chinese civil and commercial disputes, identify proc… | china | litigation | litigation | zh-CN | undeclared |
-| 297 | `civil-litigation-thinking` | 民商事诉讼办案思维全流程框架 V5.2——以要件审判九步法+证明责任理论+诉讼标的理论+证据裁判主义等十大权威理论为根基… | china | litigation | litigation | zh-CN | undeclared |
-| 298 | `civil-litigation-workflow` | 民商事诉讼案件全流程办案工作流（编排层），以邹碧华《要件审判九步法》为思维底座，原告/被告双轨，覆盖接案评估、请求权基础… | china | litigation | litigation | zh-CN | undeclared |
-| 299 | `claim-construction-chart` | Drafts Joint Claim Construction Charts for patent litigation… | us | ip | legal-analysis | en | apache-2.0 |
-| 300 | `claim-construction-order` | Drafts a U.S. federal court Claim Construction Order (Markma… | us | litigation | legal-analysis | en | apache-2.0 |
-| 301 | `claim-evidence-matrix` | 用于把诉讼请求、抗辩观点、法律构成要件、待证事实和证据材料整理成矩阵；当用户需要起诉状/答辩状准备、证据清单、类案分析后… | china | litigation | litigation | zh-CN | undeclared |
-| 302 | `class-action-claim-form` | Drafts official class action claim forms balancing plain-lan… | us | litigation | litigation | en | apache-2.0 |
-| 303 | `class-action-complaint` | Drafts federal or state class action complaints satisfying F… | us | litigation | contract-work | en | apache-2.0 |
-| 304 | `class-action-fairness-hearing` | Drafts FRCP 23(e)-compliant fairness hearing notices for cla… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 305 | `class-action-notice` | Drafts Rule 23-compliant class action notices to absent clas… | general | litigation | litigation | en | apache-2.0 |
-| 306 | `class-action-settlement` | Drafts class action settlement agreements for court approval… | us | contract-law | contract-work | en | apache-2.0 |
-| 307 | `class-action-summary` | Produces structured U.S. class action lawsuit summaries cove… | us | litigation | doc-reading | en | apache-2.0 |
-| 308 | `class-certification-motion` | Drafts a Motion for Class Certification under FRCP 23 or sta… | us | litigation | contract-work | en | apache-2.0 |
-| 309 | `class-certification-order` | Drafts a federal or state court order certifying a class act… | us | litigation | contract-work | en | apache-2.0 |
-| 310 | `class-claim-form` | Drafts U.S. class action settlement claim forms compliant wi… | us | litigation | litigation | en | apache-2.0 |
-| 311 | `class-notice-plan` | Drafts a Rule 23 class notice communication plan for U.S. fe… | us | general | legal-analysis | en | apache-2.0 |
-| 312 | `class-settlement-preliminary-approval` | Drafts a Motion for Preliminary Approval of Class Action Set… | general | litigation | litigation | en | apache-2.0 |
-| 313 | `clause` | 审查服务条款、隐私政策和特定商业交易法合规的法律文档。检测条款缺失、标记风险并协调监管要求。需要法律建议时不要使用——请… | jp/eu/us | data-privacy | compliance | zh-CN | undeclared |
-| 314 | `clause-guard` | HR 文本劳动法风险扫描：粘贴通知、邮件、协议，识别可能引发劳动争议的措辞并给出安全改写。HR 发送书面文件前使用。 | china | labor | contract-work | zh-CN | undeclared |
-| 315 | `client-advisory` | Drafts client advisory memoranda translating legal developme… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 316 | `client-advisory-summary` | Produces client-ready U.S. regulatory advisory summaries tra… | us | general | legal-analysis | en | apache-2.0 |
-| 317 | `client-background-report` | 面向律师事务所接案决策与首次洽谈准备的企业客户背景调查工作流。输入公司名称后，多源采集并交叉核验工商、司法、财务、舆情与… | china | criminal | litigation | zh-CN | undeclared |
-| 318 | `client-due-diligence` | 律师事务所客户背调与法律顾问切入 Skill。输入公司名称 + 自然语言指令，自动生成「Word 主报告 + PDF 附… | china | general | doc-reading | zh-CN | undeclared |
-| 319 | `client-explanation-translator-larissa-meredith-flister` | 将复杂的法律分析转化为清晰、具有商业实用性的面向客户建议。每当用户有密集的法律材料——起草文件、内部分析、顾问笔记、研究… | china | litigation | contract-work | zh-CN | agpl-3.0 |
-| 320 | `client-friendly-tone` | Rewrites legal communications in plain-language, client-frie… | general | litigation | legal-writing | en | apache-2.0 |
-| 321 | `client-instruction-schedule` | 构建一份客户指示表（client instruction schedule）— 一份通俗英语、Scott Schedul… | uk | litigation | litigation | zh-CN | apache-2.0 |
-| 322 | `client-intake-summary` | Produces a structured corporate-client intake brief from int… | general | general | contract-work | en | apache-2.0 |
-| 323 | `client-material-incubator` | 帮助律所把自有委托材料模板变量化建成母版库，再通过上传笔录/录音或输入案件信息，成套生成委托代理合同、授权委托书、风险告… | china | litigation | legal-analysis | zh-CN | undeclared |
-| 324 | `client-memo` | Drafts structured client memoranda translating legal analysi… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 325 | `client-scope-pro` | 对中国境内企业开展律师首次拜访前的公开信息法律背调、重大事项核验、法律服务机会识别，产出可追溯的五部分结构 Word 报… | china | corporate | litigation | zh-CN | undeclared |
-| 326 | `climate-aligned-contracts-felix-cohen` | 起草、调整和审查与 The Chancery Lane Project（钱瑟里巷项目）通过法律协议减少碳排放的方法论相一… | china | contract-law | contract-work | zh-CN | mit |
-| 327 | `climate-legislation-summary` | Produces structured, citation-ready summaries of climate cha… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 328 | `clinical-trial-agreement` | Drafts U.S. clinical trial agreements governing sponsor–site… | us | contract-law | contract-work | en | apache-2.0 |
-| 329 | `clinical-trial-investigator-agreement` | Drafts U.S. clinical trial Investigator Agreements between s… | us | contract-law | contract-work | en | apache-2.0 |
-| 330 | `clo` | Navigate legal strategy with contracts, compliance, IP prote… | general | contract-law | legal-analysis | en | undeclared |
-| 331 | `closing-checklist` | Drafts M&A closing checklists tracking documents, approvals,… | us | corporate | contract-work | en | apache-2.0 |
-| 332 | `closing-disclosure` | Drafts and reviews TRID-compliant U.S. residential Closing D… | us | contract-law | contract-work | en | apache-2.0 |
-| 333 | `closing-disclosure-timing-reference` | Provides TRID Closing Disclosure timing compliance rules und… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 334 | `closing-disclosure-tolerance` | Applies U.S. TRID tolerance rules to compare a residential m… | us | general | legal-analysis | en | apache-2.0 |
-| 335 | `closing-resolutions` | Drafts unanimous written consent resolutions authorizing a b… | general | corporate | contract-work | en | apache-2.0 |
-| 336 | `cmmc` | 面向国防工业基础（DIB）中美国国防承包商和分包商的专家级 CMMC 2.0（网络安全成熟度模型认证）顾问。当用户询问 … | us | contract-law | contract-work | zh-CN | mit |
-| 337 | `cn-business-compliance-check` | 中国商业合规审查器。在执行任何商业策略、副业项目、变现操作前，自动进行中国法律合规审查。使用场景：(1)评估商业计划是否… | china | tax | contract-work | zh-CN | undeclared |
-| 338 | `cn-construction-mediation` | 中国建设工程商事调解专家系统 v2.0。基于《商事调解条例》（国令第827号）、《人民调解法》《仲裁法》《民事诉讼法》《… | china | construction | contract-work | zh-CN | mit-0 |
-| 339 | `cn-global-compliance` | Global compliance checker & data localization audit tool wit… | eu/us/international | data-privacy | compliance | zh-CN | undeclared |
-| 340 | `cn-meditation-wisdom` | 融合文史哲东方智慧的建设工程商事调解智库。将儒道墨法诸子百家哲学与现代调解方法论融合， 追求"公平性"而非仅仅追求"效率… | china | construction | legal-analysis | zh-CN | undeclared |
-| 341 | `code-of-conduct` | Drafts a Code of Business Conduct and Ethics satisfying SEC,… | us | contract-law | contract-work | en | apache-2.0 |
-| 342 | `code-of-conduct-and-ethics` | Drafts a U.S. corporate Code of Business Conduct and Ethics … | us | contract-law | contract-work | en | apache-2.0 |
-| 343 | `code-patent-scanner` | Scan your codebase for distinctive patterns — get structured… | general | environmental | legal-analysis | en | undeclared |
-| 344 | `code-patent-validator` | Turn your code scan findings into search queries — research … | general | ip | legal-research | en | undeclared |
-| 345 | `code2patent` | 从已开发代码项目中提取技术实现证据，围绕候选专利方案生成算法/软件类说明书式技术交底书，并以“权利要求布局卡 → 发明专… | china | ip | doc-reading | zh-CN | cc-by-nc |
-| 346 | `cognovit-note` | Drafts cognovit promissory notes with confession of judgment… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 347 | `cognovit-promissory-note` | Drafts a U.S. cognovit promissory note with confession of ju… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 348 | `coi-compliance-review` | Reviews CRE insurance certificates (ACORD 25) and endorsemen… | general | contract-law | contract-work | en | apache-2.0 |
-| 349 | `collaboration-platform-advisor-scott-margetts` | 法律事项站点协作平台配置方法论。面向 SharePoint、Teams 及同等平台的站点架构、工作流识别、仪表板设计、数… | international | corporate | legal-analysis | zh-CN | apache-2.0 |
-| 350 | `collateral-assignment-of-contracts` | Drafts a Collateral Assignment of Contracts assigning a borr… | us | contract-law | contract-work | en | apache-2.0 |
-| 351 | `collateral-valuation` | Values collateral and allocates secured vs. unsecured claim … | us | contract-law | legal-analysis | en | apache-2.0 |
-| 352 | `comfort-letter-from-auditors` | Drafts PCAOB AS 6101-compliant auditor comfort letters (cold… | us | securities | contract-work | en | apache-2.0 |
-| 353 | `commencement-date-memo` | Drafts a Commencement Date Memorandum confirming when obliga… | general | contract-law | contract-work | en | apache-2.0 |
-| 354 | `commencement-date-memorandum` | Drafts a U.S. commencement-date memorandum for commercial le… | us | contract-law | contract-work | en | apache-2.0 |
-| 355 | `commercial-franchise-dispute-qa-court-cases-plus` | 面向商业特许经营（加盟）纠纷的专业法律问答与案例检索助手。当用户咨询商业特许经营合同纠纷、加盟合同效力、两店一年、冷静期… | china | general | legal-research | zh-CN | undeclared |
-| 356 | `commercial-invoice-for-export` | Drafts a compliant Commercial Invoice for Export satisfying … | general | contract-law | contract-work | en | apache-2.0 |
-| 357 | `commercial-lease-summary` | Produces structured U.S. commercial lease abstracts covering… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 358 | `commercial-legal-pl` | 依据波兰法律分析和起草合同的技能，特别聚焦 B2B、IP 与 IT 合同（body leasing、NDA、实施、Saa… | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 359 | `commercial-promissory-note` | Drafts UCC-compliant U.S. Commercial Promissory Notes for co… | us | general | contract-work | en | apache-2.0 |
-| 360 | `commercial-psa` | Drafts Purchase and Sale Agreements for commercial real esta… | us | contract-law | contract-work | en | apache-2.0 |
-| 361 | `commercial-re-loi` | Drafts a Letter of Intent for commercial real estate purchas… | us | contract-law | contract-work | en | apache-2.0 |
-| 362 | `commercial-real-estate-loi` | Drafts a U.S. commercial real estate purchase letter of inte… | us | general | legal-analysis | en | apache-2.0 |
-| 363 | `commission-plan-agreement` | Drafts U.S. commission plan agreements establishing compensa… | us | contract-law | contract-work | en | apache-2.0 |
-| 364 | `commitment-letter-for-financing` | Drafts a U.S. financing commitment letter memorializing a le… | us | general | contract-work | en | apache-2.0 |
-| 365 | `communication-summarization` | Generates structured memorandum-style summaries of legal com… | general | contract-law | doc-reading | en | apache-2.0 |
-| 366 | `community-group-buying-risk-compliance` | 社区团购风险与合规全链路技能包。涵盖食品安全合规、法律风险防控、危机公关预案、竞争合规及配套工具。适用于平台运营负责人、… | china | contract-law | contract-work | zh-CN | mit |
-| 367 | `company-copyright-software` | 查询企业软件著作权信息，包括软件全称、登记号、登记日期等。适用于"软件著作权查询""企业软著""软件版权查询""知识产权… | china | ip | legal-analysis | zh-CN | undeclared |
-| 368 | `company-credit-rating` | 企业信用评分与风险评估工具。根据用户提供的公司名称，通过企查查/天眼查MCP查询企业工商信息、财务数据、股权结构、 司法… | china | general | legal-analysis | zh-CN | undeclared |
-| 369 | `company-dispute-and-litigation-analysis-plus` | 中国公司法（2023年修订）全体系知识库，覆盖公司纠纷与诉讼的实务答疑。 触发条件：用户咨询公司设立、股东出资、股权转让… | china | corporate | legal-research | zh-CN | undeclared |
-| 370 | `company-law-skill` | 公司法专家 — 公司法律咨询+公司纠纷起诉状起草。覆盖公司法全部场景（设立与出资、公司治理、股东权利、股权转让、资本制度… | china | corporate | litigation | zh-CN | mit |
-| 371 | `company-patent` | 查询企业专利信息，包括专利标题、申请号、法律状态等。适用于"企业专利查询""公司专利信息""专利检索""知识产权查询""… | china | ip | legal-research | zh-CN | undeclared |
-| 372 | `company-trademark` | 查询企业商标信息，包括商标图片、注册号、分类等。适用于"企业商标查询""公司商标信息""商标检索""知识产权查询""商标… | china | ip | legal-research | zh-CN | undeclared |
-| 373 | `compensation-compliance-auditor` | 薪酬合规审查：录入城市与薪酬数据，逐项比对社保、公积金、加班费等法规要求并分级输出整改方案。企业薪酬体检时使用。 | china | labor | contract-work | zh-CN | undeclared |
-| 374 | `competitor-patent-analysis` | 输入竞争对手完整企业名称，自动对接佰腾网专利数据库获取对手近期已授权、公开待审、实用新型、外观设计全量公开专利，自动划分… | china | ip | legal-analysis | zh-CN | mit |
-| 375 | `complaint-breach-of-contract` | Drafts a U.S. plaintiff-side breach of contract complaint wi… | us | contract-law | contract-work | en | apache-2.0 |
-| 376 | `complaint-draft` | Generate civil complaint document frameworks based on case f… | china | litigation | contract-work | zh-CN | undeclared |
-| 377 | `complaint-drafter` | 要素式起诉状生成技能。将用户提供的文字、图片（起诉状照片/扫描件/截图）或已转写语音材料，判定案由是否属于最高人民法院6… | china | litigation | contract-work | zh-CN | undeclared |
-| 378 | `complaint-drafting` | 从聊天记录中提取案情要素和证据材料，生成规范的民事起诉状；当用户需要制作起诉状、梳理诉讼材料、整理案件事实时使用 | china | litigation | contract-work | zh-CN | undeclared |
-| 379 | `complaint-for-copyright-infringement` | Drafts a federal court complaint for copyright infringement … | us | litigation | litigation | en | apache-2.0 |
-| 380 | `complaint-for-negligence` | Drafts a court-ready Complaint for Negligence establishing d… | us | litigation | legal-analysis | en | apache-2.0 |
-| 381 | `complaint-for-trespass-and-nuisance` | Drafts a U.S. civil complaint asserting trespass and private… | us | litigation | litigation | en | apache-2.0 |
-| 382 | `compliance-anthropic` | 导航隐私法规（GDPR、CCPA）、审查 DPA，并处理数据主体请求。在审查数据处理协议、回应数据主体访问或删除请求、评… | eu/us/br | data-privacy | compliance | zh-CN | apache-2.0 |
-| 383 | `compliance-archive-claw` | 合规制度归档虾 — 企业法律文件、规章制度的数字档案管理。用于归档新制度文件、更新版本、标记废止、全文检索、导出文件清单… | china | contract-law | legal-research | zh-CN | undeclared |
-| 384 | `compliance-audit-assistant` | Security and compliance auditing tool for AI agents. Scans c… | eu/us | data-privacy | legal-analysis | en | undeclared |
-| 385 | `compliance-audit-pro` | 面向法律/财务/采购场景的合规审计引擎，自动提取风险条款、映射法规基线、生成审计底稿与澄清模板 | china/eu | contract-law | compliance | zh-CN | mit |
-| 386 | `compliance-auditor` | You are an enterprise compliance and regulatory specialist u… | eu/us | data-privacy | legal-analysis | en | undeclared |
-| 387 | `compliance-certification-plan-generator` | 生成消费电子/IoT/工业产品的合规认证计划报告。当用户提到「合规认证计划」、「认证路线图」、「合规预算」、「产品认证报… | eu | general | legal-analysis | zh-CN | undeclared |
-| 388 | `compliance-check` | Run a compliance check on a proposed action, product feature… | eu/us/uk/br | data-privacy | legal-analysis | en | undeclared |
-| 389 | `compliance-checker-blueprint` | 对一个或多个法规框架进行深度合规审查，识别差距，产出有据可依的整改措施和认证准备指导。 | eu/us | data-privacy | compliance | zh-CN | mit |
-| 390 | `compliance-checker-zx` | 提供10个包含真实算法实现的合规检查工具，覆盖倒排索引+TF-IDF法规检索、多因子风险评估模型、K-匿名/L-多样性/… | china | contract-law | legal-research | zh-CN | undeclared |
-| 391 | `compliance-checklist` | Generate a prioritised compliance checklist for GDPR, SOC 2,… | eu/us/uk | general | legal-analysis | en | undeclared |
-| 392 | `compliance-checklist-gen` | Generates industry-specific and region-specific compliance c… | us | environmental | legal-analysis | en | undeclared |
-| 393 | `compliance-checklist-generation` | 为 SOC2、HIPAA、PCI-DSS 和 GDPR 生成合规检查清单，含差距分析与整改优先级。 | us/eu | general | compliance | zh-CN | mit |
-| 394 | `compliance-checklist-generation-action-list` | 为SOC2、HIPAA、PCI-DSS和GDPR等主要合规框架生成结构化检查清单，映射控制项与要求，评估准备度并输出优先… | us/eu | general | compliance | zh-CN | mit |
-| 395 | `compliance-evidence-assembler` | 把审计所需证据整理成目录、清单和缺失项，便于后续评审。；use for compliance, evidence, au… | china | environmental | compliance | zh-CN | undeclared |
-| 396 | `compliance-gap-analysis` | Use when a compliance officer, security analyst, or auditor … | us/eu | general | legal-analysis | en | undeclared |
-| 397 | `compliance-guardian` | FinCEN 住宅地产申报助手：判定交易是否触发申报、收集申报字段并跟踪期限。美国地产经纪与过户人员处理实体购房交易时使… | us | environmental | legal-analysis | en | undeclared |
-| 398 | `compliance-hardened` | Navigate privacy regulations (GDPR, CCPA), review DPAs, and … | eu/us/international | contract-law | contract-work | en | undeclared |
-| 399 | `compliance-monitor` | Regulatory change tracking, filing deadline management, audi… | us | securities | legal-analysis | en | undeclared |
-| 400 | `compliance-officer` | Reviews marketing content against FTC, HIPAA, GDPR, SEC 482,… | eu/us | investment-ma | contract-work | en | apache-2.0 |
-| 401 | `compliance-os` | compliance-os专用技能，帮助AI Agent高效完成相关任务。 | eu | contract-law | contract-work | en | mit |
-| 402 | `compliance-policy-revision` | 用于根据法规变化、审计发现、监管意见、业务变化或差距分析结果修订公司制度、流程、指引、模板条款和内部操作规范；当用户需要… | china | general | compliance | zh-CN | undeclared |
-| 403 | `compliance-posture-intake` | Comprehensive HIPAA compliance posture assessment for agent … | us | general | legal-analysis | en | apache-2.0 |
-| 404 | `compliance-qa` | RAG-enhanced compliance Q&A with regulatory interpretation g… | general | general | legal-analysis | en | apache-2.0 |
-| 405 | `compliance-readiness` | AI Compliance Readiness Assessment — evaluate how prepared a… | eu/us | ai-tech-law | legal-analysis | en | undeclared |
-| 406 | `compliance-scan` | 代码与数据合规扫描技能。扫描代码仓库或数据处理流程， 自动检测 GDPR、CCPA、SOC 2、HIPAA、PCI-DS… | eu/us/multi | data-privacy | compliance | zh-CN | proprietary |
-| 407 | `compliance-sentinel-claw` | 合规哨兵监控虾。监控合作方（供应商/客户）的工商异动、法律诉讼、失信记录等合规风险，7×24 小时守望预警。 触发场景：… | china | general | doc-reading | zh-CN | undeclared |
-| 408 | `compliance-summaries` | Generates structured compliance summaries assessing regulato… | eu/us | data-privacy | doc-reading | en | apache-2.0 |
-| 409 | `complianceclaw` | Regulations change 4,000+ times per year. Your clients can't… | us | environmental | legal-analysis | en | undeclared |
-| 410 | `complianceradar-ai-monitor` | Monitor regulatory changes across SEC, FDA, FINRA, and GDPR … | us/eu | banking-finance | legal-analysis | en | undeclared |
-| 411 | `conference-summary` | Produces structured legal conference summaries capturing ses… | general | general | doc-reading | en | apache-2.0 |
-| 412 | `confidentiality-agreement` | Drafts corporate NDAs and confidentiality agreements for M&A… | general | corporate | legal-analysis | en | apache-2.0 |
-| 413 | `confidentiality-compliance` | 保密合规知识专家。提供保密法律法规、保密管理制度、保密技术防护、 涉密人员管理、涉密载体管理、保密检查与风险评估等方面的… | china | data-privacy | compliance | zh-CN | undeclared |
-| 414 | `confidentiality-invention-assignment` | Drafts U.S. Confidentiality and Invention Assignment Agreeme… | us | contract-law | contract-work | en | apache-2.0 |
-| 415 | `confidentiality-nda` | Drafts enforceable confidentiality and non-disclosure agreem… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 416 | `confidentiality-security-agreement` | Drafts enforceable U.S. Employee Confidentiality and Securit… | us | contract-law | contract-work | en | apache-2.0 |
-| 417 | `confidentiality-severance-agreement` | Drafts U.S. employment confidentiality and severance agreeme… | us | general | contract-work | en | apache-2.0 |
-| 418 | `conflict-of-interest-policy` | Drafts U.S. corporate and nonprofit conflict-of-interest pol… | us | corporate | contract-work | en | apache-2.0 |
-| 419 | `congressional-testimony-preparation` | Prepares witnesses for U.S. congressional hearings with comm… | us | general | legal-analysis | en | apache-2.0 |
-| 420 | `consent-decree-epa` | Drafts EPA Consent Decrees resolving federal environmental e… | us | contract-law | contract-work | en | apache-2.0 |
-| 421 | `consent-judgment` | Drafts enforceable consent judgments with injunctive relief … | us | litigation | contract-work | en | apache-2.0 |
-| 422 | `consent-letter` | Drafts enforceable third-party consent letters for transacti… | us | contract-law | contract-work | en | apache-2.0 |
-| 423 | `consent-to-sublease` | Drafts a Landlord's Consent to Sublease for commercial leasi… | general | general | contract-work | en | apache-2.0 |
-| 424 | `conservation-easement` | Drafts recordable conservation easement documents that perma… | general | contract-law | contract-work | en | apache-2.0 |
-| 425 | `construction-case-summary` | Produces structured U.S. construction law case summaries wit… | us | contract-law | doc-reading | en | apache-2.0 |
-| 426 | `construction-contract-review` | "施工合同审查技能。当用户上传施工合同/EPC合同文件（PDF/DOCX），或要求审查合同、合同审核、 | china | construction | contract-work | zh-CN | undeclared |
-| 427 | `construction-defect-complaint` | Drafts U.S. construction defect complaints against contracto… | us | litigation | contract-work | en | apache-2.0 |
-| 428 | `construction-project-dispute-q-a-plus` | 建设工程施工合同纠纷综合法律咨询助手。回答结构固定为：一、归纳性回答；二、详细分析（含（一）《建工解释（二）》、（二）《… | china | construction | legal-research | zh-CN | declared-only |
-| 429 | `consulting-services-agreement` | Drafts a U.S. Consulting Services Agreement covering scope, … | us | contract-law | contract-work | en | apache-2.0 |
-| 430 | `consumer-breach-notice-letter` | Drafts U.S. consumer-facing data breach notification letters… | us | general | legal-analysis | en | apache-2.0 |
-| 431 | `consumer-loan-agreement` | Drafts a TILA-compliant U.S. consumer loan agreement with Re… | us | contract-law | contract-work | en | apache-2.0 |
-| 432 | `consumer-loan-tila` | Drafts TILA-compliant consumer loan agreements with Regulati… | us | contract-law | contract-work | en | apache-2.0 |
-| 433 | `contingency-removal` | Drafts residential real estate contingency removal forms tha… | general | general | legal-analysis | en | apache-2.0 |
-| 434 | `continuous-improvement-engine-scott-margetts` | 捕获、结构化并循环利用进行中和已结束法律事务的经验教训。三种模式：进行中捕获（由范围变更、风险事件、状态更新触发——价值… | china | general | contract-work | zh-CN | apache-2.0 |
-| 435 | `contract` | Write contracts from scratch with guided intake, multi-party… | general | contract-law | contract-work | en | undeclared |
-| 436 | `contract-abstracts` | Generates structured contract abstracts distilling key terms… | general | contract-law | contract-work | en | apache-2.0 |
-| 437 | `contract-analysis` | 用于审查合同、协议、订单条款、补充协议、SaaS 协议、采购协议、服务协议、许可协议、合作协议等法律和商业文件；当用户需… | international | tax | contract-work | zh-CN | undeclared |
-| 438 | `contract-analysis-agl` | Analyzes contracts to identify key terms, obligations, risks… | general | contract-law | contract-work | en | apache-2.0 |
-| 439 | `contract-analyzer` | Analyze and review contract documents. Use when extracting k… | general | contract-law | doc-reading | en | undeclared |
-| 440 | `contract-analyzer-afrexai` | Analyzes contracts and agreements for risks, unusual terms, … | general | contract-law | legal-analysis | en | undeclared |
-| 441 | `contract-audit-stream` | 使用合同审核流式接口（SSE）批量审核合同（链接或文件上传），甲/乙方视角可选，需携带 api_key；部署域名 htt… | china | contract-law | contract-work | zh-CN | undeclared |
-| 442 | `contract-auditor` | 合同审计 Skill - AI 辅助审查合同条款，识别风险和问题 功能： - 自动提取合同文本（Word 格式） - 审… | china | contract-law | doc-reading | zh-CN | undeclared |
-| 443 | `contract-checklist-pro` | 收到合同不敢乱签？输入合同类型和用途，我帮你生成结构化审查清单：主体、标的、价款、交付、违约、保密、争议解决等关键条款逐… | international | contract-law | contract-work | zh-CN | proprietary |
-| 444 | `contract-clause-extractor` | Extract & classify key clauses from contract PDFs into a str… | china | contract-law | doc-reading | zh-CN | mit-0 |
-| 445 | `contract-cleaner` | 清洗合同、整理合同格式、统一合同术语、规范合同条款。当用户需要 整理、格式化、统一术语、清洗合同文本时使用。 触发词：清… | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 446 | `contract-compare` | 合同智能比对：逐条对比多版合同的增删改差异，生成结构化差异报告与风险提示。审阅合同修订稿、谈判版本对比时使用。 | china | contract-law | doc-reading | zh-CN | undeclared |
-| 447 | `contract-copilot` | 合同起草与审查助手。基于分层分析与四步流程，输出可执行的风险清单、起草骨架、修改建议、推荐措辞和审查意见书，支持批注与修… | china | contract-law | contract-work | zh-CN | cc-by-nc |
-| 448 | `contract-desensitization` | 合同脱敏智能体工作流。当用户需要对合同、协议等法律文件进行敏感信息脱敏处理（去除公司名、人员信息、金额、账户等），生成可… | international | contract-law | contract-work | zh-CN | undeclared |
-| 449 | `contract-diff` | Compare contract templates with scanned stamped contracts, l… | china | contract-law | contract-work | zh-CN | undeclared |
-| 450 | `contract-dispute-analysis` | Produces a structured contract dispute analysis for U.S. com… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 451 | `contract-dispute-report` | Generates a structured litigation analysis report for US com… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 452 | `contract-gen` | 合同生成技能，以资深法律专家身份生成完整合同。适用场景：(1) 用户要求'起草合同''生成合同''拟定协议''写合同''… | china | contract-law | contract-work | zh-CN | undeclared |
-| 453 | `contract-generator` | Generate professional freelance contracts, SOWs, and NDAs fo… | general | contract-law | contract-work | en | undeclared |
-| 454 | `contract-guardian` | 合同卫士 — AI合同审查助手，识别风险条款、提取关键信息、追踪到期日 | china | contract-law | doc-reading | zh-CN | undeclared |
-| 455 | `contract-helper` | Use when the user asks to "draft an influencer contract", "r… | us | contract-law | contract-work | zh-CN | apache-2.0 |
-| 456 | `contract-intelligence-cn` | Review and redline Chinese contracts with verification. | china | contract-law | contract-work | zh-CN | cc-by-nc |
-| 457 | `contract-intelligence-workflow-reviewer-carl-ditzler` | 适用于 Claude 和 Codex 的合同情报与合同运营工作流技能。引导完整的合同生命周期审查流程，从受理和剧本标准化… | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 458 | `contract-ledger-pro` | 合同台账管理：上传合同 PDF 自动提取关键字段建档，到期提醒并飞书推送。需要集中管理合同与期限提醒时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 459 | `contract-modify-plus` | 合同修改技能（AI修订模式 Plus）。融合四套方法论——（1）《合同起草审查指南：三观四步法（第五版）》宏观—中观—微… | china | contract-law | contract-work | zh-CN | cc-by-nc |
-| 460 | `contract-obligation-risk-manager` | 当企业需要把已签或待审合同中的义务主体、义务内容、触发条件、关键日期、通知要求、履约证据、变更记录和偏差风险整理成可追踪… | china | contract-law | doc-reading | zh-CN | undeclared |
-| 461 | `contract-playbook-review` | Reviews contracts clause-by-clause against a defined negotia… | general | contract-law | contract-work | en | apache-2.0 |
-| 462 | `contract-portfolio-intelligence` | Analyzes an entire portfolio of contracts at scale — extract… | general | contract-law | doc-reading | en | apache-2.0 |
-| 463 | `contract-redline-navigator` | Compare draft agreements, highlight risky clause changes, an… | general | contract-law | contract-work | en | undeclared |
-| 464 | `contract-renewal-agent` | Manage and track contract renewals. Track expiration dates, … | general | contract-law | contract-work | en | undeclared |
-| 465 | `contract-renewal-brief` | 把合同到期前的线索整理成续约决策一页：现状摘要、选项对比（续/改/停）、关键风险、建议与待确认。 不发起电子签，不做律师… | china | contract-law | contract-work | zh-CN | mit |
-| 466 | `contract-renewal-expiration-manager` | 供应商合同续约管理：建立续约日历与 90/60/30 天预警，输出续约决策与重谈准备包。防止错过续约与自动展期陷阱时使用… | general | contract-law | contract-work | en | undeclared |
-| 467 | `contract-review` | Legal contract analysis using CUAD dataset (41 risk categori… | general | contract-law | contract-work | en | mit |
-| 468 | `contract-review-2` | 通用商务合同审核与风险检测技能。安装后必须先引导用户完成企业商业底线配置，之后才能审核合同。支持PDF/Word/文本格… | china | contract-law | contract-work | zh-CN | undeclared |
-| 469 | `contract-review-3` | 合同智囊：合同审核、合同审查、合同修改、合同修订、合同风险识别、 合同模板对比、合同条款补充、合同起草、合同起草修改、 … | china | contract-law | contract-work | zh-CN | mit-0 |
-| 470 | `contract-review-agent` | Contract clause analysis, risk flagging, renewal tracking, a… | general | contract-law | contract-work | en | undeclared |
-| 471 | `contract-review-anthropic` | 对照贵组织的谈判手册审查合同，标记偏离之处并生成修订建议。当审查供应商合同、客户协议或任何需要对照标准立场进行逐条分析的… | eu/international | contract-law | contract-work | zh-CN | apache-2.0 |
-| 472 | `contract-review-assistant` | 合同审查辅助：条款提取、风险识别、版本比对与审查意见生成，内置民法典等法律知识库。审查买卖、租赁、服务合同时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 473 | `contract-review-assistant-contract` | 合同检查智能小助手。当用户需要审查、检查、审阅、分析合同（买卖/服务/合作/租赁/保密/劳动/借款/技术IP 等任意类型… | china | contract-law | contract-work | zh-CN | mit |
-| 474 | `contract-review-assistant-htsczs` | 专业的合同审查智能助手，帮助法务和业务人员快速审查合同风险。 支持上传合同 PDF/Word 文档， AI 自动识别关键… | china | contract-law | contract-work | zh-CN | undeclared |
-| 475 | `contract-review-assistant-tech` | 通用合同审核技能。当用户上传或指定一份合同文件（.docx/.doc），要求进行合同评审、 合同审查、合同风险评估、合同… | china | contract-law | contract-work | zh-CN | undeclared |
-| 476 | `contract-review-check` | 对合同文本进行风险点审查：违约责任、付款条款、保密条款、知识产权归属，输出审查意见清单 | china | contract-law | contract-work | zh-CN | mit |
-| 477 | `contract-review-cn` | 中文合同审查：识别法律风险、给出修订建议并生成原文/修改/理由三栏对照表。审查中文商业合同、定位风险条款时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 478 | `contract-review-contract` | AI合同智能审查助手。上传或粘贴合同文本，自动进行9维雷达评分、风险热力图可视化、条款对比修改建议、法律依据引用、谈判策… | china | contract-law | contract-work | zh-CN | undeclared |
-| 479 | `contract-review-jicheng` | Contract review skill that adds comment-based issue annotati… | general | general | doc-reading | en | undeclared |
-| 480 | `contract-review-openclaw` | 公开发布的合同审核 Skill，通过统一工具入口触发 OpenClaw Contract Review Plugin。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 481 | `contract-review-pan` | Contract review skill that adds comment-based issue annotati… | general | general | contract-work | en | apache-2.0 |
-| 482 | `contract-review-pro-contract` | Chinese contract risk intelligence — scan, annotate, and exp… | china | contract-law | contract-work | zh-CN | undeclared |
-| 483 | `contract-review-professional` | 专业法律合同审查，7步全流程自动化：商业目的穿透、10模块风险扫描、双报告输出、修改文件生成 | china | contract-law | contract-work | zh-CN | undeclared |
-| 484 | `contract-review-report` | 系统分析合同条款，识别责任暴露、赔偿陷阱、不利终止条款、知识产权转让过度和竞业限制等风险，输出含严重度评级的风险报告。 | china | contract-law | contract-work | zh-CN | mit |
-| 485 | `contract-review-revise` | 合同审查与修订系统：AI 风险扫描加专业复审，确认后直接改写 Word 并生成修订对照表。需要边审边改合同 docx 时… | general | contract-law | contract-work | en | undeclared |
-| 486 | `contract-review-skill` | 合同审查 CLI 工具（OpenClaw 技能链封装）：传入合同文件路径，按行业维度输出 JSON 或文本格式的审查结果… | general | general | contract-work | en | undeclared |
-| 487 | `contract-review-tips` | 接收合同文本，按非专业人士视角标注常见风险点（权责/付款/违约/保密/终止）与需关注的条款，提示咨询专业人士。当用户说“… | china | contract-law | contract-work | zh-CN | mit |
-| 488 | `contract-review-uk` | Review contracts for risks, unfair terms, and missing clause… | general | contract-law | doc-reading | en | undeclared |
-| 489 | `contract-review-workbuddy` | 对中文合同进行智能风险审查，识别条款风险、提取关键信息、生成审查报告，覆盖买卖/技术/租赁/劳动等常见合同类型。 | international | contract-law | contract-work | zh-CN | undeclared |
-| 490 | `contract-reviewer` | Review business contracts for risks, missing clauses, unfavo… | general | contract-law | contract-work | en | undeclared |
-| 491 | `contract-reviewer-dongjie` | 合同要点提取：识别终止、责任、保密、付款等关键条款，输出风险等级与谈判建议。快速审查英文合同文本时使用。 | general | contract-law | contract-work | en | undeclared |
-| 492 | `contract-reviewer-wudi` | 中文合同审核 Skill - 支持修订痕迹、批注气泡、清洁版生成与多轮迭代管理。覆盖41种合同类型、350+关键条款、2… | china | contract-law | contract-work | zh-CN | gpl-3.0 |
-| 493 | `contract-reviewer-zh` | 专业合同审查与风险评估工具，适用于采购、法务、运营等团队的日常合同管理场景。 自动提取合同关键条款，包括付款周期、违约责… | china | contract-law | contract-work | zh-CN | undeclared |
-| 494 | `contract-revieww` | 专业合同审查全流程 Skills，适用于律师、法务人员对合同文件进行系统性审查。 当用户上传合同文件、提到"合同审查"、… | china | contract-law | contract-work | zh-CN | undeclared |
-| 495 | `contract-risk-analyzer` | Contract Risk Analyzer — Upload contract PDF, AI auto-extrac… | general | contract-law | doc-reading | en | undeclared |
-| 496 | `contract-risk-analyzer-sneha-ganapavarapu` | 对合同在五类关键条款（责任限制、赔偿、知识产权所有权、数据保护、终止）上的风险进行分析。为没有法律背景的创始人而建。标记… | china | contract-law | contract-work | zh-CN | cc-by-4.0 |
-| 497 | `contract-risk-check` | 上传或粘贴合同条款，自动识别风险条款、缺失项、模糊表述，给出修改建议与谈判策略。触发词：合同审查、风险条款、合同漏洞、法… | china | contract-law | contract-work | zh-CN | undeclared |
-| 498 | `contract-risk-helper` | Contract risk helper. Input Chinese or English contract text… | china | contract-law | contract-work | zh-CN | undeclared |
-| 499 | `contract-risk-helper-yjkj` | Contract Risk Helper — scan contracts for common risk clause… | china | contract-law | contract-work | zh-CN | undeclared |
-| 500 | `contract-risk-review` | 专业合同风险审查专家。对用户上传或粘贴的任何合同进行全方位法律风险审查，生成结构化风险报告与可落地修改建议。触发词：合同… | china | contract-law | contract-work | zh-CN | undeclared |
-| 501 | `contract-risk-review-claw` | 合同风险审查虾 — 深度识别合同风险条款，给出修订建议，守住法律红线。 **当以下情况时使用此 Skill**： (1)… | china | contract-law | contract-work | zh-CN | undeclared |
-| 502 | `contract-risk-reviewer` | 专业级合同风险审查工具，自动识别 20+ 类常见风险条款，给出修改建议和法律依据 | china | contract-law | contract-work | zh-CN | undeclared |
-| 503 | `contract-risk-scan` | Redirect: contract-risk-scan has been merged into contract-r… | china | contract-law | contract-work | zh-CN | undeclared |
-| 504 | `contract-risk-scan-yjkj` | Scan contracts for common risk clauses and potential issues.… | china | contract-law | contract-work | zh-CN | undeclared |
-| 505 | `contract-risk-scanner` | 合同风险审查助手。逐条审查合同文本，标记高风险条款、缺失条款和不利表述，输出风险等级和修改建议。当用户说"帮我看看这份合… | international | contract-law | contract-work | zh-CN | undeclared |
-| 506 | `contract-summarization` | Generates structured summaries of U.S. contracts capturing p… | us | contract-law | doc-reading | en | apache-2.0 |
-| 507 | `contract-terms-cn` | 把常见合同条款拆成通俗解释、风险点和需要咨询律师的问题清单。 核心模块：条款解释、风险点、谈判问题、红旗清单、律师问题。… | china | contract-law | contract-work | zh-CN | mit |
-| 508 | `contract-tracker-pro` | 合同履约追踪：从合同 PDF 提取付款节点、交期与到期日，建台账并飞书提醒逾期。跟踪合同履行节点、避免遗漏付款期时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 509 | `contract-version-diff` | 对比两个版本的合同或协议文本，生成逐条新增、删除、修改清单和原始差异文件，并重点标记付款、违约责任、赔偿、终止、知识产权… | china | contract-law | contract-work | zh-CN | undeclared |
-| 510 | `contracts` | Organize, track, and analyze contracts with renewal alerts, … | general | contract-law | contract-work | en | undeclared |
-| 511 | `convertible-note-purchase-agreement` | Drafts a company-side Convertible Note Purchase Agreement fo… | us | general | legal-analysis | en | apache-2.0 |
-| 512 | `cookie-consent-policy` | Drafts publication-ready cookie policies, banner copy, and c… | eu/us | data-privacy | contract-work | en | apache-2.0 |
-| 513 | `cookie-policy-malik-taiar` | 起草符合 GDPR 和 ePrivacy 指令的 Cookie 政策的指南。包含 CNIL 2020 建议、参考模板和最… | fr/eu | data-privacy | compliance | zh-CN | agpl-3.0 |
-| 514 | `copyright-license-agreement` | Drafts a U.S. Copyright License Agreement for media content … | us | ip | contract-work | en | apache-2.0 |
-| 515 | `copyright-license-agreement-media` | Drafts a Copyright License Agreement for media content betwe… | us | ip | contract-work | en | apache-2.0 |
-| 516 | `corporate` | Advises on corporate law matters including entity formation,… | us | corporate | legal-analysis | en | apache-2.0 |
-| 517 | `corporate-bylaws` | Drafts complete U.S. corporate bylaws harmonized with Articl… | us | corporate | contract-work | en | apache-2.0 |
-| 518 | `corporate-compliance-checklist` | Drafts a U.S. corporate compliance program checklist anchore… | us | general | contract-work | en | apache-2.0 |
-| 519 | `corporate-lawyer` | AI-powered legal assistant for commercial transactions - pro… | general | contract-law | contract-work | en | undeclared |
-| 520 | `corporate-legal` | 本技能是一个综合技能套件，包含多个子技能。接到用户请求后，按以下流程执行。 | china | litigation | legal-research | zh-CN | undeclared |
-| 521 | `corporate-legal-advisor` | Use when users need legal consultation, contract review, cor… | china | corporate | contract-work | zh-CN | mit |
-| 522 | `corporate-resolution-bank-account` | Drafts a board resolution authorizing the opening and manage… | us | corporate | contract-work | en | apache-2.0 |
-| 523 | `corrective-action-plan` | Drafts healthcare Corrective Action Plans (CAPs) responding … | general | general | contract-work | en | apache-2.0 |
-| 524 | `corrective-action-plan-deficiencies` | Drafts a regulator-ready Corrective Action Plan (CAP) for U.… | us | general | legal-writing | en | apache-2.0 |
-| 525 | `cosmetics-compliance-manager` | 化妆品合规管理技能。当用户要求查询化妆品法规、备案要求、注册流程、合规检查、原料目录、标签规范、安全评估、监管动态、国际… | china | general | compliance | zh-CN | undeclared |
-| 526 | `counterclaim-crossclaim` | Drafts court-ready counterclaims and crossclaims for commerc… | us | litigation | contract-work | en | apache-2.0 |
-| 527 | `court-document-downloader` | 从人民法院电子送达平台(zxfw.court.gov.cn)下载传票/判决书等文书PDF，自动归档到本地案件文件夹，解析… | china | general | legal-analysis | zh-CN | undeclared |
-| 528 | `court-document-formatting` | Builds a filing-ready formatting blueprint for U.S. litigati… | us | litigation | legal-analysis | en | apache-2.0 |
-| 529 | `court-formatting` | Standardizes U.S. court-filing formatting for pleadings, mot… | us | litigation | legal-analysis | en | apache-2.0 |
-| 530 | `court-order-summaries` | Generates structured summaries of court orders and decisions… | us | general | legal-analysis | en | apache-2.0 |
-| 531 | `court-prep` | Court Preparation Tool. Use when you need court prep capabil… | china | litigation | litigation | zh-CN | undeclared |
-| 532 | `court-records-case-law-litigation` | Court records, case law & litigation search for AI agents — … | general | general | litigation | en | mit |
-| 533 | `court-sms` | 本技能应在用户收到法院短信（文书送达、立案通知、开庭提醒等）时使用，自动提取案号、当事人、下载链接，下载文书并归档到对应… | china | litigation | litigation | zh-CN | mit |
-| 534 | `coverage-opinion` | Drafts structured insurance coverage opinions analyzing duty… | us | litigation | legal-analysis | en | apache-2.0 |
-| 535 | `cpa-quiz-m04-law` | 注册会计师CPA刷题库·模块：经济法——按章节生成CPA《经济法》科目练习题，覆盖法律基础、公司/证券/合同/破产/票据… | china | corporate | legal-analysis | zh-CN | mit |
-| 536 | `cpom-compliance` | Drafts Corporate Practice of Medicine (CPOM) compliance stru… | general | contract-law | contract-work | en | apache-2.0 |
-| 537 | `cpr-letter-drafter-andrew-bird` | 起草您在英格兰与威尔士民事诉讼中起诉某人之前发出的正式信函——启动诉前时钟的《索赔前函》。它做对的部分是确定适用哪个诉前… | china | litigation | contract-work | zh-CN | mit |
-| 538 | `cps-rca-central-african-republic-jeanne-sulzer` | 面向中非共和国特别刑事法院（混合法院，坐落在班吉）的「验证优先」方法论。每项引用均须核实（JusticeInfo、FID… | international | litigation | litigation | zh-CN | cc-by-4.0 |
-| 539 | `cra-vulnerability-obligations` | 当用户询问欧盟《网络弹性法案》（CRA）对其产品意味着什么、他们是否以及何时必须 报告漏洞或事件，或特定 CVE 在法律… | eu | general | legal-research | zh-CN | cc-by-4.0 |
-| 540 | `creditor-dissolution-notice` | Drafts jurisdiction-compliant Notice to Creditors of Dissolu… | general | corporate | legal-analysis | en | apache-2.0 |
-| 541 | `criminal-case-summary` | Produces structured U.S. criminal case summaries covering ch… | us | litigation | doc-reading | en | apache-2.0 |
-| 542 | `criminal-defense-mindset` | name: criminal-defense-strategy display_name: Z律-刑事辩护策略_V7.0… | china | criminal | litigation | zh-CN | undeclared |
-| 543 | `criminal-defense-workflow` | 顶级刑事律师全流程辩护技能。覆盖刑事案件辩护的完整生命周期：会见接待、强制措施变更、阅卷分析、 证据质证、庭前会议、庭审… | china | criminal | litigation | zh-CN | undeclared |
-| 544 | `criminal-sentencing-prediction` | 专业刑事量刑预测与辩护策略 Skill，适用于律师、法务人员对刑事案件进行量刑预测、缓刑评估、辩护策略分析和风险评估。触… | china | criminal | litigation | zh-CN | undeclared |
-| 545 | `criminal-summary` | Generates structured U.S. criminal case summaries from docke… | us | litigation | legal-analysis | en | apache-2.0 |
-| 546 | `cross-border-service-tax` | 办理中国跨境服务贸易涉税业务,完成尽职调查、税收协定待遇审查、代扣代缴税款计算与纳税申报/备案。Use whenever… | international | tax | contract-work | zh-CN | undeclared |
-| 547 | `cross-exam-summary` | Generates a structured cross-examination summary from deposi… | general | contract-law | doc-reading | en | apache-2.0 |
-| 548 | `cross-examination-summaries` | Generates thematic cross-examination summaries from depositi… | general | litigation | doc-reading | en | apache-2.0 |
-| 549 | `cross-regulatory-impact-analyzer-patrick-munro` | 分析多个法规如何对特定产品、服务或商业模式产生交互。识别义务在何处重叠、强化、互补、重复或冲突；构建优先级矩阵；生成整合… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 550 | `csrd` | CSRD（《企业可持续发展报告指令》，欧盟 2022/2464）合规顾问专家。当用户询问 CSRD、《欧洲可持续发展报告… | eu | banking-finance | compliance | zh-CN | mit |
-| 551 | `ctpat-security-profile` | Drafts a submission-ready C-TPAT Security Profile from verif… | us | general | contract-work | en | apache-2.0 |
-| 552 | `cue-corporate-credit` | 帮银行对公客户经理/风控岗在贷前快速搞定企业公开信息预尽调，几分钟产出能直接上授信审批会的底稿。 直接调用 Cue 后端… | china | corporate | due-diligence | zh-CN | mit |
-| 553 | `cue-credit-diligence` | 【金融AI调研】用Cue跑企业信用尽调深度研究。覆盖工商全景、司法风险、失信被执行、股权穿透、对外担保圈排查，多源公开数… | china | securities | legal-analysis | zh-CN | mit |
-| 554 | `cue-equity-incentive` | 用 Cue 查询和分析上市公司股权激励计划——基于市面上最全的股权激励数据库（2015年至今10年+历史覆盖），独家特有… | china | general | legal-analysis | zh-CN | undeclared |
-| 555 | `cue-legal-practice-cases` | 疑难法律实操案例库 — 围绕一个争议点检索公开裁判文书、监管问答与实务案例，归纳裁判要点、争议焦点与可落地的实操口径，给… | china | arbitration-adr | legal-research | zh-CN | mit |
-| 556 | `cue-legal-research` | 【金融AI调研】用Cue跑法律合规深度尽调。覆盖企业合规风险体检、关联方制裁暴露核查、境外诉讼案例检索、中外法律对比、监… | multi/china | intl-trade | legal-research | zh-CN | mit |
-| 557 | `cue-litigation-drafting` | 诉讼文书起草 — 把案件事实、当事人立场和上传的对方材料，起草成规范的诉讼文书草稿（答辩状 / 质证意见 / 律师函等）… | china | litigation | litigation | zh-CN | mit |
-| 558 | `cue-overseas-litigation` | 境外诉讼案例库 — 围绕一个主题检索主要法域的公开判例与监管公告，归纳诉因、判决倾向与对中国主体的合规启示。 Trigg… | multi | intl-trade | legal-research | zh-CN | mit |
-| 559 | `cultural-heritage-summary` | Produces structured, citation-ready summaries of legal devel… | international | general | doc-reading | en | apache-2.0 |
-| 560 | `custody-evaluation-summary` | Summarizes custody evaluation reports into a structured memo… | general | general | doc-reading | en | apache-2.0 |
-| 561 | `customs-ip-search` | 海关知识产权备案查询。通过 Chrome 浏览器自动化访问海关总署备案查询系统（http://202.127.48.14… | china | intl-trade | legal-analysis | zh-CN | undeclared |
-| 562 | `customs-power-of-attorney` | Drafts a U.S. Customs Power of Attorney authorizing a licens… | us | corporate | contract-work | en | apache-2.0 |
-| 563 | `customs-protest-form19` | Drafts CBP Form 19 protests under 19 U.S.C. § 1514 and 19 C.… | us | general | contract-work | en | apache-2.0 |
-| 564 | `customs-trade-compliance` | Codified expertise for customs documentation, tariff classif… | uk | general | legal-analysis | en | apache-2.0 |
-| 565 | `customs-trade-law-onur-kafkas` | 美国海关与贸易法研究助手，涵盖 HTS 归类、CROSS 裁决研究、CIT/CAFC 判决简报、关税汇编（普通 + 特别… | international | general | legal-analysis | zh-CN | agpl-3.0 |
-| 566 | `cyber-law-compliance-summary` | Produces structured cyber law compliance memoranda covering … | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
-| 567 | `cybersecurity-breach-summary` | Produces structured cybersecurity breach summary documents f… | eu/us | data-privacy | contract-work | en | apache-2.0 |
-| 568 | `damages-calculator` | Builds auditable personal injury damages calculations separa… | us | insurance | legal-analysis | en | apache-2.0 |
-| 569 | `data-act-ryan-malek` | 面向律师的欧盟数据法案（(EU) 2023/2854 号条例）技能。当用户询问数据法案分类、起草、查询、分析或审计时使用… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 570 | `data-breach-consumer-notice` | Drafts U.S. consumer data breach notification letters satisf… | us | general | contract-work | en | apache-2.0 |
-| 571 | `data-compliance-lookup` | 为产品、运营、开发整理个人信息保护、隐私协议、数据出境、第三方 SDK 等合规 checklist。 核心模块：数据分类… | china | data-privacy | compliance | zh-CN | mit |
-| 572 | `data-compliance-privacy-assistant` | 数据合规与个人信息保护全流程智能助手。覆盖数据合规现状评估、合规体系建设（制度文件编制）、数据安全等级保护、个人信息影响… | china/international | data-privacy | compliance | zh-CN | mit |
-| 573 | `data-contract-skill` | 多轮对话交互式填写国家数据局合同模板（支持4种合同类型），自动路由识别合同类型，生成清洁版 .docx 合同 | china | contract-law | contract-work | zh-CN | undeclared |
-| 574 | `data-intellectual-property-docs` | 协助用户完成数据知识产权申报全流程文档制作。当用户上传原始数据并申请数据知识产权登记时调用，自动完成数据预处理、数据分析… | china | general | legal-analysis | zh-CN | undeclared |
-| 575 | `data-processing-addendum` | Drafts a GDPR Article 28-compliant Data Processing Addendum … | eu | contract-law | contract-work | en | apache-2.0 |
-| 576 | `data-retention-and-destruction-policy` | Drafts a law firm Data Retention and Destruction Policy cove… | us | securities | legal-writing | en | apache-2.0 |
-| 577 | `dd-form-254` | Drafts DD Form 254 Contract Security Classification Specific… | us | contract-law | contract-work | en | apache-2.0 |
-| 578 | `decision-ownership-audit-ignacio-adrian-lerer` | 在依赖 AI 辅助的法律、合规、治理和机构决策之前对其进行审计，以确定负责任的人类或机构是否有足够的途径获取证据、推理依… | china | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 579 | `decision-record-verification` | Cross-references a judge's decision, court opinion, or final… | general | litigation | doc-reading | en | apache-2.0 |
-| 580 | `deed-in-lieu-of-foreclosure` | Drafts a Deed in Lieu of Foreclosure Agreement for U.S. real… | us | general | contract-work | en | apache-2.0 |
-| 581 | `deed-of-gift` | Drafts a recordable U.S. Deed of Gift for voluntary, no-cons… | us | contract-law | contract-work | en | apache-2.0 |
-| 582 | `deed-of-trust` | Drafts combined Deed of Trust and Security Agreement instrum… | general | general | legal-analysis | en | apache-2.0 |
-| 583 | `defense` | A comprehensive AI agent skill for anyone facing criminal ch… | general | tax | legal-analysis | en | undeclared |
-| 584 | `defense-draft` | Generate civil answer/defense document frameworks in respons… | china | litigation | contract-work | zh-CN | undeclared |
-| 585 | `defense-lawyer` | AI-powered criminal defense assistant for Chinese legal syst… | general | criminal | legal-analysis | en | undeclared |
-| 586 | `deficiency-corrective-action-plan` | Drafts U.S. healthcare corrective action plans (CAPs / plans… | us | general | contract-work | en | apache-2.0 |
-| 587 | `demand-letter` | Drafts litigation-ready U.S. pre-suit demand letters that fu… | us | general | contract-work | en | apache-2.0 |
-| 588 | `demand-package` | Compiles pre-suit or pre-settlement demand packages for U.S.… | us | general | contract-work | en | apache-2.0 |
-| 589 | `demand-package-compilation` | Compiles pre-suit and settlement demand packages for U.S. co… | us | general | contract-work | en | apache-2.0 |
-| 590 | `depo-outline-hr-manager` | Generates a strategically sequenced deposition outline for e… | us | litigation | contract-work | en | apache-2.0 |
-| 591 | `deponent-coaching` | Generates behavioral coaching materials for deposition witne… | us | litigation | legal-analysis | en | apache-2.0 |
-| 592 | `deposition-analysis` | Produces litigation-grade U.S. deposition summaries with exa… | us | litigation | doc-reading | en | apache-2.0 |
-| 593 | `deposition-apex-witness` | Guides strategy for apex witness depositions of C-suite exec… | us | litigation | legal-analysis | en | apache-2.0 |
-| 594 | `deposition-document-assembly` | Assembles and organizes documents for deposition preparation… | us | litigation | legal-analysis | en | apache-2.0 |
-| 595 | `deposition-employment-supplement` | Supplies claim-specific deposition frameworks for employment… | us | litigation | contract-work | en | apache-2.0 |
-| 596 | `deposition-errata-sheet` | Guides the FRCP 30(e) errata sheet process — submitting corr… | us | litigation | contract-work | en | apache-2.0 |
-| 597 | `deposition-impeachment-builder` | Drafts deposition-ready impeachment sequences using the Comm… | us | litigation | legal-analysis | en | apache-2.0 |
-| 598 | `deposition-ip` | Supplements general deposition preparation with IP-specific … | general | ip | legal-analysis | en | apache-2.0 |
-| 599 | `deposition-ip-supplement` | Provides IP-specific deposition examination frameworks for p… | general | ip | legal-analysis | en | apache-2.0 |
-| 600 | `deposition-notice` | Drafts U.S. deposition notices (party, non-party subpoena, R… | us | litigation | legal-analysis | en | apache-2.0 |
-| 601 | `deposition-notice-subpoena` | Drafts federal civil deposition notices (FRCP 30(b)(1), 30(b… | us | litigation | legal-analysis | en | apache-2.0 |
-| 602 | `deposition-objection-reference` | Provides a quick reference for deposition objections under F… | us | general | legal-analysis | en | apache-2.0 |
-| 603 | `deposition-objections` | Provides deposition objection reference under FRCP 30(c)(2) … | us | litigation | contract-work | en | apache-2.0 |
-| 604 | `deposition-outline-hr-manager` | Creates strategically organized deposition outlines for exam… | general | litigation | legal-analysis | en | apache-2.0 |
-| 605 | `deposition-preparation` | Produces a comprehensive deposition preparation package for … | us | litigation | legal-analysis | en | apache-2.0 |
-| 606 | `deposition-questioning-techniques` | Generates deposition question sequences using six core exami… | general | litigation | legal-analysis | en | apache-2.0 |
-| 607 | `deposition-subpoena-drafter` | Drafts U.S. federal deposition notices and subpoenas under F… | us | litigation | litigation | en | apache-2.0 |
-| 608 | `deposition-summarization` | Summarizes deposition transcripts with precise page:line cit… | general | general | legal-analysis | en | apache-2.0 |
-| 609 | `deposition-summary` | Generates topic-based deposition summaries for commercial li… | general | litigation | doc-reading | en | apache-2.0 |
-| 610 | `deposition-summary-exhibit-index` | Produces a topic-based U.S. deposition summary with page/lin… | us | litigation | doc-reading | en | apache-2.0 |
-| 611 | `deposition-summary-index` | Creates topic-based deposition summaries with exhibit-to-tra… | us | litigation | contract-work | en | apache-2.0 |
-| 612 | `deposition-summary-narrative` | Transforms deposition transcripts into topic-organized narra… | us | litigation | doc-reading | en | apache-2.0 |
-| 613 | `deposition-summary-page-line` | Generates page-line deposition summaries from U.S. litigatio… | us | litigation | doc-reading | en | apache-2.0 |
-| 614 | `deposition-transcript-analyzer` | Analyzes deposition transcripts to extract litigation work p… | general | litigation | doc-reading | en | apache-2.0 |
-| 615 | `depository-account-agreement` | Drafts a U.S. Depository Account Agreement governing the ins… | us | banking-finance | contract-work | en | apache-2.0 |
-| 616 | `development-agreement` | Drafts U.S. commercial real estate owner-developer agreement… | us | contract-law | contract-work | en | apache-2.0 |
-| 617 | `digital-media-law-summary` | Generates Bluebook-cited summaries of digital media law acro… | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
-| 618 | `dip-financing-motion` | Drafts U.S. bankruptcy DIP financing motions under 11 U.S.C.… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 619 | `directed-share-program` | Drafts a Directed Share Program (DSP) agreement governing sh… | us | securities | legal-analysis | en | apache-2.0 |
-| 620 | `director-indemnification` | Drafts indemnification agreements between corporations and d… | general | corporate | contract-work | en | apache-2.0 |
-| 621 | `director-indemnification-agreement` | Drafts U.S. director indemnification agreements maximizing p… | us | corporate | legal-analysis | en | apache-2.0 |
-| 622 | `director-officer-questionnaire` | Drafts Director and Officer (D&O) questionnaires for SEC dis… | us | corporate | legal-analysis | en | apache-2.0 |
-| 623 | `dischargeability-complaint` | Drafts a U.S. bankruptcy adversary complaint under 11 U.S.C.… | us | litigation | contract-work | en | apache-2.0 |
-| 624 | `disclosure-list-andrew-bird` | 确定在英格兰与威尔士的民事案件中必须向对方移交哪些文件，并构建正式清单。它正确处理的、最容易让人出错的部分是适用哪种披露… | eu | general | contract-work | zh-CN | mit |
-| 625 | `disclosure-schedules` | Drafts and populates M&A disclosure schedules that except kn… | general | contract-law | contract-work | en | apache-2.0 |
-| 626 | `disclosure-statement-plan-reorganization` | Drafts a Chapter 11 Disclosure Statement compliant with 11 U… | us | contract-law | contract-work | en | apache-2.0 |
-| 627 | `disclosure-strategy-mapper-larissa-meredith-flister` | 本技能从案件摘要、诉状、时间线或早期案件理论映射披露策略：将重要的文件类别、可能的保管人、不利材料、证据缺口、搜索主题，… | china | litigation | doc-reading | zh-CN | agpl-3.0 |
-| 628 | `discovery-and-bill-of-particulars` | Drafts a combined Demand for Discovery and Bill of Particula… | us | litigation | litigation | en | apache-2.0 |
-| 629 | `discovery-deficiency-tracker` | Builds and maintains a litigation-grade discovery deficiency… | us | litigation | legal-analysis | en | apache-2.0 |
-| 630 | `discovery-dispute-letter` | Drafts discovery dispute resolution letters documenting meet… | us | litigation | legal-writing | en | apache-2.0 |
-| 631 | `discovery-document-summaries` | Summarizes discovery documents (depositions, emails, contrac… | us | litigation | doc-reading | en | apache-2.0 |
-| 632 | `discovery-plan` | Drafts Joint Discovery Plans and Proposed Scheduling Orders … | us | litigation | litigation | en | apache-2.0 |
-| 633 | `discovery-response-summary` | Synthesizes interrogatories, RFPs, RFAs, deposition transcri… | us | litigation | legal-analysis | en | apache-2.0 |
-| 634 | `discovery-separate-statement` | Drafts a California-compliant discovery Separate Statement f… | us | litigation | contract-work | en | apache-2.0 |
-| 635 | `discovery-summarization` | Summarizes discovery documents (interrogatories, RFPs, RFAs,… | general | litigation | doc-reading | en | apache-2.0 |
-| 636 | `discovery-summary` | Generates structured, citeable summaries of discovery docume… | general | litigation | doc-reading | en | apache-2.0 |
-| 637 | `discovery-verification-audit` | Produces an attorney-grade audit memorandum assessing whethe… | us | litigation | legal-analysis | en | apache-2.0 |
-| 638 | `dissolution-petition` | Drafts a Petition for Dissolution of Marriage for filing in … | us | family | litigation | en | apache-2.0 |
-| 639 | `dissolution-report` | Drafts a Final Report of Dissolution for corporations, LLCs,… | general | corporate | legal-analysis | en | apache-2.0 |
-| 640 | `distribution-of-assets-plan` | Drafts a corporate Distribution of Assets Plan for dissoluti… | general | corporate | contract-work | en | apache-2.0 |
-| 641 | `diting-labor-law-expert` | 谛听劳动法规专家。专注中国劳动法合规与用工风险管理。Use when 劳动法咨询、用工风险评估、员工辞退、劳动仲裁应对、… | china | labor | legal-research | zh-CN | undeclared |
-| 642 | `dividend-declaration-resolution` | Drafts a board of directors resolution authorizing a cash, s… | us | corporate | contract-work | en | apache-2.0 |
-| 643 | `divorce-asset-calculator` | 输入房产、存款、股权、债务、结婚年限和各自出资，自动生成结构化的离婚财产分割明细与谈判要点，离婚谈判前帮你理清能分多少、… | china | family | calculation | zh-CN | undeclared |
-| 644 | `divorce-ct-stephane-boghossian` | Claude 技能，将 Claude 变成康涅狄格州专属离婚规划器——从预检信息收集到判决后修改共九个运行模式，以 Un… | us | family | legal-analysis | zh-CN | agpl-3.0 |
-| 645 | `divorce-doc-drafter` | PRC divorce litigation document skill bundling full marriage… | china | litigation | litigation | zh-CN | undeclared |
-| 646 | `divorce-guide` | 绂诲搴旇瘔鎸囧崡AI鍔╂墜銆傚綋鐢ㄦ埛琚捣璇夌濠氶渶瑕佸簲璇夊府鍔╂椂锛屾彁渚涘叏娴佺▼鎸囧锛? 搴旇瘔娴佺▼瀵… | china | general | legal-analysis | zh-CN | undeclared |
-| 647 | `divorce-practice-stephane-boghossian` | 离婚与家事律师的 AI 协同律师——一个跨司法辖区可移植、覆盖完整案件生命周期的脚手架。八种操作模式映射案件的实际推进方… | us | family | legal-analysis | zh-CN | agpl-3.0 |
-| 648 | `divorce-settlement-summary` | Produces structured summaries of U.S. divorce settlement agr… | us | family | doc-reading | en | apache-2.0 |
-| 649 | `dmca-takedown-notice` | Drafts a DMCA takedown notice compliant with 17 U.S.C. § 512… | us | general | contract-work | en | apache-2.0 |
-| 650 | `document-approval-tracker-scott-margetts` | 多利益相关方文件工作流的审批级联定义与跟踪。内部审查顺序、客户审批工作流、监管审查、带升级逻辑的逾期催促、版本控制协调和… | de | tax | contract-work | zh-CN | apache-2.0 |
-| 651 | `document-production-log-summary` | Generates a structured log and strategic summary of opposing… | us | litigation | legal-analysis | en | apache-2.0 |
-| 652 | `document-retention-policy` | Drafts board-adoptable document retention policies for nonpr… | us | tax | contract-work | en | apache-2.0 |
-| 653 | `donation-agreement` | Drafts a U.S. Donation Agreement governing charitable transf… | us | tax | legal-analysis | en | apache-2.0 |
-| 654 | `dora` | 面向欧盟金融机构的 DORA（《条例（EU）2022/2554》——数字运营韧性法案）合规专家顾问。当用户询问 DORA… | eu | contract-law | legal-analysis | zh-CN | mit |
-| 655 | `dpa-art-28-oliver-schmidt-prietz` | 审查、起草或修订 GDPR 第 28 条下的数据处理协议（DPA / Auftragsverarbeitungsvert… | eu | general | contract-work | zh-CN | agpl-3.0 |
-| 656 | `dpdp-compliance-assessment` | Assess compliance with India's Digital Personal Data Protect… | in | data-privacy | legal-analysis | en | undeclared |
-| 657 | `dpdpa` | 印度《2023 年数字个人数据保护法》（DPDPA）合规顾问专家。当用户询问 DPDPA、DPDP 法案、DPDP 规则… | eu/in/international | data-privacy | compliance | zh-CN | mit |
-| 658 | `dpdpa-gdpr-review-parth-desai` | 对法律文件（隐私政策、数据处理协议、供应商和 SaaS 合同）对照印度 DPDPA 2023 和欧盟 GDPR 进行结构… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 659 | `dpia-sentinel-oliver-schmidt-prietz` | GDPR 第 35 条、EDPB 指南 WP 248 rev.01、EDPB 意见 28/2024（AI）及各国监管机构… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 660 | `drug-compliance` | 当用户需要从"医药合规与法务"视角审查或设计合规体系、推广材料、交易IP、监管应对时使用。 覆盖：推广合规与MLR审查(… | china | contract-law | compliance | zh-CN | mit |
-| 661 | `drug-regulatory-affairs` | 药品注册法规与合规查询。覆盖中国（NMPA）、美国（FDA）、欧盟（EMA）及 ICH 的药品注册法规、指导原则、GMP… | china/us/eu/international | contract-law | compliance | zh-CN | undeclared |
-| 662 | `dsar-form` | Drafts a GDPR- and CCPA-compliant Data Subject Access Reques… | eu/us | securities | contract-work | en | apache-2.0 |
-| 663 | `du-execution-manager` | 执行案件管家：识别执行通知书、查控裁定等文书，按民诉法计算查封冻结期限并输出期间表。管理执行案件保全期限时使用。 | china | civil-procedure | legal-analysis | zh-CN | undeclared |
-| 664 | `du-labor-arbitration-manager` | 劳动仲裁管家：识别仲裁文书，按劳动争议调解仲裁法计算答辩、举证、起诉等期间并提示风险。处理劳动仲裁案件期限管理时使用。 | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 665 | `du-litigation-manager` | 诉讼管家：识别传票、受理通知等诉讼文书，按民诉法计算答辩期、举证期、上诉期并输出期间表。管理民事诉讼案件期限时使用。 | china | litigation | litigation | zh-CN | undeclared |
-| 666 | `du-todo-manager` | 案件待办管家：汇总全部案件的期限与待办，按已过期、今日、7 天、30 天分级展示。律师每日查看工作节奏与期限预警时使用。 | china | civil-procedure | legal-analysis | zh-CN | undeclared |
-| 667 | `due-diligence-checklist` | Drafts due diligence checklists for U.S. corporate transacti… | us | corporate | contract-work | en | apache-2.0 |
-| 668 | `due-diligence-report` | Produces U.S. corporate/M&A due diligence reports summarizin… | us | contract-law | contract-work | en | apache-2.0 |
-| 669 | `due-diligence-summary` | Produces structured U.S. transactional due diligence summari… | us | corporate | contract-work | en | apache-2.0 |
-| 670 | `dundun-legal` | 激活"盾盾"法务风控官角色。当用户涉及合同审查、法律风险、股权架构、劳动纠纷、知识产权、合规问题、行政处罚、公司治理、协… | china | ip | contract-work | zh-CN | undeclared |
-| 671 | `durable-poa-finances` | Drafts state-specific Durable Power of Attorney for Finances… | general | contract-law | contract-work | en | apache-2.0 |
-| 672 | `dvro-petition` | Drafts court-ready Domestic Violence Restraining Order petit… | general | litigation | legal-analysis | en | apache-2.0 |
-| 673 | `e-discovery-protocol-agreement` | Drafts court-ready ESI Protocol Agreements governing electro… | us | litigation | legal-analysis | en | apache-2.0 |
-| 674 | `eac-habre-jeanne-sulzer` | 为非洲特别法庭（Chambres Africaines Extraordinaires，Hissène Habré 案，… | fr | criminal | litigation | zh-CN | agpl-3.0 |
-| 675 | `ear` | 《出口管理条例》（EAR，15 CFR 第 730-774 部分）合规顾问——涵盖全部 10 个 CCL 类别和 5 个… | us | intl-trade | compliance | zh-CN | mit |
-| 676 | `earn-out-agreement` | Drafts U.S. M&A earn-out agreements as exhibits to purchase … | us | corporate | contract-work | en | apache-2.0 |
-| 677 | `easement-dispute-complaint` | Drafts a plaintiff-side U.S. complaint for easement disputes… | us | litigation | litigation | en | apache-2.0 |
-| 678 | `eccc-jeanne-sulzer` | 适用于 ECCC（红色高棉法庭）的验证优先方法论。每条引文都对照 eccc.gov.kh、ECCC 档案馆或 legal… | fr | general | litigation | zh-CN | cc-by-4.0 |
-| 679 | `economic-damages-calculation-memo` | Use this skill when a forensic accountant, CPA-CFF, CFE, or … | general | litigation | contract-work | en | undeclared |
-| 680 | `economic-loss-report` | Generates a Lost Wage & Economic Loss Report for personal in… | general | litigation | doc-reading | en | apache-2.0 |
-| 681 | `economist-quiz-m11-ipr` | 中级经济师刷题库·模块：知识产权——按章节生成《知识产权专业知识和实务》考点题目（单选/多选/案例分析）+ 答案 + 解… | china | ip | education | zh-CN | undeclared |
-| 682 | `ecp-manual` | Drafts an audit-ready Export Compliance Program manual cover… | us | intl-trade | contract-work | en | apache-2.0 |
-| 683 | `ediscovery-review-summary` | Produces an internal U.S. litigation e-discovery status summ… | us | litigation | doc-reading | en | apache-2.0 |
-| 684 | `ediscovery-status-report` | Generates a structured internal e-discovery status report tr… | us | litigation | contract-work | en | apache-2.0 |
-| 685 | `eeoc-charge-of-discrimination` | Drafts an EEOC Charge of Discrimination (Form 5) for federal… | us | contract-law | contract-work | en | apache-2.0 |
-| 686 | `eeoc-position-statement` | Drafts employer Position Statements responding to EEOC charg… | us | litigation | contract-work | en | apache-2.0 |
-| 687 | `eir-summary` | Produces legally focused summaries of California Environment… | us | environmental | doc-reading | en | apache-2.0 |
-| 688 | `elder-law-summary` | Generates structured elder law summaries covering estate pla… | general | estate-trust | doc-reading | en | apache-2.0 |
-| 689 | `element-based` | Element-based（要素式起诉状）用于将案件材料填写为 67 类要素式诉状 Word 草案；当用户要求起草、填写… | china | litigation | legal-analysis | zh-CN | undeclared |
-| 690 | `element-based-plaintiff` | 要素式起诉状生成技能（保留代理人/送达/电子送达模块，首次录入并持久化版）。当用户提交传统起诉状文本，要求转换为要素式起… | china | litigation | litigation | zh-CN | undeclared |
-| 691 | `element-complaint-filler` | 要素式法律文书一键生成（起诉状/答辩状/强制执行申请书）。根据用户提供的原始材料， 自动提取信息并填入要素式模板。已内置… | china | litigation | litigation | zh-CN | mit |
-| 692 | `element-lawsuit-generato` | 要素式文书一键生成——个人提效利器：以前律师对着模板逐项手动填写要素式文书，一份半小时起步；现在上传传统起诉状，自动识别… | china | litigation | litigation | zh-CN | undeclared |
-| 693 | `employee-arbitration-agreement` | Drafts a mutual, enforceable Employee Arbitration Agreement … | general | contract-law | contract-work | en | apache-2.0 |
-| 694 | `employee-complaint-summaries` | Generates structured attorney-review memos from employee com… | us | litigation | doc-reading | en | apache-2.0 |
-| 695 | `employee-confidentiality-agreement` | Drafts enforceable Employee Confidentiality and Security Agr… | us | contract-law | contract-work | en | apache-2.0 |
-| 696 | `employee-dispute-summary` | Produces a structured, source-cited summary of U.S. employme… | us | litigation | doc-reading | en | apache-2.0 |
-| 697 | `employee-handbook` | Drafts a U.S. employee handbook and acknowledgement form pre… | us | contract-law | contract-work | en | apache-2.0 |
-| 698 | `employee-nda` | Drafts U.S. employee non-disclosure/confidentiality agreemen… | us | contract-law | contract-work | en | apache-2.0 |
-| 699 | `employee-retention-agreement` | Drafts enforceable U.S. Employee Retention Agreements (ERAs)… | us | contract-law | contract-work | en | apache-2.0 |
-| 700 | `employee-separation-release` | Drafts U.S. employee separation and release agreements excha… | us | general | legal-analysis | en | apache-2.0 |
-| 701 | `employment-arbitration-agreement` | Drafts enforceable mutual employment arbitration agreements … | us | contract-law | contract-work | en | apache-2.0 |
-| 702 | `employment-contract` | Draft and fill employment contract templates — offer letter,… | general | contract-law | contract-work | en | apache-2.0 |
-| 703 | `employment-contract-summary` | Produces structured U.S. employment contract summaries with … | us | contract-law | legal-analysis | en | apache-2.0 |
-| 704 | `employment-law-research` | 在联邦、州和市辖区范围内研究美国雇佣法主题，并产出带适当来源归因的结构化研究笔记。当用户询问美国雇佣法律、法规或待决立法… | us | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
-| 705 | `endowment-policy-statement` | Drafts a Board-ready Endowment Fund Investment and Spending … | us | corporate | contract-work | en | apache-2.0 |
-| 706 | `energy-regulation-summaries` | Generates structured summaries of U.S. energy sector regulat… | us | environmental | contract-work | en | apache-2.0 |
-| 707 | `enforcement-action-analysis-amir-fadavi` | 分析任何 OFAC 或 OFSI 执法行动——经 URL、粘贴文本或上传文档——并将结构化根本原因分析生成为格式化 Ex… | us | intl-trade | legal-analysis | zh-CN | mit |
-| 708 | `enforcement-case-assistant` | 执行领域全流程律师助手（债权人+被执行人/案外人双向）。当用户提到「强制执行 / 申请执行 / 执行案件 / 被执行人 … | china | litigation | legal-research | zh-CN | undeclared |
-| 709 | `enforcement-procedure` | 「执行案件全流程工具」—— 从申请执行到执行完毕的全流程法律服务SKILL，含财产查控、执行异议、参与分配、失信限高、终… | china | arbitration-adr | calculation | zh-CN | undeclared |
-| 710 | `engagement-letter-review` | Reviews attorney engagement letters for completeness, fee cl… | general | contract-law | contract-work | en | apache-2.0 |
-| 711 | `engagement-terms-billing-guidelines` | 外部律师指引（OCG）——为法务团队提供起草、审查、差距分析和定向更新。按成熟度水平（轻量、标准、全面）构建新的 OCG… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 712 | `enterprise-api-addendum` | Negotiates bespoke enterprise API addenda that override stan… | us | contract-law | contract-work | en | apache-2.0 |
-| 713 | `enterprise-contract-ai-review` | 企业合同风险智能审查 Skill。上传合同文件（PDF/Word/图片），自动识别高风险条款（违约责任、自动续约、争议解… | china | contract-law | contract-work | zh-CN | undeclared |
-| 714 | `enterprise-due-diligence-plus` | 企业全景尽调引擎：整合工商、股权、诉讼、招投标、舆情等多维数据生成企业画像。招商背调、投资尽调、供应商审查时使用。 | china | ip | due-diligence | zh-CN | undeclared |
-| 715 | `enterprise-info-search` | 【设计思路】以统一社会信用代码（Unified Social Credit Code, USCC）为市场主体唯一法定标识… | china | tax | legal-research | zh-CN | undeclared |
-| 716 | `enterprise-law-risk-checker` | 企业法律风险智能检测专家。基于27年执业经验、13大模块97+专业检测项， 通过对话式体检帮助企业发现隐藏法律风险并给出… | china | labor | legal-analysis | zh-CN | undeclared |
-| 717 | `enterprise-legal-counsel-cn` | 面向中国企业的AI法务顾问：合同起草与逐条审查评分、合规审计、诉讼文书与律师函、PE/VC投融资对赌研判、劳动用工、专利… | china | contract-law | contract-work | zh-CN | undeclared |
-| 718 | `enterprise-legal-guardrails` | Legal/compliance guardrails for outbound OpenClaw actions (a… | general | general | contract-work | en | undeclared |
-| 719 | `enterprise-legal-guardrails-public` | Legal/compliance guardrails for outbound OpenClaw actions (a… | general | general | contract-work | en | undeclared |
-| 720 | `environmental-covenant-and-easement` | Drafts recordable environmental covenants and easements impo… | us | environmental | contract-work | en | apache-2.0 |
-| 721 | `environmental-impact-statement` | Drafts NEPA-compliant Environmental Impact Statements (EIS) … | us | environmental | legal-analysis | en | apache-2.0 |
-| 722 | `environmental-indemnity` | Drafts Environmental Indemnity Agreements allocating contami… | general | general | contract-work | en | apache-2.0 |
-| 723 | `environmental-indemnity-agreement` | Drafts and revises U.S. environmental indemnity agreements f… | us | insurance | legal-analysis | en | apache-2.0 |
-| 724 | `environmental-regulation-summaries` | Generates structured summaries of U.S. environmental laws, c… | us | environmental | doc-reading | en | apache-2.0 |
-| 725 | `eor-agreement` | Drafts a U.S.-compliant Exporter of Record (EOR) Agreement a… | us | intl-trade | contract-work | en | apache-2.0 |
-| 726 | `eou` | Evidence of Use (EOU) patent analysis skill. Use this skill … | general | ip | legal-analysis | en | undeclared |
-| 727 | `epc-contract` | Drafts turnkey Engineering, Procurement, and Construction (E… | general | contract-law | contract-work | en | apache-2.0 |
-| 728 | `epistemic-fault-line-audit-ignacio-adrian-lerer` | 审计法律 AI 输出、提示词、技能、工作流和 MCP/工具指令中流畅但缺乏支撑的推理、缺失的证据、过度自信、隐藏假设、薄… | china | general | contract-work | zh-CN | agpl-3.0 |
-| 729 | `equity-financing-term-sheet` | Drafts a U.S. venture equity term sheet from deal facts into… | us | corporate | contract-work | en | apache-2.0 |
-| 730 | `equity-incentive-plan-designer` | 股权激励方案设计器：录入公司与激励对象数据，输出期权池、归属计划、税务估算与稀释路径，覆盖中美员工双轨。创业公司设计 E… | china/us | corporate | legal-analysis | zh-CN | undeclared |
-| 731 | `equity-incentive-plan-designer-equity` | 上市公司股权激励方案设计助手：工具选择、方案要素框架、业绩考核设计、会计处理与税务、审议与披露程序。 触发场景：用户说 … | china | tax | compliance | zh-CN | mit |
-| 732 | `equity-master` | 股权大师——企业股权架构设计与风险管理专业顾问。适用：合伙股权分配设计、员工期权/股权激励方案、股权代持架构、股权估值与… | china | corporate | calculation | zh-CN | undeclared |
-| 733 | `equity-pledge` | 查询企业股权质押情况，返回质押人信息、质押股份、质押状态等。适用于"股权质押查询""企业质押信息""股份质押""质押状态… | china | general | legal-analysis | zh-CN | undeclared |
-| 734 | `equity-term-sheet` | Drafts a U.S. equity financing term sheet for preferred stoc… | us | corporate | contract-work | en | apache-2.0 |
-| 735 | `escrow-agreement` | Drafts tripartite U.S. escrow agreements for M&A and commerc… | us | corporate | contract-work | en | apache-2.0 |
-| 736 | `escrow-instructions` | Drafts binding escrow instructions for residential real esta… | general | general | doc-reading | en | apache-2.0 |
-| 737 | `esi-protocol` | Drafts stipulated ESI protocols for federal e-discovery. Pro… | us | contract-law | contract-work | en | apache-2.0 |
-| 738 | `esi-protocol-drafter` | Use this skill when a litigation attorney, e-discovery couns… | us | litigation | legal-analysis | en | undeclared |
-| 739 | `estate-admin-summary` | Produces structured status summaries of U.S. estate administ… | us | estate-trust | doc-reading | en | apache-2.0 |
-| 740 | `estate-administration-summary` | Generates a structured U.S. estate administration/probate st… | us | estate-trust | doc-reading | en | apache-2.0 |
-| 741 | `eu-ai-act` | 欧盟 AI 法案（(EU) 2024/1689 号法规）合规顾问——覆盖四个层级的风险分类、全部 9 项禁止行为（第 5… | eu | general | compliance | zh-CN | mit |
-| 742 | `eu-ai-act-classification` | 依据欧盟《AI 法案》（法规 (EU) 2024/1689，KI-Verordnung）对 AI 系统进行分类并确定合规… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 743 | `eu-ai-act-classification-oliver-schmidt-prietz` | 判断某项技术是否构成欧盟 AI 法案 Art. 3(1) 意义上的 AI 系统，并对其风险等级进行分类（禁止、高风险、带… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 744 | `eu-ai-act-compliance` | 欧盟 AI 法案合规：将 HR 场景的 AI 系统按风险等级分类并生成合规差距报告与整改建议。评估招聘、人力资源 AI … | eu | general | legal-analysis | en | undeclared |
-| 745 | `eu-ai-act-fria` | 评估依据《欧盟 AI 法案》第 27 条是否需要对特定高风险 AI 部署进行基本权利影响评估（FRIA），并构建或起草该… | eu/de | general | legal-analysis | zh-CN | declared-only |
-| 746 | `eu-ai-act-high-risk-classifier-oliver-schmidt-prietz` | 对 AI 系统在欧盟 AI 法案第 6 条下是否属于高风险的深度评估，以委员会的 Art. 6(5) 分类指南草案（一般… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 747 | `eu-ai-act-high-risk-implementation-readiness` | 评估并落实欧盟《人工智能法案》附件 III 下高风险 AI 系统的实施就绪度，包括提供者和部署者义务、符合性评估、上市后… | eu | general | compliance | zh-CN | declared-only |
-| 748 | `eu-ai-act-obligations-oliver-schmidt-prietz` | 基于角色 + 风险层级映射欧盟 AI 法案的全部法律义务，生成带 RACI 分配和实施优先级的可操作合规矩阵。当用户要求… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 749 | `eu-ai-act-report-oliver-schmidt-prietz` | 生成一份正式的、结构化的 AI 法案合规评估报告，适用于法律档案、审计追踪和监管问询。当用户要求"生成 AI 法案报告"… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 750 | `eu-ai-act-roles-oliver-schmidt-prietz` | 确定组织在欧盟 AI 法案下的角色（提供者、部署者、进口商、分销商或准提供者），并评估第 25 条的准提供者风险。当用户… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 751 | `eu-ai-act-transparency-assessor-oliver-schmidt-prietz` | 评估欧盟《人工智能法案》第 50(1)–(5) 条透明度义务中的哪些适用于特定 AI 系统的提供者或部署者，以最终版《A… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 752 | `eu-ai-act-triage-oliver-schmidt-prietz` | 用于欧盟 AI 法案初步分类和合规评估的快速 15-25 分钟分诊。当用户要求"做一次快速的 AI 法案评估"、"检查 … | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 753 | `eu-ai-compliance` | EU AI Act risk classification, Article 12 compliance logging… | eu | general | legal-analysis | en | undeclared |
-| 754 | `eu-compliance-advisor` | 中欧跨境电商合规顾问：欧盟 27 国 VAT 试算、EPR（WEEE/包装法/电池法）检测与证书验证。中国卖家进入欧盟市… | eu/de | tax | compliance | zh-CN | undeclared |
-| 755 | `eu-cra` | 面向 (EU) 2024/2847 号法规的欧盟网络弹性法案（CRA）专家顾问——对在欧盟销售的所有含数字元素产品（PD… | eu | general | compliance | zh-CN | mit |
-| 756 | `eu-data-act-compliance` | 评估欧盟《数据法》（Regulation (EU) 2023/2854）下互联产品、物联网设备、数据共享、云服务切换、B… | eu | contract-law | contract-work | zh-CN | declared-only |
-| 757 | `eu-data-act-oliver-schmidt-prietz` | 就欧盟法规 2023/2854（《数据法案》）提供咨询的实务技能。涵盖第二至七章（物联网数据访问、强制性 B2B 共享、… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 758 | `eu-legislation` | 访问欧盟法律。从 EUR-Lex 检索和获取指令、条例、条约和欧洲法院判例法。 | eu | general | legal-research | zh-CN | agpl-3.0 |
-| 759 | `eu-pl-law-tracker` | 欧盟法律文书及实施欧盟法规（如 PPWR、CBAM、EUDR、ESPR、CSRD、CSDDD、 GPSR、AI 法案、电… | eu | intl-trade | doc-reading | zh-CN | mit |
-| 760 | `eula` | Drafts enforceable End-User License Agreements for software … | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
-| 761 | `eviction-complaint` | Drafts jurisdiction-compliant Unlawful Detainer complaints f… | general | contract-law | doc-reading | en | apache-2.0 |
-| 762 | `evidence-liability-summary` | Generates a structured evidence and liability summary for pl… | general | litigation | doc-reading | en | apache-2.0 |
-| 763 | `evidence-list-ai-writing-non-table-version-plus` | 根据律师上传的证据材料（PDF/图片等）和简要核心主张，由AI主动解读材料并撰写《证据清单》（非表格版本），支持七种诉讼… | china | litigation | litigation | zh-CN | undeclared |
-| 764 | `evidence-matrix` | 「证据清单与质证提纲生成器」—— 输入案件类型+证据材料，基于要件事实分组法生成证据目录、质证意见、对方质证预判及己方回… | china | litigation | litigation | zh-CN | undeclared |
-| 765 | `ex-parte-seizure-order` | Drafts U.S. ex parte seizure orders authorizing immediate pr… | us | litigation | legal-analysis | en | apache-2.0 |
-| 766 | `excluded-assets-liabilities` | Drafts a categorized schedule of excluded assets and liabili… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 767 | `exclusive-patent-license` | Drafts an Exclusive Patent License Agreement granting a Lice… | general | ip | contract-work | en | apache-2.0 |
-| 768 | `execution-docs-generator` | 执行案件文书成套生成技能。上传生效法律文书后，自动完成申请执行时效校验、执行管辖确认、金钱债权金额计算，并一键生成强制执… | china | civil-procedure | legal-research | zh-CN | mit |
-| 769 | `executive-employment-agreement` | Drafts U.S. executive employment agreements covering compens… | us | general | legal-analysis | en | apache-2.0 |
-| 770 | `executive-summaries` | Generates decision-ready executive summaries from complex le… | general | contract-law | contract-work | en | apache-2.0 |
-| 771 | `expert-deposition` | Guides taking or defending U.S. expert witness depositions w… | us | litigation | legal-analysis | en | apache-2.0 |
-| 772 | `expert-impeachment` | Surfaces inconsistencies, opinion shifts, methodological fla… | general | litigation | legal-analysis | en | apache-2.0 |
-| 773 | `expert-medical-record-omissions` | Analyzes expert witness reports, depositions, and testimony … | general | litigation | doc-reading | en | apache-2.0 |
-| 774 | `expert-omissions-analysis` | Analyzes expert witness reports against complete medical rec… | general | litigation | legal-analysis | en | apache-2.0 |
-| 775 | `expert-report-class-damages` | Drafts a litigation-ready expert report on class-wide damage… | us | litigation | legal-analysis | en | apache-2.0 |
-| 776 | `expert-report-on-damages` | Generates a structured expert report on economic damages for… | us | litigation | legal-analysis | en | apache-2.0 |
-| 777 | `expert-report-summary` | Produces structured, citation-ready summaries of U.S. expert… | us | litigation | doc-reading | en | apache-2.0 |
-| 778 | `expert-testimony-summarization` | Produces structured expert witness analyses covering qualifi… | general | litigation | legal-analysis | en | apache-2.0 |
-| 779 | `expert-witness-deposition` | Drafts litigation-ready expert witness deposition workflows … | us | litigation | contract-work | en | apache-2.0 |
-| 780 | `expert-witness-designation` | Drafts expert witness designation documents satisfying FRCP … | us | litigation | litigation | en | apache-2.0 |
-| 781 | `expert-witness-impeachment` | Analyzes expert witness materials (reports, depositions, CVs… | general | litigation | legal-analysis | en | apache-2.0 |
-| 782 | `expert-witness-omissions` | Identifies medical records an expert witness failed to revie… | general | litigation | legal-analysis | en | apache-2.0 |
-| 783 | `expert-witness-report-analysis` | Critiques opposing expert witness reports for admissibility … | us | litigation | legal-analysis | en | apache-2.0 |
-| 784 | `expert-witness-summary` | Generates structured, citation-anchored summaries of expert … | general | litigation | contract-work | en | apache-2.0 |
-| 785 | `explain-ant-ss-508` | 为蚂蚁社保核心用户处理“股权激励收入与社保基数关系解读”，面向一线城市30—45岁高收入职场人、高管和职业经理人，通过必… | international | labor | compliance | zh-CN | undeclared |
-| 786 | `expungement-petition` | Drafts jurisdiction-specific petitions for expungement or se… | general | litigation | litigation | en | apache-2.0 |
-| 787 | `extend-time-brief` | Drafts appellate motions to extend time for filing briefs (o… | us | general | legal-analysis | en | apache-2.0 |
-| 788 | `fadawang-qa-plus` | 从最高人民法院《法答网精选答问》第1-38批（共169个权威答疑，覆盖26个法律专题）中检索相关问答并精准引用回答用户的… | china | antitrust | legal-research | zh-CN | undeclared |
-| 789 | `fahai` | 查询法海风控企业司法数据。通过法海风控 API 查询企业司法风险数据列表（裁判文书、执行公告、失信被执行人、司法拍卖等）… | china | tax | legal-analysis | zh-CN | undeclared |
-| 790 | `fairness-hearing-notice` | Drafts FRCP 23(e)-compliant class action fairness hearing no… | us | contract-law | doc-reading | en | apache-2.0 |
-| 791 | `falv-anli` | 法律案例拆解 - 资深法律分析师视角，系统化判决书案例分析 | china | general | legal-analysis | zh-CN | undeclared |
-| 792 | `family-law-summons` | Drafts procedurally compliant family law summons for dissolu… | general | litigation | legal-analysis | en | apache-2.0 |
-| 793 | `family-matters-due-diligence` | 婚姻家事风险尽调与一站式方案生成器。面向执业律师在婚姻家事案件接案初期的尽调需求，通过结构化要素采集、缺失要素智能追问、… | china | family | litigation | zh-CN | undeclared |
-| 794 | `fanghongyuanwenshu` | 裁判文书网检索工具：按案由、地区、年份筛选并抓取判决书全文，清洗后导出 Excel。需要批量下载中国裁判文书时使用。 | china | construction | legal-analysis | zh-CN | undeclared |
-| 795 | `fanglawerguidangzhushou` | 律师案件归档自动化工具：OCR识别案件材料，按民事模板生成归档卷宗与办案小结并转PDF，用于办案收尾阶段的卷宗整理。 | china | general | legal-analysis | zh-CN | undeclared |
-| 796 | `fapuxiaoxiang-legal-liability` | 法普小象 · 法律责任分析H5工具生成器。当用户需要制作法律知识类的交互式H5页面（如饮酒纠纷、彩礼返还、合同纠纷、侵权… | china | general | legal-research | zh-CN | declared-only |
-| 797 | `far-subcontract` | Drafts FAR-compliant subcontract agreements between prime co… | us | contract-law | contract-work | en | apache-2.0 |
-| 798 | `farmout-agreement` | Drafts U.S. upstream oil and gas farmout agreements transfer… | us | contract-law | contract-work | en | apache-2.0 |
-| 799 | `fcpa-compliance-policy` | Drafts an implementable Foreign Corrupt Practices Act (FCPA)… | us | general | legal-research | en | apache-2.0 |
-| 800 | `fda-device-registration` | Drafts FDA Establishment Registration and Device Listing doc… | us | life-sciences | contract-work | en | apache-2.0 |
-| 801 | `fdd-receipt` | Drafts a Receipt of Franchise Disclosure Document proving FT… | us | contract-law | contract-work | en | apache-2.0 |
-| 802 | `fedramp` | CR26（FedRAMP 2026 年合并规则）下 FedRAMP 认证与合规的专家指引。当用户询问 FedRAMP 授… | china | general | legal-analysis | zh-CN | mit |
-| 803 | `fee-arrangement-structuring` | 面向管理外部律师安排的内部法务运营团队的 AFA 设计、范围与费用匹配、谈判准备、健康检查和范围争议评估。设计费用结构（… | au | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 804 | `feedoracle-compliance` | MiCA compliance evidence and stablecoin risk scoring for reg… | eu | general | legal-analysis | en | undeclared |
-| 805 | `ferc-market-based-rate-tariff` | Drafts eTariff-ready FERC Market-Based Rate Tariffs for whol… | us | contract-law | contract-work | en | apache-2.0 |
-| 806 | `field-of-use-clause` | Drafts field-of-use restriction clauses for U.S. IP licensin… | us | ip | contract-work | en | apache-2.0 |
-| 807 | `field-of-use-restriction` | Drafts field-of-use restriction clauses for IP licensing agr… | general | contract-law | contract-work | en | apache-2.0 |
-| 808 | `field-of-use-restriction-clause` | Drafts enforceable Field of Use restriction clauses for U.S.… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 809 | `fin-acc-compliance-officer` | Finance Accounting Compliance Officer - Accounting standards… | china | tax | compliance | zh-CN | undeclared |
-| 810 | `fin-tax-compliance-officer` | Finance Tax Compliance Officer - Tax law compliance and invo… | international | tax | compliance | zh-CN | undeclared |
-| 811 | `final-order-judgment` | Drafts court-ready Final Orders and Judgments for class acti… | general | litigation | contract-work | en | apache-2.0 |
-| 812 | `final-report-of-dissolution` | Drafts a filing-grade final report of dissolution for U.S. c… | us | corporate | contract-work | en | apache-2.0 |
-| 813 | `final-settlement-approval` | Drafts a Motion for Final Approval of Class Action Settlemen… | us | litigation | litigation | en | apache-2.0 |
-| 814 | `final-tax-return-corporate` | Prepares IRS-compliant final tax returns for dissolving C-co… | us | tax | contract-work | en | apache-2.0 |
-| 815 | `final-tax-return-filing` | Drafts U.S. final tax return filing packets for decedent est… | us | general | legal-analysis | en | apache-2.0 |
-| 816 | `finance-marketing-compliance` | ［何时使用］当用户需要审查金融产品营销内容合规性时；当用户说"检查这篇文章合规吗"、"营销方案合规审查"、"生成合规营销… | china | banking-finance | compliance | zh-CN | undeclared |
-| 817 | `finance-quiz-m01-fund-law` | 金融从业资格考试刷题库·模块：基金从业法律法规——按章节生成基金从业《基金法律法规、职业道德与业务规范》练习题。题目由 … | china | education-law | education | zh-CN | mit |
-| 818 | `finance-quiz-m05-sec-law` | 金融从业资格考试刷题库·模块：证券从业法律法规——按章节生成证券从业《证券市场基本法律法规》练习题，覆盖证券法规、业务规… | china | securities | education | zh-CN | mit |
-| 819 | `finance-quiz-m06-bank-law` | 金融从业资格考试刷题库·模块：银行从业法规与综合能力——按章节生成银行从业《银行业法律法规与综合能力》练习题，覆盖经济金… | china | banking-finance | education | zh-CN | mit |
-| 820 | `financial-affidavit` | Drafts sworn financial affidavits and mandatory disclosure s… | us | litigation | litigation | en | apache-2.0 |
-| 821 | `financial-analysis-summary` | Generates structured summaries of financial analyses for com… | general | general | doc-reading | en | apache-2.0 |
-| 822 | `financial-comparison-glossary-ignacio-adrian-lerer` | 当计算器、财务模型、投资者备忘录、尽职调查报告、风险审查、仪表盘或面向客户的解释需要对会计与金融概念作出清晰区分时使用，… | china | tax | calculation | zh-CN | agpl-3.0 |
-| 823 | `financial-industry-compliance-audit-assistant` | AI-powered financial compliance audit assistant — covers com… | international | banking-finance | compliance | zh-CN | undeclared |
-| 824 | `financial-lease-direct-litigation` | 用于普通直租型融资租赁合同纠纷的材料读取、案型路由、合同审查、起诉状、证据目录、缺失材料清单、代理词和法律意见书结构化起… | china | litigation | litigation | zh-CN | cc-by-4.0 |
-| 825 | `find-law-firm` | Use whenever the user wants to find, shortlist, vet, or enri… | us | family | legal-analysis | en | undeclared |
-| 826 | `finders-fee-agreement` | Drafts U.S. corporate Finder's Fee Agreements that compensat… | us | contract-law | contract-work | en | apache-2.0 |
-| 827 | `finra-4512-customer-account` | Drafts FINRA Rule 4512-compliant customer account records fo… | us | general | contract-work | en | apache-2.0 |
-| 828 | `finra-4512-customer-info` | Drafts a FINRA Rule 4512 customer account information checkl… | general | contract-law | contract-work | en | apache-2.0 |
-| 829 | `fintech-agreement-drafting-stephane-boghossian` | 起草与定稿复杂、多支柱受监管金融科技协议的端到端方法——从接案到签署。源自资深金融科技律师的手册：持牌支付服务提供商在代… | china | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 830 | `fintech-regulatory-summaries` | Generates structured regulatory summaries for fintech compli… | us | banking-finance | legal-analysis | en | apache-2.0 |
-| 831 | `firm-auth-compliance-pack` | Authentication and compliance audit pack. OAuth 2.1/OIDC Dis… | eu | general | legal-analysis | en | mit |
-| 832 | `firm-legal-pack` | Curated skill bundle for law firms, legal departments and co… | eu | contract-law | legal-analysis | en | mit |
-| 833 | `first-right-of-refusal-agreement` | Drafts a U.S. franchise first right of refusal (ROFR) agreem… | us | contract-law | contract-work | en | apache-2.0 |
-| 834 | `fiscal-sponsorship-agreement` | Drafts a Fiscal Sponsorship Agreement between a 501(c)(3) sp… | us | contract-law | contract-work | en | apache-2.0 |
-| 835 | `flp-agreement` | Drafts Family Limited Partnership agreements for estate plan… | us | tax | contract-work | en | apache-2.0 |
-| 836 | `flsa-conditional-certification` | Drafts a Motion for Conditional Certification under FLSA § 2… | us | litigation | contract-work | en | apache-2.0 |
-| 837 | `fmla-complaint` | Drafts litigation-ready FMLA violation complaints under 29 U… | us | litigation | litigation | en | apache-2.0 |
-| 838 | `food-facility-registration` | Drafts an FDA Food Facility Registration under FSMA and 21 C… | us | general | contract-work | en | apache-2.0 |
-| 839 | `food-label-compliance-risks` | 食品标签合规审查与风险查询；当用户上传标签图片/PDF进行合规审查或查询标签违规案例、处罚依据时使用 | china | general | contract-work | zh-CN | undeclared |
-| 840 | `food-label-review` | 预包装食品标签合规审核技能，用于审核食品标签是否符合 GB 7718（预包装食品标签通则）和 GB 28050（预包装食… | china | general | contract-work | zh-CN | undeclared |
-| 841 | `food-safety-legal` | 食品安全法律审核专家。提供中国食品饮料行业的法律合规审核服务，包括：食品安全法合规审查、食品标签规范审核、饮料行业标准检… | china | advertising | compliance | zh-CN | undeclared |
-| 842 | `forbearance-agreement` | Drafts loan forbearance agreements that temporarily suspend … | general | contract-law | contract-work | en | apache-2.0 |
-| 843 | `foreclosure-complaint` | Drafts U.S. judicial foreclosure complaints pleading standin… | us | litigation | litigation | en | apache-2.0 |
-| 844 | `foreclosure-proceedings-summary` | Generates structured chronological summaries of U.S. foreclo… | us | litigation | doc-reading | en | apache-2.0 |
-| 845 | `foreign-corporation-registration` | Drafts a foreign corporation registration (Certificate of Au… | us | corporate | legal-analysis | en | apache-2.0 |
-| 846 | `foreign-law-research` | Structured workflow for researching foreign law questions ac… | international | general | legal-analysis | en | undeclared |
-| 847 | `foreign-law-research-tencent` | 外国法调研方法论：将模糊的法律问题通过系统化资源检索转化为高质量调研报告。 触发词：/foreign-law-resea… | international | corporate | legal-research | zh-CN | undeclared |
-| 848 | `forensic-accounting-report` | Produces a litigation-ready forensic accounting investigatio… | general | general | contract-work | en | apache-2.0 |
-| 849 | `form-10-q` | Drafts SEC-compliant Form 10-Q quarterly reports covering Pa… | us | general | doc-reading | en | apache-2.0 |
-| 850 | `form-1023` | Drafts IRS Form 1023 applications for Section 501(c)(3) tax-… | us | corporate | legal-analysis | en | apache-2.0 |
-| 851 | `form-1023-application` | Drafts IRS Form 1023 (Application for Recognition of Exempti… | us | tax | contract-work | en | apache-2.0 |
-| 852 | `form-10k` | Drafts SEC Form 10-K Annual Reports under the Securities Exc… | us | corporate | contract-work | en | apache-2.0 |
-| 853 | `form-8k` | Drafts SEC Form 8-K current reports with item-accurate narra… | us | general | legal-analysis | en | apache-2.0 |
-| 854 | `form-adv` | Drafts SEC- or state-filed Form ADV Parts 1A/1B/2A/2B for in… | us | general | contract-work | en | apache-2.0 |
-| 855 | `form-d` | Drafts SEC Form D Notice of Exempt Offering for EDGAR filing… | us | corporate | contract-work | en | apache-2.0 |
-| 856 | `form-d-notice` | Drafts U.S. SEC Form D notice data sets for Regulation D exe… | us | securities | contract-work | en | apache-2.0 |
-| 857 | `founder-agreement-drafting-stephane-boghossian` | 创始人/联合创始人协议的起草与审查副驾驶——锁定联合创始人之间股权、成熟、知识产权、角色、控制权、僵局解决与离任安排的条… | china | corporate | contract-work | zh-CN | agpl-3.0 |
-| 858 | `franchise-agreement` | Drafts FTC-compliant U.S. Franchise Agreements covering righ… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 859 | `franchise-agreement-summary` | Summarizes US franchise agreements into a structured overvie… | general | contract-law | doc-reading | en | apache-2.0 |
-| 860 | `franchise-disclosure-document` | Drafts U.S. Franchise Disclosure Documents compliant with th… | us | contract-law | contract-work | en | apache-2.0 |
-| 861 | `franchise-lease-rider` | Drafts a U.S. franchise lease rider/recognition agreement es… | us | contract-law | contract-work | en | apache-2.0 |
-| 862 | `franchise-nda` | Drafts a U.S. franchise-focused confidentiality and non-disc… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 863 | `franchise-personal-guaranty` | Drafts a Personal Guaranty binding individual principals to … | us | general | contract-work | en | apache-2.0 |
-| 864 | `franchise-release` | Drafts a General Release for termination or expiration of a … | general | general | contract-work | en | apache-2.0 |
-| 865 | `franchise-renewal` | Drafts Franchise Renewal Agreements extending existing franc… | us | contract-law | contract-work | en | apache-2.0 |
-| 866 | `franchise-rofr` | Drafts a First Right of Refusal Agreement for franchise rela… | us | contract-law | contract-work | en | apache-2.0 |
-| 867 | `franchise-transfer-agreement` | Drafts a tripartite U.S. Franchise Transfer Agreement alloca… | us | contract-law | contract-work | en | apache-2.0 |
-| 868 | `fraudulent-conveyance-complaint` | Drafts a U.S. fraudulent conveyance complaint to avoid and r… | us | litigation | legal-analysis | en | apache-2.0 |
-| 869 | `fto-search` | FTO (Freedom-to-Operate) patent infringement risk search and… | general | general | legal-analysis | en | undeclared |
-| 870 | `fund-subscription-agreement` | Drafts U.S. investment fund subscription agreements aligned … | us | securities | legal-analysis | en | apache-2.0 |
-| 871 | `fundraiser-contract-compliance` | Audits professional solicitor, fundraising counsel, and comm… | general | contract-law | contract-work | en | apache-2.0 |
-| 872 | `gambling-law-summary` | Produces jurisdiction-specific U.S. gambling law regulatory … | us | general | legal-analysis | en | apache-2.0 |
-| 873 | `gas-gathering-agreement` | Drafts a Gas Gathering Agreement for receipt, compression, d… | general | contract-law | contract-work | en | apache-2.0 |
-| 874 | `gdpr-breach-sentinel-oliver-schmidt-prietz` | 面向 GDPR 第 33 条和第 34 条下数据泄露的一流事件响应与法律合规指引。在以下情形使用：(1) 用户报告数据泄… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 875 | `gdpr-compliance` | Generate UK/EU GDPR compliance documents — privacy policies,… | uk/eu | data-privacy | legal-analysis | en | undeclared |
-| 876 | `gdpr-compliance-tanaji` | 专家级 GDPR 合规助手，涵盖全部四项核心工作流：(1) 审计代码和系统是否存在 GDPR 违规，(2) 起草 GDP… | eu/international | contract-law | contract-work | zh-CN | mit |
-| 877 | `gdpr-compliance-tracker` | Assess GDPR compliance readiness and generate gap analysis w… | eu | data-privacy | legal-analysis | en | undeclared |
-| 878 | `gdpr-data-processing-addendum` | Drafts an Article 28-aligned GDPR Data Processing Addendum (… | eu | contract-law | contract-work | en | apache-2.0 |
-| 879 | `gdpr-dpa` | Drafts GDPR Article 28-compliant Data Processing Addenda wit… | eu | contract-law | legal-analysis | en | apache-2.0 |
-| 880 | `gdpr-guard` | GDPR 合规护栏 (gdpr) v1.0.0。 在 AI 应用输入/输出链路中实时检测 GDPR 语境下的个人数据， … | eu | data-privacy | legal-analysis | zh-CN | undeclared |
-| 881 | `gdpr-policy-converter` | 将中国境内版隐私政策转换为符合欧盟 GDPR 的欧盟版隐私政策。适用于电子商务、快消、人工智能平台类中国企业出海欧盟场景… | eu | data-privacy | contract-work | zh-CN | undeclared |
-| 882 | `gdpr-privacy-notice-eu-oliver-schmidt-prietz` | 为任何欧盟/欧洲经济区法域和受众起草符合 GDPR/DSGVO 的隐私通知，输出为 .docx。当用户要求创建隐私政策/… | fr/eu/multi | data-privacy | contract-work | zh-CN | agpl-3.0 |
-| 883 | `generate-bankruptcy-law-practice-client-education-handout` | Create a polished explainer handout with visuals, FAQs, and … | general | general | legal-analysis | en | undeclared |
-| 884 | `generate-estate-planning-law-firm-client-education-handout` | Create a polished explainer handout with visuals, FAQs, and … | general | general | contract-work | en | undeclared |
-| 885 | `generate-estate-planning-law-firm-client-education-handout-kirk` | Create a polished explainer handout with visuals, FAQs, and … | general | general | legal-analysis | en | undeclared |
-| 886 | `generate-immigration-law-firm-client-education-handout` | Create a polished explainer handout with visuals, FAQs, and … | general | general | legal-analysis | en | undeclared |
-| 887 | `generate-legal-services-ad-creative-brief` | Plan campaign visuals and hooks for legal services promotion… | general | general | legal-analysis | en | undeclared |
-| 888 | `gibraltar-law-osint-philip-vasquez` | 为从事直布罗陀法律、监管和合规研究的 AI 助手提供的辖区植根参考文件。纠正 AI 模型将英国法律适用于直布罗陀时犯下的… | eu | banking-finance | legal-analysis | zh-CN | cc-by-4.0 |
-| 889 | `giurisprudenza-lampo` | 快速判例研究，以就某一法律主题获得初步的定向框架。触发词为 "giurisprudenza-lampo [tema]"、… | china | general | legal-analysis | zh-CN | agpl-3.0 |
-| 890 | `glba-privacy-notice` | Drafts GLBA-compliant privacy notices using the 16 CFR Part … | us | securities | contract-work | en | apache-2.0 |
-| 891 | `global-company-shareholder-zh` | 调取全球企业资料库查询股东信息以及实际受益所有人（Beneficial Owner），梳理企业股权架构、投资关联关系，协… | international | corporate | legal-analysis | zh-CN | undeclared |
-| 892 | `gmp-compliance-check` | 药品行业 GMP（生产质量管理规范）合规自检工具。基于通用 GMP 合规基线（中国 GMP / FDA 21 CFR P… | us | life-sciences | contract-work | zh-CN | undeclared |
-| 893 | `gmp-sop` | Drafts inspection-ready GMP standard operating procedures fo… | us | general | contract-work | en | apache-2.0 |
-| 894 | `google-patents` | Search Google Patents database for patent research, infringe… | china | ip | legal-analysis | zh-CN | undeclared |
-| 895 | `gouvernance-des-societes-cotees-gillan-saleh` | 面向科学目的的法国上市公司（SBF 120）治理文献分析开源 Skill。它以逐页带来源的索引形式，汇集 2020-20… | fr/eu | securities | compliance | zh-CN | cc-by-nc-sa-4.0 |
-| 896 | `gov-doc-law-search` | 中国政府文件、法律法规、规范标准查询技能。支持(1) WebSearch多维度检索权威官网；(2) ima知识库全量检索… | china | general | legal-research | zh-CN | undeclared |
-| 897 | `govproc-method-selector` | 政府采购领域"某项目应选/已选何种采购方式"的法定适用条件判定与合规验证引擎。 六种法定方式（公开/邀请招标、竞谈/磋商… | china | general | legal-research | zh-CN | undeclared |
-| 898 | `govproc-response-compliance-advisor` | 供应商侧「政府采购响应文件合规检查」技能：对照政府采购采购文件（竞争性谈判/竞争性磋商/询价/单一来源为主的响应文件，亦… | china | general | legal-research | zh-CN | undeclared |
-| 899 | `gp-bid-document` | 根据政府采购招标或磋商文件和供应商真实资料，编制、补全或审查法律服务投标/响应文件，并生成逐项响应、评分证据映射和废标风… | china | general | legal-analysis | zh-CN | undeclared |
-| 900 | `gp-bid-scoring-analysis` | 拆解政府采购招标或磋商文件的资格门槛、实质性要求和评分办法，评估可得分、材料缺口、报价敏感性与投标决策。用于拆评分表、判… | china | general | legal-analysis | zh-CN | undeclared |
-| 901 | `gp-challenge-complaint` | 办理政府采购询问、质疑、投诉、答复及后续救济，先计算期限和核对受理条件，再整理证据、选择请求并起草文书。用于不服采购文件… | china | litigation | contract-work | zh-CN | undeclared |
-| 902 | `gp-eval-criteria-designer` | 评审办法/评审标准合规设计助手（政采货物服务版）。主触发：设计/审查评审办法、评审标准、分值权重、价格分下限、主观分占比… | china | general | legal-research | zh-CN | undeclared |
-| 903 | `gp-lead-radar` | 发现、筛选和持续监控浙江省政府采购法律服务机会，并按可投性、匹配度、竞争与投入产出排序。用于找标、本周政采线索、采购意向… | china | general | legal-analysis | zh-CN | undeclared |
-| 904 | `gp-mock-evaluation` | 对政府采购投标或响应文件进行交标前模拟评审，依采购文件先审资格与符合性，再逐项评分，输出证据页码、失分、提分优先级和机器… | china | general | legal-analysis | zh-CN | undeclared |
-| 905 | `gp-procurement-inspection` | 从采购人、代理机构或供应商视角，对政府采购项目进行合规体检、专项检查、迎检自查和证据化工作底稿编制。用于采购文件歧视性条… | china | contract-law | litigation | zh-CN | undeclared |
-| 906 | `gpai-code-of-practice` | 根据《AI 法案》（欧盟条例 2024/1689，KI-Verordnung）第 51-56 条，评估对欧盟通用人工智能… | eu/de | ip | legal-analysis | zh-CN | declared-only |
-| 907 | `gq-procurement-advisor` | 国企采购合规实务助手。当用户咨询国企采购合规、国有资金采购方式选择、53号文适用场景、招标文件审查、国企采购风险评估、非… | china | general | contract-work | zh-CN | undeclared |
-| 908 | `grant-agreement` | Drafts U.S. grant agreements for philanthropic fund transfer… | us | contract-law | contract-work | en | apache-2.0 |
-| 909 | `grant-warranty-deed` | Drafts execution-ready Grant Deeds and Warranty Deeds for re… | general | contract-law | contract-work | en | apache-2.0 |
-| 910 | `greek-compliance-aade` | Greek tax compliance with AADE/TAXIS integration — VAT, payr… | general | tax | legal-analysis | en | undeclared |
-| 911 | `greenhelix-agent-compliance-toolkit` | EU AI Act Compliance for Autonomous Agents. Complete complia… | eu | general | legal-analysis | en | mit |
-| 912 | `greenhelix-bundle-compliance-legal` | Navigate the regulatory landscape for autonomous AI agents. … | eu | general | legal-analysis | en | mit |
-| 913 | `ground-lease` | Drafts U.S. ground lease agreements for long-term land lease… | us | real-estate | contract-work | en | apache-2.0 |
-| 914 | `gsa-schedule-contract` | Drafts FAR/GSAR-compliant GSA Schedule (MAS/FSS) contracts w… | general | contract-law | contract-work | en | apache-2.0 |
-| 915 | `guaranty-agreement` | Drafts U.S. commercial guaranty agreements securing a debtor… | us | general | legal-analysis | en | apache-2.0 |
-| 916 | `guaranty-unlimited` | Drafts a U.S. Unlimited Guaranty for commercial lending tran… | us | contract-law | contract-work | en | apache-2.0 |
-| 917 | `guardian-compliance` | Immigration, tax, and business compliance alerts. Check your… | general | environmental | legal-analysis | en | undeclared |
-| 918 | `guardian-nomination-minors` | Drafts a US parental guardianship nomination for minor child… | general | contract-law | contract-work | en | apache-2.0 |
-| 919 | `guardianship-nomination` | Drafts jurisdiction-specific Nomination of Guardian for Mino… | general | family | contract-work | en | apache-2.0 |
-| 920 | `guardianship-petition` | Drafts court-ready Petitions for Guardianship for US state c… | general | litigation | litigation | en | apache-2.0 |
-| 921 | `guide-ant-ss-213` | 为蚂蚁社保个人用户处理“工伤认定申请指引”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办理路… | china | labor | legal-analysis | zh-CN | undeclared |
-| 922 | `guoyiyi-v019-azure-compliance` | 输入AI 方案、数据流和行业约束，产出合规风险矩阵、整改动作与审计证据清单，适合企业法务、合规、IT 和 AI 团队。 … | china | general | doc-reading | zh-CN | undeclared |
-| 923 | `gutachten-admin-case` | 行政法鉴定式案例研习工作流。以"双层结构（可受理性+可证立性）+ 行政行为类型路由 + 涵摄四步法"产出完整研习/审查报… | china | litigation | litigation | zh-CN | cc-by-nc-nd-4.0 |
-| 924 | `gutachten-civil-case` | 鉴定式民法案例研习超级工作流。当用户提交民事案例（PDF/Word/纯文本/图片）并希望按"请求权基础方法 + 鉴定式（… | china | litigation | litigation | zh-CN | apache-2.0 |
-| 925 | `gutachten-criminal-case` | 鉴定式刑法案例研习超级工作流。当用户提交刑事案例（PDF/Word/纯文本/图片）并希望按"三阶层犯罪论 + 鉴定式"输… | china | criminal | legal-research | zh-CN | apache-2.0 |
-| 926 | `gxp-compliance` | GxP合规检查与供应商问卷分析Skill。当需要分析、评估、检查以下主题时触发： (1) GxP相关合规要求（GMP、G… | us | contract-law | compliance | zh-CN | undeclared |
-| 927 | `habeas-corpus-petition` | Drafts federal and state habeas corpus petitions challenging… | us | litigation | litigation | en | apache-2.0 |
-| 928 | `haccp-plan` | Drafts U.S. HACCP plans for food production under FDA or USD… | us | general | legal-analysis | en | apache-2.0 |
-| 929 | `hanxin-tech-legal-assistant` | asset-tracing-enforcement（执行财产的追踪与分析） | china | arbitration-adr | legal-research | zh-CN | undeclared |
-| 930 | `hazardous-waste-manifest` | Drafts a Uniform Hazardous Waste Manifest (EPA Form 8700-22)… | general | general | contract-work | en | apache-2.0 |
-| 931 | `health-care-agent-letter` | Drafts a non-binding instruction letter (values letter / leg… | us | general | contract-work | en | apache-2.0 |
-| 932 | `healthcare-agent-instruction-letter` | Drafts a non-binding healthcare values/instruction letter fo… | us | general | contract-work | en | apache-2.0 |
-| 933 | `healthcare-poa` | Drafts a state-compliant Healthcare Power of Attorney (HCPOA… | us | contract-law | contract-work | en | apache-2.0 |
-| 934 | `healthcare-services-agreement` | Drafts professional services agreements for healthcare provi… | us | contract-law | contract-work | en | apache-2.0 |
-| 935 | `hearing-prep` | Generates structured hearing preparation briefings from case… | general | litigation | legal-analysis | en | apache-2.0 |
-| 936 | `hearing-prep-summary` | Produces a quick-reference hearing preparation summary synth… | general | litigation | legal-analysis | en | apache-2.0 |
-| 937 | `hegui-consult` | 上市公司合规、任职资格、公司治理及信息披露咨询。用户询问某事项是否合法合规、是否需要公告、是否影响董事、独立董事或高级管… | china | contract-law | legal-research | zh-CN | undeclared |
-| 938 | `heritage-protection-summary` | Generates structured legal briefings on cultural heritage pr… | general | intl-trade | doc-reading | en | apache-2.0 |
-| 939 | `hetong-fengxian` | 施工企业工程合同风险审查工具：按支付、工期、变更索赔、结算四维度识别陷阱条款并分级，输出谈判修改优先级清单，用于签约前风… | china | contract-law | contract-work | zh-CN | undeclared |
-| 940 | `hilegal-compliance` | This skill should be used when users ask about cross-border … | international | ip | compliance | zh-CN | undeclared |
-| 941 | `hipaa-baa` | Drafts HIPAA/HITECH-compliant Business Associate Agreements … | us | contract-law | contract-work | en | apache-2.0 |
-| 942 | `hipaa-compliance` | 面向医疗和软件场景的专业 HIPAA 合规助手。每当用户提及 HIPAA、PHI（受保护健康信息）、ePHI、覆盖实体、… | us | contract-law | legal-analysis | zh-CN | mit |
-| 943 | `hipaa-compliance-auditor` | Automatically detect and de-identify PII (Personal Identifia… | us | general | contract-work | en | mit |
-| 944 | `hipaa-privacy-notice` | Drafts a HIPAA-compliant Notice of Privacy Practices per 45 … | us | general | contract-work | en | apache-2.0 |
-| 945 | `hipaa-release` | Drafts a HIPAA Release Authorization form compliant with 45 … | us | general | legal-analysis | en | apache-2.0 |
-| 946 | `hipaa-release-authorization` | Drafts HIPAA-compliant PHI release authorizations for estate… | us | general | legal-analysis | en | apache-2.0 |
-| 947 | `hipaa-release-form` | Drafts HIPAA Release Authorization forms compliant with 45 C… | us | contract-law | contract-work | en | apache-2.0 |
-| 948 | `historic-preservation-law-summary` | Produces a structured U.S. historic preservation law summary… | us | tax | legal-analysis | en | apache-2.0 |
-| 949 | `hoa-addendum` | Drafts an HOA Addendum to a residential purchase agreement c… | general | contract-law | contract-work | en | apache-2.0 |
-| 950 | `hr-compliance-scanner` | 扫描劳动合同、员工手册、规章制度、裁员方案四类HR文档，对照《劳动合同法》等法规逐条检测45+风险点并分级，输出五板块合… | china | labor | compliance | zh-CN | undeclared |
-| 951 | `hr-compliance-toolkit` | 企业劳动人事全流程合规风控SOP工具包。覆盖员工全生命周期8大场景（招聘/Offer/入职/劳动合同/员工手册/试用期/… | china | labor | compliance | zh-CN | undeclared |
-| 952 | `hr-legal-compliance` | HR Legal Compliance Officer - Employment law compliance, 121… | china | labor | contract-work | zh-CN | undeclared |
-| 953 | `hr-policy-summary` | Summarizes U.S. HR policies and employee handbooks into plai… | us | intl-trade | doc-reading | en | apache-2.0 |
-| 954 | `hrssc` | HRSSC（人力资源共享服务中心）专业知识库 Skill。涵盖中国大陆人事实务的核心模块： 社保公积金（缴费规则、账单核… | china | labor | legal-analysis | zh-CN | undeclared |
-| 955 | `hsr-filing` | Prepares Hart-Scott-Rodino Act premerger notification filing… | us | corporate | legal-analysis | en | apache-2.0 |
-| 956 | `huang-lawyer-legal-brain` | 律师综合办案助手（黄律师的法律智脑），覆盖民事案件与刑事案件全流程。当用户需要办理案件、分析罪名/案由、了解诉讼流程、起… | china | family | litigation | zh-CN | undeclared |
-| 957 | `human-rights-case-summary` | Produces structured, citation-ready summaries of human right… | fr | general | legal-analysis | en | apache-2.0 |
-| 958 | `icc-jeanne-sulzer` | 涉及国际刑事法院（《罗马规约》体系）的研究、起草和分析。强制执行验证优先方法论——每一条判例、裁定、呈件、令状和陈述引用… | china | general | litigation | zh-CN | cc-by-4.0 |
-| 959 | `icd-cpt-normalization` | Normalizes diagnostic and procedure codes from medical recor… | general | general | legal-analysis | en | apache-2.0 |
-| 960 | `icelandic-company-formation` | 当被问及在冰岛设立、注册或构建公司时使用本技能。触发词：关于冰岛商业实体（ehf、hf、sf、svf、ses）、资本要求… | china | corporate | legal-analysis | zh-CN | agpl-3.0 |
-| 961 | `icelandic-contract-review` | 当被要求审查、分析或起草受冰岛法律管辖的合同时使用本技能。触发词涉及冰岛商业协议、消费者合同、销售协议、服务合同，或任何… | uk | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 962 | `icelandic-court-case-finder` | 当被要求查找、引用、分析或总结冰岛法院判决时使用本技能。涉及 Hæstiréttur（最高法院）、Landsréttur… | china | general | legal-analysis | zh-CN | agpl-3.0 |
-| 963 | `icelandic-eea-gap-analysis` | 当被要求分析冰岛如何将欧盟指令或条例转化为国内法、识别欧盟/欧洲经济区法律与冰岛实施之间的差距，或评估冰岛对欧洲经济区义… | eu | contract-law | legal-analysis | zh-CN | agpl-3.0 |
-| 964 | `icelandic-labour-law` | 当被问及冰岛雇佣法、劳资关系、工作场所权利或集体协议时，使用本 skill。关于招聘、解雇、工作条件、育儿假、工会、集体… | china | contract-law | legal-analysis | zh-CN | agpl-3.0 |
-| 965 | `icelandic-legal-terminology` | 当被要求翻译、解释或将冰岛法律术语映射到英文（或反向）时，使用本 skill。涉及冰岛法律词汇、法律翻译、理解冰岛法规或… | china | general | translation | zh-CN | agpl-3.0 |
-| 966 | `icelandic-privacy-review` | 当被要求依据冰岛法律和 GDPR 审查数据保护或隐私合规时使用本技能。涉及个人数据处理、隐私政策、DPIA 评估、ken… | eu/international | data-privacy | contract-work | zh-CN | agpl-3.0 |
-| 967 | `icty-ictr-irmct-jeanne-sulzer` | 适用于 ICTY、ICTR 和余留机制（IRMCT）的验证优先方法论。引文对照 irmct.org、判例与统一法院记录数… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
-| 968 | `ilit` | Drafts an Irrevocable Life Insurance Trust (ILIT) compliant … | general | general | legal-analysis | en | apache-2.0 |
-| 969 | `illegal-dismissal-guide` | 违法辞退应对全流程辅助技能。当用户提到违法解除、违法辞退、被开除、被辞退、N+1、2N、经济补偿金、赔偿金、末位淘汰、调… | china | labor | calculation | zh-CN | undeclared |
-| 970 | `image-paginator` | Slices long images/screenshots into overlapping segments, ad… | china | general | legal-analysis | zh-CN | gpl-3.0 |
-| 971 | `ime-report-analysis` | Analyzes defense Independent Medical Examination (IME) repor… | general | litigation | legal-analysis | en | apache-2.0 |
-| 972 | `ime-report-summary` | Critically analyzes defense IME reports by auditing record c… | general | litigation | legal-analysis | en | apache-2.0 |
-| 973 | `immigration-case-summary` | Produces structured U.S. immigration case summaries covering… | us | immigration | doc-reading | en | apache-2.0 |
-| 974 | `immigration-support-letter` | Drafts formal immigration support letters from employers, fa… | us | tax | contract-work | en | apache-2.0 |
-| 975 | `import-compliance-manual` | Drafts a U.S. import compliance manual demonstrating reasona… | us | contract-law | contract-work | en | apache-2.0 |
-| 976 | `incident-report-summary` | Generates structured, litigation-ready summaries from police… | general | litigation | doc-reading | en | apache-2.0 |
-| 977 | `incident-reporting-navigator` | 当安全事件、数据泄露或积极利用的漏洞引发“我们必须通知谁、通知到哪里、 在什么时间之前？”的问题时使用。筛选一个事件跨欧… | eu | general | legal-analysis | zh-CN | cc-by-4.0 |
-| 978 | `incident-response-plan` | Drafts incident response plans and playbooks for legal organ… | us | insurance | legal-analysis | en | apache-2.0 |
-| 979 | `incident-response-playbook` | Drafts incident response plans and scenario playbooks for U.… | us | tax | contract-work | en | apache-2.0 |
-| 980 | `incident-to-billing-policy` | Drafts Medicare incident-to billing compliance policies for … | us | general | contract-work | en | apache-2.0 |
-| 981 | `income-verification-summary` | Produces court-ready income verification reports from tax re… | general | litigation | doc-reading | en | apache-2.0 |
-| 982 | `incorporator-written-consent` | Drafts an Action by Written Consent of Incorporator for newl… | us | corporate | contract-work | en | apache-2.0 |
-| 983 | `ind-application` | Drafts FDA Investigational New Drug (IND) applications under… | us | life-sciences | legal-writing | en | apache-2.0 |
-| 984 | `independent-contractor-agreement` | Drafts a U.S. independent contractor agreement with misclass… | us | contract-law | contract-work | en | apache-2.0 |
-| 985 | `indian-dpdp-act-consent-notice-siddhi-kudalkar` | 依据印度《2023 年数字个人数据保护法》和《2025 年 DPDPA 规则》起草或审查符合 DPDPA 的同意通知。提… | in | data-privacy | contract-work | zh-CN | agpl-3.0 |
-| 986 | `indian-foreign-investment-approval-assessment-siddhi-kudalkar` | 评估根据《1999 年外汇管理法》和《2019 年非债务工具规则》，对印度公司的外国投资是否需要印度政府批准。本技能系统… | in | corporate | legal-analysis | zh-CN | apache-2.0 |
-| 987 | `individual-overseas-investment-compliance-plan` | 个人（居民个人/境内个人）直持境外证券、存款、房产的涉税申报、税收抵免与合规投资通道一站式筹划。覆盖837号令对外投资监… | international | tax | compliance | zh-CN | undeclared |
-| 988 | `industrial-bid-compliance` | 工业领域招投标技术方案智能审查。上传技术方案文档，自动逐条对标国家/行业强制性标准进行合规审查，输出9维合规雷达评分+逐… | china | construction | contract-work | zh-CN | undeclared |
-| 989 | `industrial-warehouse-lease` | Drafts NNN-structured U.S. Industrial or Warehouse Lease agr… | us | contract-law | contract-work | en | apache-2.0 |
-| 990 | `information-security-policy` | Drafts a board-approvable Information Security Policy coveri… | eu/us | contract-law | contract-work | en | apache-2.0 |
-| 991 | `informed-consent-form` | Drafts regulatory-compliant informed consent forms for healt… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 992 | `informed-consent-form-clinical-trial` | Drafts an IRB-ready Informed Consent Form (ICF) for FDA-regu… | us | contract-law | contract-work | en | apache-2.0 |
-| 993 | `inheritance` | 提供遗嘱代办咨询、家族办公室基本指引、法律风险防控及赠予税费解读。 | china | general | legal-analysis | zh-CN | undeclared |
-| 994 | `inheritance-evidence-cross-examination` | 为中国大陆继承纠纷生成、审查和补强举证清单与质证意见。用于法定继承、代位继承、转继承、遗嘱效力、遗嘱执行、遗产范围与分割… | china | family | litigation | zh-CN | undeclared |
-| 995 | `initial-board-resolutions` | Drafts initial board resolutions (organizational meeting min… | us | corporate | contract-work | en | apache-2.0 |
-| 996 | `initial-contact-summary` | Generates a structured initial contact summary memorandum fr… | general | litigation | doc-reading | en | apache-2.0 |
-| 997 | `insider-trading-policy` | Drafts a U.S. financial-services insider trading policy cove… | us | general | legal-analysis | en | apache-2.0 |
-| 998 | `insurance-certificate-compliance` | Produces requirement-by-requirement CRE insurance certificat… | general | contract-law | contract-work | en | apache-2.0 |
-| 999 | `insurance-certificate-compliance-check` | Performs contract-driven compliance review of insurance cert… | general | contract-law | contract-work | en | apache-2.0 |
-| 1000 | `insurance-claim-summaries` | Generates structured summaries of U.S. insurance claim files… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1001 | `insurance-correspondence-summarization` | Produces structured summaries of insurance claims correspond… | general | litigation | doc-reading | en | apache-2.0 |
-| 1002 | `insurance-policy-summary` | Produces structured, citation-backed summaries of U.S. insur… | us | insurance | doc-reading | en | apache-2.0 |
-| 1003 | `intake-summary` | Produces a structured U.S. corporate client intake summary f… | us | general | doc-reading | en | apache-2.0 |
-| 1004 | `interconnection-agreement` | Drafts U.S. telecommunications Interconnection Agreements (I… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1005 | `intercreditor-agreement` | Drafts a first lien/second lien intercreditor agreement gove… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1006 | `intercreditor-lien-priority` | Drafts U.S. intercreditor agreements establishing first lien… | us | general | contract-work | en | apache-2.0 |
-| 1007 | `interest-calculation-reference` | Calculates and validates pre-petition interest for U.S. bank… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1008 | `international-distribution-agreement` | Drafts an international distribution agreement covering appo… | international | contract-law | contract-work | en | apache-2.0 |
-| 1009 | `international-engineering-law-advisor` | 国际工程法律与合同实务智能顾问，覆盖FIDIC（红/黄/银皮书，含2022重印版）、 JCT（含2024版）、NEC等标… | uk | construction | contract-work | zh-CN | mit |
-| 1010 | `interrogatories-to-defendant` | Drafts plaintiff's interrogatories to defendant in personal … | us | litigation | litigation | en | apache-2.0 |
-| 1011 | `interrogatory-response-summaries` | Generates structured summaries of interrogatory responses in… | general | litigation | doc-reading | en | apache-2.0 |
-| 1012 | `interview-summary` | Generates structured summaries of witness or subject intervi… | general | general | legal-analysis | en | apache-2.0 |
-| 1013 | `intl-distribution-agreement` | Drafts international distribution agreements for cross-borde… | uk | contract-law | contract-work | en | apache-2.0 |
-| 1014 | `intrastate-offering` | Produces a compliance memo and execution plan for U.S. intra… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1015 | `invasive-testing-consent-letter` | Drafts a Phase II invasive testing consent letter that limit… | general | contract-law | contract-work | en | apache-2.0 |
-| 1016 | `invention-assignment-agreement` | Drafts a U.S. Confidentiality and Invention Assignment Agree… | us | contract-law | contract-work | en | apache-2.0 |
-| 1017 | `inverse-condemnation-complaint` | Drafts inverse condemnation complaints seeking just compensa… | us | litigation | litigation | en | apache-2.0 |
-| 1018 | `investigation-report-summary` | Generates executive-level summaries of investigative reports… | general | general | doc-reading | en | apache-2.0 |
-| 1019 | `investigation-summary` | Produces structured antitrust investigation summaries for ex… | us | litigation | doc-reading | en | apache-2.0 |
-| 1020 | `investigator-agreement` | Drafts Investigator Agreements for FDA-regulated clinical tr… | us | contract-law | contract-work | en | apache-2.0 |
-| 1021 | `investment-advisory-agreement` | Drafts a U.S. Investment Advisory Agreement (IAA) for SEC- o… | us | family | contract-work | en | apache-2.0 |
-| 1022 | `investment-banking-compliance-review-assistant` | AI-powered investment banking compliance review assistant fo… | international | securities | compliance | zh-CN | undeclared |
-| 1023 | `investors-rights-agreement` | Drafts a U.S. Investors' Rights Agreement for VC/private equ… | us | contract-law | contract-work | en | apache-2.0 |
-| 1024 | `invoice-contract-extract` | 发票与合同数据提取技能。读取 PDF/图片格式的发票、收据、合同文件， 自动提取关键字段（金额、日期、供应商、条款、签字… | china | contract-law | doc-reading | zh-CN | proprietary |
-| 1025 | `invoice-economy-risk-ctrl` | 基于 15 项发票专项风控指标的企业发票风险智能扫描工具，支持顶格开票识别、税负率预警、进销项不匹配、循环开票检测等；命… | china | tax | legal-analysis | zh-CN | mit |
-| 1026 | `invoice-from-email` | 从邮箱自动搜索下载发票/行程单附件，智能三级文字提取（PyMuPDF/Tesseract/PaddleOCR自动降级），… | china | general | doc-reading | zh-CN | mit |
-| 1027 | `invoice-review-compliance` | 面向管理外部律师的企业法务运营团队的发票审查、不合规标记、拒绝沟通、计费趋势分析与对话准备。对照计费准则审查发票；标记合… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1028 | `ip-assignment` | Drafts intellectual property assignment agreements transferr… | general | ip | contract-work | en | apache-2.0 |
-| 1029 | `ip-clause-review` | 用于审查合同中的知识产权归属、许可、开发成果、开源软件、第三方材料、侵权赔偿、署名权和成果交付条款；当用户需要识别 IP… | china | ip | contract-work | zh-CN | undeclared |
-| 1030 | `ip-infringement-analysis` | Produces structured IP infringement memoranda evaluating pat… | general | ip | legal-analysis | en | apache-2.0 |
-| 1031 | `ip-management-compliance` | ISO 56005 知识产权全流程管控母技能。8个业务子技能+1个共享检索模块统一入口，集成tavily-search实… | china | ip | legal-research | zh-CN | undeclared |
-| 1032 | `ip-operations` | 知识产权运营变现全流程Skill - 支持IP许可、转让、作价入股、质押融资、证券化等七大路径全量化决策 | china | ip | calculation | zh-CN | undeclared |
-| 1033 | `ip-portfolio-summary` | Summarizes and analyzes a U.S. corporate IP portfolio coveri… | us | ip | contract-work | en | apache-2.0 |
-| 1034 | `ip-standard-compliance-assistant` | 知识产权贯标认证全流程智能助手。覆盖依据 GB/T 29490（含 2013 版《企业知识产权管理规范》及 2023 版… | china | ip | legal-analysis | zh-CN | mit |
-| 1035 | `ir-tabletop-exercise` | Drafts a tabletop exercise script to stress-test an organiza… | eu/us | contract-law | contract-work | en | apache-2.0 |
-| 1036 | `irac-prompt-stephane-boghossian` | 将任何粗糙的构建、研究或法律起草请求重构为 IRAC 形状的提示——Issue（争点）、Rule（规则）、Analysi… | china | civil-procedure | legal-analysis | zh-CN | agpl-3.0 |
-| 1037 | `isds-research` | 对投资人与国家间争端解决（ISDS）裁决和决定进行合规、植根于检索的研究。当用户询问 ICSID / 投资条约仲裁案件、… | international | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1038 | `ism` | 面向政府实体及其供应链的澳大利亚信息安全手册（ISM）专家顾问。用于 ISM 控制选择、差距分析、系统授权、IRAP 评… | au | general | compliance | zh-CN | cc-by-nc-nd-4.0 |
-| 1039 | `iso27001` | 面向安全与合规团队的专家级 ISO 27001 合规助手。当用户询问 ISO 27001 或 ISO/IEC 27001… | china | general | legal-analysis | zh-CN | mit |
-| 1040 | `iso27701` | ISO 27701 隐私信息管理体系（PIMS）合规顾问专家。当用户询问 ISO/IEC 27701:2025、ISO/… | international | data-privacy | compliance | zh-CN | mit |
-| 1041 | `iso42001` | ISO 42001 人工智能管理体系（AIMS）合规专家顾问。当用户询问 ISO/IEC 42001:2023、AI 治… | china | general | compliance | zh-CN | mit |
-| 1042 | `itar` | 面向美国国防承包商、出口商和制造商的专家型 ITAR 合规顾问。对任何关于 22 CFR 第 120-130 部分、美国… | china | intl-trade | litigation | zh-CN | mit |
-| 1043 | `itar-tcp` | Drafts ITAR Technology Control Plans (TCPs) for managing USM… | us | contract-law | doc-reading | en | apache-2.0 |
-| 1044 | `itar-technology-control-plan` | Drafts an ITAR Technology Control Plan (TCP) for U.S. export… | us | intl-trade | contract-work | en | apache-2.0 |
-| 1045 | `jep-jeanne-sulzer` | 针对和平特别司法管辖区（Jurisdicción Especial para la Paz，JEP）的验证优先方法论。J… | fr | general | legal-analysis | zh-CN | cc-by-4.0 |
-| 1046 | `jiandawang-jicui-consultation` | 当用户咨询中国法律、检察、检察业务、检察机关办案实务，或提到检答网、检答网集萃、检察日报答疑时，必须使用本技能先检索内置… | china | litigation | legal-research | zh-CN | mit |
-| 1047 | `jiang-irac-opposition-invalidation` | 商标异议·无效申请推理引擎（SJ-IRAC）：基于法条要件、证据链与风险分级的专业级审查与攻防系统。 | china | ip | contract-work | zh-CN | undeclared |
-| 1048 | `jiang-irac-refusal` | 商标驳回复审推理引擎（SJ-IRAC）：面向CNIPA驳回通知的要件化论证、证据链工程与A–E风险闸门，输出审查员可读、… | china | ip | legal-research | zh-CN | proprietary |
-| 1049 | `jnov-motion` | Drafts a Motion for Judgment Notwithstanding the Verdict (JN… | us | litigation | contract-work | en | apache-2.0 |
-| 1050 | `joint-operating-agreement` | Drafts U.S. Joint Operating Agreements (JOA) for oil and gas… | us | contract-law | contract-work | en | apache-2.0 |
-| 1051 | `judge-3wan` | 多智能体审核流水线的终判节点：根据参谋官的审核结论，只输出“合格”或“不合格”两字判定，不做任何其他展开。 | general | general | legal-analysis | zh-CN | undeclared |
-| 1052 | `judgment-analyzer` | 分析判决书文档，提取关键信息并生成结构化分析报告。当用户提到「分析判决书」「解读判决书」「判决书总结」「生成判决书报告」… | china | general | doc-reading | zh-CN | undeclared |
-| 1053 | `judgment-reader` | 民事判决书智能阅读与结构化信息提取工具。专精于著作权类民事判决书，支持一审、二审及再审判决书。自动提取案号、当事人、案由… | china | ip | litigation | zh-CN | undeclared |
-| 1054 | `judgment-summary` | Produces structured U.S. litigation judgment summaries from … | us | general | doc-reading | en | apache-2.0 |
-| 1055 | `judicial-first-impression` | 从一位在时间压力下冷读的法官的视角，评估一项法律论证、提交文件或结构化推理。产出一份结构化的七部分评估：案件看似涉及什么… | china | general | legal-analysis | zh-CN | apache-2.0 |
-| 1056 | `jurisdictional-statement` | Drafts jurisdictional statements for U.S. appellate courts e… | us | general | legal-analysis | en | apache-2.0 |
-| 1057 | `jurisrank` | 使用 JurisRank 进行阿根廷最高法院引用网络分析——一种经同行评审、 带时间衰减的 PageRank 算法，用于… | china | general | legal-analysis | zh-CN | cc-by-4.0 |
-| 1058 | `jury-instructions` | Drafts complete proposed jury instruction sets for U.S. liti… | us | litigation | doc-reading | en | apache-2.0 |
-| 1059 | `jury-trial-request` | Drafts a formal Request for Jury Trial invoking Sixth Amendm… | us | litigation | litigation | en | apache-2.0 |
-| 1060 | `kai-civil-litigation-master-lite` | 资深民商事诉讼律师基于要件审判方法与请求权基础分析法，融合20年诉讼经验和团队管理流程打造，支持民商事诉讼案件全流程处理… | china | litigation | litigation | zh-CN | undeclared |
-| 1061 | `know-how-license` | Drafts Know-How License Agreements for licensing trade secre… | general | general | contract-work | en | apache-2.0 |
-| 1062 | `know-how-license-agreement` | Drafts U.S. know-how (trade secret) license agreements cover… | us | contract-law | contract-work | en | apache-2.0 |
-| 1063 | `ksc-jeanne-sulzer` | 科索沃专门分庭与专门检察官办公室（海牙，适用科索沃法律）的验证优先方法论。引用在使用前均对照 scp-ks.org 核验… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
-| 1064 | `labeling-compliance-review` | Conducts FDA labeling compliance reviews for drugs, foods, d… | us | life-sciences | legal-analysis | en | apache-2.0 |
-| 1065 | `labor-arbitration` | 劳动仲裁全流程辅助技能。当用户提到劳动仲裁、劳动争议、拖欠工资、违法解除、经济补偿金、赔偿金、二倍工资、加班费、劳动维权… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1066 | `labor-arbitration-application` | 根据劳动关系日期、工资、争议类型和现有证据，生成劳动仲裁申请书草稿、备选请求金额、时效提示和证据缺口清单。 | china | arbitration-adr | calculation | zh-CN | undeclared |
-| 1067 | `labor-arbitration-preparation` | 为准备申请劳动仲裁的劳动者提供全流程指导：时效判断、管辖确认、仲裁请求设计、申请书撰写、证据整理与庭审策略，无需律师也能… | china | labor | litigation | zh-CN | undeclared |
-| 1068 | `labor-company-tax-compliance` | 劳务/建筑公司税务实操指南。工资发放合规、公转私风险、成本票处理、 社保与工资的关系、小微企业企业所得税优化。不用再信财… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1069 | `labor-contract-review` | 当用户上传或提供《劳动合同》《聘用合同》《劳务协议》等文件，并希望检查条款是否合法合规、识别不公平或违法条款、获取修改建… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1070 | `labor-dispute` | 劳动者维权技能体系。覆盖从入职签合同到仲裁诉讼的全流程，共8个技能卡。 适用场景： - 入职前检查合同条款 → 用 co… | china | labor | contract-work | zh-CN | undeclared |
-| 1071 | `labor-dispute-simulator` | 劳动纠纷法律程序模拟器，支持仲裁、一审、二审全流程模拟，可扮演员工律师、公司律师、仲裁员、法官等多角色，生成法律文书和证… | china | labor | litigation | zh-CN | mit |
-| 1072 | `labor-fee-calculator` | 劳动法费用计算路由技能。根据用户问题自动分发到子技能：补偿金/赔偿金计算、加班工资计算、未休年休假补偿计算、工伤赔偿计算… | china | labor | calculation | zh-CN | undeclared |
-| 1073 | `labor-law-advisor` | 劳动法律问题咨询。当用户遇到劳动纠纷：工伤认定、合同问题、加班费争议、社保缴纳、竞业限制纠纷、裁员赔偿、仲裁流程等问题时… | china | labor | legal-research | zh-CN | undeclared |
-| 1074 | `labor-law-compliance-check` | 列常见用工合规风险点（合同/工时/解除/女职工），给自查 checklist。明确非律师，重大找专业。 | china | labor | contract-work | zh-CN | mit |
-| 1075 | `labor-law-expert` | Load when user asks about 劳动合同、工资、加班费、社保公积金、工伤、辞退裁员、经济补偿/赔偿金… | china | labor | contract-work | zh-CN | mit |
-| 1076 | `labor-law-helper` | 劳动者维权自助百科。覆盖劳动法、劳动合同法、裁员、辞退、赔偿、经济补偿、N+1、2N、离职补偿计算、拖欠工资、加班费、年… | china | labor | calculation | zh-CN | undeclared |
-| 1077 | `labor-law-kb-zh` | 整理劳动合同、试用期、加班、离职、竞业限制等常见劳动法知识点和材料清单。 核心模块：概念解释、材料清单、流程节点、常见误… | china | labor | compliance | zh-CN | mit |
-| 1078 | `labor-law-rights-guide` | 面向打工人的劳动法科普助手：覆盖加班费、试用期、辞退赔偿、竞业限制、社保等高频场景，讲清你可能享有的权利与常见坑，并指向… | china | labor | contract-work | zh-CN | cc-by-4.0 |
-| 1079 | `labor-rights-guard` | 解析中国劳动法权益并提供维权指引、沟通话术、费用计算和证据收集指导，适用于加班费纠纷、欠薪、违法解雇、社保争议等场景。当… | china | labor | litigation | zh-CN | undeclared |
-| 1080 | `labor-rights-pro` | 劳动争议全流程AI法律助手——从咨询、诉求优化、输赢预判、证据指引，到劳动仲裁（申请/证据/开庭/质证）与法院一审、二审… | china | labor | legal-research | zh-CN | undeclared |
-| 1081 | `labor-termination-cost-comparator` | 当用户要把中国大陆劳动关系解除或终止的事实、合同、工资记录、通知或争议材料，转化为经济补偿金、代通知金、违法解除赔偿金及… | china | labor | contract-work | zh-CN | apache-2.0 |
-| 1082 | `labor-violation-summary` | Produces structured summaries of labor law violation investi… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1083 | `last-will` | Drafts a state-compliant Last Will and Testament covering de… | general | estate-trust | contract-work | en | apache-2.0 |
-| 1084 | `last-will-and-testament` | Drafts and structures U.S. Last Will and Testament documents… | us | contract-law | contract-work | en | apache-2.0 |
-| 1085 | `law-exam-trainer` | 法考复习助手 - 根据法考视频/文档资料整理题库，支持选择题练习、错题解析、知识点定位。当用户说：法考、刷题、司法考试、… | china | education-law | education | zh-CN | undeclared |
-| 1086 | `law-expert` | '法眼 ⚖️ v4.0 — 全能法律专家顾问。v4.0升级合同审查引擎（7步流水线+单边利益导向+Playbook五步审… | china | labor | contract-work | zh-CN | undeclared |
-| 1087 | `law-expertise-to-skill-ignacio-adrian-lerer` | 将律师的限定专业知识、工作流、审查标准或法律判断模式转化为安全、可检查的法律 AI skill。当用户提供法律备忘录、意… | china | general | contract-work | zh-CN | agpl-3.0 |
-| 1088 | `law-firm-document-filler` | 律所委托材料自动填写工具。用于将律所标准文书模板（.docx）转换为带占位符的模板， 并根据当事人信息自动填充生成完整的… | china | legal-profession | legal-analysis | zh-CN | undeclared |
-| 1089 | `law-firm-worklog` | 律所工时月报生成（通用版，多数据源）。从用户已配置的任务管理工具（滴答清单 / Notion / Microsoft T… | china | general | legal-analysis | zh-CN | undeclared |
-| 1090 | `law-quiz-m01-criminal` | 法考·模块：刑法——本 Skill 是「法考客观题」职业资格考试《刑法》科目的刷题模块，面向备考考生。题目由 AI 依据… | china | education-law | education | zh-CN | mit |
-| 1091 | `law-quiz-m02-civil` | 法考·模块：民法——本 Skill 是「法考客观题」职业资格考试《民法》科目的刷题模块，面向备考考生。题目由 AI 依据… | china | family | education | zh-CN | mit |
-| 1092 | `law-quiz-m03-crim-proc` | 法考·模块：刑诉法——本 Skill 是「法考客观题」职业资格考试《刑事诉讼法》科目的刷题模块，面向备考考生。题目由 A… | china | education-law | education | zh-CN | mit |
-| 1093 | `law-quiz-m04-civil-proc` | 法考·模块：民诉法——本 Skill 是「法考客观题」职业资格考试《民事诉讼法》科目的刷题模块，面向备考考生。题目由 A… | china | civil-procedure | education | zh-CN | mit |
-| 1094 | `law-quiz-m05-admin` | 法考·模块：行政法——本 Skill 是「法考客观题」职业资格考试《行政法与行政诉讼法》科目的刷题模块，面向备考考生。题… | china | administrative | education | zh-CN | mit |
-| 1095 | `law-quiz-m06-commercial` | 法考·模块：商经法——本 Skill 是「法考客观题」职业资格考试《商法与经济法》科目的刷题模块，面向备考考生。题目由 … | china | corporate | education | zh-CN | mit |
-| 1096 | `law-search` | Korean law/case search via law.go.kr + data.go.kr APIs. Use … | kr | general | legal-analysis | en | undeclared |
-| 1097 | `law-skills` | 一站式法律服务平台 — 专业法律咨询 + 要素式/通用起诉状起草 + 国家法律法规数据库实时查询。集成flk.npc.g… | china | litigation | litigation | zh-CN | mit |
-| 1098 | `law-to-markdown` | 将法条/规范文件（.txt/.docx/.pdf）转为 Markdown。适用于用户要求“法条转 markdown”“p… | china | general | legal-analysis | zh-CN | undeclared |
-| 1099 | `law086` | 案件云(law086) AI集成。让律师通过自然语言操作案件云：查询案件列表和详情、创建案件、更新案件进度和状态、管理日… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1100 | `lawclaw` | Drop a contract, get answers. lawclaw rips through PDFs, spo… | general | contract-law | contract-work | en | undeclared |
-| 1101 | `lawschool-video-autopilot` | Automate online law course video watching on 律师云学院 (lawschoo… | china | general | legal-analysis | zh-CN | undeclared |
-| 1102 | `lawsuit` | The Sovereign Litigation Protocol (SLP-2026). A recursive, h… | general | litigation | legal-analysis | en | undeclared |
-| 1103 | `lawsuit-fee-calc` | Calculate lawsuit filing fees and litigation costs for civil… | china | litigation | litigation | zh-CN | undeclared |
-| 1104 | `lawve-agentic-delegation-audit-ignacio-adrian-lerer` | 当律师、法律团队或客户需要评估能够代表某人行动的 AI 代理时使用：发送消息、搜索、起草、提交、支付、删除、连接账户、使… | china | general | contract-work | zh-CN | agpl-3.0 |
-| 1105 | `lawve-public-due-diligence-gate-ignacio-adrian-lerer` | 用于尽职调查、法律-财务风险审查、投资或商业交易检查清单，以及初步筛查——在这些场景中，事实、文件、假设、法律不确定性、… | china | corporate | contract-work | zh-CN | agpl-3.0 |
-| 1106 | `lawyer` | Draft contracts, review legal documents, and navigate compli… | general | ip | contract-work | en | undeclared |
-| 1107 | `lawyer-ai-guide-2024` | 封装《律师使用AI指南 2024》（无锡市律师协会 编，法律出版社）全文的检索与答疑技能。当律师、法务或法律从业者询问如… | china | data-privacy | legal-research | zh-CN | undeclared |
-| 1108 | `lawyer-assistant` | 根据当事人、纠纷类型、事实经过结构化案件信息，检索中国法律法规与类似案例，输出含定性、法条依据、裁判要点、风险评估和策略… | china | labor | legal-research | zh-CN | undeclared |
-| 1109 | `lawyer-assistant-qilinbashe` | 你的AI律师助手。73个专业版+7个路由/工具+26个工具+1个推图技能（共107个技能文件），覆盖民事/刑事/劳动/非… | china | labor | legal-analysis | zh-CN | declared-only |
-| 1110 | `lawyer-due-diligence` | Professional Chinese legal due diligence report writer. Cove… | china | corporate | contract-work | zh-CN | undeclared |
-| 1111 | `lawyer-engineering-appraisal` | 律师参与建设工程造价司法鉴定操作指引——全流程工作skill。覆盖鉴定准备、委托、材料举证质证、鉴定实施、意见审查质证、… | china | construction | litigation | zh-CN | undeclared |
-| 1112 | `lawyer-fee-quote` | 根据案件类型、财产标的、难度等信息自动生成专业的律师费报价方案Word文档；当用户需要生成律师费报价方案、制作法律服务报… | international | criminal | litigation | zh-CN | undeclared |
-| 1113 | `lawyer-six-steps` | 中国律师办案六步法（事实梳理→法律分析→法理研究→案例检索→裁判规则→结果预判），生成完整案件分析报告。 适用于律师对民… | china | litigation | legal-research | zh-CN | undeclared |
-| 1114 | `lawyer-skills` | 一站式法律服务平台 — 专业法律咨询 + 要素式/通用起诉状起草 + 国家法律法规数据库实时查询。集成flk.npc.g… | china | litigation | litigation | zh-CN | mit |
-| 1115 | `lawyerai-lawyer` | AI法律顾问 v1.1 · 精准引用法条（含生效日期）+可操作行动步骤+合同模板索引+赔偿计算器。企业法务（合同/劳动/… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1116 | `lawyerscrib` | LLM 写出的法律文本看似法律文本，实则不是。空洞的套话、模糊的归因、系统性的模糊表达、装饰性的拉丁文：执业律师三行之内… | fr | contract-law | contract-work | zh-CN | declared-only |
-| 1117 | `lead-based-paint-disclosure` | Drafts federal lead-based paint disclosure forms for pre-197… | us | contract-law | contract-work | en | apache-2.0 |
-| 1118 | `lead-paint-disclosure` | Drafts execution-ready lead-based paint disclosure documents… | us | general | contract-work | en | apache-2.0 |
-| 1119 | `lease-amendment` | Drafts lease amendment agreements that modify specific provi… | general | contract-law | contract-work | en | apache-2.0 |
-| 1120 | `lease-guaranty` | Drafts unconditional guaranty agreements for commercial leas… | general | general | legal-analysis | en | apache-2.0 |
-| 1121 | `lease-summary` | Summarizes U.S. commercial lease agreements into structured … | us | contract-law | doc-reading | en | apache-2.0 |
-| 1122 | `lease-termination-agreement` | Drafts a mutual early lease termination agreement for U.S. c… | us | general | legal-analysis | en | apache-2.0 |
-| 1123 | `legal` | Use for law firm and legal practice operations — case manage… | general | legal-profession | legal-analysis | en | undeclared |
-| 1124 | `legal--org-a2bwkolr` | 中国民事与劳动法律辅助工具集：提供劳动补偿测算、诉讼费计算、合同类型指引、文书骨架与诉讼成本收益评估模板，辅助处理常见民… | china | general | legal-analysis | en | undeclared |
-| 1125 | `legal-academic-research` | 法学学术研究来源核验与规范写作：先核验来源、再结构分析、后规范写作。解决 AI 辅助法学研究中的幻觉引用、案例虚构、来源… | us | general | legal-analysis | zh-CN | undeclared |
-| 1126 | `legal-advisor` | Generate legal templates for labor, consumer, rental, and tr… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1127 | `legal-advisor-assistant` | A professional legal advisor assistant. Provides professiona… | general | contract-law | legal-analysis | en | undeclared |
-| 1128 | `legal-ai-counsel` | 法律AI助手 - An intelligent legal consultation assistant that he… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1129 | `legal-ai-model-router-stephane-boghossian` | 将任何法律任务路由到合适的 LLM，如同 OpenRouter，但面向法律工作，且以基准而非品牌忠诚为基础。基于 202… | china | contract-law | contract-work | zh-CN | declared-only |
-| 1130 | `legal-aid` | 全流程维权辅助技能，帮助用户识别侵权行为、整理证据、生成法律文书、规划维权路径。覆盖消费者、劳动、租房、行政、报警、互联… | china | litigation | litigation | zh-CN | mit |
-| 1131 | `legal-aid-interview-training` | 模拟刑事法律援助案件的律师会见训练。当用户想要练习法援案件会见技巧、模拟会见在押犯罪嫌疑人/被告人、锻炼会见提问逻辑、刑… | china | litigation | litigation | zh-CN | undeclared |
-| 1132 | `legal-analysis` | 面向中国大陆法律场景的法律问题识别、法律依据梳理、证据审查、程序路径分析与实务风险评估工具。输出法律信息和结构化分析参考… | china | family | legal-analysis | zh-CN | mit-0 |
-| 1133 | `legal-analysis-forge-oliver-schmidt-prietz` | 欧盟数字监管法律分析锻造器（EU Digital Regulation Legal Analysis Forge）——为… | eu | tax | legal-analysis | zh-CN | agpl-3.0 |
-| 1134 | `legal-article-summary` | Produces structured summaries of legal scholarship capturing… | general | general | doc-reading | en | apache-2.0 |
-| 1135 | `legal-assistant` | 法务助手（Legal Assistant）。协助完成合同接收分类、合同要素抽取、条款风险审查、模板对比、修改建议生成、法… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1136 | `legal-assistant-law` | 面向一人公司和小微团队提供日常法务支持：合同审查、劳动用工、知识产权、公司治理与合规体检。Use when the us… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1137 | `legal-assistant-pro` | 全能法律助手——融合法律咨询、证据分析、文书生成、合同审阅、案由速查、合规尽调、法律检索、案件管理、知识产权专项、产品法… | china | ip | litigation | zh-CN | undeclared |
-| 1138 | `legal-bid-pipeline` | 法务类投标文件八阶段多Agent生成流水线：投标预评估、招标文件解析、知识库检索、并行撰写、六道质检、评分项补强到PDF… | china | general | legal-analysis | zh-CN | mit |
-| 1139 | `legal-breaker` | 法律知识解构专家 - 专门处理法律、合同、合规领域的知识提取，拆解复杂法律逻辑 | china | contract-law | contract-work | zh-CN | undeclared |
-| 1140 | `legal-brief-drafter` | 整理和起草法律文书（庭后意见书、代理词、上诉状、答辩状、反驳意见书、质证意见等）。当用户提供案件素材（庭审笔录、证据清单… | china | litigation | litigation | zh-CN | undeclared |
-| 1141 | `legal-case-validator-mctmilk` | 用真实案例验证法条分析结果，分析司法实践中的裁判分歧、高频败诉原因和法官审查重点。AI生成的分析必须用真实案例验证。当用… | china | general | legal-research | zh-CN | undeclared |
-| 1142 | `legal-case-visualizer` | 法律案件分析报告可视化工具，将案件分析报告中的主体关系、债权链条、时间轴、风险矩阵等核心内容转换为专业SVG图表，供律师… | china | contract-law | legal-analysis | zh-CN | declared-only |
-| 1143 | `legal-case-wdy` | 类案预判（法律检索+类似案例）。用户描述纠纷（如被骗钱、欠债不还、合同纠纷、被打伤等）时，自动检索相关法律条文和类似判例… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1144 | `legal-citation` | 根据《法学引注手册（第二版）》生成符合规范的中文/外文学术脚注（引注）。接收文字、文献片段、图片、网页链接等任意输入，自… | china | general | legal-analysis | zh-CN | undeclared |
-| 1145 | `legal-citation-manual` | 法学引注手册——中国法学学术引注规范。融合《法学引注手册》（2019年版）体例，覆盖法律法规、司法案例、期刊论文、学术著… | china | general | contract-work | zh-CN | undeclared |
-| 1146 | `legal-citation-verify` | 法规引用验证技能。当用户写文章、报告时引用了法律法规、政策文件、司法解释等，需要对引用的准确性、有效性、合理性进行验证时… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1147 | `legal-cn-api` | 面向AI Agent的中国法律条文检索API部署方案：内置2416部现行法律8万余条文，基于Meilisearch与x4… | china | general | legal-research | zh-CN | undeclared |
-| 1148 | `legal-compliance` | Generate legal documents and ensure compliance for startups.… | eu/us/br | data-privacy | legal-analysis | en | undeclared |
-| 1149 | `legal-compliance-review` | 法律与合规审查全流程自动化技能，面向企业行政、运营、商务、法务小白。 核心能力： (1) 合同关键条款智能提取 —— 解… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1150 | `legal-concept-deep-dive-mctmilk` | 深入分析法条中的不确定法律概念（如"合理期限"、"重大误解"、"明显不当"）的内涵、外延、裁判标准和边界案例。当用户想穿… | china | general | legal-analysis | zh-CN | undeclared |
-| 1151 | `legal-consultant` | AI法律顾问，提供合同审查、法律咨询、文书撰写等专业法律服务 | china | general | contract-work | zh-CN | undeclared |
-| 1152 | `legal-consultation` | General legal consultation entry point to help users identif… | china | family | legal-analysis | zh-CN | undeclared |
-| 1153 | `legal-consultation-report` | 资深律师视角生成高转化率精美咨询报告；当用户需要输出法律咨询报告、风险评估报告、服务方案或促成签单的HTML文档时使用 | china | general | legal-analysis | zh-CN | undeclared |
-| 1154 | `legal-consulting-bundle` | 中国法律咨询AI技能套装 - 基于中国法律知识库，提供合同审查、法律问答、合规检查等AI自动化服务。 覆盖民法典、劳动合… | china | ip | contract-work | zh-CN | undeclared |
-| 1155 | `legal-contract-review` | 对合同、协议、标书、NDA、采购合同、服务合同、合作协议等法律文件进行辅助初筛；提取文本和元数据，检查条款完整性、法律与… | international | contract-law | contract-work | zh-CN | undeclared |
-| 1156 | `legal-contract-review-hetongshenhe` | 法务合同审核与风险批注。This skill should be used when the user uploads … | china | contract-law | contract-work | zh-CN | undeclared |
-| 1157 | `legal-contract-review-playbook` | 结构化英文合同审查工作流：按当事人、义务、风险分配、救济与谈判要点五大模块输出审查清单、问题清单与干系人摘要，适用于商事… | general | general | contract-work | zh-CN | undeclared |
-| 1158 | `legal-contract-reviewer` | 签合同前心里没底？30秒扫描合同全文，标出每个风险条款，告诉你哪里有坑、怎么改。覆盖劳动合同、租房合同、商业合作协议等1… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1159 | `legal-daily` | 生成当���中国法律领域资讯日报的 HTML 仪表盘。自动通过 WebSearch 检索权威法律信息来源（全国人大、国务… | china | general | legal-research | zh-CN | undeclared |
-| 1160 | `legal-database-search` | 【设计思路】基于对抗性验证方法论，以案号（Case Reference Number）为不可变法定标识符构建裁判文书真伪… | china | general | legal-research | zh-CN | undeclared |
-| 1161 | `legal-debate-simulation-mctmilk` | AI扮演对方律师，对己方的法条适用进行全方位攻击，并给出防御策略建议。这是庭前沙盘推演的核心技能。当用户想"自己打自己"… | china | general | legal-analysis | zh-CN | undeclared |
-| 1162 | `legal-decision-tree-mctmilk` | 基于前六步分析结果，为法条生成完整的适用决策流程图（SOP），标注判断节点、证据要求和切换条件。这是法条分析的最终沉淀，… | china | general | legal-research | zh-CN | undeclared |
-| 1163 | `legal-design-assessment` | 对照法律设计原则审计法律文件。从六个维度为文件评分：语言模式（官腔、古语、被动语态、名词化）、可读性（Flesch 阅读… | international | contract-law | contract-work | zh-CN | cc-by-4.0 |
-| 1164 | `legal-diagram` | 当用户需要根据文档、粘贴文本、事项描述、流程、时间线、当事方关系图、义务关系图、公司结构、资金流向或合规工作流生成法律或… | china | contract-law | doc-reading | zh-CN | mit |
-| 1165 | `legal-doc-assistant` | 面向中小企业和个人的法律文书助手：合同审查、协议模板起草、法律条款白话解读与常见法律问题咨询，并提示何时必须找执业律师。 | china | contract-law | contract-work | zh-CN | undeclared |
-| 1166 | `legal-doc-generator` | 为普通人生成可直接提交的个人法律文书：劳动仲裁申请书、租房纠纷催告函、消费维权投诉信，引用具体法条并附证据清单与注意事项… | china | labor | calculation | zh-CN | undeclared |
-| 1167 | `legal-doc-summarizer` | Read contracts, NDAs, terms of service, employment agreement… | general | contract-law | contract-work | en | undeclared |
-| 1168 | `legal-doc-writer` | 中国财税法律文书起草助手。当用户需要起草、审查或修改法律文书时应使用本 Skill，包括：税务筹划报告、法律意见书、合同… | china | tax | contract-work | zh-CN | undeclared |
-| 1169 | `legal-doc-writer-lexcat` | 法律文书智能生成。用户需要生成离婚协议、起诉状、答辩状、借款合同、租赁合同、劳动合同、买卖合同等中国法律文书时使用。按标… | china | litigation | litigation | zh-CN | undeclared |
-| 1170 | `legal-document-assistant` | 提供常见法律文书模板与撰写指导，涵盖劳务纠纷、离婚协议、交通事故、租房协议等场景；当用户需要法律文书模板、撰写建议或遇到… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1171 | `legal-document-drafting-formatting-alessandro-dardano` | 生成格式规范的 Word（.docx）法律文件。用户 提供实质内容（指示、附件、项目 知识）；该 skill 负责文档架… | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 1172 | `legal-document-generator` | 多版本法律文书模板生成服务，支持债务、婚姻、劳动、商务及房产等多场景合同与协议。安全本地运行，无需联网，100%合规。 | china | litigation | litigation | zh-CN | undeclared |
-| 1173 | `legal-document-generator-pan` | Generate professional Chinese legal documents including cont… | china | contract-law | litigation | zh-CN | undeclared |
-| 1174 | `legal-documents-cellcog` | AI legal documents and contract drafting powered by CellCog.… | general | contract-law | contract-work | en | undeclared |
-| 1175 | `legal-due-diligence` | 中国法律尽职调查底稿与报告撰写工具。支持公司主体尽职调查的完整工作流： 项目初始化→底稿逐章撰写→完整性检查→报告生成。… | china | corporate | due-diligence | zh-CN | undeclared |
-| 1176 | `legal-due-diligence-checklist` | 生成英文法律尽调清单：覆盖公司档案、合同义务、用工/知产/合规、诉讼与监管检索计划及红旗问题摘要，用于交易、投资与供应商… | general | corporate | contract-work | zh-CN | undeclared |
-| 1177 | `legal-essentials` | Understand and handle essential legal matters for a solopren… | us | general | legal-analysis | en | undeclared |
-| 1178 | `legal-evidence-mapping-mctmilk` | 将法条构成要件对应当事人需要证明的事实、举证责任分配和可用证据类型，生成完整的证据作战地图。这是律师实务中最核心的技能。… | china | personal-injury | legal-analysis | zh-CN | undeclared |
-| 1179 | `legal-guard` | Prevents autonomous signing of legal agreements or contracts… | general | contract-law | contract-work | en | undeclared |
-| 1180 | `legal-guidance-vault` | 帮助律师构建和使用个性化法律指导资料库（Legal Guidance Vault）——一个 本地文件夹，其中包含结构化的… | china | general | legal-research | zh-CN | agpl-3.0 |
-| 1181 | `legal-hardened` | Think through any legal situation like a lawyer. Issue spott… | uk | contract-law | legal-analysis | en | undeclared |
-| 1182 | `legal-hybrid-skill` | 合法合规类案与法条查询，优先API，失败自动降级本地库 | china | labor | legal-research | zh-CN | undeclared |
-| 1183 | `legal-intake-case-triage-pilot-thumbgate-shielded` | A high-security legal intake agent for law firms. Prevents u… | us | general | legal-analysis | en | undeclared |
-| 1184 | `legal-intake-conflict-check-agent` | Ultra-high-ticket intake agent for Law Firms. Qualifies lead… | general | general | legal-analysis | en | undeclared |
-| 1185 | `legal-issue-matching-manager` | 帮助用户在不确定法律问题属于哪个领域时，根据简短描述和已上传材料，初步判断问题类型、处理优先级、材料缺口和下一步方向，并… | china | litigation | litigation | zh-CN | undeclared |
-| 1186 | `legal-ivangdavila` | Think through any legal situation like a lawyer. Issue spott… | uk | contract-law | legal-analysis | en | undeclared |
-| 1187 | `legal-kb` | 法律知识库检索技能。当用户需要查询法律法规、合同条款、司法解释时激活。触发词：搜一下法律、查一下这个条款、总结这份合同、… | china | administrative | legal-research | zh-CN | undeclared |
-| 1188 | `legal-language-bridge` | 大白话→法律语言：如你说"公司无故辞退我"，它输出完整的劳动仲裁申诉文本 输出 = 法律翻译 + 📋证据清单 + 🗺️维… | china | labor | calculation | zh-CN | undeclared |
-| 1189 | `legal-letter` | Drafts professional legal letters for personal injury litiga… | general | general | legal-analysis | en | apache-2.0 |
-| 1190 | `legal-letter-generator` | 「律师函/法律意见书生成器」—— 输入案件要点，自动生成格式规范、条款精准、风险可控的29类律师函和法律意见书，含极速填… | china | contract-law | legal-writing | zh-CN | undeclared |
-| 1191 | `legal-litigation-viz` | Expert legal litigation visualization tool for creating prof… | china | litigation | litigation | zh-CN | undeclared |
-| 1192 | `legal-matter-intake-summarizer` | 把法律相关咨询材料整理成事实、争议点、缺失材料与后续问题，不给法律结论。；use for legal, intake, … | china | environmental | doc-reading | zh-CN | undeclared |
-| 1193 | `legal-mdl-audit-ignacio-adrian-lerer` | 审计法律 AI 输出和工作流中的诚实压缩：不必要的复杂性、虚假的简单性、过多的保留、隐藏的不确定性，以及每个法律上可接受… | china | general | contract-work | zh-CN | agpl-3.0 |
-| 1194 | `legal-memo` | Drafts U.S. internal legal memoranda using IRAC structure to… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1195 | `legal-memo-writer` | Write formal legal memos with proper structure, citations, l… | eu/us | contract-law | contract-work | en | mit |
-| 1196 | `legal-memorandum` | Drafts objective internal legal memoranda using the CREAC me… | general | general | legal-analysis | en | apache-2.0 |
-| 1197 | `legal-meta-skill` | CSlawyer 法律类元 Skill：面向中国大陆可复用法律 Skill 的创建、改造、审计与评测，覆盖意图收敛、法律… | china | legal-profession | quality-control | zh-CN | apache-2.0 |
-| 1198 | `legal-multi-dimension-analysis` | 法律案件与咨询的多维度协同分析编排层。当用户提供案件材料、要求从多个法律视角（刑事/民事/行政/程序/经侦/律师实务）综… | china | administrative | legal-research | zh-CN | undeclared |
-| 1199 | `legal-needs-analysis` | 把客户口语化、情绪化的原始陈述翻译为律师可用的结构化法律需求分析报告：事实梳理、法律问题识别、证据线索与待确认信息清单，… | china | contract-law | legal-analysis | zh-CN | undeclared |
-| 1200 | `legal-opinion-letter` | Drafts formal legal opinion letters for corporate and transa… | general | corporate | contract-work | en | apache-2.0 |
-| 1201 | `legal-page-discovery` | Discover and classify a live website's legal/compliance page… | us | general | legal-analysis | en | undeclared |
-| 1202 | `legal-page-generator` | When the user wants to create, optimize, or structure legal … | general | data-privacy | legal-analysis | en | undeclared |
-| 1203 | `legal-page-generator-checklist` | 根据免费、订阅、企业、API或开发者产品类型规划隐私、条款等上线所需页面结构与内容要点，并提示专业审查边界。 | china | securities | contract-work | zh-CN | mit |
-| 1204 | `legal-proof-meeting` | 会议法律风险与证据推理助手。用于准备、主持、审查或复盘合同、劳动用工、公司治理、数据合规、知识产权、消费者权益及一般经营… | china | data-privacy | legal-analysis | zh-CN | declared-only |
-| 1205 | `legal-proposal-generator` | 根据案件材料或沟通记录生成各类法律服务文档（诉讼方案、咨询报告、非诉方案、建议书、沟通报告、结案汇报、案件分析摘要等）。… | china | litigation | litigation | zh-CN | cc-by-nc |
-| 1206 | `legal-qa-extractor` | 从律师与客户沟通记录中提取有价值的法律问答对，生成结构化知识库内容。本技能应在用户需要整理客户咨询记录、从对话中提取可复… | china | general | doc-reading | zh-CN | cc-by-nc-sa-4.0 |
-| 1207 | `legal-regulatory-compliance-mapper` | 英文监管合规映射工具：梳理监管义务、控制措施、责任人、证据与复查节奏，输出合规义务地图与升级矩阵，用于合规体系建设与内审… | general | general | legal-analysis | en | undeclared |
-| 1208 | `legal-research` | 中国法律研究助手。当用户描述涉及中国法律的事实情景、提出法律争议问题、询问某行为是否合法合规、要求分析法律条文适用性、或… | china | contract-law | legal-research | zh-CN | mit |
-| 1209 | `legal-research-agl` | Guides legal research from issue framing through authority c… | general | general | legal-analysis | en | apache-2.0 |
-| 1210 | `legal-research-assistant` | 根据用户描述的法律问题，自动检索相关法规、司法解释、典型案例和操作指南。覆盖债务纠纷、劳动争议、合同纠纷三大场景。安全本… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1211 | `legal-research-report` | 公司股权类法律检索研究报告生成器。当用户提出公司股权领域的法律研究命题（如出资责任承担、股权转让效力、股权代持、对赌回购… | china | corporate | legal-research | zh-CN | mit |
-| 1212 | `legal-research-summary` | Synthesizes U.S. statutes, case law, and regulatory guidance… | us | general | legal-analysis | en | apache-2.0 |
-| 1213 | `legal-response` | Generate a response to a common legal inquiry using configur… | general | general | legal-analysis | en | undeclared |
-| 1214 | `legal-retrieval` | 法规检索 Skill — 面向法律从业者及普通用户的法规智能检索工具。当用户需要查询法律依据、查找相关法规、核实法规时效… | china | contract-law | legal-analysis | zh-CN | undeclared |
-| 1215 | `legal-review` | 核验 AI 生成的法律法规和案例引用的准确性。利用元典 Open API 对法规、法条、案例进行逐条比对。当用户提及"复… | china | general | legal-research | zh-CN | undeclared |
-| 1216 | `legal-rights-drafter-claw` | 法律维权草拟虾。识别违约行为并自动起草维权通知函。当用户提到违约、维权、发函、催告、索赔、侵权、律师函、催款函、警告函、… | china | ip | contract-work | zh-CN | undeclared |
-| 1217 | `legal-risk-analysis` | 使用严重程度乘以可能性框架并附升级标准来评估和分类法律风险。在评估合同风险、评估交易敞口、按严重程度对问题分类，或确定事… | fr | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1218 | `legal-risk-assessment` | Assess and classify legal risks using a severity-by-likeliho… | general | general | contract-work | en | undeclared |
-| 1219 | `legal-risk-assessment-anthropic` | 使用严重性×可能性框架及升级标准评估和分类法律风险。用于评估合同风险、评估交易敞口、按严重性对问题分类，或确定某事项是否… | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 1220 | `legal-risk-assistant` | 企业法律避坑专家 — 大成律所王金平律师监制出品。 基于16大核心模块，三步走商业落地体系。 触发：做个体检/评估一下/… | china | corporate | legal-analysis | zh-CN | undeclared |
-| 1221 | `legal-risk-shield` | 基于广东高院、金杜律所、苏州检察院三部风控手册的企业全生命周期法律风险防控体系：公司设立到退出，及企业家个人民商事、家事… | china | corporate | legal-analysis | zh-CN | undeclared |
-| 1222 | `legal-risk-visualization` | 法律风险结构化分析与可视化。基于法律分析文本，执行五步风险抽取模型， 生成四层可视化输出（雷达图数据、风险矩阵、影响路径… | china | general | legal-analysis | zh-CN | undeclared |
-| 1223 | `legal-search` | AI法律数据库检索助手。面向律师、法官助理、法务人员，提供法律法规检索、案例查证、类案分析三大能力，自动生成交互式HTM… | china | labor | legal-research | zh-CN | undeclared |
-| 1224 | `legal-settlement-evaluation-framework` | 英文和解方案评估框架：从责任敞口、证据强度、诉讼成本、非金钱条款、时机与不确定性六个维度比较诉讼与和解，输出评估矩阵与客… | general | general | legal-analysis | zh-CN | undeclared |
-| 1225 | `legal-seven-step-workflow-mctmilk` | 完整的人工智能辅助法条拆解七步工作流，每一步都受四条铁律约束，确保分析质量。律师处理任何法条案件时，从头到尾跑完七步，生… | china | general | legal-research | zh-CN | undeclared |
-| 1226 | `legal-simulation-patrick-munro` | 用于在法律情境中演示 AI 能力的框架。提供涵盖租赁法、商业合同、初创企业争议、雇佣索赔和消费者保护的详细角色设定，并配… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1227 | `legal-site-generator` | 生成符合App Store要求的静态法律网站（隐私政策、服务条款、支持页、数据删除页），声称满足GDPR与CCPA，输出… | eu/us | data-privacy | legal-analysis | en | undeclared |
-| 1228 | `legal-strategy-summary` | Generates structured litigation strategy summaries synthesiz… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1229 | `legal-structural-analysis-mctmilk` | 对法条进行结构化拆解，分析规范类型、适用主体、构成要件、法律效果等七个维度。当律师或法律学习者需要"拆解"法条、理解法条… | china | general | legal-analysis | zh-CN | undeclared |
-| 1230 | `legal-system-mapper-mctmilk` | 以某个法条为核心节点，构建其上下游法条关联网络，包括上位规范、并列条款、下位细化、程序衔接、竞合分析。当用户想了解某个法… | china | contract-law | legal-analysis | zh-CN | undeclared |
-| 1231 | `legal-test-builder-patrick-munro` | 构建一个高保真的交互式法律评估，作为单个自包含的 HTML 工件。输出包括实时倒计时器、带悬停注释问题条款的合同审查任务… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1232 | `legal-text-format` | 将法律文本（法律条文或法律案例）转换为规范的 Markdown 格式，删除推广冗余信息。本技能应在用户需要处理法律条文（… | china | general | legal-analysis | zh-CN | cc-by-nc |
-| 1233 | `legal-tos-differ` | Fetches Terms of Service documents, stores snapshots, and pe… | general | general | legal-analysis | en | undeclared |
-| 1234 | `legal-transition-audit-ignacio-adrian-lerer` | 审计从法律 AI 输出到信赖、推荐、执行或现实世界承诺的过渡。在 AI 生成的分析、备忘录、合同审查、合规结论或工作流输… | china | civil-procedure | contract-work | zh-CN | agpl-3.0 |
-| 1235 | `legal-translation` | 将任何语言的法律文件翻译为英文，同时保留 .docx 格式，并翻译修订追踪和页眉/页脚。 每当用户要求将法律文件、合同、… | china | tax | contract-work | zh-CN | mit |
-| 1236 | `legal-translation-2` | Chinese-English legal terminology translation using a curate… | china | administrative | translation | zh-CN | undeclared |
-| 1237 | `legal-translation-us` | 将法律文件从任何语言翻译为英文，同时保留 .docx 格式， 并翻译跟踪更改与页眉/页脚。当用户要求将法律文件、合同、契… | uk | tax | contract-work | zh-CN | mit |
-| 1238 | `legal-verify` | 校验文本内容中的法律引用是否正确：自动抽取文中引用的法规/法条和案例/案号，与权威来源比对语义一致性，核验法规时效性，输… | china | general | quality-control | zh-CN | undeclared |
-| 1239 | `legal-visualization` | 法律图表化与诉讼可视化 Skill，用于把判决书、案件事实、合同关系、诉讼策略、争议链条、证据时间线、责任分配和法律工作… | china | general | legal-writing | zh-CN | undeclared |
-| 1240 | `legal-wechat-weekly` | 法律人公众号助手（周报模式）。当用户提到「关注公众号 / 公众号监测 / 公众号有什么新文章 / 公众号简报 / 公众号… | china | general | legal-research | zh-CN | undeclared |
-| 1241 | `legal-weekly-briefing` | 用户说「生成法律周报」「帮我筛法院公众号文章」「法律简报」「案例入库」时触发。从四个法院公众号（上海一中院/二中院/山东… | china | general | legal-analysis | zh-CN | undeclared |
-| 1242 | `legal-yuanli-skill-manager` | 面向法律问题场景，在法律元力平台检索并推荐最匹配的法律领域 Skill。适用于用户想查找法律 Skill、拆解法律问题、… | china | general | contract-work | zh-CN | undeclared |
-| 1243 | `legalbot` | LegalBot - AI法律小助手，日常法律咨询、合同风险扫描、诉讼成本评估、法律文书生成、时效提醒。 | china | litigation | litigation | zh-CN | undeclared |
-| 1244 | `legaldoc-ai` | 面向律所与法务团队的英文法律文书自动化工具：合同条款提取与比对、文书摘要、法律检索（支持美国CA/NY/TX/联邦法域）… | us | litigation | legal-analysis | en | undeclared |
-| 1245 | `legalizes-matias-gv-rojas-faundez` | 智利法律专家法律助手。当用户就智利的法规、法典、程序或判例提出咨询，且需要以法律和条文引用及可核验来源（BCN）为支撑的… | china | tax | legal-analysis | zh-CN | mit |
-| 1246 | `legalskill-legal-consultation` | 以资深律师分阶段办案思维，结合 RAG 法律知识库检索，为用户提供法律问题初步诊断与行动策略。当用户描述法律纠纷、咨询"… | china | litigation | legal-research | zh-CN | declared-only |
-| 1247 | `legitimate-interest` | GDPR 正当利益评估（LIA）——依据 GDPR 第 6 条第 1 款第(f)项，使用 EDPB 三步测试进行引导式评… | eu/international | general | compliance | zh-CN | cc-by-nc-nd-4.0 |
-| 1248 | `letter-of-intent` | Drafts corporate Letters of Intent for M&A and business tran… | us | corporate | contract-work | en | apache-2.0 |
-| 1249 | `letter-of-intent-loi` | Drafts U.S. corporate transaction Letters of Intent (LOI) fo… | us | corporate | legal-analysis | en | apache-2.0 |
-| 1250 | `lexfolio` | Typeset legal documents from Markdown to print-ready PDF wit… | general | general | legal-analysis | en | apache-2.0 |
-| 1251 | `lexmage-constructionlaw-js2` | Lexmage《建设工程施工合同司法解释（二）》一体化工程法律技能。接收案情简介、合同、起诉状、答辩状、代理词、法律意见… | china | construction | contract-work | zh-CN | undeclared |
-| 1252 | `lexseek` | 法索 AI 法律助手，提供法律条文检索功能。当用户询问法律问题、查询法规条文、查找司法解释、了解法律条款内容时自动触发。… | china | labor | legal-research | zh-CN | undeclared |
-| 1253 | `lgpd` | 巴西《通用数据保护法》（第 13,709/2018 号法律）的 LGPD 合规专家顾问。每当用户询问 LGPD、巴西数据… | eu/br/multi | data-privacy | contract-work | zh-CN | mit |
-| 1254 | `lgpd-sentinel-rafael-mastronardi` | 面向巴西处理操作的 LGPD 指引。涵盖法律依据（第 7 条和第 11 条）、RIPD、事件（第 48-49 条）、数据… | br | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1255 | `license-agreement-summary` | Produces a structured U.S. IP license agreement summary cove… | us | ip | doc-reading | en | apache-2.0 |
-| 1256 | `license-assignment` | Drafts Assignment of License agreements transferring rights … | general | ip | legal-analysis | en | apache-2.0 |
-| 1257 | `lien-foreclosure` | Drafts a mechanic's lien foreclosure complaint to enforce un… | general | contract-law | contract-work | en | apache-2.0 |
-| 1258 | `lien-resolution-summary` | Generates a structured internal lien resolution summary for … | us | contract-law | doc-reading | en | apache-2.0 |
-| 1259 | `limited-partnership-agreement` | Drafts U.S. private equity and venture capital Limited Partn… | us | investment-ma | contract-work | en | apache-2.0 |
-| 1260 | `linkfox-eureka-abstract-image` | 通过Eureka专利数据平台获取专利摘要附图。当用户提到专利摘要附图、专利图纸、专利示意图、专利图片、摘要附图检索、专利… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1261 | `linkfox-eureka-abstract-translated` | 通过Eureka专利数据平台获取专利标题和摘要的翻译版本。当用户要求专利摘要翻译、专利标题翻译、翻译后的专利摘要、其他语… | jp | ip | translation | zh-CN | undeclared |
-| 1262 | `linkfox-eureka-bibliography` | 从Eureka专利数据库查询专利著录项目（Bibliography）信息，包括标题、摘要、申请人、发明人、分类号、优先权… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1263 | `linkfox-eureka-claim-data` | 从Eureka专利数据库查询专利权利要求（Claims）信息。当用户提到专利权利要求、权利要求书、专利Claims、独立… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1264 | `linkfox-eureka-claim-translated` | 通过Eureka专利数据平台获取翻译后的专利权利要求。当用户询问专利权利要求、权利要求翻译、查看特定语言（中文、英文或日… | jp | ip | translation | zh-CN | undeclared |
-| 1265 | `linkfox-eureka-description` | 通过Eureka专利数据平台获取专利说明书（描述）数据。当用户提到专利说明书、专利全文、专利技术描述、专利实施方式详情、… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1266 | `linkfox-eureka-description-translated` | 通过Eureka专利数据平台获取翻译后的专利说明书（描述）文本。当用户要求专利说明书翻译、其他语言的专利全文、翻译后的专… | jp | ip | translation | zh-CN | undeclared |
-| 1267 | `linkfox-eureka-patent-family` | 通过Eureka专利数据平台查询专利家族信息，包括简单同族、INPADOC同族和PatSnap同族。当用户提到专利家族、… | eu | ip | legal-analysis | zh-CN | undeclared |
-| 1268 | `linkfox-eureka-patent-image-search` | 通过Eureka专利平台进行专利图像检索（以图搜图），上传一张图片URL即可检索外观设计或实用新型的相似专利。当用户提到… | china | ip | legal-research | zh-CN | undeclared |
-| 1269 | `linkfox-ruiguan-copyright-detection` | 图片版权侵权检测与风险分析。当用户提到版权检测、版权核查、图片侵权检查、图片版权风险、版权相似度搜索、TRO风险分析、权… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1270 | `linkfox-ruiguan-detection-patent-design` | 基于睿观的外观专利侵权检测，支持25+国家/地区的图片专利检索。当用户提到外观专利检测、专利侵权检查、专利风险分析、TR… | china | ip | legal-research | zh-CN | undeclared |
-| 1271 | `linkfox-ruiguan-trademark-graphic-detection` | 产品图片的图形商标检测与相似度搜索。当用户提到商标检测、图形商标搜索、Logo侵权检查、商标相似度分析、图片商标风险评估… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1272 | `linkfox-ruiguan-utility-patent-detection` | 基于产品信息检测和搜索相似的实用新型/发明专利。当用户提到实用新型专利检测、专利侵权风险、专利相似度搜索、专利排查、发明… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1273 | `linkfox-zhihuiya-abstract-data-translated` | 从智慧芽（PatSnap）专利数据库获取专利标题和摘要的翻译版本。当用户要求专利摘要翻译、专利标题翻译、翻译后的专利摘要… | jp | ip | translation | zh-CN | undeclared |
-| 1274 | `linkfox-zhihuiya-abstract-image` | 通过专利ID或公开号从智慧芽专利数据库获取专利摘要附图。当用户提到专利摘要附图、专利图纸、专利示意图、专利图片、摘要附图… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1275 | `linkfox-zhihuiya-bibliography` | 通过专利ID或公开号查询智慧芽专利数据库中的专利著录（书目）信息。当用户提到专利著录信息查询、专利书目信息、专利申请人查… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1276 | `linkfox-zhihuiya-claim-data` | 从智慧芽（PatSnap）获取专利权利要求数据。当用户提到专利权利要求、权利要求文本、独立权利要求、从属权利要求、权利要… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1277 | `linkfox-zhihuiya-claim-data-translated` | 从智慧芽专利数据库获取翻译后的专利权利要求。当用户询问专利权利要求、权利要求翻译、查看特定语言（中文、英文或日文）的权利… | jp | ip | translation | zh-CN | undeclared |
-| 1278 | `linkfox-zhihuiya-description-data` | 通过专利ID或公开号从智慧芽专利数据库获取专利说明书（描述）数据。当用户提到专利说明书、专利全文、专利技术描述、专利实施… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1279 | `linkfox-zhihuiya-description-data-translated` | 从智慧芽获取翻译后的专利说明书（描述）文本。当用户要求专利说明书翻译、其他语言的专利全文、翻译后的专利全文，或想查看中文… | jp | ip | translation | zh-CN | undeclared |
-| 1280 | `linkfox-zhihuiya-fulltext-image` | 通过专利ID或公开号获取专利文件中的全文附图（图纸、示意图、图表）。当用户询问专利图片、专利图纸、专利示意图、专利插图、… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1281 | `linkfox-zhihuiya-legal-status` | 从智慧芽（PatSnap）数据库查询专利法律状态信息。当用户提到专利法律状态、专利有效性核查、专利状态查询、专利事件历史… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1282 | `linkfox-zhihuiya-patent-cited` | 从智慧芽（PatSnap）查询专利被引用数据，包括被引用次数和引用专利详情。当用户提到专利被引用、被引分析、专利影响力、… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1283 | `linkfox-zhihuiya-patent-family` | 通过专利ID或公开号查询智慧芽（PatSnap）的专利家族信息。当用户提到专利家族、专利家族搜索、简单同族、INPADO… | international | ip | legal-analysis | zh-CN | undeclared |
-| 1284 | `linkfox-zhihuiya-patent-forward-citation` | 从智慧芽专利数据库查询专利的前向引用详情。当用户询问专利引用、被引用专利、引用文献、专利参考文献、前向引用、在先技术引用… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1285 | `linkfox-zhihuiya-patent-image-search` | 基于智慧芽的专利图片相似度搜索，支持通过图片URL检索外观设计专利。当用户提到专利图片搜索、外观设计专利侵权检查、外观专… | china | ip | legal-research | zh-CN | undeclared |
-| 1286 | `linkfox-zhihuiya-pdf-data` | 通过专利ID或公开号从智慧芽专利数据库下载专利PDF全文文档。当用户提到专利PDF下载、专利全文、专利文件获取、公开号查… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1287 | `linkfox-zhihuiya-simple-bibliography` | 从智慧芽专利数据库查询专利简要著录（书目）数据。当用户提到专利著录信息查询、专利基本信息获取、专利书目数据、专利公开详情… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1288 | `linkfox-zhihuiya-utility-patent-image-search` | 基于智慧芽的专利图片相似度搜索，支持通过图片URL检索实用新型专利。当用户提到实用新型专利图片搜索、实用新型专利侵权检查… | china | ip | legal-research | zh-CN | undeclared |
-| 1289 | `lis-pendens` | Drafts a U.S. Lis Pendens (Notice of Pending Action) for rec… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1290 | `listed-company-compliance` | 中国上市公司合规管理助手：覆盖独立董事、信息披露、重大资产重组、股东减持、关联交易、ESG等领域，基于证监会与上交所规则… | china | corporate | compliance | zh-CN | undeclared |
-| 1291 | `listed-company-lifecycle-tax-advisory` | 各类型拟上市与上市公司全生命周期财税顾问与内控框架专项助手。覆盖板块定位与上市路径论证（主板/科创板/创业板/北交所/新… | china | tax | compliance | zh-CN | mit-0 |
-| 1292 | `litigacion-latam-joselyne-garcia-montesdeoca` | 拉丁美洲大陆法系（civil law）诉讼专家顾问。协助诉讼律师、内部法务团队和直接客户处理程序策略、风险分析、战术选项… | fr | general | contract-work | zh-CN | agpl-3.0 |
-| 1293 | `litigation` | Root reference for litigation practice spanning civil, crimi… | general | ip | legal-analysis | en | apache-2.0 |
-| 1294 | `litigation-analysis` | 诉讼分析工具 - 判决书深度分析，生成上诉/再审决策支持 | china | litigation | litigation | zh-CN | cc-by-nc |
-| 1295 | `litigation-attack-defense-workflow` | 诉讼攻防全流程六步交付。输入起诉状、原告证据清单、被告证据清单，依次完成六步：质证评估报告、攻防矩阵与法官发问预判、风险… | china | litigation | litigation | zh-CN | undeclared |
-| 1296 | `litigation-case-strategy` | Develops comprehensive litigation strategy across the full c… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1297 | `litigation-deadline-calendar` | 根据排期令为诉讼和仲裁期限制作日历。解析 PDF 排期令、识别关键日期、使用适用规则（科罗拉多 CRCP、联邦 FRCP… | us | arbitration-adr | litigation | zh-CN | mit |
-| 1298 | `litigation-docs-generator` | 民商事诉讼文书成套生成技能（诉状文本生成）。当用户要求起草民事起诉状、生成诉讼文书材料、准备立案材料时触发。自动生成10… | china | litigation | contract-work | zh-CN | mit |
-| 1299 | `litigation-docs-generator-tencent` | 民商事诉讼文书成套生成技能（诉状文本生成）。当用户要求起草民事起诉状、生成诉讼文书材料、准备立案材料时触发。自动生成8份… | china | litigation | legal-research | zh-CN | mit |
-| 1300 | `litigation-fee-calculator` | 用于计算中国法院诉讼费、案件受理费和申请费，依据《诉讼费用交纳办法》（国务院令第481号）第十三条、第十四条。用户询问或… | china | litigation | calculation | zh-CN | undeclared |
-| 1301 | `litigation-hold-notice-drafter` | Use this skill when in-house counsel, a litigation paralegal… | us | litigation | contract-work | en | undeclared |
-| 1302 | `litigation-hub` | 诉讼信息中枢系统。接收法院短信、送达链接、纸质文书照片，自动 OCR 识别、下载、归档、归类到标准案卷目录。基于 12 … | china | litigation | litigation | zh-CN | mit |
-| 1303 | `litigation-hub-tencent` | 诉讼信息中枢系统。接收法院短信、送达链接、纸质文书照片，自动 OCR 识别、下载、归档、归类到标准案卷目录。基于 12 … | china | litigation | litigation | zh-CN | mit |
-| 1304 | `litigation-intake-assessment` | 生成中国大陆争议解决与诉讼管理场景下的《案件初步评估报告》，适用于接案评估阶段对案件基本事实、初步证据材料、我方诉求和管… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1305 | `litigation-jurisdiction` | 帮助用户判断国内民事诉讼案件的管辖法院；当用户询问"哪个法院管"、"去哪起诉"、"管辖怎么确定"、"案件属于哪个法院"时… | china | contract-law | litigation | zh-CN | undeclared |
-| 1306 | `litigation-prep-skill-cn` | 面向中国民事诉讼的结构化分析 Skill，用于案由识别、请求权基础分析、构成要件事实拆解与证据清单生成。 | china | litigation | litigation | zh-CN | undeclared |
-| 1307 | `litigation-response` | 解析起诉状内容，提炼争议焦点，制定系统化应诉策略；当收到原告起诉状需要梳理诉讼思路、分析法律关系或制定答辩方向时使用 | china | litigation | litigation | zh-CN | undeclared |
-| 1308 | `litigation-strategist` | Systematic litigation analysis skill combining judge and law… | china | litigation | legal-analysis | zh-CN | mit |
-| 1309 | `litigation-strategy` | 「诉讼策略大师」—— 面向民商事诉讼/仲裁案件，资深律师基于案情与客户根本需求，定制多套诉讼策略方案（含利弊分析+证据清… | china | litigation | litigation | zh-CN | undeclared |
-| 1310 | `litigation-strategy-report` | 自动生成中国诉讼案件的《诉讼策略与类案检索报告》，基于案情拆解争议焦点并编排法条/类案检索工具，当用户提到案件分析、诉讼… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1311 | `litigation-support-summary` | Generates structured management summaries of active commerci… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1312 | `litigation-trial-prep` | 诉讼律师孵化器——庭前准备与庭审推演专家。帮助执业律师在开庭前进行系统性准备： 分析案情与证据材料（民事起诉状、答辩状、… | china | litigation | litigation | zh-CN | undeclared |
-| 1313 | `litigation-visualization` | 将诉讼材料转化为可编辑可视化图表（主体关系图、事件时间线、要件证据矩阵、阶段计划），来源绑定冻结事实模型并带授权安全门，… | china | contract-law | litigation | zh-CN | mit |
-| 1314 | `litigation-visualization-plus` | 将起诉状、答辩状、证据目录、庭审笔录、裁判文书、合同、咨询记录等法律服务文本，转化为结构化诉讼可视化图表（对话内 HTM… | china | litigation | litigation | zh-CN | cc-by-nc |
-| 1315 | `liuye-legal-intelligent-search` | 法律事务处理的标准RAG（检索增强生成）策略与完整流程。包含：①并行检索策略（北大法宝+IMA知识库）②标准流程（问题识… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1316 | `loan-and-security-agreement` | Drafts a U.S. secured Loan and Security Agreement with UCC A… | us | contract-law | contract-work | en | apache-2.0 |
-| 1317 | `loan-forbearance` | Drafts lender-protective U.S. commercial loan forbearance ag… | us | contract-law | contract-work | en | apache-2.0 |
-| 1318 | `loan-modification-agreement` | Drafts a U.S. commercial Loan Modification Agreement amendin… | us | general | legal-analysis | en | apache-2.0 |
-| 1319 | `loan-need-clarifier` | 借贷需求梳理助手：在用户接触任何机构前，帮其把贷款需求想清楚——用途、金额、期限、还款来源、可承受成本、已有负债，形成一… | china | general | contract-work | zh-CN | undeclared |
-| 1320 | `loc-security-deposit` | Drafts irrevocable standby letters of credit serving as secu… | general | general | contract-work | en | apache-2.0 |
-| 1321 | `local-counsel-manager-scott-margetts` | 多法域法律事务的外部当地律师（LC）端到端生命周期管理。包括 LC 选择标准与能力评估、委托设置与指示设计、绩效监控与检… | china | legal-profession | legal-analysis | zh-CN | apache-2.0 |
-| 1322 | `lock-up-agreement` | Drafts U.S. IPO/secondary offering lock-up agreements restri… | us | contract-law | contract-work | en | apache-2.0 |
-| 1323 | `lpa-agreement` | Drafts institutional-quality Limited Partnership Agreements … | general | investment-ma | legal-analysis | en | apache-2.0 |
-| 1324 | `lvdian-legal-search` | 法律法规与司法解释的精准检索、现行有效性核验与深度解读。当用户要求查法条、检索某部法规、找法律依据、确认某条规定、核实法… | china | general | legal-research | zh-CN | undeclared |
-| 1325 | `lvshen-contract-review` | 面向执业律师的合同审查工作流。当用户请求审查合同（含「审查/审合同/看下这份合同/甲方角度/乙方角度/帮我过一遍/把关/… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1326 | `lxs-legal-workflow` | 法律案件类案检索与民事起诉状自动生成技能。当用户提供案情简介并要求检索类案、整理案例表格、生成起诉状初稿时触发。涵盖五步… | china | litigation | legal-research | zh-CN | undeclared |
-| 1327 | `m2026071005` | 对目标企业做招投标维度合规尽调：检索废标、投诉、行政处罚、黑名单、围标串标记录并穿透关联方风险，输出分级风控预警报告，用… | china | general | compliance | zh-CN | undeclared |
-| 1328 | `ma-closing-checklist` | Drafts a party-coded M&A closing checklist for U.S. stock pu… | us | corporate | contract-work | en | apache-2.0 |
-| 1329 | `ma-transaction-summary` | Generates structured M&A transaction summaries from deal doc… | general | corporate | doc-reading | en | apache-2.0 |
-| 1330 | `madrid-trademark` | 马德里商标国际注册全流程实务技能，面向中国商标/专利代理师，整合 CNIPA 实务衔接。覆盖国际注册申请、临时驳回与异议… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1331 | `major-issue-due-diligence-checklist` | 法律尽职调查重大问题提示专用材料核查清单。适用于交易、重整及行业专项尽调启动时，按主体治理、资产、债权债务、劳动用工、税… | china | corporate | compliance | zh-CN | undeclared |
-| 1332 | `managed-care-contract` | Drafts managed care contracts between MCOs and healthcare pr… | us | contract-law | contract-work | en | apache-2.0 |
-| 1333 | `management-rights-letter` | Drafts management rights letters for VC/PE equity investment… | us | contract-law | contract-work | en | apache-2.0 |
-| 1334 | `mandarinat` | 面向法学教师—研究人员的学术助手。六项任务：(1) 以学说为重点的深度法律检索，(2) 文档重读，含参考文献核查、Wor… | fr | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
-| 1335 | `mandatory-verification` | 在将任何非琐碎的事实主张作为真实内容呈现之前，强制执行外部核实工作流。当 Claude 被要求研究任何主题、回答事实性问… | uk | contract-law | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
-| 1336 | `manke-software-law-expert` | 漫客软件法律专家——对软件代码或产品文档进行法律合规审查，识别违反中国及国际法律法规的风险点，含行政责任和刑事责任判定。… | china/eu/us/multi | data-privacy | contract-work | zh-CN | undeclared |
-| 1337 | `marital-settlement-agreement` | Drafts Marital Settlement Agreements for divorce proceedings… | general | contract-law | contract-work | en | apache-2.0 |
-| 1338 | `maritime-case-summary` | Produces structured summaries of maritime law cases covering… | us | litigation | doc-reading | en | apache-2.0 |
-| 1339 | `markman-hearing-brief` | Drafts Markman Hearing Briefs for patent claim construction … | us | general | litigation | en | apache-2.0 |
-| 1340 | `marriage-civil-agreement-assistant` | 提供婚前协议、离婚协议、借款借条、合伙约定等民事协议模板与核心条款要点，提示效力与风险。 触发场景：用户说 "婚前协议"… | china | family | legal-analysis | zh-CN | mit |
-| 1341 | `marriage-family-assistant` | 婚姻家事助手面向普通当事人、律师和律师助理，围绕离婚协议审查、协议事项梳理、草案生成、财产分割、子女抚养、夫妻债务和诉讼… | china | family | contract-work | zh-CN | undeclared |
-| 1342 | `marriage-law-consultant` | 提供基于最新法规的中国婚姻家庭法律咨询，涵盖离婚流程、财产分割、抚养权、家暴保护及过错赔偿等问题。本地安全运行。 | china | family | contract-work | zh-CN | undeclared |
-| 1343 | `marriage-law-expert` | 婚姻法专家 — 婚姻家庭法律咨询+离婚起诉状起草。涵盖民法典婚姻家庭编全部核心内容：结婚/离婚/财产分割/子女抚养/夫妻… | china | litigation | litigation | zh-CN | mit |
-| 1344 | `matter-allocation-instruction` | 为法务运营团队提供律所-事项匹配、事项委托起草、律所入职检查清单和委托审计。按业务领域、法域、复杂度和成本层级将新事项匹… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1345 | `matter-intake-scoping-scott-margetts` | 覆盖完整执行前弧线的事项范围界定——将客户数据整理为结构化简报、捕获约定基线，或中途重建范围。当在报价方案之前理解客户信… | china | general | legal-analysis | zh-CN | apache-2.0 |
-| 1346 | `matter-plan-builder-scott-margetts` | 将商定的范围转化为结构化的事项计划 — 阶段、工作流、里程碑、依赖关系、责任人分配和事项设置决策。在规划新事项、进行启动… | china | general | legal-analysis | zh-CN | apache-2.0 |
-| 1347 | `mayi-arbitration-defense-gen` | 生成劳动仲裁答辩状（含抗辩理由与证据清单）：交互式采集地区、金额、期间参数并按最新劳动法规校验，供企业应对员工提起的劳动… | china | labor | litigation | zh-CN | undeclared |
-| 1348 | `mayi-cnwork-1758` | 处理“法务意见业务翻译”，面向采购、供应链、物流、制造、门店、行政和运营管理人员，基于真实业务材料完成任务执行型任务，并… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1349 | `mayi-equity-incentive-calculator` | 蚂蚁工资条股权期权激励计算器。当用户需要计算股权激励收益、设计期权方案、比较RSU与期权的税务差异、评估虚拟股票价值、测… | china | tax | calculation | zh-CN | undeclared |
-| 1350 | `mayi-labor-dispute-risk` | 蚂蚁工资条劳动争议风险评估工具。当用户描述劳动争议场景、咨询被辞退/裁员/解雇法律风险、评估企业用工法律风险、查询同类判… | china | labor | legal-research | zh-CN | undeclared |
-| 1351 | `mayi-work-injury-claim-guide` | 指导企业与员工办理工伤认定申请：按地区政策生成材料清单与流程指引，覆盖申请时限、材料要求与工伤待遇衔接。 | china | labor | legal-analysis | zh-CN | undeclared |
-| 1352 | `mayi-work-injury-comp-calc` | 蚂蚁工资条工伤待遇计算器。覆盖停工留薪期工资、一次性伤残补助金、伤残津贴、一次性医疗/就业补助金。当用户询问工伤待遇计算… | china | labor | calculation | zh-CN | undeclared |
-| 1353 | `mayi-work-injury-rate-lookup` | 查询各行业工伤保险基准费率与浮动费率：按地区和行业参数输出费率结果与政策依据说明，供企业核算用工社保成本。 | china | labor | legal-analysis | zh-CN | undeclared |
-| 1354 | `mayihr-batch-plus-0738` | 批量工伤申报。批量工伤事故登记→材料收集→工伤认定申请→进度跟踪→待遇申领。当HR、管理者或员工需要完成该项工作时使用；… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1355 | `mayihr-city-arbitration-201` | 北京劳动人事争议仲裁申请指引。北京仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1356 | `mayihr-city-arbitration-202` | 上海劳动人事争议仲裁申请指引。上海仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1357 | `mayihr-city-arbitration-203` | 广州劳动人事争议仲裁申请指引。广州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1358 | `mayihr-city-arbitration-204` | 深圳劳动人事争议仲裁申请指引。深圳仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1359 | `mayihr-city-arbitration-205` | 杭州劳动人事争议仲裁申请指引。杭州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1360 | `mayihr-city-arbitration-206` | 成都劳动人事争议仲裁申请指引。成都仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1361 | `mayihr-city-arbitration-207` | 武汉劳动人事争议仲裁申请指引。武汉仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1362 | `mayihr-city-arbitration-208` | 南京劳动人事争议仲裁申请指引。南京仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1363 | `mayihr-city-arbitration-209` | 苏州劳动人事争议仲裁申请指引。苏州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1364 | `mayihr-city-arbitration-210` | 西安劳动人事争议仲裁申请指引。西安仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1365 | `mayihr-city-arbitration-211` | 天津劳动人事争议仲裁申请指引。天津仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1366 | `mayihr-city-arbitration-212` | 重庆劳动人事争议仲裁申请指引。重庆仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1367 | `mayihr-city-arbitration-213` | 厦门劳动人事争议仲裁申请指引。厦门仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1368 | `mayihr-city-arbitration-214` | 长沙劳动人事争议仲裁申请指引。长沙仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1369 | `mayihr-city-arbitration-215` | 青岛劳动人事争议仲裁申请指引。青岛仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1370 | `mayihr-city-arbitration-216` | 合肥劳动人事争议仲裁申请指引。合肥仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1371 | `mayihr-city-arbitration-217` | 郑州劳动人事争议仲裁申请指引。郑州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1372 | `mayihr-city-arbitration-218` | 大连劳动人事争议仲裁申请指引。大连仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1373 | `mayihr-city-arbitration-220` | 福州劳动人事争议仲裁申请指引。福州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1374 | `mayihr-city-arbitration-221` | 济南劳动人事争议仲裁申请指引。济南仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1375 | `mayihr-city-arbitration-222` | 沈阳劳动人事争议仲裁申请指引。沈阳仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1376 | `mayihr-city-arbitration-223` | 昆明劳动人事争议仲裁申请指引。昆明仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1377 | `mayihr-city-arbitration-224` | 无锡劳动人事争议仲裁申请指引。无锡仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1378 | `mayihr-city-arbitration-225` | 佛山劳动人事争议仲裁申请指引。佛山仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1379 | `mayihr-city-plus-0077` | 珠海工伤认定与待遇申领指引。珠海工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1380 | `mayihr-city-plus-0078` | 温州工伤认定与待遇申领指引。温州工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1381 | `mayihr-city-plus-0079` | 泉州工伤认定与待遇申领指引。泉州工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1382 | `mayihr-city-plus-0080` | 石家庄工伤认定与待遇申领指引。石家庄工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1383 | `mayihr-city-plus-0081` | 太原工伤认定与待遇申领指引。太原工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1384 | `mayihr-city-plus-0082` | 兰州工伤认定与待遇申领指引。兰州工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1385 | `mayihr-city-plus-0083` | 南昌工伤认定与待遇申领指引。南昌工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1386 | `mayihr-city-plus-0084` | 贵阳工伤认定与待遇申领指引。贵阳工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1387 | `mayihr-city-plus-0085` | 海口工伤认定与待遇申领指引。海口工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1388 | `mayihr-city-plus-0086` | 银川工伤认定与待遇申领指引。银川工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1389 | `mayihr-city-plus-0087` | 西宁工伤认定与待遇申领指引。西宁工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1390 | `mayihr-city-plus-0088` | 乌鲁木齐工伤认定与待遇申领指引。乌鲁木齐工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1391 | `mayihr-city-plus-0089` | 哈尔滨工伤认定与待遇申领指引。哈尔滨工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1392 | `mayihr-city-plus-0121` | 东莞劳动人事争议仲裁申请指引。东莞仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1393 | `mayihr-city-plus-0122` | 珠海劳动人事争议仲裁申请指引。珠海仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1394 | `mayihr-city-plus-0123` | 温州劳动人事争议仲裁申请指引。温州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1395 | `mayihr-city-plus-0125` | 石家庄劳动人事争议仲裁申请指引。石家庄仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1396 | `mayihr-city-plus-0126` | 太原劳动人事争议仲裁申请指引。太原仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1397 | `mayihr-city-plus-0127` | 兰州劳动人事争议仲裁申请指引。兰州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1398 | `mayihr-city-plus-0128` | 南昌劳动人事争议仲裁申请指引。南昌仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1399 | `mayihr-city-plus-0129` | 贵阳劳动人事争议仲裁申请指引。贵阳仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1400 | `mayihr-city-plus-0130` | 海口劳动人事争议仲裁申请指引。海口仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1401 | `mayihr-city-plus-0131` | 银川劳动人事争议仲裁申请指引。银川仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1402 | `mayihr-city-plus-0132` | 西宁劳动人事争议仲裁申请指引。西宁仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1403 | `mayihr-city-plus-0134` | 哈尔滨劳动人事争议仲裁申请指引。哈尔滨仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1404 | `mayihr-city-plus-0135` | 长春劳动人事争议仲裁申请指引。长春仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1405 | `mayihr-city-plus-0265` | 杭州工伤认定申请条件与材料清单。杭州工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1406 | `mayihr-city-plus-0268` | 南京工伤认定申请条件与材料清单。南京工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1407 | `mayihr-city-plus-0270` | 西安工伤认定申请条件与材料清单。西安工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1408 | `mayihr-city-plus-0271` | 天津工伤认定申请条件与材料清单。天津工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1409 | `mayihr-city-plus-0273` | 厦门工伤认定申请条件与材料清单。厦门工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1410 | `mayihr-city-plus-0274` | 长沙工伤认定申请条件与材料清单。长沙工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1411 | `mayihr-city-plus-0275` | 青岛工伤认定申请条件与材料清单。青岛工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1412 | `mayihr-city-plus-0277` | 郑州工伤认定申请条件与材料清单。郑州工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1413 | `mayihr-city-plus-0281` | 济南工伤认定申请条件与材料清单。济南工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1414 | `mayihr-city-plus-0283` | 昆明工伤认定申请条件与材料清单。昆明工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1415 | `mayihr-city-plus-0284` | 无锡工伤认定申请条件与材料清单。无锡工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1416 | `mayihr-city-plus-0288` | 温州工伤认定申请条件与材料清单。温州工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1417 | `mayihr-city-plus-0290` | 石家庄工伤认定申请条件与材料清单。石家庄工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1418 | `mayihr-city-plus-0293` | 南昌工伤认定申请条件与材料清单。南昌工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1419 | `mayihr-city-plus-0295` | 海口工伤认定申请条件与材料清单。海口工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1420 | `mayihr-city-plus-0298` | 乌鲁木齐工伤认定申请条件与材料清单。乌鲁木齐工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1421 | `mayihr-city-plus-0300` | 长春工伤认定申请条件与材料清单。长春工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1422 | `mayihr-city-work-injury-126` | 北京工伤认定与待遇申领指引。北京工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1423 | `mayihr-city-work-injury-127` | 上海工伤认定与待遇申领指引。上海工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1424 | `mayihr-city-work-injury-128` | 广州工伤认定与待遇申领指引。广州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1425 | `mayihr-city-work-injury-129` | 深圳工伤认定与待遇申领指引。深圳工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1426 | `mayihr-city-work-injury-130` | 杭州工伤认定与待遇申领指引。杭州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1427 | `mayihr-city-work-injury-131` | 成都工伤认定与待遇申领指引。成都工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1428 | `mayihr-city-work-injury-132` | 武汉工伤认定与待遇申领指引。武汉工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1429 | `mayihr-city-work-injury-133` | 南京工伤认定与待遇申领指引。南京工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1430 | `mayihr-city-work-injury-134` | 苏州工伤认定与待遇申领指引。苏州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1431 | `mayihr-city-work-injury-135` | 西安工伤认定与待遇申领指引。西安工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1432 | `mayihr-city-work-injury-136` | 天津工伤认定与待遇申领指引。天津工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1433 | `mayihr-city-work-injury-137` | 重庆工伤认定与待遇申领指引。重庆工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1434 | `mayihr-city-work-injury-138` | 厦门工伤认定与待遇申领指引。厦门工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1435 | `mayihr-city-work-injury-139` | 长沙工伤认定与待遇申领指引。长沙工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1436 | `mayihr-city-work-injury-140` | 青岛工伤认定与待遇申领指引。青岛工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1437 | `mayihr-city-work-injury-141` | 合肥工伤认定与待遇申领指引。合肥工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1438 | `mayihr-city-work-injury-142` | 郑州工伤认定与待遇申领指引。郑州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1439 | `mayihr-city-work-injury-143` | 大连工伤认定与待遇申领指引。大连工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1440 | `mayihr-city-work-injury-144` | 宁波工伤认定与待遇申领指引。宁波工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1441 | `mayihr-city-work-injury-145` | 福州工伤认定与待遇申领指引。福州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1442 | `mayihr-city-work-injury-146` | 济南工伤认定与待遇申领指引。济南工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1443 | `mayihr-city-work-injury-147` | 沈阳工伤认定与待遇申领指引。沈阳工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1444 | `mayihr-city-work-injury-148` | 昆明工伤认定与待遇申领指引。昆明工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1445 | `mayihr-city-work-injury-149` | 无锡工伤认定与待遇申领指引。无锡工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1446 | `mayihr-city-work-injury-150` | 佛山工伤认定与待遇申领指引。佛山工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1447 | `mayihr-compensation-363` | 股权激励方案设计器。期权/限制性股票/虚拟股→授予节奏/行权条件/退出机制/税务优化方案。当HR、管理者或员工需要完成该… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1448 | `mayihr-compliance-401` | 最新劳动法规政策解读周刊。每周自动汇总全国及地方最新劳动法规政策变动+核心条款解读+企业影响分析。当HR、管理者或员工需… | china | labor | compliance | zh-CN | undeclared |
-| 1449 | `mayihr-compliance-409` | 保密协议与知识产权归属指引。保密协议分级+职务发明归属+竞业与保密的区别+违约取证+赔偿标准。当HR、管理者或员工需要完… | china | tax | compliance | zh-CN | undeclared |
-| 1450 | `mayihr-compliance-417` | 工伤预防与安全生产合规。安全生产培训要求+防护用品标准+事故报告义务+工伤保险费率浮动。当HR、管理者或员工需要完成该项… | china | labor | compliance | zh-CN | undeclared |
-| 1451 | `mayihr-diagnosis-plus-0784` | 工伤认定进度查询。工伤认定申请提交后进度查询+补正材料提醒+认定结果预判。当HR、管理者或员工需要完成该项工作时使用；支… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1452 | `mayihr-employee-relations-383` | 员工手册合规审核工具。逐条审核员工手册是否符合最新劳动法规+识别霸王条款+修改建议。当HR、管理者或员工需要完成该项工作… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1453 | `mayihr-employee-relations-397` | 工伤康复与返岗支持方案。工伤康复期管理+返岗评估+岗位调整+辅助器具+心理支持+法律权益保障。当HR、管理者或员工需要完… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1454 | `mayihr-hr-plus-0802` | 最新劳动法政策周报生成。每周自动抓取全国及地方最新劳动法规政策→生成结构化周报+核心条款解读+企业影响。当HR、管理者或… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1455 | `mayihr-hr-plus-0807` | 劳动争议调解仲裁法解读。劳动争议受案范围/仲裁时效/举证责任/调解程序/一裁两审流程。当HR、管理者或员工需要完成该项工… | china | arbitration-adr | legal-analysis | zh-CN | undeclared |
-| 1456 | `mayihr-hr-plus-0816` | 民法典合同编HR应用指引。劳动合同/劳务合同/派遣协议/外包协议的民法典合同编要点。当HR、管理者或员工需要完成该项工作… | china | labor | doc-reading | zh-CN | undeclared |
-| 1457 | `mayihr-hr-plus-0817` | 最高人民法院关于劳动争议司法解释速查。劳动争议司法解释一至五的核心条款+实务影响+裁判规则。当HR、管理者或员工需要完成… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1458 | `mayihr-hr-plus-0840` | 股权激励计划税务筹划。期权/限制性股票/股票增值权的税务处理+个人所得税优化+企业所得税扣除。当HR、管理者或员工需要完… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1459 | `mayihr-hr-plus-0852` | 股权激励个税处理。期权行权/限制性股票解禁/股票增值权收益的个税计算+纳税申报。当HR、管理者或员工需要完成该项工作时使… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1460 | `mayihr-hr-plus-0980` | 股权激励会计处理。股份支付的会计准则适用+费用确认+摊销计算+披露要求。当HR、管理者或员工需要完成该项工作时使用；支持… | china | general | legal-analysis | zh-CN | undeclared |
-| 1461 | `mayihr-hr-plus-0985` | 企业合规培训年度计划。按岗位/层级设计劳动法/数据合规/反腐倡廉等年度培训计划。当HR、管理者或员工需要完成该项工作时使… | china | data-privacy | legal-analysis | zh-CN | undeclared |
-| 1462 | `mayihr-hr-productivity-503` | HR法条援引助手。处理具体HR事件→自动援引相关法条+司法解释+典型案例+合规建议。当HR、管理者或员工需要完成该项工作… | china | general | legal-analysis | zh-CN | undeclared |
-| 1463 | `mayihr-industry-plus-0621` | 房地产/中介用工合规专项方案。针对房地产/中介行业特点→识别用工合规风险点+设计合规方案+特殊工时制适用+典型案例。当H… | china | general | legal-analysis | zh-CN | undeclared |
-| 1464 | `mayihr-labor-law-compliance-check` | 劳动法合规自检工具。当HR、管理者或员工要检查企业用工制度15+项常见风险点（合同签订率/社保缴纳/加班合规/年假执行/… | china | labor | compliance | zh-CN | undeclared |
-| 1465 | `mayihr-organization-474` | 职级体系搭建工具。按行业参照→设计管理序列+专业序列+技术序列+操作序列的完整职级体系。当HR、管理者或员工需要完成该项… | china | general | legal-analysis | zh-CN | undeclared |
-| 1466 | `mayihr-recruitment-324` | 海外招聘合规指引。跨国招聘→各国劳动法差异/签证要求/跨境薪酬支付/社保缴纳规则。当HR、管理者或员工需要完成该项工作时… | international | labor | legal-analysis | zh-CN | undeclared |
-| 1467 | `mayihr-work-injury-benefits-guide` | 工伤待遇申领指引。当HR、管理者或员工要工伤医疗费/一次性伤残补助金/伤残津贴/工亡待遇的计算和申领全程指引时使用。支持… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1468 | `mayihr-work-injury-process-guide` | 工伤处理全流程指引。当HR、管理者或员工要事故报告→工伤认定申请→劳动能力鉴定→工伤待遇申领的完整流程+材料模板+各城市… | china | labor | legal-analysis | zh-CN | undeclared |
-| 1469 | `means-test-calculation` | Calculates the bankruptcy means test from paystub data to de… | general | bankruptcy | legal-analysis | en | apache-2.0 |
-| 1470 | `mechanical-patent-writer` | 专业的机械领域专利申请材料撰写技能，支持发明专利和实用新型专利两种类型，涵盖技术领域分析、背景技术分析、专利检索与规避、… | china | ip | contract-work | zh-CN | undeclared |
-| 1471 | `med-mal-summary` | Produces structured medical malpractice case summaries from … | general | litigation | doc-reading | en | apache-2.0 |
-| 1472 | `mediation-arbitration-statement` | Drafts confidential mediation or arbitration statements pres… | general | litigation | doc-reading | en | apache-2.0 |
-| 1473 | `mediation-brief` | Drafts mediation briefs for commercial litigation that educa… | us | litigation | contract-work | en | apache-2.0 |
-| 1474 | `mediation-brief-drafter` | Use this skill when a litigator, in-house counsel, or ADR sp… | international | arbitration-adr | contract-work | en | undeclared |
-| 1475 | `mediation-dispute-analysis` | 当律师或调解员需要出于调解目的分析争议时使用本技能。这包括：审查案件材料（诉状、合同、往来信函、证据）以识别争议问题、总… | china | arbitration-adr | legal-analysis | zh-CN | agpl-3.0 |
-| 1476 | `mediation-statement` | Drafts persuasive mediation statements for litigation, struc… | general | litigation | contract-work | en | apache-2.0 |
-| 1477 | `mediation-summary` | Drafts confidentiality-compliant mediation summary statement… | general | contract-law | contract-work | en | apache-2.0 |
-| 1478 | `medical-billing-analysis` | Produces a litigation-ready analysis of medical bills and su… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1479 | `medical-director-agreement` | Drafts a Medical Director Agreement between a healthcare org… | us | contract-law | contract-work | en | apache-2.0 |
-| 1480 | `medical-record-chronology` | Creates verified, Bates-cited chronological summaries of med… | general | litigation | doc-reading | en | apache-2.0 |
-| 1481 | `medical-treatment-summary` | Generates litigation-ready narrative medical treatment summa… | general | life-sciences | doc-reading | en | apache-2.0 |
-| 1482 | `meeting-briefing` | Prepare structured briefings for meetings with legal relevan… | general | contract-law | contract-work | en | undeclared |
-| 1483 | `meeting-briefing-anthropic` | 为具有法律相关性的会议准备结构化简报并跟踪由此产生的行动事项。用于准备合同谈判、董事会会议、合规审查，或任何需要法律背景… | china | contract-law | doc-reading | zh-CN | apache-2.0 |
-| 1484 | `merger-agreement` | Drafts U.S. merger agreements for M&A transactions covering … | us | corporate | contract-work | en | apache-2.0 |
-| 1485 | `merit-review` | Analyzes state merit review for non-covered securities offer… | us | contract-law | contract-work | en | apache-2.0 |
-| 1486 | `miaoji-compliance-copy` | 清洗并重写Amazon产品文案：扫描平台禁止词与绝对化用语，注入场景词适配Rufus搜索，输出三版合规文案与替换依据，用… | general | general | compliance | zh-CN | undeclared |
-| 1487 | `miaoji-compliance-copy-pro` | 亚马逊合规文案Pro版，多市场监管+法律风险评估+Rufus深度优化+季节性合规文案。 从单次文案检测升级为多市场合规体… | eu | life-sciences | compliance | zh-CN | undeclared |
-| 1488 | `military-law-summary` | Generates structured summaries of military law matters inclu… | general | general | doc-reading | en | apache-2.0 |
-| 1489 | `mining-land-use-summary` | Generates structured legal and regulatory summaries for mini… | general | environmental | doc-reading | en | apache-2.0 |
-| 1490 | `mock-trial` | 「模拟法庭全流程实战SKILL」—— 案情设计→角色分配→庭审模拟→对抗演练→复盘点评全流程，覆盖民事/刑事/行政/仲裁… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1491 | `modification-petition-summary` | Produces structured summaries of U.S. family law modificatio… | us | family | doc-reading | en | apache-2.0 |
-| 1492 | `morocco-ecommerce-compliance-audit-omar-laftouh` | 对摩洛哥电子商务网站进行法律合规审计，聚焦个人数据保护（第 09-08 号法）和消费者合同披露/义务（第 31-08 号… | china | contract-law | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1493 | `mortgage-deed-of-trust` | Drafts recording-ready residential Mortgages or Deeds of Tru… | us | general | legal-analysis | en | apache-2.0 |
-| 1494 | `motion-for-temporary-relief` | Drafts a Motion for Temporary Relief (Pendente Lite) in U.S.… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1495 | `motion-in-limine` | Drafts criminal defense motions in limine to exclude prejudi… | general | litigation | litigation | en | apache-2.0 |
-| 1496 | `motion-new-trial` | Drafts a post-verdict Motion for New Trial in criminal defen… | general | litigation | litigation | en | apache-2.0 |
-| 1497 | `motion-to-avoid-lien` | Drafts a Motion to Avoid Lien under 11 U.S.C. § 522(f) for b… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1498 | `motion-to-compel` | Drafts filing-ready motions to compel discovery in civil lit… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1499 | `motion-to-convert` | Drafts a Motion to Convert Case for bankruptcy proceedings u… | us | litigation | litigation | en | apache-2.0 |
-| 1500 | `motion-to-dismiss` | Drafts FRCP 12(b) motions to dismiss for commercial litigati… | us | litigation | contract-work | en | apache-2.0 |
-| 1501 | `motion-to-dismiss-indictment` | Drafts motions to dismiss criminal indictments in federal an… | us | litigation | litigation | en | apache-2.0 |
-| 1502 | `mqc-chronicle-master` | 大事记表大师。把一批案件材料整理成《案件大事记》，产出 Word 交付版、Excel 母表与一份供下游 skill 读取… | china | litigation | litigation | zh-CN | mit |
-| 1503 | `mqc-legal-relation-master` | 法律关系图大师。把一批案件材料推成一张法律关系图：谁与谁、就哪份合同或哪段工程、发生了什么关系。主体与客体并存，使用者指… | china | litigation | litigation | zh-CN | mit |
-| 1504 | `mqc-litigation-visual-redraw` | Redraw a litigation diagram into a restrained, court-ready p… | china | litigation | litigation | zh-CN | mit |
-| 1505 | `mqc-timeline-master` | Turn raw case materials into a faithful, court-ready case ti… | china | litigation | litigation | zh-CN | mit |
-| 1506 | `mqc-trial-confrontation-master` | 庭审对抗图大师。按要件审判九步法与请求权基础，把案件材料推成一张庭前对抗图与一份分析表。左为提出请求的一方、中为法院审查… | china | litigation | litigation | zh-CN | mit |
-| 1507 | `mta-biological` | Drafts Material Transfer Agreements for biological materials… | general | intl-trade | legal-analysis | en | apache-2.0 |
-| 1508 | `mugua-legal-assistant` | 对接木瓜法律API的技能封装：提供法律咨询对话、案件要素提取与案件完整分析三种能力，按固定端点与参数规范调用。 | china | data-privacy | legal-analysis | zh-CN | undeclared |
-| 1509 | `multi-jurisdictional-research-zacharie-laik` | 跨境与比较法研究助手：基于Legal Data Hunter MCP检索50余国判例、立法与学说，以行内引用和结构化风险… | multi | general | legal-analysis | zh-CN | mit |
-| 1510 | `national-law-knowledge-search` | 法律助手与法条检索工具，支持民法典、刑法、劳动法、合同法等国家法律法规的智能查询与检索；提供法律知识库检索、法条精准定位… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1511 | `national-legal-assistant` | 国家法律法规智能助手，基于国家法律知识库，提供法律法规查询、立法规划解读、政策文件分析、 法治建设咨询。当用户提到：法律… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1512 | `nda-drug-application` | Drafts an eCTD-compliant New Drug Application (NDA) for FDA … | us | life-sciences | contract-work | en | apache-2.0 |
-| 1513 | `nda-government-data` | Drafts Non-Disclosure Agreements for protecting sensitive go… | us | contract-law | contract-work | en | apache-2.0 |
-| 1514 | `nda-review-jamie-tso` | 以与法域无关的方式审查收到的单向（单方）商业保密协议（NDA）的指南，可从接收方（Recipient）或披露方（Disc… | international | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1515 | `nda-summary` | Generates structured summaries of Non-Disclosure Agreements,… | general | contract-law | contract-work | en | apache-2.0 |
-| 1516 | `nda-triage-anthropic` | 筛选收到的 NDA，并将其分类为绿色（标准）、黄色（需要审查）或红色（重大问题）。当销售或业务发展部门收到新的 NDA、… | china | contract-law | legal-analysis | zh-CN | apache-2.0 |
-| 1517 | `negotiation-support` | Generates a strategic negotiation support document with leve… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1518 | `new-designation-screening-test` | 生成一个测试条目电子表格——来自 OFAC、OFSI 和欧盟制裁清单的新指定名称及这些名称的有意变体——以验证制裁筛查系… | us/uk/eu | intl-trade | compliance | zh-CN | mit |
-| 1519 | `newsletter-summary` | Produces concise, actionable U.S. legal newsletter summaries… | us | general | legal-analysis | en | apache-2.0 |
-| 1520 | `nexus-eu-ai-compliance` | Automate EU AI Act compliance for organizations. Classify AI… | eu | general | legal-analysis | en | proprietary |
-| 1521 | `nexus-legal-analyzer` | Legal RAG with GDPR, EU AI Act compliance, contract analysis… | eu | general | legal-analysis | en | undeclared |
-| 1522 | `ng-lawyer-db-build` | 尼日利亚（拉各斯/阿布贾）律师数据库构建流程第一步：按城市×执业领域采集律师信息，强制唯一UID、公开邮箱证据链与固定表… | general | tax | legal-analysis | en | undeclared |
-| 1523 | `nil-contract-analysis-samir-patel` | 面向 NCAA 学生运动员、从运动员视角进行的 NIL（姓名、形象和肖像）合同分析。当用户说'review this N… | china | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1524 | `nis2` | 面向基本实体和重要实体的欧盟 NIS2 指令（指令 (EU) 2022/2555）合规顾问：实体分类、第 21 条风险管… | eu | banking-finance | compliance | zh-CN | mit |
-| 1525 | `nis2-navigator` | NIS2 合规导航器——欧盟指令 2022/2555 下的范围分类、第 21 条差距分析（0-4 成熟度评分）和合规路线… | eu/de | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1526 | `nist-800-53` | NIST SP 800-53 Rev 5 合规顾问——全部 20 个控制族（AC、AT、AU、CA、CM、CP、IA、I… | us | general | legal-analysis | zh-CN | mit |
-| 1527 | `nist-ai-rmf` | 将 NIST AI 风险管理框架（NIST AI 100-1 + NIST AI 600-1 生成式 AI 配置文件）应… | china | general | legal-analysis | zh-CN | mit |
-| 1528 | `nist-ai-rmf-tanaji` | NIST AI 风险管理框架（AI RMF 1.0）专家顾问，覆盖全部四个功能：GOVERN、MAP、MEASURE、M… | eu | general | legal-analysis | zh-CN | mit |
-| 1529 | `nist-csf` | NIST 网络安全框架（CSF）专家顾问，涵盖 CSF 2.0 和 CSF 1.1。当用户询问 NIST CSF、网络安… | china | general | legal-analysis | zh-CN | mit |
-| 1530 | `non-compete-agreement` | Drafts enforceable non-compete, non-solicitation, and confid… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1531 | `non-compete-seller` | Drafts a Non-Competition and Non-Solicitation Agreement for … | us | contract-law | contract-work | en | apache-2.0 |
-| 1532 | `nonprofit-board-minutes` | Drafts legally compliant non-profit board meeting minutes wi… | us | corporate | legal-analysis | en | apache-2.0 |
-| 1533 | `nonprofit-bylaws` | Drafts U.S. nonprofit corporation bylaws aligned to state no… | us | corporate | contract-work | en | apache-2.0 |
-| 1534 | `nonprofit-compliance-summary` | Generates a structured regulatory compliance summary for U.S… | us | tax | legal-analysis | en | apache-2.0 |
-| 1535 | `normalisation-juridique-fr-christophe-quezel-ambrunaz` | "Normalisation juridique FR"（法语法律文本规范化）技能会清理以法律法语撰写的 Word 文档… | fr | general | doc-reading | zh-CN | agpl-3.0 |
-| 1536 | `normieclaw-legal-docs-pro` | 面向自由职业者与小企业的英文法律文书工具箱：生成、审查、解释NDA、承包商协议、隐私政策等，记忆企业资料自动填充并标注风… | us | contract-law | contract-work | en | undeclared |
-| 1537 | `notice-of-annual-shareholders-meeting` | Drafts a U.S. corporate annual shareholders meeting notice e… | us | corporate | contract-work | en | apache-2.0 |
-| 1538 | `notice-of-appeal` | Drafts a Notice of Appeal to initiate appellate review of a … | us | general | contract-work | en | apache-2.0 |
-| 1539 | `notice-of-appeal-criminal` | Drafts Notices of Appeal for criminal matters with strict co… | general | litigation | contract-work | en | apache-2.0 |
-| 1540 | `notice-of-appearance` | Drafts a Notice of Appearance of Counsel for federal or stat… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1541 | `notice-of-assets-claims` | Drafts a Notice of Assets and Request for Claims for probate… | us | general | contract-work | en | apache-2.0 |
-| 1542 | `notice-of-entry` | Drafts contract-compliant Notice of Property Entry letters t… | general | contract-law | contract-work | en | apache-2.0 |
-| 1543 | `notice-of-prior-art` | Drafts a Notice of Prior Art disclosing references material … | us | litigation | contract-work | en | apache-2.0 |
-| 1544 | `notice-to-perform` | Drafts a U.S. residential real estate Notice to Perform (cur… | us | contract-law | contract-work | en | apache-2.0 |
-| 1545 | `notice-to-perform-real-estate` | Drafts jurisdiction-aware residential real-estate notices to… | us | contract-law | contract-work | en | apache-2.0 |
-| 1546 | `notification-licenciement-selim-brihi` | 起草符合法国劳动法的解雇通知指南。当用户要求起草、准备、创建或编辑解雇通知信函，尤其是因严重过错（faute grave… | fr | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1547 | `nov-response` | Drafts formal responses to governmental Notices of Violation… | general | environmental | legal-writing | en | apache-2.0 |
-| 1548 | `novation-agreement` | Drafts tripartite U.S. novation agreements substituting an i… | us | contract-law | contract-work | en | apache-2.0 |
-| 1549 | `npdes-permit-application` | Drafts NPDES permit applications under the Clean Water Act (… | us | general | contract-work | en | apache-2.0 |
-| 1550 | `nuremberg-tokyo-jeanne-sulzer` | 面向二战后法庭的先核验后回答方法论：纽伦堡 IMT、十二个纽伦堡军事法庭以及东京 IMTFE。引用须对照官方记录（蓝皮书… | international | criminal | legal-analysis | zh-CN | cc-by-4.0 |
-| 1551 | `nydfs-infosec-program` | Drafts a comprehensive Information Security Program complian… | general | general | legal-writing | en | apache-2.0 |
-| 1552 | `nzism` | 面向新西兰政府机构及其供应链的《新西兰信息安全手册》（NZISM）专家顾问。用于 NZISM 控制指引、差距分析、机构安… | china | general | compliance | zh-CN | mit |
-| 1553 | `objection-to-proof-of-claim` | Drafts Objections to Proof of Claim for U.S. bankruptcy cour… | us | litigation | contract-work | en | apache-2.0 |
-| 1554 | `oci-mitigation-plan` | Drafts FAR 9.5-compliant Organizational Conflict of Interest… | general | contract-law | doc-reading | en | apache-2.0 |
-| 1555 | `office-lease` | Drafts commercial office lease agreements with rent schedule… | general | contract-law | contract-work | en | apache-2.0 |
-| 1556 | `oil-gas-lease` | Drafts enforceable U.S. Oil and Gas Leases conveying subsurf… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1557 | `oilfield-msa` | Drafts a Master Service Agreement for upstream oilfield serv… | general | contract-law | contract-work | en | apache-2.0 |
-| 1558 | `om-agreement` | Drafts Operations and Maintenance agreements for energy faci… | general | contract-law | contract-work | en | apache-2.0 |
-| 1559 | `online-reporting-guide` | 企业/个人遭遇网络侵权时的全流程举报指引Skill。 核心能力：侵权类型自动识别 → 有效举报论述构建 → 证据清单生成… | china | civil-procedure | legal-analysis | zh-CN | mit |
-| 1560 | `online-store-webpage-and-other-e-commerce-information-ai-proofreading-plus` | 将原始资料（如营业执照、商标注册证、产品详情等权威文件）与网店详情页、落地页、电商平台页面进行逐项比对，仅输出差异项，提… | china | general | legal-analysis | zh-CN | undeclared |
-| 1561 | `opc-ai-ip-protection` | 将AI技术成果纳入法律保护框架，建立归属链，为Skill/Agent商业化奠定法律基础 | china | ip | legal-analysis | zh-CN | mit |
-| 1562 | `opc-ai-ip-protection-hutian` | 将AI技术成果纳入法律保护框架，建立归属链，为Skill/Agent商业化奠定法律基础 | china | ip | legal-analysis | zh-CN | mit |
-| 1563 | `opc-allinone` | 一人公司(OPC)全能助手：整合税法咨询、法规法条查询、财税案例检索、中国市场政策查询、深度网页研究、多引擎搜索、社保公… | china | tax | legal-research | zh-CN | undeclared |
-| 1564 | `opc-equity-cooperation` | OPC分布式协作中台解决方案，解决临时团队动态合作、能力出资合规、多方利益分配 | china | corporate | legal-analysis | zh-CN | mit |
-| 1565 | `opc-ip-toolkit` | 专为OPC、个人发明者、初创企业设计，提供专利、商标、软著三类知识产权全方位保护与运营工具 | china | ip | legal-analysis | zh-CN | mit |
-| 1566 | `openclaw-indian-advocate` | AI legal assistant for Indian advocates and lawyers. Use thi… | in | general | legal-analysis | en | undeclared |
-| 1567 | `opinion-summary` | Summarizes U.S. transactional legal opinions into executive-… | us | contract-law | doc-reading | en | apache-2.0 |
-| 1568 | `opposing-counsel-review` | 以经验丰富的对方律师身份，攻击、削弱并暴露法律论点、提交材料、证人陈述或结构化推理中的弱点。 生成六部分对抗性分析： 1… | china | general | legal-analysis | zh-CN | apache-2.0 |
-| 1569 | `opposition-summary` | Generates structured analytical summaries of trademark oppos… | general | general | doc-reading | en | apache-2.0 |
-| 1570 | `ops-manual-acknowledgement` | Drafts an enforceable Operations Manual Acknowledgement form… | general | contract-law | contract-work | en | apache-2.0 |
-| 1571 | `opt-out-form` | Drafts opt-out forms and notices of exclusion for class acti… | eu/us | contract-law | contract-work | en | apache-2.0 |
-| 1572 | `option-to-purchase` | Drafts Option to Purchase Real Estate agreements granting an… | general | contract-law | contract-work | en | apache-2.0 |
-| 1573 | `oral-argument` | 以 Neal Katyal 的“Harvey”为他准备美国最高法院关税案辩论的方式为律师准备对抗性程序： 依据裁判者的既… | china | arbitration-adr | litigation | zh-CN | agpl-3.0 |
-| 1574 | `order-judgment-appeal` | Drafts a U.S. appellate Order and Judgment memorializing dis… | us | general | legal-analysis | en | apache-2.0 |
-| 1575 | `order-modification` | Drafts post-judgment motions to modify existing family law c… | us | family | contract-work | en | apache-2.0 |
-| 1576 | `ordinary-to-element-complaint` | 将普通民事起诉状转换为最高人民法院《要素式起诉状示范文本》（以金融借款合同纠纷模板为基底）。当用户提供普通起诉状（doc… | china | litigation | litigation | zh-CN | undeclared |
-| 1577 | `org-meeting-minutes` | Drafts organizational meeting minutes for newly formed corpo… | general | corporate | contract-work | en | apache-2.0 |
-| 1578 | `originality-in-european-copyright-joris-deene` | 一个用于判断特定客体根据欧盟法是否有资格获得版权保护的技能，通过适用 Cofemel 两步测试（作品概念 + 独创性），… | eu | contract-law | legal-analysis | zh-CN | agpl-3.0 |
-| 1579 | `outside-counsel-billing-performance-reviewer` | 为公司内部法务部门审查外部律师发票及相关计费数据，包括 LEDES 或电子计费导出、OCG、已批准费率、折扣、预算、AF… | china | tax | contract-work | zh-CN | apache-2.0 |
-| 1580 | `overseas-legal-compliance` | 出海合规法律检索 — 自动安装MCP + 一站式查询全球230+法域法律法规。触发词：查外国法律、出海合规、GDPR、A… | eu/us/jp/multi | data-privacy | compliance | zh-CN | mit |
-| 1581 | `panel-design-selection` | 为法务团队提供律师库结构设计、律所选聘标准、合理外包分析和覆盖缺口评估。从零构建律师库框架，或将现有非正式安排正式化。定… | china | legal-profession | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
-| 1582 | `panel-review-rationalisation` | 面向企业内部法律运营团队的律师库健康评估、律所退出管理、覆盖缺口分析和律师库更新简报。产出一份年度律师库健康报告，将计分… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1583 | `pans-contract-generator` | AI算力销售合同生成器。根据商定条款（客户名称、GPU型号、数量、价格、期限） 生成标准 GPU 租赁协议 Markdo… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1584 | `parenting-plan` | Drafts jurisdiction-compliant parenting plans covering custo… | general | contract-law | contract-work | en | apache-2.0 |
-| 1585 | `parking-license-agreement` | Drafts a revocable Parking License Agreement for commercial … | general | contract-law | contract-work | en | apache-2.0 |
-| 1586 | `parole-hearing-summary` | Summarizes parole hearing transcripts into structured analyt… | general | general | legal-analysis | en | apache-2.0 |
-| 1587 | `partition-complaint` | Drafts a U.S. civil complaint for partition of real property… | us | litigation | litigation | en | apache-2.0 |
-| 1588 | `party-deposition` | Builds element-driven deposition outlines and witness prepar… | us | litigation | legal-writing | en | apache-2.0 |
-| 1589 | `past-performance-questionnaire` | Drafts a Past Performance Questionnaire for evaluating legal… | general | general | contract-work | en | apache-2.0 |
-| 1590 | `patent` | The Sovereign Invention & IP-Capture Engine. Standardizing t… | china | contract-law | legal-analysis | en | undeclared |
-| 1591 | `patent-analysis` | 当需要分析专利文件、进行侵权评估、提取技术特征、或比较多个专利的保护范围时使用。触发场景包括专利比对、权利要求分析、侵权… | china | ip | doc-reading | zh-CN | cc-by-nc-sa-4.0 |
-| 1592 | `patent-analysis-avoidance` | 专利分析与规避设计专家。当用户上传专利文档、询问专利分析、专利规避、产品设计创新、专利侵权风险、权利要求分析、技术方案对… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1593 | `patent-application-assistant` | 专利申请全流程智能助手。覆盖发明专利、实用新型专利、外观设计专利的申请策略选择、技术交底书撰写、申请文件准备、审查答复、… | china | ip | legal-analysis | zh-CN | mit |
-| 1594 | `patent-application-writer` | 根据发明描述生成专利申请的技术方案、权利要求书草稿 | china | ip | legal-analysis | zh-CN | undeclared |
-| 1595 | `patent-assistant` | 专利交底书撰写与专利检索助手。帮助研发人员将技术方案转化为结构化交底书，并进行专利检索分析。当用户要求写专利、写交底书、… | china | ip | legal-research | zh-CN | undeclared |
-| 1596 | `patent-claim-drafter` | Use this skill when a patent agent, patent attorney, or in-h… | us | ip | contract-work | en | undeclared |
-| 1597 | `patent-claim-mapper` | Use when mapping patent claims to products, analyzing patent… | general | ip | legal-analysis | en | mit |
-| 1598 | `patent-cliff-response-strategy-brand-defense` | 为品牌药企业提供专利悬崖应对策略：围绕专利到期前后的仿制药冲击制定品牌防御方案，适用于医药企业专利与市场团队（内容需授权… | china | general | legal-analysis | zh-CN | undeclared |
-| 1599 | `patent-cn` | 当用户上传交底材料、研发报告、技术方案文档，并要求撰写专利、撰写初稿，或请专利代理师视角输出可申请的专利文件时触发。也涵… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1600 | `patent-disclosure-builder` | 面向发明人的对话式专利交底书（技术交底书）生成助手。当发明人本人想把脑子里的技术方案整理成一份结构规范、内容完整的交底书… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1601 | `patent-disclosure-skill` | 中国专利：从项目文档挖掘专利点并生成可交付技术交底书（查新、脱敏成文、自检与迭代）；或将已有专利解读为通俗笔记与 Obs… | china | ip | legal-research | zh-CN | undeclared |
-| 1602 | `patent-disclosure-writer` | 撰写中文专利交底书。Use when: 用户需要撰写专利交底书、技术交底书、专利申请文档。 | china | ip | legal-analysis | zh-CN | undeclared |
-| 1603 | `patent-doc-gen` | 根据技术论文撰写中国专利技术交底书，用户需要提供技术论文或资料，以及至少一篇同领域的专利作为参考。关键词：专利申请、专利… | china | ip | legal-research | zh-CN | undeclared |
-| 1604 | `patent-doc-writer` | 生成中国发明专利说明书文档。当用户说'写专利'、'专利说明书'、'生成专利文档'、'写一份发明专利'、'patent s… | china | ip | doc-reading | zh-CN | mit |
-| 1605 | `patent-draft-helper` | 专利文案撰写助手 \| 辅助撰写电机/机械领域专利申请书、技术交底书、权利要求书，保护创新成果 | china | ip | contract-work | zh-CN | undeclared |
-| 1606 | `patent-examination-guide` | 基于《专利审查指南2023》的智能审查辅助技能，支持初步审查、实质审查、复审无效、申请文件撰写规范等全流程查询与指导。涵… | china | ip | legal-research | zh-CN | undeclared |
-| 1607 | `patent-expert` | 专利全流程专家。覆盖专利挖掘、专利布局、专利检索、交底书撰写、权利要求分析与交底书配图建议。当用户提到专利、专利挖掘、专… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1608 | `patent-expression-engine` | 把技术人员已有的思路与方案抽象为具备专利申请价值的结构化文档：技术问题抽象、创新点识别、专利结构构建，输出含背景、方案、… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1609 | `patent-fee-monitor` | 专利年费监控与IP资产台账管理工具。当用户需要查询专利年费到期日、监控专利法律状态、管理专利/商标/软著资产台账、计算年… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1610 | `patent-gap-supply-chain` | Competitive intelligence workflow that infers supply-chain r… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1611 | `patent-infringement-analysis` | Generates a structured patent infringement analysis mapping … | general | ip | legal-analysis | en | apache-2.0 |
-| 1612 | `patent-infringement-complaint` | Drafts a federal patent infringement complaint for U.S. Dist… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1613 | `patent-infringement-summary` | Generates structured summaries of patent infringement cases … | us | litigation | legal-analysis | en | apache-2.0 |
-| 1614 | `patent-invalid-search` | 执行专利无效分析全流程：校验目标专利与申请日、提取技术特征、定向检索现有技术、特征比对并构建无效理由与证据链，输出Wor… | general | general | legal-analysis | en | undeclared |
-| 1615 | `patent-invalidation` | 专利无效宣告请求专业技能。方向为"通过合法途径无效他人专利"，与答复审查意见（patent-oa-response）、复… | china | ip | legal-research | zh-CN | mit |
-| 1616 | `patent-invention-disclosure` | 将任意技术方案按标准 Part A/B/C 骨架自动生成发明专利交底书，输出 .docx。只需提供技术名称、核心原理和应… | china | general | legal-analysis | zh-CN | undeclared |
-| 1617 | `patent-landscape` | 当分析生物技术专利格局、识别药物知识产权中的空白领域、追踪竞争对手专利或评估药物开发的自由操作空间时使用。为生命科学创新… | china | ip | legal-analysis | zh-CN | mit |
-| 1618 | `patent-landscape-analyzer` | 搜索USPTO PatentsView API和欧洲专利局OPS（开放专利服务）API中的专利授权、申请和族属关系。生成… | eu | ip | legal-analysis | zh-CN | mit |
-| 1619 | `patent-lawyer-agent` | 提供知识产权指导和专利分析，辅助撰写专利申请文件。非法律建议，需咨询持证专利律师。 | china | ip | legal-analysis | zh-CN | mit |
-| 1620 | `patent-mining-disclosure-skill` | 通用中国专利挖掘发现与专利说明书式技术交底生成全流程：扫描项目后先产出含轻量相似专利检索的专利点资产清单，再按用户取舍生… | china | ip | legal-research | zh-CN | undeclared |
-| 1621 | `patent-mining-expert` | 专利挖掘智能体专家。当用户需要申请专利、撰写专利交底书、进行专利检索分析、或询问专利相关问题时使用。触发场景包括"我想申… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1622 | `patent-novelty-search` | 执行专利查新检索全流程：技术方案三要素结构化、专利检索（优先Google Patents）、相似度排序、特征比对表与新颖… | general | general | legal-analysis | en | undeclared |
-| 1623 | `patent-oa-response` | 本技能用于答复专利审查意见通知书（第一次/第N次审查意见），覆盖新颖性、创造性、清楚性、权利要求独立性、单一性、修改超范… | china | ip | legal-research | zh-CN | mit |
-| 1624 | `patent-pdf-to-md` | Convert Chinese patent PDFs/DOCX/DOCs to structured Markdown… | china | ip | doc-reading | zh-CN | undeclared |
-| 1625 | `patent-preliminary-examination-check` | 在向中国地方知识产权保护中心提交发明专利或实用新型专利预审申请前，对申请文件做全维度自动化合规自检。覆盖准入资格、形式规… | china | ip | doc-reading | zh-CN | undeclared |
-| 1626 | `patent-professional-agents` | 📜 专利专业代理 - Patent Professional Agents 一个专业的多代理专利撰写与优化技能套件，覆盖… | china | ip | legal-research | zh-CN | undeclared |
-| 1627 | `patent-protection-and-intellectual-property-management` | 企业专利保护与知识产权管理方案：围绕专利布局、确权维权与知产管理体系建设提供指引，适用于企业IP管理场景（内容需授权后获… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1628 | `patent-reexamination` | 本技能用于针对专利驳回决定提出复审请求（答复驳回决定 / 复审请求书撰写 / 复审阶段权利要求修改建议）。当用户收到国家… | china | ip | contract-work | zh-CN | mit |
-| 1629 | `patent-review` | 专利申请文件核稿技能。对用户提供的专利申请文件（权利要求书、说明书、摘要）进行全面三阶段核查，输出结构化核稿意见通知书。… | china | ip | contract-work | zh-CN | undeclared |
-| 1630 | `patent-scanner` | Describe your concept and discover what makes it distinctive… | general | environmental | legal-analysis | en | undeclared |
-| 1631 | `patent-scout` | 通过百度或Google Patents在线检索中国专利信息，支持关键词和专利号查询，输出结构化专利摘要和申请人等数据。 | china | ip | legal-research | zh-CN | undeclared |
-| 1632 | `patent-search` | Patent search and analytics via 9235 API (search, detail, cl… | china | ip | legal-research | zh-CN | undeclared |
-| 1633 | `patent-search-query-builder` | 专利检索式构建智能体。将自然语言技术方案经四阶段确定性管道（技术解构→关键词扩展→检索式构建→优化） 编译为目标平台可执… | china | ip | legal-research | zh-CN | undeclared |
-| 1634 | `patent-summary` | Generates structured, prosecution-ready summaries of patent … | general | general | doc-reading | en | apache-2.0 |
-| 1635 | `patent-tagging` | 专利标引智能体。将用户自定义的多维度分类标签体系与专利技术事实建立映射关系，输出结构化标引表格。当用户需要对专利进行标签… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1636 | `patent-validator` | Turn your concept analysis into search queries — research th… | general | ip | legal-research | en | undeclared |
-| 1637 | `patent-value-analysis` | 专利价值分析评价工具 (V1.0)。用于评估专利资产的多维价值，包括： (1) 用户输入专利名称后，进行专利价值评估 (… | china | ip | legal-research | zh-CN | undeclared |
-| 1638 | `patent-writer` | 中文专利交底书撰写助手。支持两种模式：(1) 方向模式：用户给出技术方向，自动搜索并推荐创新点供选择；(2) 明确想法模… | china | ip | legal-research | zh-CN | undeclared |
-| 1639 | `patent-writer-chemistry` | 专业的化学领域专利申请材料撰写技能，涵盖技术领域分析、背景技术分析、专利检索与规避、发明内容撰写、具体实施方式撰写、权利… | china | ip | doc-reading | zh-CN | undeclared |
-| 1640 | `patent-writer-cn` | 中国发明专利交底书撰写与软著申请材料准备工具。当用户需要撰写专利、写专利交底书、申请软件著作权、准备软著材料、提取技术发… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1641 | `patent-writing-expert` | 发明专利撰写专家 — 专利申请的撰写、修改和审查意见答复。 覆盖机械、土木、控制、AI等全领域，精通中国及国际专利规范。… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1642 | `paternity-petition` | Drafts a Petition to Establish Paternity for family court fi… | general | litigation | litigation | en | apache-2.0 |
-| 1643 | `patseek-patent-search` | 使用 PatSeek API 进行专利号/申请人/关键词 Bool 检索、国际专利检索、语义检索、专利详情核对，并为可专… | international | ip | legal-research | zh-CN | undeclared |
-| 1644 | `payoff-letter-request` | Drafts formal payoff letter requests to lenders for the prec… | us | general | contract-work | en | apache-2.0 |
-| 1645 | `payroll-audit-tool` | 薪酬公式自动校验、异常数值识别、合规风险提示，守护薪酬准确性 | china | general | legal-analysis | zh-CN | undeclared |
-| 1646 | `pci-compliance` | 专业 PCI DSS 合规顾问，覆盖 PCI DSS v4.0.1（现行）和 v4.0。每当用户询问 PCI DSS、支… | china | environmental | compliance | zh-CN | mit |
-| 1647 | `pe-compliance-expert-pro` | 15年经验私募基金合规专家。基于AMAC最新监管规则，对登记备案、募集、内控、披露等8大模块进行审查，生成Word报告。… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1648 | `pe-vc-transaction-docs-review` | 面向未上市公司股权融资的专业交易文件审阅能力。适用于境内人民币架构及红筹/VIE 美元架构（尽管当前使用比例有所下降）；… | china | investment-ma | contract-work | zh-CN | apache-2.0 |
-| 1649 | `perfect-legal` | 法务胜任力框架与问答顾问：覆盖合同、合规、知产、争议、法务BP五大法务域，提供专员到GC成长路径、七大行业法务适配与四阶… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1650 | `performance-scorecard` | 为评估外部律师的企业内部法律运营团队设计绩效记分卡、收集事后反馈、准备季度业务回顾（QBR）并进行律所比较。设计一套按团… | china | legal-profession | compliance | zh-CN | cc-by-nc-nd-4.0 |
-| 1651 | `personal-injury-compensation-calculation` | 专注人身损害赔偿领域的智能计算技能。根据用户提供的案件信息、内置计算公式和各地统计数据，精准计算交通事故/生命权/身体权… | china | personal-injury | legal-research | zh-CN | undeclared |
-| 1652 | `persuasive-legal-writing` | 将源自卡根大法官（Justice Kagan）、Boies & Olson 及其他顶尖出庭律师的精英法律写作技巧应用于任… | china | general | contract-work | zh-CN | agpl-3.0 |
-| 1653 | `pet-custody-best-interest` | Produces a jurisdiction-aware best-interests analysis for co… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1654 | `pfs-analyzer` | Extracts and reconciles medical provider, wage-loss, and ins… | us | general | legal-analysis | en | apache-2.0 |
-| 1655 | `pharma-geo-compliance-manual` | 医药企业在生成式AI搜索（GEO）场景下的内容合规作战手册：指导药企在AI问答可见性优化中守住广告宣传与药品信息合规边界… | china | general | legal-analysis | zh-CN | undeclared |
-| 1656 | `pharma-reg-summary` | Generates structured pharmaceutical regulatory compliance su… | us | life-sciences | legal-analysis | en | apache-2.0 |
-| 1657 | `phase-i-esa` | Drafts ASTM E1527-21 environmental site assessment reports u… | general | environmental | legal-analysis | en | apache-2.0 |
-| 1658 | `physician-employment-agreement` | Drafts regulatory-compliant Physician Employment Agreements … | us | contract-law | contract-work | en | apache-2.0 |
-| 1659 | `pi-demand-summary` | Generates structured personal injury demand summaries coveri… | general | general | legal-analysis | en | apache-2.0 |
-| 1660 | `pi-intake-form` | Drafts a structured personal injury client intake form for i… | general | securities | contract-work | en | apache-2.0 |
-| 1661 | `piia` | Drafts a Proprietary Information and Inventions Agreement (P… | us | contract-law | contract-work | en | apache-2.0 |
-| 1662 | `pipeline-easement` | Drafts pipeline easement agreements granting construction, o… | general | corporate | legal-analysis | en | apache-2.0 |
-| 1663 | `pipl-compliance` | 中国个人信息保护法（PIPL）合规检查、风险评估和文档生成工具。 为企业提供全面的PIPL合规解决方案。 Use whe… | china/eu/us/multi | data-privacy | compliance | zh-CN | undeclared |
-| 1664 | `plaintiff-evidence-list-complaint-writing-plus` | 专为原告律师设计：用户上传证据材料（PDF/图片/Word等），简要说明核心主张，AI主动解读材料并撰写《原告证据清单》… | china | litigation | litigation | zh-CN | undeclared |
-| 1665 | `plan-immigration-law-firm-local-seo-faq-cluster` | Research local questions, group them into clusters, and draf… | general | general | legal-analysis | en | undeclared |
-| 1666 | `plan-of-liquidation` | Drafts a Plan of Liquidation and Dissolution for U.S. corpor… | us | corporate | contract-work | en | apache-2.0 |
-| 1667 | `plan-of-liquidation-and-dissolution` | Drafts a U.S. corporate Plan of Liquidation and Dissolution … | us | corporate | contract-work | en | apache-2.0 |
-| 1668 | `platform-craft-catalog-trademark-group` | 调用海外运营平台接口 GET /craft/craft-trademark-group/selectGroupList，… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1669 | `plea-agreement` | Drafts criminal defense plea agreements formalizing negotiat… | general | contract-law | contract-work | en | apache-2.0 |
-| 1670 | `plea-agreement-summary` | Generates structured summaries of criminal plea agreements. … | general | contract-law | doc-reading | en | apache-2.0 |
-| 1671 | `pledge-agreement-securities` | Drafts perfected-security-interest Pledge Agreements for sec… | general | securities | contract-work | en | apache-2.0 |
-| 1672 | `police-report-summary` | Summarizes police reports and incident documentation into st… | general | general | doc-reading | en | apache-2.0 |
-| 1673 | `policy-brief` | Generates structured public policy briefs analyzing legislat… | general | general | legal-analysis | en | apache-2.0 |
-| 1674 | `policy-compliance-auditor` | 审查PIP、末位淘汰、试用期评估、调岗降薪等绩效管理制度条款的法律合规性：逐条分级并给修改示例，附五维评分与整改优先级，… | china | general | legal-analysis | zh-CN | undeclared |
-| 1675 | `policy-lawyer` | Reference the workspace policy playbook, answer "What are th… | general | general | legal-analysis | en | undeclared |
-| 1676 | `policy-lawyer-2` | Reference the workspace policy playbook, answer"What are the… | general | general | legal-analysis | en | undeclared |
-| 1677 | `policy-manual` | Generates structured policy manual summaries that distill co… | general | general | contract-work | en | apache-2.0 |
-| 1678 | `policy-summary` | Summarizes policy documents, regulations, and legislative ma… | general | general | doc-reading | en | apache-2.0 |
-| 1679 | `pos-license` | Drafts Software and POS System License Agreements for propri… | us/eu | data-privacy | contract-work | en | apache-2.0 |
-| 1680 | `post-settlement-correspondence` | Drafts structured post-settlement correspondence memorializi… | general | contract-law | doc-reading | en | apache-2.0 |
-| 1681 | `pour-over-will` | Drafts a pour-over will directing the testator's residuary e… | general | estate-trust | contract-work | en | apache-2.0 |
-| 1682 | `power-purchase-agreement` | Drafts U.S. power purchase agreements (PPAs) between generat… | us | contract-law | contract-work | en | apache-2.0 |
-| 1683 | `prc-labor-law-resolution` | This skill should be used for China mainland employment and … | china | labor | litigation | zh-CN | undeclared |
-| 1684 | `pre-hearing-statement` | Drafts a Pre-Hearing Statement of Proof for personal injury … | general | general | contract-work | en | apache-2.0 |
-| 1685 | `pre-judgment-of-similar-cases-wdy` | 类案预判（法律检索+类似案例）。用户描述纠纷（如被骗钱、欠债不还、合同纠纷、被打伤等）时，自动检索相关法律条文和类似判例… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1686 | `pre-motion-andrew-bird` | 针对英格兰和威尔士民事诉讼的对抗式事前验尸（premortem）——构建案件的最强版本，然后从四个角度攻击它，在对方律师… | uk | litigation | litigation | zh-CN | mit |
-| 1687 | `pre-trial-report` | Drafts objective pre-trial reports for insurance carriers in… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1688 | `pre-trial-statement` | Drafts U.S. civil/commercial pre-trial statements that narro… | us | litigation | litigation | en | apache-2.0 |
-| 1689 | `preliminary-injunction` | Drafts a Motion for Preliminary Injunction applying the Wint… | us | contract-law | contract-work | en | apache-2.0 |
-| 1690 | `prenuptial-agreement` | Drafts enforceable prenuptial and postnuptial agreements for… | general | contract-law | contract-work | en | apache-2.0 |
-| 1691 | `prenuptial-postnuptial-agreement` | Drafts U.S. prenuptial or postnuptial agreements with enforc… | us | contract-law | contract-work | en | apache-2.0 |
-| 1692 | `preservation-law-summary` | Generates structured legal memoranda on historic preservatio… | us | general | legal-analysis | en | apache-2.0 |
-| 1693 | `preservation-letter` | Drafts litigation hold and document preservation letters und… | us | general | legal-analysis | en | apache-2.0 |
-| 1694 | `pretrial-statement` | Drafts U.S. commercial litigation pre-trial statements and j… | us | litigation | contract-work | en | apache-2.0 |
-| 1695 | `prior-art-summary` | Generates structured summaries of prior art references for p… | general | general | legal-analysis | en | apache-2.0 |
-| 1696 | `privacy-law-updates` | Generates structured privacy and data protection law briefin… | us/eu/uk | general | legal-analysis | en | apache-2.0 |
-| 1697 | `privacy-osint-guard` | 面对OSINT工具、人肉搜索、数字分身复刻类请求时的合规拦截技能：告知个保法、民法典、刑法三层法律风险与工具自身风险，引… | china | data-privacy | legal-analysis | zh-CN | mit |
-| 1698 | `privacy-policy-malik-taiar` | 起草符合 GDPR 的隐私政策的指南。包含 CNIL 2020 建议、参考模板和最佳实践。在起草或修订网站或应用的隐私政… | fr/eu | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
-| 1699 | `privacy-policy-self-service-generator-mvp` | MVP 级中文隐私协议自助生成器，基于中国数据安全法律体系和产品事实收集，只生成最小合规版本隐私协议。适用于 OPC、个… | china | data-privacy | compliance | zh-CN | cc-by-nc |
-| 1700 | `privacy-policy-stephane-boghossian` | 一个零幻觉的隐私政策生成器，将任何人——从非律师创始人到律师——从引导式受理带到一份可发布、感知司法辖区的隐私政策。司法… | eu/us/br/in | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
-| 1701 | `private-equity` | 股权投资全流程技能套件：TS/SPA条款审查、尽调清单、投决备忘录、IRR/MOIC/DPI测算、项目初筛与五种退出路径… | china | investment-ma | legal-analysis | zh-CN | undeclared |
-| 1702 | `private-lawyer` | 用户输入任何法律法规政策问题，技能自动搜索中国权威法规（民法典为核心），给出专业、实用的法律参考建议。涵盖民事、合同、婚… | china | labor | litigation | zh-CN | undeclared |
-| 1703 | `private-lending-interest-calculator` | 当用户需要计算中国民间借贷案件中的借期内利息、逾期利息、违约金合并审查、砍头息、复利、还款冲抵、LPR四倍上限或生成正式… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1704 | `private-placement-memo` | Drafts a legally compliant Private Placement Memorandum for … | us | securities | contract-work | en | apache-2.0 |
-| 1705 | `private-placement-memorandum` | Drafts U.S. Regulation D Private Placement Memoranda (PPMs) … | us | contract-law | contract-work | en | apache-2.0 |
-| 1706 | `privilege-sentinel` | 面向法律 AI 提示的发送前特权与工作成果检查。当用户即将向第三方 AI 界面（ChatGPT、Claude.ai、Co… | china | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1707 | `pro-forma-cap-table` | Drafts a pro forma capitalization table modeling ownership b… | general | corporate | legal-analysis | en | apache-2.0 |
-| 1708 | `pro-legal-strategist-v2` | 顶级诉讼律师与案件分析专家，执行七步分析法与证据矩阵建模。 | china | general | litigation | zh-CN | undeclared |
-| 1709 | `procedural-rule-summary` | Generates structured, stage-organized summaries of procedura… | us | litigation | doc-reading | en | apache-2.0 |
-| 1710 | `procurement-compliance-advisor` | 政府采购法体系合规实务与政策执行专家（覆盖货物、服务及非招标工程）。集成智能问答、采购文件审查、案例检索、合规体检、政策… | china | contract-law | legal-research | zh-CN | undeclared |
-| 1711 | `product-liability-summary` | Generates structured summaries of product liability cases co… | us | litigation | doc-reading | en | apache-2.0 |
-| 1712 | `professional-contract-review` | Use when users ask for 合同审查, 审查意见书, 合同风险分析, 条款审查,知法,accurLex… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1713 | `professional-legal-drafting` | Use when users ask for 文书生成, 起草文书, 法律文书, 文书起草, 起诉状, 答辩状, 申请书… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1714 | `professional-legal-qa` | Use when users ask for 法律问答, 法律咨询, 法律问题, 问法律, 法律咨询, 知法, accu… | china | legal-profession | legal-research | zh-CN | undeclared |
-| 1715 | `professional-patent-agents` | 📜 专利专业代理 - Patent Professional Agents 一个专业的多代理专利撰写与优化技能套件，覆盖… | china | ip | legal-research | zh-CN | undeclared |
-| 1716 | `project-management-summary` | Produces U.S. legal project management summaries consolidati… | us | general | contract-work | en | apache-2.0 |
-| 1717 | `project-summary` | Generates structured legal project management summaries with… | general | litigation | doc-reading | en | apache-2.0 |
-| 1718 | `promissory-note-residential` | Drafts enforceable residential promissory notes with party i… | us | general | contract-work | en | apache-2.0 |
-| 1719 | `promo-materials-review-policy` | Drafts an internal Promotional Materials Review Policy for l… | us | contract-law | contract-work | en | apache-2.0 |
-| 1720 | `promotional-material-compliance-management` | 企业宣传材料合规管理：审查广告与营销物料中的合规风险（如绝对化用语、虚假宣传），建立发布前审核与管理机制（内容需授权后获… | china | general | legal-analysis | zh-CN | undeclared |
-| 1721 | `proofreader` | 优化 Claude 校对法语文本的能力，无论是文学、技术还是专业文本。语法和拼写检查、不规范用语（barbarismes… | china | general | legal-analysis | zh-CN | mit |
-| 1722 | `property-dispute` | [Property] 物业纠纷全流程维权助手。业主描述物业问题（电梯故障/漏水/物业费涨价/账目不透明/公共收益被侵占/… | china | litigation | litigation | zh-CN | undeclared |
-| 1723 | `proposition-audit-anthony-searle` | 对 AI 生成的事实性和解释性主张进行事后核验与信任审计。按类型和显著性对主张进行分类、路由到领域适当的来源、在分层量表… | uk | general | contract-work | zh-CN | apache-2.0 |
-| 1724 | `proprietary-information-inventions-agreement` | Drafts U.S. Proprietary Information and Inventions Agreement… | us | contract-law | contract-work | en | apache-2.0 |
-| 1725 | `proration-schedule` | Drafts a legally compliant proration schedule for real estat… | general | insurance | contract-work | en | apache-2.0 |
-| 1726 | `prospectus` | Drafts SEC-compliant prospectuses for U.S. securities offeri… | us | contract-law | contract-work | en | apache-2.0 |
-| 1727 | `prospectus-draft` | Drafts SEC-compliant prospectuses for securities offerings, … | us | litigation | contract-work | en | apache-2.0 |
-| 1728 | `protective-order` | Drafts a Stipulated Protective Order for federal litigation … | us | litigation | legal-analysis | en | apache-2.0 |
-| 1729 | `protest-notice` | Drafts a formal Notice of Intent to Protest Award for federa… | us | general | contract-work | en | apache-2.0 |
-| 1730 | `proxy-statement` | Drafts a SEC Regulation 14A / Rule 14a-3 compliant annual me… | us | corporate | legal-research | en | apache-2.0 |
-| 1731 | `psychiatric-advance-directive` | Drafts jurisdiction-specific Psychiatric Advance Directives … | general | tax | contract-work | en | apache-2.0 |
-| 1732 | `public-health-law-summary` | Generates structured, plain-language summaries of public hea… | us | general | legal-analysis | en | apache-2.0 |
-| 1733 | `purchase-agreement-breach-complaint` | Drafts a U.S. civil complaint for breach of a real estate pu… | us | contract-law | contract-work | en | apache-2.0 |
-| 1734 | `purchase-agreement-summary` | Produces structured operational summaries from fully execute… | general | contract-law | doc-reading | en | apache-2.0 |
-| 1735 | `purchase-contract-audit` | 本Skill用于对采购合同进行专业审核，根据输入的合同文本，按照"合同基本信息->潜在风险点->修改建议->参考条款->… | china | construction | doc-reading | zh-CN | undeclared |
-| 1736 | `qdro-draft` | Drafts Qualified Domestic Relations Orders (QDROs) compliant… | us | general | contract-work | en | apache-2.0 |
-| 1737 | `qdro-drafter` | Use this skill when a U.S. matrimonial attorney or QDRO spec… | us | tax | contract-work | en | undeclared |
-| 1738 | `qichacha` | 根据公司名称查询企业基本信息、知识产权（专利/商标/著作权），数据来源企查查、天眼查等。 | china | ip | legal-analysis | zh-CN | undeclared |
-| 1739 | `qprt` | Drafts an IRC §2702-compliant Qualified Personal Residence T… | general | contract-law | contract-work | en | apache-2.0 |
-| 1740 | `qualification-to-do-business` | Drafts U.S. foreign-corporation qualification filings (Certi… | us | general | legal-analysis | en | apache-2.0 |
-| 1741 | `quality-agreement` | Drafts Quality Agreements for pharmaceutical contract manufa… | us | contract-law | contract-work | en | apache-2.0 |
-| 1742 | `quality-control-provisions` | Drafts Quality Control Provisions as an exhibit to a Tradema… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1743 | `quiet-title-complaint` | Drafts a court-ready Complaint to Quiet Title for real prope… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1744 | `qxb-equity-penetration` | 基于工商数据源，深度解析企业股权结构。适用于企业并购重组前的股权梳理、投资尽调中的股权穿透、商业合作中的关联方识别等场景… | china | corporate | legal-analysis | zh-CN | mit |
-| 1745 | `raisonnement-juridique` | 模拟法国法官分析民事案件时的法律推理。使用此技能分析争议并识别法律问题、构建结构化的法律推理（三段论）、起草民事判决的裁… | china/fr | general | legal-research | zh-CN | mit |
-| 1746 | `rd-expense-compliance-diagnosis` | 帮助企业财务、老板和财税顾问快速识别研发费加计扣除申报中的合规风险，适用于申报前自查、被查前预警、客户初筛和研发费资料体… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1747 | `rea-request` | Drafts a Request for Equitable Adjustment (REA) for U.S. fed… | us | general | contract-work | en | apache-2.0 |
-| 1748 | `reaffirmation-agreement` | Drafts Reaffirmation Agreements under 11 U.S.C. § 524(c) for… | us | general | legal-analysis | en | apache-2.0 |
-| 1749 | `real-estate-agency-disclosure` | Drafts state-compliant real estate agency disclosure documen… | general | contract-law | contract-work | en | apache-2.0 |
-| 1750 | `real-estate-transaction-summary` | Generates structured summaries of real estate transactions f… | us | contract-law | doc-reading | en | apache-2.0 |
-| 1751 | `rec-purchase-agreement` | Drafts Renewable Energy Credit (REC) Purchase Agreements for… | general | contract-law | contract-work | en | apache-2.0 |
-| 1752 | `recall-plan` | Drafts FDA product recall plans compliant with 21 CFR Part 7… | us | litigation | contract-work | en | apache-2.0 |
-| 1753 | `recherche-doctrine` | 在法国、欧洲和国际法律学术数据库中进行学术研究。当用户请求检索学说文章、学位论文、学术著作或大学法律出版物——包括比较法… | fr | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
-| 1754 | `reciprocal-easement-agreement` | Drafts recordable Reciprocal Easement Agreements (REAs) with… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1755 | `record-designation` | Drafts a Record Designation on Appeal identifying trial cour… | general | litigation | litigation | en | apache-2.0 |
-| 1756 | `recovery-right-litigation` | 面向中国大陆追偿权纠纷的起诉准备与内部办案工作流。区分保证人履责追偿、反担保追偿、债权受让或法定代位、共同债务内部追偿四… | china | litigation | litigation | zh-CN | declared-only |
-| 1757 | `red-team-verifier-patrick-munro` | 对 AI 生成的法律内容进行对抗性核验，包含系统性事实核查、来源验证和质量控制。当用户要求在向客户、利益相关方分发或公开… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1758 | `reg-64-kosovo-jeanne-sulzer` | 针对科索沃地区法院 UNMIK 第 64 号条例审判庭（2000-2008）的验证优先方法论。引注均对照 UNMIK/E… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
-| 1759 | `reg-bi-policy` | Drafts board-ready Suitability and Best Interest policies fo… | us | securities | contract-work | en | apache-2.0 |
-| 1760 | `regulations-summarizer` | 将中国金融监管法规条文压缩为7-16字法条关键词：按11种句式分类给出压缩策略与动词映射，保留要件不丢失，用于法条索引与… | china | banking-finance | legal-analysis | zh-CN | undeclared |
-| 1761 | `regulatory` | Navigates regulatory compliance, government relations, and a… | eu/us | intl-trade | legal-research | en | apache-2.0 |
-| 1762 | `regulatory-deal-card-generator-patrick-munro` | 生成独立的交互式 HTML“交易卡”，将复杂法规转化为可随时用于谈判的参考工具，系统区分强制性义务与可协商的实施选择。当… | eu | contract-law | compliance | zh-CN | agpl-3.0 |
-| 1763 | `regulatory-submission-summary` | Produces structured summaries of regulatory submission packa… | us | life-sciences | doc-reading | en | apache-2.0 |
-| 1764 | `regulatory-summary` | Generates structured, citation-grounded summaries of regulat… | general | general | doc-reading | en | apache-2.0 |
-| 1765 | `regulatory-threat-model` | 当某个应用或系统 — 包括用 AI 编码代理快速构建的 — 需要带监管植根的安全审查时使用：STRIDE 威胁模型、LI… | eu | data-privacy | legal-research | zh-CN | cc-by-4.0 |
-| 1766 | `rehearing-en-banc` | Drafts a Petition for Rehearing En Banc under FRAP 35 or sta… | general | litigation | contract-work | en | apache-2.0 |
-| 1767 | `related-party-transaction-policy` | Drafts a board-adoptable Related Party Transaction Policy fo… | us | corporate | contract-work | en | apache-2.0 |
-| 1768 | `release-of-claims` | Drafts enforceable Release of All Claims documents for perso… | us | general | contract-work | en | apache-2.0 |
-| 1769 | `repair-request-addendum` | Drafts a Repair Request Addendum modifying an existing resid… | general | contract-law | contract-work | en | apache-2.0 |
-| 1770 | `reply-brief-appellant` | Drafts an appellant's Reply Brief that rebuts the appellee's… | general | litigation | litigation | en | apache-2.0 |
-| 1771 | `representation-agreement` | Drafts a U.S. litigation representation agreement covering s… | us | general | legal-analysis | en | apache-2.0 |
-| 1772 | `request-for-admissions` | Drafts Requests for Admissions under FRCP 36 or state equiva… | us | litigation | contract-work | en | apache-2.0 |
-| 1773 | `requete-cph-licenciement-faute-grave-selim-brihi` | 起草向法国劳资法庭（Conseil de prud'hommes）提交的诉状，用于质疑因严重过错（faute grave… | fr | litigation | contract-work | zh-CN | agpl-3.0 |
-| 1774 | `residential-lease` | Drafts jurisdictionally compliant U.S. residential lease agr… | us | contract-law | contract-work | en | apache-2.0 |
-| 1775 | `residential-purchase-agreement` | Drafts enforceable U.S. Residential Purchase Agreements cove… | us | contract-law | contract-work | en | apache-2.0 |
-| 1776 | `resource-planner-scott-margetts` | 法律事项的团队结构、齿轮比分析、连续性规划和竞争需求管理。当设置事项团队、审查工作是否在正确的职级上完成、为不可用团队成… | china | legal-profession | legal-analysis | zh-CN | apache-2.0 |
-| 1777 | `response-dissolution` | Drafts a Response to Petition for Dissolution of Marriage ad… | general | family | litigation | en | apache-2.0 |
-| 1778 | `restated-certificate` | Drafts an Amended and Restated Certificate of Incorporation … | us | investment-ma | legal-analysis | en | apache-2.0 |
-| 1779 | `retail-lease-agreement` | Drafts a U.S. retail lease agreement for shopping center or … | us | general | contract-work | en | apache-2.0 |
-| 1780 | `retaliation-complaint` | Drafts U.S. employment-retaliation complaints with jurisdict… | us | labor | legal-writing | en | apache-2.0 |
-| 1781 | `review-contract` | Review a contract against your organization's negotiation pl… | general | contract-law | contract-work | en | undeclared |
-| 1782 | `revocable-living-trust` | Drafts revocable living trust documents with declaration of … | us | estate-trust | legal-analysis | en | apache-2.0 |
-| 1783 | `revolving-credit-agreement` | Drafts a market-standard U.S. revolving credit agreement for… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1784 | `rfp-pitch-management` | 为选择外部法律顾问的法务团队提供 RFP 创建、分发、评估和入围管理。从零起草新的法律服务 RFP，按加权标准评估律所回… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1785 | `rfp-response` | Drafts evaluation-ready U.S. federal RFP responses across al… | us | contract-law | contract-work | en | apache-2.0 |
-| 1786 | `ricerca-giuridica-it` | 基于意大利和欧盟来源的法律检索：各领域（民事、刑事、行政、劳动、税务及 专业领域）的法规、实践和判例。当用户要求查找、定… | eu | contract-law | litigation | zh-CN | cc-by-nc-nd-4.0 |
-| 1787 | `right-to-sue-letter` | Drafts EEOC Notice of Right to Sue letters that close the ad… | us | labor | contract-work | en | apache-2.0 |
-| 1788 | `risk-analysis` | Generates structured risk analysis summaries for legal matte… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1789 | `risk-assessment` | Generates structured legal risk assessment reports with cate… | general | investment-ma | doc-reading | en | apache-2.0 |
-| 1790 | `rofr-co-sale` | Drafts Right of First Refusal and Co-Sale Agreements for ven… | general | corporate | contract-work | en | apache-2.0 |
-| 1791 | `royalty-deed` | Drafts U.S. oil and gas royalty deeds conveying NPRI or part… | us | general | contract-work | en | apache-2.0 |
-| 1792 | `royalty-report` | Drafts auditable royalty report forms for IP licensing agree… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1793 | `rules-and-regulations-exhibit` | Drafts enforceable Rules and Regulations Exhibits for attach… | general | contract-law | contract-work | en | apache-2.0 |
-| 1794 | `runtime-admissibility-review` | 判断某个具体的 AI 代理（AI-agent）行动、输出、建议或拟议承诺，在当前的授权、委托范围、证据、事实、政策、风险… | china | civil-procedure | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1795 | `saas-license-agreement` | Drafts SaaS License Agreements for cloud-based software subs… | eu/us | data-privacy | contract-work | en | apache-2.0 |
-| 1796 | `safe-agreement` | Drafts Simple Agreements for Future Equity (SAFE) for early-… | general | corporate | contract-work | en | apache-2.0 |
-| 1797 | `safe-quiz-m01-law` | 安全·模块：法律法规——本 Skill 是「注册安全工程师」职业资格考试《安全生产法律法规》科目的刷题模块，面向备考考生… | china | education-law | education | zh-CN | mit |
-| 1798 | `sale-contract-audit` | 本Skill用于对销售合同进行专业审核，根据输入的合同文本，按照"合同基本信息->潜在风险点->修改建议->参考条款->… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1799 | `sales-contract-litigation-gaoyao` | 面向中国大陆买卖合同纠纷起诉与诉讼准备阶段的中文法律工作流。用于材料可读性与来源核验、production-intake… | china | contract-law | contract-work | zh-CN | gpl-3.0 |
-| 1800 | `sam-reps-certs` | Drafts Representations and Certifications documents for SAM.… | us | contract-law | contract-work | en | apache-2.0 |
-| 1801 | `sanctions-screening` | 完整的制裁与出口管制分析工具——个人列名、行业制裁、两用物项、 支付系统（SWIFT/USD）和域外适用制度（EAR/I… | us/eu/uk/international | intl-trade | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
-| 1802 | `sanctions-screening-datainftra` | 全球制裁筛查智能引擎。对公司/个人进行全球制裁匹配、出口管制检查，覆盖 100+ 名单，生成含证据截图合规报告。默认执行… | china | intl-trade | legal-analysis | zh-CN | mit |
-| 1803 | `sanctions-screening-legal-analysis-skill-english-gillan-saleh` | 面向 Claude Desktop 的制裁与出口管制分析工具。覆盖 30 多个官方名单（联合国、欧盟、OFAC、OFSI… | us/eu/uk/international | intl-trade | legal-analysis | zh-CN | agpl-3.0 |
-| 1804 | `sar-filing` | Drafts FinCEN Suspicious Activity Reports (Form 111) for BSA… | us | banking-finance | legal-analysis | en | apache-2.0 |
-| 1805 | `scope-change-controller-scott-margetts` | 法律事项的范围管理 — 基线捕获、进行中的变更控制、OOS 文档化和范围回顾。当被要求审查范围界定假设、评估工作是否在范… | china | general | contract-work | zh-CN | apache-2.0 |
-| 1806 | `screening-alert-adjudication-amir-fadavi` | 裁决制裁、PEP 或负面媒体报道筛查产生的命中是真报、误报还是需要人工升级。当用户提供筛查警报、与观察名单（OFAC S… | us/eu/uk/international | intl-trade | legal-research | zh-CN | mit |
-| 1807 | `scsl-rscsl-special-court-for-sierra-leone-jeanne-sulzer` | 针对塞拉利昂问题特别法庭及其余留特别法庭的验证优先方法论。引用均对照 rscsl.org 和 legal-tools.o… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
-| 1808 | `sec-opinion-letter` | Drafts Opinion of Counsel letters for SEC registration state… | us | corporate | contract-work | en | apache-2.0 |
-| 1809 | `section-508` | 美国联邦信息通信技术无障碍的第 508 条合规专家顾问。当用户询问第 508 条、联邦系统的 WCAG 2.0/2.1 … | us | contract-law | compliance | zh-CN | mit |
-| 1810 | `secured-promissory-note` | Drafts U.S. secured promissory notes for commercial lending … | us | general | contract-work | en | apache-2.0 |
-| 1811 | `securities-regulation-summary` | Generates thematic compliance summaries of US securities reg… | us | investment-ma | legal-analysis | en | apache-2.0 |
-| 1812 | `security-agreement` | Drafts UCC Article 9 security agreements granting first-prio… | general | general | legal-analysis | en | apache-2.0 |
-| 1813 | `security-compliance` | 安全合规全流程指导，覆盖等级保护2.0（等保）、三法合规（网络安全法、数据安全法、个人信息保护法）、数据分类分级、SOX… | china/us | securities | compliance | zh-CN | mit |
-| 1814 | `security-deposit-letter-of-credit` | Drafts an irrevocable standby letter of credit securing a co… | general | general | legal-analysis | en | apache-2.0 |
-| 1815 | `security-review-openai` | 执行语言和框架特定的安全最佳实践审查并提出改进建议。仅在用户明确请求安全最佳实践指导、安全审查/报告或默认安全编码帮助时… | china | general | contract-work | zh-CN | apache-2.0 |
-| 1816 | `self-ent-law-arbitration-clause` | ⚖️ 法律与社会技能：围绕「仲裁条款」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | arbitration-adr | litigation | zh-CN | undeclared |
-| 1817 | `self-ent-law-class-action` | ⚖️ 法律与社会技能：围绕「集体诉讼」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | litigation | zh-CN | undeclared |
-| 1818 | `self-ent-law-compliance-audit` | ⚖️ 法律与社会技能：围绕「合规审计」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | compliance | zh-CN | undeclared |
-| 1819 | `self-ent-law-divorce-process` | ⚖️ 法律与社会技能：围绕「离婚流程」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | translation | zh-CN | undeclared |
-| 1820 | `self-ent-law-employment-law` | ⚖️ 法律与社会技能：围绕「劳动法」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词：… | china | labor | translation | zh-CN | undeclared |
-| 1821 | `self-ent-law-intellectual-property` | ⚖️ 法律与社会技能：围绕「知识产权」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | translation | zh-CN | undeclared |
-| 1822 | `self-ent-law-small-claims` | ⚖️ 法律与社会技能：围绕「小额诉讼」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | litigation | zh-CN | undeclared |
-| 1823 | `self-ent-law-tax-deduction` | ⚖️ 法律与社会技能：围绕「税务减免」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | tax | translation | zh-CN | undeclared |
-| 1824 | `self-ent-law-will-estate` | ⚖️ 法律与社会技能：围绕「遗嘱遗产」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | translation | zh-CN | undeclared |
-| 1825 | `self-improving-legal` | Captures clause risks, compliance gaps, precedent shifts, co… | general | contract-law | contract-work | en | undeclared |
-| 1826 | `self-tease-lawyer-court` | Agent扮演律师在法庭上辩护，模拟法庭辩论，体验逻辑对抗的紧张感。触发词：法庭、辩护、lawyer | china | general | litigation | zh-CN | undeclared |
-| 1827 | `seller-consulting-agreement` | Drafts a U.S. seller consulting agreement for post-closing t… | us | general | legal-analysis | en | apache-2.0 |
-| 1828 | `seller-disclosure` | Drafts residential Seller Disclosure Statements for U.S. rea… | us | contract-law | contract-work | en | apache-2.0 |
-| 1829 | `seller-disclosure-statement` | Drafts a U.S. residential Seller Disclosure Statement coveri… | us | contract-law | contract-work | en | apache-2.0 |
-| 1830 | `sellers-counsel-opinion` | Drafts Opinion of Seller's Counsel letters for APA closings … | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1831 | `sentencing-guidelines` | Calculates federal and state sentencing guideline ranges wit… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 1832 | `sentencing-memorandum` | Drafts defense sentencing memoranda for federal and state cr… | general | general | legal-analysis | en | apache-2.0 |
-| 1833 | `seo-compliance-checker` | SEO compliance checker with real-time API backend for Chines… | china | advertising | compliance | zh-CN | undeclared |
-| 1834 | `separation-agreement` | Drafts employer-side Employee Separation and Release Agreeme… | us | contract-law | contract-work | en | apache-2.0 |
-| 1835 | `series-a-spa` | Drafts market-standard Series A Stock Purchase Agreements fo… | general | contract-law | contract-work | en | apache-2.0 |
-| 1836 | `serious-incident-reporting` | 依据欧盟 AI 法案（Regulation (EU) 2024/1689，KI-Verordnung）第 73 条对高风… | eu | general | compliance | zh-CN | declared-only |
-| 1837 | `settlement-agreement` | Drafts execution-ready settlement agreements for commercial … | general | contract-law | contract-work | en | apache-2.0 |
-| 1838 | `settlement-agreement-review-andrew-bird` | 审查或起草向员工支付费用以了结其索赔的协议——并标记决定其是否实际约束员工的法定条件。适用于英格兰与威尔士的 1996 … | china | contract-law | contract-work | zh-CN | apache-2.0 |
-| 1839 | `settlement-agreement-summary` | Generates executive-ready summaries of multi-party U.S. comm… | us | general | doc-reading | en | apache-2.0 |
-| 1840 | `settlement-distribution` | Drafts settlement distribution statements for personal injur… | general | contract-law | contract-work | en | apache-2.0 |
-| 1841 | `settlement-license-agreement` | Drafts a dual-purpose Settlement and License Agreement resol… | general | ip | contract-work | en | apache-2.0 |
-| 1842 | `settlement-pressure-tester-larissa-meredith-flister` | 本技能在和解报价发出或收到之前对拟议的和解立场进行压力测试：其所依赖的假设、您和对方的筹码、证据弱点、对方可能的回应，以… | china | general | litigation | zh-CN | agpl-3.0 |
-| 1843 | `settlement-proposals` | Produces chronological settlement negotiation summaries from… | general | litigation | doc-reading | en | apache-2.0 |
-| 1844 | `settlement-summarization` | Summarizes settlement negotiations and agreements in litigat… | general | general | doc-reading | en | apache-2.0 |
-| 1845 | `settlement-summary` | Generates structured summaries of settlement negotiations an… | general | litigation | doc-reading | en | apache-2.0 |
-| 1846 | `severance-agreement` | Drafts a U.S. Confidentiality and Severance Agreement for em… | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1847 | `severance-package-calculator` | 计算离职补偿金并生成协商方案：按离职类型算N+1/2N法定补偿，输出三档协商方案、风险自检清单、分场景谈判话术与离职协议… | china | contract-law | calculation | zh-CN | undeclared |
-| 1848 | `shareholder-agreement` | Drafts U.S. shareholder agreements governing ownership, cont… | us | corporate | contract-work | en | apache-2.0 |
-| 1849 | `shareholder-meeting-summary` | Generates structured, record-quality summaries of shareholde… | us | general | doc-reading | en | apache-2.0 |
-| 1850 | `shareholder-resolution-to-dissolve` | Drafts a shareholder resolution authorizing voluntary dissol… | us | corporate | contract-work | en | apache-2.0 |
-| 1851 | `shareholder-rights-plan` | Drafts a U.S. shareholder rights plan (poison pill) package … | us | contract-law | legal-analysis | en | apache-2.0 |
-| 1852 | `shareholders-meeting-minutes` | Drafts minute-book-ready U.S. corporate shareholders meeting… | us | corporate | legal-analysis | en | apache-2.0 |
-| 1853 | `shelf-registration-s3` | Drafts SEC Form S-3 shelf registration statements for eligib… | us | corporate | legal-analysis | en | apache-2.0 |
-| 1854 | `shippers-letter-of-instruction` | Drafts a U.S.-focused Shipper's Letter of Instruction (SLI) … | us | intl-trade | legal-analysis | en | apache-2.0 |
-| 1855 | `short-drama-compliance-check` | 抖音短剧专业创作系统。整合内容创作与平台合规审核，涵盖选题策划、角色设计、分集大纲、剧本生成、合规自检全流程。支持都市情… | china | general | contract-work | zh-CN | undeclared |
-| 1856 | `shuidi-asset-report` | 生成企业财产线索分析报告，为诉讼执行、债务追偿等司法场景提供系统化企业资产排查。 覆盖对外投资（全资/控股/参股）、知识… | china | ip | legal-analysis | zh-CN | mit |
-| 1857 | `shuidi-equity-report` | 生成企业股权结构与关联企业深度分析报告（HTML→SVG+PNG→PDF）。 涵盖实控人穿透、股权架构四层可视化、控制力… | china | general | legal-analysis | zh-CN | mit |
-| 1858 | `side-letter` | Drafts U.S. venture capital and private equity side letter a… | us | general | legal-analysis | en | apache-2.0 |
-| 1859 | `signature-request` | Prepare and route a document for e-signature — run a pre-sig… | general | general | contract-work | en | undeclared |
-| 1860 | `site-selection-addendum` | Drafts a Site Selection Addendum for franchise real estate t… | general | contract-law | contract-work | en | apache-2.0 |
-| 1861 | `skill-injection-defense` | 审计法律 AI 技能、提示词、工作流、MCP/工具指令和代理包中的提示注入、恶意指令、不安全脚本、可疑元数据、凭据暴露、… | china | general | contract-work | zh-CN | cc-by-nc-nd-4.0 |
-| 1862 | `skill-optimizer-lawvable` | 分析当前工作会话并为技能提出改进建议的指南。用于 (1) 使用技能后自动捕获经验教训，(2) 当用户在技能相关会话中提出… | china | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1863 | `skill-pour-interroger-judilibre-allison-fiorentino` | >本技能提供对 judilibre API 的访问。您以法语提出请求，它查询 Judilibre 数据库并返回回答。 注… | fr | general | legal-research | zh-CN | agpl-3.0 |
-| 1864 | `smart-contract-reviewer` | 智能合同审查助手。上传合同文件（PDF/DOCX/文本），自动提取关键条款、识别风险点、标注不合规项，生成审查报告与修改… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1865 | `sme-legal-advisor` | 中小企业法律顾问工具包。提供六大核心能力：合同条款风险扫描、劳动法风险自测、诉讼胜算评估、法律法规查询、类案参考、法律文… | china | labor | litigation | zh-CN | undeclared |
-| 1866 | `sme-legal-risk-scanner` | 按企业全生命周期10域扫描法律风险，输出风险等级与提示 | china | contract-law | contract-work | zh-CN | undeclared |
-| 1867 | `snda` | Drafts a Subordination, Non-Disturbance, and Attornment Agre… | general | contract-law | contract-work | en | apache-2.0 |
-| 1868 | `snda-agreement` | Drafts a tri-party Subordination, Non-Disturbance, and Attor… | general | contract-law | contract-work | en | apache-2.0 |
-| 1869 | `soc2` | 覆盖全部五项信托服务标准（安全/CC、可用性/A、保密性/C、处理完整性/PI、隐私/P）的 SOC 2 合规专家助手。… | china | general | legal-analysis | zh-CN | mit |
-| 1870 | `solar-site-lease` | Drafts U.S. solar site lease agreements between landowners a… | us | contract-law | contract-work | en | apache-2.0 |
-| 1871 | `solo-company-legal-advisor` | 一人公司法律顾问 v2.0 - 专为个人独资企业、一人有限责任公司提供全方位法律服务的智能体。覆盖合同审查、催款追债、劳… | china | labor | contract-work | zh-CN | undeclared |
-| 1872 | `solo-legal-guard` | 一人公司签约与合规风控工作台。用于合同审查、合同模板生成、签约前风险分诊、催款/验收/知识产权/外包用工/数据合规/人格… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1873 | `song-lawyer-helper` | 宋律师智能法律助手客服配置：菜单式回复法条查询与租房、合同、业主维权、隐私侵权咨询，并将诉讼需求引导对接律师本人微信。 | china | litigation | litigation | zh-CN | undeclared |
-| 1874 | `source-locked-verification` | 无推断 / 来源锁定验证。强制 Claude 仅依据用户提供的材料和/或实际访问过的在线来源作答——不允许推断、假设或填… | china | general | legal-analysis | zh-CN | agpl-3.0 |
-| 1875 | `sox-compliance` | Enterprise-grade Sarbanes-Oxley assessment platform that eva… | us | securities | legal-analysis | en | undeclared |
-| 1876 | `space-law-case-summary` | Generates structured summaries of space law cases involving … | international | intl-trade | doc-reading | en | apache-2.0 |
-| 1877 | `spcc-plan` | Drafts a Spill Prevention, Control, and Countermeasure (SPCC… | general | contract-law | contract-work | en | apache-2.0 |
-| 1878 | `special-panels-timor-leste-jeanne-sulzer` | 针对帝力地区法院严重罪行特别审判庭（Special Panels for Serious Crimes，SPSC；UNT… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
-| 1879 | `special-panels-timor-leste-jeanne-sulzer-2` | 针对波斯尼亚和黑塞哥维那法院第一庭（战争罪）的验证优先方法论。引注对照波黑法院、ICTY/IRMCT 档案和 OSCE … | international | litigation | litigation | zh-CN | cc-by-4.0 |
-| 1880 | `specific-performance-complaint` | Drafts a Complaint for Specific Performance compelling contr… | us | litigation | contract-work | en | apache-2.0 |
-| 1881 | `spoliation-letter` | Drafts spoliation and evidence preservation demand letters f… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1882 | `sports-law-cases` | Generates structured summaries of sports law cases covering … | general | arbitration-adr | legal-analysis | en | apache-2.0 |
-| 1883 | `sports-licensing-summary` | Summarizes sports licensing agreements (merchandise, broadca… | general | contract-law | doc-reading | en | apache-2.0 |
-| 1884 | `ss4-ein-application` | Drafts IRS Form SS-4 (EIN Application) by extracting entity … | us | corporate | legal-writing | en | apache-2.0 |
-| 1885 | `stakeholder-comms-planner-scott-margetts` | 利益相关方图谱、沟通计划设计、汇报层级和事务中期沟通更新。在以下情形使用：启动新事务并需要识别谁需要什么信息、设计沟通节… | china | general | legal-analysis | zh-CN | apache-2.0 |
-| 1886 | `stark-law-aks-compliance` | Drafts Stark Law and Anti-Kickback Statute compliance plans … | us | contract-law | contract-work | en | apache-2.0 |
-| 1887 | `state-charity-annual-report` | Drafts U.S. state charity bureau annual report packages for … | us | general | contract-work | en | apache-2.0 |
-| 1888 | `state-qualification` | Drafts an Application for Certificate of Authority to qualif… | us | corporate | contract-work | en | apache-2.0 |
-| 1889 | `statement-of-information` | Drafts a U.S. Statement of Information for periodic Secretar… | us | corporate | doc-reading | en | apache-2.0 |
-| 1890 | `status-report-drafter-scott-margetts` | 从电子邮件、通话记录和更新起草事项状态报告。内部与面向客户格式、RAG 逻辑、偏差评注、升级标记。当被要求起草状态报告、… | de | general | doc-reading | zh-CN | apache-2.0 |
-| 1891 | `statute-briefer` | 使用 MAPS + RULES 框架简报法规和立法法案。在简报法规、分析立法文本、映射法规结构、 从条款中提取规则模块、… | us | civil-procedure | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
-| 1892 | `statute-guide` | 用于阅读、解释和构建美国联邦、州和地方法律法条分析的第一轮框架。产出供律师审查的草稿分析——而非法律意见。当用户以引注形… | us | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
-| 1893 | `statute-of-limitations` | 诉讼时效管理助手：计算时效起算与届满日，识别中断、中止事由，指导催款留痕（快递、短信、录音）保全权利，并提供时效已过后的… | china | litigation | litigation | zh-CN | undeclared |
-| 1894 | `stay-pending-appeal` | Drafts a Motion for Stay Pending Appeal using the four-facto… | us | general | contract-work | en | apache-2.0 |
-| 1895 | `stay-relief-motion` | Drafts a Motion for Relief from Automatic Stay under 11 U.S.… | us | contract-law | litigation | en | apache-2.0 |
-| 1896 | `stl-lebanon-jeanne-sulzer` | 针对黎巴嫩问题特别法庭的验证优先方法论。引用均对照 STL 遗留档案和 legal-tools.org 核实。涵盖 Ay… | fr | general | litigation | zh-CN | cc-by-4.0 |
-| 1897 | `stock-ledger-certificates` | Drafts stock ledger and certificate packages for U.S. corpor… | us | corporate | contract-work | en | apache-2.0 |
-| 1898 | `stock-option-grant` | Drafts Stock Option Grant Agreements for ISOs or NQSOs under… | general | corporate | legal-analysis | en | apache-2.0 |
-| 1899 | `stock-purchase-agreement` | Drafts a Stock Purchase Agreement for 100% stock acquisition… | general | corporate | contract-work | en | apache-2.0 |
-| 1900 | `strategic-contract-review` | 战略级合同审查。当用户上传合同文件或提到审合同、合同风险评估、协议审查时触发。 五阶段审查流程：确认前提→类型识别→结构… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1901 | `strategy-summary` | Produces a litigation strategy summary aligning facts, legal… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1902 | `subcontracting-plan` | Drafts a FAR 52.219-9-compliant Small Business Subcontractin… | general | general | contract-work | en | apache-2.0 |
-| 1903 | `subcontractor-agreement` | Drafts enforceable U.S. subcontractor agreements governing g… | us | contract-law | contract-work | en | apache-2.0 |
-| 1904 | `sublease-agreement` | Drafts commercial sublease agreements subordinate to a maste… | general | contract-law | contract-work | en | apache-2.0 |
-| 1905 | `sublicense-agreement` | Drafts Sublicense Agreements for IP licensing transactions, … | general | tax | legal-analysis | en | apache-2.0 |
-| 1906 | `subordination-agreement` | Drafts debt subordination agreements establishing senior/jun… | general | general | legal-analysis | en | apache-2.0 |
-| 1907 | `subpoena-duces-tecum` | Drafts a Subpoena Duces Tecum compelling document production… | us | litigation | litigation | en | apache-2.0 |
-| 1908 | `subscription-agreement` | Drafts U.S. corporate subscription agreements for SaaS and s… | us | contract-law | doc-reading | en | apache-2.0 |
-| 1909 | `succession-planning-summary` | Synthesizes wills, trusts, beneficiary designations, powers … | general | estate-trust | doc-reading | en | apache-2.0 |
-| 1910 | `sue` | A comprehensive AI agent skill for anyone considering or fac… | general | contract-law | legal-analysis | en | undeclared |
-| 1911 | `sujet-crfpa-allison-fiorentino` | 本技能为 CRFPA（法国律师职业能力证书考试）两场书面法律咨询考试生成练习题目：债法（公共基础）考试和专业方向考试（民… | fr | tax | legal-research | zh-CN | agpl-3.0 |
-| 1912 | `summarize-files` | Generates structured summaries of legal documents (contracts… | general | contract-law | doc-reading | en | apache-2.0 |
-| 1913 | `summary-judgment` | Produces structured summaries of summary judgment motions, o… | general | litigation | doc-reading | en | apache-2.0 |
-| 1914 | `summary-judgment-brief` | Drafts FRCP 56 summary judgment motion briefs for U.S. comme… | us | litigation | contract-work | en | apache-2.0 |
-| 1915 | `summary-judgment-motion` | Drafts a Motion for Summary Judgment package for personal in… | us | litigation | contract-work | en | apache-2.0 |
-| 1916 | `summons-service-packet` | Drafts court-ready summons and service packets for civil per… | us | litigation | contract-work | en | apache-2.0 |
-| 1917 | `supervisor-quiz-m03-theory` | 监理工程师刷题库·模块：基本理论与法规——按章节生成监理工程师《建设工程监理基本理论与相关法规》练习题，覆盖监理概述、组… | china | construction | contract-work | zh-CN | mit |
-| 1918 | `suppress-evidence` | Drafts a Motion to Suppress Evidence for criminal defense, c… | general | litigation | litigation | en | apache-2.0 |
-| 1919 | `sustainable-opposing-counsel-review` | 对能在答辩中存活的法律论证产生对抗性攻击。运行两次相对方律师纪律：第一遍 不加约束，然后用同一工具反作用于该遍，砍掉在挑… | china | general | contract-work | zh-CN | apache-2.0 |
-| 1920 | `swiss-legal-source-authority-triage-enrique-g-zbinden` | 瑞士法律来源与权威分流。当用户提出瑞士法律、监管、合规、合同、雇佣、公司、诉讼、知识产权、税务、隐私、公法、金融科技、登… | china | tax | legal-analysis | zh-CN | mit |
-| 1921 | `swppp` | Drafts a Stormwater Pollution Prevention Plan (SWPPP) compli… | general | environmental | legal-analysis | en | apache-2.0 |
-| 1922 | `t4c-settlement-proposal` | Drafts a Termination for Convenience Settlement Proposal und… | general | contract-law | contract-work | en | apache-2.0 |
-| 1923 | `tabular-review-lawvable` | 按用户定义的列分析多个文档（PDF、DOCX）并产出带引用的结构化 Excel 输出的指南。当用户想要：(1) 从多个文… | china | contract-law | doc-reading | zh-CN | agpl-3.0 |
-| 1924 | `tax-advisory-practice` | 财税中介机构AI合规咨询服务转型专题（供给侧·B视角）。覆盖涉税专业服务执业规范、三级复核与质量控制、咨询项目承接/交付… | international | tax | legal-analysis | zh-CN | mit-0 |
-| 1925 | `tax-capital-reduction` | 减资撤资（未实缴减资）个人所得税专项助手。聚焦公司减资、股东撤资退股、未实缴减资免除出资义务、定向减资（公司回购股权）、… | china | tax | compliance | zh-CN | mit-0 |
-| 1926 | `tax-clearance-request` | Drafts formal request letters for Tax Clearance Certificates… | general | contract-law | contract-work | en | apache-2.0 |
-| 1927 | `tax-compliance-check` | 企业税务合规自查工具。基于《中华人民共和国税法》与《税收征收管理法》，针对增值税、企业所得税、个人所得税、印花税、发票管… | china | tax | compliance | zh-CN | undeclared |
-| 1928 | `tax-compliance-dispute` | 财税合规与争议解决专业助手（财税内审·企业清算注销·税务争议·合同涉税条款审核·发票合规正负面清单）。覆盖内控评价与审计… | china | tax | contract-work | zh-CN | mit-0 |
-| 1929 | `tax-compliance-planning` | 税务合规与筹划全流程技能：税收政策识别、合规评估与报告、税务风险评估、稽查应对与转让定价分析，含2026年增值税法新政专… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1930 | `tax-compliance-report` | 根据企业财务数据（序时账、发票、报表）自动生成财税合规分析报告（Word+Excel），识别增值税/所得税/个税/发票/… | china | tax | compliance | zh-CN | undeclared |
-| 1931 | `tax-construction` | 建筑施工行业财税合规、税务风险识别与合规落地实操专题助手。覆盖建筑施工主业异地预缴、甲供工程、清包工简易计税、货物加安装… | china | tax | compliance | zh-CN | mit-0 |
-| 1932 | `tax-consumption-tax` | 电池消费税合规与政策指引专项助手（聚焦电池消费税·梯次税率·免征清单·CMA检测报告·委托加工扣除·自产自用）。覆盖梯次… | china | tax | compliance | zh-CN | mit-0 |
-| 1933 | `tax-contract-generation-review` | 企业全业务生命周期合同模板库与全生命周期合规评审指引。支持全行业合同类型模板查看、合同生成、条款审核、涉税风险防控、评审… | china | ip | contract-work | zh-CN | mit-0 |
-| 1934 | `tax-data-asset` | 数据资源（数据资产）入表税务专项助手。聚焦会计入表与税务确认的税会差异、数据资产估值虚高防控（上市审核与监管问询高发点）… | china | tax | compliance | zh-CN | mit-0 |
-| 1935 | `tax-education` | 学历教育免税、非学历教育简易计税、托育保育免税、非营利组织免税资格、培训机构预收学费与课时费收入确认、教师个税与社保、发… | china | tax | compliance | zh-CN | mit-0 |
-| 1936 | `tax-equity-governance` | 股权与公司治理涉税专业助手（股权转让·家族股权架构·国企混改·VIE/红筹架构·股权架构税负优化）。覆盖自然人股权转让个… | china | tax | compliance | zh-CN | mit-0 |
-| 1937 | `tax-esop-platform` | 员工持股平台（有限合伙/公司型/资管型）财税合规专项助手。聚焦股权激励递延纳税（相关财税文件）、合伙企业持股平台税制（经… | china | tax | compliance | zh-CN | mit-0 |
-| 1938 | `tax-global-compliance` | 企业出海全球合规指引专项助手。聚焦中国企业"走出去"在主要投资目的地的用工、薪酬、税务与数据合规实务，覆盖美国、沙特、印… | international | tax | contract-work | zh-CN | mit-0 |
-| 1939 | `tax-hainan-ftp` | 海南自由贸易港鼓励类产业企业实质性运营专项规划与税务核查风险应对专题助手。覆盖减按优惠税率、高端紧缺人才个税实际税负超1… | international | tax | compliance | zh-CN | mit-0 |
-| 1940 | `tax-invoice-compliance` | 数电票合规与空壳虚开防范专项助手。聚焦数电票全生命周期管理、空壳虚开特征识别、受票方防范、合同票据资金货物流四流一致、异… | china | tax | compliance | zh-CN | mit-0 |
-| 1941 | `tax-ipo-tax` | 上市审核税务合规专项助手。聚焦税收优惠依赖与可持续性红线、税收优惠披露要求、红筹架构完税凭证级核查、北交所全链条实质合规… | international | tax | compliance | zh-CN | mit-0 |
-| 1942 | `tax-legal-tax-review` | 财税法务审查与法税同审专项助手。聚焦并购重组投资入场前的税务合规法律尽职调查、交易文件涉税条款的法务—财务—税务一体化同… | china | tax | contract-work | zh-CN | mit-0 |
-| 1943 | `tax-offshore-trust` | 离岸信托与跨境家族财富个人所得税专项助手。聚焦离岸信托个人所得税有关征管新规（依据财政部 税务总局公告2026年发布的第… | international | tax | compliance | zh-CN | mit-0 |
-| 1944 | `tax-policy-knowledge` | 全税费种财税政策智能问答与风险合规助手。以「全量财税知识库 + 多维度风险指标模型 + 合规应对指引」三大专业底座为核心… | international | tax | contract-work | zh-CN | mit-0 |
-| 1945 | `tax-quiz-m04-law` | 税务师·模块：涉税服务相关法律——本 Skill 是「税务师」考试《涉税服务相关法律》科目的刷题模块，面向备考税务师考生… | china | tax | education | zh-CN | mit |
-| 1946 | `tax-restructuring` | 企业重组资本运作涉税专业助手（破产重整·上市公司重组·企业分立·企业合并·债务重组·跨境重组）。覆盖税收债权申报与信用修… | international | tax | compliance | zh-CN | mit-0 |
-| 1947 | `tax-return-analysis` | Produces litigation-ready financial memoranda from multi-yea… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1948 | `tax-return-summary` | Produces structured, citation-backed summaries of tax return… | general | family | doc-reading | en | apache-2.0 |
-| 1949 | `tax-sme-specialized` | 专精特新小巨人涉税合规专项助手。聚焦专精特新小巨人/优质中小企业梯度培育企业认定数据一致、研发费用归集与高新15%维持、… | china | tax | compliance | zh-CN | mit-0 |
-| 1950 | `tax-social-insurance` | 社保入税与社保合规专项助手。聚焦社保费征管划转、缴费基数真实合规、个税与社保基数匹配与不一致专项应对、劳动关系与灵活用工… | china | tax | compliance | zh-CN | mit-0 |
-| 1951 | `tax-soe-audit` | 国有企业经济责任审计涉税风险与合规专项助手。聚焦国企经责审计中的涉税风险（虚开发票/偷逃税款/账外账小金库、国有资本收益… | china | tax | compliance | zh-CN | undeclared |
-| 1952 | `tax-steel` | 钢铁/有色/稀土/贵金属冶金企业全税种财税合规助手。覆盖资源税品类差异化税率、再生资源增值税即征即退、黄金标准黄金差异化… | china | tax | compliance | zh-CN | mit-0 |
-| 1953 | `tax-strategist` | 专注于税务优化、多辖区合规、转让定价和战略税务规划的专业税务策略师。在确保完全遵守中国及地方税务法规的前提下，驾驭复杂的… | china | tax | legal-analysis | zh-CN | undeclared |
-| 1954 | `tax-summary-spousal-support` | Produces structured financial summaries from tax returns, W-… | general | litigation | doc-reading | en | apache-2.0 |
-| 1955 | `tax-tax-audit` | 企业财税合规审计与税务审计专项助手。聚焦财务报表审计中对税收法律法规的考虑（审计准则1142号落地）、税务合规内控审计程… | china | tax | compliance | zh-CN | mit-0 |
-| 1956 | `tax-tax-judicial` | 涉税司法案例与税务争议裁判规则专项助手。聚焦最高法危害税收征管犯罪典型案例、虚开专票罪三档量刑与出罪规则、下游受票方复议… | china | tax | contract-work | zh-CN | mit-0 |
-| 1957 | `tax-tcm-clinic` | 医疗机构医疗服务免征增值税、诊所备案制、兼营分别核算、营利与非营利医疗机构企业所得税、医生个税四类所得（任职工资薪金/坐… | china | tax | compliance | zh-CN | mit-0 |
-| 1958 | `tax-vat-law` | 增值税法及实施条例2026施行落地专项助手。聚焦应税交易概念重构与税目适用、进项抵扣合规、视同应税交易处理、混合销售与兼… | china | tax | compliance | zh-CN | mit-0 |
-| 1959 | `taxpayer-correspondence` | Drafts structured taxpayer correspondence summarizing tax re… | us | tax | doc-reading | en | apache-2.0 |
-| 1960 | `teaming-agreement` | Drafts Teaming Agreements for prime-sub pursuit of U.S. gove… | us | contract-law | contract-work | en | apache-2.0 |
-| 1961 | `tech-contract-negotiation-patrick-munro` | 面向技术服务协议、带有德国/欧盟法律具体性的系统化合同谈判策略。提供三位置框架（利于提供者、均衡、利于客户）、交易规模校… | china/eu/de | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1962 | `tech-contract-registration-assistant` | 技术合同认定登记全流程智能助手。覆盖技术开发合同、技术转让合同、技术咨询合同、技术服务合同（含2026年新增技术许可合同… | china | tax | contract-work | zh-CN | mit |
-| 1963 | `tech-contract-review-parth-desai` | 面向科技和一般合同的合同审查。智能红旗标记功能以显示问题。 | eu/us/uk/in | contract-law | contract-work | zh-CN | agpl-3.0 |
-| 1964 | `technology-transfer-agreement` | Drafts Technology Transfer Agreements governing IP rights, l… | us | contract-law | contract-work | en | apache-2.0 |
-| 1965 | `technology-tutorial` | Drafts a neutral, educational slide-deck technology tutorial… | general | litigation | litigation | en | apache-2.0 |
-| 1966 | `telecom-law-summary` | Generates executive-level summaries of recent US telecommuni… | us | securities | legal-analysis | en | apache-2.0 |
-| 1967 | `telegram-contract-ops` | Telegram-based internal contract generation and eID intake w… | general | contract-law | legal-analysis | en | undeclared |
-| 1968 | `telemedicine-consent` | Drafts dual-purpose telemedicine consent and policy document… | us | contract-law | contract-work | en | apache-2.0 |
-| 1969 | `tenant-estoppel-certificate` | Drafts tenant estoppel certificates for commercial real esta… | general | real-estate | contract-work | en | apache-2.0 |
-| 1970 | `tenant-improvement-work-letter` | Drafts a U.S. commercial lease Tenant Improvement Work Lette… | us | contract-law | contract-work | en | apache-2.0 |
-| 1971 | `tencent-esign-contract` | 腾讯电子签合同AI助手，支持合同起草、审查、对比、法条法规检索。当用户提到起草合同、写合同、生成合同、审查合同、检查合同… | china | contract-law | contract-work | zh-CN | undeclared |
-| 1972 | `tencent-ima-copilot-legal-consultation` | 以资深律师分阶段办案思维，结合 RAG 法律知识库检索，为用户提供法律问题初步诊断与行动策略。当用户描述法律纠纷、咨询"… | china | contract-law | legal-research | zh-CN | declared-only |
-| 1973 | `tender-denial` | Drafts legally defensible denial letters rejecting tendered … | general | contract-law | contract-work | en | apache-2.0 |
-| 1974 | `tender-letter` | Drafts formal legal tender letters serving as official notic… | general | contract-law | contract-work | en | apache-2.0 |
-| 1975 | `tender-of-defense` | Drafts a contractual tender of defense letter demanding a co… | general | litigation | contract-work | en | apache-2.0 |
-| 1976 | `tendering-bidding-compliance-expert` | 招标投标合规实务专家（Tendering & Bidding Compliance Practice Expert）。 … | china | general | legal-research | zh-CN | undeclared |
-| 1977 | `term-loan-agreement` | Drafts U.S. corporate finance term loan agreements covering … | us | general | contract-work | en | apache-2.0 |
-| 1978 | `terms-of-service` | Drafts enforceable U.S. Terms of Service agreements for webs… | us | contract-law | contract-work | en | apache-2.0 |
-| 1979 | `third-party-complaint` | Drafts a Third-Party Complaint (impleader) under FRCP 14 or … | us | contract-law | contract-work | en | apache-2.0 |
-| 1980 | `third-party-snt` | Drafts irrevocable third-party Special Needs Trusts funded b… | us | contract-law | contract-work | en | apache-2.0 |
-| 1981 | `ti-work-letter` | Drafts a Tenant Improvement Work Letter exhibit for commerci… | general | contract-law | contract-work | en | apache-2.0 |
-| 1982 | `tibet-ip-strategy` | 藏药知识产权组合布局与专利策略专家。当用户需要藏药/中藏药/民族药项目的知识产权保护方案设计、专利组合布局、商标与地理标… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1983 | `tibetan-medicine-patent-assistant` | 藏药/中药发明专利初稿生成助手。接收处方组成、剂型、质量标准、制备工艺等信息，自动生成完整的中国发明专利初稿（Word格… | china | ip | legal-analysis | zh-CN | undeclared |
-| 1984 | `tila-consumer-loan-agreement` | Drafts U.S. consumer loan agreements with integrated Truth i… | us | contract-law | contract-work | en | apache-2.0 |
-| 1985 | `timeline-generator-scott-margetts` | 从事项计划构建依赖网络和关键路径。生成交互式甘特图，标记接近关键的任务，并在发生延误时运行假设级联情景——展示项目影响并… | de | general | doc-reading | zh-CN | apache-2.0 |
-| 1986 | `title-commitment` | Drafts ALTA-compliant Title Commitment documents for commerc… | us | contract-law | contract-work | en | apache-2.0 |
-| 1987 | `tkk-element-lawsuit` | TKK 要素式起诉状转换工具——从传统起诉状 DOCX/PDF 自动提取要素，AI 驱动填写并生成规范的要素式文书。33… | china | litigation | doc-reading | zh-CN | undeclared |
-| 1988 | `tone-aggressive` | Applies aggressive advocacy tone to legal writing with force… | general | litigation | legal-analysis | en | apache-2.0 |
-| 1989 | `tone-diplomatic` | Applies measured, diplomatic tone to legal writing. Triggers… | general | contract-law | litigation | en | apache-2.0 |
-| 1990 | `toolweb-privacy-compliance-assistant` | 根据企业类型、处理的数据种类、目的、系统与共享关系，生成隐私影响评估（PIA）与DPO咨询报告，含GDPR第30条ROP… | eu/us | data-privacy | legal-analysis | en | undeclared |
-| 1991 | `track-deposits` | Traces deposits from receipt through disbursement across ban… | general | general | legal-analysis | en | apache-2.0 |
-| 1992 | `trade-law-summary` | Produces structured U.S.-focused international trade law sum… | us/international | intl-trade | doc-reading | en | apache-2.0 |
-| 1993 | `trademark-assistant` | 面向中国商标申请的类别规划、可注册性初筛及申请材料准备技能。基于尼斯分类（国际商标分类），引用中国法律法规。本技能应在接… | china | ip | legal-analysis | zh-CN | cc-by-nc |
-| 1994 | `trademark-cease-and-desist-letter` | Drafts a U.S. trademark cease-and-desist letter for pre-liti… | us | litigation | legal-analysis | en | apache-2.0 |
-| 1995 | `trademark-cease-desist` | Drafts U.S. trademark cease-and-desist letters asserting own… | us | tax | contract-work | en | apache-2.0 |
-| 1996 | `trademark-clearance` | Generates a trademark clearance search report evaluating mar… | us | general | legal-analysis | en | apache-2.0 |
-| 1997 | `trademark-coexistence` | Drafts U.S. trademark coexistence agreements defining permit… | us | contract-law | contract-work | en | apache-2.0 |
-| 1998 | `trademark-helper` | Reference tool for business — covers intro, quickstart, patt… | general | general | legal-analysis | en | undeclared |
-| 1999 | `trademark-information-inquiry` | 商标关键词搜索与详情查询（申请人、分类、公告等）。当用户说：查一下「某某」商标有没有被注册？这个商标注册人是谁？或类似商… | china | ip | legal-analysis | zh-CN | undeclared |
-| 2000 | `trademark-infringement-analysis` | 商标侵权判断分析技能。触发词：商标侵权、侵权判断、商标近似、混淆可能性、商标案件分析、字号突出使用、域名侵权、商标检索。… | china | ip | legal-analysis | zh-CN | undeclared |
-| 2001 | `trademark-license-agreement` | Drafts a U.S. Trademark License Agreement governing a licens… | us | contract-law | contract-work | en | apache-2.0 |
-| 2002 | `trademark-prescreen` | 商标注册前的可行性预检与分析助手。当用户提出「我想把 X（文字/拼音/图形）注册成商标」「查一下 X 商标能不能注册 /… | china | ip | legal-research | zh-CN | mit |
-| 2003 | `trademark-quick-check` | 面向中小企业/个人创业者的轻量级商标快速预查和申请流程导航工具。当用户输入商标名称/图样、查询近似商标、了解商标注册流程… | eu | ip | legal-analysis | zh-CN | undeclared |
-| 2004 | `trademark-registration-assistant` | 商标注册全流程智能助手。覆盖商标查询检索、类别规划、申请材料准备、注册申请提交、后续维护（驳回复审/异议答辩/续展变更）… | china | ip | legal-analysis | zh-CN | mit |
-| 2005 | `trademark-search-robb-miller` | 在美国和加拿大执行面向律师的初筛/可用性商标检索。当用户（创始人、客户或律师）询问品牌、商标、名称、标志、口号或产品名是… | ca | ip | contract-work | zh-CN | cc-by-4.0 |
-| 2006 | `traffic-accident` | 「交通事故纠纷全流程V2」—— 责任认定/复核/特殊类型（外卖/网约车/酒驾/多车）→伤残鉴定→赔偿清单/保险谈判/工伤… | china | insurance | litigation | zh-CN | undeclared |
-| 2007 | `traffic-accident-calculator` | 输入伤情、伤残等级、误工护理天数、被扶养人和事故责任比例，逐项算清医疗费、误工费、残疾赔偿金、被扶养人生活费、精神抚慰金… | china | insurance | calculation | zh-CN | undeclared |
-| 2008 | `traffic-law-doc` | parse traffic accident legal documents and generate exam ans… | general | general | legal-analysis | en | undeclared |
-| 2009 | `traffic-police-legal-review-assistant` | 输入违法案件情况，自动进行法制审核并出具审核意见书。面向交警队法制员，对交通管理行政案件及危险驾驶罪全类型刑事案件（醉驾… | china | general | contract-work | zh-CN | undeclared |
-| 2010 | `transactional` | Routes and governs transactional legal work—contracts, deals… | general | contract-law | contract-work | en | apache-2.0 |
-| 2011 | `transfer-agent-agreement` | Drafts U.S. transfer agent agreements between issuers and SE… | us | securities | contract-work | en | apache-2.0 |
-| 2012 | `transfer-impact-assessment-tia-oliver-schmidt-prietz` | 面向第五章转移的 GDPR 转移影响评估，依据 EDPB《建议 01/2020》六步方法论、CNIL TIA 指南（20… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
-| 2013 | `transition-services-plan` | Drafts a Transition Services Plan exhibit to an Asset Purcha… | general | contract-law | contract-work | en | apache-2.0 |
-| 2014 | `transitional-services-agreement` | Drafts a Transitional Services Agreement (TSA) for post-clos… | us | corporate | contract-work | en | apache-2.0 |
-| 2015 | `tri-form-r` | Drafts EPA Toxic Release Inventory (Form R) reports under EP… | general | general | legal-analysis | en | apache-2.0 |
-| 2016 | `triage-nda` | Rapidly triage an incoming NDA and classify it as GREEN (sta… | general | contract-law | legal-analysis | en | undeclared |
-| 2017 | `trial-brief` | Drafts persuasive trial briefs for commercial litigation. Tr… | general | litigation | contract-work | en | apache-2.0 |
-| 2018 | `trial-prep-diagnosis` | 庭审准备诊断。当用户提到庭审预诊、开庭准备、庭前准备检查、开庭检查、预诊案件，或上传了起诉状/答辩状/证据目录希望检验开… | china | litigation | litigation | zh-CN | undeclared |
-| 2019 | `trial-prep-summary` | Generates a structured courtroom-ready trial preparation sum… | general | litigation | doc-reading | en | apache-2.0 |
-| 2020 | `trid-tolerance` | Classifies closing costs into zero, 10% cumulative, and unli… | general | general | legal-analysis | en | apache-2.0 |
-| 2021 | `triple-net-lease` | Drafts U.S. triple net (NNN) commercial lease agreements all… | us | contract-law | contract-work | en | apache-2.0 |
-| 2022 | `triple-net-lease-agreement` | Drafts U.S. commercial triple-net (NNN) lease agreements fro… | us | contract-law | contract-work | en | apache-2.0 |
-| 2023 | `tronscan-contract-analysis` | Analyze TRON contracts: deploy info, hot methods, top caller… | general | general | legal-analysis | en | undeclared |
-| 2024 | `trust-assignment` | Drafts an Assignment of Property to Trust document transferr… | general | general | legal-analysis | en | apache-2.0 |
-| 2025 | `tsa-compliance` | 面向关键基础设施所有者与运营者的 TSA 网络安全合规专家顾问。当用户询问管道、货运铁路、客运铁路、公共交通或公交运营者… | china | general | doc-reading | zh-CN | mit |
-| 2026 | `ucc-financing-statement` | Drafts UCC-1 Financing Statements and UCC-3 Amendments to pe… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 2027 | `ucc-lien-release` | Drafts Evidence of UCC Lien Release documents proving termin… | general | general | contract-work | en | apache-2.0 |
-| 2028 | `ucc-lien-release-evidence` | Drafts an Evidence of UCC Lien Release documenting terminati… | us | general | contract-work | en | apache-2.0 |
-| 2029 | `unclaimed-property-policy` | Drafts an enterprise Escheatment and Unclaimed Property Poli… | general | securities | contract-work | en | apache-2.0 |
-| 2030 | `underwriting-agreement` | Drafts a firm-commitment underwriting agreement for SEC-regi… | us | securities | contract-work | en | apache-2.0 |
-| 2031 | `unfair-dismissal-screener-andrew-bird` | 对照英格兰与威尔士的不公平解雇框架对解雇（拟议的或已实施的）进行筛查，并显示其暴露之处。构建合格服务期问题、自动不公平类… | china | general | quality-control | zh-CN | mit |
-| 2032 | `unfamiliar-business-onboarding` | 律师承接从未接触过的全新业务时，系统化完成知识构建、风险识别、语言对齐与交付物沉淀的标准流程。当用户需要快速研究陌生业务… | china | contract-law | legal-research | zh-CN | undeclared |
-| 2033 | `uplo-compliance` | AI-powered compliance intelligence spanning legal, financial… | eu/us | contract-law | contract-work | en | undeclared |
-| 2034 | `urban-planning-summary` | Summarizes legal issues in urban development projects coveri… | general | contract-law | legal-analysis | en | apache-2.0 |
-| 2035 | `vendor-check` | Check the status of existing agreements with a vendor across… | general | contract-law | legal-analysis | en | undeclared |
-| 2036 | `vendor-compliance-1099` | 1099 vendor compliance pipeline for accounting firms. Pulls … | us | tax | legal-analysis | en | undeclared |
-| 2037 | `vendor-contracts` | Pragmatic review of software contracts: IP, liability, SLAs.… | general | contract-law | contract-work | en | undeclared |
-| 2038 | `vendor-due-diligence-patrick-munro` | 面向 IT 服务提供商、技术供应商和第三方合作伙伴、基于 DORA、NIS2、GDPR 的风险型供应商评估框架。提供三阶… | eu | banking-finance | contract-work | zh-CN | agpl-3.0 |
-| 2039 | `vendor-security-assessment` | Drafts a Vendor Security Assessment Questionnaire evaluating… | eu/us | contract-law | contract-work | en | apache-2.0 |
-| 2040 | `verdict-form` | Drafts civil trial verdict forms with sequentially numbered … | general | contract-law | contract-work | en | apache-2.0 |
-| 2041 | `verdict-judgment-summary` | Produces structured post-trial verdict and judgment analysis… | general | litigation | legal-analysis | en | apache-2.0 |
-| 2042 | `viability-conflict-check-report` | Drafts a pre-filing litigation intake memo combining conflic… | general | litigation | legal-analysis | en | apache-2.0 |
-| 2043 | `visit-behavior-compliance` | 业务拜访行为合规管理：规范销售与业务人员拜访客户过程中的行为边界与合规要求，适用于医药等行业拜访场景（内容需授权后获取）… | china | general | legal-analysis | zh-CN | undeclared |
-| 2044 | `vn-pdpl` | 面向第 91/2025/QH15 号法律及实施细则第 356/2025/ND-CP 号法令（2026 年 1 月 1 日… | international | banking-finance | contract-work | zh-CN | mit |
-| 2045 | `volunteer-waiver-release` | Drafts a Volunteer Waiver and Release of Liability Agreement… | general | general | contract-work | en | apache-2.0 |
-| 2046 | `voting-agreement` | Drafts enforceable shareholder Voting Agreements coordinatin… | general | contract-law | contract-work | en | apache-2.0 |
-| 2047 | `warranty-timeline` | Generates a chronological timeline of warranty requests, cla… | general | litigation | legal-analysis | en | apache-2.0 |
-| 2048 | `wcag` | 涵盖 WCAG 2.0、2.1 和 2.2 的专家级 WCAG（网页内容无障碍指南）顾问——W3C 国际无障碍标准。当用… | international | general | legal-analysis | zh-CN | mit |
-| 2049 | `wealth-inheritance` | 「财富传承与家族信托」—— 面向高净值客户的遗嘱/保险/家族信托/税务筹划/企业传承综合法律服务方案，与婚家SKILL形… | china | family | legal-writing | zh-CN | undeclared |
-| 2050 | `wechat-content-audit` | 全平台内容合规审核技能。覆盖微信公众号/今日头条/知乎/小红书/抖音/B站六大主流平台的内容审核规范，包括政治安全、医疗… | china | life-sciences | compliance | zh-CN | undeclared |
-| 2051 | `wenzhou-criminal-legal-aid-workflow` | 办理中国大陆刑事法律援助案件的全流程文书与归档辅助，覆盖指派接收、分阶段会见、阅卷、认罪认罚、庭审、结案和回访。默认模板… | china | criminal | doc-reading | zh-CN | declared-only |
-| 2052 | `whistleblower-policy` | Drafts board-adoptable whistleblower protection policies for… | us | corporate | contract-work | en | apache-2.0 |
-| 2053 | `whistleblower-policy-malik-taiar` | 用于 (a) 审计现有举报人系统的指南，或 (b) 基于提供的模板起草合规举报政策的指南。涵盖欧盟 2019/1937 … | china/fr/eu | civil-procedure | legal-analysis | zh-CN | agpl-3.0 |
-| 2054 | `whistleblower-protection-policy` | Drafts a U.S. whistleblower-protection policy for corporate … | us | tax | contract-work | en | apache-2.0 |
-| 2055 | `will-inheritance-planner` | 讲解自书/公证/代书等遗嘱形式要件与模板要点，梳理法定继承与遗嘱继承流程、常见纠纷点，并给个性化遗嘱草稿框架。 触发场景… | international | tax | legal-analysis | zh-CN | mit |
-| 2056 | `wipo-patent-weekly` | WIPO 小分子药物专利周报。每周定期检索 WIPO PatentScope 上新发布的小分子药物相关专利，生成 HTM… | china | ip | legal-research | zh-CN | undeclared |
-| 2057 | `wisp` | Drafts a Written Information Security Program compliant with… | eu/us | data-privacy | legal-research | en | apache-2.0 |
-| 2058 | `without-prejudice-drafter-andrew-bird` | 在正确的基础上撰写和解函——并在标记“without prejudice”实际上无法将其排除在法庭之外时警告你。真正的和… | china | general | contract-work | zh-CN | mit |
-| 2059 | `witness-prep` | Guides attorneys through deposition witness preparation usin… | us | litigation | legal-analysis | en | apache-2.0 |
-| 2060 | `witness-prep-ethics` | Evaluates witness preparation activities for ethical complia… | us | litigation | legal-analysis | en | apache-2.0 |
-| 2061 | `witness-prep-session` | Runs ethics-compliant deposition witness-prep workflows for … | us | litigation | legal-analysis | en | apache-2.0 |
-| 2062 | `witness-summary` | Generates structured summaries of witness statements for lit… | general | litigation | doc-reading | en | apache-2.0 |
-| 2063 | `work-for-hire-agreement` | Drafts a U.S. Work for Hire Agreement under 17 U.S.C. §§ 101… | us | contract-law | contract-work | en | apache-2.0 |
-| 2064 | `work-injury-calculator` | 输入伤残等级、本人工资、社平工资和是否解除劳动关系，算清一次性伤残补助金、伤残津贴、停工留薪期工资、生活护理费、一次性工… | china | labor | calculation | zh-CN | undeclared |
-| 2065 | `workbuddy-calendar` | WorkBuddy 侧边栏日历。提供月历视图、日程增删改查、分类标签（开庭/会议/截止日期/个人/研究/其他），支持从对… | china | general | legal-analysis | zh-CN | undeclared |
-| 2066 | `workflow-orchestrator` | 本技能应在用户发起任何与案件法律工作相关的请求时作为首个技能加载，统一接收并路由到 process-cases / dr… | china | contract-law | contract-work | zh-CN | mit |
-| 2067 | `workplace-law-quiz` | 考查劳动法、劳动合同、社保、工时与离职等职场法律常识的测验 Skill。 触发词："职场法律测验""劳动法常识""测测法… | china | labor | contract-work | zh-CN | mit |
-| 2068 | `writ-of-execution` | Drafts writs of execution and supporting levy instructions f… | general | litigation | litigation | en | apache-2.0 |
-| 2069 | `written-consent` | Drafts Written Consents in Lieu of Meeting for corporate boa… | general | corporate | legal-analysis | en | apache-2.0 |
-| 2070 | `written-consent-in-lieu-of-meeting` | Drafts U.S. corporate written-consent instruments (board, sh… | us | contract-law | contract-work | en | apache-2.0 |
-| 2071 | `written-consent-of-incorporator` | Drafts a U.S. corporate Action by Written Consent of Incorpo… | us | corporate | contract-work | en | apache-2.0 |
-| 2072 | `wrongful-termination-complaint` | Drafts wrongful termination complaints for employment litiga… | us | litigation | contract-work | en | apache-2.0 |
-| 2073 | `xiaohongshu-law-content` | Xiaohongshu law education content creation with mandatory le… | china | contract-law | contract-work | zh-CN | undeclared |
-| 2074 | `yaojian-copyright-registration-evidence` | 爻鉴版权保护与数据存证工具。当用户提到版权、确权、DCI、版权申请、版权登记、版权保护、数字版权、著作权、存证、微链存证… | china | ip | legal-analysis | zh-CN | undeclared |
-| 2075 | `yc-saas-drafter` | 以 Y Combinator 标准格式 SaaS 模板为起点起草定制客户协议。通过覆盖费用结构、数据处理、 机器学习权、… | china | contract-law | contract-work | zh-CN | mit |
-| 2076 | `yd-enterprise-info` | 元典企业信息查询技能（开放平台版 https://open.chineselaw.com）。 封装元典开放平台全部22个… | china | ip | legal-research | zh-CN | undeclared |
-| 2077 | `yidian-fayue` | 合同审查与起草一体化技能：强制优先调用本地合同模板与法规库，完成错字、用词、法律风险全维审查，输出审查报告与带修订痕迹的… | china | general | contract-work | zh-CN | undeclared |
-| 2078 | `yjkj-legal-contract-review-playbook` | 结构化英文合同审查工作流：按当事人、义务、风险分配、救济与谈判要点五大模块输出审查清单、问题清单与干系人摘要，适用于商事… | general | general | contract-work | en | undeclared |
-| 2079 | `yjkj-legal-due-diligence-checklist` | 生成英文法律尽调清单：覆盖公司档案、合同义务、用工/知产/合规、诉讼与监管检索计划及红旗问题摘要，用于交易、投资与供应商… | general | corporate | contract-work | en | undeclared |
-| 2080 | `yjkj-legal-regulatory-compliance-mapper` | 英文监管合规映射工具：梳理监管义务、控制措施、责任人、证据与复查节奏，输出合规义务地图与升级矩阵，用于合规体系建设与内审… | general | general | legal-analysis | en | undeclared |
-| 2081 | `yjkj-legal-settlement-evaluation-framework` | 英文和解方案评估框架：从责任敞口、证据强度、诉讼成本、非金钱条款、时机与不确定性六维比较诉讼与和解，输出评估矩阵与客户建… | general | general | legal-analysis | en | undeclared |
-| 2082 | `yuandian-law-search` | 元典法条与案例检索。本技能应在需要查询中国法律法规条文、检索相关案例、为法律分析提供数据支撑时使用。 | china | environmental | legal-research | zh-CN | mit |
-| 2083 | `yunlv-compliance-check` | Use when user needs to check import/export compliance requir… | china | intl-trade | compliance | zh-CN | mit-0 |
-| 2084 | `zeelin-patent-retriever` | Team ZeeLin’s production-grade patent evidence retrieval ski… | general | ip | legal-research | en | undeclared |
-| 2085 | `zfcc-delay-claim-arbitration-prep` | 仲裁准备专家。基于ICC仲裁最佳实践和ASCE法医分析标准，提供从证据收集、仲裁策略到证据呈现的全流程专业指导，支持Qu… | hk | contract-law | litigation | zh-CN | undeclared |
-| 2086 | `zhihe-legal-research` | 连接智合AI法律大模型平台进行法律研究。本技能应在用户需要进行法律问题研究、查找法律法规、检索类似案例、或获取法律研究报… | china | environmental | legal-analysis | zh-CN | mit |
+| 11 | `ad-compliance-ai-review-plus` | 基于《广告法》《电子商务法》《消费者权益保护法》及司法解释，结合食品、化妆品、医疗器械、纺织、玩具、电子产品等领域实务案… | china | advertising | legal-research | zh-CN | cc-by-nc |
+| 12 | `ad-compliance-consumer-rights-ai-review-plus` | 基于《广告法》《电子商务法》《消费者权益保护法》及司法解释，结合食品、化妆品、医疗器械、纺织、玩具、电子产品等领域实务案… | china | consumer | legal-research | zh-CN | undeclared |
+| 13 | `ad-compliance-consumer-rights-review-plus` | 基于《广告法》《电子商务法》《消费者权益保护法》及司法解释，结合食品、化妆品、医疗器械、纺织、玩具、电子产品等领域实务案… | china | consumer | legal-research | zh-CN | undeclared |
+| 14 | `ad-compliance-lawyer` | 专注于广告文案、详情页、直播脚本、宣传物料的法律合规审查及广告法相关法律咨询。 当用户提交广告文案/落地页/详情页/直播… | china | ip | compliance | zh-CN | undeclared |
+| 15 | `ad-compliance-review` | 广宣合规审查助手。对广告文案进行违禁词扫描、法定标识检测、主动识别物料字体并与版权风险库比对、行业特殊表述审查，输出结构… | china | ip | compliance | zh-CN | undeclared |
+| 16 | `ad-compliance-review-jicheng` | 广告合规审核技能，用于审核广告素材是否符合中国广告法及相关法规。适用场景：(1) 用户提交广告文案、广告素材要求合规审核… | china | advertising | contract-work | zh-CN | undeclared |
+| 17 | `ad-compliance-review-wuxue20260207` | 广告公司 AI 合规审查。基于客户品牌调性与违禁词库，对广告/营销文案做合规风险审查（广告法违禁词、绝对化用语、医疗功效… | china | advertising | contract-work | zh-CN | undeclared |
+| 18 | `ad-content-compliance-checker` | 广告内容合规检测工具，广告法违禁词检测与整改建议助手。当用户需要检测广告文案、审核宣传内容、检查违禁词、广告合规审核、营… | china | advertising | compliance | zh-CN | undeclared |
+| 19 | `ad-filing-compliance-helper` | 广告备案合规助手：检查广告投放前的备案要求、准备申报材料并跟踪提交状态。需确认广告是否符合监管备案要求时使用。 | china | general | legal-analysis | en | undeclared |
+| 20 | `ad-fund-agreement` | Drafts franchise advertising fund contribution agreements or… | general | contract-law | contract-work | en | apache-2.0 |
+| 21 | `ada-accommodation-complaint` | Drafts an ADA failure-to-accommodate complaint for federal o… | us | litigation | contract-work | en | apache-2.0 |
+| 22 | `ada-failure-to-accommodate-complaint` | Drafts a court-ready ADA failure-to-accommodate complaint un… | us | litigation | litigation | en | apache-2.0 |
+| 23 | `add-slide-to-deck` | 往已有原生 PPTX 追加风格一致的新页，加一页或成组多页（如一个新场景）皆可。当用户要求「在这个 PPT 里加一页」「… | china | general | legal-analysis | zh-CN | mit |
+| 24 | `administrative-relief-workflow` | 行政救济全流程AI技能。覆盖行政复议与行政诉讼的完整生命周期，从接案评估、受案范围判断、 被申请人适格性确认、行政行为分… | china | administrative | litigation | zh-CN | undeclared |
+| 25 | `administrative-value-judgment` | 辅助中国大陆行政机关法律工作人员，根据一段行政案情，按行政法基本原则进行价值判断、利益衡量，并形成倾向性裁量结论。 | china | administrative | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 26 | `adoption-petition` | Drafts a Petition for Adoption for U.S. family law courts (s… | us | litigation | litigation | en | apache-2.0 |
+| 27 | `adoption-summary` | Produces structured U.S. adoption-law summaries for litigati… | us | general | legal-analysis | en | apache-2.0 |
+| 28 | `adr-outcomes-summary` | Generates structured summaries of mediation and arbitration … | general | contract-law | doc-reading | en | apache-2.0 |
+| 29 | `advance-directive-vs-polst` | Produces a plain-language comparison of advance directives a… | general | general | legal-analysis | en | apache-2.0 |
+| 30 | `advance-health-care-directive` | Drafts jurisdiction-specific Advance Health Care Directive p… | us | general | contract-work | en | apache-2.0 |
+| 31 | `adversary-proceeding-complaint` | Drafts adversary proceeding complaints for U.S. Bankruptcy C… | us | litigation | litigation | en | apache-2.0 |
+| 32 | `adverse-event-reporting-policy` | Drafts an Adverse Event Reporting Policy compliant with 21 C… | us/international | life-sciences | contract-work | en | apache-2.0 |
+| 33 | `adverse-possession-claim` | Drafts adverse possession complaints and quiet title pleadin… | general | litigation | litigation | en | apache-2.0 |
+| 34 | `advisory-summary` | Drafts U.S. regulatory client advisory summaries translating… | us | general | legal-analysis | en | apache-2.0 |
+| 35 | `afrexai-childcare-compliance` | 美国托育机构合规助手：覆盖州许可、师生比、背景调查、健康安全与补贴审计。开办或运营儿童照护中心、家庭托育时使用。 | us | general | legal-analysis | en | undeclared |
+| 36 | `afrexai-compliance-audit` | 合规审计生成器：对照 SOC 2、ISO 27001、GDPR、HIPAA、PCI DSS、SOX 等框架生成差距分析与… | us/eu | data-privacy | legal-analysis | en | undeclared |
+| 37 | `afrexai-compliance-engine` | 初创企业合规引擎：从现状评估到审计就绪，覆盖 SOC 2、ISO 27001、GDPR、HIPAA、PCI DSS 的框… | us/eu | securities | legal-analysis | en | undeclared |
+| 38 | `afrexai-contract-review` | 英文商业合同审查助手：标记不利条款、检查缺失保护条款、输出风险评分与谈判清单。签署 NDA、SaaS、供应商合同前使用。 | general | contract-law | contract-work | en | undeclared |
+| 39 | `afrexai-epa-compliance` | 美国环保合规管理：识别 EPA 及州监管要求、跟踪许可证与报告期限、生成检查准备清单。制造业、建筑业等有环保义务的企业使… | us | construction | legal-analysis | en | undeclared |
+| 40 | `afrexai-export-compliance` | 美国出口管制合规：ECCN 分类、OFAC 制裁筛查、许可证判定与红旗清单。出口产品、软件或技术前进行贸易合规检查时使用… | us | intl-trade | legal-writing | en | undeclared |
+| 41 | `afrexai-hipaa-compliance` | HIPAA 合规助手：为部署 AI 的医疗机构生成合规清单、风险评估与泄露响应流程。处理 PHI 的 AI 系统上线前使… | us | general | legal-analysis | en | undeclared |
+| 42 | `afrexai-pharmacy-compliance` | 美国药房合规专家：DEA 管制药品、USP 调配标准、DSCSA 追溯、PDMP 与 PBM 审计应对。药房合规管理与检… | us | environmental | legal-analysis | en | undeclared |
+| 43 | `afrexai-regulatory-compliance` | 跨域合规审计：按美英欧框架（SOC 2、GDPR、HIPAA、FCA 等）做 8 领域差距分析、风险评分与整改时间表。年… | us/eu/uk | data-privacy | legal-analysis | en | undeclared |
+| 44 | `afrexai-renewal-management` | 合同与订阅续约管理：120 天续约节奏、客户健康评分、定价策略与流失挽回。管理 SaaS 续约管线、降低非自愿流失时使用… | general | contract-law | contract-work | en | undeclared |
+| 45 | `afrexai-workers-comp` | 美国工伤赔偿合规：NCCI 分类码、经验系数优化、索赔管理与 50 州要求映射。企业管理工伤保险、控制保费成本时使用。 | us | general | legal-analysis | en | undeclared |
+| 46 | `agent-authority-charter-builder-arkadiy-miteiko` | 在部署前为企业或受监管的 AI 智能体创建《智能体权限宪章》（Agent Authority Charter）。当用户需… | china | general | contract-work | zh-CN | agpl-3.0 |
+| 47 | `agent-bom-compliance` | AI compliance and policy engine — evaluate scan results agai… | eu | general | legal-analysis | en | apache-2.0 |
+| 48 | `agent-code-no7-legal-hunter` | 中国法律检索特工：跨库检索法律法规、司法解释与判例，归纳裁判观点并生成法律意见书框架。需要法规检索与案例分析时使用。 | china | general | legal-analysis | zh-CN | undeclared |
+| 49 | `agent-commercial-contract` | Agent 间商业合同框架：为 AI Agent 提供合同签署、托管支付、争议解决的法律基础设施。构建 Agent 市场… | general | contract-law | contract-work | en | undeclared |
+| 50 | `agent-court-v2026` | 模拟庭审训练：用户扮演原告或被告走完民事庭审流程，检验主张与证据链。庭前演练、法律思维训练或律师-当事人配合练习时使用。 | china | contract-law | litigation | zh-CN | undeclared |
+| 51 | `agent-email` | Agent 专用邮箱统一管理：让 Claude Code、Codex 等平台的 Agent 用一套命令收发邮件、整理收件… | china | environmental | legal-analysis | zh-CN | mit |
+| 52 | `ai-act-knowledge` | 欧盟 AI 法案知识引擎——以 70 份官方欧盟来源文件为基础的权威监管问答（包括 2026 年委员会关于 Art. 6… | eu | contract-law | legal-analysis | zh-CN | agpl-3.0 |
+| 53 | `ai-audit-trail-larissa-meredith-flister` | 本技能构建 AI 辅助任务的结构化审计轨迹：工具被要求做什么、提供了什么材料、产出了什么、输出如何被验证、最终依赖了什么… | china | general | legal-analysis | zh-CN | agpl-3.0 |
+| 54 | `ai-company-clo` | AI公司首席法务官技能包。合同治理、知识产权保护、AI专项法务（算法审计/AIGC合规/数据供应链）。覆盖GDPR/CC… | eu/us/china | contract-law | contract-work | zh-CN | mit-0 |
+| 55 | `ai-compliance` | AI compliance analysis for EU AI Act, ISO 42001, NIST AI RMF… | eu | ai-tech-law | contract-work | en | undeclared |
+| 56 | `ai-compliance-docs` | 面向AI企业的专业合规文档生成工具。覆盖算法备案、数据安全评估、个人信息保护影响评估（PIA/DPIA）、AI伦理审查、… | china/international | data-privacy | compliance | zh-CN | mit |
+| 57 | `ai-contract-review` | 合同审查（民法典）。基于《中华人民共和国民法典》及最新司法解释，对合同进行逐条智能审查。五维风险评估（合法性/公平性/完… | china | contract-law | contract-work | zh-CN | undeclared |
+| 58 | `ai-contract-risk-officer` | AI合同风控官 - 智能合同审查与法律风险检测专家级工具。支持多国法律体系（中国/美国/英国/新加坡/德国/日本/澳大利… | multi | contract-law | contract-work | zh-CN | undeclared |
+| 59 | `ai-engineering-legal` | 基于「AI工程造价+法律知识库」（1394人订阅，3149个内容）的造价+法律交叉领域AI技能。当用户需要进行工程造价司… | china | construction | contract-work | zh-CN | mit-0 |
+| 60 | `ai-governance-aia-generation` | 生成 AI 系统合规评估文档，含监管分类、风险分析和建议。 本 skill 仅覆盖中国大陆 AI 治理法规——其他法域 … | eu | banking-finance | compliance | zh-CN | undeclared |
+| 61 | `ai-governance-cold-start-interview` | 初始化访谈，将业务规范写入 $LEGAL_AGENT_PROFILE_HOME/ai-governance-legal/… | china | data-privacy | legal-analysis | zh-CN | undeclared |
+| 62 | `ai-governance-customize` | 对 AI 治理合规 profile 做单点调整——不需要重跑整个 cold-start 访谈。可调公司基础信息、AI 活… | china | securities | contract-work | zh-CN | undeclared |
+| 63 | `ai-governance-initial-questions` | 在采购或开工之前，对拟议 AI 应用做一次结构化初始问询，产出「可继续 / 需补齐 / 不可按此形态部署」三种结论与带责… | eu | general | legal-analysis | zh-CN | undeclared |
+| 64 | `ai-governance-inventory` | 管理 AI 系统合规清单，按中国法规框架对每个系统进行类型和风险层级分类。 本 skill 仅覆盖中国大陆 AI 治理法… | china | data-privacy | contract-work | zh-CN | undeclared |
+| 65 | `ai-governance-policy-monitor` | 扫描已保存的评估和审查结果，发现 AI 政策与实际做法之间的漂移，或直接检查拟议做法。 本 skill 仅覆盖中国大陆 … | china | general | contract-work | zh-CN | undeclared |
+| 66 | `ai-governance-policy-starter` | 参照已发布的监管指引和行业规范，生成 AI 使用政策草稿供律师审查。 本 skill 仅覆盖中国大陆 AI 治理法规——… | china | data-privacy | contract-work | zh-CN | undeclared |
+| 67 | `ai-governance-reg-gap-analysis` | 将新 AI 法规或监管要求与现有治理状态进行差距分析，输出修复计划。 本 skill 仅覆盖中国大陆 AI 治理法规——… | china | data-privacy | legal-analysis | zh-CN | undeclared |
+| 68 | `ai-governance-reviewer-carl-ditzler` | 当用户希望对内部 AI 用例、AI 产品功能、LLM 工作流或第三方 AI 供应商进行 AI 治理、法律风险、隐私、合规… | china | general | contract-work | zh-CN | apache-2.0 |
+| 69 | `ai-governance-use-case-triage` | 对拟议 AI 用例进行合规分类：审批通过 / 有条件审批 / 不审批。 本 skill 仅覆盖中国大陆 AI 治理法规—… | china | general | contract-work | zh-CN | undeclared |
+| 70 | `ai-governance-vendor-ai-review` | 审查供应商 AI 协议条款，重点检查数据出境、训练数据使用、境内存储等中国法合规要点。 本 skill 仅覆盖中国大陆 … | china | data-privacy | contract-work | zh-CN | undeclared |
+| 71 | `ai-intelligent-contract-review` | 自动化合同审查，风险识别 + 条款分析。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 72 | `ai-knowhow-updater` | 根据最新的AI领域资讯或周报，持续迭代更新AI全球监管政策Know How知识库。当用户需要基于资讯更新AI监管知识库，… | multi | ai-tech-law | legal-analysis | zh-CN | undeclared |
+| 73 | `ai-legal-assistant-pro` | China legal triage assistant. Input a contract, labor disput… | china | contract-law | litigation | zh-CN | undeclared |
+| 74 | `ai-legal-assistant-pro-yjkj` | 面向中国用户的法律辅助 skill，用于合同风险初筛、条款改写、劳动纠纷与诉讼成本估算、起诉前决策，以及民事起诉状 / … | china | contract-law | litigation | zh-CN | undeclared |
+| 75 | `ai-legal-case-workflow` | 由程建都律师基于一线诉讼办案流程开发的中国民事诉讼 AI 协作技能，面向执业律师和诉讼团队，覆盖民事一审 1–7 七阶段… | china | litigation | litigation | zh-CN | declared-only |
+| 76 | `akylegal-applications` | Comprehensive legal applications skill covering civil/crimin… | general | litigation | contract-work | en | undeclared |
+| 77 | `aladin-drama-portrait` | 阿拉丁·AI短剧数字人肖像权合规工坊把「AI 演员/数字人/换脸/声音克隆做完却因肖像权没授权被投诉下架、数字人授权到期… | china | general | contract-work | zh-CN | mit |
+| 78 | `alibi-notice` | Drafts a Notice of Alibi Defense under Fed. R. Crim. P. 12.1… | general | litigation | litigation | en | apache-2.0 |
+| 79 | `alta-settlement-statement` | Drafts a mathematically balanced ALTA Settlement Statement f… | us | general | contract-work | en | apache-2.0 |
+| 80 | `ambiguity-report` | 将法律文本（合同、法规、规章或司法意见）的诠释性歧义审查转化为精美的交付物。可生成多页面网站（默认）、单页面交互式网站、… | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 81 | `ambiguity-stress-test` | 对法律文本——合同、法规、规章或裁判文书——进行对抗式压力测试，检验其解释上的歧义： 找出受其约束的人们日后会对其含义产… | us | contract-law | contract-work | zh-CN | apache-2.0 |
+| 82 | `amended-restated-certificate` | Drafts a Delaware Amended and Restated Certificate of Incorp… | us | investment-ma | legal-analysis | en | apache-2.0 |
+| 83 | `amended-restated-certificate-of-incorporation` | Drafts filing-ready Delaware Amended and Restated Certificat… | us | investment-ma | contract-work | en | apache-2.0 |
+| 84 | `amicus-brief` | Drafts and analyzes U.S. appellate amicus curiae briefs for … | us | general | contract-work | en | apache-2.0 |
+| 85 | `amicus-coalition` | Manages end-to-end workflow for multi-organization amicus co… | general | corporate | legal-analysis | en | apache-2.0 |
+| 86 | `amicus-coalition-management` | Manages multi-organization appellate amicus briefs with sing… | general | general | legal-analysis | en | apache-2.0 |
+| 87 | `amicus-curiae-brief` | Drafts filing-ready U.S. amicus curiae briefs with rule-anch… | us | litigation | litigation | en | apache-2.0 |
+| 88 | `amicus-interest-statement` | Drafts the "Interest of Amicus Curiae" section of an amicus … | general | general | litigation | en | apache-2.0 |
+| 89 | `aml-compliance-program` | Drafts board-ready Anti-Money Laundering compliance programs… | us | banking-finance | legal-research | en | apache-2.0 |
+| 90 | `aml-review` | 反洗钱（AML）审查与合规检查技能。当用户需要进行反洗钱审查、可疑交易分析、客户尽职调查、制裁名单筛查、交易监测报告、合… | china/international | banking-finance | contract-work | zh-CN | undeclared |
+| 91 | `analogical-reasoning` | 当AI智能体需要处理以下情形时触发本技能： 1. 当前案件/问题在现行法律中没有直接、明确的规定（法律漏洞）； 2. 需… | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 92 | `analyse-dpa-fournisseur-hugo-salard` | 依据 RGPD 第 28 条、EDPB 07/2020 和 02/2024 号指南、2021 年标准合同条款（CCT）（… | fr/eu | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 93 | `analyze-claims` | Deep analysis of competitor patent claims: element decomposi… | china | ip | legal-analysis | zh-CN | undeclared |
+| 94 | `animal-law-case-summary` | Produces litigation-grade case summaries for animal law disp… | general | litigation | legal-analysis | en | apache-2.0 |
+| 95 | `annual-meeting-notice` | Drafts legally compliant Notice of Annual Shareholders Meeti… | us | corporate | legal-analysis | en | apache-2.0 |
+| 96 | `annual-report-charity-bureau` | Generates a cross-referenced U.S. nonprofit annual filing pa… | us | general | contract-work | en | apache-2.0 |
+| 97 | `answer-affirmative-defenses` | Drafts U.S. civil litigation Answers with paragraph-by-parag… | us | litigation | contract-work | en | apache-2.0 |
+| 98 | `answer-to-harassment-complaint` | Drafts a defendant employer's Answer to a workplace harassme… | us | litigation | legal-analysis | en | apache-2.0 |
+| 99 | `answer-with-invalidity-contentions` | Drafts a defendant's Answer with Invalidity Contentions resp… | us | litigation | litigation | en | apache-2.0 |
+| 100 | `antitrust-investigation-summary` | Drafts privilege-protective, board-ready executive summary m… | us | contract-law | contract-work | en | apache-2.0 |
+| 101 | `anythingbutlaw` | 法外功夫 — Non-legal business skills for lawyers. Decision analy… | china | contract-law | legal-analysis | zh-CN | mit |
+| 102 | `api-acceptable-use-policy` | Drafts a standalone API Acceptable Use Policy (AUP) for inco… | general | contract-law | contract-work | en | apache-2.0 |
+| 103 | `api-constraints-exhibit` | Extracts technical API constraints from OpenAPI/Swagger spec… | general | contract-law | contract-work | en | apache-2.0 |
+| 104 | `api-license-agreement` | Drafts a clickwrap-ready US API License Agreement for compan… | us | ip | contract-work | en | apache-2.0 |
+| 105 | `app-compliance-review` | 中国APP个人信息保护合规检查技能。面向公司法务、数据合规律师或合规顾问，对移动应用程序（APP）开展完整的个人信息保护… | china | data-privacy | compliance | zh-CN | cc-by-nc-nd-4.0 |
+| 106 | `app-privacy-compliance` | App/小程序隐私合规全流程助手，专为中国大陆市场上架和运营的移动应用（iOS App、Android App、微信小程… | china/eu/us | data-privacy | contract-work | zh-CN | undeclared |
+| 107 | `appeal-docs-generator` | 民事二审上诉文本成套生成技能。上传一审判决书后，以民诉法为尺子逐条审查原审判决是否错误（期限/主体程序/诉请判项比对/三… | china | litigation | litigation | zh-CN | mit |
+| 108 | `appeal-document-summary` | Produces structured U.S. appellate document summaries mappin… | us | litigation | legal-analysis | en | apache-2.0 |
+| 109 | `appeal-summary` | Generates structured analytical summaries of appellate docum… | general | litigation | doc-reading | en | apache-2.0 |
+| 110 | `appellant-brief` | Drafts the appellant's opening brief challenging a lower cou… | general | litigation | contract-work | en | apache-2.0 |
+| 111 | `appellate-formatting` | Generates appellate-filing-ready Tables of Contents, Tables … | us | general | legal-analysis | en | apache-2.0 |
+| 112 | `appellate-formatting-certification` | Generates appellate-brief TOC, TOA, and Certificate of Compl… | us | general | litigation | en | apache-2.0 |
+| 113 | `appellate-mandate` | Drafts formal appellate mandates that conclude the appeal pr… | general | corporate | litigation | en | apache-2.0 |
+| 114 | `appellee-response-brief` | Drafts appellee response briefs for federal and state appell… | general | general | contract-work | en | apache-2.0 |
+| 115 | `appellees-response-brief` | Drafts an Appellee's Response Brief defending the trial cour… | general | litigation | contract-work | en | apache-2.0 |
+| 116 | `arbitration-clause-design-and-review-hafez-virjee` | 商事仲裁条款设计与审查：起草条款、识别病态条款、评估仲裁地与规则选择并按严重度输出修改建议。起草或审查跨境合同争议解决条… | international | contract-law | contract-work | zh-CN | cc-by-4.0 |
+| 117 | `archive-ip-pdfs` | 知识产权官文自动归档技能。当用户需要批量处理知识产权官文 PDF 文件（专利、商标、软著），将其解析、归档、生成报表时触… | china | ip | legal-analysis | zh-CN | undeclared |
+| 118 | `area-development-agreement` | Drafts Area Development Agreements granting exclusive multi-… | us | contract-law | contract-work | en | apache-2.0 |
+| 119 | `argument-chain-construction` | 当AI智能体需要将法律推理结果组织为完整、自洽、有说服力的论证结构时触发此技能。 典型触发场景包括但不限于： - 撰写法… | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 120 | `argument-strength-evaluation` | 当AI智能体完成一段法律推理或论证后，需要对该推理结论进行自我评估，判断论证的整体强度与置信度，识别并标注推理链条中的薄… | china | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 121 | `art-law-summaries` | Generates structured U.S. art law summaries with Bluebook ci… | us | ip | legal-analysis | en | apache-2.0 |
+| 122 | `article-summary` | Generates structured 500-800 word summaries of legal article… | us | general | legal-analysis | en | apache-2.0 |
+| 123 | `article2book` | 基于现有文章、专栏、课程讲稿、逐字稿、访谈、课件、会议纪要、案例材料、PDF 文本、Word 文档和笔记等内容资产，判断… | china | general | legal-analysis | zh-CN | mit |
+| 124 | `articles-of-dissolution` | Drafts Articles of Dissolution (Certificate of Dissolution) … | us | corporate | legal-analysis | en | apache-2.0 |
+| 125 | `articles-of-incorporation` | Drafts jurisdiction-compliant U.S. Articles of Incorporation… | us | contract-law | contract-work | en | apache-2.0 |
+| 126 | `articles-of-incorporation-nonprofit` | Drafts filing-ready Articles of Incorporation for U.S. non-p… | us | tax | contract-work | en | apache-2.0 |
+| 127 | `asbestos-abatement-plan` | Drafts an asbestos abatement plan compliant with OSHA 29 CFR… | general | general | contract-work | en | apache-2.0 |
+| 128 | `asset-enforcement-report` | Generates a post-judgment asset and enforcement report synth… | us | litigation | legal-analysis | en | apache-2.0 |
+| 129 | `asset-liability-summaries` | Produces structured asset and liability summaries from finan… | general | family | doc-reading | en | apache-2.0 |
+| 130 | `asset-purchase-agreement` | Drafts a U.S. Asset Purchase Agreement for deals where a buy… | us | contract-law | contract-work | en | apache-2.0 |
+| 131 | `asset-purchase-loi` | Drafts a U.S. asset purchase letter of intent (LOI) separati… | us | contract-law | contract-work | en | apache-2.0 |
+| 132 | `assignation-refere-communication-associe-selim-brihi` | 起草向商事法院或经济活动法院提起的紧急程序传票（assignation en référé），以主张股东的查阅权。当用户… | china/fr | general | legal-analysis | zh-CN | agpl-3.0 |
+| 133 | `assignation-refere-recouvrement-creance-selim-brihi` | 起草向商事法院或经济活动法院提交的快速程序传唤状（assignation en référé）以追讨商业债权。当用户要求… | china/fr | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 134 | `assignment-and-assumption-of-leases` | Drafts an Assignment and Assumption of Leases transferring t… | general | real-estate | contract-work | en | apache-2.0 |
+| 135 | `assignment-assumption` | Drafts Assignment and Assumption Agreements transferring con… | us | contract-law | contract-work | en | apache-2.0 |
+| 136 | `assistant-juridique-fr` | 法国法领域的法律助理专家。法律研究、法律咨询、法律文书起草、反论证、合同与文件分析、法律动态跟踪、参考文献核验与统一。生… | china | contract-law | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 137 | `at-will-employment-offer-letter` | Drafts a U.S. at-will employment offer letter with unambiguo… | us | contract-law | contract-work | en | apache-2.0 |
+| 138 | `atm-equity-distribution-agreement` | Drafts a market-standard At-The-Market (ATM) Equity Distribu… | general | contract-law | contract-work | en | apache-2.0 |
+| 139 | `attorney` | A comprehensive AI agent skill for navigating legal situatio… | general | environmental | legal-analysis | en | undeclared |
+| 140 | `attorney-representation-agreement` | Drafts U.S. litigation attorney representation agreements fo… | us | contract-law | contract-work | en | apache-2.0 |
+| 141 | `attorneys-fees-motion` | Drafts post-judgment motions for attorneys' fees using the l… | us | litigation | contract-work | en | apache-2.0 |
+| 142 | `audit-compensation-charter` | Drafts board-adopted charters establishing Audit and Compens… | us | corporate | contract-work | en | apache-2.0 |
+| 143 | `audit-compensation-committee-charter` | Drafts a combined Audit and Compensation Committee charter f… | us | corporate | contract-work | en | apache-2.0 |
+| 144 | `audit-rgpd-site-internet` | 对网站进行全面 GDPR 合规审计。按照 10 个部分的检查清单（法律声明、 托管服务商、表单、新闻通讯、隐私政策、co… | fr/eu | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
+| 145 | `audit-summary` | Produces structured U.S. legal audit summaries that distill … | us | general | doc-reading | en | apache-2.0 |
+| 146 | `auth-packet-summary` | Validates and summarizes the four required authorization for… | us | contract-law | doc-reading | en | apache-2.0 |
+| 147 | `authority-verification` | Verifies legal citations and retrieves source material using… | general | general | legal-analysis | en | apache-2.0 |
+| 148 | `aviation-law-summary` | Produces structured aviation law summaries with Bluebook cit… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 149 | `aviation-summary` | Generates structured U.S. aviation-law summaries by synthesi… | us | general | legal-analysis | en | apache-2.0 |
+| 150 | `awa-compliance-audit` | Produces an enforcement-aware Animal Welfare Act compliance … | us | environmental | legal-analysis | en | apache-2.0 |
+| 151 | `awlm2026472` | 用 fraction.js 做份额/股权比例精算。当用户要分数运算、股权比例、fraction.js 时使用。轻量接入：… | china | general | legal-analysis | zh-CN | mit |
+| 152 | `az-eu-website-privacy-audit` | 审计网站是否符合阿塞拜疆《个人数据法》（Law on Personal Data No. 998-IIIQ），并在适用时… | eu | data-privacy | legal-analysis | zh-CN | cc-by-4.0 |
+| 153 | `ba-capability-105` | 担保管理专家。高效处理信用证开立与接收，严格审核资信及条款风险，全流程管控确保合规性，保障跨境贸易安全履约 | international | general | legal-analysis | zh-CN | undeclared |
+| 154 | `bacen-compliance-sentinel-rafael-mastronardi` | 关于巴西中央银行法规合规的完整指引：《国民货币委员会第 4,893/2021 号决议》（网络安全政策）、《巴西中央银行第… | br | banking-finance | compliance | zh-CN | agpl-3.0 |
+| 155 | `background-check-summary` | Summarizes raw background check data into structured executi… | us | intl-trade | legal-analysis | en | apache-2.0 |
+| 156 | `bad-actor-disqualification-review` | Produces a Rule 506(d) bad actor disqualification review for… | us | securities | legal-analysis | en | apache-2.0 |
+| 157 | `bad-faith-demand` | Drafts time-limited policy-limits demand letters that create… | us | general | contract-work | en | apache-2.0 |
+| 158 | `baichen-client-consultation` | 客户法律咨询·草拟通俗可发送的客户法律咨询答复·触发：客户咨询、法律疑问、即时答复 | china | contract-law | legal-research | zh-CN | undeclared |
+| 159 | `baichen-client-notice` | 客户函告·以客户名义起草催告、通知、声明等八类正式函告·触发：催告函、通知函、声明函、举报函 | china | contract-law | legal-research | zh-CN | undeclared |
+| 160 | `baichen-compliance-review` | 合规审查·针对指定监管领域做差距分析与整改路线图·触发：合规审查、合规评估、专项合规 | china | contract-law | contract-work | zh-CN | undeclared |
+| 161 | `baichen-contract-drafting` | 合同起草·按七步法从零起草各类民商事合同·触发：起草合同、拟定合同、合同模板 | china | contract-law | contract-work | zh-CN | undeclared |
+| 162 | `baichen-contract-review` | 合同审查·站指定方立场逐条审查合同并出具修改方案·触发：审合同、合同审查、合同修订 | china | contract-law | contract-work | zh-CN | undeclared |
+| 163 | `baichen-family-inheritance` | 婚姻家庭与继承·起草审查遗嘱、离婚协议、财产协议等家事法律文书·触发：遗嘱、离婚协议、财产协议、遗赠扶养、意定监护 | china | family | legal-research | zh-CN | undeclared |
+| 164 | `baichen-labor-employment` | 劳动人事·企业劳动用工全生命周期服务：劳动合同、员工手册、竞业限制、裁员·触发：劳动合同、竞业限制、裁员、解除劳动合同、… | china | labor | contract-work | zh-CN | undeclared |
+| 165 | `baichen-lawyer-letter` | 律师函·撰写具法律威慑力的正式律师函（律所名义）·触发：律师函、警告函、维权催告 | china | contract-law | legal-research | zh-CN | undeclared |
+| 166 | `baichen-legal` | 百宸律师事务所法律AI助手。基于百宸法律智能体知识库，提供民商事诉讼、刑事辩护、合同审查、 公司治理、劳动合规、私募股权… | sg | corporate | litigation | zh-CN | undeclared |
+| 167 | `baichen-legal-due-diligence` | 法律尽职调查·撰写交易导向的12章法律尽调报告（含ESG专章）·触发：法律尽调、尽调报告、DD、尽调 | china | contract-law | contract-work | zh-CN | undeclared |
+| 168 | `baichen-legal-opinion` | 法律意见书·出具法条有据的正式法律意见·触发：法律意见书、法律分析、合规论证、监管回复 | international | general | legal-research | zh-CN | undeclared |
+| 169 | `baichen-legal-research-memo` | 法律研究备忘录·输出法律检索与风险分析的研究备忘录·触发：研究备忘录、法律检索、风险分析 | international | corporate | legal-analysis | zh-CN | undeclared |
+| 170 | `baichen-ndr-standard` | 非争议解决公共标准·为NDR域非诉技能提供合同交易起草审查与合规公共标准·触发：被NDR域skill起草前引用；边界：不… | international | contract-law | contract-work | zh-CN | undeclared |
+| 171 | `bail-hearing-summary` | Generates structured bail hearing summaries from transcripts… | us | litigation | doc-reading | en | apache-2.0 |
+| 172 | `bail-reduction-motion` | Drafts a Motion for Bail Reduction for criminal defense pret… | us | general | legal-analysis | en | apache-2.0 |
+| 173 | `bank-account-resolution` | Drafts U.S. corporate board resolutions authorizing bank acc… | us | corporate | legal-analysis | en | apache-2.0 |
+| 174 | `bank-compliance` | AI-powered bank compliance and regulatory review assistant -… | china | banking-finance | compliance | zh-CN | undeclared |
+| 175 | `bank-compliance-review` | AI-powered bank compliance and regulatory review assistant -… | china | banking-finance | compliance | zh-CN | undeclared |
+| 176 | `bankruptcy-interest-calculation` | Calculates pre-petition interest for bankruptcy proofs of cl… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 177 | `bankruptcy-proof-of-claim` | Drafts filing-ready proofs of claim for U.S. bankruptcy proc… | us | general | contract-work | en | apache-2.0 |
+| 178 | `bankruptcy-restructuring` | 「破产清算与重整」—— 债权人申报→破产撤销权→重整计划→清算分配全流程，市场经济优胜劣汰下的高频法律服务需求 | china | labor | litigation | zh-CN | undeclared |
+| 179 | `baozheng` | 一站式法律服务平台 — 专业法律咨询 + 要素式/通用起诉状起草 + 刑事专项材料辅助 + 法条分析与法规检索。flk.… | china | litigation | legal-research | zh-CN | undeclared |
+| 180 | `bates-citation-verification` | Citation format and verification protocol for legal document… | general | litigation | legal-analysis | en | apache-2.0 |
+| 181 | `belgian-gaap-compliance-suite` | 比利时会计准则合规套件：覆盖科目表、增值税、可扣除性、年终结账与年度申报全流程。处理比利时企业账务与申报时使用。 | eu | tax | legal-analysis | en | undeclared |
+| 182 | `biaoshu-writer-audit` | 上传投标文件（可配套招标文件），AI 输出分级合规审查报告：高风险/待复核/提示三级清单，每条附招标依据与修改建议，支持… | china | general | contract-work | zh-CN | undeclared |
+| 183 | `biaoshu-writer-review-pro` | 凭 App Key 调用百炼®标书开放 API，完成「招标文件智能解读 → 抽取分包 → 生成成品投标文件(.docx)… | china | general | contract-work | zh-CN | undeclared |
+| 184 | `bid-compliance-checker` | 投标合规检查：对照招标文件生成完整性清单，识别废标风险点与资质缺口。投标准备、截止前合规自查时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 185 | `bid-compliance-risk-watcher` | name: bid-compliance-risk-watcher slug: bid-compliance-risk-… | china | general | compliance | zh-CN | undeclared |
+| 186 | `bid-related-party-expert` | 投标企业关联关系识别专家（基于公开工商信息版）。当用户需要识别多个投标主体之间是否存在法定禁止的关联投标——单位负责人为… | china | corporate | legal-research | zh-CN | undeclared |
+| 187 | `bidding-compliance-advisor` | 投标人侧「投标文件合规检查」技能：对照招标文件系统检查投标文件的格式、资质、签字盖章、密封、份数、实质性响应等完整性，输… | china | general | legal-research | zh-CN | undeclared |
+| 188 | `bidding-compliance-engine` | 招标文件合规审查引擎。当用户上传招标文件并要求审查、合规检查、风险分析，或说"审查招标文件"、"检查合规性"、"合规审查… | china | antitrust | contract-work | zh-CN | undeclared |
+| 189 | `bill-of-costs-appeal` | Drafts an itemized Bill of Costs on Appeal under FRAP 39 or … | general | litigation | litigation | en | apache-2.0 |
+| 190 | `bill-of-costs-on-appeal` | Drafts a verified U.S. appellate Bill of Costs itemizing tax… | us | litigation | litigation | en | apache-2.0 |
+| 191 | `bill-of-lading` | Drafts a U.S. ocean Bill of Lading (B/L) functioning as rece… | us | contract-law | contract-work | en | apache-2.0 |
+| 192 | `bill-of-sale` | Drafts a U.S. Bill of Sale for transferring personal propert… | us | general | legal-analysis | en | apache-2.0 |
+| 193 | `bill-of-sale-and-assignment` | Drafts a Bill of Sale, Assignment and Assumption Agreement f… | general | ip | contract-work | en | apache-2.0 |
+| 194 | `bill-of-sale-personal-property` | Drafts a U.S. CRE personal property Bill of Sale transferrin… | us | general | contract-work | en | apache-2.0 |
+| 195 | `bill-summary` | Produces neutral, section-pinned U.S. legislative bill summa… | us | general | doc-reading | en | apache-2.0 |
+| 196 | `billable-time-stephane-boghossian` | 当您的律师协会来问"给我看看您是如何为 AI 辅助工作计费的"——而 ABA 512、佛罗里达 24-1、加利福尼亚、纽… | china | legal-profession | contract-work | zh-CN | agpl-3.0 |
+| 197 | `billing-and-litigation-budget` | 当用户需要统计、管理律师工时、专家费用、调查费用，控制诉讼成本、向客户出具工时单或费用单时使用此技能。 典型触发场景包括… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 198 | `billing-cycle-manager-scott-margetts` | 法律事项的运营性计费执行。月度账单准备和计费指示、LC 发票审查和代垫款处理、客户账单质询回应、现金流建模（LC 付款义… | china | tax | legal-analysis | zh-CN | apache-2.0 |
+| 199 | `billing-summary` | Produces privilege-safe U.S. corporate legal billing summari… | us | general | doc-reading | en | apache-2.0 |
+| 200 | `biotech-patent-summaries` | Summarizes biotech patent families and disputes into litigat… | general | general | doc-reading | en | apache-2.0 |
+| 201 | `biz-legal-ip` | 管理商标专利著作权与商业秘密，含申请策略与侵权应对。 | china | ip | contract-work | zh-CN | undeclared |
+| 202 | `blockchain-legal-advisor` | 提供加密货币、Web3、区块链领域的法律咨询服务；当用户询问虚拟货币交易风险、OTC合规、发币募资、交易所合规、Web3… | hk | general | compliance | zh-CN | undeclared |
+| 203 | `blue-sky-filings` | Produces a practitioner-grade Blue Sky compliance memorandum… | us | securities | legal-analysis | en | apache-2.0 |
+| 204 | `board-committee-charter` | Drafts board committee charters for Audit and Compensation C… | us | corporate | legal-analysis | en | apache-2.0 |
+| 205 | `board-compliance-disclosure` | 欢迎关注IMA知识号@搬砖小能手。服务于 A 股上市公司董办的合规与信息披露综合判断助手。当用户就某一事项需要判断是否应… | china | corporate | legal-research | zh-CN | undeclared |
+| 206 | `board-meeting-minutes` | Drafts U.S. corporate board-of-directors meeting minutes int… | us | corporate | contract-work | en | apache-2.0 |
+| 207 | `board-meeting-summary` | Produces a structured, objective summary of corporate board … | general | contract-law | contract-work | en | apache-2.0 |
+| 208 | `board-minutes` | Drafts corporate board of directors meeting minutes. Trigger… | general | corporate | contract-work | en | apache-2.0 |
+| 209 | `board-resolution-dissolution` | Drafts a board resolution authorizing voluntary corporate di… | us | corporate | legal-analysis | en | apache-2.0 |
+| 210 | `body-camera-incident-summary` | Transforms police body camera transcripts into structured 10… | general | general | legal-analysis | en | apache-2.0 |
+| 211 | `book-lawyer` | Book lawyer services through Lokuli MCP. Use when user needs… | general | general | legal-analysis | en | undeclared |
+| 212 | `bootstrap-ai-data-compliance` | 律师驱动的 AI 数据合规冷启动工作流：律师描述 AI+产业合规需求后，Skill 四步引导完成冷启动——产业信息收集 … | china | data-privacy | contract-work | zh-CN | mit |
+| 213 | `boundary-dispute-complaint` | Drafts a U.S. state-court complaint to establish the true bo… | us | litigation | contract-work | en | apache-2.0 |
+| 214 | `brand-monitoring-strategies` | When the user wants to monitor brand mentions, detect tradem… | general | general | legal-analysis | en | undeclared |
+| 215 | `brand-protection` | When the user faces brand impersonation, fake websites, phis… | general | ip | legal-analysis | en | undeclared |
+| 216 | `brand-protection-organizer` | 发现并处理假网站、钓鱼站、商标侵权和抢注域名，整理证据、举报路径与预防动作，降低品牌和客户损失。 | china | ip | legal-analysis | zh-CN | mit |
+| 217 | `brand-protection-shopify` | Shopify/DTC brand protection toolkit. Detect counterfeit sto… | general | ip | legal-analysis | en | undeclared |
+| 218 | `breach-notification` | Drafts legally compliant data breach notification letters to… | us | general | legal-analysis | en | apache-2.0 |
+| 219 | `breach-of-purchase-agreement-complaint` | Drafts a filing-ready U.S. complaint for breach of a purchas… | us | contract-law | contract-work | en | apache-2.0 |
+| 220 | `breach-purchase-complaint` | Drafts a state-court complaint for breach of a real property… | general | contract-law | contract-work | en | apache-2.0 |
+| 221 | `breach-summary` | Summarizes cybersecurity breach incidents into structured le… | eu/us | data-privacy | doc-reading | en | apache-2.0 |
+| 222 | `brief` | Generate contextual briefings for legal work. Supports three… | general | contract-law | contract-work | en | undeclared |
+| 223 | `broker-dealer-customer-agreement` | Drafts SEC/FINRA-compliant Broker-Dealer Customer Agreements… | us | contract-law | contract-work | en | apache-2.0 |
+| 224 | `brownfields-agreement` | Drafts Brownfields Agreements for contaminated-property tran… | general | contract-law | contract-work | en | apache-2.0 |
+| 225 | `bsa-risk-assessment` | Drafts a BSA/AML Risk Assessment for U.S. financial institut… | us | banking-finance | contract-work | en | apache-2.0 |
+| 226 | `budget-and-fee-manager-scott-margetts` | 案件预算和持续的 WIP/偏差监控。在案件设立时构建分阶段费用估算，按法域或工作流运行自下而上预算，计算应急准备金，并构… | general | general | contract-work | zh-CN | apache-2.0 |
+| 227 | `build-family-law-practice-service-comparison-landing-page` | Generate a conversion-focused landing page that compares off… | general | general | contract-work | en | undeclared |
+| 228 | `build-legal-services-faq-page` | Generate customer-facing answers for common legal services q… | general | general | contract-work | en | undeclared |
+| 229 | `build-out-allowance-agreement` | Drafts a Build-Out Allowance Agreement as a commercial lease… | general | contract-law | contract-work | en | apache-2.0 |
+| 230 | `builder-quiz-m01-law` | 建造师刷题库·模块：建设工程法规——按章节生成一/二级建造师《建设工程法规及相关知识》练习题，覆盖基本法律、施工许可、发… | china | construction | contract-work | zh-CN | mit |
+| 231 | `builder-quiz-m02-manage` | 建造师刷题库·模块：建设工程项目管理——按章节生成一/二级建造师《建设工程项目管理》（二建为施工管理）练习题，覆盖组织、… | china | construction | contract-work | zh-CN | mit |
+| 232 | `builder-quiz-m03-economy` | 建造师刷题库·模块：建设工程经济——按章节生成一级建造师《建设工程经济》练习题，覆盖工程经济、工程财务、工程估价。题目由… | china | construction | education | zh-CN | mit |
+| 233 | `bulk-document-extraction-review` | Extracts structured data from large sets of legal documents … | general | contract-law | doc-reading | en | apache-2.0 |
+| 234 | `bulk-sales-compliance` | Drafts U.S. bulk sales compliance packages for asset purchas… | us | general | legal-analysis | en | apache-2.0 |
+| 235 | `business-bankruptcy-marketing-kit` | 内华达企业破产律师营销套件：生成符合州律协规范的广告、网站内容与获客方案。服务 Chapter 11/Subchapte… | us | bankruptcy | legal-analysis | en | undeclared |
+| 236 | `business-entity-disputes-kit` | 内华达商事争议律师营销套件：围绕 LLC 纠纷、董事信义义务等州法要点生成合规营销内容。内华达商事诉讼律所获客时使用。 | us | contract-law | legal-analysis | en | undeclared |
+| 237 | `business-legal-counsel` | [user] Business Legal Counsel / CLO level contract drafting,… | hk | contract-law | contract-work | zh-CN | undeclared |
+| 238 | `business-search` | 天机商查，一款完全免费的商查技能。通过收集企业相关情报，包括企业工商信息、股东结构、经营状态、司法风险、新闻动态、融资上… | china | securities | legal-analysis | zh-CN | undeclared |
+| 239 | `bylaw-amendment-resolution` | Drafts a formal Bylaw Amendment Resolution for U.S. corporat… | us | corporate | contract-work | en | apache-2.0 |
+| 240 | `byod-policy` | Drafts a Bring Your Own Device (BYOD) policy for U.S. employ… | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
+| 241 | `c-tpat-security-profile` | Drafts a U.S. C-TPAT Security Profile for CBP submission cov… | us | general | legal-analysis | en | apache-2.0 |
+| 242 | `ca-discovery-response` | Drafts code-compliant California responses to Requests for P… | us | contract-law | contract-work | en | apache-2.0 |
+| 243 | `ca-discovery-verification` | Drafts California Superior Court discovery verification page… | us | litigation | contract-work | en | apache-2.0 |
+| 244 | `ca-privilege-log` | Generates California-compliant privilege logs for withheld o… | us | litigation | contract-work | en | apache-2.0 |
+| 245 | `cafa-notice-of-removal` | Drafts a Notice of Removal under the Class Action Fairness A… | us | corporate | legal-analysis | en | apache-2.0 |
+| 246 | `calculate-ant-ss-556` | 为蚂蚁社保核心用户处理“现金与股权薪酬组合税负比较”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群，… | international | tax | legal-analysis | zh-CN | undeclared |
+| 247 | `canned-responses-anthropic` | 为常见法律询问生成模板化回复，并识别何时需要个案化处理。在回复常规法律问题时使用——数据主体请求、供应商询问、保密协议请… | eu/us | data-privacy | contract-work | zh-CN | apache-2.0 |
+| 248 | `capital-call-notice` | Drafts U.S. capital call notices for PE, VC, or fund-managed… | us | general | legal-writing | en | apache-2.0 |
+| 249 | `career-law-advisor` | 专为职场新人设计的劳动法法律顾问Skill。当用户咨询劳动合同、工资社保、工伤认定、违法调岗、违法辞退、加班费、经济补偿… | china | labor | litigation | zh-CN | undeclared |
+| 250 | `case-analysis-report-legal-relationship-analysis-method-plus` | 法律关系分析法案件分析技能。当用户要求"分析案件""写案件分析报告""用法学方法分析""法律关系分析法" "案件研判""… | china | construction | legal-research | zh-CN | undeclared |
+| 251 | `case-analysis-wang-request-rights` | 案件分析报告（参考王泽鉴请求权基础分析法）Plus。 作者：浙江金道律师事务所 龚家勇律师。 触发条件（用户说出以下任一… | china | construction | legal-research | zh-CN | undeclared |
+| 252 | `case-archiver` | 民事案件卷宗归档助手 V3。用户提出归档案件、先归档现有材料、完卷、补齐材料、生成归档表格或合并卷宗 PDF 时使用。按… | china | arbitration-adr | doc-reading | zh-CN | undeclared |
+| 253 | `case-briefer` | 以固定的九节结构生成美国司法意见书的详细法学院案件简报：记忆钩子、事实、程序历史、 法官投票、判决要旨、逐意见分析、五个… | us | general | legal-research | zh-CN | apache-2.0 |
+| 254 | `case-briefs` | Generates structured case briefs from judicial opinions. Use… | general | general | legal-analysis | en | apache-2.0 |
+| 255 | `case-chronology` | Produces U.S. litigation case chronologies with dated timeli… | us | contract-law | doc-reading | en | apache-2.0 |
+| 256 | `case-file-review` | 案卷阅卷与证据分析 Skill。支持两种输入模式：(a) 仅证据材料 — OCR 后快速给出结论，逐条标注源头，自动标记… | china | litigation | litigation | zh-CN | mit |
+| 257 | `case-intake-initial-fact-memo` | Generates a structured attorney work product memorandum from… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 258 | `case-lifecycle-planning` | 案件全周期规划技能。当用户需要规划案件准备时间线、创建或询问案件准备时间节点、生成案件诉讼路线图和关键时间一览表时触发。… | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 259 | `case-research` | 中国财税法律案例与法规检索助手。当用户需要检索税务相关判例、行政复议决定、税收法规政策、国家税务总局公告、各地税务实践案… | china | tax | legal-research | zh-CN | undeclared |
+| 260 | `case-retrieval` | 案例检索 Skill — 面向法律从业者及普通用户的裁判文书智能检索工具。当用户需要检索裁判案例、查找类案裁判规则、按案… | china | general | legal-research | zh-CN | undeclared |
+| 261 | `case-retrieval-analysis-master` | 案例检索与类案分析大师：帮助法律工作者掌握案例检索方法、制作类案检索报告 核心能力： 1. 类案识别与判断标准 2. 检… | china | general | legal-research | zh-CN | undeclared |
+| 262 | `case-retrieval-report` | 类案检索报告生成 Skill — 面向律师、法官助理及法务人员的类案检索全流程自动化工具。基于待决案件信息，通过调用得理… | china | general | legal-research | zh-CN | undeclared |
+| 263 | `case-retrieval-report-chinese-mainland-court-case-plus` | v3.8.0 — 检索提速优化（不影响检索质量）： ① 默认四省市检索改为单轮全国检索 + 本地按地域归类（原"分4次串… | china | litigation | doc-reading | zh-CN | undeclared |
+| 264 | `case-summary` | Produces an attorney-ready memo from a corpus of legal docum… | general | litigation | legal-analysis | en | apache-2.0 |
+| 265 | `case-summary-report` | Synthesizes multiple case summaries into one unified Case Su… | general | general | doc-reading | en | apache-2.0 |
+| 266 | `case-viability-report` | Produces internal case viability and conflict check memos fo… | general | general | legal-analysis | en | apache-2.0 |
+| 267 | `cash-collateral-motion` | Drafts motions to use cash collateral under 11 U.S.C. § 363.… | us | litigation | contract-work | en | apache-2.0 |
+| 268 | `cbp-binding-ruling` | Drafts U.S. Customs and Border Protection binding ruling req… | us | general | contract-work | en | apache-2.0 |
+| 269 | `ccpa` | 加州消费者隐私法（CCPA）和加州隐私权法（CPRA）合规顾问——企业门槛分析、消费者权利履行（访问、删除、更正、退出出… | eu/us | data-privacy | contract-work | zh-CN | mit |
+| 270 | `ccpa-compliance` | 美国加州消费者隐私法（CCPA/CPRA）合规检查、风险评估和文档生成工具。 为涉及加州消费者数据的业务提供全面的CCP… | china/eu/us/multi | data-privacy | compliance | zh-CN | undeclared |
+| 271 | `ccpa-policy` | Drafts a CCPA/CPRA-compliant privacy policy covering all req… | us | general | contract-work | en | apache-2.0 |
+| 272 | `cd-tolerance-reference` | Guides the agent through TRID tolerance compliance under 12 … | general | general | legal-analysis | en | apache-2.0 |
+| 273 | `cda-certified-claim` | Drafts U.S. Contract Disputes Act (CDA) certified claims for… | us | contract-law | doc-reading | en | apache-2.0 |
+| 274 | `cdiw-core` | 调度刑事辩护全流程智能工作台的工作线。识别用户所处程序阶段与当前任务节点， 路由至对应工作流（会见、文书、期限、家属接待… | china | criminal | legal-research | zh-CN | cc-by-nc-sa-4.0 |
+| 275 | `cementops-environmental-compliance` | Stay ahead of EPA enforcement at cement plants. Free CementO… | general | environmental | legal-analysis | en | undeclared |
+| 276 | `cementops-msha-compliance` | Prevent MSHA citations at cement plants before the inspector… | general | general | legal-analysis | en | undeclared |
+| 277 | `cert-petition` | Drafts a Petition for Writ of Certiorari to the U.S. Supreme… | us | general | contract-work | en | apache-2.0 |
+| 278 | `certificate-of-incumbency` | Drafts a Certificate of Incumbency certifying current office… | us | corporate | legal-analysis | en | apache-2.0 |
+| 279 | `certificate-of-interested-persons` | Drafts a FRAP 26.1-compliant Certificate of Interested Perso… | us | litigation | litigation | en | apache-2.0 |
+| 280 | `certificate-of-origin` | Drafts USMCA/NAFTA Certificates of Origin for preferential t… | ca | general | legal-research | en | apache-2.0 |
+| 281 | `certificate-of-service` | Drafts certificates of service (proofs of service) for court… | us | environmental | legal-analysis | en | apache-2.0 |
+| 282 | `certificate-of-trust` | Drafts a Certificate of Trust (Abstract/Memorandum of Trust)… | us | general | contract-work | en | apache-2.0 |
+| 283 | `certificate-of-withdrawal-foreign-corp` | Drafts a Certificate of Withdrawal for a foreign corporation… | general | corporate | legal-research | en | apache-2.0 |
+| 284 | `change-in-control-agreement` | Drafts U.S. executive Change in Control Agreements with doub… | us | corporate | legal-analysis | en | apache-2.0 |
+| 285 | `chapter-11-reorg-plan` | Drafts a Chapter 11 Plan of Reorganization under 11 U.S.C. §… | us | litigation | contract-work | en | apache-2.0 |
+| 286 | `charitable-remainder-trust` | Drafts IRC 664–compliant Charitable Remainder Trust agreemen… | us | contract-law | contract-work | en | apache-2.0 |
+| 287 | `charitable-solicitation-registration` | Prepares jurisdiction-specific charitable solicitation regis… | us | general | contract-work | en | apache-2.0 |
+| 288 | `charity-annual-report` | Drafts filing-ready Annual Reports for State Charity Bureaus… | us | corporate | contract-work | en | apache-2.0 |
+| 289 | `charity-filing-thresholds` | Researches state-specific charitable solicitation filing req… | us | general | legal-analysis | en | apache-2.0 |
+| 290 | `chart-audit-protocol` | Drafts healthcare chart audit protocols covering clinical do… | general | general | contract-work | en | apache-2.0 |
+| 291 | `check-ant-ss-212` | 为蚂蚁社保个人用户处理“工伤保险参保状态核验”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办… | china | labor | legal-analysis | zh-CN | undeclared |
+| 292 | `check-ant-ss-214` | 为蚂蚁社保个人用户处理“工伤认定时限提醒”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办理路… | china | labor | legal-analysis | zh-CN | undeclared |
+| 293 | `check-ant-ss-216` | 为蚂蚁社保个人用户处理“工伤医疗费用结算”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办理路… | china | labor | legal-analysis | zh-CN | undeclared |
+| 294 | `check-ant-ss-219` | 为蚂蚁社保个人用户处理“一次性工伤医疗补助金查询”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料… | china | labor | legal-analysis | zh-CN | undeclared |
+| 295 | `check-ant-ss-276` | 为蚂蚁社保个人用户处理“离婚后公积金贷款资格核验”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料… | china | labor | legal-analysis | zh-CN | undeclared |
+| 296 | `check-ant-ss-387` | 为蚂蚁社保个人用户处理“创业担保贷款资格初筛”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办… | china | labor | legal-analysis | zh-CN | undeclared |
+| 297 | `check-ant-ss-463` | 为蚂蚁社保个人用户处理“超过法定退休年龄人员工伤权益查询”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条… | china | labor | legal-analysis | zh-CN | undeclared |
+| 298 | `check-ant-ss-545` | 为蚂蚁社保核心用户处理“股权激励递延纳税资格核验”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群，通… | international | tax | legal-analysis | zh-CN | undeclared |
+| 299 | `check-ant-ss-546` | 为蚂蚁社保核心用户处理“上市公司股权激励年度汇算核验”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群… | international | tax | legal-analysis | zh-CN | undeclared |
+| 300 | `check-ant-ss-547` | 为蚂蚁社保核心用户处理“非上市公司股权奖励税务路径”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群，… | international | tax | legal-analysis | zh-CN | undeclared |
+| 301 | `check-ant-ss-548` | 为蚂蚁社保核心用户处理“离职前后股权激励纳税归属判断”，面向有奖金、股权激励、顾问费、稿酬或境外收入的一线城市高收入人群… | international | tax | legal-analysis | zh-CN | undeclared |
+| 302 | `check-ant-ss-573` | 为蚂蚁社保核心用户处理“跨省通勤人员工伤责任提示”，面向在北京、上海、广州、深圳等城市之间工作、居住或迁移的中高收入家庭… | international | labor | legal-analysis | zh-CN | undeclared |
+| 303 | `check-ant-ss-609` | 为蚂蚁社保核心用户处理“知识产权成果归属条款核验”，面向咨询顾问、设计师、程序员、自媒体人等自由职业者，通过必要信息采集… | international | tax | legal-analysis | zh-CN | undeclared |
+| 304 | `check-ant-ss-646` | 为蚂蚁社保核心用户处理“平台众包协议工伤责任初筛”，面向网约车司机、骑手、主播、达人和多平台接单人员，通过必要信息采集、… | international | labor | legal-analysis | zh-CN | undeclared |
+| 305 | `check-ant-ss-770` | 为蚂蚁社保核心用户处理“离婚后住房资格与社保记录核验”，面向在一线城市租房、换房、购房或申请保障性住房的中高收入家庭，通… | international | tax | legal-analysis | zh-CN | undeclared |
+| 306 | `checking-cn-patent-format` | 使用多Agent并行架构审查中国专利申请文件(.docx/.doc)，生成带修订追踪和批注的docx副本。当用户要求检查… | china | ip | contract-work | zh-CN | undeclared |
+| 307 | `checking-patdocx-cn-single-agent` | 检查中国专利申请文件(.docx/.doc)中的撰写问题，按照专利法、专利法实施细则和专利审查指南的规则审查摘要、权利要… | china | ip | doc-reading | zh-CN | undeclared |
+| 308 | `child-support-worksheet` | Drafts a child support guidelines worksheet by extracting fi… | general | general | contract-work | en | apache-2.0 |
+| 309 | `china-business-risk-copyright-detection` | 面向中国中小企业经营与协作团队，在经营决策、项目协作、会议、文档或组织管理中完成商品图片版权侵权风险检查，输出可执行方案… | china | ip | legal-analysis | zh-CN | mit |
+| 310 | `china-business-risk-text-trademark-detection` | 面向中国中小企业经营与协作团队，在经营决策、项目协作、会议、文档或组织管理中完成商品文案商标侵权风险检查，输出可执行方案… | china | ip | legal-analysis | zh-CN | mit |
+| 311 | `china-business-risk-trademark-graphic-detection` | 面向中国中小企业经营与协作团队，在经营决策、项目协作、会议、文档或组织管理中完成商品图片商标相似度与侵权检查，输出可执行… | china | ip | legal-analysis | zh-CN | mit |
+| 312 | `china-contract-review` | 中国合同审查工具。Use when user needs to review contracts, identify r… | china | contract-law | contract-work | zh-CN | declared-only |
+| 313 | `china-data-compliance` | Ensure applications comply with Chinese data protection laws… | china/eu/international | data-privacy | compliance | zh-CN | mit-0 |
+| 314 | `china-fire-code` | 中国消防法律法规与技术标准条文智能检索助手。覆盖消防法、行政法规、部门规章(部令)、 国家标准(GB)、行业标准(XF/… | china | general | legal-research | zh-CN | mit |
+| 315 | `china-legal-analysis` | 中国法律场景解析工具。Use when user needs to analyze legal scenarios, u… | china | labor | litigation | zh-CN | declared-only |
+| 316 | `china-legal-query` | 中国法律法规查询工具。Use when user needs to search Chinese laws, regul… | china | ip | legal-research | zh-CN | declared-only |
+| 317 | `china-litigation-rehearsal` | 用于中国大陆民商事案件的庭前预演与风险倒推，默认先进入交互引导模式，帮助律师选择快速体检、标准预演、深度打磨、单点训练或… | china | intl-trade | litigation | zh-CN | undeclared |
+| 318 | `china-tax-guidance` | 中国税务全业务办理指南与合规指引专项助手。聚焦电子税务局全流程操作实务，覆盖新办办税、税务登记与信息确认、发票票种核定与… | china | tax | compliance | zh-CN | mit-0 |
+| 319 | `china-tax-law` | 中国财税法律专业知识助手。当用户涉及中国税法咨询、税务筹划分析、税务合规审查、税收政策解读、税务争议处理等任务时，应使用… | china | tax | legal-analysis | zh-CN | undeclared |
+| 320 | `chinese-compliance-checker` | Global compliance checker with API-powered regulations datab… | multi/china | data-privacy | compliance | zh-CN | undeclared |
+| 321 | `chinese-legal-doc-drafting` | 中文合同起草与公文撰写 Skill。起草符合中国法律要求的合同（租房/劳务/采购/合作/股权）及党政机关公文（通知/报告… | china | corporate | contract-work | zh-CN | undeclared |
+| 322 | `chinese-patent` | 从代码或技术方案出发，撰写符合 CNIPA 规范的中国专利申请文件。核心能力：① 扫描代码提取可专利特征并抽象提炼 ② … | china | ip | doc-reading | zh-CN | mit |
+| 323 | `chinese-seo-compliance` | Chinese advertising law compliance & banned words scanner to… | china | advertising | compliance | zh-CN | undeclared |
+| 324 | `chronology-builder-andrew-bird` | 直接从披露文件包构建诉讼时间线——每条记录都归属其来源文件，并置于 CPR 31.22 默示承诺检查之后，因为在英格兰诉… | china | general | doc-reading | zh-CN | mit |
+| 325 | `ciia-agreement` | Drafts Confidentiality and Invention Assignment Agreements (… | us | contract-law | contract-work | en | apache-2.0 |
+| 326 | `cip-policy` | Drafts a U.S. Customer Identification Program (CIP) policy c… | us | intl-trade | contract-work | en | apache-2.0 |
+| 327 | `citation-bluebook` | Formats legal citations per The Bluebook (21st ed.) using Bl… | us | general | legal-analysis | en | apache-2.0 |
+| 328 | `civil-appeal-petition-ai-structured-writing-plus` | 基于一审裁判文书和用户材料，按模版结构化书写民事上诉状，支持引用法律法规、交互修改、导出docx | china | litigation | litigation | zh-CN | undeclared |
+| 329 | `civil-case-cause-2026-01-01` | 民事案件案由检索与确定助手。当用户提出"这是什么案由""帮我确定/选择案由""某某纠纷立案案由是什么" "案由怎么定""… | china | ip | legal-research | zh-CN | undeclared |
+| 330 | `civil-code-and-interpretations-plus` | 快速检索《中华人民共和国民法典》全文（1260条）及各编、各专题司法解释条款原文。当用户要求查找、引用、核对"民法典第X… | china | contract-law | legal-research | zh-CN | undeclared |
+| 331 | `civil-complaint-generator` | 中国民商事起诉状智能生成技能。当用户提出生成XX起诉状、帮我写民间借贷起诉状、买卖合同纠纷起诉状等需求时触发。自动从 i… | china | litigation | legal-research | zh-CN | undeclared |
+| 332 | `civil-litigation-drafting-expert` | Analyze Chinese civil and commercial disputes, identify proc… | china | litigation | litigation | zh-CN | undeclared |
+| 333 | `civil-litigation-thinking` | 民商事诉讼办案思维全流程框架 V5.2——以要件审判九步法+证明责任理论+诉讼标的理论+证据裁判主义等十大权威理论为根基… | china | litigation | litigation | zh-CN | undeclared |
+| 334 | `civil-litigation-workflow` | 民商事诉讼案件全流程办案工作流（编排层），以邹碧华《要件审判九步法》为思维底座，原告/被告双轨，覆盖接案评估、请求权基础… | china | litigation | litigation | zh-CN | undeclared |
+| 335 | `claim-construction-chart` | Drafts Joint Claim Construction Charts for patent litigation… | us | ip | legal-analysis | en | apache-2.0 |
+| 336 | `claim-construction-order` | Drafts a U.S. federal court Claim Construction Order (Markma… | us | litigation | legal-analysis | en | apache-2.0 |
+| 337 | `claim-evidence-matrix` | 用于把诉讼请求、抗辩观点、法律构成要件、待证事实和证据材料整理成矩阵；当用户需要起诉状/答辩状准备、证据清单、类案分析后… | china | litigation | litigation | zh-CN | undeclared |
+| 338 | `class-action-claim-form` | Drafts official class action claim forms balancing plain-lan… | us | litigation | litigation | en | apache-2.0 |
+| 339 | `class-action-complaint` | Drafts federal or state class action complaints satisfying F… | us | litigation | contract-work | en | apache-2.0 |
+| 340 | `class-action-fairness-hearing` | Drafts FRCP 23(e)-compliant fairness hearing notices for cla… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 341 | `class-action-notice` | Drafts Rule 23-compliant class action notices to absent clas… | general | litigation | litigation | en | apache-2.0 |
+| 342 | `class-action-settlement` | Drafts class action settlement agreements for court approval… | us | contract-law | contract-work | en | apache-2.0 |
+| 343 | `class-action-summary` | Produces structured U.S. class action lawsuit summaries cove… | us | litigation | doc-reading | en | apache-2.0 |
+| 344 | `class-certification-motion` | Drafts a Motion for Class Certification under FRCP 23 or sta… | us | litigation | contract-work | en | apache-2.0 |
+| 345 | `class-certification-order` | Drafts a federal or state court order certifying a class act… | us | litigation | contract-work | en | apache-2.0 |
+| 346 | `class-claim-form` | Drafts U.S. class action settlement claim forms compliant wi… | us | litigation | litigation | en | apache-2.0 |
+| 347 | `class-notice-plan` | Drafts a Rule 23 class notice communication plan for U.S. fe… | us | general | legal-analysis | en | apache-2.0 |
+| 348 | `class-settlement-preliminary-approval` | Drafts a Motion for Preliminary Approval of Class Action Set… | general | litigation | litigation | en | apache-2.0 |
+| 349 | `clause` | 审查服务条款、隐私政策和特定商业交易法合规的法律文档。检测条款缺失、标记风险并协调监管要求。需要法律建议时不要使用——请… | jp/eu/us | data-privacy | compliance | zh-CN | undeclared |
+| 350 | `clause-guard` | HR 文本劳动法风险扫描：粘贴通知、邮件、协议，识别可能引发劳动争议的措辞并给出安全改写。HR 发送书面文件前使用。 | china | labor | contract-work | zh-CN | undeclared |
+| 351 | `clawhub-sync` | 将本地开发的 Skills 批量同步到 ClawHub 平台。支持智能 .gitignore 过滤、白名单控制、增量同步… | china | general | legal-analysis | zh-CN | mit |
+| 352 | `client-advisory` | Drafts client advisory memoranda translating legal developme… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 353 | `client-advisory-summary` | Produces client-ready U.S. regulatory advisory summaries tra… | us | general | legal-analysis | en | apache-2.0 |
+| 354 | `client-background-report` | 面向律师事务所接案决策与首次洽谈准备的企业客户背景调查工作流。输入公司名称后，多源采集并交叉核验工商、司法、财务、舆情与… | china | criminal | litigation | zh-CN | undeclared |
+| 355 | `client-due-diligence` | 律师事务所客户背调与法律顾问切入 Skill。输入公司名称 + 自然语言指令，自动生成「Word 主报告 + PDF 附… | china | general | doc-reading | zh-CN | undeclared |
+| 356 | `client-explanation-translator-larissa-meredith-flister` | 将复杂的法律分析转化为清晰、具有商业实用性的面向客户建议。每当用户有密集的法律材料——起草文件、内部分析、顾问笔记、研究… | china | litigation | contract-work | zh-CN | agpl-3.0 |
+| 357 | `client-friendly-tone` | Rewrites legal communications in plain-language, client-frie… | general | litigation | legal-writing | en | apache-2.0 |
+| 358 | `client-instruction-schedule` | 构建一份客户指示表（client instruction schedule）— 一份通俗英语、Scott Schedul… | uk | litigation | litigation | zh-CN | apache-2.0 |
+| 359 | `client-intake-summary` | Produces a structured corporate-client intake brief from int… | general | general | contract-work | en | apache-2.0 |
+| 360 | `client-material-incubator` | 帮助律所把自有委托材料模板变量化建成母版库，再通过上传笔录/录音或输入案件信息，成套生成委托代理合同、授权委托书、风险告… | china | litigation | legal-analysis | zh-CN | undeclared |
+| 361 | `client-memo` | Drafts structured client memoranda translating legal analysi… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 362 | `client-scope-pro` | 对中国境内企业开展律师首次拜访前的公开信息法律背调、重大事项核验、法律服务机会识别，产出可追溯的五部分结构 Word 报… | china | corporate | litigation | zh-CN | undeclared |
+| 363 | `climate-aligned-contracts-felix-cohen` | 起草、调整和审查与 The Chancery Lane Project（钱瑟里巷项目）通过法律协议减少碳排放的方法论相一… | china | contract-law | contract-work | zh-CN | mit |
+| 364 | `climate-legislation-summary` | Produces structured, citation-ready summaries of climate cha… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 365 | `clinical-trial-agreement` | Drafts U.S. clinical trial agreements governing sponsor–site… | us | contract-law | contract-work | en | apache-2.0 |
+| 366 | `clinical-trial-investigator-agreement` | Drafts U.S. clinical trial Investigator Agreements between s… | us | contract-law | contract-work | en | apache-2.0 |
+| 367 | `clo` | Navigate legal strategy with contracts, compliance, IP prote… | general | contract-law | legal-analysis | en | undeclared |
+| 368 | `closing-checklist` | Drafts M&A closing checklists tracking documents, approvals,… | us | corporate | contract-work | en | apache-2.0 |
+| 369 | `closing-disclosure` | Drafts and reviews TRID-compliant U.S. residential Closing D… | us | contract-law | contract-work | en | apache-2.0 |
+| 370 | `closing-disclosure-timing-reference` | Provides TRID Closing Disclosure timing compliance rules und… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 371 | `closing-disclosure-tolerance` | Applies U.S. TRID tolerance rules to compare a residential m… | us | general | legal-analysis | en | apache-2.0 |
+| 372 | `closing-resolutions` | Drafts unanimous written consent resolutions authorizing a b… | general | corporate | contract-work | en | apache-2.0 |
+| 373 | `cmmc` | 面向国防工业基础（DIB）中美国国防承包商和分包商的专家级 CMMC 2.0（网络安全成熟度模型认证）顾问。当用户询问 … | us | contract-law | contract-work | zh-CN | mit |
+| 374 | `cn-business-compliance-check` | 中国商业合规审查器。在执行任何商业策略、副业项目、变现操作前，自动进行中国法律合规审查。使用场景：(1)评估商业计划是否… | china | tax | contract-work | zh-CN | undeclared |
+| 375 | `cn-construction-mediation` | 中国建设工程商事调解专家系统 v2.0。基于《商事调解条例》（国令第827号）、《人民调解法》《仲裁法》《民事诉讼法》《… | china | construction | contract-work | zh-CN | mit-0 |
+| 376 | `cn-global-compliance` | Global compliance checker & data localization audit tool wit… | eu/us/international | data-privacy | compliance | zh-CN | undeclared |
+| 377 | `cn-meditation-wisdom` | 融合文史哲东方智慧的建设工程商事调解智库。将儒道墨法诸子百家哲学与现代调解方法论融合， 追求"公平性"而非仅仅追求"效率… | china | construction | legal-analysis | zh-CN | undeclared |
+| 378 | `code-of-conduct` | Drafts a Code of Business Conduct and Ethics satisfying SEC,… | us | contract-law | contract-work | en | apache-2.0 |
+| 379 | `code-of-conduct-and-ethics` | Drafts a U.S. corporate Code of Business Conduct and Ethics … | us | contract-law | contract-work | en | apache-2.0 |
+| 380 | `code-patent-scanner` | Scan your codebase for distinctive patterns — get structured… | general | environmental | legal-analysis | en | undeclared |
+| 381 | `code-patent-validator` | Turn your code scan findings into search queries — research … | general | ip | legal-research | en | undeclared |
+| 382 | `code2patent` | 从已开发代码项目中提取技术实现证据，围绕候选专利方案生成算法/软件类说明书式技术交底书，并以“权利要求布局卡 → 发明专… | china | ip | doc-reading | zh-CN | cc-by-nc |
+| 383 | `cognovit-note` | Drafts cognovit promissory notes with confession of judgment… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 384 | `cognovit-promissory-note` | Drafts a U.S. cognovit promissory note with confession of ju… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 385 | `coi-compliance-review` | Reviews CRE insurance certificates (ACORD 25) and endorsemen… | general | contract-law | contract-work | en | apache-2.0 |
+| 386 | `collaboration-platform-advisor-scott-margetts` | 法律事项站点协作平台配置方法论。面向 SharePoint、Teams 及同等平台的站点架构、工作流识别、仪表板设计、数… | international | corporate | legal-analysis | zh-CN | apache-2.0 |
+| 387 | `collateral-assignment-of-contracts` | Drafts a Collateral Assignment of Contracts assigning a borr… | us | contract-law | contract-work | en | apache-2.0 |
+| 388 | `collateral-valuation` | Values collateral and allocates secured vs. unsecured claim … | us | contract-law | legal-analysis | en | apache-2.0 |
+| 389 | `comfort-letter-from-auditors` | Drafts PCAOB AS 6101-compliant auditor comfort letters (cold… | us | securities | contract-work | en | apache-2.0 |
+| 390 | `commencement-date-memo` | Drafts a Commencement Date Memorandum confirming when obliga… | general | contract-law | contract-work | en | apache-2.0 |
+| 391 | `commencement-date-memorandum` | Drafts a U.S. commencement-date memorandum for commercial le… | us | contract-law | contract-work | en | apache-2.0 |
+| 392 | `commercial-amendment-history` | 追溯合同从基础协议到所有修订的变更轨迹——可以是所有变更的时间线摘要， 也可以是特定条款的追踪。当用户说"这个合同历次改… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 393 | `commercial-cold-start-interview` | 运行冷启动访谈以了解你的商事合同实务并写入团队业务领域配置。在首次使用插件时、 配置文件缺失或仍为模板占位符时、或当用户… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 394 | `commercial-customize` | 商事合同业务领域配置的引导式定制——修改一项配置而无需重新运行完整的冷启动访谈。 调整风险姿态、上报联系人、审查指引立场… | china | contract-law | contract-work | zh-CN | undeclared |
+| 395 | `commercial-escalation-flagger` | 根据审查指引中的上报矩阵将合同问题路由至合适的审批人，并起草上报说明。 当用户说"谁需要批准这个""上报这个""这个需要… | china | contract-law | contract-work | zh-CN | undeclared |
+| 396 | `commercial-franchise-dispute-qa-court-cases-plus` | 面向商业特许经营（加盟）纠纷的专业法律问答与案例检索助手。当用户咨询商业特许经营合同纠纷、加盟合同效力、两店一年、冷静期… | china | general | legal-research | zh-CN | undeclared |
+| 397 | `commercial-invoice-for-export` | Drafts a compliant Commercial Invoice for Export satisfying … | general | contract-law | contract-work | en | apache-2.0 |
+| 398 | `commercial-lease-summary` | Produces structured U.S. commercial lease abstracts covering… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 399 | `commercial-legal-pl` | 依据波兰法律分析和起草合同的技能，特别聚焦 B2B、IP 与 IT 合同（body leasing、NDA、实施、Saa… | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 400 | `commercial-matter-workspace` | 管理事项工作区——新建、列出、切换、关闭或脱离（业务领域级）。当多客户执业者 需要创建事项、切换当前事项、列出事项、归档… | china | general | legal-analysis | zh-CN | undeclared |
+| 401 | `commercial-nda-review` | 参考：对接收方保密协议进行快速三色分类（绿/黄/红），使团队成员仅将律师时间投入 真正需要审查的协议。面向销售和BD人员… | china | contract-law | contract-work | zh-CN | undeclared |
+| 402 | `commercial-promissory-note` | Drafts UCC-compliant U.S. Commercial Promissory Notes for co… | us | general | contract-work | en | apache-2.0 |
+| 403 | `commercial-psa` | Drafts Purchase and Sale Agreements for commercial real esta… | us | contract-law | contract-work | en | apache-2.0 |
+| 404 | `commercial-re-loi` | Drafts a Letter of Intent for commercial real estate purchas… | us | contract-law | contract-work | en | apache-2.0 |
+| 405 | `commercial-real-estate-loi` | Drafts a U.S. commercial real estate purchase letter of inte… | us | general | legal-analysis | en | apache-2.0 |
+| 406 | `commercial-renewal-tracker` | 展示具有即将到来的取消截止日期的合同，在通知窗口关闭前发出预警， 基于维护的续约登记册运行。当用户询问"什么即将续约""… | china | contract-law | contract-work | zh-CN | undeclared |
+| 407 | `commercial-review` | 根据审查指引审查供应商协议、保密协议或SaaS订阅。从标题识别协议结构， 路由至正确的审查技能，并将输出整合为单一备忘录… | china | contract-law | contract-work | zh-CN | undeclared |
+| 408 | `commercial-review-proposals` | 审查并批准（或拒绝）来自审查指引监控代理的待处理更新建议，并将批准的变更 应用到业务领域配置中。当审查指引监控代理提出建… | china | general | contract-work | zh-CN | undeclared |
+| 409 | `commercial-saas-msa-review` | 参考：SaaS订阅协议审查，重点关注订阅交易中最关键的条款——自动续约机制、 价格调整、数据可迁移性、运行时间SLA以及… | china | contract-law | legal-research | zh-CN | undeclared |
+| 410 | `commercial-stakeholder-summary` | 将合同审查转化为业务利益方实际会阅读的摘要。不是法律备忘录——是对 "能签吗？需要知道什么？"的两分钟回答。当用户说"给… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 411 | `commercial-vendor-agreement-review` | 参考：根据团队审查指引审查接收方供应商协议。标注偏离项、评估风险、生成具体 修订语言并路由至合适的审批人。当 comme… | china | contract-law | contract-work | zh-CN | undeclared |
+| 412 | `commission-plan-agreement` | Drafts U.S. commission plan agreements establishing compensa… | us | contract-law | contract-work | en | apache-2.0 |
+| 413 | `commitment-letter-for-financing` | Drafts a U.S. financing commitment letter memorializing a le… | us | general | contract-work | en | apache-2.0 |
+| 414 | `communication-summarization` | Generates structured memorandum-style summaries of legal com… | general | contract-law | doc-reading | en | apache-2.0 |
+| 415 | `community-group-buying-risk-compliance` | 社区团购风险与合规全链路技能包。涵盖食品安全合规、法律风险防控、危机公关预案、竞争合规及配套工具。适用于平台运营负责人、… | china | contract-law | contract-work | zh-CN | mit |
+| 416 | `company-copyright-software` | 查询企业软件著作权信息，包括软件全称、登记号、登记日期等。适用于"软件著作权查询""企业软著""软件版权查询""知识产权… | china | ip | legal-analysis | zh-CN | undeclared |
+| 417 | `company-credit-rating` | 企业信用评分与风险评估工具。根据用户提供的公司名称，通过企查查/天眼查MCP查询企业工商信息、财务数据、股权结构、 司法… | china | general | legal-analysis | zh-CN | undeclared |
+| 418 | `company-dispute-and-litigation-analysis-plus` | 中国公司法（2023年修订）全体系知识库，覆盖公司纠纷与诉讼的实务答疑。 触发条件：用户咨询公司设立、股东出资、股权转让… | china | corporate | legal-research | zh-CN | undeclared |
+| 419 | `company-law-skill` | 公司法专家 — 公司法律咨询+公司纠纷起诉状起草。覆盖公司法全部场景（设立与出资、公司治理、股东权利、股权转让、资本制度… | china | corporate | litigation | zh-CN | mit |
+| 420 | `company-patent` | 查询企业专利信息，包括专利标题、申请号、法律状态等。适用于"企业专利查询""公司专利信息""专利检索""知识产权查询""… | china | ip | legal-research | zh-CN | undeclared |
+| 421 | `company-trademark` | 查询企业商标信息，包括商标图片、注册号、分类等。适用于"企业商标查询""公司商标信息""商标检索""知识产权查询""商标… | china | ip | legal-research | zh-CN | undeclared |
+| 422 | `compensation-compliance-auditor` | 薪酬合规审查：录入城市与薪酬数据，逐项比对社保、公积金、加班费等法规要求并分级输出整改方案。企业薪酬体检时使用。 | china | labor | contract-work | zh-CN | undeclared |
+| 423 | `competitor-patent-analysis` | 输入竞争对手完整企业名称，自动对接佰腾网专利数据库获取对手近期已授权、公开待审、实用新型、外观设计全量公开专利，自动划分… | china | ip | legal-analysis | zh-CN | mit |
+| 424 | `complaint-breach-of-contract` | Drafts a U.S. plaintiff-side breach of contract complaint wi… | us | contract-law | contract-work | en | apache-2.0 |
+| 425 | `complaint-draft` | Generate civil complaint document frameworks based on case f… | china | litigation | contract-work | zh-CN | undeclared |
+| 426 | `complaint-drafter` | 要素式起诉状生成技能。将用户提供的文字、图片（起诉状照片/扫描件/截图）或已转写语音材料，判定案由是否属于最高人民法院6… | china | litigation | contract-work | zh-CN | undeclared |
+| 427 | `complaint-drafting` | 从聊天记录中提取案情要素和证据材料，生成规范的民事起诉状；当用户需要制作起诉状、梳理诉讼材料、整理案件事实时使用 | china | litigation | contract-work | zh-CN | undeclared |
+| 428 | `complaint-for-copyright-infringement` | Drafts a federal court complaint for copyright infringement … | us | litigation | litigation | en | apache-2.0 |
+| 429 | `complaint-for-negligence` | Drafts a court-ready Complaint for Negligence establishing d… | us | litigation | legal-analysis | en | apache-2.0 |
+| 430 | `complaint-for-trespass-and-nuisance` | Drafts a U.S. civil complaint asserting trespass and private… | us | litigation | litigation | en | apache-2.0 |
+| 431 | `compliance-anthropic` | 导航隐私法规（GDPR、CCPA）、审查 DPA，并处理数据主体请求。在审查数据处理协议、回应数据主体访问或删除请求、评… | eu/us/br | data-privacy | compliance | zh-CN | apache-2.0 |
+| 432 | `compliance-archive-claw` | 合规制度归档虾 — 企业法律文件、规章制度的数字档案管理。用于归档新制度文件、更新版本、标记废止、全文检索、导出文件清单… | china | contract-law | legal-research | zh-CN | undeclared |
+| 433 | `compliance-audit-assistant` | Security and compliance auditing tool for AI agents. Scans c… | eu/us | data-privacy | legal-analysis | en | undeclared |
+| 434 | `compliance-audit-pro` | 面向法律/财务/采购场景的合规审计引擎，自动提取风险条款、映射法规基线、生成审计底稿与澄清模板 | china/eu | contract-law | compliance | zh-CN | mit |
+| 435 | `compliance-auditor` | You are an enterprise compliance and regulatory specialist u… | eu/us | data-privacy | legal-analysis | en | undeclared |
+| 436 | `compliance-certification-plan-generator` | 生成消费电子/IoT/工业产品的合规认证计划报告。当用户提到「合规认证计划」、「认证路线图」、「合规预算」、「产品认证报… | eu | general | legal-analysis | zh-CN | undeclared |
+| 437 | `compliance-check` | Run a compliance check on a proposed action, product feature… | eu/us/uk/br | data-privacy | legal-analysis | en | undeclared |
+| 438 | `compliance-checker-blueprint` | 对一个或多个法规框架进行深度合规审查，识别差距，产出有据可依的整改措施和认证准备指导。 | eu/us | data-privacy | compliance | zh-CN | mit |
+| 439 | `compliance-checker-zx` | 提供10个包含真实算法实现的合规检查工具，覆盖倒排索引+TF-IDF法规检索、多因子风险评估模型、K-匿名/L-多样性/… | china | contract-law | legal-research | zh-CN | undeclared |
+| 440 | `compliance-checklist` | Generate a prioritised compliance checklist for GDPR, SOC 2,… | eu/us/uk | general | legal-analysis | en | undeclared |
+| 441 | `compliance-checklist-gen` | Generates industry-specific and region-specific compliance c… | us | environmental | legal-analysis | en | undeclared |
+| 442 | `compliance-checklist-generation` | 为 SOC2、HIPAA、PCI-DSS 和 GDPR 生成合规检查清单，含差距分析与整改优先级。 | us/eu | general | compliance | zh-CN | mit |
+| 443 | `compliance-checklist-generation-action-list` | 为SOC2、HIPAA、PCI-DSS和GDPR等主要合规框架生成结构化检查清单，映射控制项与要求，评估准备度并输出优先… | us/eu | general | compliance | zh-CN | mit |
+| 444 | `compliance-evidence-assembler` | 把审计所需证据整理成目录、清单和缺失项，便于后续评审。；use for compliance, evidence, au… | china | environmental | compliance | zh-CN | undeclared |
+| 445 | `compliance-gap-analysis` | Use when a compliance officer, security analyst, or auditor … | us/eu | general | legal-analysis | en | undeclared |
+| 446 | `compliance-guardian` | FinCEN 住宅地产申报助手：判定交易是否触发申报、收集申报字段并跟踪期限。美国地产经纪与过户人员处理实体购房交易时使… | us | environmental | legal-analysis | en | undeclared |
+| 447 | `compliance-hardened` | Navigate privacy regulations (GDPR, CCPA), review DPAs, and … | eu/us/international | contract-law | contract-work | en | undeclared |
+| 448 | `compliance-monitor` | Regulatory change tracking, filing deadline management, audi… | us | securities | legal-analysis | en | undeclared |
+| 449 | `compliance-officer` | Reviews marketing content against FTC, HIPAA, GDPR, SEC 482,… | eu/us | investment-ma | contract-work | en | apache-2.0 |
+| 450 | `compliance-os` | compliance-os专用技能，帮助AI Agent高效完成相关任务。 | eu | contract-law | contract-work | en | mit |
+| 451 | `compliance-policy-revision` | 用于根据法规变化、审计发现、监管意见、业务变化或差距分析结果修订公司制度、流程、指引、模板条款和内部操作规范；当用户需要… | china | general | compliance | zh-CN | undeclared |
+| 452 | `compliance-posture-intake` | Comprehensive HIPAA compliance posture assessment for agent … | us | general | legal-analysis | en | apache-2.0 |
+| 453 | `compliance-qa` | RAG-enhanced compliance Q&A with regulatory interpretation g… | general | general | legal-analysis | en | apache-2.0 |
+| 454 | `compliance-readiness` | AI Compliance Readiness Assessment — evaluate how prepared a… | eu/us | ai-tech-law | legal-analysis | en | undeclared |
+| 455 | `compliance-scan` | 代码与数据合规扫描技能。扫描代码仓库或数据处理流程， 自动检测 GDPR、CCPA、SOC 2、HIPAA、PCI-DS… | eu/us/multi | data-privacy | compliance | zh-CN | proprietary |
+| 456 | `compliance-sentinel-claw` | 合规哨兵监控虾。监控合作方（供应商/客户）的工商异动、法律诉讼、失信记录等合规风险，7×24 小时守望预警。 触发场景：… | china | general | doc-reading | zh-CN | undeclared |
+| 457 | `compliance-summaries` | Generates structured compliance summaries assessing regulato… | eu/us | data-privacy | doc-reading | en | apache-2.0 |
+| 458 | `complianceclaw` | Regulations change 4,000+ times per year. Your clients can't… | us | environmental | legal-analysis | en | undeclared |
+| 459 | `complianceradar-ai-monitor` | Monitor regulatory changes across SEC, FDA, FINRA, and GDPR … | us/eu | banking-finance | legal-analysis | en | undeclared |
+| 460 | `conference-summary` | Produces structured legal conference summaries capturing ses… | general | general | doc-reading | en | apache-2.0 |
+| 461 | `confidentiality-agreement` | Drafts corporate NDAs and confidentiality agreements for M&A… | general | corporate | legal-analysis | en | apache-2.0 |
+| 462 | `confidentiality-compliance` | 保密合规知识专家。提供保密法律法规、保密管理制度、保密技术防护、 涉密人员管理、涉密载体管理、保密检查与风险评估等方面的… | china | data-privacy | compliance | zh-CN | undeclared |
+| 463 | `confidentiality-invention-assignment` | Drafts U.S. Confidentiality and Invention Assignment Agreeme… | us | contract-law | contract-work | en | apache-2.0 |
+| 464 | `confidentiality-nda` | Drafts enforceable confidentiality and non-disclosure agreem… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 465 | `confidentiality-security-agreement` | Drafts enforceable U.S. Employee Confidentiality and Securit… | us | contract-law | contract-work | en | apache-2.0 |
+| 466 | `confidentiality-severance-agreement` | Drafts U.S. employment confidentiality and severance agreeme… | us | general | contract-work | en | apache-2.0 |
+| 467 | `conflict-of-interest-policy` | Drafts U.S. corporate and nonprofit conflict-of-interest pol… | us | corporate | contract-work | en | apache-2.0 |
+| 468 | `conflict-resolution` | 当AI智能体在法律推理过程中遇到以下情形时触发本技能：(1)多个法律条文均可适用于同一事实（法条竞合）；(2)不同证据之… | china | contract-law | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 469 | `congressional-testimony-preparation` | Prepares witnesses for U.S. congressional hearings with comm… | us | general | legal-analysis | en | apache-2.0 |
+| 470 | `consent-decree-epa` | Drafts EPA Consent Decrees resolving federal environmental e… | us | contract-law | contract-work | en | apache-2.0 |
+| 471 | `consent-judgment` | Drafts enforceable consent judgments with injunctive relief … | us | litigation | contract-work | en | apache-2.0 |
+| 472 | `consent-letter` | Drafts enforceable third-party consent letters for transacti… | us | contract-law | contract-work | en | apache-2.0 |
+| 473 | `consent-to-sublease` | Drafts a Landlord's Consent to Sublease for commercial leasi… | general | general | contract-work | en | apache-2.0 |
+| 474 | `conservation-easement` | Drafts recordable conservation easement documents that perma… | general | contract-law | contract-work | en | apache-2.0 |
+| 475 | `construction-case-summary` | Produces structured U.S. construction law case summaries wit… | us | contract-law | doc-reading | en | apache-2.0 |
+| 476 | `construction-contract-review` | "施工合同审查技能。当用户上传施工合同/EPC合同文件（PDF/DOCX），或要求审查合同、合同审核、 | china | construction | contract-work | zh-CN | undeclared |
+| 477 | `construction-defect-complaint` | Drafts U.S. construction defect complaints against contracto… | us | litigation | contract-work | en | apache-2.0 |
+| 478 | `construction-project-dispute-q-a-plus` | 建设工程施工合同纠纷综合法律咨询助手。回答结构固定为：一、归纳性回答；二、详细分析（含（一）《建工解释（二）》、（二）《… | china | construction | legal-research | zh-CN | declared-only |
+| 479 | `consulting-services-agreement` | Drafts a U.S. Consulting Services Agreement covering scope, … | us | contract-law | contract-work | en | apache-2.0 |
+| 480 | `consumer-breach-notice-letter` | Drafts U.S. consumer-facing data breach notification letters… | us | general | legal-analysis | en | apache-2.0 |
+| 481 | `consumer-loan-agreement` | Drafts a TILA-compliant U.S. consumer loan agreement with Re… | us | contract-law | contract-work | en | apache-2.0 |
+| 482 | `consumer-loan-tila` | Drafts TILA-compliant consumer loan agreements with Regulati… | us | contract-law | contract-work | en | apache-2.0 |
+| 483 | `contingency-removal` | Drafts residential real estate contingency removal forms tha… | general | general | legal-analysis | en | apache-2.0 |
+| 484 | `continuous-improvement-engine-scott-margetts` | 捕获、结构化并循环利用进行中和已结束法律事务的经验教训。三种模式：进行中捕获（由范围变更、风险事件、状态更新触发——价值… | china | general | contract-work | zh-CN | apache-2.0 |
+| 485 | `contract` | Write contracts from scratch with guided intake, multi-party… | general | contract-law | contract-work | en | undeclared |
+| 486 | `contract-abstracts` | Generates structured contract abstracts distilling key terms… | general | contract-law | contract-work | en | apache-2.0 |
+| 487 | `contract-analysis` | 用于审查合同、协议、订单条款、补充协议、SaaS 协议、采购协议、服务协议、许可协议、合作协议等法律和商业文件；当用户需… | international | tax | contract-work | zh-CN | undeclared |
+| 488 | `contract-analysis-agl` | Analyzes contracts to identify key terms, obligations, risks… | general | contract-law | contract-work | en | apache-2.0 |
+| 489 | `contract-analyzer` | Analyze and review contract documents. Use when extracting k… | general | contract-law | doc-reading | en | undeclared |
+| 490 | `contract-analyzer-afrexai` | Analyzes contracts and agreements for risks, unusual terms, … | general | contract-law | legal-analysis | en | undeclared |
+| 491 | `contract-audit-stream` | 使用合同审核流式接口（SSE）批量审核合同（链接或文件上传），甲/乙方视角可选，需携带 api_key；部署域名 htt… | china | contract-law | contract-work | zh-CN | undeclared |
+| 492 | `contract-auditor` | 合同审计 Skill - AI 辅助审查合同条款，识别风险和问题 功能： - 自动提取合同文本（Word 格式） - 审… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 493 | `contract-checklist-pro` | 收到合同不敢乱签？输入合同类型和用途，我帮你生成结构化审查清单：主体、标的、价款、交付、违约、保密、争议解决等关键条款逐… | international | contract-law | contract-work | zh-CN | proprietary |
+| 494 | `contract-clause-extractor` | Extract & classify key clauses from contract PDFs into a str… | china | contract-law | doc-reading | zh-CN | mit-0 |
+| 495 | `contract-cleaner` | 清洗合同、整理合同格式、统一合同术语、规范合同条款。当用户需要 整理、格式化、统一术语、清洗合同文本时使用。 触发词：清… | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 496 | `contract-compare` | 合同智能比对：逐条对比多版合同的增删改差异，生成结构化差异报告与风险提示。审阅合同修订稿、谈判版本对比时使用。 | china | contract-law | doc-reading | zh-CN | undeclared |
+| 497 | `contract-copilot` | 合同起草与审查助手。基于分层分析与四步流程，输出可执行的风险清单、起草骨架、修改建议、推荐措辞和审查意见书，支持批注与修… | china | contract-law | contract-work | zh-CN | cc-by-nc |
+| 498 | `contract-desensitization` | 合同脱敏智能体工作流。当用户需要对合同、协议等法律文件进行敏感信息脱敏处理（去除公司名、人员信息、金额、账户等），生成可… | international | contract-law | contract-work | zh-CN | undeclared |
+| 499 | `contract-diff` | Compare contract templates with scanned stamped contracts, l… | china | contract-law | contract-work | zh-CN | undeclared |
+| 500 | `contract-dispute-analysis` | Produces a structured contract dispute analysis for U.S. com… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 501 | `contract-dispute-report` | Generates a structured litigation analysis report for US com… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 502 | `contract-gen` | 合同生成技能，以资深法律专家身份生成完整合同。适用场景：(1) 用户要求'起草合同''生成合同''拟定协议''写合同''… | china | contract-law | contract-work | zh-CN | undeclared |
+| 503 | `contract-generator` | Generate professional freelance contracts, SOWs, and NDAs fo… | general | contract-law | contract-work | en | undeclared |
+| 504 | `contract-guardian` | 合同卫士 — AI合同审查助手，识别风险条款、提取关键信息、追踪到期日 | china | contract-law | doc-reading | zh-CN | undeclared |
+| 505 | `contract-helper` | Use when the user asks to "draft an influencer contract", "r… | us | contract-law | contract-work | zh-CN | apache-2.0 |
+| 506 | `contract-intelligence-cn` | Review and redline Chinese contracts with verification. | china | contract-law | contract-work | zh-CN | cc-by-nc |
+| 507 | `contract-intelligence-workflow-reviewer-carl-ditzler` | 适用于 Claude 和 Codex 的合同情报与合同运营工作流技能。引导完整的合同生命周期审查流程，从受理和剧本标准化… | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 508 | `contract-ledger-pro` | 合同台账管理：上传合同 PDF 自动提取关键字段建档，到期提醒并飞书推送。需要集中管理合同与期限提醒时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 509 | `contract-modify-plus` | 合同修改技能（AI修订模式 Plus）。融合四套方法论——（1）《合同起草审查指南：三观四步法（第五版）》宏观—中观—微… | china | contract-law | contract-work | zh-CN | cc-by-nc |
+| 510 | `contract-obligation-risk-manager` | 当企业需要把已签或待审合同中的义务主体、义务内容、触发条件、关键日期、通知要求、履约证据、变更记录和偏差风险整理成可追踪… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 511 | `contract-playbook-review` | Reviews contracts clause-by-clause against a defined negotia… | general | contract-law | contract-work | en | apache-2.0 |
+| 512 | `contract-portfolio-intelligence` | Analyzes an entire portfolio of contracts at scale — extract… | general | contract-law | doc-reading | en | apache-2.0 |
+| 513 | `contract-redline-navigator` | Compare draft agreements, highlight risky clause changes, an… | general | contract-law | contract-work | en | undeclared |
+| 514 | `contract-renewal-agent` | Manage and track contract renewals. Track expiration dates, … | general | contract-law | contract-work | en | undeclared |
+| 515 | `contract-renewal-brief` | 把合同到期前的线索整理成续约决策一页：现状摘要、选项对比（续/改/停）、关键风险、建议与待确认。 不发起电子签，不做律师… | china | contract-law | contract-work | zh-CN | mit |
+| 516 | `contract-renewal-expiration-manager` | 供应商合同续约管理：建立续约日历与 90/60/30 天预警，输出续约决策与重谈准备包。防止错过续约与自动展期陷阱时使用… | general | contract-law | contract-work | en | undeclared |
+| 517 | `contract-review` | Legal contract analysis using CUAD dataset (41 risk categori… | general | contract-law | contract-work | en | mit |
+| 518 | `contract-review-2` | 通用商务合同审核与风险检测技能。安装后必须先引导用户完成企业商业底线配置，之后才能审核合同。支持PDF/Word/文本格… | china | contract-law | contract-work | zh-CN | undeclared |
+| 519 | `contract-review-3` | 合同智囊：合同审核、合同审查、合同修改、合同修订、合同风险识别、 合同模板对比、合同条款补充、合同起草、合同起草修改、 … | china | contract-law | contract-work | zh-CN | mit-0 |
+| 520 | `contract-review-agent` | Contract clause analysis, risk flagging, renewal tracking, a… | general | contract-law | contract-work | en | undeclared |
+| 521 | `contract-review-anthropic` | 对照贵组织的谈判手册审查合同，标记偏离之处并生成修订建议。当审查供应商合同、客户协议或任何需要对照标准立场进行逐条分析的… | eu/international | contract-law | contract-work | zh-CN | apache-2.0 |
+| 522 | `contract-review-assistant` | 合同审查辅助：条款提取、风险识别、版本比对与审查意见生成，内置民法典等法律知识库。审查买卖、租赁、服务合同时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 523 | `contract-review-assistant-contract` | 合同检查智能小助手。当用户需要审查、检查、审阅、分析合同（买卖/服务/合作/租赁/保密/劳动/借款/技术IP 等任意类型… | china | contract-law | contract-work | zh-CN | mit |
+| 524 | `contract-review-assistant-htsczs` | 专业的合同审查智能助手，帮助法务和业务人员快速审查合同风险。 支持上传合同 PDF/Word 文档， AI 自动识别关键… | china | contract-law | contract-work | zh-CN | undeclared |
+| 525 | `contract-review-assistant-tech` | 通用合同审核技能。当用户上传或指定一份合同文件（.docx/.doc），要求进行合同评审、 合同审查、合同风险评估、合同… | china | contract-law | contract-work | zh-CN | undeclared |
+| 526 | `contract-review-check` | 对合同文本进行风险点审查：违约责任、付款条款、保密条款、知识产权归属，输出审查意见清单 | china | contract-law | contract-work | zh-CN | mit |
+| 527 | `contract-review-cn` | 中文合同审查：识别法律风险、给出修订建议并生成原文/修改/理由三栏对照表。审查中文商业合同、定位风险条款时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 528 | `contract-review-contract` | AI合同智能审查助手。上传或粘贴合同文本，自动进行9维雷达评分、风险热力图可视化、条款对比修改建议、法律依据引用、谈判策… | china | contract-law | contract-work | zh-CN | undeclared |
+| 529 | `contract-review-jicheng` | Contract review skill that adds comment-based issue annotati… | general | general | doc-reading | en | undeclared |
+| 530 | `contract-review-openclaw` | 公开发布的合同审核 Skill，通过统一工具入口触发 OpenClaw Contract Review Plugin。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 531 | `contract-review-pan` | Contract review skill that adds comment-based issue annotati… | general | general | contract-work | en | apache-2.0 |
+| 532 | `contract-review-pro-contract` | Chinese contract risk intelligence — scan, annotate, and exp… | china | contract-law | contract-work | zh-CN | undeclared |
+| 533 | `contract-review-professional` | 专业法律合同审查，7步全流程自动化：商业目的穿透、10模块风险扫描、双报告输出、修改文件生成 | china | contract-law | contract-work | zh-CN | undeclared |
+| 534 | `contract-review-report` | 系统分析合同条款，识别责任暴露、赔偿陷阱、不利终止条款、知识产权转让过度和竞业限制等风险，输出含严重度评级的风险报告。 | china | contract-law | contract-work | zh-CN | mit |
+| 535 | `contract-review-revise` | 合同审查与修订系统：AI 风险扫描加专业复审，确认后直接改写 Word 并生成修订对照表。需要边审边改合同 docx 时… | general | contract-law | contract-work | en | undeclared |
+| 536 | `contract-review-skill` | 合同审查 CLI 工具（OpenClaw 技能链封装）：传入合同文件路径，按行业维度输出 JSON 或文本格式的审查结果… | general | general | contract-work | en | undeclared |
+| 537 | `contract-review-tips` | 接收合同文本，按非专业人士视角标注常见风险点（权责/付款/违约/保密/终止）与需关注的条款，提示咨询专业人士。当用户说“… | china | contract-law | contract-work | zh-CN | mit |
+| 538 | `contract-review-uk` | Review contracts for risks, unfair terms, and missing clause… | general | contract-law | doc-reading | en | undeclared |
+| 539 | `contract-review-workbuddy` | 对中文合同进行智能风险审查，识别条款风险、提取关键信息、生成审查报告，覆盖买卖/技术/租赁/劳动等常见合同类型。 | international | contract-law | contract-work | zh-CN | undeclared |
+| 540 | `contract-reviewer` | Review business contracts for risks, missing clauses, unfavo… | general | contract-law | contract-work | en | undeclared |
+| 541 | `contract-reviewer-dongjie` | 合同要点提取：识别终止、责任、保密、付款等关键条款，输出风险等级与谈判建议。快速审查英文合同文本时使用。 | general | contract-law | contract-work | en | undeclared |
+| 542 | `contract-reviewer-wudi` | 中文合同审核 Skill - 支持修订痕迹、批注气泡、清洁版生成与多轮迭代管理。覆盖41种合同类型、350+关键条款、2… | china | contract-law | contract-work | zh-CN | gpl-3.0 |
+| 543 | `contract-reviewer-zh` | 专业合同审查与风险评估工具，适用于采购、法务、运营等团队的日常合同管理场景。 自动提取合同关键条款，包括付款周期、违约责… | china | contract-law | contract-work | zh-CN | undeclared |
+| 544 | `contract-revieww` | 专业合同审查全流程 Skills，适用于律师、法务人员对合同文件进行系统性审查。 当用户上传合同文件、提到"合同审查"、… | china | contract-law | contract-work | zh-CN | undeclared |
+| 545 | `contract-risk-analyzer` | Contract Risk Analyzer — Upload contract PDF, AI auto-extrac… | general | contract-law | doc-reading | en | undeclared |
+| 546 | `contract-risk-analyzer-sneha-ganapavarapu` | 对合同在五类关键条款（责任限制、赔偿、知识产权所有权、数据保护、终止）上的风险进行分析。为没有法律背景的创始人而建。标记… | china | contract-law | contract-work | zh-CN | cc-by-4.0 |
+| 547 | `contract-risk-check` | 上传或粘贴合同条款，自动识别风险条款、缺失项、模糊表述，给出修改建议与谈判策略。触发词：合同审查、风险条款、合同漏洞、法… | china | contract-law | contract-work | zh-CN | undeclared |
+| 548 | `contract-risk-helper` | Contract risk helper. Input Chinese or English contract text… | china | contract-law | contract-work | zh-CN | undeclared |
+| 549 | `contract-risk-helper-yjkj` | Contract Risk Helper — scan contracts for common risk clause… | china | contract-law | contract-work | zh-CN | undeclared |
+| 550 | `contract-risk-review` | 专业合同风险审查专家。对用户上传或粘贴的任何合同进行全方位法律风险审查，生成结构化风险报告与可落地修改建议。触发词：合同… | china | contract-law | contract-work | zh-CN | undeclared |
+| 551 | `contract-risk-review-claw` | 合同风险审查虾 — 深度识别合同风险条款，给出修订建议，守住法律红线。 **当以下情况时使用此 Skill**： (1)… | china | contract-law | contract-work | zh-CN | undeclared |
+| 552 | `contract-risk-reviewer` | 专业级合同风险审查工具，自动识别 20+ 类常见风险条款，给出修改建议和法律依据 | china | contract-law | contract-work | zh-CN | undeclared |
+| 553 | `contract-risk-scan` | Redirect: contract-risk-scan has been merged into contract-r… | china | contract-law | contract-work | zh-CN | undeclared |
+| 554 | `contract-risk-scan-yjkj` | Scan contracts for common risk clauses and potential issues.… | china | contract-law | contract-work | zh-CN | undeclared |
+| 555 | `contract-risk-scanner` | 合同风险审查助手。逐条审查合同文本，标记高风险条款、缺失条款和不利表述，输出风险等级和修改建议。当用户说"帮我看看这份合… | international | contract-law | contract-work | zh-CN | undeclared |
+| 556 | `contract-summarization` | Generates structured summaries of U.S. contracts capturing p… | us | contract-law | doc-reading | en | apache-2.0 |
+| 557 | `contract-terms-cn` | 把常见合同条款拆成通俗解释、风险点和需要咨询律师的问题清单。 核心模块：条款解释、风险点、谈判问题、红旗清单、律师问题。… | china | contract-law | contract-work | zh-CN | mit |
+| 558 | `contract-tracker-pro` | 合同履约追踪：从合同 PDF 提取付款节点、交期与到期日，建台账并飞书提醒逾期。跟踪合同履行节点、避免遗漏付款期时使用。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 559 | `contract-version-diff` | 对比两个版本的合同或协议文本，生成逐条新增、删除、修改清单和原始差异文件，并重点标记付款、违约责任、赔偿、终止、知识产权… | china | contract-law | contract-work | zh-CN | undeclared |
+| 560 | `contracts` | Organize, track, and analyze contracts with renewal alerts, … | general | contract-law | contract-work | en | undeclared |
+| 561 | `convertible-note-purchase-agreement` | Drafts a company-side Convertible Note Purchase Agreement fo… | us | general | legal-analysis | en | apache-2.0 |
+| 562 | `cookie-consent-policy` | Drafts publication-ready cookie policies, banner copy, and c… | eu/us | data-privacy | contract-work | en | apache-2.0 |
+| 563 | `cookie-policy-malik-taiar` | 起草符合 GDPR 和 ePrivacy 指令的 Cookie 政策的指南。包含 CNIL 2020 建议、参考模板和最… | fr/eu | data-privacy | compliance | zh-CN | agpl-3.0 |
+| 564 | `copyright-license-agreement` | Drafts a U.S. Copyright License Agreement for media content … | us | ip | contract-work | en | apache-2.0 |
+| 565 | `copyright-license-agreement-media` | Drafts a Copyright License Agreement for media content betwe… | us | ip | contract-work | en | apache-2.0 |
+| 566 | `corporate` | Advises on corporate law matters including entity formation,… | us | corporate | legal-analysis | en | apache-2.0 |
+| 567 | `corporate-ai-tool-handoff` | 检测 AI 辅助审查工具（如 Luminance、Kira 等）是否在使用中，将大批量条款提取 交接给工具，并按 `$L… | china | contract-law | contract-work | zh-CN | undeclared |
+| 568 | `corporate-board-minutes` | 按你的内部格式起草董事会或专门委员会会议纪要。从你的日历中自动检测即将召开的 董事会和委员会会议，询问议程及任何演示文稿… | china | corporate | contract-work | zh-CN | undeclared |
+| 569 | `corporate-bylaws` | Drafts complete U.S. corporate bylaws harmonized with Articl… | us | corporate | contract-work | en | apache-2.0 |
+| 570 | `corporate-closing-checklist` | 交割阻碍因素——维护交割检查表，包含状态、关键路径和距交割天数。自我更新：从尽调发现和清单构建中提取新事项，追踪状态，突… | china | contract-law | contract-work | zh-CN | undeclared |
+| 571 | `corporate-cold-start-interview` | 内部冷启动时访谈，或者通过 `--new-deal` 用于交易特定上下文的新交易。模块化：识别适用的业务领域（并购、董事… | china | corporate | legal-analysis | zh-CN | undeclared |
+| 572 | `corporate-compliance-checklist` | Drafts a U.S. corporate compliance program checklist anchore… | us | general | contract-work | en | apache-2.0 |
+| 573 | `corporate-customize` | 公司业务实务画像的引导式定制——修改一项配置而无需重新运行完整的冷启动访谈。 调整风险姿态、上报联系人、活跃模块（并购/… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 574 | `corporate-deal-team-summary` | 将尽职调查结果汇总成适合目标受众的交易团队简报——领导层可阅读执行摘要，团队可阅读工作摘要。适用于用户提出“向交易团队汇… | china | general | doc-reading | zh-CN | undeclared |
+| 575 | `corporate-diligence-issue-extraction` | 阅读虚拟数据室 (VDR) 文件，并按公司类别和重要性阈值提取问题，以公司备忘录格式生成调查结果。当用户说“查看数据室”… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 576 | `corporate-entity-compliance` | 主体合规追踪器——初始化、报告即将到来的截止日、更新状态、运行健康审计、 导出为 CSV。维护从主体清单构建的 comp… | china | general | compliance | zh-CN | undeclared |
+| 577 | `corporate-integration-management` | 交割后并购整合追踪器——分阶段工作计划、同意函追踪、规模化合同转让、每周状态报告。根据任何可获取的交易文件（购买协议、交… | china | contract-law | doc-reading | zh-CN | undeclared |
+| 578 | `corporate-lawyer` | AI-powered legal assistant for commercial transactions - pro… | general | contract-law | contract-work | en | undeclared |
+| 579 | `corporate-legal` | 本技能是一个综合技能套件，包含多个子技能。接到用户请求后，按以下流程执行。 | china | litigation | legal-research | zh-CN | undeclared |
+| 580 | `corporate-legal-advisor` | Use when users need legal consultation, contract review, cor… | china | corporate | contract-work | zh-CN | mit |
+| 581 | `corporate-material-contract-schedule` | 从尽调发现构建重大合同披露清单，适用股权收购协议的重大合同定义，并按 协议清单格式排版。当用户说"建合同清单""披露清单… | china | contract-law | contract-work | zh-CN | undeclared |
+| 582 | `corporate-matter-workspace` | 管理事项工作区——创建、列出、切换、关闭或分离当前活跃事项，使多客户执业者将某一客户的上下文与其他客户区分。任何需要知道… | china | general | legal-analysis | zh-CN | undeclared |
+| 583 | `corporate-resolution-bank-account` | Drafts a board resolution authorizing the opening and manage… | us | corporate | contract-work | en | apache-2.0 |
+| 584 | `corporate-tabular-review` | 表格审查——一行一文件，一列一数据点，每个单元格标注来源。为并购尽调而构建 （"审查这200份目标公司合同中的控制权变更… | china | contract-law | contract-work | zh-CN | undeclared |
+| 585 | `corporate-written-consent` | 以内部格式起草董事会或专门委员会的一致书面决议，从决议存储库中检索先例。 处理多决议决议、董事冲突标记、适用法律下的通知… | china | corporate | contract-work | zh-CN | undeclared |
+| 586 | `corrective-action-plan` | Drafts healthcare Corrective Action Plans (CAPs) responding … | general | general | contract-work | en | apache-2.0 |
+| 587 | `corrective-action-plan-deficiencies` | Drafts a regulator-ready Corrective Action Plan (CAP) for U.… | us | general | legal-writing | en | apache-2.0 |
+| 588 | `cosmetics-compliance-manager` | 化妆品合规管理技能。当用户要求查询化妆品法规、备案要求、注册流程、合规检查、原料目录、标签规范、安全评估、监管动态、国际… | china | general | compliance | zh-CN | undeclared |
+| 589 | `counsel-unit-legal-service-record` | 律师服务顾问单位法律服务工作记录的网页化工具，支持三种记录入口：(1) 网页手动记录；(2) 在 WorkBuddy 对… | china | general | legal-analysis | zh-CN | undeclared |
+| 590 | `counterclaim-crossclaim` | Drafts court-ready counterclaims and crossclaims for commerc… | us | litigation | contract-work | en | apache-2.0 |
+| 591 | `counterfactual-reasoning` | 当需要评估'如果某一事实/行为/条件不存在或发生改变，法律结果将如何不同'时触发此技能。典型触发场景包括：因果关系认定（… | china | contract-law | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 592 | `court-document-downloader` | 从人民法院电子送达平台(zxfw.court.gov.cn)下载传票/判决书等文书PDF，自动归档到本地案件文件夹，解析… | china | general | legal-analysis | zh-CN | undeclared |
+| 593 | `court-document-formatting` | Builds a filing-ready formatting blueprint for U.S. litigati… | us | litigation | legal-analysis | en | apache-2.0 |
+| 594 | `court-formatting` | Standardizes U.S. court-filing formatting for pleadings, mot… | us | litigation | legal-analysis | en | apache-2.0 |
+| 595 | `court-order-summaries` | Generates structured summaries of court orders and decisions… | us | general | legal-analysis | en | apache-2.0 |
+| 596 | `court-prep` | Court Preparation Tool. Use when you need court prep capabil… | china | litigation | litigation | zh-CN | undeclared |
+| 597 | `court-records-case-law-litigation` | Court records, case law & litigation search for AI agents — … | general | general | litigation | en | mit |
+| 598 | `court-sms` | 本技能应在用户收到法院短信（文书送达、立案通知、开庭提醒等）时使用，自动提取案号、当事人、下载链接，下载文书并归档到对应… | china | litigation | litigation | zh-CN | mit |
+| 599 | `coverage-opinion` | Drafts structured insurance coverage opinions analyzing duty… | us | litigation | legal-analysis | en | apache-2.0 |
+| 600 | `cpa-quiz-m04-law` | 注册会计师CPA刷题库·模块：经济法——按章节生成CPA《经济法》科目练习题，覆盖法律基础、公司/证券/合同/破产/票据… | china | corporate | legal-analysis | zh-CN | mit |
+| 601 | `cpom-compliance` | Drafts Corporate Practice of Medicine (CPOM) compliance stru… | general | contract-law | contract-work | en | apache-2.0 |
+| 602 | `cpr-letter-drafter-andrew-bird` | 起草您在英格兰与威尔士民事诉讼中起诉某人之前发出的正式信函——启动诉前时钟的《索赔前函》。它做对的部分是确定适用哪个诉前… | china | litigation | contract-work | zh-CN | mit |
+| 603 | `cps-rca-central-african-republic-jeanne-sulzer` | 面向中非共和国特别刑事法院（混合法院，坐落在班吉）的「验证优先」方法论。每项引用均须核实（JusticeInfo、FID… | international | litigation | litigation | zh-CN | cc-by-4.0 |
+| 604 | `cra-vulnerability-obligations` | 当用户询问欧盟《网络弹性法案》（CRA）对其产品意味着什么、他们是否以及何时必须 报告漏洞或事件，或特定 CVE 在法律… | eu | general | legal-research | zh-CN | cc-by-4.0 |
+| 605 | `creditor-dissolution-notice` | Drafts jurisdiction-compliant Notice to Creditors of Dissolu… | general | corporate | legal-analysis | en | apache-2.0 |
+| 606 | `criminal-case-summary` | Produces structured U.S. criminal case summaries covering ch… | us | litigation | doc-reading | en | apache-2.0 |
+| 607 | `criminal-defense-mindset` | name: criminal-defense-strategy display_name: Z律-刑事辩护策略_V7.0… | china | criminal | litigation | zh-CN | undeclared |
+| 608 | `criminal-defense-workflow` | 顶级刑事律师全流程辩护技能。覆盖刑事案件辩护的完整生命周期：会见接待、强制措施变更、阅卷分析、 证据质证、庭前会议、庭审… | china | criminal | litigation | zh-CN | undeclared |
+| 609 | `criminal-sentencing-prediction` | 专业刑事量刑预测与辩护策略 Skill，适用于律师、法务人员对刑事案件进行量刑预测、缓刑评估、辩护策略分析和风险评估。触… | china | criminal | litigation | zh-CN | undeclared |
+| 610 | `criminal-summary` | Generates structured U.S. criminal case summaries from docke… | us | litigation | legal-analysis | en | apache-2.0 |
+| 611 | `cross-border-service-tax` | 办理中国跨境服务贸易涉税业务,完成尽职调查、税收协定待遇审查、代扣代缴税款计算与纳税申报/备案。Use whenever… | international | tax | contract-work | zh-CN | undeclared |
+| 612 | `cross-exam-summary` | Generates a structured cross-examination summary from deposi… | general | contract-law | doc-reading | en | apache-2.0 |
+| 613 | `cross-examination-opinion-civil-administrative-case-ai-writing-plus` | 根据对方证据清单，生成格式规范的专业质证意见书（.docx）。支持民事、行政案件类型。 | china | general | litigation | zh-CN | undeclared |
+| 614 | `cross-examination-summaries` | Generates thematic cross-examination summaries from depositi… | general | litigation | doc-reading | en | apache-2.0 |
+| 615 | `cross-regulatory-impact-analyzer-patrick-munro` | 分析多个法规如何对特定产品、服务或商业模式产生交互。识别义务在何处重叠、强化、互补、重复或冲突；构建优先级矩阵；生成整合… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 616 | `csrd` | CSRD（《企业可持续发展报告指令》，欧盟 2022/2464）合规顾问专家。当用户询问 CSRD、《欧洲可持续发展报告… | eu | banking-finance | compliance | zh-CN | mit |
+| 617 | `ctpat-security-profile` | Drafts a submission-ready C-TPAT Security Profile from verif… | us | general | contract-work | en | apache-2.0 |
+| 618 | `cue-corporate-credit` | 帮银行对公客户经理/风控岗在贷前快速搞定企业公开信息预尽调，几分钟产出能直接上授信审批会的底稿。 直接调用 Cue 后端… | china | corporate | due-diligence | zh-CN | mit |
+| 619 | `cue-credit-diligence` | 【金融AI调研】用Cue跑企业信用尽调深度研究。覆盖工商全景、司法风险、失信被执行、股权穿透、对外担保圈排查，多源公开数… | china | securities | legal-analysis | zh-CN | mit |
+| 620 | `cue-equity-incentive` | 用 Cue 查询和分析上市公司股权激励计划——基于市面上最全的股权激励数据库（2015年至今10年+历史覆盖），独家特有… | china | general | legal-analysis | zh-CN | undeclared |
+| 621 | `cue-legal-practice-cases` | 疑难法律实操案例库 — 围绕一个争议点检索公开裁判文书、监管问答与实务案例，归纳裁判要点、争议焦点与可落地的实操口径，给… | china | arbitration-adr | legal-research | zh-CN | mit |
+| 622 | `cue-legal-research` | 【金融AI调研】用Cue跑法律合规深度尽调。覆盖企业合规风险体检、关联方制裁暴露核查、境外诉讼案例检索、中外法律对比、监… | multi/china | intl-trade | legal-research | zh-CN | mit |
+| 623 | `cue-litigation-drafting` | 诉讼文书起草 — 把案件事实、当事人立场和上传的对方材料，起草成规范的诉讼文书草稿（答辩状 / 质证意见 / 律师函等）… | china | litigation | litigation | zh-CN | mit |
+| 624 | `cue-overseas-litigation` | 境外诉讼案例库 — 围绕一个主题检索主要法域的公开判例与监管公告，归纳诉因、判决倾向与对中国主体的合规启示。 Trigg… | multi | intl-trade | legal-research | zh-CN | mit |
+| 625 | `cultural-heritage-summary` | Produces structured, citation-ready summaries of legal devel… | international | general | doc-reading | en | apache-2.0 |
+| 626 | `custody-evaluation-summary` | Summarizes custody evaluation reports into a structured memo… | general | general | doc-reading | en | apache-2.0 |
+| 627 | `customs-ip-search` | 海关知识产权备案查询。通过 Chrome 浏览器自动化访问海关总署备案查询系统（http://202.127.48.14… | china | intl-trade | legal-analysis | zh-CN | undeclared |
+| 628 | `customs-power-of-attorney` | Drafts a U.S. Customs Power of Attorney authorizing a licens… | us | corporate | contract-work | en | apache-2.0 |
+| 629 | `customs-protest-form19` | Drafts CBP Form 19 protests under 19 U.S.C. § 1514 and 19 C.… | us | general | contract-work | en | apache-2.0 |
+| 630 | `customs-trade-compliance` | Codified expertise for customs documentation, tariff classif… | uk | general | legal-analysis | en | apache-2.0 |
+| 631 | `customs-trade-law-onur-kafkas` | 美国海关与贸易法研究助手，涵盖 HTS 归类、CROSS 裁决研究、CIT/CAFC 判决简报、关税汇编（普通 + 特别… | international | general | legal-analysis | zh-CN | agpl-3.0 |
+| 632 | `cyber-law-compliance-summary` | Produces structured cyber law compliance memoranda covering … | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
+| 633 | `cybersecurity-breach-summary` | Produces structured cybersecurity breach summary documents f… | eu/us | data-privacy | contract-work | en | apache-2.0 |
+| 634 | `damages-calculator` | Builds auditable personal injury damages calculations separa… | us | insurance | legal-analysis | en | apache-2.0 |
+| 635 | `data-act-ryan-malek` | 面向律师的欧盟数据法案（(EU) 2023/2854 号条例）技能。当用户询问数据法案分类、起草、查询、分析或审计时使用… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 636 | `data-breach-consumer-notice` | Drafts U.S. consumer data breach notification letters satisf… | us | general | contract-work | en | apache-2.0 |
+| 637 | `data-compliance-lookup` | 为产品、运营、开发整理个人信息保护、隐私协议、数据出境、第三方 SDK 等合规 checklist。 核心模块：数据分类… | china | data-privacy | compliance | zh-CN | mit |
+| 638 | `data-compliance-pip-analysis-plus` | 人工智能（AI）、数据合规与个人信息保护法律分析助手。当用户就人工智能（AI）、数据安全、数据合规、个人信息保护相关问题… | china | data-privacy | legal-analysis | zh-CN | undeclared |
+| 639 | `data-compliance-privacy-assistant` | 数据合规与个人信息保护全流程智能助手。覆盖数据合规现状评估、合规体系建设（制度文件编制）、数据安全等级保护、个人信息影响… | china/international | data-privacy | compliance | zh-CN | mit |
+| 640 | `data-contract-skill` | 多轮对话交互式填写国家数据局合同模板（支持4种合同类型），自动路由识别合同类型，生成清洁版 .docx 合同 | china | contract-law | contract-work | zh-CN | undeclared |
+| 641 | `data-intellectual-property-docs` | 协助用户完成数据知识产权申报全流程文档制作。当用户上传原始数据并申请数据知识产权登记时调用，自动完成数据预处理、数据分析… | china | general | legal-analysis | zh-CN | undeclared |
+| 642 | `data-processing-addendum` | Drafts a GDPR Article 28-compliant Data Processing Addendum … | eu | contract-law | contract-work | en | apache-2.0 |
+| 643 | `data-retention-and-destruction-policy` | Drafts a law firm Data Retention and Destruction Policy cove… | us | securities | legal-writing | en | apache-2.0 |
+| 644 | `dd-form-254` | Drafts DD Form 254 Contract Security Classification Specific… | us | contract-law | contract-work | en | apache-2.0 |
+| 645 | `de-ai-polish` | 检测并去除文章中的AI化表述模式。**必须触发**：当文章经过写作流程（无论是模式1润色优化还是模式2内容创作）完成初稿… | china | general | legal-analysis | zh-CN | mit |
+| 646 | `decision-ownership-audit-ignacio-adrian-lerer` | 在依赖 AI 辅助的法律、合规、治理和机构决策之前对其进行审计，以确定负责任的人类或机构是否有足够的途径获取证据、推理依… | china | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 647 | `decision-record-verification` | Cross-references a judge's decision, court opinion, or final… | general | litigation | doc-reading | en | apache-2.0 |
+| 648 | `deductive-reasoning` | 基于形式逻辑执行严密的法律演绎推理。当用户要求"分析案件逻辑"、"验证法律推理"、"提取三段论"、"梳理案件事实与法条的… | china | contract-law | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 649 | `deed-in-lieu-of-foreclosure` | Drafts a Deed in Lieu of Foreclosure Agreement for U.S. real… | us | general | contract-work | en | apache-2.0 |
+| 650 | `deed-of-gift` | Drafts a recordable U.S. Deed of Gift for voluntary, no-cons… | us | contract-law | contract-work | en | apache-2.0 |
+| 651 | `deed-of-trust` | Drafts combined Deed of Trust and Security Agreement instrum… | general | general | legal-analysis | en | apache-2.0 |
+| 652 | `defense` | A comprehensive AI agent skill for anyone facing criminal ch… | general | tax | legal-analysis | en | undeclared |
+| 653 | `defense-draft` | Generate civil answer/defense document frameworks in respons… | china | litigation | contract-work | zh-CN | undeclared |
+| 654 | `defense-lawyer` | AI-powered criminal defense assistant for Chinese legal syst… | general | criminal | legal-analysis | en | undeclared |
+| 655 | `deficiency-corrective-action-plan` | Drafts U.S. healthcare corrective action plans (CAPs / plans… | us | general | contract-work | en | apache-2.0 |
+| 656 | `demand-letter` | Drafts litigation-ready U.S. pre-suit demand letters that fu… | us | general | contract-work | en | apache-2.0 |
+| 657 | `demand-package` | Compiles pre-suit or pre-settlement demand packages for U.S.… | us | general | contract-work | en | apache-2.0 |
+| 658 | `demand-package-compilation` | Compiles pre-suit and settlement demand packages for U.S. co… | us | general | contract-work | en | apache-2.0 |
+| 659 | `depo-outline-hr-manager` | Generates a strategically sequenced deposition outline for e… | us | litigation | contract-work | en | apache-2.0 |
+| 660 | `deponent-coaching` | Generates behavioral coaching materials for deposition witne… | us | litigation | legal-analysis | en | apache-2.0 |
+| 661 | `deposition-analysis` | Produces litigation-grade U.S. deposition summaries with exa… | us | litigation | doc-reading | en | apache-2.0 |
+| 662 | `deposition-apex-witness` | Guides strategy for apex witness depositions of C-suite exec… | us | litigation | legal-analysis | en | apache-2.0 |
+| 663 | `deposition-document-assembly` | Assembles and organizes documents for deposition preparation… | us | litigation | legal-analysis | en | apache-2.0 |
+| 664 | `deposition-employment-supplement` | Supplies claim-specific deposition frameworks for employment… | us | litigation | contract-work | en | apache-2.0 |
+| 665 | `deposition-errata-sheet` | Guides the FRCP 30(e) errata sheet process — submitting corr… | us | litigation | contract-work | en | apache-2.0 |
+| 666 | `deposition-impeachment-builder` | Drafts deposition-ready impeachment sequences using the Comm… | us | litigation | legal-analysis | en | apache-2.0 |
+| 667 | `deposition-ip` | Supplements general deposition preparation with IP-specific … | general | ip | legal-analysis | en | apache-2.0 |
+| 668 | `deposition-ip-supplement` | Provides IP-specific deposition examination frameworks for p… | general | ip | legal-analysis | en | apache-2.0 |
+| 669 | `deposition-notice` | Drafts U.S. deposition notices (party, non-party subpoena, R… | us | litigation | legal-analysis | en | apache-2.0 |
+| 670 | `deposition-notice-subpoena` | Drafts federal civil deposition notices (FRCP 30(b)(1), 30(b… | us | litigation | legal-analysis | en | apache-2.0 |
+| 671 | `deposition-objection-reference` | Provides a quick reference for deposition objections under F… | us | general | legal-analysis | en | apache-2.0 |
+| 672 | `deposition-objections` | Provides deposition objection reference under FRCP 30(c)(2) … | us | litigation | contract-work | en | apache-2.0 |
+| 673 | `deposition-outline-hr-manager` | Creates strategically organized deposition outlines for exam… | general | litigation | legal-analysis | en | apache-2.0 |
+| 674 | `deposition-preparation` | Produces a comprehensive deposition preparation package for … | us | litigation | legal-analysis | en | apache-2.0 |
+| 675 | `deposition-questioning-techniques` | Generates deposition question sequences using six core exami… | general | litigation | legal-analysis | en | apache-2.0 |
+| 676 | `deposition-subpoena-drafter` | Drafts U.S. federal deposition notices and subpoenas under F… | us | litigation | litigation | en | apache-2.0 |
+| 677 | `deposition-summarization` | Summarizes deposition transcripts with precise page:line cit… | general | general | legal-analysis | en | apache-2.0 |
+| 678 | `deposition-summary` | Generates topic-based deposition summaries for commercial li… | general | litigation | doc-reading | en | apache-2.0 |
+| 679 | `deposition-summary-exhibit-index` | Produces a topic-based U.S. deposition summary with page/lin… | us | litigation | doc-reading | en | apache-2.0 |
+| 680 | `deposition-summary-index` | Creates topic-based deposition summaries with exhibit-to-tra… | us | litigation | contract-work | en | apache-2.0 |
+| 681 | `deposition-summary-narrative` | Transforms deposition transcripts into topic-organized narra… | us | litigation | doc-reading | en | apache-2.0 |
+| 682 | `deposition-summary-page-line` | Generates page-line deposition summaries from U.S. litigatio… | us | litigation | doc-reading | en | apache-2.0 |
+| 683 | `deposition-transcript-analyzer` | Analyzes deposition transcripts to extract litigation work p… | general | litigation | doc-reading | en | apache-2.0 |
+| 684 | `depository-account-agreement` | Drafts a U.S. Depository Account Agreement governing the ins… | us | banking-finance | contract-work | en | apache-2.0 |
+| 685 | `development-agreement` | Drafts U.S. commercial real estate owner-developer agreement… | us | contract-law | contract-work | en | apache-2.0 |
+| 686 | `digital-media-law-summary` | Generates Bluebook-cited summaries of digital media law acro… | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
+| 687 | `dip-financing-motion` | Drafts U.S. bankruptcy DIP financing motions under 11 U.S.C.… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 688 | `directed-share-program` | Drafts a Directed Share Program (DSP) agreement governing sh… | us | securities | legal-analysis | en | apache-2.0 |
+| 689 | `director-indemnification` | Drafts indemnification agreements between corporations and d… | general | corporate | contract-work | en | apache-2.0 |
+| 690 | `director-indemnification-agreement` | Drafts U.S. director indemnification agreements maximizing p… | us | corporate | legal-analysis | en | apache-2.0 |
+| 691 | `director-officer-questionnaire` | Drafts Director and Officer (D&O) questionnaires for SEC dis… | us | corporate | legal-analysis | en | apache-2.0 |
+| 692 | `directory-index` | Generate local directory indexes as Markdown or interactive … | china | general | legal-analysis | zh-CN | mit |
+| 693 | `dischargeability-complaint` | Drafts a U.S. bankruptcy adversary complaint under 11 U.S.C.… | us | litigation | contract-work | en | apache-2.0 |
+| 694 | `disclosure-list-andrew-bird` | 确定在英格兰与威尔士的民事案件中必须向对方移交哪些文件，并构建正式清单。它正确处理的、最容易让人出错的部分是适用哪种披露… | eu | general | contract-work | zh-CN | mit |
+| 695 | `disclosure-schedules` | Drafts and populates M&A disclosure schedules that except kn… | general | contract-law | contract-work | en | apache-2.0 |
+| 696 | `disclosure-statement-plan-reorganization` | Drafts a Chapter 11 Disclosure Statement compliant with 11 U… | us | contract-law | contract-work | en | apache-2.0 |
+| 697 | `disclosure-strategy-mapper-larissa-meredith-flister` | 本技能从案件摘要、诉状、时间线或早期案件理论映射披露策略：将重要的文件类别、可能的保管人、不利材料、证据缺口、搜索主题，… | china | litigation | doc-reading | zh-CN | agpl-3.0 |
+| 698 | `discovery-and-bill-of-particulars` | Drafts a combined Demand for Discovery and Bill of Particula… | us | litigation | litigation | en | apache-2.0 |
+| 699 | `discovery-deficiency-tracker` | Builds and maintains a litigation-grade discovery deficiency… | us | litigation | legal-analysis | en | apache-2.0 |
+| 700 | `discovery-dispute-letter` | Drafts discovery dispute resolution letters documenting meet… | us | litigation | legal-writing | en | apache-2.0 |
+| 701 | `discovery-document-summaries` | Summarizes discovery documents (depositions, emails, contrac… | us | litigation | doc-reading | en | apache-2.0 |
+| 702 | `discovery-plan` | Drafts Joint Discovery Plans and Proposed Scheduling Orders … | us | litigation | litigation | en | apache-2.0 |
+| 703 | `discovery-response-summary` | Synthesizes interrogatories, RFPs, RFAs, deposition transcri… | us | litigation | legal-analysis | en | apache-2.0 |
+| 704 | `discovery-separate-statement` | Drafts a California-compliant discovery Separate Statement f… | us | litigation | contract-work | en | apache-2.0 |
+| 705 | `discovery-summarization` | Summarizes discovery documents (interrogatories, RFPs, RFAs,… | general | litigation | doc-reading | en | apache-2.0 |
+| 706 | `discovery-summary` | Generates structured, citeable summaries of discovery docume… | general | litigation | doc-reading | en | apache-2.0 |
+| 707 | `discovery-verification-audit` | Produces an attorney-grade audit memorandum assessing whethe… | us | litigation | legal-analysis | en | apache-2.0 |
+| 708 | `dispute-and-performance-risk` | 当用户提交合同文本、交易安排、商业协议或法律关系描述，需要评估其中可能产生法律纠纷或违约风险时触发此技能。 典型触发场景… | china | contract-law | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 709 | `dispute-issue-identification` | 争议焦点识别是指在法律要素提取之后，从法律事实中提取争议焦点，进一步将案件关系转化为法律关系问题。 能够排除无争议事项，… | china | general | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 710 | `dissolution-petition` | Drafts a Petition for Dissolution of Marriage for filing in … | us | family | litigation | en | apache-2.0 |
+| 711 | `dissolution-report` | Drafts a Final Report of Dissolution for corporations, LLCs,… | general | corporate | legal-analysis | en | apache-2.0 |
+| 712 | `distribution-of-assets-plan` | Drafts a corporate Distribution of Assets Plan for dissoluti… | general | corporate | contract-work | en | apache-2.0 |
+| 713 | `diting-labor-law-expert` | 谛听劳动法规专家。专注中国劳动法合规与用工风险管理。Use when 劳动法咨询、用工风险评估、员工辞退、劳动仲裁应对、… | china | labor | legal-research | zh-CN | undeclared |
+| 714 | `dividend-declaration-resolution` | Drafts a board of directors resolution authorizing a cash, s… | us | corporate | contract-work | en | apache-2.0 |
+| 715 | `divorce-asset-calculator` | 输入房产、存款、股权、债务、结婚年限和各自出资，自动生成结构化的离婚财产分割明细与谈判要点，离婚谈判前帮你理清能分多少、… | china | family | calculation | zh-CN | undeclared |
+| 716 | `divorce-ct-stephane-boghossian` | Claude 技能，将 Claude 变成康涅狄格州专属离婚规划器——从预检信息收集到判决后修改共九个运行模式，以 Un… | us | family | legal-analysis | zh-CN | agpl-3.0 |
+| 717 | `divorce-doc-drafter` | PRC divorce litigation document skill bundling full marriage… | china | litigation | litigation | zh-CN | undeclared |
+| 718 | `divorce-guide` | 绂诲搴旇瘔鎸囧崡AI鍔╂墜銆傚綋鐢ㄦ埛琚捣璇夌濠氶渶瑕佸簲璇夊府鍔╂椂锛屾彁渚涘叏娴佺▼鎸囧锛? 搴旇瘔娴佺▼瀵… | china | general | legal-analysis | zh-CN | undeclared |
+| 719 | `divorce-practice-stephane-boghossian` | 离婚与家事律师的 AI 协同律师——一个跨司法辖区可移植、覆盖完整案件生命周期的脚手架。八种操作模式映射案件的实际推进方… | us | family | legal-analysis | zh-CN | agpl-3.0 |
+| 720 | `divorce-settlement-summary` | Produces structured summaries of U.S. divorce settlement agr… | us | family | doc-reading | en | apache-2.0 |
+| 721 | `dmca-takedown-notice` | Drafts a DMCA takedown notice compliant with 17 U.S.C. § 512… | us | general | contract-work | en | apache-2.0 |
+| 722 | `doc-redline` | 核对文书两个版本的差异，并可一键产出带修订痕迹的 Word。比对「纸质/扫描/照片稿」与「电子稿（.docx）」究竟改了… | china | contract-law | contract-work | zh-CN | mit |
+| 723 | `document-approval-tracker-scott-margetts` | 多利益相关方文件工作流的审批级联定义与跟踪。内部审查顺序、客户审批工作流、监管审查、带升级逻辑的逾期催促、版本控制协调和… | de | tax | contract-work | zh-CN | apache-2.0 |
+| 724 | `document-production-log-summary` | Generates a structured log and strategic summary of opposing… | us | litigation | legal-analysis | en | apache-2.0 |
+| 725 | `document-retention-policy` | Drafts board-adoptable document retention policies for nonpr… | us | tax | contract-work | en | apache-2.0 |
+| 726 | `docx` | Use this skill whenever the user wants to create, read, edit… | general | general | legal-analysis | en | declared-only |
+| 727 | `donation-agreement` | Drafts a U.S. Donation Agreement governing charitable transf… | us | tax | legal-analysis | en | apache-2.0 |
+| 728 | `dora` | 面向欧盟金融机构的 DORA（《条例（EU）2022/2554》——数字运营韧性法案）合规专家顾问。当用户询问 DORA… | eu | contract-law | legal-analysis | zh-CN | mit |
+| 729 | `dpa-art-28-oliver-schmidt-prietz` | 审查、起草或修订 GDPR 第 28 条下的数据处理协议（DPA / Auftragsverarbeitungsvert… | eu | general | contract-work | zh-CN | agpl-3.0 |
+| 730 | `dpdp-compliance-assessment` | Assess compliance with India's Digital Personal Data Protect… | in | data-privacy | legal-analysis | en | undeclared |
+| 731 | `dpdpa` | 印度《2023 年数字个人数据保护法》（DPDPA）合规顾问专家。当用户询问 DPDPA、DPDP 法案、DPDP 规则… | eu/in/international | data-privacy | compliance | zh-CN | mit |
+| 732 | `dpdpa-gdpr-review-parth-desai` | 对法律文件（隐私政策、数据处理协议、供应商和 SaaS 合同）对照印度 DPDPA 2023 和欧盟 GDPR 进行结构… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 733 | `dpia-sentinel-oliver-schmidt-prietz` | GDPR 第 35 条、EDPB 指南 WP 248 rev.01、EDPB 意见 28/2024（AI）及各国监管机构… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 734 | `drug-compliance` | 当用户需要从"医药合规与法务"视角审查或设计合规体系、推广材料、交易IP、监管应对时使用。 覆盖：推广合规与MLR审查(… | china | contract-law | compliance | zh-CN | mit |
+| 735 | `drug-regulatory-affairs` | 药品注册法规与合规查询。覆盖中国（NMPA）、美国（FDA）、欧盟（EMA）及 ICH 的药品注册法规、指导原则、GMP… | china/us/eu/international | contract-law | compliance | zh-CN | undeclared |
+| 736 | `dsar-form` | Drafts a GDPR- and CCPA-compliant Data Subject Access Reques… | eu/us | securities | contract-work | en | apache-2.0 |
+| 737 | `du-execution-manager` | 执行案件管家：识别执行通知书、查控裁定等文书，按民诉法计算查封冻结期限并输出期间表。管理执行案件保全期限时使用。 | china | civil-procedure | legal-analysis | zh-CN | undeclared |
+| 738 | `du-labor-arbitration-manager` | 劳动仲裁管家：识别仲裁文书，按劳动争议调解仲裁法计算答辩、举证、起诉等期间并提示风险。处理劳动仲裁案件期限管理时使用。 | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 739 | `du-litigation-manager` | 诉讼管家：识别传票、受理通知等诉讼文书，按民诉法计算答辩期、举证期、上诉期并输出期间表。管理民事诉讼案件期限时使用。 | china | litigation | litigation | zh-CN | undeclared |
+| 740 | `du-todo-manager` | 案件待办管家：汇总全部案件的期限与待办，按已过期、今日、7 天、30 天分级展示。律师每日查看工作节奏与期限预警时使用。 | china | civil-procedure | legal-analysis | zh-CN | undeclared |
+| 741 | `due-diligence-checklist` | Drafts due diligence checklists for U.S. corporate transacti… | us | corporate | contract-work | en | apache-2.0 |
+| 742 | `due-diligence-report` | Produces U.S. corporate/M&A due diligence reports summarizin… | us | contract-law | contract-work | en | apache-2.0 |
+| 743 | `due-diligence-summary` | Produces structured U.S. transactional due diligence summari… | us | corporate | contract-work | en | apache-2.0 |
+| 744 | `dundun-legal` | 激活"盾盾"法务风控官角色。当用户涉及合同审查、法律风险、股权架构、劳动纠纷、知识产权、合规问题、行政处罚、公司治理、协… | china | ip | contract-work | zh-CN | undeclared |
+| 745 | `durable-poa-finances` | Drafts state-specific Durable Power of Attorney for Finances… | general | contract-law | contract-work | en | apache-2.0 |
+| 746 | `dvro-petition` | Drafts court-ready Domestic Violence Restraining Order petit… | general | litigation | legal-analysis | en | apache-2.0 |
+| 747 | `e-discovery-protocol-agreement` | Drafts court-ready ESI Protocol Agreements governing electro… | us | litigation | legal-analysis | en | apache-2.0 |
+| 748 | `eac-habre-jeanne-sulzer` | 为非洲特别法庭（Chambres Africaines Extraordinaires，Hissène Habré 案，… | fr | criminal | litigation | zh-CN | agpl-3.0 |
+| 749 | `ear` | 《出口管理条例》（EAR，15 CFR 第 730-774 部分）合规顾问——涵盖全部 10 个 CCL 类别和 5 个… | us | intl-trade | compliance | zh-CN | mit |
+| 750 | `earn-out-agreement` | Drafts U.S. M&A earn-out agreements as exhibits to purchase … | us | corporate | contract-work | en | apache-2.0 |
+| 751 | `easement-dispute-complaint` | Drafts a plaintiff-side U.S. complaint for easement disputes… | us | litigation | litigation | en | apache-2.0 |
+| 752 | `eccc-jeanne-sulzer` | 适用于 ECCC（红色高棉法庭）的验证优先方法论。每条引文都对照 eccc.gov.kh、ECCC 档案馆或 legal… | fr | general | litigation | zh-CN | cc-by-4.0 |
+| 753 | `ecommerce-livestream-corporate-legal-tax-risk-control-plus` | 针对用户提出的电子商务及网络直播业务（含直播带货、店铺运营、达人机构MCN、平台自营、跨境电商等）进行全维度法律风险防控… | international | tax | legal-research | zh-CN | undeclared |
+| 754 | `economic-damages-calculation-memo` | Use this skill when a forensic accountant, CPA-CFF, CFE, or … | general | litigation | contract-work | en | undeclared |
+| 755 | `economic-loss-report` | Generates a Lost Wage & Economic Loss Report for personal in… | general | litigation | doc-reading | en | apache-2.0 |
+| 756 | `economist-quiz-m11-ipr` | 中级经济师刷题库·模块：知识产权——按章节生成《知识产权专业知识和实务》考点题目（单选/多选/案例分析）+ 答案 + 解… | china | ip | education | zh-CN | undeclared |
+| 757 | `ecp-manual` | Drafts an audit-ready Export Compliance Program manual cover… | us | intl-trade | contract-work | en | apache-2.0 |
+| 758 | `ediscovery-review-summary` | Produces an internal U.S. litigation e-discovery status summ… | us | litigation | doc-reading | en | apache-2.0 |
+| 759 | `ediscovery-status-report` | Generates a structured internal e-discovery status report tr… | us | litigation | contract-work | en | apache-2.0 |
+| 760 | `eeoc-charge-of-discrimination` | Drafts an EEOC Charge of Discrimination (Form 5) for federal… | us | contract-law | contract-work | en | apache-2.0 |
+| 761 | `eeoc-position-statement` | Drafts employer Position Statements responding to EEOC charg… | us | litigation | contract-work | en | apache-2.0 |
+| 762 | `eir-summary` | Produces legally focused summaries of California Environment… | us | environmental | doc-reading | en | apache-2.0 |
+| 763 | `elder-law-summary` | Generates structured elder law summaries covering estate pla… | general | estate-trust | doc-reading | en | apache-2.0 |
+| 764 | `element-based` | Element-based（要素式起诉状）用于将案件材料填写为 67 类要素式诉状 Word 草案；当用户要求起草、填写… | china | litigation | legal-analysis | zh-CN | undeclared |
+| 765 | `element-based-plaintiff` | 要素式起诉状生成技能（保留代理人/送达/电子送达模块，首次录入并持久化版）。当用户提交传统起诉状文本，要求转换为要素式起… | china | litigation | litigation | zh-CN | undeclared |
+| 766 | `element-complaint-filler` | 要素式法律文书一键生成（起诉状/答辩状/强制执行申请书）。根据用户提供的原始材料， 自动提取信息并填入要素式模板。已内置… | china | litigation | litigation | zh-CN | mit |
+| 767 | `element-lawsuit-generato` | 要素式文书一键生成——个人提效利器：以前律师对着模板逐项手动填写要素式文书，一份半小时起步；现在上传传统起诉状，自动识别… | china | litigation | litigation | zh-CN | undeclared |
+| 768 | `employee-arbitration-agreement` | Drafts a mutual, enforceable Employee Arbitration Agreement … | general | contract-law | contract-work | en | apache-2.0 |
+| 769 | `employee-complaint-summaries` | Generates structured attorney-review memos from employee com… | us | litigation | doc-reading | en | apache-2.0 |
+| 770 | `employee-confidentiality-agreement` | Drafts enforceable Employee Confidentiality and Security Agr… | us | contract-law | contract-work | en | apache-2.0 |
+| 771 | `employee-dispute-summary` | Produces a structured, source-cited summary of U.S. employme… | us | litigation | doc-reading | en | apache-2.0 |
+| 772 | `employee-handbook` | Drafts a U.S. employee handbook and acknowledgement form pre… | us | contract-law | contract-work | en | apache-2.0 |
+| 773 | `employee-nda` | Drafts U.S. employee non-disclosure/confidentiality agreemen… | us | contract-law | contract-work | en | apache-2.0 |
+| 774 | `employee-retention-agreement` | Drafts enforceable U.S. Employee Retention Agreements (ERAs)… | us | contract-law | contract-work | en | apache-2.0 |
+| 775 | `employee-separation-release` | Drafts U.S. employee separation and release agreements excha… | us | general | legal-analysis | en | apache-2.0 |
+| 776 | `employment-arbitration-agreement` | Drafts enforceable mutual employment arbitration agreements … | us | contract-law | contract-work | en | apache-2.0 |
+| 777 | `employment-contract` | Draft and fill employment contract templates — offer letter,… | general | contract-law | contract-work | en | apache-2.0 |
+| 778 | `employment-contract-summary` | Produces structured U.S. employment contract summaries with … | us | contract-law | legal-analysis | en | apache-2.0 |
+| 779 | `employment-law-research` | 在联邦、州和市辖区范围内研究美国雇佣法主题，并产出带适当来源归因的结构化研究笔记。当用户询问美国雇佣法律、法规或待决立法… | us | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 780 | `endowment-policy-statement` | Drafts a Board-ready Endowment Fund Investment and Spending … | us | corporate | contract-work | en | apache-2.0 |
+| 781 | `energy-regulation-summaries` | Generates structured summaries of U.S. energy sector regulat… | us | environmental | contract-work | en | apache-2.0 |
+| 782 | `enforcement-action-analysis-amir-fadavi` | 分析任何 OFAC 或 OFSI 执法行动——经 URL、粘贴文本或上传文档——并将结构化根本原因分析生成为格式化 Ex… | us | intl-trade | legal-analysis | zh-CN | mit |
+| 783 | `enforcement-case-assistant` | 执行领域全流程律师助手（债权人+被执行人/案外人双向）。当用户提到「强制执行 / 申请执行 / 执行案件 / 被执行人 … | china | litigation | legal-research | zh-CN | undeclared |
+| 784 | `enforcement-procedure` | 「执行案件全流程工具」—— 从申请执行到执行完毕的全流程法律服务SKILL，含财产查控、执行异议、参与分配、失信限高、终… | china | arbitration-adr | calculation | zh-CN | undeclared |
+| 785 | `engagement-letter-review` | Reviews attorney engagement letters for completeness, fee cl… | general | contract-law | contract-work | en | apache-2.0 |
+| 786 | `engagement-terms-billing-guidelines` | 外部律师指引（OCG）——为法务团队提供起草、审查、差距分析和定向更新。按成熟度水平（轻量、标准、全面）构建新的 OCG… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 787 | `enterprise-api-addendum` | Negotiates bespoke enterprise API addenda that override stan… | us | contract-law | contract-work | en | apache-2.0 |
+| 788 | `enterprise-contract-ai-review` | 企业合同风险智能审查 Skill。上传合同文件（PDF/Word/图片），自动识别高风险条款（违约责任、自动续约、争议解… | china | contract-law | contract-work | zh-CN | undeclared |
+| 789 | `enterprise-due-diligence-plus` | 企业全景尽调引擎：整合工商、股权、诉讼、招投标、舆情等多维数据生成企业画像。招商背调、投资尽调、供应商审查时使用。 | china | ip | due-diligence | zh-CN | undeclared |
+| 790 | `enterprise-info-search` | 【设计思路】以统一社会信用代码（Unified Social Credit Code, USCC）为市场主体唯一法定标识… | china | tax | legal-research | zh-CN | undeclared |
+| 791 | `enterprise-law-risk-checker` | 企业法律风险智能检测专家。基于27年执业经验、13大模块97+专业检测项， 通过对话式体检帮助企业发现隐藏法律风险并给出… | china | labor | legal-analysis | zh-CN | undeclared |
+| 792 | `enterprise-legal-counsel-cn` | 面向中国企业的AI法务顾问：合同起草与逐条审查评分、合规审计、诉讼文书与律师函、PE/VC投融资对赌研判、劳动用工、专利… | china | contract-law | contract-work | zh-CN | undeclared |
+| 793 | `enterprise-legal-guardrails` | Legal/compliance guardrails for outbound OpenClaw actions (a… | general | general | contract-work | en | undeclared |
+| 794 | `enterprise-legal-guardrails-public` | Legal/compliance guardrails for outbound OpenClaw actions (a… | general | general | contract-work | en | undeclared |
+| 795 | `environmental-covenant-and-easement` | Drafts recordable environmental covenants and easements impo… | us | environmental | contract-work | en | apache-2.0 |
+| 796 | `environmental-impact-statement` | Drafts NEPA-compliant Environmental Impact Statements (EIS) … | us | environmental | legal-analysis | en | apache-2.0 |
+| 797 | `environmental-indemnity` | Drafts Environmental Indemnity Agreements allocating contami… | general | general | contract-work | en | apache-2.0 |
+| 798 | `environmental-indemnity-agreement` | Drafts and revises U.S. environmental indemnity agreements f… | us | insurance | legal-analysis | en | apache-2.0 |
+| 799 | `environmental-regulation-summaries` | Generates structured summaries of U.S. environmental laws, c… | us | environmental | doc-reading | en | apache-2.0 |
+| 800 | `eor-agreement` | Drafts a U.S.-compliant Exporter of Record (EOR) Agreement a… | us | intl-trade | contract-work | en | apache-2.0 |
+| 801 | `eou` | Evidence of Use (EOU) patent analysis skill. Use this skill … | general | ip | legal-analysis | en | undeclared |
+| 802 | `epc-contract` | Drafts turnkey Engineering, Procurement, and Construction (E… | general | contract-law | contract-work | en | apache-2.0 |
+| 803 | `epistemic-fault-line-audit-ignacio-adrian-lerer` | 审计法律 AI 输出、提示词、技能、工作流和 MCP/工具指令中流畅但缺乏支撑的推理、缺失的证据、过度自信、隐藏假设、薄… | china | general | contract-work | zh-CN | agpl-3.0 |
+| 804 | `equity-delivery-assistant` | 股权交割实务助手。律师团队内部使用的股权交割项目辅助 Skill，适用于有限责任公司股权转让、增资扩股、股权回购、隐名股… | china | corporate | contract-work | zh-CN | undeclared |
+| 805 | `equity-financing-term-sheet` | Drafts a U.S. venture equity term sheet from deal facts into… | us | corporate | contract-work | en | apache-2.0 |
+| 806 | `equity-incentive-plan-designer` | 股权激励方案设计器：录入公司与激励对象数据，输出期权池、归属计划、税务估算与稀释路径，覆盖中美员工双轨。创业公司设计 E… | china/us | corporate | legal-analysis | zh-CN | undeclared |
+| 807 | `equity-incentive-plan-designer-equity` | 上市公司股权激励方案设计助手：工具选择、方案要素框架、业绩考核设计、会计处理与税务、审议与披露程序。 触发场景：用户说 … | china | tax | compliance | zh-CN | mit |
+| 808 | `equity-master` | 股权大师——企业股权架构设计与风险管理专业顾问。适用：合伙股权分配设计、员工期权/股权激励方案、股权代持架构、股权估值与… | china | corporate | calculation | zh-CN | undeclared |
+| 809 | `equity-pledge` | 查询企业股权质押情况，返回质押人信息、质押股份、质押状态等。适用于"股权质押查询""企业质押信息""股份质押""质押状态… | china | general | legal-analysis | zh-CN | undeclared |
+| 810 | `equity-term-sheet` | Drafts a U.S. equity financing term sheet for preferred stoc… | us | corporate | contract-work | en | apache-2.0 |
+| 811 | `escrow-agreement` | Drafts tripartite U.S. escrow agreements for M&A and commerc… | us | corporate | contract-work | en | apache-2.0 |
+| 812 | `escrow-instructions` | Drafts binding escrow instructions for residential real esta… | general | general | doc-reading | en | apache-2.0 |
+| 813 | `esi-protocol` | Drafts stipulated ESI protocols for federal e-discovery. Pro… | us | contract-law | contract-work | en | apache-2.0 |
+| 814 | `esi-protocol-drafter` | Use this skill when a litigation attorney, e-discovery couns… | us | litigation | legal-analysis | en | undeclared |
+| 815 | `estate-admin-summary` | Produces structured status summaries of U.S. estate administ… | us | estate-trust | doc-reading | en | apache-2.0 |
+| 816 | `estate-administration-summary` | Generates a structured U.S. estate administration/probate st… | us | estate-trust | doc-reading | en | apache-2.0 |
+| 817 | `eu-ai-act` | 欧盟 AI 法案（(EU) 2024/1689 号法规）合规顾问——覆盖四个层级的风险分类、全部 9 项禁止行为（第 5… | eu | general | compliance | zh-CN | mit |
+| 818 | `eu-ai-act-classification` | 依据欧盟《AI 法案》（法规 (EU) 2024/1689，KI-Verordnung）对 AI 系统进行分类并确定合规… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 819 | `eu-ai-act-classification-oliver-schmidt-prietz` | 判断某项技术是否构成欧盟 AI 法案 Art. 3(1) 意义上的 AI 系统，并对其风险等级进行分类（禁止、高风险、带… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 820 | `eu-ai-act-compliance` | 欧盟 AI 法案合规：将 HR 场景的 AI 系统按风险等级分类并生成合规差距报告与整改建议。评估招聘、人力资源 AI … | eu | general | legal-analysis | en | undeclared |
+| 821 | `eu-ai-act-fria` | 评估依据《欧盟 AI 法案》第 27 条是否需要对特定高风险 AI 部署进行基本权利影响评估（FRIA），并构建或起草该… | eu/de | general | legal-analysis | zh-CN | declared-only |
+| 822 | `eu-ai-act-high-risk-classifier-oliver-schmidt-prietz` | 对 AI 系统在欧盟 AI 法案第 6 条下是否属于高风险的深度评估，以委员会的 Art. 6(5) 分类指南草案（一般… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 823 | `eu-ai-act-high-risk-implementation-readiness` | 评估并落实欧盟《人工智能法案》附件 III 下高风险 AI 系统的实施就绪度，包括提供者和部署者义务、符合性评估、上市后… | eu | general | compliance | zh-CN | declared-only |
+| 824 | `eu-ai-act-obligations-oliver-schmidt-prietz` | 基于角色 + 风险层级映射欧盟 AI 法案的全部法律义务，生成带 RACI 分配和实施优先级的可操作合规矩阵。当用户要求… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 825 | `eu-ai-act-report-oliver-schmidt-prietz` | 生成一份正式的、结构化的 AI 法案合规评估报告，适用于法律档案、审计追踪和监管问询。当用户要求"生成 AI 法案报告"… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 826 | `eu-ai-act-roles-oliver-schmidt-prietz` | 确定组织在欧盟 AI 法案下的角色（提供者、部署者、进口商、分销商或准提供者），并评估第 25 条的准提供者风险。当用户… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 827 | `eu-ai-act-transparency-assessor-oliver-schmidt-prietz` | 评估欧盟《人工智能法案》第 50(1)–(5) 条透明度义务中的哪些适用于特定 AI 系统的提供者或部署者，以最终版《A… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 828 | `eu-ai-act-triage-oliver-schmidt-prietz` | 用于欧盟 AI 法案初步分类和合规评估的快速 15-25 分钟分诊。当用户要求"做一次快速的 AI 法案评估"、"检查 … | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 829 | `eu-ai-compliance` | EU AI Act risk classification, Article 12 compliance logging… | eu | general | legal-analysis | en | undeclared |
+| 830 | `eu-compliance-advisor` | 中欧跨境电商合规顾问：欧盟 27 国 VAT 试算、EPR（WEEE/包装法/电池法）检测与证书验证。中国卖家进入欧盟市… | eu/de | tax | compliance | zh-CN | undeclared |
+| 831 | `eu-cra` | 面向 (EU) 2024/2847 号法规的欧盟网络弹性法案（CRA）专家顾问——对在欧盟销售的所有含数字元素产品（PD… | eu | general | compliance | zh-CN | mit |
+| 832 | `eu-data-act-compliance` | 评估欧盟《数据法》（Regulation (EU) 2023/2854）下互联产品、物联网设备、数据共享、云服务切换、B… | eu | contract-law | contract-work | zh-CN | declared-only |
+| 833 | `eu-data-act-oliver-schmidt-prietz` | 就欧盟法规 2023/2854（《数据法案》）提供咨询的实务技能。涵盖第二至七章（物联网数据访问、强制性 B2B 共享、… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 834 | `eu-legislation` | 访问欧盟法律。从 EUR-Lex 检索和获取指令、条例、条约和欧洲法院判例法。 | eu | general | legal-research | zh-CN | agpl-3.0 |
+| 835 | `eu-pl-law-tracker` | 欧盟法律文书及实施欧盟法规（如 PPWR、CBAM、EUDR、ESPR、CSRD、CSDDD、 GPSR、AI 法案、电… | eu | intl-trade | doc-reading | zh-CN | mit |
+| 836 | `eula` | Drafts enforceable End-User License Agreements for software … | eu/us | data-privacy | legal-analysis | en | apache-2.0 |
+| 837 | `eviction-complaint` | Drafts jurisdiction-compliant Unlawful Detainer complaints f… | general | contract-law | doc-reading | en | apache-2.0 |
+| 838 | `evidence-argument-chain` | 当需要将案件中的多项证据与法律论证主张进行系统性对应挂钩时触发此技能。 典型触发场景包括：准备诉讼文书（起诉状、答辩状、… | china | litigation | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 839 | `evidence-evaluation` | 当需要对案件中的证据材料进行真实性、合法性、关联性（证据"三性"）及证明力评估时触发此技能。 典型触发场景包括但不限于：… | china | general | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 840 | `evidence-liability-summary` | Generates a structured evidence and liability summary for pl… | general | litigation | doc-reading | en | apache-2.0 |
+| 841 | `evidence-list-ai-writing-non-table-version-plus` | 根据律师上传的证据材料（PDF/图片等）和简要核心主张，由AI主动解读材料并撰写《证据清单》（非表格版本），支持七种诉讼… | china | litigation | litigation | zh-CN | undeclared |
+| 842 | `evidence-matrix` | 「证据清单与质证提纲生成器」—— 输入案件类型+证据材料，基于要件事实分组法生成证据目录、质证意见、对方质证预判及己方回… | china | litigation | litigation | zh-CN | undeclared |
+| 843 | `ex-parte-seizure-order` | Drafts U.S. ex parte seizure orders authorizing immediate pr… | us | litigation | legal-analysis | en | apache-2.0 |
+| 844 | `excluded-assets-liabilities` | Drafts a categorized schedule of excluded assets and liabili… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 845 | `exclusive-patent-license` | Drafts an Exclusive Patent License Agreement granting a Lice… | general | ip | contract-work | en | apache-2.0 |
+| 846 | `execution-docs-generator` | 执行案件文书成套生成技能。上传生效法律文书后，自动完成申请执行时效校验、执行管辖确认、金钱债权金额计算，并一键生成强制执… | china | civil-procedure | legal-research | zh-CN | mit |
+| 847 | `executive-employment-agreement` | Drafts U.S. executive employment agreements covering compens… | us | general | legal-analysis | en | apache-2.0 |
+| 848 | `executive-summaries` | Generates decision-ready executive summaries from complex le… | general | contract-law | contract-work | en | apache-2.0 |
+| 849 | `expert-deposition` | Guides taking or defending U.S. expert witness depositions w… | us | litigation | legal-analysis | en | apache-2.0 |
+| 850 | `expert-impeachment` | Surfaces inconsistencies, opinion shifts, methodological fla… | general | litigation | legal-analysis | en | apache-2.0 |
+| 851 | `expert-medical-record-omissions` | Analyzes expert witness reports, depositions, and testimony … | general | litigation | doc-reading | en | apache-2.0 |
+| 852 | `expert-omissions-analysis` | Analyzes expert witness reports against complete medical rec… | general | litigation | legal-analysis | en | apache-2.0 |
+| 853 | `expert-report-class-damages` | Drafts a litigation-ready expert report on class-wide damage… | us | litigation | legal-analysis | en | apache-2.0 |
+| 854 | `expert-report-on-damages` | Generates a structured expert report on economic damages for… | us | litigation | legal-analysis | en | apache-2.0 |
+| 855 | `expert-report-summary` | Produces structured, citation-ready summaries of U.S. expert… | us | litigation | doc-reading | en | apache-2.0 |
+| 856 | `expert-testimony-summarization` | Produces structured expert witness analyses covering qualifi… | general | litigation | legal-analysis | en | apache-2.0 |
+| 857 | `expert-witness-deposition` | Drafts litigation-ready expert witness deposition workflows … | us | litigation | contract-work | en | apache-2.0 |
+| 858 | `expert-witness-designation` | Drafts expert witness designation documents satisfying FRCP … | us | litigation | litigation | en | apache-2.0 |
+| 859 | `expert-witness-impeachment` | Analyzes expert witness materials (reports, depositions, CVs… | general | litigation | legal-analysis | en | apache-2.0 |
+| 860 | `expert-witness-omissions` | Identifies medical records an expert witness failed to revie… | general | litigation | legal-analysis | en | apache-2.0 |
+| 861 | `expert-witness-report-analysis` | Critiques opposing expert witness reports for admissibility … | us | litigation | legal-analysis | en | apache-2.0 |
+| 862 | `expert-witness-summary` | Generates structured, citation-anchored summaries of expert … | general | litigation | contract-work | en | apache-2.0 |
+| 863 | `explain-ant-ss-508` | 为蚂蚁社保核心用户处理“股权激励收入与社保基数关系解读”，面向一线城市30—45岁高收入职场人、高管和职业经理人，通过必… | international | labor | compliance | zh-CN | undeclared |
+| 864 | `expungement-petition` | Drafts jurisdiction-specific petitions for expungement or se… | general | litigation | litigation | en | apache-2.0 |
+| 865 | `extend-time-brief` | Drafts appellate motions to extend time for filing briefs (o… | us | general | legal-analysis | en | apache-2.0 |
+| 866 | `fadawang-qa-plus` | 从最高人民法院《法答网精选答问》第1-38批（共169个权威答疑，覆盖26个法律专题）中检索相关问答并精准引用回答用户的… | china | antitrust | legal-research | zh-CN | undeclared |
+| 867 | `fahai` | 查询法海风控企业司法数据。通过法海风控 API 查询企业司法风险数据列表（裁判文书、执行公告、失信被执行人、司法拍卖等）… | china | tax | legal-analysis | zh-CN | undeclared |
+| 868 | `fairness-hearing-notice` | Drafts FRCP 23(e)-compliant class action fairness hearing no… | us | contract-law | doc-reading | en | apache-2.0 |
+| 869 | `falv-anli` | 法律案例拆解 - 资深法律分析师视角，系统化判决书案例分析 | china | general | legal-analysis | zh-CN | undeclared |
+| 870 | `family-law-summons` | Drafts procedurally compliant family law summons for dissolu… | general | litigation | legal-analysis | en | apache-2.0 |
+| 871 | `family-matters-due-diligence` | 婚姻家事风险尽调与一站式方案生成器。面向执业律师在婚姻家事案件接案初期的尽调需求，通过结构化要素采集、缺失要素智能追问、… | china | family | litigation | zh-CN | undeclared |
+| 872 | `fanghongyuanwenshu` | 裁判文书网检索工具：按案由、地区、年份筛选并抓取判决书全文，清洗后导出 Excel。需要批量下载中国裁判文书时使用。 | china | construction | legal-analysis | zh-CN | undeclared |
+| 873 | `fanglawerguidangzhushou` | 律师案件归档自动化工具：OCR识别案件材料，按民事模板生成归档卷宗与办案小结并转PDF，用于办案收尾阶段的卷宗整理。 | china | general | legal-analysis | zh-CN | undeclared |
+| 874 | `fapuxiaoxiang-legal-liability` | 法普小象 · 法律责任分析H5工具生成器。当用户需要制作法律知识类的交互式H5页面（如饮酒纠纷、彩礼返还、合同纠纷、侵权… | china | general | legal-research | zh-CN | declared-only |
+| 875 | `far-subcontract` | Drafts FAR-compliant subcontract agreements between prime co… | us | contract-law | contract-work | en | apache-2.0 |
+| 876 | `farmout-agreement` | Drafts U.S. upstream oil and gas farmout agreements transfer… | us | contract-law | contract-work | en | apache-2.0 |
+| 877 | `fcpa-compliance-policy` | Drafts an implementable Foreign Corrupt Practices Act (FCPA)… | us | general | legal-research | en | apache-2.0 |
+| 878 | `fda-device-registration` | Drafts FDA Establishment Registration and Device Listing doc… | us | life-sciences | contract-work | en | apache-2.0 |
+| 879 | `fdd-receipt` | Drafts a Receipt of Franchise Disclosure Document proving FT… | us | contract-law | contract-work | en | apache-2.0 |
+| 880 | `fedramp` | CR26（FedRAMP 2026 年合并规则）下 FedRAMP 认证与合规的专家指引。当用户询问 FedRAMP 授… | china | general | legal-analysis | zh-CN | mit |
+| 881 | `fee-arrangement-structuring` | 面向管理外部律师安排的内部法务运营团队的 AFA 设计、范围与费用匹配、谈判准备、健康检查和范围争议评估。设计费用结构（… | au | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 882 | `feedoracle-compliance` | MiCA compliance evidence and stablecoin risk scoring for reg… | eu | general | legal-analysis | en | undeclared |
+| 883 | `ferc-market-based-rate-tariff` | Drafts eTariff-ready FERC Market-Based Rate Tariffs for whol… | us | contract-law | contract-work | en | apache-2.0 |
+| 884 | `field-of-use-clause` | Drafts field-of-use restriction clauses for U.S. IP licensin… | us | ip | contract-work | en | apache-2.0 |
+| 885 | `field-of-use-restriction` | Drafts field-of-use restriction clauses for IP licensing agr… | general | contract-law | contract-work | en | apache-2.0 |
+| 886 | `field-of-use-restriction-clause` | Drafts enforceable Field of Use restriction clauses for U.S.… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 887 | `fin-acc-compliance-officer` | Finance Accounting Compliance Officer - Accounting standards… | china | tax | compliance | zh-CN | undeclared |
+| 888 | `fin-tax-compliance-officer` | Finance Tax Compliance Officer - Tax law compliance and invo… | international | tax | compliance | zh-CN | undeclared |
+| 889 | `final-order-judgment` | Drafts court-ready Final Orders and Judgments for class acti… | general | litigation | contract-work | en | apache-2.0 |
+| 890 | `final-report-of-dissolution` | Drafts a filing-grade final report of dissolution for U.S. c… | us | corporate | contract-work | en | apache-2.0 |
+| 891 | `final-settlement-approval` | Drafts a Motion for Final Approval of Class Action Settlemen… | us | litigation | litigation | en | apache-2.0 |
+| 892 | `final-tax-return-corporate` | Prepares IRS-compliant final tax returns for dissolving C-co… | us | tax | contract-work | en | apache-2.0 |
+| 893 | `final-tax-return-filing` | Drafts U.S. final tax return filing packets for decedent est… | us | general | legal-analysis | en | apache-2.0 |
+| 894 | `finance-marketing-compliance` | ［何时使用］当用户需要审查金融产品营销内容合规性时；当用户说"检查这篇文章合规吗"、"营销方案合规审查"、"生成合规营销… | china | banking-finance | compliance | zh-CN | undeclared |
+| 895 | `finance-quiz-m01-fund-law` | 金融从业资格考试刷题库·模块：基金从业法律法规——按章节生成基金从业《基金法律法规、职业道德与业务规范》练习题。题目由 … | china | education-law | education | zh-CN | mit |
+| 896 | `finance-quiz-m05-sec-law` | 金融从业资格考试刷题库·模块：证券从业法律法规——按章节生成证券从业《证券市场基本法律法规》练习题，覆盖证券法规、业务规… | china | securities | education | zh-CN | mit |
+| 897 | `finance-quiz-m06-bank-law` | 金融从业资格考试刷题库·模块：银行从业法规与综合能力——按章节生成银行从业《银行业法律法规与综合能力》练习题，覆盖经济金… | china | banking-finance | education | zh-CN | mit |
+| 898 | `financial-affidavit` | Drafts sworn financial affidavits and mandatory disclosure s… | us | litigation | litigation | en | apache-2.0 |
+| 899 | `financial-analysis-summary` | Generates structured summaries of financial analyses for com… | general | general | doc-reading | en | apache-2.0 |
+| 900 | `financial-comparison-glossary-ignacio-adrian-lerer` | 当计算器、财务模型、投资者备忘录、尽职调查报告、风险审查、仪表盘或面向客户的解释需要对会计与金融概念作出清晰区分时使用，… | china | tax | calculation | zh-CN | agpl-3.0 |
+| 901 | `financial-industry-compliance-audit-assistant` | AI-powered financial compliance audit assistant — covers com… | international | banking-finance | compliance | zh-CN | undeclared |
+| 902 | `financial-lease-direct-litigation` | 用于普通直租型融资租赁合同纠纷的材料读取、案型路由、合同审查、起诉状、证据目录、缺失材料清单、代理词和法律意见书结构化起… | china | litigation | litigation | zh-CN | cc-by-4.0 |
+| 903 | `find-law-firm` | Use whenever the user wants to find, shortlist, vet, or enri… | us | family | legal-analysis | en | undeclared |
+| 904 | `finders-fee-agreement` | Drafts U.S. corporate Finder's Fee Agreements that compensat… | us | contract-law | contract-work | en | apache-2.0 |
+| 905 | `finra-4512-customer-account` | Drafts FINRA Rule 4512-compliant customer account records fo… | us | general | contract-work | en | apache-2.0 |
+| 906 | `finra-4512-customer-info` | Drafts a FINRA Rule 4512 customer account information checkl… | general | contract-law | contract-work | en | apache-2.0 |
+| 907 | `fintech-agreement-drafting-stephane-boghossian` | 起草与定稿复杂、多支柱受监管金融科技协议的端到端方法——从接案到签署。源自资深金融科技律师的手册：持牌支付服务提供商在代… | china | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 908 | `fintech-regulatory-summaries` | Generates structured regulatory summaries for fintech compli… | us | banking-finance | legal-analysis | en | apache-2.0 |
+| 909 | `firm-auth-compliance-pack` | Authentication and compliance audit pack. OAuth 2.1/OIDC Dis… | eu | general | legal-analysis | en | mit |
+| 910 | `firm-legal-pack` | Curated skill bundle for law firms, legal departments and co… | eu | contract-law | legal-analysis | en | mit |
+| 911 | `first-right-of-refusal-agreement` | Drafts a U.S. franchise first right of refusal (ROFR) agreem… | us | contract-law | contract-work | en | apache-2.0 |
+| 912 | `fiscal-sponsorship-agreement` | Drafts a Fiscal Sponsorship Agreement between a 501(c)(3) sp… | us | contract-law | contract-work | en | apache-2.0 |
+| 913 | `flp-agreement` | Drafts Family Limited Partnership agreements for estate plan… | us | tax | contract-work | en | apache-2.0 |
+| 914 | `flsa-conditional-certification` | Drafts a Motion for Conditional Certification under FLSA § 2… | us | litigation | contract-work | en | apache-2.0 |
+| 915 | `fmla-complaint` | Drafts litigation-ready FMLA violation complaints under 29 U… | us | litigation | litigation | en | apache-2.0 |
+| 916 | `food-facility-registration` | Drafts an FDA Food Facility Registration under FSMA and 21 C… | us | general | contract-work | en | apache-2.0 |
+| 917 | `food-label-compliance-risks` | 食品标签合规审查与风险查询；当用户上传标签图片/PDF进行合规审查或查询标签违规案例、处罚依据时使用 | china | general | contract-work | zh-CN | undeclared |
+| 918 | `food-label-review` | 预包装食品标签合规审核技能，用于审核食品标签是否符合 GB 7718（预包装食品标签通则）和 GB 28050（预包装食… | china | general | contract-work | zh-CN | undeclared |
+| 919 | `food-safety-legal` | 食品安全法律审核专家。提供中国食品饮料行业的法律合规审核服务，包括：食品安全法合规审查、食品标签规范审核、饮料行业标准检… | china | advertising | compliance | zh-CN | undeclared |
+| 920 | `forbearance-agreement` | Drafts loan forbearance agreements that temporarily suspend … | general | contract-law | contract-work | en | apache-2.0 |
+| 921 | `foreclosure-complaint` | Drafts U.S. judicial foreclosure complaints pleading standin… | us | litigation | litigation | en | apache-2.0 |
+| 922 | `foreclosure-proceedings-summary` | Generates structured chronological summaries of U.S. foreclo… | us | litigation | doc-reading | en | apache-2.0 |
+| 923 | `foreign-corporation-registration` | Drafts a foreign corporation registration (Certificate of Au… | us | corporate | legal-analysis | en | apache-2.0 |
+| 924 | `foreign-law-research` | Structured workflow for researching foreign law questions ac… | international | general | legal-analysis | en | undeclared |
+| 925 | `foreign-law-research-tencent` | 外国法调研方法论：将模糊的法律问题通过系统化资源检索转化为高质量调研报告。 触发词：/foreign-law-resea… | international | corporate | legal-research | zh-CN | undeclared |
+| 926 | `forensic-accounting-report` | Produces a litigation-ready forensic accounting investigatio… | general | general | contract-work | en | apache-2.0 |
+| 927 | `form-10-q` | Drafts SEC-compliant Form 10-Q quarterly reports covering Pa… | us | general | doc-reading | en | apache-2.0 |
+| 928 | `form-1023` | Drafts IRS Form 1023 applications for Section 501(c)(3) tax-… | us | corporate | legal-analysis | en | apache-2.0 |
+| 929 | `form-1023-application` | Drafts IRS Form 1023 (Application for Recognition of Exempti… | us | tax | contract-work | en | apache-2.0 |
+| 930 | `form-10k` | Drafts SEC Form 10-K Annual Reports under the Securities Exc… | us | corporate | contract-work | en | apache-2.0 |
+| 931 | `form-8k` | Drafts SEC Form 8-K current reports with item-accurate narra… | us | general | legal-analysis | en | apache-2.0 |
+| 932 | `form-adv` | Drafts SEC- or state-filed Form ADV Parts 1A/1B/2A/2B for in… | us | general | contract-work | en | apache-2.0 |
+| 933 | `form-d` | Drafts SEC Form D Notice of Exempt Offering for EDGAR filing… | us | corporate | contract-work | en | apache-2.0 |
+| 934 | `form-d-notice` | Drafts U.S. SEC Form D notice data sets for Regulation D exe… | us | securities | contract-work | en | apache-2.0 |
+| 935 | `formal-legal-consequence` | 当需要根据已确认的法律事实、已识别的法律关系和已匹配的法律规范，推导出具体的法律后果（包括但不限于民事责任类型与范围、损… | china | administrative | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 936 | `founder-agreement-drafting-stephane-boghossian` | 创始人/联合创始人协议的起草与审查副驾驶——锁定联合创始人之间股权、成熟、知识产权、角色、控制权、僵局解决与离任安排的条… | china | corporate | contract-work | zh-CN | agpl-3.0 |
+| 937 | `franchise-agreement` | Drafts FTC-compliant U.S. Franchise Agreements covering righ… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 938 | `franchise-agreement-summary` | Summarizes US franchise agreements into a structured overvie… | general | contract-law | doc-reading | en | apache-2.0 |
+| 939 | `franchise-disclosure-document` | Drafts U.S. Franchise Disclosure Documents compliant with th… | us | contract-law | contract-work | en | apache-2.0 |
+| 940 | `franchise-lease-rider` | Drafts a U.S. franchise lease rider/recognition agreement es… | us | contract-law | contract-work | en | apache-2.0 |
+| 941 | `franchise-nda` | Drafts a U.S. franchise-focused confidentiality and non-disc… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 942 | `franchise-personal-guaranty` | Drafts a Personal Guaranty binding individual principals to … | us | general | contract-work | en | apache-2.0 |
+| 943 | `franchise-release` | Drafts a General Release for termination or expiration of a … | general | general | contract-work | en | apache-2.0 |
+| 944 | `franchise-renewal` | Drafts Franchise Renewal Agreements extending existing franc… | us | contract-law | contract-work | en | apache-2.0 |
+| 945 | `franchise-rofr` | Drafts a First Right of Refusal Agreement for franchise rela… | us | contract-law | contract-work | en | apache-2.0 |
+| 946 | `franchise-transfer-agreement` | Drafts a tripartite U.S. Franchise Transfer Agreement alloca… | us | contract-law | contract-work | en | apache-2.0 |
+| 947 | `fraudulent-conveyance-complaint` | Drafts a U.S. fraudulent conveyance complaint to avoid and r… | us | litigation | legal-analysis | en | apache-2.0 |
+| 948 | `fto-search` | FTO (Freedom-to-Operate) patent infringement risk search and… | general | general | legal-analysis | en | undeclared |
+| 949 | `fund-subscription-agreement` | Drafts U.S. investment fund subscription agreements aligned … | us | securities | legal-analysis | en | apache-2.0 |
+| 950 | `fundraiser-contract-compliance` | Audits professional solicitor, fundraising counsel, and comm… | general | contract-law | contract-work | en | apache-2.0 |
+| 951 | `gambling-law-summary` | Produces jurisdiction-specific U.S. gambling law regulatory … | us | general | legal-analysis | en | apache-2.0 |
+| 952 | `gas-gathering-agreement` | Drafts a Gas Gathering Agreement for receipt, compression, d… | general | contract-law | contract-work | en | apache-2.0 |
+| 953 | `gdpr-breach-sentinel-oliver-schmidt-prietz` | 面向 GDPR 第 33 条和第 34 条下数据泄露的一流事件响应与法律合规指引。在以下情形使用：(1) 用户报告数据泄… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 954 | `gdpr-compliance` | Generate UK/EU GDPR compliance documents — privacy policies,… | uk/eu | data-privacy | legal-analysis | en | undeclared |
+| 955 | `gdpr-compliance-tanaji` | 专家级 GDPR 合规助手，涵盖全部四项核心工作流：(1) 审计代码和系统是否存在 GDPR 违规，(2) 起草 GDP… | eu/international | contract-law | contract-work | zh-CN | mit |
+| 956 | `gdpr-compliance-tracker` | Assess GDPR compliance readiness and generate gap analysis w… | eu | data-privacy | legal-analysis | en | undeclared |
+| 957 | `gdpr-data-processing-addendum` | Drafts an Article 28-aligned GDPR Data Processing Addendum (… | eu | contract-law | contract-work | en | apache-2.0 |
+| 958 | `gdpr-dpa` | Drafts GDPR Article 28-compliant Data Processing Addenda wit… | eu | contract-law | legal-analysis | en | apache-2.0 |
+| 959 | `gdpr-guard` | GDPR 合规护栏 (gdpr) v1.0.0。 在 AI 应用输入/输出链路中实时检测 GDPR 语境下的个人数据， … | eu | data-privacy | legal-analysis | zh-CN | undeclared |
+| 960 | `gdpr-policy-converter` | 将中国境内版隐私政策转换为符合欧盟 GDPR 的欧盟版隐私政策。适用于电子商务、快消、人工智能平台类中国企业出海欧盟场景… | eu | data-privacy | contract-work | zh-CN | undeclared |
+| 961 | `gdpr-privacy-notice-eu-oliver-schmidt-prietz` | 为任何欧盟/欧洲经济区法域和受众起草符合 GDPR/DSGVO 的隐私通知，输出为 .docx。当用户要求创建隐私政策/… | fr/eu/multi | data-privacy | contract-work | zh-CN | agpl-3.0 |
+| 962 | `generate-bankruptcy-law-practice-client-education-handout` | Create a polished explainer handout with visuals, FAQs, and … | general | general | legal-analysis | en | undeclared |
+| 963 | `generate-estate-planning-law-firm-client-education-handout` | Create a polished explainer handout with visuals, FAQs, and … | general | general | contract-work | en | undeclared |
+| 964 | `generate-estate-planning-law-firm-client-education-handout-kirk` | Create a polished explainer handout with visuals, FAQs, and … | general | general | legal-analysis | en | undeclared |
+| 965 | `generate-immigration-law-firm-client-education-handout` | Create a polished explainer handout with visuals, FAQs, and … | general | general | legal-analysis | en | undeclared |
+| 966 | `generate-legal-services-ad-creative-brief` | Plan campaign visuals and hooks for legal services promotion… | general | general | legal-analysis | en | undeclared |
+| 967 | `gibraltar-law-osint-philip-vasquez` | 为从事直布罗陀法律、监管和合规研究的 AI 助手提供的辖区植根参考文件。纠正 AI 模型将英国法律适用于直布罗陀时犯下的… | eu | banking-finance | legal-analysis | zh-CN | cc-by-4.0 |
+| 968 | `git-batch-commit` | 智能 Git 批量提交快捷按钮。触发词："git 提交"、"批量提交"、"拆分提交"、"整理提交"，或用户明确要把已暂存… | china | environmental | legal-analysis | zh-CN | mit |
+| 969 | `giurisprudenza-lampo` | 快速判例研究，以就某一法律主题获得初步的定向框架。触发词为 "giurisprudenza-lampo [tema]"、… | china | general | legal-analysis | zh-CN | agpl-3.0 |
+| 970 | `glba-privacy-notice` | Drafts GLBA-compliant privacy notices using the 16 CFR Part … | us | securities | contract-work | en | apache-2.0 |
+| 971 | `global-company-shareholder-zh` | 调取全球企业资料库查询股东信息以及实际受益所有人（Beneficial Owner），梳理企业股权架构、投资关联关系，协… | international | corporate | legal-analysis | zh-CN | undeclared |
+| 972 | `gmp-compliance-check` | 药品行业 GMP（生产质量管理规范）合规自检工具。基于通用 GMP 合规基线（中国 GMP / FDA 21 CFR P… | us | life-sciences | contract-work | zh-CN | undeclared |
+| 973 | `gmp-sop` | Drafts inspection-ready GMP standard operating procedures fo… | us | general | contract-work | en | apache-2.0 |
+| 974 | `gongwen-docx` | 按律所公文规范生成 Word 报告（正文仿宋四号、一级标题黑体/二级楷体加黑/三级仿宋加黑、数字字母 Times New… | china | general | quality-control | zh-CN | undeclared |
+| 975 | `google-patents` | Search Google Patents database for patent research, infringe… | china | ip | legal-analysis | zh-CN | undeclared |
+| 976 | `gouvernance-des-societes-cotees-gillan-saleh` | 面向科学目的的法国上市公司（SBF 120）治理文献分析开源 Skill。它以逐页带来源的索引形式，汇集 2020-20… | fr/eu | securities | compliance | zh-CN | cc-by-nc-sa-4.0 |
+| 977 | `gov-doc-law-search` | 中国政府文件、法律法规、规范标准查询技能。支持(1) WebSearch多维度检索权威官网；(2) ima知识库全量检索… | china | general | legal-research | zh-CN | undeclared |
+| 978 | `gov-info-disclosure-response` | 生成政府信息公开告知书/答复书（含程序处理文书），为政府机关提供标准化的依申请公开答复文书撰写框架。可参照《江苏省政府信… | china | administrative | contract-work | zh-CN | mit |
+| 979 | `gov-info-disclosure-review` | 审查政府信息公开申请答复（告知书）的合法性，为政府法律顾问提供标准化的法律分析意见撰写框架。适用于：政府信息公开依申请答… | china | administrative | legal-analysis | zh-CN | mit |
+| 980 | `government-procurement-dispute-cn-general` | 政府采购质疑、投诉、监督检查、举报处理全流程律师实务技能。当用户涉及以下场景时使用：(1)起草或审查政府采购质疑函、质疑… | china | administrative | contract-work | zh-CN | undeclared |
+| 981 | `govproc-method-selector` | 政府采购领域"某项目应选/已选何种采购方式"的法定适用条件判定与合规验证引擎。 六种法定方式（公开/邀请招标、竞谈/磋商… | china | general | legal-research | zh-CN | undeclared |
+| 982 | `govproc-response-compliance-advisor` | 供应商侧「政府采购响应文件合规检查」技能：对照政府采购采购文件（竞争性谈判/竞争性磋商/询价/单一来源为主的响应文件，亦… | china | general | legal-research | zh-CN | undeclared |
+| 983 | `gp-bid-document` | 根据政府采购招标或磋商文件和供应商真实资料，编制、补全或审查法律服务投标/响应文件，并生成逐项响应、评分证据映射和废标风… | china | general | legal-analysis | zh-CN | undeclared |
+| 984 | `gp-bid-scoring-analysis` | 拆解政府采购招标或磋商文件的资格门槛、实质性要求和评分办法，评估可得分、材料缺口、报价敏感性与投标决策。用于拆评分表、判… | china | general | legal-analysis | zh-CN | undeclared |
+| 985 | `gp-challenge-complaint` | 办理政府采购询问、质疑、投诉、答复及后续救济，先计算期限和核对受理条件，再整理证据、选择请求并起草文书。用于不服采购文件… | china | litigation | contract-work | zh-CN | undeclared |
+| 986 | `gp-eval-criteria-designer` | 评审办法/评审标准合规设计助手（政采货物服务版）。主触发：设计/审查评审办法、评审标准、分值权重、价格分下限、主观分占比… | china | general | legal-research | zh-CN | undeclared |
+| 987 | `gp-lead-radar` | 发现、筛选和持续监控浙江省政府采购法律服务机会，并按可投性、匹配度、竞争与投入产出排序。用于找标、本周政采线索、采购意向… | china | general | legal-analysis | zh-CN | undeclared |
+| 988 | `gp-mock-evaluation` | 对政府采购投标或响应文件进行交标前模拟评审，依采购文件先审资格与符合性，再逐项评分，输出证据页码、失分、提分优先级和机器… | china | general | legal-analysis | zh-CN | undeclared |
+| 989 | `gp-procurement-inspection` | 从采购人、代理机构或供应商视角，对政府采购项目进行合规体检、专项检查、迎检自查和证据化工作底稿编制。用于采购文件歧视性条… | china | contract-law | litigation | zh-CN | undeclared |
+| 990 | `gpai-code-of-practice` | 根据《AI 法案》（欧盟条例 2024/1689，KI-Verordnung）第 51-56 条，评估对欧盟通用人工智能… | eu/de | ip | legal-analysis | zh-CN | declared-only |
+| 991 | `gq-procurement-advisor` | 国企采购合规实务助手。当用户咨询国企采购合规、国有资金采购方式选择、53号文适用场景、招标文件审查、国企采购风险评估、非… | china | general | contract-work | zh-CN | undeclared |
+| 992 | `grant-agreement` | Drafts U.S. grant agreements for philanthropic fund transfer… | us | contract-law | contract-work | en | apache-2.0 |
+| 993 | `grant-warranty-deed` | Drafts execution-ready Grant Deeds and Warranty Deeds for re… | general | contract-law | contract-work | en | apache-2.0 |
+| 994 | `greek-compliance-aade` | Greek tax compliance with AADE/TAXIS integration — VAT, payr… | general | tax | legal-analysis | en | undeclared |
+| 995 | `greenhelix-agent-compliance-toolkit` | EU AI Act Compliance for Autonomous Agents. Complete complia… | eu | general | legal-analysis | en | mit |
+| 996 | `greenhelix-bundle-compliance-legal` | Navigate the regulatory landscape for autonomous AI agents. … | eu | general | legal-analysis | en | mit |
+| 997 | `ground-lease` | Drafts U.S. ground lease agreements for long-term land lease… | us | real-estate | contract-work | en | apache-2.0 |
+| 998 | `gsa-schedule-contract` | Drafts FAR/GSAR-compliant GSA Schedule (MAS/FSS) contracts w… | general | contract-law | contract-work | en | apache-2.0 |
+| 999 | `guaranty-agreement` | Drafts U.S. commercial guaranty agreements securing a debtor… | us | general | legal-analysis | en | apache-2.0 |
+| 1000 | `guaranty-unlimited` | Drafts a U.S. Unlimited Guaranty for commercial lending tran… | us | contract-law | contract-work | en | apache-2.0 |
+| 1001 | `guardian-compliance` | Immigration, tax, and business compliance alerts. Check your… | general | environmental | legal-analysis | en | undeclared |
+| 1002 | `guardian-nomination-minors` | Drafts a US parental guardianship nomination for minor child… | general | contract-law | contract-work | en | apache-2.0 |
+| 1003 | `guardianship-nomination` | Drafts jurisdiction-specific Nomination of Guardian for Mino… | general | family | contract-work | en | apache-2.0 |
+| 1004 | `guardianship-petition` | Drafts court-ready Petitions for Guardianship for US state c… | general | litigation | litigation | en | apache-2.0 |
+| 1005 | `guide-ant-ss-213` | 为蚂蚁社保个人用户处理“工伤认定申请指引”，通过必要信息采集、办理地现行官方政策核验和结构化结论，输出条件、材料、办理路… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1006 | `guoyiyi-v019-azure-compliance` | 输入AI 方案、数据流和行业约束，产出合规风险矩阵、整改动作与审计证据清单，适合企业法务、合规、IT 和 AI 团队。 … | china | general | doc-reading | zh-CN | undeclared |
+| 1007 | `gutachten-admin-case` | 行政法鉴定式案例研习工作流。以"双层结构（可受理性+可证立性）+ 行政行为类型路由 + 涵摄四步法"产出完整研习/审查报… | china | litigation | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 1008 | `gutachten-civil-case` | 鉴定式民法案例研习超级工作流。当用户提交民事案例（PDF/Word/纯文本/图片）并希望按"请求权基础方法 + 鉴定式（… | china | litigation | litigation | zh-CN | apache-2.0 |
+| 1009 | `gutachten-criminal-case` | 鉴定式刑法案例研习超级工作流。当用户提交刑事案例（PDF/Word/纯文本/图片）并希望按"三阶层犯罪论 + 鉴定式"输… | china | criminal | legal-research | zh-CN | apache-2.0 |
+| 1010 | `gxp-compliance` | GxP合规检查与供应商问卷分析Skill。当需要分析、评估、检查以下主题时触发： (1) GxP相关合规要求（GMP、G… | us | contract-law | compliance | zh-CN | undeclared |
+| 1011 | `habeas-corpus-petition` | Drafts federal and state habeas corpus petitions challenging… | us | litigation | litigation | en | apache-2.0 |
+| 1012 | `haccp-plan` | Drafts U.S. HACCP plans for food production under FDA or USD… | us | general | legal-analysis | en | apache-2.0 |
+| 1013 | `hanxin-tech-legal-assistant` | asset-tracing-enforcement（执行财产的追踪与分析） | china | arbitration-adr | legal-research | zh-CN | undeclared |
+| 1014 | `hazardous-waste-manifest` | Drafts a Uniform Hazardous Waste Manifest (EPA Form 8700-22)… | general | general | contract-work | en | apache-2.0 |
+| 1015 | `health-care-agent-letter` | Drafts a non-binding instruction letter (values letter / leg… | us | general | contract-work | en | apache-2.0 |
+| 1016 | `healthcare-agent-instruction-letter` | Drafts a non-binding healthcare values/instruction letter fo… | us | general | contract-work | en | apache-2.0 |
+| 1017 | `healthcare-poa` | Drafts a state-compliant Healthcare Power of Attorney (HCPOA… | us | contract-law | contract-work | en | apache-2.0 |
+| 1018 | `healthcare-services-agreement` | Drafts professional services agreements for healthcare provi… | us | contract-law | contract-work | en | apache-2.0 |
+| 1019 | `hearing-prep` | Generates structured hearing preparation briefings from case… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1020 | `hearing-prep-summary` | Produces a quick-reference hearing preparation summary synth… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1021 | `hegui-consult` | 上市公司合规、任职资格、公司治理及信息披露咨询。用户询问某事项是否合法合规、是否需要公告、是否影响董事、独立董事或高级管… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1022 | `heluo-lifetime` | 河洛理数 · 一卦定终身。根据出生年月日时，推算本命卦、后天卦、大运、流年，逐岁批断运势。 触发场景：(1) 用户提供八… | china | general | legal-analysis | zh-CN | mit |
+| 1023 | `heritage-protection-summary` | Generates structured legal briefings on cultural heritage pr… | general | intl-trade | doc-reading | en | apache-2.0 |
+| 1024 | `hetong-fengxian` | 施工企业工程合同风险审查工具：按支付、工期、变更索赔、结算四维度识别陷阱条款并分级，输出谈判修改优先级清单，用于签约前风… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1025 | `hilegal-compliance` | This skill should be used when users ask about cross-border … | international | ip | compliance | zh-CN | undeclared |
+| 1026 | `hipaa-baa` | Drafts HIPAA/HITECH-compliant Business Associate Agreements … | us | contract-law | contract-work | en | apache-2.0 |
+| 1027 | `hipaa-compliance` | 面向医疗和软件场景的专业 HIPAA 合规助手。每当用户提及 HIPAA、PHI（受保护健康信息）、ePHI、覆盖实体、… | us | contract-law | legal-analysis | zh-CN | mit |
+| 1028 | `hipaa-compliance-auditor` | Automatically detect and de-identify PII (Personal Identifia… | us | general | contract-work | en | mit |
+| 1029 | `hipaa-privacy-notice` | Drafts a HIPAA-compliant Notice of Privacy Practices per 45 … | us | general | contract-work | en | apache-2.0 |
+| 1030 | `hipaa-release` | Drafts a HIPAA Release Authorization form compliant with 45 … | us | general | legal-analysis | en | apache-2.0 |
+| 1031 | `hipaa-release-authorization` | Drafts HIPAA-compliant PHI release authorizations for estate… | us | general | legal-analysis | en | apache-2.0 |
+| 1032 | `hipaa-release-form` | Drafts HIPAA Release Authorization forms compliant with 45 C… | us | contract-law | contract-work | en | apache-2.0 |
+| 1033 | `historic-preservation-law-summary` | Produces a structured U.S. historic preservation law summary… | us | tax | legal-analysis | en | apache-2.0 |
+| 1034 | `hoa-addendum` | Drafts an HOA Addendum to a residential purchase agreement c… | general | contract-law | contract-work | en | apache-2.0 |
+| 1035 | `hr-compliance-scanner` | 扫描劳动合同、员工手册、规章制度、裁员方案四类HR文档，对照《劳动合同法》等法规逐条检测45+风险点并分级，输出五板块合… | china | labor | compliance | zh-CN | undeclared |
+| 1036 | `hr-compliance-toolkit` | 企业劳动人事全流程合规风控SOP工具包。覆盖员工全生命周期8大场景（招聘/Offer/入职/劳动合同/员工手册/试用期/… | china | labor | compliance | zh-CN | undeclared |
+| 1037 | `hr-legal-compliance` | HR Legal Compliance Officer - Employment law compliance, 121… | china | labor | contract-work | zh-CN | undeclared |
+| 1038 | `hr-policy-summary` | Summarizes U.S. HR policies and employee handbooks into plai… | us | intl-trade | doc-reading | en | apache-2.0 |
+| 1039 | `hrssc` | HRSSC（人力资源共享服务中心）专业知识库 Skill。涵盖中国大陆人事实务的核心模块： 社保公积金（缴费规则、账单核… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1040 | `hsr-filing` | Prepares Hart-Scott-Rodino Act premerger notification filing… | us | corporate | legal-analysis | en | apache-2.0 |
+| 1041 | `html-slides-studio` | Create or revise high-aesthetic single-file HTML slide decks… | jp | general | legal-analysis | zh-CN | mit |
+| 1042 | `huang-lawyer-legal-brain` | 律师综合办案助手（黄律师的法律智脑），覆盖民事案件与刑事案件全流程。当用户需要办理案件、分析罪名/案由、了解诉讼流程、起… | china | family | litigation | zh-CN | undeclared |
+| 1043 | `human-rights-case-summary` | Produces structured, citation-ready summaries of human right… | fr | general | legal-analysis | en | apache-2.0 |
+| 1044 | `icc-jeanne-sulzer` | 涉及国际刑事法院（《罗马规约》体系）的研究、起草和分析。强制执行验证优先方法论——每一条判例、裁定、呈件、令状和陈述引用… | china | general | litigation | zh-CN | cc-by-4.0 |
+| 1045 | `icd-cpt-normalization` | Normalizes diagnostic and procedure codes from medical recor… | general | general | legal-analysis | en | apache-2.0 |
+| 1046 | `icelandic-company-formation` | 当被问及在冰岛设立、注册或构建公司时使用本技能。触发词：关于冰岛商业实体（ehf、hf、sf、svf、ses）、资本要求… | china | corporate | legal-analysis | zh-CN | agpl-3.0 |
+| 1047 | `icelandic-contract-review` | 当被要求审查、分析或起草受冰岛法律管辖的合同时使用本技能。触发词涉及冰岛商业协议、消费者合同、销售协议、服务合同，或任何… | uk | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 1048 | `icelandic-court-case-finder` | 当被要求查找、引用、分析或总结冰岛法院判决时使用本技能。涉及 Hæstiréttur（最高法院）、Landsréttur… | china | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1049 | `icelandic-eea-gap-analysis` | 当被要求分析冰岛如何将欧盟指令或条例转化为国内法、识别欧盟/欧洲经济区法律与冰岛实施之间的差距，或评估冰岛对欧洲经济区义… | eu | contract-law | legal-analysis | zh-CN | agpl-3.0 |
+| 1050 | `icelandic-labour-law` | 当被问及冰岛雇佣法、劳资关系、工作场所权利或集体协议时，使用本 skill。关于招聘、解雇、工作条件、育儿假、工会、集体… | china | contract-law | legal-analysis | zh-CN | agpl-3.0 |
+| 1051 | `icelandic-legal-terminology` | 当被要求翻译、解释或将冰岛法律术语映射到英文（或反向）时，使用本 skill。涉及冰岛法律词汇、法律翻译、理解冰岛法规或… | china | general | translation | zh-CN | agpl-3.0 |
+| 1052 | `icelandic-privacy-review` | 当被要求依据冰岛法律和 GDPR 审查数据保护或隐私合规时使用本技能。涉及个人数据处理、隐私政策、DPIA 评估、ken… | eu/international | data-privacy | contract-work | zh-CN | agpl-3.0 |
+| 1053 | `icty-ictr-irmct-jeanne-sulzer` | 适用于 ICTY、ICTR 和余留机制（IRMCT）的验证优先方法论。引文对照 irmct.org、判例与统一法院记录数… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
+| 1054 | `ilit` | Drafts an Irrevocable Life Insurance Trust (ILIT) compliant … | general | general | legal-analysis | en | apache-2.0 |
+| 1055 | `illegal-dismissal-guide` | 违法辞退应对全流程辅助技能。当用户提到违法解除、违法辞退、被开除、被辞退、N+1、2N、经济补偿金、赔偿金、末位淘汰、调… | china | labor | calculation | zh-CN | undeclared |
+| 1056 | `image-paginator` | Slices long images/screenshots into overlapping segments, ad… | china | general | legal-analysis | zh-CN | gpl-3.0 |
+| 1057 | `image-redactor` | 图片敏感信息脱敏（黑色矩形打码）。适用于发布前对任意含文字的图片进行遮盖：聊天截图、文档扫描件、网页截图、证件照、表单、… | china | general | legal-analysis | zh-CN | mit |
+| 1058 | `ime-report-analysis` | Analyzes defense Independent Medical Examination (IME) repor… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1059 | `ime-report-summary` | Critically analyzes defense IME reports by auditing record c… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1060 | `immigration-case-summary` | Produces structured U.S. immigration case summaries covering… | us | immigration | doc-reading | en | apache-2.0 |
+| 1061 | `immigration-support-letter` | Drafts formal immigration support letters from employers, fa… | us | tax | contract-work | en | apache-2.0 |
+| 1062 | `import-compliance-manual` | Drafts a U.S. import compliance manual demonstrating reasona… | us | contract-law | contract-work | en | apache-2.0 |
+| 1063 | `incident-report-summary` | Generates structured, litigation-ready summaries from police… | general | litigation | doc-reading | en | apache-2.0 |
+| 1064 | `incident-reporting-navigator` | 当安全事件、数据泄露或积极利用的漏洞引发“我们必须通知谁、通知到哪里、 在什么时间之前？”的问题时使用。筛选一个事件跨欧… | eu | general | legal-analysis | zh-CN | cc-by-4.0 |
+| 1065 | `incident-response-plan` | Drafts incident response plans and playbooks for legal organ… | us | insurance | legal-analysis | en | apache-2.0 |
+| 1066 | `incident-response-playbook` | Drafts incident response plans and scenario playbooks for U.… | us | tax | contract-work | en | apache-2.0 |
+| 1067 | `incident-to-billing-policy` | Drafts Medicare incident-to billing compliance policies for … | us | general | contract-work | en | apache-2.0 |
+| 1068 | `income-verification-summary` | Produces court-ready income verification reports from tax re… | general | litigation | doc-reading | en | apache-2.0 |
+| 1069 | `incorporator-written-consent` | Drafts an Action by Written Consent of Incorporator for newl… | us | corporate | contract-work | en | apache-2.0 |
+| 1070 | `ind-application` | Drafts FDA Investigational New Drug (IND) applications under… | us | life-sciences | legal-writing | en | apache-2.0 |
+| 1071 | `independent-contractor-agreement` | Drafts a U.S. independent contractor agreement with misclass… | us | contract-law | contract-work | en | apache-2.0 |
+| 1072 | `indian-dpdp-act-consent-notice-siddhi-kudalkar` | 依据印度《2023 年数字个人数据保护法》和《2025 年 DPDPA 规则》起草或审查符合 DPDPA 的同意通知。提… | in | data-privacy | contract-work | zh-CN | agpl-3.0 |
+| 1073 | `indian-foreign-investment-approval-assessment-siddhi-kudalkar` | 评估根据《1999 年外汇管理法》和《2019 年非债务工具规则》，对印度公司的外国投资是否需要印度政府批准。本技能系统… | in | corporate | legal-analysis | zh-CN | apache-2.0 |
+| 1074 | `individual-overseas-investment-compliance-plan` | 个人（居民个人/境内个人）直持境外证券、存款、房产的涉税申报、税收抵免与合规投资通道一站式筹划。覆盖837号令对外投资监… | international | tax | compliance | zh-CN | undeclared |
+| 1075 | `inductive-reasoning` | 当需要从一个或多个具体案例、判决、事实模式中提炼、总结出一般性法律规则、裁判规则或法律原则时，触发此技能。典型触发场景包… | china | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1076 | `industrial-bid-compliance` | 工业领域招投标技术方案智能审查。上传技术方案文档，自动逐条对标国家/行业强制性标准进行合规审查，输出9维合规雷达评分+逐… | china | construction | contract-work | zh-CN | undeclared |
+| 1077 | `industrial-warehouse-lease` | Drafts NNN-structured U.S. Industrial or Warehouse Lease agr… | us | contract-law | contract-work | en | apache-2.0 |
+| 1078 | `industry-quick-research` | 快速了解一个行业 — 基于产业生命周期框架的系统化行业研究，内置第一性原理拆解与对抗性审查。当用户说"帮我研究XX行业"… | us | securities | legal-analysis | zh-CN | mit |
+| 1079 | `industry-research-analyst` | 行业研究分析师 — 结构化深度行业研究skill。输入行业名称、产业链环节或研究课题，输出投行级别的行业深度研究报告。覆… | china | general | legal-analysis | zh-CN | undeclared |
+| 1080 | `information-security-policy` | Drafts a board-approvable Information Security Policy coveri… | eu/us | contract-law | contract-work | en | apache-2.0 |
+| 1081 | `informed-consent-form` | Drafts regulatory-compliant informed consent forms for healt… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1082 | `informed-consent-form-clinical-trial` | Drafts an IRB-ready Informed Consent Form (ICF) for FDA-regu… | us | contract-law | contract-work | en | apache-2.0 |
+| 1083 | `inheritance` | 提供遗嘱代办咨询、家族办公室基本指引、法律风险防控及赠予税费解读。 | china | general | legal-analysis | zh-CN | undeclared |
+| 1084 | `inheritance-evidence-cross-examination` | 为中国大陆继承纠纷生成、审查和补强举证清单与质证意见。用于法定继承、代位继承、转继承、遗嘱效力、遗嘱执行、遗产范围与分割… | china | family | litigation | zh-CN | undeclared |
+| 1085 | `initial-board-resolutions` | Drafts initial board resolutions (organizational meeting min… | us | corporate | contract-work | en | apache-2.0 |
+| 1086 | `initial-contact-summary` | Generates a structured initial contact summary memorandum fr… | general | litigation | doc-reading | en | apache-2.0 |
+| 1087 | `insider-trading-policy` | Drafts a U.S. financial-services insider trading policy cove… | us | general | legal-analysis | en | apache-2.0 |
+| 1088 | `insurance-certificate-compliance` | Produces requirement-by-requirement CRE insurance certificat… | general | contract-law | contract-work | en | apache-2.0 |
+| 1089 | `insurance-certificate-compliance-check` | Performs contract-driven compliance review of insurance cert… | general | contract-law | contract-work | en | apache-2.0 |
+| 1090 | `insurance-claim-summaries` | Generates structured summaries of U.S. insurance claim files… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1091 | `insurance-correspondence-summarization` | Produces structured summaries of insurance claims correspond… | general | litigation | doc-reading | en | apache-2.0 |
+| 1092 | `insurance-dispute-analysis-plus` | 面向车辆商业保险、重大疾病保险（健康保险）等保险合同纠纷的法律分析技能。提供立场中立、结构清晰、可复核的三段式报告：一、… | china | insurance | legal-research | zh-CN | undeclared |
+| 1093 | `insurance-policy-summary` | Produces structured, citation-backed summaries of U.S. insur… | us | insurance | doc-reading | en | apache-2.0 |
+| 1094 | `intake-summary` | Produces a structured U.S. corporate client intake summary f… | us | general | doc-reading | en | apache-2.0 |
+| 1095 | `interconnection-agreement` | Drafts U.S. telecommunications Interconnection Agreements (I… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1096 | `intercreditor-agreement` | Drafts a first lien/second lien intercreditor agreement gove… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 1097 | `intercreditor-lien-priority` | Drafts U.S. intercreditor agreements establishing first lien… | us | general | contract-work | en | apache-2.0 |
+| 1098 | `interest-calculation-reference` | Calculates and validates pre-petition interest for U.S. bank… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1099 | `internal-compliance-risk-identification` | 当需要对企业内部的合规管理体系进行系统性审查，识别制度缺漏、流程缺陷和数据隐私合规风险时触发此技能。 典型触发场景包括但… | china/international | data-privacy | compliance | zh-CN | cc-by-nc-nd-4.0 |
+| 1100 | `international-distribution-agreement` | Drafts an international distribution agreement covering appo… | international | contract-law | contract-work | en | apache-2.0 |
+| 1101 | `international-engineering-law-advisor` | 国际工程法律与合同实务智能顾问，覆盖FIDIC（红/黄/银皮书，含2022重印版）、 JCT（含2024版）、NEC等标… | uk | construction | contract-work | zh-CN | mit |
+| 1102 | `interrogatories-to-defendant` | Drafts plaintiff's interrogatories to defendant in personal … | us | litigation | litigation | en | apache-2.0 |
+| 1103 | `interrogatory-response-summaries` | Generates structured summaries of interrogatory responses in… | general | litigation | doc-reading | en | apache-2.0 |
+| 1104 | `interview-summary` | Generates structured summaries of witness or subject intervi… | general | general | legal-analysis | en | apache-2.0 |
+| 1105 | `intl-distribution-agreement` | Drafts international distribution agreements for cross-borde… | uk | contract-law | contract-work | en | apache-2.0 |
+| 1106 | `intrastate-offering` | Produces a compliance memo and execution plan for U.S. intra… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1107 | `invasive-testing-consent-letter` | Drafts a Phase II invasive testing consent letter that limit… | general | contract-law | contract-work | en | apache-2.0 |
+| 1108 | `invention-assignment-agreement` | Drafts a U.S. Confidentiality and Invention Assignment Agree… | us | contract-law | contract-work | en | apache-2.0 |
+| 1109 | `inverse-condemnation-complaint` | Drafts inverse condemnation complaints seeking just compensa… | us | litigation | litigation | en | apache-2.0 |
+| 1110 | `investigation-report-summary` | Generates executive-level summaries of investigative reports… | general | general | doc-reading | en | apache-2.0 |
+| 1111 | `investigation-summary` | Produces structured antitrust investigation summaries for ex… | us | litigation | doc-reading | en | apache-2.0 |
+| 1112 | `investigator-agreement` | Drafts Investigator Agreements for FDA-regulated clinical tr… | us | contract-law | contract-work | en | apache-2.0 |
+| 1113 | `investment-advisory-agreement` | Drafts a U.S. Investment Advisory Agreement (IAA) for SEC- o… | us | family | contract-work | en | apache-2.0 |
+| 1114 | `investment-banking-compliance-review-assistant` | AI-powered investment banking compliance review assistant fo… | international | securities | compliance | zh-CN | undeclared |
+| 1115 | `investors-rights-agreement` | Drafts a U.S. Investors' Rights Agreement for VC/private equ… | us | contract-law | contract-work | en | apache-2.0 |
+| 1116 | `invoice-contract-extract` | 发票与合同数据提取技能。读取 PDF/图片格式的发票、收据、合同文件， 自动提取关键字段（金额、日期、供应商、条款、签字… | china | contract-law | doc-reading | zh-CN | proprietary |
+| 1117 | `invoice-economy-risk-ctrl` | 基于 15 项发票专项风控指标的企业发票风险智能扫描工具，支持顶格开票识别、税负率预警、进销项不匹配、循环开票检测等；命… | china | tax | legal-analysis | zh-CN | mit |
+| 1118 | `invoice-from-email` | 从邮箱自动搜索下载发票/行程单附件，智能三级文字提取（PyMuPDF/Tesseract/PaddleOCR自动降级），… | china | general | doc-reading | zh-CN | mit |
+| 1119 | `invoice-review-compliance` | 面向管理外部律师的企业法务运营团队的发票审查、不合规标记、拒绝沟通、计费趋势分析与对话准备。对照计费准则审查发票；标记合… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1120 | `ip-assignment` | Drafts intellectual property assignment agreements transferr… | general | ip | contract-work | en | apache-2.0 |
+| 1121 | `ip-cease-desist` | 撰写知识产权侵权告知函（发送模式）或对收到的侵权函进行分流分析（接收模式）；当用户需要向侵权方发出权利主张函件、或需要对… | china | ip | contract-work | zh-CN | undeclared |
+| 1122 | `ip-clause-review` | 用于审查合同中的知识产权归属、许可、开发成果、开源软件、第三方材料、侵权赔偿、署名权和成果交付条款；当用户需要识别 IP… | china | ip | contract-work | zh-CN | undeclared |
+| 1123 | `ip-clearance` | 商标注册前初筛——绝对理由审查加近似商标检索，产出风险标记清单而非可注册性意见；当用户拟用新标志、询问标志是否可用、需要… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1124 | `ip-cold-start-interview` | 面向中国法的知识产权冷启动访谈技能，引导用户完成实务档案配置，涵盖角色识别、执业领域组合、管辖范围、维权策略与审批矩阵、… | china | ip | doc-reading | zh-CN | undeclared |
+| 1125 | `ip-customize` | 引导式修改知识产权实务配置——无需重新运行初始访谈即可单项调整风险态度、升级联系人、组合范围、品牌保护策略、维权策略、检… | china | ip | legal-research | zh-CN | undeclared |
+| 1126 | `ip-fto-triage` | 专利侵权风险初步排查——对可能构成障碍的专利进行结构化初筛，而非FTO法律意见；当用户需要评估新产品/技术是否面临专利侵… | china | general | legal-analysis | zh-CN | undeclared |
+| 1127 | `ip-infringement-analysis` | Produces structured IP infringement memoranda evaluating pat… | general | ip | legal-analysis | en | apache-2.0 |
+| 1128 | `ip-infringement-triage` | 适配中国法的知识产权侵权线索风险分级分诊，覆盖商标、著作权、专利和商业秘密；当用户需要判断是否构成侵权、评估仿冒或抄袭风… | china | ip | litigation | zh-CN | undeclared |
+| 1129 | `ip-invention-intake` | 发明披露初筛 — 新颖性、创造性、中国专利法客体适格性、公开披露与宽限期、可检测性与战略价值评估；当发明人提交发明披露、… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1130 | `ip-management-compliance` | ISO 56005 知识产权全流程管控母技能。8个业务子技能+1个共享检索模块统一入口，集成tavily-search实… | china | ip | legal-research | zh-CN | undeclared |
+| 1131 | `ip-matter-workspace` | 管理法律事项工作区——创建、列出、切换、关闭或脱离当前事项；当用户需要为多客户执业环境隔离上下文、创建新事项工作区、切换… | china | general | legal-analysis | zh-CN | undeclared |
+| 1132 | `ip-operations` | 知识产权运营变现全流程Skill - 支持IP许可、转让、作价入股、质押融资、证券化等七大路径全量化决策 | china | ip | calculation | zh-CN | undeclared |
+| 1133 | `ip-oss-review` | 面向中国法的开源许可证合规审查，对依赖清单、单一组件或对外开源代码进行许可证分类、义务映射与风险标记；当用户需要审查SB… | china | general | contract-work | zh-CN | undeclared |
+| 1134 | `ip-portfolio` | 管理知识产权组合的注册、续展、年费及使用状态追踪；当用户需要查询续展期限、添加或更新知识产权资产、记录缴费信息、或审计注… | china | ip | doc-reading | zh-CN | undeclared |
+| 1135 | `ip-portfolio-summary` | Summarizes and analyzes a U.S. corporate IP portfolio coveri… | us | ip | contract-work | en | apache-2.0 |
+| 1136 | `ip-standard-compliance-assistant` | 知识产权贯标认证全流程智能助手。覆盖依据 GB/T 29490（含 2013 版《企业知识产权管理规范》及 2023 版… | china | ip | legal-analysis | zh-CN | mit |
+| 1137 | `ip-takedown` | 依据中国《信息网络传播权保护条例》，可起草该条例第十四条规定的版权侵权通知书；对平台接收的侵权通知开展分流研判，区分采取… | china | litigation | contract-work | zh-CN | undeclared |
+| 1138 | `ipc-jurisdiction` | 信息网络传播权（信网权）纠纷一审管辖判定：从案件材料中提取被告住所地、服务器所在地、原告发现地等连接点，查表算出应向哪个… | china | ip | litigation | zh-CN | undeclared |
+| 1139 | `ir-tabletop-exercise` | Drafts a tabletop exercise script to stress-test an organiza… | eu/us | contract-law | contract-work | en | apache-2.0 |
+| 1140 | `irac-prompt-stephane-boghossian` | 将任何粗糙的构建、研究或法律起草请求重构为 IRAC 形状的提示——Issue（争点）、Rule（规则）、Analysi… | china | civil-procedure | legal-analysis | zh-CN | agpl-3.0 |
+| 1141 | `isds-research` | 对投资人与国家间争端解决（ISDS）裁决和决定进行合规、植根于检索的研究。当用户询问 ICSID / 投资条约仲裁案件、… | international | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1142 | `ism` | 面向政府实体及其供应链的澳大利亚信息安全手册（ISM）专家顾问。用于 ISM 控制选择、差距分析、系统授权、IRAP 评… | au | general | compliance | zh-CN | cc-by-nc-nd-4.0 |
+| 1143 | `iso27001` | 面向安全与合规团队的专家级 ISO 27001 合规助手。当用户询问 ISO 27001 或 ISO/IEC 27001… | china | general | legal-analysis | zh-CN | mit |
+| 1144 | `iso27701` | ISO 27701 隐私信息管理体系（PIMS）合规顾问专家。当用户询问 ISO/IEC 27701:2025、ISO/… | international | data-privacy | compliance | zh-CN | mit |
+| 1145 | `iso42001` | ISO 42001 人工智能管理体系（AIMS）合规专家顾问。当用户询问 ISO/IEC 42001:2023、AI 治… | china | general | compliance | zh-CN | mit |
+| 1146 | `itar` | 面向美国国防承包商、出口商和制造商的专家型 ITAR 合规顾问。对任何关于 22 CFR 第 120-130 部分、美国… | china | intl-trade | litigation | zh-CN | mit |
+| 1147 | `itar-tcp` | Drafts ITAR Technology Control Plans (TCPs) for managing USM… | us | contract-law | doc-reading | en | apache-2.0 |
+| 1148 | `itar-technology-control-plan` | Drafts an ITAR Technology Control Plan (TCP) for U.S. export… | us | intl-trade | contract-work | en | apache-2.0 |
+| 1149 | `jep-jeanne-sulzer` | 针对和平特别司法管辖区（Jurisdicción Especial para la Paz，JEP）的验证优先方法论。J… | fr | general | legal-analysis | zh-CN | cc-by-4.0 |
+| 1150 | `jiandawang-jicui-consultation` | 当用户咨询中国法律、检察、检察业务、检察机关办案实务，或提到检答网、检答网集萃、检察日报答疑时，必须使用本技能先检索内置… | china | litigation | legal-research | zh-CN | mit |
+| 1151 | `jiang-irac-opposition-invalidation` | 商标异议·无效申请推理引擎（SJ-IRAC）：基于法条要件、证据链与风险分级的专业级审查与攻防系统。 | china | ip | contract-work | zh-CN | undeclared |
+| 1152 | `jiang-irac-refusal` | 商标驳回复审推理引擎（SJ-IRAC）：面向CNIPA驳回通知的要件化论证、证据链工程与A–E风险闸门，输出审查员可读、… | china | ip | legal-research | zh-CN | proprietary |
+| 1153 | `jicheng-legal-job-search` | 法律AI求职助手 - 帮助法律人（法务/律师）使用AI辅助求职。支持公司/律所调研、法律风险分析、网页简历生成、针对性材… | china | general | legal-analysis | zh-CN | mit |
+| 1154 | `jnov-motion` | Drafts a Motion for Judgment Notwithstanding the Verdict (JN… | us | litigation | contract-work | en | apache-2.0 |
+| 1155 | `joint-operating-agreement` | Drafts U.S. Joint Operating Agreements (JOA) for oil and gas… | us | contract-law | contract-work | en | apache-2.0 |
+| 1156 | `judge-3wan` | 多智能体审核流水线的终判节点：根据参谋官的审核结论，只输出“合格”或“不合格”两字判定，不做任何其他展开。 | general | general | legal-analysis | zh-CN | undeclared |
+| 1157 | `judgment-analyzer` | 分析判决书文档，提取关键信息并生成结构化分析报告。当用户提到「分析判决书」「解读判决书」「判决书总结」「生成判决书报告」… | china | general | doc-reading | zh-CN | undeclared |
+| 1158 | `judgment-document-generation` | 根据案件事实描述，协调调用8个原子能力，生成格式规范、论证严密的完整刑事判决书。涵盖事实认定、法律适用、量刑推理及文书输… | china | criminal | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1159 | `judgment-reader` | 民事判决书智能阅读与结构化信息提取工具。专精于著作权类民事判决书，支持一审、二审及再审判决书。自动提取案号、当事人、案由… | china | ip | litigation | zh-CN | undeclared |
+| 1160 | `judgment-summary` | Produces structured U.S. litigation judgment summaries from … | us | general | doc-reading | en | apache-2.0 |
+| 1161 | `judicial-first-impression` | 从一位在时间压力下冷读的法官的视角，评估一项法律论证、提交文件或结构化推理。产出一份结构化的七部分评估：案件看似涉及什么… | china | general | legal-analysis | zh-CN | apache-2.0 |
+| 1162 | `judicial-value-judgment` | 辅助法官在权利冲突、法律不确定、比例原则审查和裁量说理场景中，进行结构化、可审查、可论证的司法价值判断。 本 Skill… | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 1163 | `jurisdictional-statement` | Drafts jurisdictional statements for U.S. appellate courts e… | us | general | legal-analysis | en | apache-2.0 |
+| 1164 | `jurisrank` | 使用 JurisRank 进行阿根廷最高法院引用网络分析——一种经同行评审、 带时间衰减的 PageRank 算法，用于… | china | general | legal-analysis | zh-CN | cc-by-4.0 |
+| 1165 | `jury-instructions` | Drafts complete proposed jury instruction sets for U.S. liti… | us | litigation | doc-reading | en | apache-2.0 |
+| 1166 | `jury-trial-request` | Drafts a formal Request for Jury Trial invoking Sixth Amendm… | us | litigation | litigation | en | apache-2.0 |
+| 1167 | `kai-civil-litigation-master-lite` | 资深民商事诉讼律师基于要件审判方法与请求权基础分析法，融合20年诉讼经验和团队管理流程打造，支持民商事诉讼案件全流程处理… | china | litigation | litigation | zh-CN | undeclared |
+| 1168 | `know-how-license` | Drafts Know-How License Agreements for licensing trade secre… | general | general | contract-work | en | apache-2.0 |
+| 1169 | `know-how-license-agreement` | Drafts U.S. know-how (trade secret) license agreements cover… | us | contract-law | contract-work | en | apache-2.0 |
+| 1170 | `ksc-jeanne-sulzer` | 科索沃专门分庭与专门检察官办公室（海牙，适用科索沃法律）的验证优先方法论。引用在使用前均对照 scp-ks.org 核验… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
+| 1171 | `labeling-compliance-review` | Conducts FDA labeling compliance reviews for drugs, foods, d… | us | life-sciences | legal-analysis | en | apache-2.0 |
+| 1172 | `labor-arbitration` | 劳动仲裁全流程辅助技能。当用户提到劳动仲裁、劳动争议、拖欠工资、违法解除、经济补偿金、赔偿金、二倍工资、加班费、劳动维权… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1173 | `labor-arbitration-application` | 根据劳动关系日期、工资、争议类型和现有证据，生成劳动仲裁申请书草稿、备选请求金额、时效提示和证据缺口清单。 | china | arbitration-adr | calculation | zh-CN | undeclared |
+| 1174 | `labor-arbitration-preparation` | 为准备申请劳动仲裁的劳动者提供全流程指导：时效判断、管辖确认、仲裁请求设计、申请书撰写、证据整理与庭审策略，无需律师也能… | china | labor | litigation | zh-CN | undeclared |
+| 1175 | `labor-company-tax-compliance` | 劳务/建筑公司税务实操指南。工资发放合规、公转私风险、成本票处理、 社保与工资的关系、小微企业企业所得税优化。不用再信财… | china | tax | legal-analysis | zh-CN | undeclared |
+| 1176 | `labor-contract-review` | 当用户上传或提供《劳动合同》《聘用合同》《劳务协议》等文件，并希望检查条款是否合法合规、识别不公平或违法条款、获取修改建… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1177 | `labor-dispute` | 劳动者维权技能体系。覆盖从入职签合同到仲裁诉讼的全流程，共8个技能卡。 适用场景： - 入职前检查合同条款 → 用 co… | china | labor | contract-work | zh-CN | undeclared |
+| 1178 | `labor-dispute-simulator` | 劳动纠纷法律程序模拟器，支持仲裁、一审、二审全流程模拟，可扮演员工律师、公司律师、仲裁员、法官等多角色，生成法律文书和证… | china | labor | litigation | zh-CN | mit |
+| 1179 | `labor-fee-calculator` | 劳动法费用计算路由技能。根据用户问题自动分发到子技能：补偿金/赔偿金计算、加班工资计算、未休年休假补偿计算、工伤赔偿计算… | china | labor | calculation | zh-CN | undeclared |
+| 1180 | `labor-law-advisor` | 劳动法律问题咨询。当用户遇到劳动纠纷：工伤认定、合同问题、加班费争议、社保缴纳、竞业限制纠纷、裁员赔偿、仲裁流程等问题时… | china | labor | legal-research | zh-CN | undeclared |
+| 1181 | `labor-law-compliance-check` | 列常见用工合规风险点（合同/工时/解除/女职工），给自查 checklist。明确非律师，重大找专业。 | china | labor | contract-work | zh-CN | mit |
+| 1182 | `labor-law-expert` | Load when user asks about 劳动合同、工资、加班费、社保公积金、工伤、辞退裁员、经济补偿/赔偿金… | china | labor | contract-work | zh-CN | mit |
+| 1183 | `labor-law-helper` | 劳动者维权自助百科。覆盖劳动法、劳动合同法、裁员、辞退、赔偿、经济补偿、N+1、2N、离职补偿计算、拖欠工资、加班费、年… | china | labor | calculation | zh-CN | undeclared |
+| 1184 | `labor-law-kb-zh` | 整理劳动合同、试用期、加班、离职、竞业限制等常见劳动法知识点和材料清单。 核心模块：概念解释、材料清单、流程节点、常见误… | china | labor | compliance | zh-CN | mit |
+| 1185 | `labor-law-rights-guide` | 面向打工人的劳动法科普助手：覆盖加班费、试用期、辞退赔偿、竞业限制、社保等高频场景，讲清你可能享有的权利与常见坑，并指向… | china | labor | contract-work | zh-CN | cc-by-4.0 |
+| 1186 | `labor-rights-guard` | 解析中国劳动法权益并提供维权指引、沟通话术、费用计算和证据收集指导，适用于加班费纠纷、欠薪、违法解雇、社保争议等场景。当… | china | labor | litigation | zh-CN | undeclared |
+| 1187 | `labor-rights-pro` | 劳动争议全流程AI法律助手——从咨询、诉求优化、输赢预判、证据指引，到劳动仲裁（申请/证据/开庭/质证）与法院一审、二审… | china | labor | legal-research | zh-CN | undeclared |
+| 1188 | `labor-termination-cost-comparator` | 当用户要把中国大陆劳动关系解除或终止的事实、合同、工资记录、通知或争议材料，转化为经济补偿金、代通知金、违法解除赔偿金及… | china | labor | contract-work | zh-CN | apache-2.0 |
+| 1189 | `labor-violation-summary` | Produces structured summaries of labor law violation investi… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1190 | `laborpilot` | 本插件由金莉珊律师制作——中国劳动争议智能办案引擎。输入案件材料,产出法律分析、金额计算和仲裁文书。内置96个争点知识卡… | china | labor | legal-analysis | zh-CN | agpl-3.0 |
+| 1191 | `last-will` | Drafts a state-compliant Last Will and Testament covering de… | general | estate-trust | contract-work | en | apache-2.0 |
+| 1192 | `last-will-and-testament` | Drafts and structures U.S. Last Will and Testament documents… | us | contract-law | contract-work | en | apache-2.0 |
+| 1193 | `law-document-generator` | 法律文书生成工具——生成律师事务所介绍信（调取卷宗）、律师事务所函（告知代理）、人口信息查询全套文书（授权委托书+查询申… | china | labor | legal-writing | zh-CN | undeclared |
+| 1194 | `law-exam-trainer` | 法考复习助手 - 根据法考视频/文档资料整理题库，支持选择题练习、错题解析、知识点定位。当用户说：法考、刷题、司法考试、… | china | education-law | education | zh-CN | undeclared |
+| 1195 | `law-expert` | '法眼 ⚖️ v4.0 — 全能法律专家顾问。v4.0升级合同审查引擎（7步流水线+单边利益导向+Playbook五步审… | china | labor | contract-work | zh-CN | undeclared |
+| 1196 | `law-expertise-to-skill-ignacio-adrian-lerer` | 将律师的限定专业知识、工作流、审查标准或法律判断模式转化为安全、可检查的法律 AI skill。当用户提供法律备忘录、意… | china | general | contract-work | zh-CN | agpl-3.0 |
+| 1197 | `law-firm-document-filler` | 律所委托材料自动填写工具。用于将律所标准文书模板（.docx）转换为带占位符的模板， 并根据当事人信息自动填充生成完整的… | china | legal-profession | legal-analysis | zh-CN | undeclared |
+| 1198 | `law-firm-worklog` | 律所工时月报生成（通用版，多数据源）。从用户已配置的任务管理工具（滴答清单 / Notion / Microsoft T… | china | general | legal-analysis | zh-CN | undeclared |
+| 1199 | `law-quiz-m01-criminal` | 法考·模块：刑法——本 Skill 是「法考客观题」职业资格考试《刑法》科目的刷题模块，面向备考考生。题目由 AI 依据… | china | education-law | education | zh-CN | mit |
+| 1200 | `law-quiz-m02-civil` | 法考·模块：民法——本 Skill 是「法考客观题」职业资格考试《民法》科目的刷题模块，面向备考考生。题目由 AI 依据… | china | family | education | zh-CN | mit |
+| 1201 | `law-quiz-m03-crim-proc` | 法考·模块：刑诉法——本 Skill 是「法考客观题」职业资格考试《刑事诉讼法》科目的刷题模块，面向备考考生。题目由 A… | china | education-law | education | zh-CN | mit |
+| 1202 | `law-quiz-m04-civil-proc` | 法考·模块：民诉法——本 Skill 是「法考客观题」职业资格考试《民事诉讼法》科目的刷题模块，面向备考考生。题目由 A… | china | civil-procedure | education | zh-CN | mit |
+| 1203 | `law-quiz-m05-admin` | 法考·模块：行政法——本 Skill 是「法考客观题」职业资格考试《行政法与行政诉讼法》科目的刷题模块，面向备考考生。题… | china | administrative | education | zh-CN | mit |
+| 1204 | `law-quiz-m06-commercial` | 法考·模块：商经法——本 Skill 是「法考客观题」职业资格考试《商法与经济法》科目的刷题模块，面向备考考生。题目由 … | china | corporate | education | zh-CN | mit |
+| 1205 | `law-search` | Korean law/case search via law.go.kr + data.go.kr APIs. Use … | kr | general | legal-analysis | en | undeclared |
+| 1206 | `law-skills` | 一站式法律服务平台 — 专业法律咨询 + 要素式/通用起诉状起草 + 国家法律法规数据库实时查询。集成flk.npc.g… | china | litigation | litigation | zh-CN | mit |
+| 1207 | `law-to-markdown` | 将法条/规范文件（.txt/.docx/.pdf）转为 Markdown。适用于用户要求“法条转 markdown”“p… | china | general | legal-analysis | zh-CN | undeclared |
+| 1208 | `law086` | 案件云(law086) AI集成。让律师通过自然语言操作案件云：查询案件列表和详情、创建案件、更新案件进度和状态、管理日… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1209 | `lawclaw` | Drop a contract, get answers. lawclaw rips through PDFs, spo… | general | contract-law | contract-work | en | undeclared |
+| 1210 | `lawschool-video-autopilot` | Automate online law course video watching on 律师云学院 (lawschoo… | china | general | legal-analysis | zh-CN | undeclared |
+| 1211 | `lawsuit` | The Sovereign Litigation Protocol (SLP-2026). A recursive, h… | general | litigation | legal-analysis | en | undeclared |
+| 1212 | `lawsuit-fee-calc` | Calculate lawsuit filing fees and litigation costs for civil… | china | litigation | litigation | zh-CN | undeclared |
+| 1213 | `lawve-agentic-delegation-audit-ignacio-adrian-lerer` | 当律师、法律团队或客户需要评估能够代表某人行动的 AI 代理时使用：发送消息、搜索、起草、提交、支付、删除、连接账户、使… | china | general | contract-work | zh-CN | agpl-3.0 |
+| 1214 | `lawve-public-due-diligence-gate-ignacio-adrian-lerer` | 用于尽职调查、法律-财务风险审查、投资或商业交易检查清单，以及初步筛查——在这些场景中，事实、文件、假设、法律不确定性、… | china | corporate | contract-work | zh-CN | agpl-3.0 |
+| 1215 | `lawyer` | Draft contracts, review legal documents, and navigate compli… | general | ip | contract-work | en | undeclared |
+| 1216 | `lawyer-ai-guide-2024` | 封装《律师使用AI指南 2024》（无锡市律师协会 编，法律出版社）全文的检索与答疑技能。当律师、法务或法律从业者询问如… | china | data-privacy | legal-research | zh-CN | undeclared |
+| 1217 | `lawyer-assistant` | 根据当事人、纠纷类型、事实经过结构化案件信息，检索中国法律法规与类似案例，输出含定性、法条依据、裁判要点、风险评估和策略… | china | labor | legal-research | zh-CN | undeclared |
+| 1218 | `lawyer-assistant-qilinbashe` | 你的AI律师助手。73个专业版+7个路由/工具+26个工具+1个推图技能（共107个技能文件），覆盖民事/刑事/劳动/非… | china | labor | legal-analysis | zh-CN | declared-only |
+| 1219 | `lawyer-due-diligence` | Professional Chinese legal due diligence report writer. Cove… | china | corporate | contract-work | zh-CN | undeclared |
+| 1220 | `lawyer-engineering-appraisal` | 律师参与建设工程造价司法鉴定操作指引——全流程工作skill。覆盖鉴定准备、委托、材料举证质证、鉴定实施、意见审查质证、… | china | construction | litigation | zh-CN | undeclared |
+| 1221 | `lawyer-fee-quote` | 根据案件类型、财产标的、难度等信息自动生成专业的律师费报价方案Word文档；当用户需要生成律师费报价方案、制作法律服务报… | international | criminal | litigation | zh-CN | undeclared |
+| 1222 | `lawyer-six-steps` | 中国律师办案六步法（事实梳理→法律分析→法理研究→案例检索→裁判规则→结果预判），生成完整案件分析报告。 适用于律师对民… | china | litigation | legal-research | zh-CN | undeclared |
+| 1223 | `lawyer-skills` | 一站式法律服务平台 — 专业法律咨询 + 要素式/通用起诉状起草 + 国家法律法规数据库实时查询。集成flk.npc.g… | china | litigation | litigation | zh-CN | mit |
+| 1224 | `lawyer-workspace-expert` | 为律师生成「文件全在本地」的个人工作台——把案件文件夹、Excel 日程表、诉讼期限、工作备忘聚合成一个打开就能看的三栏… | china | contract-law | legal-analysis | zh-CN | mit |
+| 1225 | `lawyerai-lawyer` | AI法律顾问 v1.1 · 精准引用法条（含生效日期）+可操作行动步骤+合同模板索引+赔偿计算器。企业法务（合同/劳动/… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1226 | `lawyerscrib` | LLM 写出的法律文本看似法律文本，实则不是。空洞的套话、模糊的归因、系统性的模糊表达、装饰性的拉丁文：执业律师三行之内… | fr | contract-law | contract-work | zh-CN | declared-only |
+| 1227 | `lead-based-paint-disclosure` | Drafts federal lead-based paint disclosure forms for pre-197… | us | contract-law | contract-work | en | apache-2.0 |
+| 1228 | `lead-paint-disclosure` | Drafts execution-ready lead-based paint disclosure documents… | us | general | contract-work | en | apache-2.0 |
+| 1229 | `lease-amendment` | Drafts lease amendment agreements that modify specific provi… | general | contract-law | contract-work | en | apache-2.0 |
+| 1230 | `lease-guaranty` | Drafts unconditional guaranty agreements for commercial leas… | general | general | legal-analysis | en | apache-2.0 |
+| 1231 | `lease-summary` | Summarizes U.S. commercial lease agreements into structured … | us | contract-law | doc-reading | en | apache-2.0 |
+| 1232 | `lease-termination-agreement` | Drafts a mutual early lease termination agreement for U.S. c… | us | general | legal-analysis | en | apache-2.0 |
+| 1233 | `legal` | Use for law firm and legal practice operations — case manage… | general | legal-profession | legal-analysis | en | undeclared |
+| 1234 | `legal--org-a2bwkolr` | 中国民事与劳动法律辅助工具集：提供劳动补偿测算、诉讼费计算、合同类型指引、文书骨架与诉讼成本收益评估模板，辅助处理常见民… | china | general | legal-analysis | en | undeclared |
+| 1235 | `legal-abductive-reasoning` | 法律溯因推理（Abductive Reasoning）技能，用于在证据不完整、事实模糊时生成并评估最合理的解释性假设。结… | china | general | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 1236 | `legal-academic-research` | 法学学术研究来源核验与规范写作：先核验来源、再结构分析、后规范写作。解决 AI 辅助法学研究中的幻觉引用、案例虚构、来源… | us | general | legal-analysis | zh-CN | undeclared |
+| 1237 | `legal-advisor` | Generate legal templates for labor, consumer, rental, and tr… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1238 | `legal-advisor-assistant` | A professional legal advisor assistant. Provides professiona… | general | contract-law | legal-analysis | en | undeclared |
+| 1239 | `legal-ai-counsel` | 法律AI助手 - An intelligent legal consultation assistant that he… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1240 | `legal-ai-model-router-stephane-boghossian` | 将任何法律任务路由到合适的 LLM，如同 OpenRouter，但面向法律工作，且以基准而非品牌忠诚为基础。基于 202… | china | contract-law | contract-work | zh-CN | declared-only |
+| 1241 | `legal-aid` | 全流程维权辅助技能，帮助用户识别侵权行为、整理证据、生成法律文书、规划维权路径。覆盖消费者、劳动、租房、行政、报警、互联… | china | litigation | litigation | zh-CN | mit |
+| 1242 | `legal-aid-interview-training` | 模拟刑事法律援助案件的律师会见训练。当用户想要练习法援案件会见技巧、模拟会见在押犯罪嫌疑人/被告人、锻炼会见提问逻辑、刑… | china | litigation | litigation | zh-CN | undeclared |
+| 1243 | `legal-analysis` | 面向中国大陆法律场景的法律问题识别、法律依据梳理、证据审查、程序路径分析与实务风险评估工具。输出法律信息和结构化分析参考… | china | family | legal-analysis | zh-CN | mit-0 |
+| 1244 | `legal-analysis-forge-oliver-schmidt-prietz` | 欧盟数字监管法律分析锻造器（EU Digital Regulation Legal Analysis Forge）——为… | eu | tax | legal-analysis | zh-CN | agpl-3.0 |
+| 1245 | `legal-article-retrieval` | 生成标准化法律检索报告，适用于案例检索、法条检索、类案分析等法律研究场景。当用户需要进行行业或专业分析、预测裁判结果、复… | china | labor | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1246 | `legal-article-summary` | Produces structured summaries of legal scholarship capturing… | general | general | doc-reading | en | apache-2.0 |
+| 1247 | `legal-article-writing` | 按金杜律师事务所"前沿观察"栏目的体例撰写中文法律实务文章——新规解读/评析、client alert、regulato… | china | general | legal-analysis | zh-CN | undeclared |
+| 1248 | `legal-assistant` | 法务助手（Legal Assistant）。协助完成合同接收分类、合同要素抽取、条款风险审查、模板对比、修改建议生成、法… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1249 | `legal-assistant-law` | 面向一人公司和小微团队提供日常法务支持：合同审查、劳动用工、知识产权、公司治理与合规体检。Use when the us… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1250 | `legal-assistant-pro` | 全能法律助手——融合法律咨询、证据分析、文书生成、合同审阅、案由速查、合规尽调、法律检索、案件管理、知识产权专项、产品法… | china | ip | litigation | zh-CN | undeclared |
+| 1251 | `legal-bid-pipeline` | 法务类投标文件八阶段多Agent生成流水线：投标预评估、招标文件解析、知识库检索、并行撰写、六道质检、评分项补强到PDF… | china | general | legal-analysis | zh-CN | mit |
+| 1252 | `legal-breaker` | 法律知识解构专家 - 专门处理法律、合同、合规领域的知识提取，拆解复杂法律逻辑 | china | contract-law | contract-work | zh-CN | undeclared |
+| 1253 | `legal-brief-drafter` | 整理和起草法律文书（庭后意见书、代理词、上诉状、答辩状、反驳意见书、质证意见等）。当用户提供案件素材（庭审笔录、证据清单… | china | litigation | litigation | zh-CN | undeclared |
+| 1254 | `legal-builder-hub-auto-updater` | 检查已安装 skill 的更新：GitHub 用 commit SHA + diff；法律元力 工具包用 catalog… | china | general | legal-analysis | zh-CN | undeclared |
+| 1255 | `legal-builder-hub-cold-start-interview` | 管理配置访谈：推荐并安装中国法 入门包（法律元力 七个 legal-skillpack-* 优先）。 全生态冷启动入口。… | china | general | legal-analysis | zh-CN | undeclared |
+| 1256 | `legal-builder-hub-customize` | 单点修改 hub 管理配置（入门包、监视 registry、更新偏好、allowlist、QA 严格度）， 无需完整冷启… | china | general | legal-analysis | zh-CN | undeclared |
+| 1257 | `legal-builder-hub-disable` | 禁用通过 hub 安装的社区 skill（不删文件）：重命名 SKILL.md 与 hooks，停止触发。 用于「禁用 … | china | general | legal-analysis | zh-CN | undeclared |
+| 1258 | `legal-builder-hub-registry-browser` | 检索监视的 registry：**先法律元力**（REST API：工具包 + 站内 skill），静态 yaml 兜底… | china | general | legal-research | zh-CN | undeclared |
+| 1259 | `legal-builder-hub-related-skills-surfacer` | 根据近期任务推荐相关 skill；优先 法律元力（GET /api/skills、toolkits），再 GitHub … | china | general | legal-research | zh-CN | undeclared |
+| 1260 | `legal-builder-hub-skill-installer` | 从监视的 registry 安装 skill：先读 allowlist；法律元力走便携 zip + install.py… | china | general | legal-analysis | zh-CN | undeclared |
+| 1261 | `legal-builder-hub-skill-manager` | 参考：hub 安装的社区 skill 的卸载/禁用/启用详细流程。默认拒绝操作 cn-localized 正式 skil… | china | general | legal-analysis | zh-CN | undeclared |
+| 1262 | `legal-builder-hub-skills-qa` | 按法律技能设计框架（13 个设计参数、三种法律责任风险、四档结论：可安装 / 有顾虑 / 重大顾虑 / 拒绝安装）评审 … | china | civil-procedure | contract-work | zh-CN | undeclared |
+| 1263 | `legal-builder-hub-uninstall` | 卸载通过 hub 安装的社区 skill（确认后删除文件）。拒绝操作 cn-localized 正式 skill 与 h… | china | general | legal-analysis | zh-CN | undeclared |
+| 1264 | `legal-case-analysis` | 本技能应在用户需要基于案件材料、咨询材料、合同资料、证据材料或检索结果进行法律分析、案件研判、风险评估、诉讼策略、刑事案… | china | criminal | legal-research | zh-CN | cc-by-nc |
+| 1265 | `legal-case-validator-mctmilk` | 用真实案例验证法条分析结果，分析司法实践中的裁判分歧、高频败诉原因和法官审查重点。AI生成的分析必须用真实案例验证。当用… | china | general | legal-research | zh-CN | undeclared |
+| 1266 | `legal-case-visualizer` | 法律案件分析报告可视化工具，将案件分析报告中的主体关系、债权链条、时间轴、风险矩阵等核心内容转换为专业SVG图表，供律师… | china | contract-law | legal-analysis | zh-CN | declared-only |
+| 1267 | `legal-case-wdy` | 类案预判（法律检索+类似案例）。用户描述纠纷（如被骗钱、欠债不还、合同纠纷、被打伤等）时，自动检索相关法律条文和类似判例… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1268 | `legal-citation` | 根据《法学引注手册（第二版）》生成符合规范的中文/外文学术脚注（引注）。接收文字、文献片段、图片、网页链接等任意输入，自… | china | general | legal-analysis | zh-CN | undeclared |
+| 1269 | `legal-citation-manual` | 法学引注手册——中国法学学术引注规范。融合《法学引注手册》（2019年版）体例，覆盖法律法规、司法案例、期刊论文、学术著… | china | general | contract-work | zh-CN | undeclared |
+| 1270 | `legal-citation-verify` | 法规引用验证技能。当用户写文章、报告时引用了法律法规、政策文件、司法解释等，需要对引用的准确性、有效性、合理性进行验证时… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1271 | `legal-cn-api` | 面向AI Agent的中国法律条文检索API部署方案：内置2416部现行法律8万余条文，基于Meilisearch与x4… | china | general | legal-research | zh-CN | undeclared |
+| 1272 | `legal-compliance` | Generate legal documents and ensure compliance for startups.… | eu/us/br | data-privacy | legal-analysis | en | undeclared |
+| 1273 | `legal-compliance-review` | 法律与合规审查全流程自动化技能，面向企业行政、运营、商务、法务小白。 核心能力： (1) 合同关键条款智能提取 —— 解… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1274 | `legal-concept-comprehension` | 当用户要求解释、辨析、拆解或理解某个法律概念时触发此技能。 典型触发场景包括但不限于： - 用户直接询问"什么是XX""… | china | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1275 | `legal-concept-deep-dive-mctmilk` | 深入分析法条中的不确定法律概念（如"合理期限"、"重大误解"、"明显不当"）的内涵、外延、裁判标准和边界案例。当用户想穿… | china | general | legal-analysis | zh-CN | undeclared |
+| 1276 | `legal-consult-corpus` | 法律咨询口径固化平台。从业务群识别法律咨询→匹配历史口径→AI起草回复→律师定稿→口径沉淀→复用度量。三层架构：自动化(… | china | litigation | doc-reading | zh-CN | undeclared |
+| 1277 | `legal-consultant` | AI法律顾问，提供合同审查、法律咨询、文书撰写等专业法律服务 | china | general | contract-work | zh-CN | undeclared |
+| 1278 | `legal-consultation` | General legal consultation entry point to help users identif… | china | family | legal-analysis | zh-CN | undeclared |
+| 1279 | `legal-consultation-report` | 资深律师视角生成高转化率精美咨询报告；当用户需要输出法律咨询报告、风险评估报告、服务方案或促成签单的HTML文档时使用 | china | general | legal-analysis | zh-CN | undeclared |
+| 1280 | `legal-consulting-bundle` | 中国法律咨询AI技能套装 - 基于中国法律知识库，提供合同审查、法律问答、合规检查等AI自动化服务。 覆盖民法典、劳动合… | china | ip | contract-work | zh-CN | undeclared |
+| 1281 | `legal-contract-review` | 对合同、协议、标书、NDA、采购合同、服务合同、合作协议等法律文件进行辅助初筛；提取文本和元数据，检查条款完整性、法律与… | international | contract-law | contract-work | zh-CN | undeclared |
+| 1282 | `legal-contract-review-hetongshenhe` | 法务合同审核与风险批注。This skill should be used when the user uploads … | china | contract-law | contract-work | zh-CN | undeclared |
+| 1283 | `legal-contract-review-playbook` | 结构化英文合同审查工作流：按当事人、义务、风险分配、救济与谈判要点五大模块输出审查清单、问题清单与干系人摘要，适用于商事… | general | general | contract-work | zh-CN | undeclared |
+| 1284 | `legal-contract-reviewer` | 签合同前心里没底？30秒扫描合同全文，标出每个风险条款，告诉你哪里有坑、怎么改。覆盖劳动合同、租房合同、商业合作协议等1… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1285 | `legal-daily` | 生成当���中国法律领域资讯日报的 HTML 仪表盘。自动通过 WebSearch 检索权威法律信息来源（全国人大、国务… | china | general | legal-research | zh-CN | undeclared |
+| 1286 | `legal-database-search` | 【设计思路】基于对抗性验证方法论，以案号（Case Reference Number）为不可变法定标识符构建裁判文书真伪… | china | general | legal-research | zh-CN | undeclared |
+| 1287 | `legal-debate-simulation-mctmilk` | AI扮演对方律师，对己方的法条适用进行全方位攻击，并给出防御策略建议。这是庭前沙盘推演的核心技能。当用户想"自己打自己"… | china | general | legal-analysis | zh-CN | undeclared |
+| 1288 | `legal-decision-tree-mctmilk` | 基于前六步分析结果，为法条生成完整的适用决策流程图（SOP），标注判断节点、证据要求和切换条件。这是法条分析的最终沉淀，… | china | general | legal-research | zh-CN | undeclared |
+| 1289 | `legal-design-assessment` | 对照法律设计原则审计法律文件。从六个维度为文件评分：语言模式（官腔、古语、被动语态、名词化）、可读性（Flesch 阅读… | international | contract-law | contract-work | zh-CN | cc-by-4.0 |
+| 1290 | `legal-diagram` | 当用户需要根据文档、粘贴文本、事项描述、流程、时间线、当事方关系图、义务关系图、公司结构、资金流向或合规工作流生成法律或… | china | contract-law | doc-reading | zh-CN | mit |
+| 1291 | `legal-doc-assistant` | 面向中小企业和个人的法律文书助手：合同审查、协议模板起草、法律条款白话解读与常见法律问题咨询，并提示何时必须找执业律师。 | china | contract-law | contract-work | zh-CN | undeclared |
+| 1292 | `legal-doc-generator` | 为普通人生成可直接提交的个人法律文书：劳动仲裁申请书、租房纠纷催告函、消费维权投诉信，引用具体法条并附证据清单与注意事项… | china | labor | calculation | zh-CN | undeclared |
+| 1293 | `legal-doc-summarizer` | Read contracts, NDAs, terms of service, employment agreement… | general | contract-law | contract-work | en | undeclared |
+| 1294 | `legal-doc-writer` | 中国财税法律文书起草助手。当用户需要起草、审查或修改法律文书时应使用本 Skill，包括：税务筹划报告、法律意见书、合同… | china | tax | contract-work | zh-CN | undeclared |
+| 1295 | `legal-doc-writer-lexcat` | 法律文书智能生成。用户需要生成离婚协议、起诉状、答辩状、借款合同、租赁合同、劳动合同、买卖合同等中国法律文书时使用。按标… | china | litigation | litigation | zh-CN | undeclared |
+| 1296 | `legal-document-assistant` | 提供常见法律文书模板与撰写指导，涵盖劳务纠纷、离婚协议、交通事故、租房协议等场景；当用户需要法律文书模板、撰写建议或遇到… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1297 | `legal-document-drafting-formatting-alessandro-dardano` | 生成格式规范的 Word（.docx）法律文件。用户 提供实质内容（指示、附件、项目 知识）；该 skill 负责文档架… | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 1298 | `legal-document-formatting` | 基于中国人民法院裁判文书制作规范，起草完整的民事判决书或刑事判决书。当用户要求"起草判决书"、"生成裁判文书"、"写民事… | china | litigation | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 1299 | `legal-document-generator` | 多版本法律文书模板生成服务，支持债务、婚姻、劳动、商务及房产等多场景合同与协议。安全本地运行，无需联网，100%合规。 | china | litigation | litigation | zh-CN | undeclared |
+| 1300 | `legal-document-generator-pan` | Generate professional Chinese legal documents including cont… | china | contract-law | litigation | zh-CN | undeclared |
+| 1301 | `legal-document-summarization` | 当需要对判决书、裁定书、调解书、仲裁裁决书、行政处罚决定书等法律文书进行结构化摘要时触发此技能。 典型触发场景包括但不限… | china | arbitration-adr | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1302 | `legal-documents-cellcog` | AI legal documents and contract drafting powered by CellCog.… | general | contract-law | contract-work | en | undeclared |
+| 1303 | `legal-due-diligence` | 中国法律尽职调查底稿与报告撰写工具。支持公司主体尽职调查的完整工作流： 项目初始化→底稿逐章撰写→完整性检查→报告生成。… | china | corporate | due-diligence | zh-CN | undeclared |
+| 1304 | `legal-due-diligence-checklist` | 生成英文法律尽调清单：覆盖公司档案、合同义务、用工/知产/合规、诉讼与监管检索计划及红旗问题摘要，用于交易、投资与供应商… | general | corporate | contract-work | zh-CN | undeclared |
+| 1305 | `legal-element-extraction` | 当需要从案件描述、当事人陈述、聊天记录、媒体报道等非结构化文本中提取具有法律意义的事实时触发此技能。 典型触发场景包括但… | china | contract-law | doc-reading | zh-CN | cc-by-nc-nd-4.0 |
+| 1306 | `legal-essentials` | Understand and handle essential legal matters for a solopren… | us | general | legal-analysis | en | undeclared |
+| 1307 | `legal-evidence-mapping-mctmilk` | 将法条构成要件对应当事人需要证明的事实、举证责任分配和可用证据类型，生成完整的证据作战地图。这是律师实务中最核心的技能。… | china | personal-injury | legal-analysis | zh-CN | undeclared |
+| 1308 | `legal-guard` | Prevents autonomous signing of legal agreements or contracts… | general | contract-law | contract-work | en | undeclared |
+| 1309 | `legal-guidance-vault` | 帮助律师构建和使用个性化法律指导资料库（Legal Guidance Vault）——一个 本地文件夹，其中包含结构化的… | china | general | legal-research | zh-CN | agpl-3.0 |
+| 1310 | `legal-hardened` | Think through any legal situation like a lawyer. Issue spott… | uk | contract-law | legal-analysis | en | undeclared |
+| 1311 | `legal-hybrid-skill` | 合法合规类案与法条查询，优先API，失败自动降级本地库 | china | labor | legal-research | zh-CN | undeclared |
+| 1312 | `legal-intake-case-triage-pilot-thumbgate-shielded` | A high-security legal intake agent for law firms. Prevents u… | us | general | legal-analysis | en | undeclared |
+| 1313 | `legal-intake-conflict-check-agent` | Ultra-high-ticket intake agent for Law Firms. Qualifies lead… | general | general | legal-analysis | en | undeclared |
+| 1314 | `legal-interpretation-argument` | 当法律推理过程中遇到以下情形时触发本技能： （1）法条文本含义模糊、存在多种理解可能； （2）法条适用于具体案件事实时产… | china | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1315 | `legal-issue-matching-manager` | 帮助用户在不确定法律问题属于哪个领域时，根据简短描述和已上传材料，初步判断问题类型、处理优先级、材料缺口和下一步方向，并… | china | litigation | litigation | zh-CN | undeclared |
+| 1316 | `legal-ivangdavila` | Think through any legal situation like a lawyer. Issue spott… | uk | contract-law | legal-analysis | en | undeclared |
+| 1317 | `legal-judgment-prediction` | 根据案件事实描述，综合调用8个原子能力，预测罪名、适用法条、刑期及量刑情节，输出结构化预测报告及置信度评估。 | china | criminal | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1318 | `legal-kb` | 法律知识库检索技能。当用户需要查询法律法规、合同条款、司法解释时激活。触发词：搜一下法律、查一下这个条款、总结这份合同、… | china | administrative | legal-research | zh-CN | undeclared |
+| 1319 | `legal-language-bridge` | 大白话→法律语言：如你说"公司无故辞退我"，它输出完整的劳动仲裁申诉文本 输出 = 法律翻译 + 📋证据清单 + 🗺️维… | china | labor | calculation | zh-CN | undeclared |
+| 1320 | `legal-letter` | Drafts professional legal letters for personal injury litiga… | general | general | legal-analysis | en | apache-2.0 |
+| 1321 | `legal-letter-generator` | 「律师函/法律意见书生成器」—— 输入案件要点，自动生成格式规范、条款精准、风险可控的29类律师函和法律意见书，含极速填… | china | contract-law | legal-writing | zh-CN | undeclared |
+| 1322 | `legal-litigation-viz` | Expert legal litigation visualization tool for creating prof… | china | litigation | litigation | zh-CN | undeclared |
+| 1323 | `legal-matter-intake-summarizer` | 把法律相关咨询材料整理成事实、争议点、缺失材料与后续问题，不给法律结论。；use for legal, intake, … | china | environmental | doc-reading | zh-CN | undeclared |
+| 1324 | `legal-mdl-audit-ignacio-adrian-lerer` | 审计法律 AI 输出和工作流中的诚实压缩：不必要的复杂性、虚假的简单性、过多的保留、隐藏的不确定性，以及每个法律上可接受… | china | general | contract-work | zh-CN | agpl-3.0 |
+| 1325 | `legal-memo` | Drafts U.S. internal legal memoranda using IRAC structure to… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1326 | `legal-memo-writer` | Write formal legal memos with proper structure, citations, l… | eu/us | contract-law | contract-work | en | mit |
+| 1327 | `legal-memorandum` | Drafts objective internal legal memoranda using the CREAC me… | general | general | legal-analysis | en | apache-2.0 |
+| 1328 | `legal-meta-skill` | CSlawyer 法律类元 Skill：面向中国大陆可复用法律 Skill 的创建、改造、审计与评测，覆盖意图收敛、法律… | china | legal-profession | quality-control | zh-CN | apache-2.0 |
+| 1329 | `legal-multi-dimension-analysis` | 法律案件与咨询的多维度协同分析编排层。当用户提供案件材料、要求从多个法律视角（刑事/民事/行政/程序/经侦/律师实务）综… | china | administrative | legal-research | zh-CN | undeclared |
+| 1330 | `legal-needs-analysis` | 把客户口语化、情绪化的原始陈述翻译为律师可用的结构化法律需求分析报告：事实梳理、法律问题识别、证据线索与待确认信息清单，… | china | contract-law | legal-analysis | zh-CN | undeclared |
+| 1331 | `legal-norm-validity-check` | 当AI智能体在法律推理过程中检索到具体法律条文后，需要对该法条进行效力验证时触发此技能。 触发条件包括但不限于： 1. … | china | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1332 | `legal-opinion-letter` | Drafts formal legal opinion letters for corporate and transa… | general | corporate | contract-work | en | apache-2.0 |
+| 1333 | `legal-page-discovery` | Discover and classify a live website's legal/compliance page… | us | general | legal-analysis | en | undeclared |
+| 1334 | `legal-page-generator` | When the user wants to create, optimize, or structure legal … | general | data-privacy | legal-analysis | en | undeclared |
+| 1335 | `legal-page-generator-checklist` | 根据免费、订阅、企业、API或开发者产品类型规划隐私、条款等上线所需页面结构与内容要点，并提示专业审查边界。 | china | securities | contract-work | zh-CN | mit |
+| 1336 | `legal-proof-meeting` | 会议法律风险与证据推理助手。用于准备、主持、审查或复盘合同、劳动用工、公司治理、数据合规、知识产权、消费者权益及一般经营… | china | data-privacy | legal-analysis | zh-CN | declared-only |
+| 1337 | `legal-proposal-generator` | 根据案件材料或沟通记录生成各类法律服务文档（诉讼方案、咨询报告、非诉方案、建议书、沟通报告、结案汇报、案件分析摘要等）。… | china | litigation | litigation | zh-CN | cc-by-nc |
+| 1338 | `legal-qa-extractor` | 从律师与客户沟通记录中提取有价值的法律问答对，生成结构化知识库内容。本技能应在用户需要整理客户咨询记录、从对话中提取可复… | china | general | doc-reading | zh-CN | cc-by-nc-sa-4.0 |
+| 1339 | `legal-reasoning-case-retrieval` | 当用户需要查找与当前法律问题相关的类似案例、相关判决、裁判规则时触发此技能。典型触发场景包括：用户明确要求查找类似案例或… | china | construction | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1340 | `legal-reasoning-risk-assessment` | 从许可资质、监管法规遵循及历史处罚记录四个维度评估企业面临的监管处罚风险。 | china | administrative | compliance | zh-CN | cc-by-nc-nd-4.0 |
+| 1341 | `legal-regulatory-compliance-mapper` | 英文监管合规映射工具：梳理监管义务、控制措施、责任人、证据与复查节奏，输出合规义务地图与升级矩阵，用于合规体系建设与内审… | general | general | legal-analysis | en | undeclared |
+| 1342 | `legal-research` | 中国法律研究助手。当用户描述涉及中国法律的事实情景、提出法律争议问题、询问某行为是否合法合规、要求分析法律条文适用性、或… | china | contract-law | legal-research | zh-CN | mit |
+| 1343 | `legal-research-agl` | Guides legal research from issue framing through authority c… | general | general | legal-analysis | en | apache-2.0 |
+| 1344 | `legal-research-assistant` | 根据用户描述的法律问题，自动检索相关法规、司法解释、典型案例和操作指南。覆盖债务纠纷、劳动争议、合同纠纷三大场景。安全本… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1345 | `legal-research-report` | 公司股权类法律检索研究报告生成器。当用户提出公司股权领域的法律研究命题（如出资责任承担、股权转让效力、股权代持、对赌回购… | china | corporate | legal-research | zh-CN | mit |
+| 1346 | `legal-research-summary` | Synthesizes U.S. statutes, case law, and regulatory guidance… | us | general | legal-analysis | en | apache-2.0 |
+| 1347 | `legal-response` | Generate a response to a common legal inquiry using configur… | general | general | legal-analysis | en | undeclared |
+| 1348 | `legal-retrieval` | 法规检索 Skill — 面向法律从业者及普通用户的法规智能检索工具。当用户需要查询法律依据、查找相关法规、核实法规时效… | china | contract-law | legal-analysis | zh-CN | undeclared |
+| 1349 | `legal-review` | 核验 AI 生成的法律法规和案例引用的准确性。利用元典 Open API 对法规、法条、案例进行逐条比对。当用户提及"复… | china | general | legal-research | zh-CN | undeclared |
+| 1350 | `legal-rights-drafter-claw` | 法律维权草拟虾。识别违约行为并自动起草维权通知函。当用户提到违约、维权、发函、催告、索赔、侵权、律师函、催款函、警告函、… | china | ip | contract-work | zh-CN | undeclared |
+| 1351 | `legal-risk-analysis` | 使用严重程度乘以可能性框架并附升级标准来评估和分类法律风险。在评估合同风险、评估交易敞口、按严重程度对问题分类，或确定事… | fr | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1352 | `legal-risk-assessment` | Assess and classify legal risks using a severity-by-likeliho… | general | general | contract-work | en | undeclared |
+| 1353 | `legal-risk-assessment-anthropic` | 使用严重性×可能性框架及升级标准评估和分类法律风险。用于评估合同风险、评估交易敞口、按严重性对问题分类，或确定某事项是否… | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 1354 | `legal-risk-assistant` | 企业法律避坑专家 — 大成律所王金平律师监制出品。 基于16大核心模块，三步走商业落地体系。 触发：做个体检/评估一下/… | china | corporate | legal-analysis | zh-CN | undeclared |
+| 1355 | `legal-risk-shield` | 基于广东高院、金杜律所、苏州检察院三部风控手册的企业全生命周期法律风险防控体系：公司设立到退出，及企业家个人民商事、家事… | china | corporate | legal-analysis | zh-CN | undeclared |
+| 1356 | `legal-risk-visualization` | 法律风险结构化分析与可视化。基于法律分析文本，执行五步风险抽取模型， 生成四层可视化输出（雷达图数据、风险矩阵、影响路径… | china | general | legal-analysis | zh-CN | undeclared |
+| 1357 | `legal-search` | AI法律数据库检索助手。面向律师、法官助理、法务人员，提供法律法规检索、案例查证、类案分析三大能力，自动生成交互式HTM… | china | labor | legal-research | zh-CN | undeclared |
+| 1358 | `legal-settlement-evaluation-framework` | 英文和解方案评估框架：从责任敞口、证据强度、诉讼成本、非金钱条款、时机与不确定性六个维度比较诉讼与和解，输出评估矩阵与客… | general | general | legal-analysis | zh-CN | undeclared |
+| 1359 | `legal-seven-step-workflow-mctmilk` | 完整的人工智能辅助法条拆解七步工作流，每一步都受四条铁律约束，确保分析质量。律师处理任何法条案件时，从头到尾跑完七步，生… | china | general | legal-research | zh-CN | undeclared |
+| 1360 | `legal-simulation-patrick-munro` | 用于在法律情境中演示 AI 能力的框架。提供涵盖租赁法、商业合同、初创企业争议、雇佣索赔和消费者保护的详细角色设定，并配… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 1361 | `legal-site-generator` | 生成符合App Store要求的静态法律网站（隐私政策、服务条款、支持页、数据删除页），声称满足GDPR与CCPA，输出… | eu/us | data-privacy | legal-analysis | en | undeclared |
+| 1362 | `legal-strategy-summary` | Generates structured litigation strategy summaries synthesiz… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1363 | `legal-structural-analysis-mctmilk` | 对法条进行结构化拆解，分析规范类型、适用主体、构成要件、法律效果等七个维度。当律师或法律学习者需要"拆解"法条、理解法条… | china | general | legal-analysis | zh-CN | undeclared |
+| 1364 | `legal-system-mapper-mctmilk` | 以某个法条为核心节点，构建其上下游法条关联网络，包括上位规范、并列条款、下位细化、程序衔接、竞合分析。当用户想了解某个法… | china | contract-law | legal-analysis | zh-CN | undeclared |
+| 1365 | `legal-terminology` | 当AI智能体在生成、审查或修改任何法律文本（包括但不限于合同、诉状、法律意见书、裁判文书、法规释义、法律备忘录等）时，需… | china | litigation | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1366 | `legal-test-builder-patrick-munro` | 构建一个高保真的交互式法律评估，作为单个自包含的 HTML 工件。输出包括实时倒计时器、带悬停注释问题条款的合同审查任务… | eu | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 1367 | `legal-text-format` | 将法律文本（法律条文或法律案例）转换为规范的 Markdown 格式，删除推广冗余信息。本技能应在用户需要处理法律条文（… | china | general | legal-analysis | zh-CN | cc-by-nc |
+| 1368 | `legal-tos-differ` | Fetches Terms of Service documents, stores snapshots, and pe… | general | general | legal-analysis | en | undeclared |
+| 1369 | `legal-transition-audit-ignacio-adrian-lerer` | 审计从法律 AI 输出到信赖、推荐、执行或现实世界承诺的过渡。在 AI 生成的分析、备忘录、合同审查、合规结论或工作流输… | china | civil-procedure | contract-work | zh-CN | agpl-3.0 |
+| 1370 | `legal-translation` | 将任何语言的法律文件翻译为英文，同时保留 .docx 格式，并翻译修订追踪和页眉/页脚。 每当用户要求将法律文件、合同、… | china | tax | contract-work | zh-CN | mit |
+| 1371 | `legal-translation-2` | Chinese-English legal terminology translation using a curate… | china | administrative | translation | zh-CN | undeclared |
+| 1372 | `legal-translation-us` | 将法律文件从任何语言翻译为英文，同时保留 .docx 格式， 并翻译跟踪更改与页眉/页脚。当用户要求将法律文件、合同、契… | uk | tax | contract-work | zh-CN | mit |
+| 1373 | `legal-verify` | 校验文本内容中的法律引用是否正确：自动抽取文中引用的法规/法条和案例/案号，与权威来源比对语义一致性，核验法规时效性，输… | china | general | quality-control | zh-CN | undeclared |
+| 1374 | `legal-visualization` | 法律图表化与诉讼可视化 Skill，用于把判决书、案件事实、合同关系、诉讼策略、争议链条、证据时间线、责任分配和法律工作… | china | general | legal-writing | zh-CN | undeclared |
+| 1375 | `legal-wechat-weekly` | 法律人公众号助手（周报模式）。当用户提到「关注公众号 / 公众号监测 / 公众号有什么新文章 / 公众号简报 / 公众号… | china | general | legal-research | zh-CN | undeclared |
+| 1376 | `legal-weekly-briefing` | 用户说「生成法律周报」「帮我筛法院公众号文章」「法律简报」「案例入库」时触发。从四个法院公众号（上海一中院/二中院/山东… | china | general | legal-analysis | zh-CN | undeclared |
+| 1377 | `legal-yuanli-skill-manager` | 面向法律问题场景，在法律元力平台检索并推荐最匹配的法律领域 Skill。适用于用户想查找法律 Skill、拆解法律问题、… | china | general | contract-work | zh-CN | undeclared |
+| 1378 | `legalbot` | LegalBot - AI法律小助手，日常法律咨询、合同风险扫描、诉讼成本评估、法律文书生成、时效提醒。 | china | litigation | litigation | zh-CN | undeclared |
+| 1379 | `legaldoc-ai` | 面向律所与法务团队的英文法律文书自动化工具：合同条款提取与比对、文书摘要、法律检索（支持美国CA/NY/TX/联邦法域）… | us | litigation | legal-analysis | en | undeclared |
+| 1380 | `legalizes-matias-gv-rojas-faundez` | 智利法律专家法律助手。当用户就智利的法规、法典、程序或判例提出咨询，且需要以法律和条文引用及可核验来源（BCN）为支撑的… | china | tax | legal-analysis | zh-CN | mit |
+| 1381 | `legalskill-legal-consultation` | 以资深律师分阶段办案思维，结合 RAG 法律知识库检索，为用户提供法律问题初步诊断与行动策略。当用户描述法律纠纷、咨询"… | china | litigation | legal-research | zh-CN | declared-only |
+| 1382 | `legitimate-interest` | GDPR 正当利益评估（LIA）——依据 GDPR 第 6 条第 1 款第(f)项，使用 EDPB 三步测试进行引导式评… | eu/international | general | compliance | zh-CN | cc-by-nc-nd-4.0 |
+| 1383 | `letter-of-intent` | Drafts corporate Letters of Intent for M&A and business tran… | us | corporate | contract-work | en | apache-2.0 |
+| 1384 | `letter-of-intent-loi` | Drafts U.S. corporate transaction Letters of Intent (LOI) fo… | us | corporate | legal-analysis | en | apache-2.0 |
+| 1385 | `lexfolio` | Typeset legal documents from Markdown to print-ready PDF wit… | general | general | legal-analysis | en | apache-2.0 |
+| 1386 | `lexmage-constructionlaw-js2` | Lexmage《建设工程施工合同司法解释（二）》一体化工程法律技能。接收案情简介、合同、起诉状、答辩状、代理词、法律意见… | china | construction | contract-work | zh-CN | undeclared |
+| 1387 | `lexseek` | 法索 AI 法律助手，提供法律条文检索功能。当用户询问法律问题、查询法规条文、查找司法解释、了解法律条款内容时自动触发。… | china | labor | legal-research | zh-CN | undeclared |
+| 1388 | `lgpd` | 巴西《通用数据保护法》（第 13,709/2018 号法律）的 LGPD 合规专家顾问。每当用户询问 LGPD、巴西数据… | eu/br/multi | data-privacy | contract-work | zh-CN | mit |
+| 1389 | `lgpd-sentinel-rafael-mastronardi` | 面向巴西处理操作的 LGPD 指引。涵盖法律依据（第 7 条和第 11 条）、RIPD、事件（第 48-49 条）、数据… | br | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1390 | `license-agreement-summary` | Produces a structured U.S. IP license agreement summary cove… | us | ip | doc-reading | en | apache-2.0 |
+| 1391 | `license-assignment` | Drafts Assignment of License agreements transferring rights … | general | ip | legal-analysis | en | apache-2.0 |
+| 1392 | `lien-foreclosure` | Drafts a mechanic's lien foreclosure complaint to enforce un… | general | contract-law | contract-work | en | apache-2.0 |
+| 1393 | `lien-resolution-summary` | Generates a structured internal lien resolution summary for … | us | contract-law | doc-reading | en | apache-2.0 |
+| 1394 | `limited-partnership-agreement` | Drafts U.S. private equity and venture capital Limited Partn… | us | investment-ma | contract-work | en | apache-2.0 |
+| 1395 | `linkfox-eureka-abstract-image` | 通过Eureka专利数据平台获取专利摘要附图。当用户提到专利摘要附图、专利图纸、专利示意图、专利图片、摘要附图检索、专利… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1396 | `linkfox-eureka-abstract-translated` | 通过Eureka专利数据平台获取专利标题和摘要的翻译版本。当用户要求专利摘要翻译、专利标题翻译、翻译后的专利摘要、其他语… | jp | ip | translation | zh-CN | undeclared |
+| 1397 | `linkfox-eureka-bibliography` | 从Eureka专利数据库查询专利著录项目（Bibliography）信息，包括标题、摘要、申请人、发明人、分类号、优先权… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1398 | `linkfox-eureka-claim-data` | 从Eureka专利数据库查询专利权利要求（Claims）信息。当用户提到专利权利要求、权利要求书、专利Claims、独立… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1399 | `linkfox-eureka-claim-translated` | 通过Eureka专利数据平台获取翻译后的专利权利要求。当用户询问专利权利要求、权利要求翻译、查看特定语言（中文、英文或日… | jp | ip | translation | zh-CN | undeclared |
+| 1400 | `linkfox-eureka-description` | 通过Eureka专利数据平台获取专利说明书（描述）数据。当用户提到专利说明书、专利全文、专利技术描述、专利实施方式详情、… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1401 | `linkfox-eureka-description-translated` | 通过Eureka专利数据平台获取翻译后的专利说明书（描述）文本。当用户要求专利说明书翻译、其他语言的专利全文、翻译后的专… | jp | ip | translation | zh-CN | undeclared |
+| 1402 | `linkfox-eureka-patent-family` | 通过Eureka专利数据平台查询专利家族信息，包括简单同族、INPADOC同族和PatSnap同族。当用户提到专利家族、… | eu | ip | legal-analysis | zh-CN | undeclared |
+| 1403 | `linkfox-eureka-patent-image-search` | 通过Eureka专利平台进行专利图像检索（以图搜图），上传一张图片URL即可检索外观设计或实用新型的相似专利。当用户提到… | china | ip | legal-research | zh-CN | undeclared |
+| 1404 | `linkfox-ruiguan-copyright-detection` | 图片版权侵权检测与风险分析。当用户提到版权检测、版权核查、图片侵权检查、图片版权风险、版权相似度搜索、TRO风险分析、权… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1405 | `linkfox-ruiguan-detection-patent-design` | 基于睿观的外观专利侵权检测，支持25+国家/地区的图片专利检索。当用户提到外观专利检测、专利侵权检查、专利风险分析、TR… | china | ip | legal-research | zh-CN | undeclared |
+| 1406 | `linkfox-ruiguan-trademark-graphic-detection` | 产品图片的图形商标检测与相似度搜索。当用户提到商标检测、图形商标搜索、Logo侵权检查、商标相似度分析、图片商标风险评估… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1407 | `linkfox-ruiguan-utility-patent-detection` | 基于产品信息检测和搜索相似的实用新型/发明专利。当用户提到实用新型专利检测、专利侵权风险、专利相似度搜索、专利排查、发明… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1408 | `linkfox-zhihuiya-abstract-data-translated` | 从智慧芽（PatSnap）专利数据库获取专利标题和摘要的翻译版本。当用户要求专利摘要翻译、专利标题翻译、翻译后的专利摘要… | jp | ip | translation | zh-CN | undeclared |
+| 1409 | `linkfox-zhihuiya-abstract-image` | 通过专利ID或公开号从智慧芽专利数据库获取专利摘要附图。当用户提到专利摘要附图、专利图纸、专利示意图、专利图片、摘要附图… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1410 | `linkfox-zhihuiya-bibliography` | 通过专利ID或公开号查询智慧芽专利数据库中的专利著录（书目）信息。当用户提到专利著录信息查询、专利书目信息、专利申请人查… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1411 | `linkfox-zhihuiya-claim-data` | 从智慧芽（PatSnap）获取专利权利要求数据。当用户提到专利权利要求、权利要求文本、独立权利要求、从属权利要求、权利要… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1412 | `linkfox-zhihuiya-claim-data-translated` | 从智慧芽专利数据库获取翻译后的专利权利要求。当用户询问专利权利要求、权利要求翻译、查看特定语言（中文、英文或日文）的权利… | jp | ip | translation | zh-CN | undeclared |
+| 1413 | `linkfox-zhihuiya-description-data` | 通过专利ID或公开号从智慧芽专利数据库获取专利说明书（描述）数据。当用户提到专利说明书、专利全文、专利技术描述、专利实施… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1414 | `linkfox-zhihuiya-description-data-translated` | 从智慧芽获取翻译后的专利说明书（描述）文本。当用户要求专利说明书翻译、其他语言的专利全文、翻译后的专利全文，或想查看中文… | jp | ip | translation | zh-CN | undeclared |
+| 1415 | `linkfox-zhihuiya-fulltext-image` | 通过专利ID或公开号获取专利文件中的全文附图（图纸、示意图、图表）。当用户询问专利图片、专利图纸、专利示意图、专利插图、… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1416 | `linkfox-zhihuiya-legal-status` | 从智慧芽（PatSnap）数据库查询专利法律状态信息。当用户提到专利法律状态、专利有效性核查、专利状态查询、专利事件历史… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1417 | `linkfox-zhihuiya-patent-cited` | 从智慧芽（PatSnap）查询专利被引用数据，包括被引用次数和引用专利详情。当用户提到专利被引用、被引分析、专利影响力、… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1418 | `linkfox-zhihuiya-patent-family` | 通过专利ID或公开号查询智慧芽（PatSnap）的专利家族信息。当用户提到专利家族、专利家族搜索、简单同族、INPADO… | international | ip | legal-analysis | zh-CN | undeclared |
+| 1419 | `linkfox-zhihuiya-patent-forward-citation` | 从智慧芽专利数据库查询专利的前向引用详情。当用户询问专利引用、被引用专利、引用文献、专利参考文献、前向引用、在先技术引用… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1420 | `linkfox-zhihuiya-patent-image-search` | 基于智慧芽的专利图片相似度搜索，支持通过图片URL检索外观设计专利。当用户提到专利图片搜索、外观设计专利侵权检查、外观专… | china | ip | legal-research | zh-CN | undeclared |
+| 1421 | `linkfox-zhihuiya-pdf-data` | 通过专利ID或公开号从智慧芽专利数据库下载专利PDF全文文档。当用户提到专利PDF下载、专利全文、专利文件获取、公开号查… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1422 | `linkfox-zhihuiya-simple-bibliography` | 从智慧芽专利数据库查询专利简要著录（书目）数据。当用户提到专利著录信息查询、专利基本信息获取、专利书目数据、专利公开详情… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1423 | `linkfox-zhihuiya-utility-patent-image-search` | 基于智慧芽的专利图片相似度搜索，支持通过图片URL检索实用新型专利。当用户提到实用新型专利图片搜索、实用新型专利侵权检查… | china | ip | legal-research | zh-CN | undeclared |
+| 1424 | `lis-pendens` | Drafts a U.S. Lis Pendens (Notice of Pending Action) for rec… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1425 | `listed-company-compliance` | 中国上市公司合规管理助手：覆盖独立董事、信息披露、重大资产重组、股东减持、关联交易、ESG等领域，基于证监会与上交所规则… | china | corporate | compliance | zh-CN | undeclared |
+| 1426 | `listed-company-lifecycle-tax-advisory` | 各类型拟上市与上市公司全生命周期财税顾问与内控框架专项助手。覆盖板块定位与上市路径论证（主板/科创板/创业板/北交所/新… | china | tax | compliance | zh-CN | mit-0 |
+| 1427 | `litigacion-latam-joselyne-garcia-montesdeoca` | 拉丁美洲大陆法系（civil law）诉讼专家顾问。协助诉讼律师、内部法务团队和直接客户处理程序策略、风险分析、战术选项… | fr | general | contract-work | zh-CN | agpl-3.0 |
+| 1428 | `litigation` | Root reference for litigation practice spanning civil, crimi… | general | ip | legal-analysis | en | apache-2.0 |
+| 1429 | `litigation-analysis` | 诉讼分析工具 - 判决书深度分析，生成上诉/再审决策支持 | china | litigation | litigation | zh-CN | cc-by-nc |
+| 1430 | `litigation-attack-defense-workflow` | 诉讼攻防全流程六步交付。输入起诉状、原告证据清单、被告证据清单，依次完成六步：质证评估报告、攻防矩阵与法官发问预判、风险… | china | litigation | litigation | zh-CN | undeclared |
+| 1431 | `litigation-brief-section-drafter` | 按照本所风格起草中国法律文书，与案件理论保持一致——每项事实均有出处，每项引用均经核实，每项论点均与案件理论挂钩。当用户… | china | litigation | litigation | zh-CN | undeclared |
+| 1432 | `litigation-case-strategy` | Develops comprehensive litigation strategy across the full c… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1433 | `litigation-chronology` | 从声明的文件来源和上传文件中构建或更新案件时间线——提取有日期的事件、去重，并按案件理论标注重要性。当用户要求从证据材料… | china | litigation | litigation | zh-CN | undeclared |
+| 1434 | `litigation-claim-chart` | 构建或审查要素对应表——专利权利要求图表（侵权、无效或审查）或民事要件图表（适用于任何请求权基础或抗辩事由）——每格均附… | china | litigation | litigation | zh-CN | undeclared |
+| 1435 | `litigation-cn-evidence-review` | 证据初步审查——对已有证据进行三性评估和证明力分级，生成待证事实清单与证据清单，识别证据缺口并提出补充建议，预判对方质证… | china | litigation | litigation | zh-CN | undeclared |
+| 1436 | `litigation-cold-start-interview` | 诉讼插件首次配置——按角色分流（法务、律所律师、独立执业）、 按立场分流（原告、被告、两者皆有），捕获风险校准、执业背景… | china | litigation | litigation | zh-CN | undeclared |
+| 1437 | `litigation-customize` | 引导式自定义你的诉讼业务规范——修改一项而不重新运行整个首次配置访谈。 调整执业角色、立场（原告/被告/混合）、风险校准… | china | civil-procedure | contract-work | zh-CN | undeclared |
+| 1438 | `litigation-deadline-calendar` | 根据排期令为诉讼和仲裁期限制作日历。解析 PDF 排期令、识别关键日期、使用适用规则（科罗拉多 CRCP、联邦 FRCP… | us | arbitration-adr | litigation | zh-CN | mit |
+| 1439 | `litigation-demand-draft` | 基于已完成的信息采集，撰写律师函/催告函的内控工作流。 以物抵债风险审查、诉前调解可能性评估。 输出.docx文件，发函… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1440 | `litigation-demand-intake` | 律师函/催告函起草前的上下文信息采集技能——涵盖当事人、事实依据、法律基础、谈判筹码、BATNA（最佳替代方案）及保密义… | china | civil-procedure | contract-work | zh-CN | undeclared |
+| 1441 | `litigation-demand-received` | 收到律师函的分诊处理——提取字段、交叉检查案件组合、评估实质、提出回应选项并给出建议，并根据需要移交给案件受理或催告处理… | china | contract-law | litigation | zh-CN | undeclared |
+| 1442 | `litigation-deposition-prep` | 为中国民事诉讼庭审准备证人/当事人发问提纲——从文档库中提取证据，围绕案件核心事实组织问题，并准备质证材料。当用户输入“… | china | litigation | litigation | zh-CN | undeclared |
+| 1443 | `litigation-docs-generator` | 民商事诉讼文书成套生成技能（诉状文本生成）。当用户要求起草民事起诉状、生成诉讼文书材料、准备立案材料时触发。自动生成10… | china | litigation | contract-work | zh-CN | mit |
+| 1444 | `litigation-docs-generator-tencent` | 民商事诉讼文书成套生成技能（诉状文本生成）。当用户要求起草民事起诉状、生成诉讼文书材料、准备立案材料时触发。自动生成8份… | china | litigation | legal-research | zh-CN | mit |
+| 1445 | `litigation-fee-calculator` | 用于计算中国法院诉讼费、案件受理费和申请费，依据《诉讼费用交纳办法》（国务院令第481号）第十三条、第十四条。用户询问或… | china | litigation | calculation | zh-CN | undeclared |
+| 1446 | `litigation-hold-notice-drafter` | Use this skill when in-house counsel, a litigation paralegal… | us | litigation | contract-work | en | undeclared |
+| 1447 | `litigation-hub` | 诉讼信息中枢系统。接收法院短信、送达链接、纸质文书照片，自动 OCR 识别、下载、归档、归类到标准案卷目录。基于 12 … | china | litigation | litigation | zh-CN | mit |
+| 1448 | `litigation-hub-tencent` | 诉讼信息中枢系统。接收法院短信、送达链接、纸质文书照片，自动 OCR 识别、下载、归档、归类到标准案卷目录。基于 12 … | china | litigation | litigation | zh-CN | mit |
+| 1449 | `litigation-intake-assessment` | 生成中国大陆争议解决与诉讼管理场景下的《案件初步评估报告》，适用于接案评估阶段对案件基本事实、初步证据材料、我方诉求和管… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1450 | `litigation-jurisdiction` | 帮助用户判断国内民事诉讼案件的管辖法院；当用户询问"哪个法院管"、"去哪起诉"、"管辖怎么确定"、"案件属于哪个法院"时… | china | contract-law | litigation | zh-CN | undeclared |
+| 1451 | `litigation-legal-hold` | 发出、更新、解除或报告证据保全通知——将保全通知起草为 .docx， 更新 _log.yaml 中的保全字段，并排期下次… | china | civil-procedure | litigation | zh-CN | undeclared |
+| 1452 | `litigation-matter-briefing` | 单个案件深度简报——当前姿态、变化之处、下个节点、 待解决问题和风险重评估检查，适用于向法务负责人汇报或外部律师通话前准… | china | general | litigation | zh-CN | undeclared |
+| 1453 | `litigation-matter-close` | 结案——捕获结果、最终敞口和反思教训，从活跃案件组合中归档但不删除记录。 当用户需要结案、说"[案件]结束了"或需要记录… | china | litigation | litigation | zh-CN | undeclared |
+| 1454 | `litigation-matter-intake` | 登记新案件——统一问题涵盖标识信息、利益冲突检索、来源、 风险分流、重要性、外聘律师、内部负责人、证据保全和关键日期； … | china | civil-procedure | contract-work | zh-CN | undeclared |
+| 1455 | `litigation-matter-update` | 向案件历史文件追加带日期的事件记录并刷新日志行—— 捕获新进展、状态变化、风险重评估、期限变更和和解授权变更。 当用户需… | china | litigation | litigation | zh-CN | undeclared |
+| 1456 | `litigation-matter-workspace` | 为多客户执业场景管理案件工作空间——创建、列表、切换、关闭或脱离活跃案件。 当用户需要创建新案件工作空间、切换活跃案件、… | china | litigation | litigation | zh-CN | undeclared |
+| 1457 | `litigation-oc-status` | 为活跃案件组合中的各外聘律师生成每周状态请求邮件草稿—— 每案一份 markdown。当用户要求向外聘律师发状态请求、 … | china | litigation | litigation | zh-CN | undeclared |
+| 1458 | `litigation-portfolio-status` | 从 _log.yaml 汇总案件组合——风险分布、即将到期的节点、 陈旧案件、重要性汇总、阶段分布和异常标注。 当用户问… | china | litigation | litigation | zh-CN | undeclared |
+| 1459 | `litigation-prep-skill-cn` | 面向中国民事诉讼的结构化分析 Skill，用于案由识别、请求权基础分析、构成要件事实拆解与证据清单生成。 | china | litigation | litigation | zh-CN | undeclared |
+| 1460 | `litigation-response` | 解析起诉状内容，提炼争议焦点，制定系统化应诉策略；当收到原告起诉状需要梳理诉讼思路、分析法律关系或制定答辩方向时使用 | china | litigation | litigation | zh-CN | undeclared |
+| 1461 | `litigation-strategist` | Systematic litigation analysis skill combining judge and law… | china | litigation | legal-analysis | zh-CN | mit |
+| 1462 | `litigation-strategy` | 「诉讼策略大师」—— 面向民商事诉讼/仲裁案件，资深律师基于案情与客户根本需求，定制多套诉讼策略方案（含利弊分析+证据清… | china | litigation | litigation | zh-CN | undeclared |
+| 1463 | `litigation-strategy-report` | 自动生成中国诉讼案件的《诉讼策略与类案检索报告》，基于案情拆解争议焦点并编排法条/类案检索工具，当用户提到案件分析、诉讼… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1464 | `litigation-subpoena-triage` | 处理送达公司的调查令、行政协查通知或证人出庭通知—— 分类、分析范围/负担/保密、交叉检索案件组合， 生成异议框架、合规… | china | litigation | litigation | zh-CN | undeclared |
+| 1465 | `litigation-support-summary` | Generates structured management summaries of active commerci… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1466 | `litigation-trial-prep` | 诉讼律师孵化器——庭前准备与庭审推演专家。帮助执业律师在开庭前进行系统性准备： 分析案情与证据材料（民事起诉状、答辩状、… | china | litigation | litigation | zh-CN | undeclared |
+| 1467 | `litigation-visualization` | 将诉讼材料转化为可编辑可视化图表（主体关系图、事件时间线、要件证据矩阵、阶段计划），来源绑定冻结事实模型并带授权安全门，… | china | contract-law | litigation | zh-CN | mit |
+| 1468 | `litigation-visualization-plus` | 将起诉状、答辩状、证据目录、庭审笔录、裁判文书、合同、咨询记录等法律服务文本，转化为结构化诉讼可视化图表（对话内 HTM… | china | litigation | litigation | zh-CN | cc-by-nc |
+| 1469 | `liuye-legal-intelligent-search` | 法律事务处理的标准RAG（检索增强生成）策略与完整流程。包含：①并行检索策略（北大法宝+IMA知识库）②标准流程（问题识… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1470 | `loan-and-security-agreement` | Drafts a U.S. secured Loan and Security Agreement with UCC A… | us | contract-law | contract-work | en | apache-2.0 |
+| 1471 | `loan-forbearance` | Drafts lender-protective U.S. commercial loan forbearance ag… | us | contract-law | contract-work | en | apache-2.0 |
+| 1472 | `loan-modification-agreement` | Drafts a U.S. commercial Loan Modification Agreement amendin… | us | general | legal-analysis | en | apache-2.0 |
+| 1473 | `loan-need-clarifier` | 借贷需求梳理助手：在用户接触任何机构前，帮其把贷款需求想清楚——用途、金额、期限、还款来源、可承受成本、已有负债，形成一… | china | general | contract-work | zh-CN | undeclared |
+| 1474 | `loc-security-deposit` | Drafts irrevocable standby letters of credit serving as secu… | general | general | contract-work | en | apache-2.0 |
+| 1475 | `local-counsel-manager-scott-margetts` | 多法域法律事务的外部当地律师（LC）端到端生命周期管理。包括 LC 选择标准与能力评估、委托设置与指示设计、绩效监控与检… | china | legal-profession | legal-analysis | zh-CN | apache-2.0 |
+| 1476 | `lock-up-agreement` | Drafts U.S. IPO/secondary offering lock-up agreements restri… | us | contract-law | contract-work | en | apache-2.0 |
+| 1477 | `lpa-agreement` | Drafts institutional-quality Limited Partnership Agreements … | general | investment-ma | legal-analysis | en | apache-2.0 |
+| 1478 | `lvdian-legal-search` | 法律法规与司法解释的精准检索、现行有效性核验与深度解读。当用户要求查法条、检索某部法规、找法律依据、确认某条规定、核实法… | china | general | legal-research | zh-CN | undeclared |
+| 1479 | `lvshen-contract-review` | 面向执业律师的合同审查工作流。当用户请求审查合同（含「审查/审合同/看下这份合同/甲方角度/乙方角度/帮我过一遍/把关/… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1480 | `lxs-legal-workflow` | 法律案件类案检索与民事起诉状自动生成技能。当用户提供案情简介并要求检索类案、整理案例表格、生成起诉状初稿时触发。涵盖五步… | china | litigation | legal-research | zh-CN | undeclared |
+| 1481 | `m2026071005` | 对目标企业做招投标维度合规尽调：检索废标、投诉、行政处罚、黑名单、围标串标记录并穿透关联方风险，输出分级风控预警报告，用… | china | general | compliance | zh-CN | undeclared |
+| 1482 | `ma-closing-checklist` | Drafts a party-coded M&A closing checklist for U.S. stock pu… | us | corporate | contract-work | en | apache-2.0 |
+| 1483 | `ma-transaction-summary` | Generates structured M&A transaction summaries from deal doc… | general | corporate | doc-reading | en | apache-2.0 |
+| 1484 | `mac-clipboard-to-md` | 仅限macOS使用。剪贴板快速保存到 Markdown 笔记。 本 Skill为一次性安装skill，使用 AskUse… | china | general | legal-analysis | zh-CN | mit |
+| 1485 | `madrid-trademark` | 马德里商标国际注册全流程实务技能，面向中国商标/专利代理师，整合 CNIPA 实务衔接。覆盖国际注册申请、临时驳回与异议… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1486 | `major-issue-due-diligence-checklist` | 法律尽职调查重大问题提示专用材料核查清单。适用于交易、重整及行业专项尽调启动时，按主体治理、资产、债权债务、劳动用工、税… | china | corporate | compliance | zh-CN | undeclared |
+| 1487 | `managed-care-contract` | Drafts managed care contracts between MCOs and healthcare pr… | us | contract-law | contract-work | en | apache-2.0 |
+| 1488 | `management-rights-letter` | Drafts management rights letters for VC/PE equity investment… | us | contract-law | contract-work | en | apache-2.0 |
+| 1489 | `mandarinat` | 面向法学教师—研究人员的学术助手。六项任务：(1) 以学说为重点的深度法律检索，(2) 文档重读，含参考文献核查、Wor… | fr | general | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1490 | `mandatory-verification` | 在将任何非琐碎的事实主张作为真实内容呈现之前，强制执行外部核实工作流。当 Claude 被要求研究任何主题、回答事实性问… | uk | contract-law | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 1491 | `manke-software-law-expert` | 漫客软件法律专家——对软件代码或产品文档进行法律合规审查，识别违反中国及国际法律法规的风险点，含行政责任和刑事责任判定。… | china/eu/us/multi | data-privacy | contract-work | zh-CN | undeclared |
+| 1492 | `marital-settlement-agreement` | Drafts Marital Settlement Agreements for divorce proceedings… | general | contract-law | contract-work | en | apache-2.0 |
+| 1493 | `maritime-case-summary` | Produces structured summaries of maritime law cases covering… | us | litigation | doc-reading | en | apache-2.0 |
+| 1494 | `markman-hearing-brief` | Drafts Markman Hearing Briefs for patent claim construction … | us | general | litigation | en | apache-2.0 |
+| 1495 | `marriage-civil-agreement-assistant` | 提供婚前协议、离婚协议、借款借条、合伙约定等民事协议模板与核心条款要点，提示效力与风险。 触发场景：用户说 "婚前协议"… | china | family | legal-analysis | zh-CN | mit |
+| 1496 | `marriage-family-assistant` | 婚姻家事助手面向普通当事人、律师和律师助理，围绕离婚协议审查、协议事项梳理、草案生成、财产分割、子女抚养、夫妻债务和诉讼… | china | family | contract-work | zh-CN | undeclared |
+| 1497 | `marriage-law-consultant` | 提供基于最新法规的中国婚姻家庭法律咨询，涵盖离婚流程、财产分割、抚养权、家暴保护及过错赔偿等问题。本地安全运行。 | china | family | contract-work | zh-CN | undeclared |
+| 1498 | `marriage-law-expert` | 婚姻法专家 — 婚姻家庭法律咨询+离婚起诉状起草。涵盖民法典婚姻家庭编全部核心内容：结婚/离婚/财产分割/子女抚养/夫妻… | china | litigation | litigation | zh-CN | mit |
+| 1499 | `matter-allocation-instruction` | 为法务运营团队提供律所-事项匹配、事项委托起草、律所入职检查清单和委托审计。按业务领域、法域、复杂度和成本层级将新事项匹… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1500 | `matter-intake-scoping-scott-margetts` | 覆盖完整执行前弧线的事项范围界定——将客户数据整理为结构化简报、捕获约定基线，或中途重建范围。当在报价方案之前理解客户信… | china | general | legal-analysis | zh-CN | apache-2.0 |
+| 1501 | `matter-plan-builder-scott-margetts` | 将商定的范围转化为结构化的事项计划 — 阶段、工作流、里程碑、依赖关系、责任人分配和事项设置决策。在规划新事项、进行启动… | china | general | legal-analysis | zh-CN | apache-2.0 |
+| 1502 | `mayi-arbitration-defense-gen` | 生成劳动仲裁答辩状（含抗辩理由与证据清单）：交互式采集地区、金额、期间参数并按最新劳动法规校验，供企业应对员工提起的劳动… | china | labor | litigation | zh-CN | undeclared |
+| 1503 | `mayi-cnwork-1758` | 处理“法务意见业务翻译”，面向采购、供应链、物流、制造、门店、行政和运营管理人员，基于真实业务材料完成任务执行型任务，并… | china | tax | legal-analysis | zh-CN | undeclared |
+| 1504 | `mayi-equity-incentive-calculator` | 蚂蚁工资条股权期权激励计算器。当用户需要计算股权激励收益、设计期权方案、比较RSU与期权的税务差异、评估虚拟股票价值、测… | china | tax | calculation | zh-CN | undeclared |
+| 1505 | `mayi-labor-dispute-risk` | 蚂蚁工资条劳动争议风险评估工具。当用户描述劳动争议场景、咨询被辞退/裁员/解雇法律风险、评估企业用工法律风险、查询同类判… | china | labor | legal-research | zh-CN | undeclared |
+| 1506 | `mayi-work-injury-claim-guide` | 指导企业与员工办理工伤认定申请：按地区政策生成材料清单与流程指引，覆盖申请时限、材料要求与工伤待遇衔接。 | china | labor | legal-analysis | zh-CN | undeclared |
+| 1507 | `mayi-work-injury-comp-calc` | 蚂蚁工资条工伤待遇计算器。覆盖停工留薪期工资、一次性伤残补助金、伤残津贴、一次性医疗/就业补助金。当用户询问工伤待遇计算… | china | labor | calculation | zh-CN | undeclared |
+| 1508 | `mayi-work-injury-rate-lookup` | 查询各行业工伤保险基准费率与浮动费率：按地区和行业参数输出费率结果与政策依据说明，供企业核算用工社保成本。 | china | labor | legal-analysis | zh-CN | undeclared |
+| 1509 | `mayihr-batch-plus-0738` | 批量工伤申报。批量工伤事故登记→材料收集→工伤认定申请→进度跟踪→待遇申领。当HR、管理者或员工需要完成该项工作时使用；… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1510 | `mayihr-city-arbitration-201` | 北京劳动人事争议仲裁申请指引。北京仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1511 | `mayihr-city-arbitration-202` | 上海劳动人事争议仲裁申请指引。上海仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1512 | `mayihr-city-arbitration-203` | 广州劳动人事争议仲裁申请指引。广州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1513 | `mayihr-city-arbitration-204` | 深圳劳动人事争议仲裁申请指引。深圳仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1514 | `mayihr-city-arbitration-205` | 杭州劳动人事争议仲裁申请指引。杭州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1515 | `mayihr-city-arbitration-206` | 成都劳动人事争议仲裁申请指引。成都仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1516 | `mayihr-city-arbitration-207` | 武汉劳动人事争议仲裁申请指引。武汉仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1517 | `mayihr-city-arbitration-208` | 南京劳动人事争议仲裁申请指引。南京仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1518 | `mayihr-city-arbitration-209` | 苏州劳动人事争议仲裁申请指引。苏州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1519 | `mayihr-city-arbitration-210` | 西安劳动人事争议仲裁申请指引。西安仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1520 | `mayihr-city-arbitration-211` | 天津劳动人事争议仲裁申请指引。天津仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1521 | `mayihr-city-arbitration-212` | 重庆劳动人事争议仲裁申请指引。重庆仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1522 | `mayihr-city-arbitration-213` | 厦门劳动人事争议仲裁申请指引。厦门仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1523 | `mayihr-city-arbitration-214` | 长沙劳动人事争议仲裁申请指引。长沙仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1524 | `mayihr-city-arbitration-215` | 青岛劳动人事争议仲裁申请指引。青岛仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1525 | `mayihr-city-arbitration-216` | 合肥劳动人事争议仲裁申请指引。合肥仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1526 | `mayihr-city-arbitration-217` | 郑州劳动人事争议仲裁申请指引。郑州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1527 | `mayihr-city-arbitration-218` | 大连劳动人事争议仲裁申请指引。大连仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1528 | `mayihr-city-arbitration-220` | 福州劳动人事争议仲裁申请指引。福州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1529 | `mayihr-city-arbitration-221` | 济南劳动人事争议仲裁申请指引。济南仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1530 | `mayihr-city-arbitration-222` | 沈阳劳动人事争议仲裁申请指引。沈阳仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1531 | `mayihr-city-arbitration-223` | 昆明劳动人事争议仲裁申请指引。昆明仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1532 | `mayihr-city-arbitration-224` | 无锡劳动人事争议仲裁申请指引。无锡仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1533 | `mayihr-city-arbitration-225` | 佛山劳动人事争议仲裁申请指引。佛山仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助获取途径… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1534 | `mayihr-city-plus-0077` | 珠海工伤认定与待遇申领指引。珠海工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1535 | `mayihr-city-plus-0078` | 温州工伤认定与待遇申领指引。温州工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1536 | `mayihr-city-plus-0079` | 泉州工伤认定与待遇申领指引。泉州工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1537 | `mayihr-city-plus-0080` | 石家庄工伤认定与待遇申领指引。石家庄工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1538 | `mayihr-city-plus-0081` | 太原工伤认定与待遇申领指引。太原工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1539 | `mayihr-city-plus-0082` | 兰州工伤认定与待遇申领指引。兰州工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1540 | `mayihr-city-plus-0083` | 南昌工伤认定与待遇申领指引。南昌工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1541 | `mayihr-city-plus-0084` | 贵阳工伤认定与待遇申领指引。贵阳工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1542 | `mayihr-city-plus-0085` | 海口工伤认定与待遇申领指引。海口工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1543 | `mayihr-city-plus-0086` | 银川工伤认定与待遇申领指引。银川工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1544 | `mayihr-city-plus-0087` | 西宁工伤认定与待遇申领指引。西宁工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。当H… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1545 | `mayihr-city-plus-0088` | 乌鲁木齐工伤认定与待遇申领指引。乌鲁木齐工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1546 | `mayihr-city-plus-0089` | 哈尔滨工伤认定与待遇申领指引。哈尔滨工伤认定申请流程+劳动能力鉴定+伤残补助金/津贴/工亡待遇计算+材料模板+时限要求。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1547 | `mayihr-city-plus-0121` | 东莞劳动人事争议仲裁申请指引。东莞仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1548 | `mayihr-city-plus-0122` | 珠海劳动人事争议仲裁申请指引。珠海仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1549 | `mayihr-city-plus-0123` | 温州劳动人事争议仲裁申请指引。温州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1550 | `mayihr-city-plus-0125` | 石家庄劳动人事争议仲裁申请指引。石家庄仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1551 | `mayihr-city-plus-0126` | 太原劳动人事争议仲裁申请指引。太原仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1552 | `mayihr-city-plus-0127` | 兰州劳动人事争议仲裁申请指引。兰州仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1553 | `mayihr-city-plus-0128` | 南昌劳动人事争议仲裁申请指引。南昌仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1554 | `mayihr-city-plus-0129` | 贵阳劳动人事争议仲裁申请指引。贵阳仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1555 | `mayihr-city-plus-0130` | 海口劳动人事争议仲裁申请指引。海口仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1556 | `mayihr-city-plus-0131` | 银川劳动人事争议仲裁申请指引。银川仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1557 | `mayihr-city-plus-0132` | 西宁劳动人事争议仲裁申请指引。西宁仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1558 | `mayihr-city-plus-0134` | 哈尔滨劳动人事争议仲裁申请指引。哈尔滨仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1559 | `mayihr-city-plus-0135` | 长春劳动人事争议仲裁申请指引。长春仲裁申请条件+申请书模板+证据材料清单+管辖规则+时效规定+审理周期+法律援助。当HR… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1560 | `mayihr-city-plus-0265` | 杭州工伤认定申请条件与材料清单。杭州工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1561 | `mayihr-city-plus-0268` | 南京工伤认定申请条件与材料清单。南京工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1562 | `mayihr-city-plus-0270` | 西安工伤认定申请条件与材料清单。西安工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1563 | `mayihr-city-plus-0271` | 天津工伤认定申请条件与材料清单。天津工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1564 | `mayihr-city-plus-0273` | 厦门工伤认定申请条件与材料清单。厦门工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1565 | `mayihr-city-plus-0274` | 长沙工伤认定申请条件与材料清单。长沙工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1566 | `mayihr-city-plus-0275` | 青岛工伤认定申请条件与材料清单。青岛工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1567 | `mayihr-city-plus-0277` | 郑州工伤认定申请条件与材料清单。郑州工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1568 | `mayihr-city-plus-0281` | 济南工伤认定申请条件与材料清单。济南工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1569 | `mayihr-city-plus-0283` | 昆明工伤认定申请条件与材料清单。昆明工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1570 | `mayihr-city-plus-0284` | 无锡工伤认定申请条件与材料清单。无锡工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1571 | `mayihr-city-plus-0288` | 温州工伤认定申请条件与材料清单。温州工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1572 | `mayihr-city-plus-0290` | 石家庄工伤认定申请条件与材料清单。石家庄工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1573 | `mayihr-city-plus-0293` | 南昌工伤认定申请条件与材料清单。南昌工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1574 | `mayihr-city-plus-0295` | 海口工伤认定申请条件与材料清单。海口工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1575 | `mayihr-city-plus-0298` | 乌鲁木齐工伤认定申请条件与材料清单。乌鲁木齐工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1576 | `mayihr-city-plus-0300` | 长春工伤认定申请条件与材料清单。长春工伤认定申请条件+48小时内事故报告+申请材料清单+工伤认定书领取+不予受理的救济。… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1577 | `mayihr-city-work-injury-126` | 北京工伤认定与待遇申领指引。北京工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1578 | `mayihr-city-work-injury-127` | 上海工伤认定与待遇申领指引。上海工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1579 | `mayihr-city-work-injury-128` | 广州工伤认定与待遇申领指引。广州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1580 | `mayihr-city-work-injury-129` | 深圳工伤认定与待遇申领指引。深圳工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1581 | `mayihr-city-work-injury-130` | 杭州工伤认定与待遇申领指引。杭州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1582 | `mayihr-city-work-injury-131` | 成都工伤认定与待遇申领指引。成都工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1583 | `mayihr-city-work-injury-132` | 武汉工伤认定与待遇申领指引。武汉工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1584 | `mayihr-city-work-injury-133` | 南京工伤认定与待遇申领指引。南京工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1585 | `mayihr-city-work-injury-134` | 苏州工伤认定与待遇申领指引。苏州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1586 | `mayihr-city-work-injury-135` | 西安工伤认定与待遇申领指引。西安工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1587 | `mayihr-city-work-injury-136` | 天津工伤认定与待遇申领指引。天津工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1588 | `mayihr-city-work-injury-137` | 重庆工伤认定与待遇申领指引。重庆工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1589 | `mayihr-city-work-injury-138` | 厦门工伤认定与待遇申领指引。厦门工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1590 | `mayihr-city-work-injury-139` | 长沙工伤认定与待遇申领指引。长沙工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1591 | `mayihr-city-work-injury-140` | 青岛工伤认定与待遇申领指引。青岛工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1592 | `mayihr-city-work-injury-141` | 合肥工伤认定与待遇申领指引。合肥工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1593 | `mayihr-city-work-injury-142` | 郑州工伤认定与待遇申领指引。郑州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1594 | `mayihr-city-work-injury-143` | 大连工伤认定与待遇申领指引。大连工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1595 | `mayihr-city-work-injury-144` | 宁波工伤认定与待遇申领指引。宁波工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1596 | `mayihr-city-work-injury-145` | 福州工伤认定与待遇申领指引。福州工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1597 | `mayihr-city-work-injury-146` | 济南工伤认定与待遇申领指引。济南工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1598 | `mayihr-city-work-injury-147` | 沈阳工伤认定与待遇申领指引。沈阳工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1599 | `mayihr-city-work-injury-148` | 昆明工伤认定与待遇申领指引。昆明工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1600 | `mayihr-city-work-injury-149` | 无锡工伤认定与待遇申领指引。无锡工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1601 | `mayihr-city-work-injury-150` | 佛山工伤认定与待遇申领指引。佛山工伤认定申请流程+劳动能力鉴定+一次性伤残补助金/医疗补助金/伤残津贴标准+工亡待遇计算… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1602 | `mayihr-compensation-363` | 股权激励方案设计器。期权/限制性股票/虚拟股→授予节奏/行权条件/退出机制/税务优化方案。当HR、管理者或员工需要完成该… | china | tax | legal-analysis | zh-CN | undeclared |
+| 1603 | `mayihr-compliance-401` | 最新劳动法规政策解读周刊。每周自动汇总全国及地方最新劳动法规政策变动+核心条款解读+企业影响分析。当HR、管理者或员工需… | china | labor | compliance | zh-CN | undeclared |
+| 1604 | `mayihr-compliance-409` | 保密协议与知识产权归属指引。保密协议分级+职务发明归属+竞业与保密的区别+违约取证+赔偿标准。当HR、管理者或员工需要完… | china | tax | compliance | zh-CN | undeclared |
+| 1605 | `mayihr-compliance-417` | 工伤预防与安全生产合规。安全生产培训要求+防护用品标准+事故报告义务+工伤保险费率浮动。当HR、管理者或员工需要完成该项… | china | labor | compliance | zh-CN | undeclared |
+| 1606 | `mayihr-diagnosis-plus-0784` | 工伤认定进度查询。工伤认定申请提交后进度查询+补正材料提醒+认定结果预判。当HR、管理者或员工需要完成该项工作时使用；支… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1607 | `mayihr-employee-relations-383` | 员工手册合规审核工具。逐条审核员工手册是否符合最新劳动法规+识别霸王条款+修改建议。当HR、管理者或员工需要完成该项工作… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1608 | `mayihr-employee-relations-397` | 工伤康复与返岗支持方案。工伤康复期管理+返岗评估+岗位调整+辅助器具+心理支持+法律权益保障。当HR、管理者或员工需要完… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1609 | `mayihr-hr-plus-0802` | 最新劳动法政策周报生成。每周自动抓取全国及地方最新劳动法规政策→生成结构化周报+核心条款解读+企业影响。当HR、管理者或… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1610 | `mayihr-hr-plus-0807` | 劳动争议调解仲裁法解读。劳动争议受案范围/仲裁时效/举证责任/调解程序/一裁两审流程。当HR、管理者或员工需要完成该项工… | china | arbitration-adr | legal-analysis | zh-CN | undeclared |
+| 1611 | `mayihr-hr-plus-0816` | 民法典合同编HR应用指引。劳动合同/劳务合同/派遣协议/外包协议的民法典合同编要点。当HR、管理者或员工需要完成该项工作… | china | labor | doc-reading | zh-CN | undeclared |
+| 1612 | `mayihr-hr-plus-0817` | 最高人民法院关于劳动争议司法解释速查。劳动争议司法解释一至五的核心条款+实务影响+裁判规则。当HR、管理者或员工需要完成… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1613 | `mayihr-hr-plus-0840` | 股权激励计划税务筹划。期权/限制性股票/股票增值权的税务处理+个人所得税优化+企业所得税扣除。当HR、管理者或员工需要完… | china | tax | legal-analysis | zh-CN | undeclared |
+| 1614 | `mayihr-hr-plus-0852` | 股权激励个税处理。期权行权/限制性股票解禁/股票增值权收益的个税计算+纳税申报。当HR、管理者或员工需要完成该项工作时使… | china | tax | legal-analysis | zh-CN | undeclared |
+| 1615 | `mayihr-hr-plus-0980` | 股权激励会计处理。股份支付的会计准则适用+费用确认+摊销计算+披露要求。当HR、管理者或员工需要完成该项工作时使用；支持… | china | general | legal-analysis | zh-CN | undeclared |
+| 1616 | `mayihr-hr-plus-0985` | 企业合规培训年度计划。按岗位/层级设计劳动法/数据合规/反腐倡廉等年度培训计划。当HR、管理者或员工需要完成该项工作时使… | china | data-privacy | legal-analysis | zh-CN | undeclared |
+| 1617 | `mayihr-hr-productivity-503` | HR法条援引助手。处理具体HR事件→自动援引相关法条+司法解释+典型案例+合规建议。当HR、管理者或员工需要完成该项工作… | china | general | legal-analysis | zh-CN | undeclared |
+| 1618 | `mayihr-industry-plus-0621` | 房地产/中介用工合规专项方案。针对房地产/中介行业特点→识别用工合规风险点+设计合规方案+特殊工时制适用+典型案例。当H… | china | general | legal-analysis | zh-CN | undeclared |
+| 1619 | `mayihr-labor-law-compliance-check` | 劳动法合规自检工具。当HR、管理者或员工要检查企业用工制度15+项常见风险点（合同签订率/社保缴纳/加班合规/年假执行/… | china | labor | compliance | zh-CN | undeclared |
+| 1620 | `mayihr-organization-474` | 职级体系搭建工具。按行业参照→设计管理序列+专业序列+技术序列+操作序列的完整职级体系。当HR、管理者或员工需要完成该项… | china | general | legal-analysis | zh-CN | undeclared |
+| 1621 | `mayihr-recruitment-324` | 海外招聘合规指引。跨国招聘→各国劳动法差异/签证要求/跨境薪酬支付/社保缴纳规则。当HR、管理者或员工需要完成该项工作时… | international | labor | legal-analysis | zh-CN | undeclared |
+| 1622 | `mayihr-work-injury-benefits-guide` | 工伤待遇申领指引。当HR、管理者或员工要工伤医疗费/一次性伤残补助金/伤残津贴/工亡待遇的计算和申领全程指引时使用。支持… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1623 | `mayihr-work-injury-process-guide` | 工伤处理全流程指引。当HR、管理者或员工要事故报告→工伤认定申请→劳动能力鉴定→工伤待遇申领的完整流程+材料模板+各城市… | china | labor | legal-analysis | zh-CN | undeclared |
+| 1624 | `mcn-streamer-termination-legal-analysis-plus` | ＞ **定位**：本技能为 MCN 机构与主播（达人/艺人）之间因合同解除、违约、竞业限制、账号归属、收益结算等引发的纠… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1625 | `md2word` | Markdown转Word文档技能。将Markdown文档转换为符合中文排版标准的专业格式Word文档，支持多种预设格式… | china | general | legal-analysis | zh-CN | mit |
+| 1626 | `means-test-calculation` | Calculates the bankruptcy means test from paystub data to de… | general | bankruptcy | legal-analysis | en | apache-2.0 |
+| 1627 | `mechanical-patent-writer` | 专业的机械领域专利申请材料撰写技能，支持发明专利和实用新型专利两种类型，涵盖技术领域分析、背景技术分析、专利检索与规避、… | china | ip | contract-work | zh-CN | undeclared |
+| 1628 | `med-mal-summary` | Produces structured medical malpractice case summaries from … | general | litigation | doc-reading | en | apache-2.0 |
+| 1629 | `mediation-arbitration-statement` | Drafts confidential mediation or arbitration statements pres… | general | litigation | doc-reading | en | apache-2.0 |
+| 1630 | `mediation-brief` | Drafts mediation briefs for commercial litigation that educa… | us | litigation | contract-work | en | apache-2.0 |
+| 1631 | `mediation-brief-drafter` | Use this skill when a litigator, in-house counsel, or ADR sp… | international | arbitration-adr | contract-work | en | undeclared |
+| 1632 | `mediation-dispute-analysis` | 当律师或调解员需要出于调解目的分析争议时使用本技能。这包括：审查案件材料（诉状、合同、往来信函、证据）以识别争议问题、总… | china | arbitration-adr | legal-analysis | zh-CN | agpl-3.0 |
+| 1633 | `mediation-statement` | Drafts persuasive mediation statements for litigation, struc… | general | litigation | contract-work | en | apache-2.0 |
+| 1634 | `mediation-summary` | Drafts confidentiality-compliant mediation summary statement… | general | contract-law | contract-work | en | apache-2.0 |
+| 1635 | `medical-billing-analysis` | Produces a litigation-ready analysis of medical bills and su… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1636 | `medical-director-agreement` | Drafts a Medical Director Agreement between a healthcare org… | us | contract-law | contract-work | en | apache-2.0 |
+| 1637 | `medical-record-chronology` | Creates verified, Bates-cited chronological summaries of med… | general | litigation | doc-reading | en | apache-2.0 |
+| 1638 | `medical-treatment-summary` | Generates litigation-ready narrative medical treatment summa… | general | life-sciences | doc-reading | en | apache-2.0 |
+| 1639 | `meeting-briefing` | Prepare structured briefings for meetings with legal relevan… | general | contract-law | contract-work | en | undeclared |
+| 1640 | `meeting-briefing-anthropic` | 为具有法律相关性的会议准备结构化简报并跟踪由此产生的行动事项。用于准备合同谈判、董事会会议、合规审查，或任何需要法律背景… | china | contract-law | doc-reading | zh-CN | apache-2.0 |
+| 1641 | `meeting-minutes` | 按律所模板生成会议纪要 Word 文档（楷体小四正文、两端对齐、标题走 Word 自动多级编号 1./1.1/1.1.1… | china | general | legal-analysis | zh-CN | undeclared |
+| 1642 | `merger-agreement` | Drafts U.S. merger agreements for M&A transactions covering … | us | corporate | contract-work | en | apache-2.0 |
+| 1643 | `merit-review` | Analyzes state merit review for non-covered securities offer… | us | contract-law | contract-work | en | apache-2.0 |
+| 1644 | `miaoji-compliance-copy` | 清洗并重写Amazon产品文案：扫描平台禁止词与绝对化用语，注入场景词适配Rufus搜索，输出三版合规文案与替换依据，用… | general | general | compliance | zh-CN | undeclared |
+| 1645 | `miaoji-compliance-copy-pro` | 亚马逊合规文案Pro版，多市场监管+法律风险评估+Rufus深度优化+季节性合规文案。 从单次文案检测升级为多市场合规体… | eu | life-sciences | compliance | zh-CN | undeclared |
+| 1646 | `military-law-summary` | Generates structured summaries of military law matters inclu… | general | general | doc-reading | en | apache-2.0 |
+| 1647 | `mining-land-use-summary` | Generates structured legal and regulatory summaries for mini… | general | environmental | doc-reading | en | apache-2.0 |
+| 1648 | `mock-trial` | 「模拟法庭全流程实战SKILL」—— 案情设计→角色分配→庭审模拟→对抗演练→复盘点评全流程，覆盖民事/刑事/行政/仲裁… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 1649 | `modification-petition-summary` | Produces structured summaries of U.S. family law modificatio… | us | family | doc-reading | en | apache-2.0 |
+| 1650 | `morocco-ecommerce-compliance-audit-omar-laftouh` | 对摩洛哥电子商务网站进行法律合规审计，聚焦个人数据保护（第 09-08 号法）和消费者合同披露/义务（第 31-08 号… | china | contract-law | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1651 | `mortgage-deed-of-trust` | Drafts recording-ready residential Mortgages or Deeds of Tru… | us | general | legal-analysis | en | apache-2.0 |
+| 1652 | `motion-for-temporary-relief` | Drafts a Motion for Temporary Relief (Pendente Lite) in U.S.… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1653 | `motion-in-limine` | Drafts criminal defense motions in limine to exclude prejudi… | general | litigation | litigation | en | apache-2.0 |
+| 1654 | `motion-new-trial` | Drafts a post-verdict Motion for New Trial in criminal defen… | general | litigation | litigation | en | apache-2.0 |
+| 1655 | `motion-to-avoid-lien` | Drafts a Motion to Avoid Lien under 11 U.S.C. § 522(f) for b… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1656 | `motion-to-compel` | Drafts filing-ready motions to compel discovery in civil lit… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1657 | `motion-to-convert` | Drafts a Motion to Convert Case for bankruptcy proceedings u… | us | litigation | litigation | en | apache-2.0 |
+| 1658 | `motion-to-dismiss` | Drafts FRCP 12(b) motions to dismiss for commercial litigati… | us | litigation | contract-work | en | apache-2.0 |
+| 1659 | `motion-to-dismiss-indictment` | Drafts motions to dismiss criminal indictments in federal an… | us | litigation | litigation | en | apache-2.0 |
+| 1660 | `mqc-chronicle-master` | 大事记表大师。把一批案件材料整理成《案件大事记》，产出 Word 交付版、Excel 母表与一份供下游 skill 读取… | china | litigation | litigation | zh-CN | mit |
+| 1661 | `mqc-legal-relation-master` | 法律关系图大师。把一批案件材料推成一张法律关系图：谁与谁、就哪份合同或哪段工程、发生了什么关系。主体与客体并存，使用者指… | china | litigation | litigation | zh-CN | mit |
+| 1662 | `mqc-litigation-visual-redraw` | Redraw a litigation diagram into a restrained, court-ready p… | china | litigation | litigation | zh-CN | mit |
+| 1663 | `mqc-timeline-master` | Turn raw case materials into a faithful, court-ready case ti… | china | litigation | litigation | zh-CN | mit |
+| 1664 | `mqc-trial-confrontation-master` | 庭审对抗图大师。按要件审判九步法与请求权基础，把案件材料推成一张庭前对抗图与一份分析表。左为提出请求的一方、中为法院审查… | china | litigation | litigation | zh-CN | mit |
+| 1665 | `mta-biological` | Drafts Material Transfer Agreements for biological materials… | general | intl-trade | legal-analysis | en | apache-2.0 |
+| 1666 | `mugua-legal-assistant` | 对接木瓜法律API的技能封装：提供法律咨询对话、案件要素提取与案件完整分析三种能力，按固定端点与参数规范调用。 | china | data-privacy | legal-analysis | zh-CN | undeclared |
+| 1667 | `multi-document-summarization` | 当需要对多份相关文档进行综合分析、提取共同观点、识别冲突并生成统一概览时触发此技能。 典型触发场景包括但不限于： - 用… | china | contract-law | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1668 | `multi-jurisdictional-research-zacharie-laik` | 跨境与比较法研究助手：基于Legal Data Hunter MCP检索50余国判例、立法与学说，以行内引用和结构化风险… | multi | general | legal-analysis | zh-CN | mit |
+| 1669 | `national-law-knowledge-search` | 法律助手与法条检索工具，支持民法典、刑法、劳动法、合同法等国家法律法规的智能查询与检索；提供法律知识库检索、法条精准定位… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1670 | `national-legal-assistant` | 国家法律法规智能助手，基于国家法律知识库，提供法律法规查询、立法规划解读、政策文件分析、 法治建设咨询。当用户提到：法律… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1671 | `nda-drug-application` | Drafts an eCTD-compliant New Drug Application (NDA) for FDA … | us | life-sciences | contract-work | en | apache-2.0 |
+| 1672 | `nda-government-data` | Drafts Non-Disclosure Agreements for protecting sensitive go… | us | contract-law | contract-work | en | apache-2.0 |
+| 1673 | `nda-review-jamie-tso` | 以与法域无关的方式审查收到的单向（单方）商业保密协议（NDA）的指南，可从接收方（Recipient）或披露方（Disc… | international | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 1674 | `nda-summary` | Generates structured summaries of Non-Disclosure Agreements,… | general | contract-law | contract-work | en | apache-2.0 |
+| 1675 | `nda-triage-anthropic` | 筛选收到的 NDA，并将其分类为绿色（标准）、黄色（需要审查）或红色（重大问题）。当销售或业务发展部门收到新的 NDA、… | china | contract-law | legal-analysis | zh-CN | apache-2.0 |
+| 1676 | `negotiation-support` | Generates a strategic negotiation support document with leve… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 1677 | `new-case` | 将案件/咨询/商标/专利材料整理成标准化目录结构。支持诉讼案件（12目录）、潜在项目/咨询（2目录）、商标案件（按业务子… | china | ip | litigation | zh-CN | cc-by-nc |
+| 1678 | `new-designation-screening-test` | 生成一个测试条目电子表格——来自 OFAC、OFSI 和欧盟制裁清单的新指定名称及这些名称的有意变体——以验证制裁筛查系… | us/uk/eu | intl-trade | compliance | zh-CN | mit |
+| 1679 | `newsletter-summary` | Produces concise, actionable U.S. legal newsletter summaries… | us | general | legal-analysis | en | apache-2.0 |
+| 1680 | `nexus-eu-ai-compliance` | Automate EU AI Act compliance for organizations. Classify AI… | eu | general | legal-analysis | en | proprietary |
+| 1681 | `nexus-legal-analyzer` | Legal RAG with GDPR, EU AI Act compliance, contract analysis… | eu | general | legal-analysis | en | undeclared |
+| 1682 | `ng-lawyer-db-build` | 尼日利亚（拉各斯/阿布贾）律师数据库构建流程第一步：按城市×执业领域采集律师信息，强制唯一UID、公开邮箱证据链与固定表… | general | tax | legal-analysis | en | undeclared |
+| 1683 | `nil-contract-analysis-samir-patel` | 面向 NCAA 学生运动员、从运动员视角进行的 NIL（姓名、形象和肖像）合同分析。当用户说'review this N… | china | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 1684 | `nis2` | 面向基本实体和重要实体的欧盟 NIS2 指令（指令 (EU) 2022/2555）合规顾问：实体分类、第 21 条风险管… | eu | banking-finance | compliance | zh-CN | mit |
+| 1685 | `nis2-navigator` | NIS2 合规导航器——欧盟指令 2022/2555 下的范围分类、第 21 条差距分析（0-4 成熟度评分）和合规路线… | eu/de | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1686 | `nist-800-53` | NIST SP 800-53 Rev 5 合规顾问——全部 20 个控制族（AC、AT、AU、CA、CM、CP、IA、I… | us | general | legal-analysis | zh-CN | mit |
+| 1687 | `nist-ai-rmf` | 将 NIST AI 风险管理框架（NIST AI 100-1 + NIST AI 600-1 生成式 AI 配置文件）应… | china | general | legal-analysis | zh-CN | mit |
+| 1688 | `nist-ai-rmf-tanaji` | NIST AI 风险管理框架（AI RMF 1.0）专家顾问，覆盖全部四个功能：GOVERN、MAP、MEASURE、M… | eu | general | legal-analysis | zh-CN | mit |
+| 1689 | `nist-csf` | NIST 网络安全框架（CSF）专家顾问，涵盖 CSF 2.0 和 CSF 1.1。当用户询问 NIST CSF、网络安… | china | general | legal-analysis | zh-CN | mit |
+| 1690 | `non-compete-agreement` | Drafts enforceable non-compete, non-solicitation, and confid… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1691 | `non-compete-seller` | Drafts a Non-Competition and Non-Solicitation Agreement for … | us | contract-law | contract-work | en | apache-2.0 |
+| 1692 | `nonprofit-board-minutes` | Drafts legally compliant non-profit board meeting minutes wi… | us | corporate | legal-analysis | en | apache-2.0 |
+| 1693 | `nonprofit-bylaws` | Drafts U.S. nonprofit corporation bylaws aligned to state no… | us | corporate | contract-work | en | apache-2.0 |
+| 1694 | `nonprofit-compliance-summary` | Generates a structured regulatory compliance summary for U.S… | us | tax | legal-analysis | en | apache-2.0 |
+| 1695 | `normalisation-juridique-fr-christophe-quezel-ambrunaz` | "Normalisation juridique FR"（法语法律文本规范化）技能会清理以法律法语撰写的 Word 文档… | fr | general | doc-reading | zh-CN | agpl-3.0 |
+| 1696 | `normative-meaning-argumentation` | 分析法律规范的目的、价值导向，以及事实应如何进入规范评价，判断涵摄的限度，需要适当区别于法律解释中的规范目的解释。 | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 1697 | `normieclaw-legal-docs-pro` | 面向自由职业者与小企业的英文法律文书工具箱：生成、审查、解释NDA、承包商协议、隐私政策等，记忆企业资料自动填充并标注风… | us | contract-law | contract-work | en | undeclared |
+| 1698 | `notice-of-annual-shareholders-meeting` | Drafts a U.S. corporate annual shareholders meeting notice e… | us | corporate | contract-work | en | apache-2.0 |
+| 1699 | `notice-of-appeal` | Drafts a Notice of Appeal to initiate appellate review of a … | us | general | contract-work | en | apache-2.0 |
+| 1700 | `notice-of-appeal-criminal` | Drafts Notices of Appeal for criminal matters with strict co… | general | litigation | contract-work | en | apache-2.0 |
+| 1701 | `notice-of-appearance` | Drafts a Notice of Appearance of Counsel for federal or stat… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1702 | `notice-of-assets-claims` | Drafts a Notice of Assets and Request for Claims for probate… | us | general | contract-work | en | apache-2.0 |
+| 1703 | `notice-of-entry` | Drafts contract-compliant Notice of Property Entry letters t… | general | contract-law | contract-work | en | apache-2.0 |
+| 1704 | `notice-of-prior-art` | Drafts a Notice of Prior Art disclosing references material … | us | litigation | contract-work | en | apache-2.0 |
+| 1705 | `notice-to-perform` | Drafts a U.S. residential real estate Notice to Perform (cur… | us | contract-law | contract-work | en | apache-2.0 |
+| 1706 | `notice-to-perform-real-estate` | Drafts jurisdiction-aware residential real-estate notices to… | us | contract-law | contract-work | en | apache-2.0 |
+| 1707 | `notification-licenciement-selim-brihi` | 起草符合法国劳动法的解雇通知指南。当用户要求起草、准备、创建或编辑解雇通知信函，尤其是因严重过错（faute grave… | fr | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 1708 | `nov-response` | Drafts formal responses to governmental Notices of Violation… | general | environmental | legal-writing | en | apache-2.0 |
+| 1709 | `novation-agreement` | Drafts tripartite U.S. novation agreements substituting an i… | us | contract-law | contract-work | en | apache-2.0 |
+| 1710 | `npdes-permit-application` | Drafts NPDES permit applications under the Clean Water Act (… | us | general | contract-work | en | apache-2.0 |
+| 1711 | `nuremberg-tokyo-jeanne-sulzer` | 面向二战后法庭的先核验后回答方法论：纽伦堡 IMT、十二个纽伦堡军事法庭以及东京 IMTFE。引用须对照官方记录（蓝皮书… | international | criminal | legal-analysis | zh-CN | cc-by-4.0 |
+| 1712 | `nydfs-infosec-program` | Drafts a comprehensive Information Security Program complian… | general | general | legal-writing | en | apache-2.0 |
+| 1713 | `nzism` | 面向新西兰政府机构及其供应链的《新西兰信息安全手册》（NZISM）专家顾问。用于 NZISM 控制指引、差距分析、机构安… | china | general | compliance | zh-CN | mit |
+| 1714 | `objection-to-proof-of-claim` | Drafts Objections to Proof of Claim for U.S. bankruptcy cour… | us | litigation | contract-work | en | apache-2.0 |
+| 1715 | `oci-mitigation-plan` | Drafts FAR 9.5-compliant Organizational Conflict of Interest… | general | contract-law | doc-reading | en | apache-2.0 |
+| 1716 | `office-lease` | Drafts commercial office lease agreements with rent schedule… | general | contract-law | contract-work | en | apache-2.0 |
+| 1717 | `oil-gas-lease` | Drafts enforceable U.S. Oil and Gas Leases conveying subsurf… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1718 | `oilfield-msa` | Drafts a Master Service Agreement for upstream oilfield serv… | general | contract-law | contract-work | en | apache-2.0 |
+| 1719 | `om-agreement` | Drafts Operations and Maintenance agreements for energy faci… | general | contract-law | contract-work | en | apache-2.0 |
+| 1720 | `one-contract` | 合同起草与审查助手。用于审查、修改、批注、修订或起草合同，尤其适用于需要风险判断、可执行替代文本、真实 Word 修订与… | china | contract-law | contract-work | zh-CN | cc-by-nc |
+| 1721 | `online-reporting-guide` | 企业/个人遭遇网络侵权时的全流程举报指引Skill。 核心能力：侵权类型自动识别 → 有效举报论述构建 → 证据清单生成… | china | civil-procedure | legal-analysis | zh-CN | mit |
+| 1722 | `online-store-webpage-and-other-e-commerce-information-ai-proofreading-plus` | 将原始资料（如营业执照、商标注册证、产品详情等权威文件）与网店详情页、落地页、电商平台页面进行逐项比对，仅输出差异项，提… | china | general | legal-analysis | zh-CN | undeclared |
+| 1723 | `opc-ai-ip-protection` | 将AI技术成果纳入法律保护框架，建立归属链，为Skill/Agent商业化奠定法律基础 | china | ip | legal-analysis | zh-CN | mit |
+| 1724 | `opc-ai-ip-protection-hutian` | 将AI技术成果纳入法律保护框架，建立归属链，为Skill/Agent商业化奠定法律基础 | china | ip | legal-analysis | zh-CN | mit |
+| 1725 | `opc-allinone` | 一人公司(OPC)全能助手：整合税法咨询、法规法条查询、财税案例检索、中国市场政策查询、深度网页研究、多引擎搜索、社保公… | china | tax | legal-research | zh-CN | undeclared |
+| 1726 | `opc-equity-cooperation` | OPC分布式协作中台解决方案，解决临时团队动态合作、能力出资合规、多方利益分配 | china | corporate | legal-analysis | zh-CN | mit |
+| 1727 | `opc-ip-toolkit` | 专为OPC、个人发明者、初创企业设计，提供专利、商标、软著三类知识产权全方位保护与运营工具 | china | ip | legal-analysis | zh-CN | mit |
+| 1728 | `opc-legal-counsel` | 面向 OPC（One Person Company，一人公司 / 单人创业者 + AI 协同）和小微企业经营场景的法律业… | china | ip | legal-research | zh-CN | cc-by-nc |
+| 1729 | `openclaw-indian-advocate` | AI legal assistant for Indian advocates and lawyers. Use thi… | in | general | legal-analysis | en | undeclared |
+| 1730 | `opinion-summary` | Summarizes U.S. transactional legal opinions into executive-… | us | contract-law | doc-reading | en | apache-2.0 |
+| 1731 | `opposing-counsel-review` | 以经验丰富的对方律师身份，攻击、削弱并暴露法律论点、提交材料、证人陈述或结构化推理中的弱点。 生成六部分对抗性分析： 1… | china | general | legal-analysis | zh-CN | apache-2.0 |
+| 1732 | `opposition-summary` | Generates structured analytical summaries of trademark oppos… | general | general | doc-reading | en | apache-2.0 |
+| 1733 | `ops-manual-acknowledgement` | Drafts an enforceable Operations Manual Acknowledgement form… | general | contract-law | contract-work | en | apache-2.0 |
+| 1734 | `opt-out-form` | Drafts opt-out forms and notices of exclusion for class acti… | eu/us | contract-law | contract-work | en | apache-2.0 |
+| 1735 | `option-to-purchase` | Drafts Option to Purchase Real Estate agreements granting an… | general | contract-law | contract-work | en | apache-2.0 |
+| 1736 | `oral-argument` | 以 Neal Katyal 的“Harvey”为他准备美国最高法院关税案辩论的方式为律师准备对抗性程序： 依据裁判者的既… | china | arbitration-adr | litigation | zh-CN | agpl-3.0 |
+| 1737 | `oral-draft-editor` | 把口语化口述稿 / 录音转写 / 逐字稿整理成结构清晰、逻辑自洽的成文（公众号文章、课程要点稿、讲座逐字稿等）。 核心是… | china | general | quality-control | zh-CN | mit |
+| 1738 | `order-judgment-appeal` | Drafts a U.S. appellate Order and Judgment memorializing dis… | us | general | legal-analysis | en | apache-2.0 |
+| 1739 | `order-modification` | Drafts post-judgment motions to modify existing family law c… | us | family | contract-work | en | apache-2.0 |
+| 1740 | `ordinary-to-element-complaint` | 将普通民事起诉状转换为最高人民法院《要素式起诉状示范文本》（以金融借款合同纠纷模板为基底）。当用户提供普通起诉状（doc… | china | litigation | litigation | zh-CN | undeclared |
+| 1741 | `org-meeting-minutes` | Drafts organizational meeting minutes for newly formed corpo… | general | corporate | contract-work | en | apache-2.0 |
+| 1742 | `originality-in-european-copyright-joris-deene` | 一个用于判断特定客体根据欧盟法是否有资格获得版权保护的技能，通过适用 Cofemel 两步测试（作品概念 + 独创性），… | eu | contract-law | legal-analysis | zh-CN | agpl-3.0 |
+| 1743 | `other-legal-retrieval` | 当智能体需要检索法律条文、司法解释、典型案例之外的辅助性法律信息时触发此技能。具体包括但不限于：立法背景资料（草案说明、… | china | administrative | legal-research | zh-CN | cc-by-nc-nd-4.0 |
+| 1744 | `outside-counsel-billing-performance-reviewer` | 为公司内部法务部门审查外部律师发票及相关计费数据，包括 LEDES 或电子计费导出、OCG、已批准费率、折扣、预算、AF… | china | tax | contract-work | zh-CN | apache-2.0 |
+| 1745 | `overseas-legal-compliance` | 出海合规法律检索 — 自动安装MCP + 一站式查询全球230+法域法律法规。触发词：查外国法律、出海合规、GDPR、A… | eu/us/jp/multi | data-privacy | compliance | zh-CN | mit |
+| 1746 | `paddle-ocr` | 面向法律 PDF 与扫描件的 PaddleOCR 结构化解析技能。默认将本地 PDF 或图片转换为 Markdown，并… | china | general | legal-analysis | zh-CN | mit |
+| 1747 | `panel-design-selection` | 为法务团队提供律师库结构设计、律所选聘标准、合理外包分析和覆盖缺口评估。从零构建律师库框架，或将现有非正式安排正式化。定… | china | legal-profession | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 1748 | `panel-review-rationalisation` | 面向企业内部法律运营团队的律师库健康评估、律所退出管理、覆盖缺口分析和律师库更新简报。产出一份年度律师库健康报告，将计分… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1749 | `pans-contract-generator` | AI算力销售合同生成器。根据商定条款（客户名称、GPU型号、数量、价格、期限） 生成标准 GPU 租赁协议 Markdo… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1750 | `parenting-plan` | Drafts jurisdiction-compliant parenting plans covering custo… | general | contract-law | contract-work | en | apache-2.0 |
+| 1751 | `parking-license-agreement` | Drafts a revocable Parking License Agreement for commercial … | general | contract-law | contract-work | en | apache-2.0 |
+| 1752 | `parole-hearing-summary` | Summarizes parole hearing transcripts into structured analyt… | general | general | legal-analysis | en | apache-2.0 |
+| 1753 | `partition-complaint` | Drafts a U.S. civil complaint for partition of real property… | us | litigation | litigation | en | apache-2.0 |
+| 1754 | `party-deposition` | Builds element-driven deposition outlines and witness prepar… | us | litigation | legal-writing | en | apache-2.0 |
+| 1755 | `past-performance-questionnaire` | Drafts a Past Performance Questionnaire for evaluating legal… | general | general | contract-work | en | apache-2.0 |
+| 1756 | `patent` | The Sovereign Invention & IP-Capture Engine. Standardizing t… | china | contract-law | legal-analysis | en | undeclared |
+| 1757 | `patent-analysis` | 当需要分析专利文件、进行侵权评估、提取技术特征、或比较多个专利的保护范围时使用。触发场景包括专利比对、权利要求分析、侵权… | china | ip | doc-reading | zh-CN | cc-by-nc-sa-4.0 |
+| 1758 | `patent-analysis-avoidance` | 专利分析与规避设计专家。当用户上传专利文档、询问专利分析、专利规避、产品设计创新、专利侵权风险、权利要求分析、技术方案对… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1759 | `patent-application-assistant` | 专利申请全流程智能助手。覆盖发明专利、实用新型专利、外观设计专利的申请策略选择、技术交底书撰写、申请文件准备、审查答复、… | china | ip | legal-analysis | zh-CN | mit |
+| 1760 | `patent-application-writer` | 根据发明描述生成专利申请的技术方案、权利要求书草稿 | china | ip | legal-analysis | zh-CN | undeclared |
+| 1761 | `patent-assistant` | 专利交底书撰写与专利检索助手。帮助研发人员将技术方案转化为结构化交底书，并进行专利检索分析。当用户要求写专利、写交底书、… | china | ip | legal-research | zh-CN | undeclared |
+| 1762 | `patent-claim-drafter` | Use this skill when a patent agent, patent attorney, or in-h… | us | ip | contract-work | en | undeclared |
+| 1763 | `patent-claim-mapper` | Use when mapping patent claims to products, analyzing patent… | general | ip | legal-analysis | en | mit |
+| 1764 | `patent-cliff-response-strategy-brand-defense` | 为品牌药企业提供专利悬崖应对策略：围绕专利到期前后的仿制药冲击制定品牌防御方案，适用于医药企业专利与市场团队（内容需授权… | china | general | legal-analysis | zh-CN | undeclared |
+| 1765 | `patent-cn` | 当用户上传交底材料、研发报告、技术方案文档，并要求撰写专利、撰写初稿，或请专利代理师视角输出可申请的专利文件时触发。也涵… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1766 | `patent-disclosure-builder` | 面向发明人的对话式专利交底书（技术交底书）生成助手。当发明人本人想把脑子里的技术方案整理成一份结构规范、内容完整的交底书… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1767 | `patent-disclosure-skill` | 中国专利：从项目文档挖掘专利点并生成可交付技术交底书（查新、脱敏成文、自检与迭代）；或将已有专利解读为通俗笔记与 Obs… | china | ip | legal-research | zh-CN | undeclared |
+| 1768 | `patent-disclosure-writer` | 撰写中文专利交底书。Use when: 用户需要撰写专利交底书、技术交底书、专利申请文档。 | china | ip | legal-analysis | zh-CN | undeclared |
+| 1769 | `patent-doc-gen` | 根据技术论文撰写中国专利技术交底书，用户需要提供技术论文或资料，以及至少一篇同领域的专利作为参考。关键词：专利申请、专利… | china | ip | legal-research | zh-CN | undeclared |
+| 1770 | `patent-doc-writer` | 生成中国发明专利说明书文档。当用户说'写专利'、'专利说明书'、'生成专利文档'、'写一份发明专利'、'patent s… | china | ip | doc-reading | zh-CN | mit |
+| 1771 | `patent-draft-helper` | 专利文案撰写助手 \| 辅助撰写电机/机械领域专利申请书、技术交底书、权利要求书，保护创新成果 | china | ip | contract-work | zh-CN | undeclared |
+| 1772 | `patent-examination-guide` | 基于《专利审查指南2023》的智能审查辅助技能，支持初步审查、实质审查、复审无效、申请文件撰写规范等全流程查询与指导。涵… | china | ip | legal-research | zh-CN | undeclared |
+| 1773 | `patent-expert` | 专利全流程专家。覆盖专利挖掘、专利布局、专利检索、交底书撰写、权利要求分析与交底书配图建议。当用户提到专利、专利挖掘、专… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1774 | `patent-expression-engine` | 把技术人员已有的思路与方案抽象为具备专利申请价值的结构化文档：技术问题抽象、创新点识别、专利结构构建，输出含背景、方案、… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1775 | `patent-fee-monitor` | 专利年费监控与IP资产台账管理工具。当用户需要查询专利年费到期日、监控专利法律状态、管理专利/商标/软著资产台账、计算年… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1776 | `patent-gap-supply-chain` | Competitive intelligence workflow that infers supply-chain r… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1777 | `patent-infringement-analysis` | Generates a structured patent infringement analysis mapping … | general | ip | legal-analysis | en | apache-2.0 |
+| 1778 | `patent-infringement-complaint` | Drafts a federal patent infringement complaint for U.S. Dist… | us | litigation | legal-analysis | en | apache-2.0 |
+| 1779 | `patent-infringement-summary` | Generates structured summaries of patent infringement cases … | us | litigation | legal-analysis | en | apache-2.0 |
+| 1780 | `patent-invalid-search` | 执行专利无效分析全流程：校验目标专利与申请日、提取技术特征、定向检索现有技术、特征比对并构建无效理由与证据链，输出Wor… | general | general | legal-analysis | en | undeclared |
+| 1781 | `patent-invalidation` | 专利无效宣告请求专业技能。方向为"通过合法途径无效他人专利"，与答复审查意见（patent-oa-response）、复… | china | ip | legal-research | zh-CN | mit |
+| 1782 | `patent-invention-disclosure` | 将任意技术方案按标准 Part A/B/C 骨架自动生成发明专利交底书，输出 .docx。只需提供技术名称、核心原理和应… | china | general | legal-analysis | zh-CN | undeclared |
+| 1783 | `patent-landscape` | 当分析生物技术专利格局、识别药物知识产权中的空白领域、追踪竞争对手专利或评估药物开发的自由操作空间时使用。为生命科学创新… | china | ip | legal-analysis | zh-CN | mit |
+| 1784 | `patent-landscape-analyzer` | 搜索USPTO PatentsView API和欧洲专利局OPS（开放专利服务）API中的专利授权、申请和族属关系。生成… | eu | ip | legal-analysis | zh-CN | mit |
+| 1785 | `patent-lawyer-agent` | 提供知识产权指导和专利分析，辅助撰写专利申请文件。非法律建议，需咨询持证专利律师。 | china | ip | legal-analysis | zh-CN | mit |
+| 1786 | `patent-mining-disclosure-skill` | 通用中国专利挖掘发现与专利说明书式技术交底生成全流程：扫描项目后先产出含轻量相似专利检索的专利点资产清单，再按用户取舍生… | china | ip | legal-research | zh-CN | undeclared |
+| 1787 | `patent-mining-expert` | 专利挖掘智能体专家。当用户需要申请专利、撰写专利交底书、进行专利检索分析、或询问专利相关问题时使用。触发场景包括"我想申… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1788 | `patent-novelty-search` | 执行专利查新检索全流程：技术方案三要素结构化、专利检索（优先Google Patents）、相似度排序、特征比对表与新颖… | general | general | legal-analysis | en | undeclared |
+| 1789 | `patent-oa-response` | 本技能用于答复专利审查意见通知书（第一次/第N次审查意见），覆盖新颖性、创造性、清楚性、权利要求独立性、单一性、修改超范… | china | ip | legal-research | zh-CN | mit |
+| 1790 | `patent-pdf-to-md` | Convert Chinese patent PDFs/DOCX/DOCs to structured Markdown… | china | ip | doc-reading | zh-CN | undeclared |
+| 1791 | `patent-preliminary-examination-check` | 在向中国地方知识产权保护中心提交发明专利或实用新型专利预审申请前，对申请文件做全维度自动化合规自检。覆盖准入资格、形式规… | china | ip | doc-reading | zh-CN | undeclared |
+| 1792 | `patent-professional-agents` | 📜 专利专业代理 - Patent Professional Agents 一个专业的多代理专利撰写与优化技能套件，覆盖… | china | ip | legal-research | zh-CN | undeclared |
+| 1793 | `patent-protection-and-intellectual-property-management` | 企业专利保护与知识产权管理方案：围绕专利布局、确权维权与知产管理体系建设提供指引，适用于企业IP管理场景（内容需授权后获… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1794 | `patent-reexamination` | 本技能用于针对专利驳回决定提出复审请求（答复驳回决定 / 复审请求书撰写 / 复审阶段权利要求修改建议）。当用户收到国家… | china | ip | contract-work | zh-CN | mit |
+| 1795 | `patent-review` | 专利申请文件核稿技能。对用户提供的专利申请文件（权利要求书、说明书、摘要）进行全面三阶段核查，输出结构化核稿意见通知书。… | china | ip | contract-work | zh-CN | undeclared |
+| 1796 | `patent-scanner` | Describe your concept and discover what makes it distinctive… | general | environmental | legal-analysis | en | undeclared |
+| 1797 | `patent-scout` | 通过百度或Google Patents在线检索中国专利信息，支持关键词和专利号查询，输出结构化专利摘要和申请人等数据。 | china | ip | legal-research | zh-CN | undeclared |
+| 1798 | `patent-search` | Patent search and analytics via 9235 API (search, detail, cl… | china | ip | legal-research | zh-CN | undeclared |
+| 1799 | `patent-search-query-builder` | 专利检索式构建智能体。将自然语言技术方案经四阶段确定性管道（技术解构→关键词扩展→检索式构建→优化） 编译为目标平台可执… | china | ip | legal-research | zh-CN | undeclared |
+| 1800 | `patent-summary` | Generates structured, prosecution-ready summaries of patent … | general | general | doc-reading | en | apache-2.0 |
+| 1801 | `patent-tagging` | 专利标引智能体。将用户自定义的多维度分类标签体系与专利技术事实建立映射关系，输出结构化标引表格。当用户需要对专利进行标签… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1802 | `patent-validator` | Turn your concept analysis into search queries — research th… | general | ip | legal-research | en | undeclared |
+| 1803 | `patent-value-analysis` | 专利价值分析评价工具 (V1.0)。用于评估专利资产的多维价值，包括： (1) 用户输入专利名称后，进行专利价值评估 (… | china | ip | legal-research | zh-CN | undeclared |
+| 1804 | `patent-writer` | 中文专利交底书撰写助手。支持两种模式：(1) 方向模式：用户给出技术方向，自动搜索并推荐创新点供选择；(2) 明确想法模… | china | ip | legal-research | zh-CN | undeclared |
+| 1805 | `patent-writer-chemistry` | 专业的化学领域专利申请材料撰写技能，涵盖技术领域分析、背景技术分析、专利检索与规避、发明内容撰写、具体实施方式撰写、权利… | china | ip | doc-reading | zh-CN | undeclared |
+| 1806 | `patent-writer-cn` | 中国发明专利交底书撰写与软著申请材料准备工具。当用户需要撰写专利、写专利交底书、申请软件著作权、准备软著材料、提取技术发… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1807 | `patent-writing-expert` | 发明专利撰写专家 — 专利申请的撰写、修改和审查意见答复。 覆盖机械、土木、控制、AI等全领域，精通中国及国际专利规范。… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1808 | `paternity-petition` | Drafts a Petition to Establish Paternity for family court fi… | general | litigation | litigation | en | apache-2.0 |
+| 1809 | `patseek-patent-search` | 使用 PatSeek API 进行专利号/申请人/关键词 Bool 检索、国际专利检索、语义检索、专利详情核对，并为可专… | international | ip | legal-research | zh-CN | undeclared |
+| 1810 | `payoff-letter-request` | Drafts formal payoff letter requests to lenders for the prec… | us | general | contract-work | en | apache-2.0 |
+| 1811 | `payroll-audit-tool` | 薪酬公式自动校验、异常数值识别、合规风险提示，守护薪酬准确性 | china | general | legal-analysis | zh-CN | undeclared |
+| 1812 | `pci-compliance` | 专业 PCI DSS 合规顾问，覆盖 PCI DSS v4.0.1（现行）和 v4.0。每当用户询问 PCI DSS、支… | china | environmental | compliance | zh-CN | mit |
+| 1813 | `pdf` | Use this skill whenever the user wants to do anything with P… | general | general | legal-analysis | en | declared-only |
+| 1814 | `pe-compliance-expert-pro` | 15年经验私募基金合规专家。基于AMAC最新监管规则，对登记备案、募集、内控、披露等8大模块进行审查，生成Word报告。… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1815 | `pe-vc-transaction-docs-review` | 面向未上市公司股权融资的专业交易文件审阅能力。适用于境内人民币架构及红筹/VIE 美元架构（尽管当前使用比例有所下降）；… | china | investment-ma | contract-work | zh-CN | apache-2.0 |
+| 1816 | `perfect-legal` | 法务胜任力框架与问答顾问：覆盖合同、合规、知产、争议、法务BP五大法务域，提供专员到GC成长路径、七大行业法务适配与四阶… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1817 | `performance-scorecard` | 为评估外部律师的企业内部法律运营团队设计绩效记分卡、收集事后反馈、准备季度业务回顾（QBR）并进行律所比较。设计一套按团… | china | legal-profession | compliance | zh-CN | cc-by-nc-nd-4.0 |
+| 1818 | `personal-injury-compensation-calculation` | 专注人身损害赔偿领域的智能计算技能。根据用户提供的案件信息、内置计算公式和各地统计数据，精准计算交通事故/生命权/身体权… | china | personal-injury | legal-research | zh-CN | undeclared |
+| 1819 | `persuasive-legal-writing` | 将源自卡根大法官（Justice Kagan）、Boies & Olson 及其他顶尖出庭律师的精英法律写作技巧应用于任… | china | general | contract-work | zh-CN | agpl-3.0 |
+| 1820 | `pet-custody-best-interest` | Produces a jurisdiction-aware best-interests analysis for co… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 1821 | `pfs-analyzer` | Extracts and reconciles medical provider, wage-loss, and ins… | us | general | legal-analysis | en | apache-2.0 |
+| 1822 | `pharma-geo-compliance-manual` | 医药企业在生成式AI搜索（GEO）场景下的内容合规作战手册：指导药企在AI问答可见性优化中守住广告宣传与药品信息合规边界… | china | general | legal-analysis | zh-CN | undeclared |
+| 1823 | `pharma-reg-summary` | Generates structured pharmaceutical regulatory compliance su… | us | life-sciences | legal-analysis | en | apache-2.0 |
+| 1824 | `phase-i-esa` | Drafts ASTM E1527-21 environmental site assessment reports u… | general | environmental | legal-analysis | en | apache-2.0 |
+| 1825 | `physician-employment-agreement` | Drafts regulatory-compliant Physician Employment Agreements … | us | contract-law | contract-work | en | apache-2.0 |
+| 1826 | `pi-demand-summary` | Generates structured personal injury demand summaries coveri… | general | general | legal-analysis | en | apache-2.0 |
+| 1827 | `pi-intake-form` | Drafts a structured personal injury client intake form for i… | general | securities | contract-work | en | apache-2.0 |
+| 1828 | `piia` | Drafts a Proprietary Information and Inventions Agreement (P… | us | contract-law | contract-work | en | apache-2.0 |
+| 1829 | `pipeline-easement` | Drafts pipeline easement agreements granting construction, o… | general | corporate | legal-analysis | en | apache-2.0 |
+| 1830 | `pipl-compliance` | 中国个人信息保护法（PIPL）合规检查、风险评估和文档生成工具。 为企业提供全面的PIPL合规解决方案。 Use whe… | china/eu/us/multi | data-privacy | compliance | zh-CN | undeclared |
+| 1831 | `plaintiff-evidence-list-complaint-writing-plus` | 专为原告律师设计：用户上传证据材料（PDF/图片/Word等），简要说明核心主张，AI主动解读材料并撰写《原告证据清单》… | china | litigation | litigation | zh-CN | undeclared |
+| 1832 | `plan-immigration-law-firm-local-seo-faq-cluster` | Research local questions, group them into clusters, and draf… | general | general | legal-analysis | en | undeclared |
+| 1833 | `plan-of-liquidation` | Drafts a Plan of Liquidation and Dissolution for U.S. corpor… | us | corporate | contract-work | en | apache-2.0 |
+| 1834 | `plan-of-liquidation-and-dissolution` | Drafts a U.S. corporate Plan of Liquidation and Dissolution … | us | corporate | contract-work | en | apache-2.0 |
+| 1835 | `platform-craft-catalog-trademark-group` | 调用海外运营平台接口 GET /craft/craft-trademark-group/selectGroupList，… | china | ip | legal-analysis | zh-CN | undeclared |
+| 1836 | `plea-agreement` | Drafts criminal defense plea agreements formalizing negotiat… | general | contract-law | contract-work | en | apache-2.0 |
+| 1837 | `plea-agreement-summary` | Generates structured summaries of criminal plea agreements. … | general | contract-law | doc-reading | en | apache-2.0 |
+| 1838 | `pledge-agreement-securities` | Drafts perfected-security-interest Pledge Agreements for sec… | general | securities | contract-work | en | apache-2.0 |
+| 1839 | `police-report-summary` | Summarizes police reports and incident documentation into st… | general | general | doc-reading | en | apache-2.0 |
+| 1840 | `policy-brief` | Generates structured public policy briefs analyzing legislat… | general | general | legal-analysis | en | apache-2.0 |
+| 1841 | `policy-compliance-auditor` | 审查PIP、末位淘汰、试用期评估、调岗降薪等绩效管理制度条款的法律合规性：逐条分级并给修改示例，附五维评分与整改优先级，… | china | general | legal-analysis | zh-CN | undeclared |
+| 1842 | `policy-lawyer` | Reference the workspace policy playbook, answer "What are th… | general | general | legal-analysis | en | undeclared |
+| 1843 | `policy-lawyer-2` | Reference the workspace policy playbook, answer"What are the… | general | general | legal-analysis | en | undeclared |
+| 1844 | `policy-manual` | Generates structured policy manual summaries that distill co… | general | general | contract-work | en | apache-2.0 |
+| 1845 | `policy-summary` | Summarizes policy documents, regulations, and legislative ma… | general | general | doc-reading | en | apache-2.0 |
+| 1846 | `pos-license` | Drafts Software and POS System License Agreements for propri… | us/eu | data-privacy | contract-work | en | apache-2.0 |
+| 1847 | `post-settlement-correspondence` | Drafts structured post-settlement correspondence memorializi… | general | contract-law | doc-reading | en | apache-2.0 |
+| 1848 | `pour-over-will` | Drafts a pour-over will directing the testator's residuary e… | general | estate-trust | contract-work | en | apache-2.0 |
+| 1849 | `power-purchase-agreement` | Drafts U.S. power purchase agreements (PPAs) between generat… | us | contract-law | contract-work | en | apache-2.0 |
+| 1850 | `pptx` | Use this skill any time a .pptx file is involved in any way … | general | general | doc-reading | en | declared-only |
+| 1851 | `prc-labor-law-resolution` | This skill should be used for China mainland employment and … | china | labor | litigation | zh-CN | undeclared |
+| 1852 | `prc-legal-research` | 中国法律研究助手。当用户描述涉及中国法律的事实情景、提出法律争议问题、询问某行为是否合法合规、要求分析法律条文适用性、或… | china | contract-law | legal-research | zh-CN | mit |
+| 1853 | `prc-legal-research-case-search` | Use when 用户需要按案号、案由、关键词、法院、裁判时间或自然语言事实检索中国大陆公开裁判文书、指导性案例和典型案… | china | arbitration-adr | legal-research | zh-CN | undeclared |
+| 1854 | `prc-legal-research-company-search` | Use when 用户需要按企业名称或统一社会信用代码查询中国大陆注册企业的登记、年报、知识产权、涉诉、执行、处罚及其他… | china | general | legal-research | zh-CN | undeclared |
+| 1855 | `prc-legal-research-deep-research` | 中国法律综合研究助手。用户描述涉及中国法律的事实情景、提出法律争议问题、询问某行为 是否合法合规、要求分析法律条文适用性… | china | general | legal-research | zh-CN | undeclared |
+| 1856 | `prc-legal-research-law-search` | Use when 用户需要检索、定位或核验中国大陆法律、行政法规、司法解释、部门规章及规范性文件，尤其是法规名称、具体条… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1857 | `prc-legal-research-securities-compliance` | Use when 用户需要检索中国大陆证券法规、证券监管处罚文书、监管措施或上市公司公告，并核验法规效力与监管来源。 | china | securities | compliance | zh-CN | undeclared |
+| 1858 | `prc-opposing-counsel-review` | Attack, stress-test, and expose weaknesses in arguments, sub… | china | litigation | litigation | zh-CN | apache-2.0 |
+| 1859 | `pre-hearing-statement` | Drafts a Pre-Hearing Statement of Proof for personal injury … | general | general | contract-work | en | apache-2.0 |
+| 1860 | `pre-judgment-of-similar-cases-wdy` | 类案预判（法律检索+类似案例）。用户描述纠纷（如被骗钱、欠债不还、合同纠纷、被打伤等）时，自动检索相关法律条文和类似判例… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1861 | `pre-motion-andrew-bird` | 针对英格兰和威尔士民事诉讼的对抗式事前验尸（premortem）——构建案件的最强版本，然后从四个角度攻击它，在对方律师… | uk | litigation | litigation | zh-CN | mit |
+| 1862 | `pre-trial-report` | Drafts objective pre-trial reports for insurance carriers in… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1863 | `pre-trial-statement` | Drafts U.S. civil/commercial pre-trial statements that narro… | us | litigation | litigation | en | apache-2.0 |
+| 1864 | `preliminary-injunction` | Drafts a Motion for Preliminary Injunction applying the Wint… | us | contract-law | contract-work | en | apache-2.0 |
+| 1865 | `prenuptial-agreement` | Drafts enforceable prenuptial and postnuptial agreements for… | general | contract-law | contract-work | en | apache-2.0 |
+| 1866 | `prenuptial-postnuptial-agreement` | Drafts U.S. prenuptial or postnuptial agreements with enforc… | us | contract-law | contract-work | en | apache-2.0 |
+| 1867 | `preservation-law-summary` | Generates structured legal memoranda on historic preservatio… | us | general | legal-analysis | en | apache-2.0 |
+| 1868 | `preservation-letter` | Drafts litigation hold and document preservation letters und… | us | general | legal-analysis | en | apache-2.0 |
+| 1869 | `pretrial-statement` | Drafts U.S. commercial litigation pre-trial statements and j… | us | litigation | contract-work | en | apache-2.0 |
+| 1870 | `prior-art-summary` | Generates structured summaries of prior art references for p… | general | general | legal-analysis | en | apache-2.0 |
+| 1871 | `privacy-law-updates` | Generates structured privacy and data protection law briefin… | us/eu/uk | general | legal-analysis | en | apache-2.0 |
+| 1872 | `privacy-osint-guard` | 面对OSINT工具、人肉搜索、数字分身复刻类请求时的合规拦截技能：告知个保法、民法典、刑法三层法律风险与工具自身风险，引… | china | data-privacy | legal-analysis | zh-CN | mit |
+| 1873 | `privacy-policy-malik-taiar` | 起草符合 GDPR 的隐私政策的指南。包含 CNIL 2020 建议、参考模板和最佳实践。在起草或修订网站或应用的隐私政… | fr/eu | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
+| 1874 | `privacy-policy-self-service-generator-mvp` | MVP 级中文隐私协议自助生成器，基于中国数据安全法律体系和产品事实收集，只生成最小合规版本隐私协议。适用于 OPC、个… | china | data-privacy | compliance | zh-CN | cc-by-nc |
+| 1875 | `privacy-policy-stephane-boghossian` | 一个零幻觉的隐私政策生成器，将任何人——从非律师创始人到律师——从引导式受理带到一份可发布、感知司法辖区的隐私政策。司法… | eu/us/br/in | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
+| 1876 | `private-equity` | 股权投资全流程技能套件：TS/SPA条款审查、尽调清单、投决备忘录、IRR/MOIC/DPI测算、项目初筛与五种退出路径… | china | investment-ma | legal-analysis | zh-CN | undeclared |
+| 1877 | `private-lawyer` | 用户输入任何法律法规政策问题，技能自动搜索中国权威法规（民法典为核心），给出专业、实用的法律参考建议。涵盖民事、合同、婚… | china | labor | litigation | zh-CN | undeclared |
+| 1878 | `private-lending-interest-calculator` | 当用户需要计算中国民间借贷案件中的借期内利息、逾期利息、违约金合并审查、砍头息、复利、还款冲抵、LPR四倍上限或生成正式… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1879 | `private-placement-memo` | Drafts a legally compliant Private Placement Memorandum for … | us | securities | contract-work | en | apache-2.0 |
+| 1880 | `private-placement-memorandum` | Drafts U.S. Regulation D Private Placement Memoranda (PPMs) … | us | contract-law | contract-work | en | apache-2.0 |
+| 1881 | `privilege-sentinel` | 面向法律 AI 提示的发送前特权与工作成果检查。当用户即将向第三方 AI 界面（ChatGPT、Claude.ai、Co… | china | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1882 | `pro-forma-cap-table` | Drafts a pro forma capitalization table modeling ownership b… | general | corporate | legal-analysis | en | apache-2.0 |
+| 1883 | `pro-legal-strategist-v2` | 顶级诉讼律师与案件分析专家，执行七步分析法与证据矩阵建模。 | china | general | litigation | zh-CN | undeclared |
+| 1884 | `procedural-rule-summary` | Generates structured, stage-organized summaries of procedura… | us | litigation | doc-reading | en | apache-2.0 |
+| 1885 | `procurement-compliance-advisor` | 政府采购法体系合规实务与政策执行专家（覆盖货物、服务及非招标工程）。集成智能问答、采购文件审查、案例检索、合规体检、政策… | china | contract-law | legal-research | zh-CN | undeclared |
+| 1886 | `product-liability-summary` | Generates structured summaries of product liability cases co… | us | litigation | doc-reading | en | apache-2.0 |
+| 1887 | `professional-contract-review` | Use when users ask for 合同审查, 审查意见书, 合同风险分析, 条款审查,知法,accurLex… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1888 | `professional-legal-drafting` | Use when users ask for 文书生成, 起草文书, 法律文书, 文书起草, 起诉状, 答辩状, 申请书… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1889 | `professional-legal-qa` | Use when users ask for 法律问答, 法律咨询, 法律问题, 问法律, 法律咨询, 知法, accu… | china | legal-profession | legal-research | zh-CN | undeclared |
+| 1890 | `professional-patent-agents` | 📜 专利专业代理 - Patent Professional Agents 一个专业的多代理专利撰写与优化技能套件，覆盖… | china | ip | legal-research | zh-CN | undeclared |
+| 1891 | `project-management-summary` | Produces U.S. legal project management summaries consolidati… | us | general | contract-work | en | apache-2.0 |
+| 1892 | `project-summary` | Generates structured legal project management summaries with… | general | litigation | doc-reading | en | apache-2.0 |
+| 1893 | `promissory-note-residential` | Drafts enforceable residential promissory notes with party i… | us | general | contract-work | en | apache-2.0 |
+| 1894 | `promo-materials-review-policy` | Drafts an internal Promotional Materials Review Policy for l… | us | contract-law | contract-work | en | apache-2.0 |
+| 1895 | `promotional-material-compliance-management` | 企业宣传材料合规管理：审查广告与营销物料中的合规风险（如绝对化用语、虚假宣传），建立发布前审核与管理机制（内容需授权后获… | china | general | legal-analysis | zh-CN | undeclared |
+| 1896 | `proofreader` | 优化 Claude 校对法语文本的能力，无论是文学、技术还是专业文本。语法和拼写检查、不规范用语（barbarismes… | china | general | legal-analysis | zh-CN | mit |
+| 1897 | `property-dispute` | [Property] 物业纠纷全流程维权助手。业主描述物业问题（电梯故障/漏水/物业费涨价/账目不透明/公共收益被侵占/… | china | litigation | litigation | zh-CN | undeclared |
+| 1898 | `proposition-audit-anthony-searle` | 对 AI 生成的事实性和解释性主张进行事后核验与信任审计。按类型和显著性对主张进行分类、路由到领域适当的来源、在分层量表… | uk | general | contract-work | zh-CN | apache-2.0 |
+| 1899 | `proprietary-information-inventions-agreement` | Drafts U.S. Proprietary Information and Inventions Agreement… | us | contract-law | contract-work | en | apache-2.0 |
+| 1900 | `proration-schedule` | Drafts a legally compliant proration schedule for real estat… | general | insurance | contract-work | en | apache-2.0 |
+| 1901 | `prospectus` | Drafts SEC-compliant prospectuses for U.S. securities offeri… | us | contract-law | contract-work | en | apache-2.0 |
+| 1902 | `prospectus-draft` | Drafts SEC-compliant prospectuses for securities offerings, … | us | litigation | contract-work | en | apache-2.0 |
+| 1903 | `protective-order` | Drafts a Stipulated Protective Order for federal litigation … | us | litigation | legal-analysis | en | apache-2.0 |
+| 1904 | `protest-notice` | Drafts a formal Notice of Intent to Protest Award for federa… | us | general | contract-work | en | apache-2.0 |
+| 1905 | `proxy-statement` | Drafts a SEC Regulation 14A / Rule 14a-3 compliant annual me… | us | corporate | legal-research | en | apache-2.0 |
+| 1906 | `psychiatric-advance-directive` | Drafts jurisdiction-specific Psychiatric Advance Directives … | general | tax | contract-work | en | apache-2.0 |
+| 1907 | `public-health-law-summary` | Generates structured, plain-language summaries of public hea… | us | general | legal-analysis | en | apache-2.0 |
+| 1908 | `purchase-agreement-breach-complaint` | Drafts a U.S. civil complaint for breach of a real estate pu… | us | contract-law | contract-work | en | apache-2.0 |
+| 1909 | `purchase-agreement-summary` | Produces structured operational summaries from fully execute… | general | contract-law | doc-reading | en | apache-2.0 |
+| 1910 | `purchase-contract-audit` | 本Skill用于对采购合同进行专业审核，根据输入的合同文本，按照"合同基本信息->潜在风险点->修改建议->参考条款->… | china | construction | doc-reading | zh-CN | undeclared |
+| 1911 | `python-pptx-presentation` | 制作、修改、检查或质检 PowerPoint/PPTX/deck/presentation，尤其适用于 Dentons/… | international | general | legal-analysis | zh-CN | undeclared |
+| 1912 | `qdro-draft` | Drafts Qualified Domestic Relations Orders (QDROs) compliant… | us | general | contract-work | en | apache-2.0 |
+| 1913 | `qdro-drafter` | Use this skill when a U.S. matrimonial attorney or QDRO spec… | us | tax | contract-work | en | undeclared |
+| 1914 | `qichacha` | 根据公司名称查询企业基本信息、知识产权（专利/商标/著作权），数据来源企查查、天眼查等。 | china | ip | legal-analysis | zh-CN | undeclared |
+| 1915 | `qprt` | Drafts an IRC §2702-compliant Qualified Personal Residence T… | general | contract-law | contract-work | en | apache-2.0 |
+| 1916 | `qualification-to-do-business` | Drafts U.S. foreign-corporation qualification filings (Certi… | us | general | legal-analysis | en | apache-2.0 |
+| 1917 | `quality-agreement` | Drafts Quality Agreements for pharmaceutical contract manufa… | us | contract-law | contract-work | en | apache-2.0 |
+| 1918 | `quality-control-provisions` | Drafts Quality Control Provisions as an exhibit to a Tradema… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1919 | `quiet-title-complaint` | Drafts a court-ready Complaint to Quiet Title for real prope… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1920 | `qxb-equity-penetration` | 基于工商数据源，深度解析企业股权结构。适用于企业并购重组前的股权梳理、投资尽调中的股权穿透、商业合作中的关联方识别等场景… | china | corporate | legal-analysis | zh-CN | mit |
+| 1921 | `raisonnement-juridique` | 模拟法国法官分析民事案件时的法律推理。使用此技能分析争议并识别法律问题、构建结构化的法律推理（三段论）、起草民事判决的裁… | china/fr | general | legal-research | zh-CN | mit |
+| 1922 | `rd-expense-compliance-diagnosis` | 帮助企业财务、老板和财税顾问快速识别研发费加计扣除申报中的合规风险，适用于申报前自查、被查前预警、客户初筛和研发费资料体… | china | tax | legal-analysis | zh-CN | undeclared |
+| 1923 | `rea-request` | Drafts a Request for Equitable Adjustment (REA) for U.S. fed… | us | general | contract-work | en | apache-2.0 |
+| 1924 | `reaffirmation-agreement` | Drafts Reaffirmation Agreements under 11 U.S.C. § 524(c) for… | us | general | legal-analysis | en | apache-2.0 |
+| 1925 | `real-estate-agency-disclosure` | Drafts state-compliant real estate agency disclosure documen… | general | contract-law | contract-work | en | apache-2.0 |
+| 1926 | `real-estate-transaction-summary` | Generates structured summaries of real estate transactions f… | us | contract-law | doc-reading | en | apache-2.0 |
+| 1927 | `rec-purchase-agreement` | Drafts Renewable Energy Credit (REC) Purchase Agreements for… | general | contract-law | contract-work | en | apache-2.0 |
+| 1928 | `recall-plan` | Drafts FDA product recall plans compliant with 21 CFR Part 7… | us | litigation | contract-work | en | apache-2.0 |
+| 1929 | `recherche-doctrine` | 在法国、欧洲和国际法律学术数据库中进行学术研究。当用户请求检索学说文章、学位论文、学术著作或大学法律出版物——包括比较法… | fr | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 1930 | `reciprocal-easement-agreement` | Drafts recordable Reciprocal Easement Agreements (REAs) with… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 1931 | `record-designation` | Drafts a Record Designation on Appeal identifying trial cour… | general | litigation | litigation | en | apache-2.0 |
+| 1932 | `recovery-right-litigation` | 面向中国大陆追偿权纠纷的起诉准备与内部办案工作流。区分保证人履责追偿、反担保追偿、债权受让或法定代位、共同债务内部追偿四… | china | litigation | litigation | zh-CN | declared-only |
+| 1933 | `red-team-verifier-patrick-munro` | 对 AI 生成的法律内容进行对抗性核验，包含系统性事实核查、来源验证和质量控制。当用户要求在向客户、利益相关方分发或公开… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 1934 | `refine-legal-chinese` | 以中国大陆现行法律语境为基础，将中文文本转换、润色或审校为准确、规范、简洁、逻辑清晰的法律中文，同时保持原有事实、立场、… | china | general | legal-analysis | zh-CN | undeclared |
+| 1935 | `reg-64-kosovo-jeanne-sulzer` | 针对科索沃地区法院 UNMIK 第 64 号条例审判庭（2000-2008）的验证优先方法论。引注均对照 UNMIK/E… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
+| 1936 | `reg-bi-policy` | Drafts board-ready Suitability and Best Interest policies fo… | us | securities | contract-work | en | apache-2.0 |
+| 1937 | `regulation-briefing` | 当用户要求检索、汇总近期法律法规、监管政策、司法解释、部门规章或地方规范性文件，并产出法规快讯、政策简报、更新清单、Wo… | china | general | legal-research | zh-CN | undeclared |
+| 1938 | `regulation-interpretation` | 从法律视角解读法律法规、部门规章或行业标准，提炼适用范围、核心义务、法律责任与合规要点，并生成一份自包含的 HTML 可… | international | general | compliance | zh-CN | undeclared |
+| 1939 | `regulations-summarizer` | 将中国金融监管法规条文压缩为7-16字法条关键词：按11种句式分类给出压缩策略与动词映射，保留要件不丢失，用于法条索引与… | china | banking-finance | legal-analysis | zh-CN | undeclared |
+| 1940 | `regulatory` | Navigates regulatory compliance, government relations, and a… | eu/us | intl-trade | legal-research | en | apache-2.0 |
+| 1941 | `regulatory-cold-start-interview` | 冷启动访谈 —— 建立你的关注清单、索引政策库、学习你的重要性阈值，让监控产出信号而非噪音。在首次安装、重新配置（--r… | china | general | legal-analysis | zh-CN | undeclared |
+| 1942 | `regulatory-comments` | 复核开放的征求意见期，登记决策，跟踪截止日。在某个征求意见稿的评议窗口开放需要呈现截止日、决定是否提交评议、或登记提交 … | china | banking-finance | legal-analysis | zh-CN | undeclared |
+| 1943 | `regulatory-customize` | 引导式定制你的监管业务规范 —— 改一项而不重跑整个冷启动访谈。调整关注的 监管、政策库索引、重要性阈值、内规差异响应流… | china | general | compliance | zh-CN | undeclared |
+| 1944 | `regulatory-deal-card-generator-patrick-munro` | 生成独立的交互式 HTML“交易卡”，将复杂法规转化为可随时用于谈判的参考工具，系统区分强制性义务与可协商的实施选择。当… | eu | contract-law | compliance | zh-CN | agpl-3.0 |
+| 1945 | `regulatory-gap-surfacer` | 参考技能：共享内规差异与评议台账框架，被 `regulatory-gaps`（内规差异跟踪） 和 `regulatory… | china | general | compliance | zh-CN | undeclared |
+| 1946 | `regulatory-gaps` | 未整改处理的内规差异台账 —— 已标记但未关闭的项。用户问"开放的内规差异有什么"、"内规差异台账"、"整改状态"，或想… | china | general | legal-analysis | zh-CN | undeclared |
+| 1947 | `regulatory-incoming-letter` | 处理监管下发函件（行政处罚通知 / 责令整改 / 监管谈话 / 程序性通知 / 专项自查工作函 / 监管问询）的全流程：… | china | banking-finance | legal-writing | zh-CN | undeclared |
+| 1948 | `regulatory-matter-workspace` | 管理事项工作区 —— 创建、列表、切换、关闭或脱离当前事项（实务层级）。在多客户实务需要把一个客户的上下文与其他客户隔离… | china | general | legal-analysis | zh-CN | undeclared |
+| 1949 | `regulatory-policy-diff` | 把某条具体的监管变化对照已索引的政策库做差异比对。在监管变化发生需要知道触及哪些政策、内规差异是什么时使用；用户说"对照… | china | general | litigation | zh-CN | undeclared |
+| 1950 | `regulatory-policy-redraft` | 产出针对某条内规差异（由 `regulatory-gaps`（内规差异跟踪）或 `regulatory-policy-d… | china | general | contract-work | zh-CN | undeclared |
+| 1951 | `regulatory-reg-feed-watcher` | 现在核查监管信息源，报告自上次核查以来的新内容，按你的重要性阈值过滤。在用户说"查信息源"、"什么新内容"、"监管更新"… | china | administrative | legal-analysis | zh-CN | undeclared |
+| 1952 | `regulatory-submission-summary` | Produces structured summaries of regulatory submission packa… | us | life-sciences | doc-reading | en | apache-2.0 |
+| 1953 | `regulatory-summary` | Generates structured, citation-grounded summaries of regulat… | general | general | doc-reading | en | apache-2.0 |
+| 1954 | `regulatory-threat-model` | 当某个应用或系统 — 包括用 AI 编码代理快速构建的 — 需要带监管植根的安全审查时使用：STRIDE 威胁模型、LI… | eu | data-privacy | legal-research | zh-CN | cc-by-4.0 |
+| 1955 | `rehearing-en-banc` | Drafts a Petition for Rehearing En Banc under FRAP 35 or sta… | general | litigation | contract-work | en | apache-2.0 |
+| 1956 | `related-party-transaction-policy` | Drafts a board-adoptable Related Party Transaction Policy fo… | us | corporate | contract-work | en | apache-2.0 |
+| 1957 | `release-of-claims` | Drafts enforceable Release of All Claims documents for perso… | us | general | contract-work | en | apache-2.0 |
+| 1958 | `repair-request-addendum` | Drafts a Repair Request Addendum modifying an existing resid… | general | contract-law | contract-work | en | apache-2.0 |
+| 1959 | `reply-brief-appellant` | Drafts an appellant's Reply Brief that rebuts the appellee's… | general | litigation | litigation | en | apache-2.0 |
+| 1960 | `repo-research` | GitHub 仓库深度研究与整合分析工具。支持单个/多个仓库研究、与本地项目对比分析、启发式整合建议。支持主题驱动搜索模… | china | general | legal-analysis | zh-CN | cc-by-nc-sa-4.0 |
+| 1961 | `representation-agreement` | Drafts a U.S. litigation representation agreement covering s… | us | general | legal-analysis | en | apache-2.0 |
+| 1962 | `request-for-admissions` | Drafts Requests for Admissions under FRCP 36 or state equiva… | us | litigation | contract-work | en | apache-2.0 |
+| 1963 | `requete-cph-licenciement-faute-grave-selim-brihi` | 起草向法国劳资法庭（Conseil de prud'hommes）提交的诉状，用于质疑因严重过错（faute grave… | fr | litigation | contract-work | zh-CN | agpl-3.0 |
+| 1964 | `residential-lease` | Drafts jurisdictionally compliant U.S. residential lease agr… | us | contract-law | contract-work | en | apache-2.0 |
+| 1965 | `residential-purchase-agreement` | Drafts enforceable U.S. Residential Purchase Agreements cove… | us | contract-law | contract-work | en | apache-2.0 |
+| 1966 | `resource-planner-scott-margetts` | 法律事项的团队结构、齿轮比分析、连续性规划和竞争需求管理。当设置事项团队、审查工作是否在正确的职级上完成、为不可用团队成… | china | legal-profession | legal-analysis | zh-CN | apache-2.0 |
+| 1967 | `response-dissolution` | Drafts a Response to Petition for Dissolution of Marriage ad… | general | family | litigation | en | apache-2.0 |
+| 1968 | `restated-certificate` | Drafts an Amended and Restated Certificate of Incorporation … | us | investment-ma | legal-analysis | en | apache-2.0 |
+| 1969 | `retail-lease-agreement` | Drafts a U.S. retail lease agreement for shopping center or … | us | general | contract-work | en | apache-2.0 |
+| 1970 | `retaliation-complaint` | Drafts U.S. employment-retaliation complaints with jurisdict… | us | labor | legal-writing | en | apache-2.0 |
+| 1971 | `review-contract` | Review a contract against your organization's negotiation pl… | general | contract-law | contract-work | en | undeclared |
+| 1972 | `revocable-living-trust` | Drafts revocable living trust documents with declaration of … | us | estate-trust | legal-analysis | en | apache-2.0 |
+| 1973 | `revolving-credit-agreement` | Drafts a market-standard U.S. revolving credit agreement for… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 1974 | `rfp-pitch-management` | 为选择外部法律顾问的法务团队提供 RFP 创建、分发、评估和入围管理。从零起草新的法律服务 RFP，按加权标准评估律所回… | china | legal-profession | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1975 | `rfp-response` | Drafts evaluation-ready U.S. federal RFP responses across al… | us | contract-law | contract-work | en | apache-2.0 |
+| 1976 | `ricerca-giuridica-it` | 基于意大利和欧盟来源的法律检索：各领域（民事、刑事、行政、劳动、税务及 专业领域）的法规、实践和判例。当用户要求查找、定… | eu | contract-law | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 1977 | `right-to-sue-letter` | Drafts EEOC Notice of Right to Sue letters that close the ad… | us | labor | contract-work | en | apache-2.0 |
+| 1978 | `rightclick-creator` | 【macOS Only】右键神器。 当用户提到以下任一意图时，必须立即使用此 Skill： 「安装右键工具」「批量安装右… | china | general | legal-analysis | zh-CN | apache-2.0 |
+| 1979 | `risk-analysis` | Generates structured risk analysis summaries for legal matte… | general | litigation | legal-analysis | en | apache-2.0 |
+| 1980 | `risk-assessment` | Generates structured legal risk assessment reports with cate… | general | investment-ma | doc-reading | en | apache-2.0 |
+| 1981 | `riskbird-cominfo-batch` | 通过风鸟（riskbird.com）批量查询全国企业联系方式、社保参保人数，无需付费、无需API Key，利用CDP浏览… | china | general | legal-analysis | zh-CN | mit |
+| 1982 | `rofr-co-sale` | Drafts Right of First Refusal and Co-Sale Agreements for ven… | general | corporate | contract-work | en | apache-2.0 |
+| 1983 | `royalty-deed` | Drafts U.S. oil and gas royalty deeds conveying NPRI or part… | us | general | contract-work | en | apache-2.0 |
+| 1984 | `royalty-report` | Drafts auditable royalty report forms for IP licensing agree… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 1985 | `rules-and-regulations-exhibit` | Drafts enforceable Rules and Regulations Exhibits for attach… | general | contract-law | contract-work | en | apache-2.0 |
+| 1986 | `runtime-admissibility-review` | 判断某个具体的 AI 代理（AI-agent）行动、输出、建议或拟议承诺，在当前的授权、委托范围、证据、事实、政策、风险… | china | civil-procedure | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 1987 | `saas-license-agreement` | Drafts SaaS License Agreements for cloud-based software subs… | eu/us | data-privacy | contract-work | en | apache-2.0 |
+| 1988 | `safe-agreement` | Drafts Simple Agreements for Future Equity (SAFE) for early-… | general | corporate | contract-work | en | apache-2.0 |
+| 1989 | `safe-quiz-m01-law` | 安全·模块：法律法规——本 Skill 是「注册安全工程师」职业资格考试《安全生产法律法规》科目的刷题模块，面向备考考生… | china | education-law | education | zh-CN | mit |
+| 1990 | `sale-contract-audit` | 本Skill用于对销售合同进行专业审核，根据输入的合同文本，按照"合同基本信息->潜在风险点->修改建议->参考条款->… | china | contract-law | contract-work | zh-CN | undeclared |
+| 1991 | `sales-contract-litigation-gaoyao` | 面向中国大陆买卖合同纠纷起诉与诉讼准备阶段的中文法律工作流。用于材料可读性与来源核验、production-intake… | china | contract-law | contract-work | zh-CN | gpl-3.0 |
+| 1992 | `sam-reps-certs` | Drafts Representations and Certifications documents for SAM.… | us | contract-law | contract-work | en | apache-2.0 |
+| 1993 | `sanctions-screening` | 完整的制裁与出口管制分析工具——个人列名、行业制裁、两用物项、 支付系统（SWIFT/USD）和域外适用制度（EAR/I… | us/eu/uk/international | intl-trade | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 1994 | `sanctions-screening-datainftra` | 全球制裁筛查智能引擎。对公司/个人进行全球制裁匹配、出口管制检查，覆盖 100+ 名单，生成含证据截图合规报告。默认执行… | china | intl-trade | legal-analysis | zh-CN | mit |
+| 1995 | `sanctions-screening-legal-analysis-skill-english-gillan-saleh` | 面向 Claude Desktop 的制裁与出口管制分析工具。覆盖 30 多个官方名单（联合国、欧盟、OFAC、OFSI… | us/eu/uk/international | intl-trade | legal-analysis | zh-CN | agpl-3.0 |
+| 1996 | `sar-filing` | Drafts FinCEN Suspicious Activity Reports (Form 111) for BSA… | us | banking-finance | legal-analysis | en | apache-2.0 |
+| 1997 | `scanned-pdf-to-word` | 把扫描件 PDF（公文、表格、通知书）还原为字体字号一致、可编辑可填写的 Word。铁律顺序：①先要原件（有原件则零误差… | china | general | legal-analysis | zh-CN | mit |
+| 1998 | `scope-change-controller-scott-margetts` | 法律事项的范围管理 — 基线捕获、进行中的变更控制、OOS 文档化和范围回顾。当被要求审查范围界定假设、评估工作是否在范… | china | general | contract-work | zh-CN | apache-2.0 |
+| 1999 | `screening-alert-adjudication-amir-fadavi` | 裁决制裁、PEP 或负面媒体报道筛查产生的命中是真报、误报还是需要人工升级。当用户提供筛查警报、与观察名单（OFAC S… | us/eu/uk/international | intl-trade | legal-research | zh-CN | mit |
+| 2000 | `scsl-rscsl-special-court-for-sierra-leone-jeanne-sulzer` | 针对塞拉利昂问题特别法庭及其余留特别法庭的验证优先方法论。引用均对照 rscsl.org 和 legal-tools.o… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
+| 2001 | `sec-opinion-letter` | Drafts Opinion of Counsel letters for SEC registration state… | us | corporate | contract-work | en | apache-2.0 |
+| 2002 | `section-508` | 美国联邦信息通信技术无障碍的第 508 条合规专家顾问。当用户询问第 508 条、联邦系统的 WCAG 2.0/2.1 … | us | contract-law | compliance | zh-CN | mit |
+| 2003 | `secured-promissory-note` | Drafts U.S. secured promissory notes for commercial lending … | us | general | contract-work | en | apache-2.0 |
+| 2004 | `securities-loss-calculator` | 证券虚假陈述民事赔偿（投资者向上市公司索赔）损失计算的可视化工具。依据用户提供的中介交易记录（买入/卖出明细），采用移动… | china | securities | calculation | zh-CN | cc-by-nc |
+| 2005 | `securities-regulation-summary` | Generates thematic compliance summaries of US securities reg… | us | investment-ma | legal-analysis | en | apache-2.0 |
+| 2006 | `security-agreement` | Drafts UCC Article 9 security agreements granting first-prio… | general | general | legal-analysis | en | apache-2.0 |
+| 2007 | `security-compliance` | 安全合规全流程指导，覆盖等级保护2.0（等保）、三法合规（网络安全法、数据安全法、个人信息保护法）、数据分类分级、SOX… | china/us | securities | compliance | zh-CN | mit |
+| 2008 | `security-deposit-letter-of-credit` | Drafts an irrevocable standby letter of credit securing a co… | general | general | legal-analysis | en | apache-2.0 |
+| 2009 | `security-review-openai` | 执行语言和框架特定的安全最佳实践审查并提出改进建议。仅在用户明确请求安全最佳实践指导、安全审查/报告或默认安全编码帮助时… | china | general | contract-work | zh-CN | apache-2.0 |
+| 2010 | `self-ent-law-arbitration-clause` | ⚖️ 法律与社会技能：围绕「仲裁条款」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | arbitration-adr | litigation | zh-CN | undeclared |
+| 2011 | `self-ent-law-class-action` | ⚖️ 法律与社会技能：围绕「集体诉讼」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | litigation | zh-CN | undeclared |
+| 2012 | `self-ent-law-compliance-audit` | ⚖️ 法律与社会技能：围绕「合规审计」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | compliance | zh-CN | undeclared |
+| 2013 | `self-ent-law-divorce-process` | ⚖️ 法律与社会技能：围绕「离婚流程」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | translation | zh-CN | undeclared |
+| 2014 | `self-ent-law-employment-law` | ⚖️ 法律与社会技能：围绕「劳动法」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词：… | china | labor | translation | zh-CN | undeclared |
+| 2015 | `self-ent-law-intellectual-property` | ⚖️ 法律与社会技能：围绕「知识产权」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | translation | zh-CN | undeclared |
+| 2016 | `self-ent-law-small-claims` | ⚖️ 法律与社会技能：围绕「小额诉讼」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | litigation | zh-CN | undeclared |
+| 2017 | `self-ent-law-tax-deduction` | ⚖️ 法律与社会技能：围绕「税务减免」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | tax | translation | zh-CN | undeclared |
+| 2018 | `self-ent-law-will-estate` | ⚖️ 法律与社会技能：围绕「遗嘱遗产」展开深度探索，法律科普作者，擅长把晦涩法条翻译成人话，注重实用性与风险防范。触发词… | china | civil-procedure | translation | zh-CN | undeclared |
+| 2019 | `self-improving-legal` | Captures clause risks, compliance gaps, precedent shifts, co… | general | contract-law | contract-work | en | undeclared |
+| 2020 | `self-tease-lawyer-court` | Agent扮演律师在法庭上辩护，模拟法庭辩论，体验逻辑对抗的紧张感。触发词：法庭、辩护、lawyer | china | general | litigation | zh-CN | undeclared |
+| 2021 | `seller-consulting-agreement` | Drafts a U.S. seller consulting agreement for post-closing t… | us | general | legal-analysis | en | apache-2.0 |
+| 2022 | `seller-disclosure` | Drafts residential Seller Disclosure Statements for U.S. rea… | us | contract-law | contract-work | en | apache-2.0 |
+| 2023 | `seller-disclosure-statement` | Drafts a U.S. residential Seller Disclosure Statement coveri… | us | contract-law | contract-work | en | apache-2.0 |
+| 2024 | `sellers-counsel-opinion` | Drafts Opinion of Seller's Counsel letters for APA closings … | general | contract-law | legal-analysis | en | apache-2.0 |
+| 2025 | `sentencing-guidelines` | Calculates federal and state sentencing guideline ranges wit… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 2026 | `sentencing-memorandum` | Drafts defense sentencing memoranda for federal and state cr… | general | general | legal-analysis | en | apache-2.0 |
+| 2027 | `seo-compliance-checker` | SEO compliance checker with real-time API backend for Chines… | china | advertising | compliance | zh-CN | undeclared |
+| 2028 | `separation-agreement` | Drafts employer-side Employee Separation and Release Agreeme… | us | contract-law | contract-work | en | apache-2.0 |
+| 2029 | `series-a-spa` | Drafts market-standard Series A Stock Purchase Agreements fo… | general | contract-law | contract-work | en | apache-2.0 |
+| 2030 | `serious-incident-reporting` | 依据欧盟 AI 法案（Regulation (EU) 2024/1689，KI-Verordnung）第 73 条对高风… | eu | general | compliance | zh-CN | declared-only |
+| 2031 | `settlement-agreement` | Drafts execution-ready settlement agreements for commercial … | general | contract-law | contract-work | en | apache-2.0 |
+| 2032 | `settlement-agreement-review-andrew-bird` | 审查或起草向员工支付费用以了结其索赔的协议——并标记决定其是否实际约束员工的法定条件。适用于英格兰与威尔士的 1996 … | china | contract-law | contract-work | zh-CN | apache-2.0 |
+| 2033 | `settlement-agreement-summary` | Generates executive-ready summaries of multi-party U.S. comm… | us | general | doc-reading | en | apache-2.0 |
+| 2034 | `settlement-distribution` | Drafts settlement distribution statements for personal injur… | general | contract-law | contract-work | en | apache-2.0 |
+| 2035 | `settlement-license-agreement` | Drafts a dual-purpose Settlement and License Agreement resol… | general | ip | contract-work | en | apache-2.0 |
+| 2036 | `settlement-pressure-tester-larissa-meredith-flister` | 本技能在和解报价发出或收到之前对拟议的和解立场进行压力测试：其所依赖的假设、您和对方的筹码、证据弱点、对方可能的回应，以… | china | general | litigation | zh-CN | agpl-3.0 |
+| 2037 | `settlement-proposals` | Produces chronological settlement negotiation summaries from… | general | litigation | doc-reading | en | apache-2.0 |
+| 2038 | `settlement-summarization` | Summarizes settlement negotiations and agreements in litigat… | general | general | doc-reading | en | apache-2.0 |
+| 2039 | `settlement-summary` | Generates structured summaries of settlement negotiations an… | general | litigation | doc-reading | en | apache-2.0 |
+| 2040 | `severance-agreement` | Drafts a U.S. Confidentiality and Severance Agreement for em… | us | contract-law | legal-analysis | en | apache-2.0 |
+| 2041 | `severance-package-calculator` | 计算离职补偿金并生成协商方案：按离职类型算N+1/2N法定补偿，输出三档协商方案、风险自检清单、分场景谈判话术与离职协议… | china | contract-law | calculation | zh-CN | undeclared |
+| 2042 | `shareholder-agreement` | Drafts U.S. shareholder agreements governing ownership, cont… | us | corporate | contract-work | en | apache-2.0 |
+| 2043 | `shareholder-meeting-summary` | Generates structured, record-quality summaries of shareholde… | us | general | doc-reading | en | apache-2.0 |
+| 2044 | `shareholder-resolution-to-dissolve` | Drafts a shareholder resolution authorizing voluntary dissol… | us | corporate | contract-work | en | apache-2.0 |
+| 2045 | `shareholder-rights-plan` | Drafts a U.S. shareholder rights plan (poison pill) package … | us | contract-law | legal-analysis | en | apache-2.0 |
+| 2046 | `shareholders-meeting-minutes` | Drafts minute-book-ready U.S. corporate shareholders meeting… | us | corporate | legal-analysis | en | apache-2.0 |
+| 2047 | `shelf-registration-s3` | Drafts SEC Form S-3 shelf registration statements for eligib… | us | corporate | legal-analysis | en | apache-2.0 |
+| 2048 | `shippers-letter-of-instruction` | Drafts a U.S.-focused Shipper's Letter of Instruction (SLI) … | us | intl-trade | legal-analysis | en | apache-2.0 |
+| 2049 | `short-drama-compliance-check` | 抖音短剧专业创作系统。整合内容创作与平台合规审核，涵盖选题策划、角色设计、分集大纲、剧本生成、合规自检全流程。支持都市情… | china | general | contract-work | zh-CN | undeclared |
+| 2050 | `shuidi-asset-report` | 生成企业财产线索分析报告，为诉讼执行、债务追偿等司法场景提供系统化企业资产排查。 覆盖对外投资（全资/控股/参股）、知识… | china | ip | legal-analysis | zh-CN | mit |
+| 2051 | `shuidi-equity-report` | 生成企业股权结构与关联企业深度分析报告（HTML→SVG+PNG→PDF）。 涵盖实控人穿透、股权架构四层可视化、控制力… | china | general | legal-analysis | zh-CN | mit |
+| 2052 | `side-letter` | Drafts U.S. venture capital and private equity side letter a… | us | general | legal-analysis | en | apache-2.0 |
+| 2053 | `signature-request` | Prepare and route a document for e-signature — run a pre-sig… | general | general | contract-work | en | undeclared |
+| 2054 | `site-selection-addendum` | Drafts a Site Selection Addendum for franchise real estate t… | general | contract-law | contract-work | en | apache-2.0 |
+| 2055 | `skill-creator` | Create new skills, modify and improve existing skills, and m… | general | general | contract-work | en | apache-2.0 |
+| 2056 | `skill-injection-defense` | 审计法律 AI 技能、提示词、工作流、MCP/工具指令和代理包中的提示注入、恶意指令、不安全脚本、可疑元数据、凭据暴露、… | china | general | contract-work | zh-CN | cc-by-nc-nd-4.0 |
+| 2057 | `skill-lint` | Skill 质量验收与格式审查工具，也可称 Skilllint。本技能应在用户需要审查 Claude Code Skil… | china | general | contract-work | zh-CN | mit |
+| 2058 | `skill-optimizer-lawvable` | 分析当前工作会话并为技能提出改进建议的指南。用于 (1) 使用技能后自动捕获经验教训，(2) 当用户在技能相关会话中提出… | china | general | legal-analysis | zh-CN | agpl-3.0 |
+| 2059 | `skill-pour-interroger-judilibre-allison-fiorentino` | >本技能提供对 judilibre API 的访问。您以法语提出请求，它查询 Judilibre 数据库并返回回答。 注… | fr | general | legal-research | zh-CN | agpl-3.0 |
+| 2060 | `skill-vetter` | Security-first skill vetting for AI agents. Use before insta… | general | tax | legal-analysis | en | undeclared |
+| 2061 | `smart-calendar` | 基于 macOS / iOS 苹果生态的智能日程与待办事项管理 skill。将非结构化输入（口语描述、聊天截图、邮件截图… | china | general | legal-analysis | zh-CN | mit |
+| 2062 | `smart-contract-reviewer` | 智能合同审查助手。上传合同文件（PDF/DOCX/文本），自动提取关键条款、识别风险点、标注不合规项，生成审查报告与修改… | china | contract-law | contract-work | zh-CN | undeclared |
+| 2063 | `sme-legal-advisor` | 中小企业法律顾问工具包。提供六大核心能力：合同条款风险扫描、劳动法风险自测、诉讼胜算评估、法律法规查询、类案参考、法律文… | china | labor | litigation | zh-CN | undeclared |
+| 2064 | `sme-legal-risk-scanner` | 按企业全生命周期10域扫描法律风险，输出风险等级与提示 | china | contract-law | contract-work | zh-CN | undeclared |
+| 2065 | `snda` | Drafts a Subordination, Non-Disturbance, and Attornment Agre… | general | contract-law | contract-work | en | apache-2.0 |
+| 2066 | `snda-agreement` | Drafts a tri-party Subordination, Non-Disturbance, and Attor… | general | contract-law | contract-work | en | apache-2.0 |
+| 2067 | `soc2` | 覆盖全部五项信托服务标准（安全/CC、可用性/A、保密性/C、处理完整性/PI、隐私/P）的 SOC 2 合规专家助手。… | china | general | legal-analysis | zh-CN | mit |
+| 2068 | `solar-site-lease` | Drafts U.S. solar site lease agreements between landowners a… | us | contract-law | contract-work | en | apache-2.0 |
+| 2069 | `solo-company-legal-advisor` | 一人公司法律顾问 v2.0 - 专为个人独资企业、一人有限责任公司提供全方位法律服务的智能体。覆盖合同审查、催款追债、劳… | china | labor | contract-work | zh-CN | undeclared |
+| 2070 | `solo-legal-guard` | 一人公司签约与合规风控工作台。用于合同审查、合同模板生成、签约前风险分诊、催款/验收/知识产权/外包用工/数据合规/人格… | china | contract-law | contract-work | zh-CN | undeclared |
+| 2071 | `song-lawyer-helper` | 宋律师智能法律助手客服配置：菜单式回复法条查询与租房、合同、业主维权、隐私侵权咨询，并将诉讼需求引导对接律师本人微信。 | china | litigation | litigation | zh-CN | undeclared |
+| 2072 | `source-locked-verification` | 无推断 / 来源锁定验证。强制 Claude 仅依据用户提供的材料和/或实际访问过的在线来源作答——不允许推断、假设或填… | china | general | legal-analysis | zh-CN | agpl-3.0 |
+| 2073 | `sox-compliance` | Enterprise-grade Sarbanes-Oxley assessment platform that eva… | us | securities | legal-analysis | en | undeclared |
+| 2074 | `space-law-case-summary` | Generates structured summaries of space law cases involving … | international | intl-trade | doc-reading | en | apache-2.0 |
+| 2075 | `spcc-plan` | Drafts a Spill Prevention, Control, and Countermeasure (SPCC… | general | contract-law | contract-work | en | apache-2.0 |
+| 2076 | `special-panels-timor-leste-jeanne-sulzer` | 针对帝力地区法院严重罪行特别审判庭（Special Panels for Serious Crimes，SPSC；UNT… | fr | criminal | litigation | zh-CN | cc-by-4.0 |
+| 2077 | `special-panels-timor-leste-jeanne-sulzer-2` | 针对波斯尼亚和黑塞哥维那法院第一庭（战争罪）的验证优先方法论。引注对照波黑法院、ICTY/IRMCT 档案和 OSCE … | international | litigation | litigation | zh-CN | cc-by-4.0 |
+| 2078 | `specific-performance-complaint` | Drafts a Complaint for Specific Performance compelling contr… | us | litigation | contract-work | en | apache-2.0 |
+| 2079 | `spoliation-letter` | Drafts spoliation and evidence preservation demand letters f… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2080 | `sports-law-cases` | Generates structured summaries of sports law cases covering … | general | arbitration-adr | legal-analysis | en | apache-2.0 |
+| 2081 | `sports-licensing-summary` | Summarizes sports licensing agreements (merchandise, broadca… | general | contract-law | doc-reading | en | apache-2.0 |
+| 2082 | `ss4-ein-application` | Drafts IRS Form SS-4 (EIN Application) by extracting entity … | us | corporate | legal-writing | en | apache-2.0 |
+| 2083 | `stakeholder-comms-planner-scott-margetts` | 利益相关方图谱、沟通计划设计、汇报层级和事务中期沟通更新。在以下情形使用：启动新事务并需要识别谁需要什么信息、设计沟通节… | china | general | legal-analysis | zh-CN | apache-2.0 |
+| 2084 | `stark-law-aks-compliance` | Drafts Stark Law and Anti-Kickback Statute compliance plans … | us | contract-law | contract-work | en | apache-2.0 |
+| 2085 | `state-charity-annual-report` | Drafts U.S. state charity bureau annual report packages for … | us | general | contract-work | en | apache-2.0 |
+| 2086 | `state-qualification` | Drafts an Application for Certificate of Authority to qualif… | us | corporate | contract-work | en | apache-2.0 |
+| 2087 | `statement-of-information` | Drafts a U.S. Statement of Information for periodic Secretar… | us | corporate | doc-reading | en | apache-2.0 |
+| 2088 | `status-report-drafter-scott-margetts` | 从电子邮件、通话记录和更新起草事项状态报告。内部与面向客户格式、RAG 逻辑、偏差评注、升级标记。当被要求起草状态报告、… | de | general | doc-reading | zh-CN | apache-2.0 |
+| 2089 | `statute-briefer` | 使用 MAPS + RULES 框架简报法规和立法法案。在简报法规、分析立法文本、映射法规结构、 从条款中提取规则模块、… | us | civil-procedure | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 2090 | `statute-guide` | 用于阅读、解释和构建美国联邦、州和地方法律法条分析的第一轮框架。产出供律师审查的草稿分析——而非法律意见。当用户以引注形… | us | data-privacy | legal-analysis | zh-CN | agpl-3.0 |
+| 2091 | `statute-of-limitations` | 诉讼时效管理助手：计算时效起算与届满日，识别中断、中止事由，指导催款留痕（快递、短信、录音）保全权利，并提供时效已过后的… | china | litigation | litigation | zh-CN | undeclared |
+| 2092 | `stay-pending-appeal` | Drafts a Motion for Stay Pending Appeal using the four-facto… | us | general | contract-work | en | apache-2.0 |
+| 2093 | `stay-relief-motion` | Drafts a Motion for Relief from Automatic Stay under 11 U.S.… | us | contract-law | litigation | en | apache-2.0 |
+| 2094 | `stl-lebanon-jeanne-sulzer` | 针对黎巴嫩问题特别法庭的验证优先方法论。引用均对照 STL 遗留档案和 legal-tools.org 核实。涵盖 Ay… | fr | general | litigation | zh-CN | cc-by-4.0 |
+| 2095 | `stock-k-line-analysis-visualization-plus` | 面向研究者的A股K线技术分析工作流。 | china | securities | legal-analysis | zh-CN | undeclared |
+| 2096 | `stock-ledger-certificates` | Drafts stock ledger and certificate packages for U.S. corpor… | us | corporate | contract-work | en | apache-2.0 |
+| 2097 | `stock-option-grant` | Drafts Stock Option Grant Agreements for ISOs or NQSOs under… | general | corporate | legal-analysis | en | apache-2.0 |
+| 2098 | `stock-purchase-agreement` | Drafts a Stock Purchase Agreement for 100% stock acquisition… | general | corporate | contract-work | en | apache-2.0 |
+| 2099 | `strategic-contract-review` | 战略级合同审查。当用户上传合同文件或提到审合同、合同风险评估、协议审查时触发。 五阶段审查流程：确认前提→类型识别→结构… | china | contract-law | contract-work | zh-CN | undeclared |
+| 2100 | `strategic-risk-prioritization` | 当法律分析中存在多个可能的结论、风险点或争议焦点时，需要对这些风险按照发生概率和影响程度进行系统化排序，以帮助决策者聚焦… | china | contract-law | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 2101 | `strategy-summary` | Produces a litigation strategy summary aligning facts, legal… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2102 | `structured-element-extraction` | 当AI智能体需要对一个法律问题、案件事实、法律条文或法律关系进行系统性分析时，首先必须将其分解为结构化的要素清单。该技能… | china | contract-law | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 2103 | `subcontracting-plan` | Drafts a FAR 52.219-9-compliant Small Business Subcontractin… | general | general | contract-work | en | apache-2.0 |
+| 2104 | `subcontractor-agreement` | Drafts enforceable U.S. subcontractor agreements governing g… | us | contract-law | contract-work | en | apache-2.0 |
+| 2105 | `sublease-agreement` | Drafts commercial sublease agreements subordinate to a maste… | general | contract-law | contract-work | en | apache-2.0 |
+| 2106 | `sublicense-agreement` | Drafts Sublicense Agreements for IP licensing transactions, … | general | tax | legal-analysis | en | apache-2.0 |
+| 2107 | `subordination-agreement` | Drafts debt subordination agreements establishing senior/jun… | general | general | legal-analysis | en | apache-2.0 |
+| 2108 | `subpoena-duces-tecum` | Drafts a Subpoena Duces Tecum compelling document production… | us | litigation | litigation | en | apache-2.0 |
+| 2109 | `subscription-agreement` | Drafts U.S. corporate subscription agreements for SaaS and s… | us | contract-law | doc-reading | en | apache-2.0 |
+| 2110 | `succession-planning-summary` | Synthesizes wills, trusts, beneficiary designations, powers … | general | estate-trust | doc-reading | en | apache-2.0 |
+| 2111 | `sue` | A comprehensive AI agent skill for anyone considering or fac… | general | contract-law | legal-analysis | en | undeclared |
+| 2112 | `sujet-crfpa-allison-fiorentino` | 本技能为 CRFPA（法国律师职业能力证书考试）两场书面法律咨询考试生成练习题目：债法（公共基础）考试和专业方向考试（民… | fr | tax | legal-research | zh-CN | agpl-3.0 |
+| 2113 | `summarize-files` | Generates structured summaries of legal documents (contracts… | general | contract-law | doc-reading | en | apache-2.0 |
+| 2114 | `summary-judgment` | Produces structured summaries of summary judgment motions, o… | general | litigation | doc-reading | en | apache-2.0 |
+| 2115 | `summary-judgment-brief` | Drafts FRCP 56 summary judgment motion briefs for U.S. comme… | us | litigation | contract-work | en | apache-2.0 |
+| 2116 | `summary-judgment-motion` | Drafts a Motion for Summary Judgment package for personal in… | us | litigation | contract-work | en | apache-2.0 |
+| 2117 | `summons-service-packet` | Drafts court-ready summons and service packets for civil per… | us | litigation | contract-work | en | apache-2.0 |
+| 2118 | `supervisor-quiz-m03-theory` | 监理工程师刷题库·模块：基本理论与法规——按章节生成监理工程师《建设工程监理基本理论与相关法规》练习题，覆盖监理概述、组… | china | construction | contract-work | zh-CN | mit |
+| 2119 | `suppress-evidence` | Drafts a Motion to Suppress Evidence for criminal defense, c… | general | litigation | litigation | en | apache-2.0 |
+| 2120 | `sustainable-opposing-counsel-review` | 对能在答辩中存活的法律论证产生对抗性攻击。运行两次相对方律师纪律：第一遍 不加约束，然后用同一工具反作用于该遍，砍掉在挑… | china | general | contract-work | zh-CN | apache-2.0 |
+| 2121 | `svg-article-illustrator` | AI驱动的SVG文章配图生成工具，支持动态SVG、静态SVG和PNG导出三种输出模式。当用户需要为文章生成配图、创建SV… | china | general | legal-analysis | zh-CN | mit |
+| 2122 | `swiss-legal-source-authority-triage-enrique-g-zbinden` | 瑞士法律来源与权威分流。当用户提出瑞士法律、监管、合规、合同、雇佣、公司、诉讼、知识产权、税务、隐私、公法、金融科技、登… | china | tax | legal-analysis | zh-CN | mit |
+| 2123 | `swppp` | Drafts a Stormwater Pollution Prevention Plan (SWPPP) compli… | general | environmental | legal-analysis | en | apache-2.0 |
+| 2124 | `systematic-interpretation` | 体系解释是指针对法律规范文义解释后所产生的含义或适用范围上的争议，根据法律规范在法律体系中的位置（如在哪一部法律、编、章… | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 2125 | `szzz-case-study-lite` | SZZZ Case Study Lite 免费版。用于对用户已有的本地 PDF、DOCX、DOC 民事裁判文书执行批量提… | china | general | legal-research | zh-CN | mit |
+| 2126 | `t4c-settlement-proposal` | Drafts a Termination for Convenience Settlement Proposal und… | general | contract-law | contract-work | en | apache-2.0 |
+| 2127 | `tabular-review-lawvable` | 按用户定义的列分析多个文档（PDF、DOCX）并产出带引用的结构化 Excel 输出的指南。当用户想要：(1) 从多个文… | china | contract-law | doc-reading | zh-CN | agpl-3.0 |
+| 2128 | `taiwan-compatriots-mainland-policy-qa-plus` | 针对台湾同胞在大陆生活、工作、投资、就学、创业等场景，先主动询问其所在省、市，再结合国家层面规范与该省市的细化法规政策，… | china | general | legal-research | zh-CN | undeclared |
+| 2129 | `tax-advisory-practice` | 财税中介机构AI合规咨询服务转型专题（供给侧·B视角）。覆盖涉税专业服务执业规范、三级复核与质量控制、咨询项目承接/交付… | international | tax | legal-analysis | zh-CN | mit-0 |
+| 2130 | `tax-capital-reduction` | 减资撤资（未实缴减资）个人所得税专项助手。聚焦公司减资、股东撤资退股、未实缴减资免除出资义务、定向减资（公司回购股权）、… | china | tax | compliance | zh-CN | mit-0 |
+| 2131 | `tax-clearance-request` | Drafts formal request letters for Tax Clearance Certificates… | general | contract-law | contract-work | en | apache-2.0 |
+| 2132 | `tax-compliance-check` | 企业税务合规自查工具。基于《中华人民共和国税法》与《税收征收管理法》，针对增值税、企业所得税、个人所得税、印花税、发票管… | china | tax | compliance | zh-CN | undeclared |
+| 2133 | `tax-compliance-dispute` | 财税合规与争议解决专业助手（财税内审·企业清算注销·税务争议·合同涉税条款审核·发票合规正负面清单）。覆盖内控评价与审计… | china | tax | contract-work | zh-CN | mit-0 |
+| 2134 | `tax-compliance-planning` | 税务合规与筹划全流程技能：税收政策识别、合规评估与报告、税务风险评估、稽查应对与转让定价分析，含2026年增值税法新政专… | china | tax | legal-analysis | zh-CN | undeclared |
+| 2135 | `tax-compliance-report` | 根据企业财务数据（序时账、发票、报表）自动生成财税合规分析报告（Word+Excel），识别增值税/所得税/个税/发票/… | china | tax | compliance | zh-CN | undeclared |
+| 2136 | `tax-construction` | 建筑施工行业财税合规、税务风险识别与合规落地实操专题助手。覆盖建筑施工主业异地预缴、甲供工程、清包工简易计税、货物加安装… | china | tax | compliance | zh-CN | mit-0 |
+| 2137 | `tax-consumption-tax` | 电池消费税合规与政策指引专项助手（聚焦电池消费税·梯次税率·免征清单·CMA检测报告·委托加工扣除·自产自用）。覆盖梯次… | china | tax | compliance | zh-CN | mit-0 |
+| 2138 | `tax-contract-generation-review` | 企业全业务生命周期合同模板库与全生命周期合规评审指引。支持全行业合同类型模板查看、合同生成、条款审核、涉税风险防控、评审… | china | ip | contract-work | zh-CN | mit-0 |
+| 2139 | `tax-data-asset` | 数据资源（数据资产）入表税务专项助手。聚焦会计入表与税务确认的税会差异、数据资产估值虚高防控（上市审核与监管问询高发点）… | china | tax | compliance | zh-CN | mit-0 |
+| 2140 | `tax-education` | 学历教育免税、非学历教育简易计税、托育保育免税、非营利组织免税资格、培训机构预收学费与课时费收入确认、教师个税与社保、发… | china | tax | compliance | zh-CN | mit-0 |
+| 2141 | `tax-equity-governance` | 股权与公司治理涉税专业助手（股权转让·家族股权架构·国企混改·VIE/红筹架构·股权架构税负优化）。覆盖自然人股权转让个… | china | tax | compliance | zh-CN | mit-0 |
+| 2142 | `tax-esop-platform` | 员工持股平台（有限合伙/公司型/资管型）财税合规专项助手。聚焦股权激励递延纳税（相关财税文件）、合伙企业持股平台税制（经… | china | tax | compliance | zh-CN | mit-0 |
+| 2143 | `tax-global-compliance` | 企业出海全球合规指引专项助手。聚焦中国企业"走出去"在主要投资目的地的用工、薪酬、税务与数据合规实务，覆盖美国、沙特、印… | international | tax | contract-work | zh-CN | mit-0 |
+| 2144 | `tax-hainan-ftp` | 海南自由贸易港鼓励类产业企业实质性运营专项规划与税务核查风险应对专题助手。覆盖减按优惠税率、高端紧缺人才个税实际税负超1… | international | tax | compliance | zh-CN | mit-0 |
+| 2145 | `tax-invoice-compliance` | 数电票合规与空壳虚开防范专项助手。聚焦数电票全生命周期管理、空壳虚开特征识别、受票方防范、合同票据资金货物流四流一致、异… | china | tax | compliance | zh-CN | mit-0 |
+| 2146 | `tax-ipo-tax` | 上市审核税务合规专项助手。聚焦税收优惠依赖与可持续性红线、税收优惠披露要求、红筹架构完税凭证级核查、北交所全链条实质合规… | international | tax | compliance | zh-CN | mit-0 |
+| 2147 | `tax-legal-tax-review` | 财税法务审查与法税同审专项助手。聚焦并购重组投资入场前的税务合规法律尽职调查、交易文件涉税条款的法务—财务—税务一体化同… | china | tax | contract-work | zh-CN | mit-0 |
+| 2148 | `tax-offshore-trust` | 离岸信托与跨境家族财富个人所得税专项助手。聚焦离岸信托个人所得税有关征管新规（依据财政部 税务总局公告2026年发布的第… | international | tax | compliance | zh-CN | mit-0 |
+| 2149 | `tax-policy-knowledge` | 全税费种财税政策智能问答与风险合规助手。以「全量财税知识库 + 多维度风险指标模型 + 合规应对指引」三大专业底座为核心… | international | tax | contract-work | zh-CN | mit-0 |
+| 2150 | `tax-quiz-m04-law` | 税务师·模块：涉税服务相关法律——本 Skill 是「税务师」考试《涉税服务相关法律》科目的刷题模块，面向备考税务师考生… | china | tax | education | zh-CN | mit |
+| 2151 | `tax-restructuring` | 企业重组资本运作涉税专业助手（破产重整·上市公司重组·企业分立·企业合并·债务重组·跨境重组）。覆盖税收债权申报与信用修… | international | tax | compliance | zh-CN | mit-0 |
+| 2152 | `tax-return-analysis` | Produces litigation-ready financial memoranda from multi-yea… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2153 | `tax-return-summary` | Produces structured, citation-backed summaries of tax return… | general | family | doc-reading | en | apache-2.0 |
+| 2154 | `tax-sme-specialized` | 专精特新小巨人涉税合规专项助手。聚焦专精特新小巨人/优质中小企业梯度培育企业认定数据一致、研发费用归集与高新15%维持、… | china | tax | compliance | zh-CN | mit-0 |
+| 2155 | `tax-social-insurance` | 社保入税与社保合规专项助手。聚焦社保费征管划转、缴费基数真实合规、个税与社保基数匹配与不一致专项应对、劳动关系与灵活用工… | china | tax | compliance | zh-CN | mit-0 |
+| 2156 | `tax-soe-audit` | 国有企业经济责任审计涉税风险与合规专项助手。聚焦国企经责审计中的涉税风险（虚开发票/偷逃税款/账外账小金库、国有资本收益… | china | tax | compliance | zh-CN | undeclared |
+| 2157 | `tax-steel` | 钢铁/有色/稀土/贵金属冶金企业全税种财税合规助手。覆盖资源税品类差异化税率、再生资源增值税即征即退、黄金标准黄金差异化… | china | tax | compliance | zh-CN | mit-0 |
+| 2158 | `tax-strategist` | 专注于税务优化、多辖区合规、转让定价和战略税务规划的专业税务策略师。在确保完全遵守中国及地方税务法规的前提下，驾驭复杂的… | china | tax | legal-analysis | zh-CN | undeclared |
+| 2159 | `tax-summary-spousal-support` | Produces structured financial summaries from tax returns, W-… | general | litigation | doc-reading | en | apache-2.0 |
+| 2160 | `tax-tax-audit` | 企业财税合规审计与税务审计专项助手。聚焦财务报表审计中对税收法律法规的考虑（审计准则1142号落地）、税务合规内控审计程… | china | tax | compliance | zh-CN | mit-0 |
+| 2161 | `tax-tax-judicial` | 涉税司法案例与税务争议裁判规则专项助手。聚焦最高法危害税收征管犯罪典型案例、虚开专票罪三档量刑与出罪规则、下游受票方复议… | china | tax | contract-work | zh-CN | mit-0 |
+| 2162 | `tax-tcm-clinic` | 医疗机构医疗服务免征增值税、诊所备案制、兼营分别核算、营利与非营利医疗机构企业所得税、医生个税四类所得（任职工资薪金/坐… | china | tax | compliance | zh-CN | mit-0 |
+| 2163 | `tax-vat-law` | 增值税法及实施条例2026施行落地专项助手。聚焦应税交易概念重构与税目适用、进项抵扣合规、视同应税交易处理、混合销售与兼… | china | tax | compliance | zh-CN | mit-0 |
+| 2164 | `taxpayer-correspondence` | Drafts structured taxpayer correspondence summarizing tax re… | us | tax | doc-reading | en | apache-2.0 |
+| 2165 | `teaming-agreement` | Drafts Teaming Agreements for prime-sub pursuit of U.S. gove… | us | contract-law | contract-work | en | apache-2.0 |
+| 2166 | `tech-contract-negotiation-patrick-munro` | 面向技术服务协议、带有德国/欧盟法律具体性的系统化合同谈判策略。提供三位置框架（利于提供者、均衡、利于客户）、交易规模校… | china/eu/de | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 2167 | `tech-contract-registration-assistant` | 技术合同认定登记全流程智能助手。覆盖技术开发合同、技术转让合同、技术咨询合同、技术服务合同（含2026年新增技术许可合同… | china | tax | contract-work | zh-CN | mit |
+| 2168 | `tech-contract-review-parth-desai` | 面向科技和一般合同的合同审查。智能红旗标记功能以显示问题。 | eu/us/uk/in | contract-law | contract-work | zh-CN | agpl-3.0 |
+| 2169 | `technology-transfer-agreement` | Drafts Technology Transfer Agreements governing IP rights, l… | us | contract-law | contract-work | en | apache-2.0 |
+| 2170 | `technology-tutorial` | Drafts a neutral, educational slide-deck technology tutorial… | general | litigation | litigation | en | apache-2.0 |
+| 2171 | `telecom-law-summary` | Generates executive-level summaries of recent US telecommuni… | us | securities | legal-analysis | en | apache-2.0 |
+| 2172 | `telegram-contract-ops` | Telegram-based internal contract generation and eID intake w… | general | contract-law | legal-analysis | en | undeclared |
+| 2173 | `telemedicine-consent` | Drafts dual-purpose telemedicine consent and policy document… | us | contract-law | contract-work | en | apache-2.0 |
+| 2174 | `teleological-interpretation` | 目的解释技能。当法律条文经过文义解释后仍无法得出确定结论时，通过系统性地发现并论证该条文的目的，在文本可承受范围内选择最… | china | general | legal-analysis | zh-CN | cc-by-nc-nd-4.0 |
+| 2175 | `tenant-estoppel-certificate` | Drafts tenant estoppel certificates for commercial real esta… | general | real-estate | contract-work | en | apache-2.0 |
+| 2176 | `tenant-improvement-work-letter` | Drafts a U.S. commercial lease Tenant Improvement Work Lette… | us | contract-law | contract-work | en | apache-2.0 |
+| 2177 | `tencent-esign-contract` | 腾讯电子签合同AI助手，支持合同起草、审查、对比、法条法规检索。当用户提到起草合同、写合同、生成合同、审查合同、检查合同… | china | contract-law | contract-work | zh-CN | undeclared |
+| 2178 | `tencent-ima-copilot-legal-consultation` | 以资深律师分阶段办案思维，结合 RAG 法律知识库检索，为用户提供法律问题初步诊断与行动策略。当用户描述法律纠纷、咨询"… | china | contract-law | legal-research | zh-CN | declared-only |
+| 2179 | `tender-denial` | Drafts legally defensible denial letters rejecting tendered … | general | contract-law | contract-work | en | apache-2.0 |
+| 2180 | `tender-letter` | Drafts formal legal tender letters serving as official notic… | general | contract-law | contract-work | en | apache-2.0 |
+| 2181 | `tender-of-defense` | Drafts a contractual tender of defense letter demanding a co… | general | litigation | contract-work | en | apache-2.0 |
+| 2182 | `tendering-bidding-compliance-expert` | 招标投标合规实务专家（Tendering & Bidding Compliance Practice Expert）。 … | china | general | legal-research | zh-CN | undeclared |
+| 2183 | `term-loan-agreement` | Drafts U.S. corporate finance term loan agreements covering … | us | general | contract-work | en | apache-2.0 |
+| 2184 | `terms-of-service` | Drafts enforceable U.S. Terms of Service agreements for webs… | us | contract-law | contract-work | en | apache-2.0 |
+| 2185 | `third-party-complaint` | Drafts a Third-Party Complaint (impleader) under FRCP 14 or … | us | contract-law | contract-work | en | apache-2.0 |
+| 2186 | `third-party-snt` | Drafts irrevocable third-party Special Needs Trusts funded b… | us | contract-law | contract-work | en | apache-2.0 |
+| 2187 | `ti-work-letter` | Drafts a Tenant Improvement Work Letter exhibit for commerci… | general | contract-law | contract-work | en | apache-2.0 |
+| 2188 | `tibet-ip-strategy` | 藏药知识产权组合布局与专利策略专家。当用户需要藏药/中藏药/民族药项目的知识产权保护方案设计、专利组合布局、商标与地理标… | china | ip | legal-analysis | zh-CN | undeclared |
+| 2189 | `tibetan-medicine-patent-assistant` | 藏药/中药发明专利初稿生成助手。接收处方组成、剂型、质量标准、制备工艺等信息，自动生成完整的中国发明专利初稿（Word格… | china | ip | legal-analysis | zh-CN | undeclared |
+| 2190 | `tila-consumer-loan-agreement` | Drafts U.S. consumer loan agreements with integrated Truth i… | us | contract-law | contract-work | en | apache-2.0 |
+| 2191 | `timeline-generator-scott-margetts` | 从事项计划构建依赖网络和关键路径。生成交互式甘特图，标记接近关键的任务，并在发生延误时运行假设级联情景——展示项目影响并… | de | general | doc-reading | zh-CN | apache-2.0 |
+| 2192 | `title-commitment` | Drafts ALTA-compliant Title Commitment documents for commerc… | us | contract-law | contract-work | en | apache-2.0 |
+| 2193 | `tkk-element-lawsuit` | TKK 要素式起诉状转换工具——从传统起诉状 DOCX/PDF 自动提取要素，AI 驱动填写并生成规范的要素式文书。33… | china | litigation | doc-reading | zh-CN | undeclared |
+| 2194 | `tone-aggressive` | Applies aggressive advocacy tone to legal writing with force… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2195 | `tone-diplomatic` | Applies measured, diplomatic tone to legal writing. Triggers… | general | contract-law | litigation | en | apache-2.0 |
+| 2196 | `toolweb-privacy-compliance-assistant` | 根据企业类型、处理的数据种类、目的、系统与共享关系，生成隐私影响评估（PIA）与DPO咨询报告，含GDPR第30条ROP… | eu/us | data-privacy | legal-analysis | en | undeclared |
+| 2197 | `track-deposits` | Traces deposits from receipt through disbursement across ban… | general | general | legal-analysis | en | apache-2.0 |
+| 2198 | `trade-law-summary` | Produces structured U.S.-focused international trade law sum… | us/international | intl-trade | doc-reading | en | apache-2.0 |
+| 2199 | `trademark-assistant` | 面向中国商标申请的类别规划、可注册性初筛及申请材料准备技能。基于尼斯分类（国际商标分类），引用中国法律法规。本技能应在接… | china | ip | legal-analysis | zh-CN | cc-by-nc |
+| 2200 | `trademark-cease-and-desist-letter` | Drafts a U.S. trademark cease-and-desist letter for pre-liti… | us | litigation | legal-analysis | en | apache-2.0 |
+| 2201 | `trademark-cease-desist` | Drafts U.S. trademark cease-and-desist letters asserting own… | us | tax | contract-work | en | apache-2.0 |
+| 2202 | `trademark-clearance` | Generates a trademark clearance search report evaluating mar… | us | general | legal-analysis | en | apache-2.0 |
+| 2203 | `trademark-coexistence` | Drafts U.S. trademark coexistence agreements defining permit… | us | contract-law | contract-work | en | apache-2.0 |
+| 2204 | `trademark-helper` | Reference tool for business — covers intro, quickstart, patt… | general | general | legal-analysis | en | undeclared |
+| 2205 | `trademark-information-inquiry` | 商标关键词搜索与详情查询（申请人、分类、公告等）。当用户说：查一下「某某」商标有没有被注册？这个商标注册人是谁？或类似商… | china | ip | legal-analysis | zh-CN | undeclared |
+| 2206 | `trademark-infringement-analysis` | 商标侵权判断分析技能。触发词：商标侵权、侵权判断、商标近似、混淆可能性、商标案件分析、字号突出使用、域名侵权、商标检索。… | china | ip | legal-analysis | zh-CN | undeclared |
+| 2207 | `trademark-license-agreement` | Drafts a U.S. Trademark License Agreement governing a licens… | us | contract-law | contract-work | en | apache-2.0 |
+| 2208 | `trademark-prescreen` | 商标注册前的可行性预检与分析助手。当用户提出「我想把 X（文字/拼音/图形）注册成商标」「查一下 X 商标能不能注册 /… | china | ip | legal-research | zh-CN | mit |
+| 2209 | `trademark-quick-check` | 面向中小企业/个人创业者的轻量级商标快速预查和申请流程导航工具。当用户输入商标名称/图样、查询近似商标、了解商标注册流程… | eu | ip | legal-analysis | zh-CN | undeclared |
+| 2210 | `trademark-registration-assistant` | 商标注册全流程智能助手。覆盖商标查询检索、类别规划、申请材料准备、注册申请提交、后续维护（驳回复审/异议答辩/续展变更）… | china | ip | legal-analysis | zh-CN | mit |
+| 2211 | `trademark-search-robb-miller` | 在美国和加拿大执行面向律师的初筛/可用性商标检索。当用户（创始人、客户或律师）询问品牌、商标、名称、标志、口号或产品名是… | ca | ip | contract-work | zh-CN | cc-by-4.0 |
+| 2212 | `traffic-accident` | 「交通事故纠纷全流程V2」—— 责任认定/复核/特殊类型（外卖/网约车/酒驾/多车）→伤残鉴定→赔偿清单/保险谈判/工伤… | china | insurance | litigation | zh-CN | undeclared |
+| 2213 | `traffic-accident-calculator` | 输入伤情、伤残等级、误工护理天数、被扶养人和事故责任比例，逐项算清医疗费、误工费、残疾赔偿金、被扶养人生活费、精神抚慰金… | china | insurance | calculation | zh-CN | undeclared |
+| 2214 | `traffic-law-doc` | parse traffic accident legal documents and generate exam ans… | general | general | legal-analysis | en | undeclared |
+| 2215 | `traffic-police-legal-review-assistant` | 输入违法案件情况，自动进行法制审核并出具审核意见书。面向交警队法制员，对交通管理行政案件及危险驾驶罪全类型刑事案件（醉驾… | china | general | contract-work | zh-CN | undeclared |
+| 2216 | `transactional` | Routes and governs transactional legal work—contracts, deals… | general | contract-law | contract-work | en | apache-2.0 |
+| 2217 | `transfer-agent-agreement` | Drafts U.S. transfer agent agreements between issuers and SE… | us | securities | contract-work | en | apache-2.0 |
+| 2218 | `transfer-impact-assessment-tia-oliver-schmidt-prietz` | 面向第五章转移的 GDPR 转移影响评估，依据 EDPB《建议 01/2020》六步方法论、CNIL TIA 指南（20… | eu | general | legal-analysis | zh-CN | agpl-3.0 |
+| 2219 | `transition-services-plan` | Drafts a Transition Services Plan exhibit to an Asset Purcha… | general | contract-law | contract-work | en | apache-2.0 |
+| 2220 | `transitional-services-agreement` | Drafts a Transitional Services Agreement (TSA) for post-clos… | us | corporate | contract-work | en | apache-2.0 |
+| 2221 | `travel-expense-reimbursement-toolkit` | ·--- name: 差旅费报销单生成 version: 1.2.2 description: 从行程截图（含Word文… | china | general | legal-analysis | zh-CN | mit |
+| 2222 | `tri-form-r` | Drafts EPA Toxic Release Inventory (Form R) reports under EP… | general | general | legal-analysis | en | apache-2.0 |
+| 2223 | `triage-nda` | Rapidly triage an incoming NDA and classify it as GREEN (sta… | general | contract-law | legal-analysis | en | undeclared |
+| 2224 | `trial-brief` | Drafts persuasive trial briefs for commercial litigation. Tr… | general | litigation | contract-work | en | apache-2.0 |
+| 2225 | `trial-prep-diagnosis` | 庭审准备诊断。当用户提到庭审预诊、开庭准备、庭前准备检查、开庭检查、预诊案件，或上传了起诉状/答辩状/证据目录希望检验开… | china | litigation | litigation | zh-CN | undeclared |
+| 2226 | `trial-prep-summary` | Generates a structured courtroom-ready trial preparation sum… | general | litigation | doc-reading | en | apache-2.0 |
+| 2227 | `trial-scheduling-and-deadline-monitoring` | 当用户需要跟踪、被提醒案件的开庭排期、执行排期、证据提交期限、上诉期限、送达期限、保全续保等各项法定期限时，使用此技能。… | china | litigation | litigation | zh-CN | cc-by-nc-nd-4.0 |
+| 2228 | `trid-tolerance` | Classifies closing costs into zero, 10% cumulative, and unli… | general | general | legal-analysis | en | apache-2.0 |
+| 2229 | `triple-net-lease` | Drafts U.S. triple net (NNN) commercial lease agreements all… | us | contract-law | contract-work | en | apache-2.0 |
+| 2230 | `triple-net-lease-agreement` | Drafts U.S. commercial triple-net (NNN) lease agreements fro… | us | contract-law | contract-work | en | apache-2.0 |
+| 2231 | `tronscan-contract-analysis` | Analyze TRON contracts: deploy info, hot methods, top caller… | general | general | legal-analysis | en | undeclared |
+| 2232 | `trust-assignment` | Drafts an Assignment of Property to Trust document transferr… | general | general | legal-analysis | en | apache-2.0 |
+| 2233 | `tsa-compliance` | 面向关键基础设施所有者与运营者的 TSA 网络安全合规专家顾问。当用户询问管道、货运铁路、客运铁路、公共交通或公交运营者… | china | general | doc-reading | zh-CN | mit |
+| 2234 | `ucc-financing-statement` | Drafts UCC-1 Financing Statements and UCC-3 Amendments to pe… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 2235 | `ucc-lien-release` | Drafts Evidence of UCC Lien Release documents proving termin… | general | general | contract-work | en | apache-2.0 |
+| 2236 | `ucc-lien-release-evidence` | Drafts an Evidence of UCC Lien Release documenting terminati… | us | general | contract-work | en | apache-2.0 |
+| 2237 | `unclaimed-property-policy` | Drafts an enterprise Escheatment and Unclaimed Property Poli… | general | securities | contract-work | en | apache-2.0 |
+| 2238 | `underwriting-agreement` | Drafts a firm-commitment underwriting agreement for SEC-regi… | us | securities | contract-work | en | apache-2.0 |
+| 2239 | `unfair-dismissal-screener-andrew-bird` | 对照英格兰与威尔士的不公平解雇框架对解雇（拟议的或已实施的）进行筛查，并显示其暴露之处。构建合格服务期问题、自动不公平类… | china | general | quality-control | zh-CN | mit |
+| 2240 | `unfamiliar-business-onboarding` | 律师承接从未接触过的全新业务时，系统化完成知识构建、风险识别、语言对齐与交付物沉淀的标准流程。当用户需要快速研究陌生业务… | china | contract-law | legal-research | zh-CN | undeclared |
+| 2241 | `uplo-compliance` | AI-powered compliance intelligence spanning legal, financial… | eu/us | contract-law | contract-work | en | undeclared |
+| 2242 | `urban-planning-summary` | Summarizes legal issues in urban development projects coveri… | general | contract-law | legal-analysis | en | apache-2.0 |
+| 2243 | `vendor-check` | Check the status of existing agreements with a vendor across… | general | contract-law | legal-analysis | en | undeclared |
+| 2244 | `vendor-compliance-1099` | 1099 vendor compliance pipeline for accounting firms. Pulls … | us | tax | legal-analysis | en | undeclared |
+| 2245 | `vendor-contracts` | Pragmatic review of software contracts: IP, liability, SLAs.… | general | contract-law | contract-work | en | undeclared |
+| 2246 | `vendor-due-diligence-patrick-munro` | 面向 IT 服务提供商、技术供应商和第三方合作伙伴、基于 DORA、NIS2、GDPR 的风险型供应商评估框架。提供三阶… | eu | banking-finance | contract-work | zh-CN | agpl-3.0 |
+| 2247 | `vendor-security-assessment` | Drafts a Vendor Security Assessment Questionnaire evaluating… | eu/us | contract-law | contract-work | en | apache-2.0 |
+| 2248 | `verdict-form` | Drafts civil trial verdict forms with sequentially numbered … | general | contract-law | contract-work | en | apache-2.0 |
+| 2249 | `verdict-judgment-summary` | Produces structured post-trial verdict and judgment analysis… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2250 | `viability-conflict-check-report` | Drafts a pre-filing litigation intake memo combining conflic… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2251 | `video-to-evidence-layout` | 【与"帧册"(chat-recording-evidence)分工：本skill全自动选帧排版，用户要人工逐帧挑画面时用… | china | general | legal-analysis | zh-CN | mit |
+| 2252 | `visit-behavior-compliance` | 业务拜访行为合规管理：规范销售与业务人员拜访客户过程中的行为边界与合规要求，适用于医药等行业拜访场景（内容需授权后获取）… | china | general | legal-analysis | zh-CN | undeclared |
+| 2253 | `vn-pdpl` | 面向第 91/2025/QH15 号法律及实施细则第 356/2025/ND-CP 号法令（2026 年 1 月 1 日… | international | banking-finance | contract-work | zh-CN | mit |
+| 2254 | `volunteer-waiver-release` | Drafts a Volunteer Waiver and Release of Liability Agreement… | general | general | contract-work | en | apache-2.0 |
+| 2255 | `voting-agreement` | Drafts enforceable shareholder Voting Agreements coordinatin… | general | contract-law | contract-work | en | apache-2.0 |
+| 2256 | `wang-yangming-ai-says` | 以王阳明（王守仁）本人的心学思想立场，用积极、幽默、富有哲理的白话文回答用户的人生、修身、处世、治学、情绪、决策等问题。… | china | general | legal-analysis | zh-CN | declared-only |
+| 2257 | `wang-yangming-ai-teaches-unity-of-knowledge-and-action-plus` | 以王阳明（王守仁）本人的心学思想立场，用心理医生式"循循善诱、共情承接"的温和白话文、带阳明式幽默与积极鼓励，回答用户的… | china | general | legal-analysis | zh-CN | undeclared |
+| 2258 | `warranty-timeline` | Generates a chronological timeline of warranty requests, cla… | general | litigation | legal-analysis | en | apache-2.0 |
+| 2259 | `wcag` | 涵盖 WCAG 2.0、2.1 和 2.2 的专家级 WCAG（网页内容无障碍指南）顾问——W3C 国际无障碍标准。当用… | international | general | legal-analysis | zh-CN | mit |
+| 2260 | `wealth-inheritance` | 「财富传承与家族信托」—— 面向高净值客户的遗嘱/保险/家族信托/税务筹划/企业传承综合法律服务方案，与婚家SKILL形… | china | family | legal-writing | zh-CN | undeclared |
+| 2261 | `wechat-article-layout` | 将上传的 Word（.docx）或 Markdown（.md）草稿排版为微信公众号风格，输出 Word (.docx) … | china | general | legal-analysis | zh-CN | mit |
+| 2262 | `wechat-content-audit` | 全平台内容合规审核技能。覆盖微信公众号/今日头条/知乎/小红书/抖音/B站六大主流平台的内容审核规范，包括政治安全、医疗… | china | life-sciences | compliance | zh-CN | undeclared |
+| 2263 | `wenzhou-criminal-legal-aid-workflow` | 办理中国大陆刑事法律援助案件的全流程文书与归档辅助，覆盖指派接收、分阶段会见、阅卷、认罪认罚、庭审、结案和回访。默认模板… | china | criminal | doc-reading | zh-CN | declared-only |
+| 2264 | `whistleblower-policy` | Drafts board-adoptable whistleblower protection policies for… | us | corporate | contract-work | en | apache-2.0 |
+| 2265 | `whistleblower-policy-malik-taiar` | 用于 (a) 审计现有举报人系统的指南，或 (b) 基于提供的模板起草合规举报政策的指南。涵盖欧盟 2019/1937 … | china/fr/eu | civil-procedure | legal-analysis | zh-CN | agpl-3.0 |
+| 2266 | `whistleblower-protection-policy` | Drafts a U.S. whistleblower-protection policy for corporate … | us | tax | contract-work | en | apache-2.0 |
+| 2267 | `will-inheritance-planner` | 讲解自书/公证/代书等遗嘱形式要件与模板要点，梳理法定继承与遗嘱继承流程、常见纠纷点，并给个性化遗嘱草稿框架。 触发场景… | international | tax | legal-analysis | zh-CN | mit |
+| 2268 | `wipo-patent-weekly` | WIPO 小分子药物专利周报。每周定期检索 WIPO PatentScope 上新发布的小分子药物相关专利，生成 HTM… | china | ip | legal-research | zh-CN | undeclared |
+| 2269 | `wisp` | Drafts a Written Information Security Program compliant with… | eu/us | data-privacy | legal-research | en | apache-2.0 |
+| 2270 | `without-prejudice-drafter-andrew-bird` | 在正确的基础上撰写和解函——并在标记“without prejudice”实际上无法将其排除在法庭之外时警告你。真正的和… | china | general | contract-work | zh-CN | mit |
+| 2271 | `witness-prep` | Guides attorneys through deposition witness preparation usin… | us | litigation | legal-analysis | en | apache-2.0 |
+| 2272 | `witness-prep-ethics` | Evaluates witness preparation activities for ethical complia… | us | litigation | legal-analysis | en | apache-2.0 |
+| 2273 | `witness-prep-session` | Runs ethics-compliant deposition witness-prep workflows for … | us | litigation | legal-analysis | en | apache-2.0 |
+| 2274 | `witness-summary` | Generates structured summaries of witness statements for lit… | general | litigation | doc-reading | en | apache-2.0 |
+| 2275 | `wordcloud-generator` | 从第一性原理生成词云图——支持 14 种内置形状模板（含文字蒙版/矩形/PPT 比例）、按类别配色、11 种命名主题、中… | china | general | legal-analysis | zh-CN | mit |
+| 2276 | `work-for-hire-agreement` | Drafts a U.S. Work for Hire Agreement under 17 U.S.C. §§ 101… | us | contract-law | contract-work | en | apache-2.0 |
+| 2277 | `work-injury-calculator` | 输入伤残等级、本人工资、社平工资和是否解除劳动关系，算清一次性伤残补助金、伤残津贴、停工留薪期工资、生活护理费、一次性工… | china | labor | calculation | zh-CN | undeclared |
+| 2278 | `workbuddy-calendar` | WorkBuddy 侧边栏日历。提供月历视图、日程增删改查、分类标签（开庭/会议/截止日期/个人/研究/其他），支持从对… | china | general | legal-analysis | zh-CN | undeclared |
+| 2279 | `workflow-orchestrator` | 本技能应在用户发起任何与案件法律工作相关的请求时作为首个技能加载，统一接收并路由到 process-cases / dr… | china | contract-law | contract-work | zh-CN | mit |
+| 2280 | `workplace-law-quiz` | 考查劳动法、劳动合同、社保、工时与离职等职场法律常识的测验 Skill。 触发词："职场法律测验""劳动法常识""测测法… | china | labor | contract-work | zh-CN | mit |
+| 2281 | `writ-of-execution` | Drafts writs of execution and supporting levy instructions f… | general | litigation | litigation | en | apache-2.0 |
+| 2282 | `written-consent` | Drafts Written Consents in Lieu of Meeting for corporate boa… | general | corporate | legal-analysis | en | apache-2.0 |
+| 2283 | `written-consent-in-lieu-of-meeting` | Drafts U.S. corporate written-consent instruments (board, sh… | us | contract-law | contract-work | en | apache-2.0 |
+| 2284 | `written-consent-of-incorporator` | Drafts a U.S. corporate Action by Written Consent of Incorpo… | us | corporate | contract-work | en | apache-2.0 |
+| 2285 | `wrongful-termination-complaint` | Drafts wrongful termination complaints for employment litiga… | us | litigation | contract-work | en | apache-2.0 |
+| 2286 | `wx-mp-draft-publisher` | Publish Word (.docx) and Markdown (.md) documents to WeChat … | china | general | legal-analysis | zh-CN | mit |
+| 2287 | `xiaohongshu-law-content` | Xiaohongshu law education content creation with mandatory le… | china | contract-law | contract-work | zh-CN | undeclared |
+| 2288 | `xlsx` | Use this skill any time a spreadsheet file is the primary in… | general | general | legal-analysis | en | declared-only |
+| 2289 | `yaojian-copyright-registration-evidence` | 爻鉴版权保护与数据存证工具。当用户提到版权、确权、DCI、版权申请、版权登记、版权保护、数字版权、著作权、存证、微链存证… | china | ip | legal-analysis | zh-CN | undeclared |
+| 2290 | `yaoshitong-substance-catalog` | 药食同源物质（按照传统既是食品又是中药材的物质）官方四批共106种完整目录对照表。当用户需要查询、引用、核对待审食品/保… | china | general | compliance | zh-CN | mit |
+| 2291 | `yc-saas-drafter` | 以 Y Combinator 标准格式 SaaS 模板为起点起草定制客户协议。通过覆盖费用结构、数据处理、 机器学习权、… | china | contract-law | contract-work | zh-CN | mit |
+| 2292 | `yd-enterprise-info` | 元典企业信息查询技能（开放平台版 https://open.chineselaw.com）。 封装元典开放平台全部22个… | china | ip | legal-research | zh-CN | undeclared |
+| 2293 | `yidian-fayue` | 合同审查与起草一体化技能：强制优先调用本地合同模板与法规库，完成错字、用词、法律风险全维审查，输出审查报告与带修订痕迹的… | china | general | contract-work | zh-CN | undeclared |
+| 2294 | `yjkj-legal-contract-review-playbook` | 结构化英文合同审查工作流：按当事人、义务、风险分配、救济与谈判要点五大模块输出审查清单、问题清单与干系人摘要，适用于商事… | general | general | contract-work | en | undeclared |
+| 2295 | `yjkj-legal-due-diligence-checklist` | 生成英文法律尽调清单：覆盖公司档案、合同义务、用工/知产/合规、诉讼与监管检索计划及红旗问题摘要，用于交易、投资与供应商… | general | corporate | contract-work | en | undeclared |
+| 2296 | `yjkj-legal-regulatory-compliance-mapper` | 英文监管合规映射工具：梳理监管义务、控制措施、责任人、证据与复查节奏，输出合规义务地图与升级矩阵，用于合规体系建设与内审… | general | general | legal-analysis | en | undeclared |
+| 2297 | `yjkj-legal-settlement-evaluation-framework` | 英文和解方案评估框架：从责任敞口、证据强度、诉讼成本、非金钱条款、时机与不确定性六维比较诉讼与和解，输出评估矩阵与客户建… | general | general | legal-analysis | en | undeclared |
+| 2298 | `yuandian-law-search` | 元典法条与案例检索。本技能应在需要查询中国法律法规条文、检索相关案例、为法律分析提供数据支撑时使用。 | china | environmental | legal-research | zh-CN | mit |
+| 2299 | `yunlv-compliance-check` | Use when user needs to check import/export compliance requir… | china | intl-trade | compliance | zh-CN | mit-0 |
+| 2300 | `zeelin-patent-retriever` | Team ZeeLin’s production-grade patent evidence retrieval ski… | general | ip | legal-research | en | undeclared |
+| 2301 | `zfcc-delay-claim-arbitration-prep` | 仲裁准备专家。基于ICC仲裁最佳实践和ASCE法医分析标准，提供从证据收集、仲裁策略到证据呈现的全流程专业指导，支持Qu… | hk | contract-law | litigation | zh-CN | undeclared |
+| 2302 | `zhihe-legal-research` | 连接智合AI法律大模型平台进行法律研究。本技能应在用户需要进行法律问题研究、查找法律法规、检索类似案例、或获取法律研究报… | china | environmental | legal-analysis | zh-CN | mit |
+| 2303 | `zhilu-complaint-ops` | 智录·律师经验固化平台（通用框架）。一套做法（收进来→定规矩→存成家底），三种用法（工商投诉/法律咨询/合同审查），一个… | china | general | contract-work | zh-CN | undeclared |

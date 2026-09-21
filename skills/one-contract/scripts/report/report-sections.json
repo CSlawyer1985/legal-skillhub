@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "description": "审查意见书的章节契约。生成器（scripts/report/reporting.py）在渲染完成后逐节自检，缺一节即抛错。本文件的权威来源是 templates/review-report-template.md 与 SKILL.md §1；改文档时必须同步改这里，改这里也必须同步改文档。",
+  "source": [
+    "templates/review-report-template.md",
+    "SKILL.md §1「保全输入并建立审查上下文」（覆盖层级与空壳议题的披露要求）"
+  ],
+  "required_sections": [
+    "一、合同概况",
+    "二、综合审查意见",
+    "三、重要风险提示",
+    "四、详细审查意见",
+    "五、声明",
+    "六、出具信息",
+    "【待填事项汇总】",
+    "【涉税建议】"
+  ],
+  "optional_sections": [
+    {
+      "title": "源文档批注意见处理",
+      "rendered_when": "plan.responses 非空，或源文档存在悬空批注（execution.orphan_comments.count > 0）",
+      "content": "逐条列出源文档批注意见的处理口径（现稿已体现／本轮已补充／未按该意见修改／仍需填写），含依据或落点与回复摘要；悬空批注另列原文、作者与日期"
+    }
+  ],
+  "required_subsections": [
+    "1. 合同主体",
+    "2. 交易内容",
+    "3. 合同价款",
+    "4. 核心权利义务",
+    "5. 审查依据与覆盖层级"
+  ],
+  "coverage_depth_labels": {
+    "domain_and_type": "三层（类型级）",
+    "domain_only": "两层（域级）",
+    "global_only": "一层（全局）"
+  },
+  "notes": [
+    "「5. 审查依据与覆盖层级」的数据源是 plan.meta.classification_provenance（coverage_level / primary_type_id / primary_domain_code）。",
+    "生效集合中 content_status 以 stub_ 开头的模块，须按 clause_group 逐项列出为「暂无具体检查项的议题」（summary.stub_topics）；某类型生效模块全为空壳时，覆盖深度按 domain_only 写。",
+    "措辞均为中性事实说明，不得写成免责声明或风险提示。"
+  ]
+}

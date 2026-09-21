@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FED7D7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad3)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="400" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" fill="#C53030">从使用者到创造者</text>
+
+  <!-- 左侧：工具使用者 -->
+  <g transform="translate(150, 180)">
+    <circle cx="0" cy="0" r="80" fill="#FED7D7" stroke="#FC8181" stroke-width="3"/>
+    <text x="0" y="15" text-anchor="middle" font-size="70">👤</text>
+    <text x="0" y="110" text-anchor="middle" font-size="18" fill="#C53030">工具使用者</text>
+    <animateTransform attributeName="transform" type="translate" values="150,180; 150,170; 150,180" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 转换箭头 -->
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="50" fill="#FFF5F5" stroke="#C53030" stroke-width="3">
+      <animate attributeName="fill-opacity" values="0.5; 1; 0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="15" text-anchor="middle" font-size="50">⚡</text>
+  </g>
+
+  <!-- 右侧：创造者 -->
+  <g transform="translate(650, 180)">
+    <circle cx="0" cy="0" r="80" fill="#C6F6D5" stroke="#68D391" stroke-width="3"/>
+    <text x="0" y="15" text-anchor="middle" font-size="70">🛠️</text>
+    <text x="0" y="110" text-anchor="middle" font-size="18" fill="#276749">微小创造者</text>
+    <animateTransform attributeName="transform" type="translate" values="650,180; 650,170; 650,180" dur="3s" repeatCount="indefinite" begin="0.5s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 连接箭头 -->
+  <line x1="250" y1="180" x2="340" y2="180" stroke="#C53030" stroke-width="4" marker-end="url(#arrowB1)" stroke-dasharray="110" stroke-dashoffset="110">
+    <animate attributeName="stroke-dashoffset" from="110" to="0" dur="1.2s" repeatCount="indefinite"/>
+  </line>
+  <line x1="460" y1="180" x2="550" y2="180" stroke="#38A169" stroke-width="4" marker-end="url(#arrowB2)" stroke-dasharray="110" stroke-dashoffset="110">
+    <animate attributeName="stroke-dashoffset" from="110" to="0" dur="1.2s" repeatCount="indefinite" begin="0.3s"/>
+  </line>
+
+  <!-- 底部说明 -->
+  <g transform="translate(400, 360)">
+    <rect x="-250" y="-30" width="500" height="60" fill="#FFF5F5" stroke="#C53030" stroke-width="2" rx="10" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="8" text-anchor="middle" font-size="20" fill="#742A2A">Vibe Coding 雏形：自然语言 + AI = 解决问题</text>
+  </g>
+
+  <defs>
+    <marker id="arrowB1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C53030"/>
+    </marker>
+    <marker id="arrowB2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38A169"/>
+    </marker>
+  </defs>
+</svg>

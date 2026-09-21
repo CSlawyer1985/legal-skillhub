@@ -1,0 +1,112 @@
+name: 自动发布 GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - VERSION
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装 Pandoc
+        run: |
+          # Runner 预装的 Google Chrome 源偶发 Hash Sum mismatch，与 Pandoc 无关。
+          sudo rm -f /etc/apt/sources.list.d/google-chrome*.list \
+                     /etc/apt/sources.list.d/google-chrome-stable*.list
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends pandoc
+
+      - name: 读取并校验版本
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(tr -d '[:space:]' < VERSION)"
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.-][0-9A-Za-z.-]+)?$ ]]; then
+            echo "VERSION 不是可识别的语义化版本：$version" >&2
+            exit 1
+          fi
+          if ! grep -Fq "## [$version]" CHANGELOG.md; then
+            echo "CHANGELOG.md 中缺少 $version 版本条目" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+
+      - name: 校验版本同步
+        run: python3 scripts/sync_version.py --check
+
+      - name: 运行全量回归测试
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 -m unittest discover -s tests -v
+
+      - name: 运行领域与法律版本评测
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 scripts/domain_eval.py
+
+      - name: 创建或复用版本 tag
+        id: tag
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          remote_commit="$(git ls-remote origin "refs/tags/${RELEASE_TAG}^{}" | awk '{print $1}')"
+          if [[ -z "$remote_commit" ]]; then
+            remote_commit="$(git ls-remote origin "refs/tags/${RELEASE_TAG}" | awk '{print $1}')"
+          fi
+
+          if [[ -n "$remote_commit" ]]; then
+            if [[ "$remote_commit" != "$GITHUB_SHA" ]]; then
+              echo "${RELEASE_TAG} 已指向 ${remote_commit}，不得改写为 ${GITHUB_SHA}" >&2
+              exit 1
+            fi
+            echo "${RELEASE_TAG} 已指向当前提交，继续复核 Release。"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$RELEASE_TAG" -m "LaborPilot ${RELEASE_TAG}"
+          git push origin "$RELEASE_TAG"
+
+      - name: 创建 GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "GitHub Release ${RELEASE_TAG} 已存在，不重复创建。"
+            exit 0
+          fi
+          gh release create "$RELEASE_TAG" \
+            --verify-tag \
+            --title "LaborPilot ${RELEASE_TAG}" \
+            --generate-notes

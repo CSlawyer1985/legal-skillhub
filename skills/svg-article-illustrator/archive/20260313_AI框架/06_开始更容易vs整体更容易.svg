@@ -1,0 +1,30 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="75" font-size="32" font-weight="bold" fill="#2d3748" text-anchor="middle">开始更容易 vs 整体更容易</text>
+
+  <!-- 路径1：开始容易 -->
+  <g transform="translate(150, 130)">
+    <text x="100" y="30" font-size="20" fill="#10B981" text-anchor="middle" font-weight="bold">开始更容易</text>
+    <!-- 平坦起点 -->
+    <line x1="0" y1="80" x2="100" y2="80" stroke="#10B981" stroke-width="6"/>
+    <!-- 变陡 -->
+    <path d="M100,80 Q150,80 200,180" stroke="#E53E3E" stroke-width="6" fill="none"/>
+    <line x1="200" y1="180" x2="200" y2="250" stroke="#E53E3E" stroke-width="6"/>
+    <text x="100" y="100" font-size="40" text-anchor="middle">😊</text>
+    <text x="200" y="280" font-size="16" fill="#E53E3E" text-anchor="middle">后面困难</text>
+  </g>
+
+  <!-- 路径2：整体平稳 -->
+  <g transform="translate(450, 130)">
+    <text x="100" y="30" font-size="20" fill="#4A90E2" text-anchor="middle" font-weight="bold">真实情况</text>
+    <!-- 持续爬升 -->
+    <line x1="0" y1="250" x2="200" y2="100" stroke="#4A90E2" stroke-width="6"/>
+    <text x="50" y="220" font-size="35" text-anchor="middle">💪</text>
+    <text x="150" y="130" font-size="35" text-anchor="middle">🎯</text>
+    <text x="100" y="290" font-size="16" fill="#4A90E2" text-anchor="middle">持续投入</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <rect x="150" y="350" width="500" height="60" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="400" y="388" font-size="20" fill="#92400E" text-anchor="middle">💡 复杂性只是延后，并未消失</text>
+</svg>

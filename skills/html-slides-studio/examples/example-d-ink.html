@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template D · Japanese Ink</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════
+   TEMPLATE D · JAPANESE INK EDITORIAL
+   哲学：极简余白，墨迹质感，东方审美
+   呼吸感、留白、一点朱砂
+   ═══════════════════════════════════ */
+
+:root {
+  --paper:    #F7F4EE;
+  --paper-2:  #EDE9E0;
+  --ink:      #1A1410;
+  --ink-mid:  #4A4540;
+  --ink-soft: #8A8480;
+  --ink-faint:#C8C4BC;
+  --red:      #C0392B;   /* 朱砂 */
+  --red-pale: rgba(192,57,43,0.08);
+  --gold:     #8B6914;
+
+  --f-serif:  'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  --f-sans:   'Noto Sans Mono', monospace;
+
+  --pad-x: clamp(3.5rem, 7vw, 7rem);
+  --pad-y: clamp(2rem, 4vh, 4rem);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-serif);
+  overflow: hidden;
+}
+
+/* Paper texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.5;
+}
+
+/* ── Deck ── */
+.deck { width: 100vw; height: 100vh; position: relative; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--pad-y) var(--pad-x);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+.slide.active { opacity: 1; pointer-events: all; }
+
+/* ── Page marker ── */
+.page-mark {
+  position: absolute;
+  right: clamp(1.2rem, 2.5vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.page-mark .pm-num {
+  font-family: var(--f-sans);
+  font-size: 0.6rem;
+  color: var(--ink-faint);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.1em;
+}
+.page-mark .pm-line {
+  width: 1px;
+  height: 40px;
+  background: var(--ink-faint);
+}
+.page-mark .pm-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+/* ── Rule ── */
+.brush-rule {
+  height: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+  margin-bottom: 0.3rem;
+}
+.red-rule {
+  height: 1px;
+  background: var(--red);
+  width: 3rem;
+}
+
+/* ── Typography ── */
+.fo {  /* fine label */
+  font-family: var(--f-sans);
+  font-size: clamp(0.58rem, 0.8vw, 0.68rem);
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.fo.r { color: var(--red); }
+
+h1 {
+  font-family: var(--f-serif);
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+h1 em { color: var(--red); font-style: italic; font-weight: 400; }
+h1 strong { font-weight: 700; }
+
+h2 {
+  font-family: var(--f-serif);
+  font-size: clamp(1.3rem, 2.8vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--f-serif);
+  font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+p {
+  font-size: clamp(0.8rem, 1.1vw, 0.93rem);
+  line-height: 1.85;
+  color: var(--ink-mid);
+  font-weight: 300;
+}
+
+/* ── Cover ── */
+.cover-inner {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+.cover-text { max-width: 540px; }
+.cover-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+}
+.cover-seal {
+  width: clamp(60px, 8vw, 90px);
+  height: clamp(60px, 8vw, 90px);
+  border: 2px solid var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--red);
+  font-family: var(--f-sans);
+  font-size: clamp(0.55rem, 0.75vw, 0.65rem);
+  letter-spacing: 0.12em;
+  text-align: center;
+  line-height: 1.6;
+  transform: rotate(3deg);
+}
+
+/* ── Two-column content ── */
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  flex: 1;
+  margin-top: 1.5rem;
+}
+
+.entry {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--ink-faint);
+}
+.entry + .entry { margin-top: 1.2rem; }
+
+/* ── Ink mark ── */
+.ink-num {
+  font-family: var(--f-serif);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  color: var(--ink-faint);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.ink-num.red { color: var(--red); opacity: 0.3; }
+
+/* ── Part slide ── */
+.part-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.part-bg-num {
+  position: absolute;
+  right: -0.1em;
+  bottom: -0.2em;
+  font-family: var(--f-serif);
+  font-size: clamp(12rem, 30vw, 28rem);
+  font-weight: 700;
+  color: var(--ink);
+  opacity: 0.03;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Pull quote ── */
+.pull-quote {
+  font-family: var(--f-serif);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink);
+  border-left: 2px solid var(--red);
+  padding-left: 1.5rem;
+  max-width: 640px;
+}
+.pull-quote em { color: var(--red); font-style: italic; }
+
+/* ── Footer line ── */
+.slide-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink-faint);
+}
+
+/* ── Nav ── */
+.nav {
+  position: fixed;
+  left: clamp(1rem, 1.8vw, 1.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+.nav-pip {
+  width: 3px;
+  height: 20px;
+  background: var(--ink-faint);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nav-pip.active { background: var(--red); height: 32px; }
+
+/* ── Reveal ── */
+.reveal { opacity: 0; transition: opacity 0.7s ease 0.1s; }
+.reveal.delay2 { transition-delay: 0.25s; }
+.reveal.delay3 { transition-delay: 0.45s; }
+.reveal.delay4 { transition-delay: 0.65s; }
+.reveal.shown { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+  <section class="slide active" data-index="0">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:clamp(1.5rem,3vh,3rem)">
+      <div class="fo">PUBLIC EXAMPLE ? 2026.03</div>
+      <div class="fo">STYLE D ? JAPANESE INK</div>
+    </div>
+    <div class="brush-rule reveal"></div>
+    <div class="cover-inner">
+      <div class="cover-text">
+        <div class="fo r reveal delay2" style="margin-bottom:0.8rem">HTML SLIDES STUDIO</div>
+        <h1 class="reveal delay2">
+          Quiet<br><em>Structure</em><br><strong>Strong Presence</strong>
+        </h1>
+        <div class="red-rule reveal delay3" style="margin:1.5rem 0"></div>
+        <p class="reveal delay3" style="max-width:340px">
+          A public sample for evaluating texture, pacing, and editorial restraint without exposing real presentation material.
+        </p>
+      </div>
+      <div class="cover-right reveal delay4">
+        <div class="cover-seal">PUBLIC<br>SAFE<br>DEMO</div>
+        <div class="fo" style="text-align:right; line-height:2">45 MIN<br>TWO SCENES</div>
+      </div>
+    </div>
+    <div class="slide-foot reveal">
+      <div class="fo">Placeholder speaker ? Placeholder topic</div>
+      <div class="fo">01 ? 02</div>
+    </div>
+    <div class="page-mark"><div class="pm-num">P.01</div><div class="pm-line"></div><div class="pm-dot"></div></div>
+  </section>
+
+  <section class="slide" data-index="1">
+    <div style="margin-bottom:1.2rem">
+      <div class="fo r reveal" style="margin-bottom:0.4rem">WHY THIS STYLE</div>
+      <h2 class="reveal delay2">A quiet template still needs tension</h2>
+    </div>
+    <div class="brush-rule reveal delay2"></div>
+    <div class="col-2">
+      <div>
+        <div class="entry reveal delay2">
+          <div class="ink-num">01</div>
+          <h3>Texture over noise</h3>
+          <p style="margin-top:0.4rem">The visual weight comes from paper tone, serif rhythm, and restrained red accents.</p>
+        </div>
+        <div class="entry reveal delay3">
+          <div class="ink-num">02</div>
+          <h3>Breathing room</h3>
+          <p style="margin-top:0.4rem">This style works when content is selective and the page is allowed to stay open.</p>
+        </div>
+        <div class="entry reveal delay4">
+          <div class="ink-num">03</div>
+          <h3>Public-safe example</h3>
+          <p style="margin-top:0.4rem">The repository version should demonstrate tone and layout, not preserve private workshop details.</p>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center">
+        <div class="pull-quote reveal delay3">
+          A good public example is not a real client deck with the names removed.<br>
+          <em>It is a deliberately neutral sample that still shows the template's character.</em>
+        </div>
+      </div>
+    </div>
+    <div class="slide-foot reveal">
+      <div class="fo">HTML Slides Studio ? Public Example</div>
+      <div class="fo r">02 ? 02</div>
+    </div>
+    <div class="page-mark"><div class="pm-num">P.02</div><div class="pm-line"></div><div class="pm-dot"></div></div>
+  </section>
+</div>
+<nav class="nav" id="nav"></nav>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const nav = document.getElementById('nav');
+let cur = 0;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'nav-pip' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  nav.appendChild(d);
+});
+
+function revealSlide(slide) {
+  slide.querySelectorAll('.reveal').forEach(el => el.classList.add('shown'));
+}
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  document.querySelectorAll('.nav-pip').forEach((d, i) => d.classList.toggle('active', i === cur));
+  setTimeout(() => revealSlide(slides[cur]), 200);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (cur < slides.length-1) goTo(cur+1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); if (cur > 0) goTo(cur-1); }
+});
+
+setTimeout(() => revealSlide(slides[0]), 100);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <text x="400" y="80" font-size="36" font-weight="bold" fill="#2d3748" text-anchor="middle">门槛降低的幻觉</text>
+
+  <!-- 低门槛入口 -->
+  <rect x="100" y="150" width="200" height="200" rx="12" fill="#E8F5E8" stroke="#10B981" stroke-width="3"/>
+  <text x="200" y="200" font-size="24" fill="#10B981" text-anchor="middle" font-weight="bold">低门槛</text>
+  <text x="200" y="270" font-size="60" text-anchor="middle">🚪</text>
+  <text x="200" y="320" font-size="18" fill="#718096" text-anchor="middle">轻松进入</text>
+
+  <!-- 等号/误解箭头 -->
+  <line x1="340" y1="250" x2="460" y2="250" stroke="#E53E3E" stroke-width="4"/>
+  <text x="400" y="230" font-size="40" fill="#E53E3E" text-anchor="middle">≠</text>
+
+  <!-- 整体更容易 - 带问号 -->
+  <rect x="500" y="150" width="200" height="200" rx="12" fill="#FEE2E2" stroke="#E53E3E" stroke-width="3" stroke-dasharray="10,5">
+    <animate attributeName="stroke-dashoffset" from="30" to="0" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <text x="600" y="200" font-size="24" fill="#E53E3E" text-anchor="middle" font-weight="bold">整体更易？</text>
+  <text x="600" y="270" font-size="60" text-anchor="middle">❓</text>
+  <text x="600" y="320" font-size="18" fill="#718096" text-anchor="middle">幻觉！</text>
+
+  <!-- 底部警告 -->
+  <text x="400" y="400" font-size="22" fill="#E53E3E" text-anchor="middle">⚠️ 开始更容易 ≠ 整体都更容易</text>
+</svg>

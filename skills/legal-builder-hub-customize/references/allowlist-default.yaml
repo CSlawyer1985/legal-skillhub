@@ -1,0 +1,25 @@
+# legal-builder-hub 默认 allowlist（中国法发行版）
+# 由 `legal-builder-hub-cold-start-interview` 生成或覆盖；见 skill-installer/references/allowlist.md
+
+mode: restrictive
+
+registries:
+  - yuanli-cn
+  - https://github.com/legalopsconsulting/lpm-skills
+  - https://github.com/lawvable/awesome-legal-skills
+  - https://github.com/lawvable/agent-skills
+
+publishers:
+  - 华宇元典
+  - legalopsconsulting
+  - lawvable
+
+connectors: []
+
+licenses:
+  - MIT
+  - Apache-2.0
+  - BSD-2-Clause
+  - BSD-3-Clause
+  - ISC
+  - CC0-1.0

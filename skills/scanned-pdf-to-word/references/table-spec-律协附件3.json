@@ -1,0 +1,466 @@
+{
+ "_comment": "唯一经原件核对的参数样本。来源：无锡市律师协会制式 Word《附件3》（陆律师提供）。用它跑 scripts/build_table_docx.py，产出与原件渲染逐条 Δ=0.00pt。对照着改，别凭猜设值。",
+ "_verified": "2026-09-12",
+ "_sources": {
+  "_说明": "本样本全部来自律协制式 Word 的声明值，故均标 原件。",
+  "页面与边距": "原件",
+  "doc_grid": "原件",
+  "全部段落字体字号": "原件",
+  "表格列宽行高": "原件",
+  "边框粗细": "原件",
+  "单元格边距": "原件"
+ },
+ "out": "rebuilt_from_original.docx",
+ "page": {
+  "w": 595.3,
+  "h": 841.9,
+  "margin": {
+   "top": 72.0,
+   "right": 90.0,
+   "bottom": 72.0,
+   "left": 90.0
+  },
+  "footer": 49.6
+ },
+ "doc_grid": {
+  "type": "lines",
+  "linePitch": 312,
+  "charSpace": 0
+ },
+ "body": [
+  {
+   "kind": "p",
+   "text": "附件3",
+   "line": 320,
+   "font": {
+    "ea": "黑体",
+    "ascii": "Times New Roman"
+   },
+   "size": 16.0
+  },
+  {
+   "kind": "p",
+   "text": "优秀个人会员推荐汇总表",
+   "align": "center",
+   "font": {
+    "ea": "方正小标宋简体",
+    "ascii": "方正小标宋简体"
+   },
+   "size": 22.0
+  },
+  {
+   "kind": "p",
+   "text": "推荐单位：                           填报时间：2025年1月  日",
+   "align": "right",
+   "font": {
+    "ea": "楷体_GB2312",
+    "ascii": "Times New Roman"
+   },
+   "size": 14.0
+  },
+  {
+   "kind": "table",
+   "cols": [
+    465,
+    1116,
+    534,
+    1164,
+    2085,
+    2115,
+    1245,
+    906
+   ],
+   "align": "center",
+   "border_sz": 4,
+   "cell_margin": 108,
+   "rows": [
+    {
+     "h": 1022,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "排序",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "姓名",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "性别",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "政治面貌",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "律所",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "在市律协七届理事会及下设部门、四届监事会任职情况",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "联系号码",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      },
+      {
+       "text": "备注",
+       "align": "center",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11.0,
+       "valign": "center"
+      }
+     ]
+    },
+    {
+     "h": 567,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    },
+    {
+     "h": 567,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    },
+    {
+     "h": 567,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    },
+    {
+     "h": 567,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    },
+    {
+     "h": 567,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    },
+    {
+     "h": 567,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      },
+      {
+       "text": "",
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "p",
+   "text": "备注：推荐单位在汇总报送参评人员名单时，需对名单进行排序。",
+   "line": 320,
+   "font": {
+    "ea": "黑体",
+    "ascii": "Times New Roman"
+   },
+   "size": 12.0
+  },
+  {
+   "kind": "p",
+   "text": "",
+   "line": 320
+  },
+  {
+   "kind": "p",
+   "text": ""
+  }
+ ],
+ "default_font": {
+  "ea": "宋体",
+  "ascii": "Times New Roman",
+  "size": 14
+ }
+}

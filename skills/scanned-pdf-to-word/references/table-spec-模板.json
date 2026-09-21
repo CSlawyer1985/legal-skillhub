@@ -1,0 +1,92 @@
+{
+ "_comment": "表格复刻 spec 模板。所有数值都必须有来源（原件声明值 或 像素实测值），脚本不猜。",
+ "_sources": {
+  "_说明": "★ 必填。每个参数都要写来源等级：原件 / 实测 / 反推 / 先验。audit_docx.py 会打印它。",
+  "页面与边距": "原件",
+  "doc_grid": "原件",
+  "段落字体字号": "实测",
+  "表格列宽": "实测"
+ },
+ "out": "out.docx",
+ "page": {
+  "w": 595.3,
+  "h": 841.9,
+  "margin": {
+   "top": 72,
+   "right": 90,
+   "bottom": 72,
+   "left": 90
+  },
+  "footer": 49.6
+ },
+ "doc_grid": {
+  "type": "lines",
+  "linePitch": 312,
+  "charSpace": 0,
+  "_note": "★ 有原件就照抄这里的值。删掉它会整体位移（本案 36.5pt）"
+ },
+ "default_font": {
+  "ea": "宋体",
+  "ascii": "Times New Roman",
+  "size": 14
+ },
+ "body": [
+  {
+   "kind": "p",
+   "text": "附件3",
+   "font": {
+    "ea": "黑体",
+    "ascii": "Times New Roman"
+   },
+   "size": 16,
+   "line": 320,
+   "_note": "line 单位是 twips（pt×20）"
+  },
+  {
+   "kind": "p",
+   "text": "标题",
+   "font": {
+    "ea": "方正小标宋简体",
+    "ascii": "方正小标宋简体"
+   },
+   "size": 22,
+   "align": "center",
+   "_note": "不写 line 则继承样式/网格"
+  },
+  {
+   "kind": "table",
+   "cols": [
+    465,
+    1116,
+    534,
+    1164,
+    2085,
+    2115,
+    1245,
+    906
+   ],
+   "align": "center",
+   "border_sz": 4,
+   "cell_margin": 108,
+   "_note": "cols 单位 twips；border_sz 单位 1/8pt；cell_margin 左右各 108=5.4pt",
+   "rows": [
+    {
+     "h": 1022,
+     "rule": "exact",
+     "cells": [
+      {
+       "text": "排序",
+       "font": {
+        "ea": "黑体",
+        "ascii": "Times New Roman"
+       },
+       "size": 11,
+       "align": "center",
+       "valign": "center"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

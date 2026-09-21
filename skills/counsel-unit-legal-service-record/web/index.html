@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>顾问单位法律服务工作记录</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>顾问单位法律服务工作记录</h1>
+      <div class="sub">随时记录 · 定期汇总 · 一键导出 DOCX / Excel</div>
+    </div>
+    <div class="stat-pill">本页记录 <b id="pillCount">0</b> 项 · 工时 <b id="pillHours">0</b> h</div>
+  </header>
+
+  <div class="container">
+    <!-- 工具栏 -->
+    <div class="toolbar">
+      <div class="field grow" style="flex:1 1 100%">
+        <label>分表视图（全部单位 = 总表，其余各家为独立分表）</label>
+        <div class="unit-tabs" id="unitTabs">
+          <button class="tab active" data-unit="">全部单位（总表）</button>
+          <button class="tab tab-manage" id="btnManageUnits">＋ 单位管理</button>
+        </div>
+      </div>
+      <div class="field only-detail">
+        <label>起始日期</label>
+        <input type="date" id="fFrom" />
+      </div>
+      <div class="field only-detail">
+        <label>结束日期</label>
+        <input type="date" id="fTo" />
+      </div>
+      <div class="btn-row only-detail">
+        <button class="btn btn-ghost" id="btnQuery">查询</button>
+        <button class="btn btn-ghost" id="btnReset">重置</button>
+      </div>
+      <div class="btn-row" style="margin-left:auto; align-items:center">
+        <label class="chk only-detail"><input type="checkbox" id="chkSplit" /> 按单位拆分多张分表</label>
+        <button class="btn btn-blue only-detail" id="btnThisMonth">本月汇总</button>
+        <button class="btn btn-blue only-detail" id="btnThisQuarter">本季度汇总</button>
+        <button class="btn btn-accent" id="btnExcel">导出 Excel</button>
+        <button class="btn btn-primary" id="btnDocx">导出 DOCX</button>
+        <button class="btn btn-primary only-detail" id="btnAdd">+ 新增记录</button>
+      </div>
+    </div>
+
+    <!-- 列表 -->
+    <div class="panel">
+      <div class="panel-head">
+        <span id="panelHeadTitle">工作记录明细 · 全部单位（总表）</span>
+        <span class="count" id="listCount">—</span>
+      </div>
+      <div id="tableWrap">
+        <table class="grid">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="summary-bar" id="summaryBar"></div>
+
+    <div class="footer-note">
+      数据保存在本地 <code>data/records.json</code>，仅存于本机，请注意保密。
+      视图职责：顶部「全部单位（总表）」仅列示各顾问单位的<strong>服务对象名称与服务期限</strong>（依据律师服务合同约定），不含工作明细；
+      其余标签为各家单位独立分表，记录与展示该单位的全部法律服务工作明细。
+      勾选「按单位拆分多张分表」后导出，报告将先列总表概览、再为每家单位生成独立明细分表。
+      顶部「未分类单位」tab 收纳删除单位后保留、或新增时未指定归属的记录，可在此查看、编辑，并通过编辑记录重新指定其归属单位。
+      也可在 WorkBuddy 对话中说「记录本次顾问工作」，由 AI 自动把对话中完成的法律服务成果写入对应单位分表。
+    </div>
+  </div>
+
+  <!-- 新增/编辑 弹窗 -->
+  <div class="modal-mask" id="modal">
+    <div class="modal">
+      <h3 id="modalTitle">新增工作记录</h3>
+      <div class="body">
+        <div class="two-col">
+          <div class="field">
+            <label>顾问单位 *</label>
+            <input type="text" id="mUnit" list="unitList" placeholder="输入或选择单位" autocomplete="off" />
+            <datalist id="unitList"></datalist>
+          </div>
+          <div class="field">
+            <label>日期 *</label>
+            <input type="date" id="mDate" />
+          </div>
+        </div>
+        <div class="field">
+          <label>律师工作内容 *</label>
+          <textarea id="mContent" placeholder="例如：审查《XXX合作协议》并提出修改意见"></textarea>
+        </div>
+        <div class="two-col">
+          <div class="field">
+            <label>工作时间(小时)</label>
+            <input type="number" id="mHours" step="0.5" min="0" value="0" />
+          </div>
+          <div class="field">
+            <label>经办律师</label>
+            <input type="text" id="mLawyer" placeholder="选填" />
+          </div>
+        </div>
+        <div class="field">
+          <label>后续工作</label>
+          <textarea id="mFollowup" placeholder="例如：待对方确认修订稿后出具正式意见"></textarea>
+        </div>
+        <div class="field">
+          <label>备注</label>
+          <textarea id="mRemark" placeholder="选填"></textarea>
+        </div>
+      </div>
+      <div class="foot">
+        <button class="btn btn-ghost" id="btnCancel">取消</button>
+        <button class="btn btn-primary" id="btnSave">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 单位分表管理 弹窗 -->
+  <div class="modal-mask" id="manageModal">
+    <div class="modal">
+      <h3>单位分表管理</h3>
+      <div class="body">
+        <div class="field">
+          <label>新建单位分表</label>
+          <div class="two-col">
+            <input type="text" id="newUnitName" placeholder="输入单位名称，如：浙江XX科技有限公司" autocomplete="off" />
+            <button class="btn btn-primary" id="btnCreateUnit">新建</button>
+          </div>
+          <div class="two-col" style="margin-top:10px">
+            <div class="field">
+              <label>服务开始日期（合同约定）</label>
+              <input type="date" id="newUnitStart" />
+            </div>
+            <div class="field">
+              <label>服务结束日期（合同约定）</label>
+              <input type="date" id="newUnitEnd" />
+            </div>
+          </div>
+          <p class="hint">服务期限为律师服务合同约定的起止日期，将显示在总表中；可现在填写，也可稍后在总表「编辑期限」或单位管理中补充。</p>
+        </div>
+        <div class="field">
+          <label>现有单位分表（重命名 / 删除）</label>
+          <ul class="unit-list" id="unitListManage"></ul>
+        </div>
+        <p class="hint">删除单位分表有两种方式：「仅移除标签、保留工作记录（归入"未分类单位"）」或「删除该单位及其全部工作记录（不可恢复）」。请谨慎选择。</p>
+      </div>
+      <div class="foot">
+        <button class="btn btn-ghost" id="btnManageClose">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 服务期限 弹窗 -->
+  <div class="modal-mask" id="periodModal">
+    <div class="modal">
+      <h3>编辑服务期限</h3>
+      <div class="body">
+        <p class="hint">单位：<strong id="periodUnit"></strong><br />服务期限为律师服务合同约定的起止日期，将显示在总表中；工作明细请在各单位的独立分表中记录。</p>
+        <div class="two-col">
+          <div class="field">
+            <label>服务开始日期（合同约定）</label>
+            <input type="date" id="pStart" />
+          </div>
+          <div class="field">
+            <label>服务结束日期（合同约定）</label>
+            <input type="date" id="pEnd" />
+          </div>
+        </div>
+      </div>
+      <div class="foot">
+        <button class="btn btn-ghost" id="btnPeriodClose">取消</button>
+        <button class="btn btn-primary" id="btnPeriodSave">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

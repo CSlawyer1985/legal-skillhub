@@ -1,0 +1,60 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <title>三层防护体系</title>
+  <desc>隐私保护的三个层次：合同合规、技术脱敏、本地部署</desc>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A1A2E">三层防护体系</text>
+
+  <!-- 第一层：合同合规 -->
+  <g>
+    <rect x="80" y="100" width="640" height="100" rx="12" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2"/>
+    <circle cx="140" cy="150" r="35" fill="#4A90E2" fill-opacity="0.2"/>
+    <text x="140" y="160" font-size="36" text-anchor="middle">📋</text>
+    <text x="200" y="135" font-size="22" font-weight="bold" fill="#4A90E2">第一层：合同合规</text>
+    <text x="200" y="165" font-size="16" fill="#666666">选型时审查用户协议，确认数据使用范围</text>
+    <text x="200" y="185" font-size="14" fill="#999999">最低防线，法律层面追责依据</text>
+    <text x="680" y="155" font-size="24" text-anchor="end" fill="#4A90E2" font-weight="bold">成本低</text>
+  </g>
+
+  <!-- 箭头1 -->
+  <g>
+    <line x1="400" y1="205" x2="400" y2="230" stroke="#10B981" stroke-width="3" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="395,230 400,245 405,230" fill="#10B981"/>
+  </g>
+
+  <!-- 第二层：技术脱敏 -->
+  <g>
+    <rect x="80" y="250" width="640" height="100" rx="12" fill="#E8F5E8" stroke="#10B981" stroke-width="2"/>
+    <circle cx="140" cy="300" r="35" fill="#10B981" fill-opacity="0.2"/>
+    <text x="140" y="310" font-size="36" text-anchor="middle">🔧</text>
+    <text x="200" y="285" font-size="22" font-weight="bold" fill="#10B981">第二层：技术脱敏</text>
+    <text x="200" y="315" font-size="16" fill="#666666">数据离开设备前，用技术手段抹掉敏感信息</text>
+    <text x="200" y="335" font-size="14" fill="#999999">本地OCR+视觉识别，或商业脱敏工具</text>
+    <text x="680" y="305" font-size="24" text-anchor="end" fill="#10B981" font-weight="bold">成本中</text>
+  </g>
+
+  <!-- 箭头2 -->
+  <g>
+    <line x1="400" y1="355" x2="400" y2="380" stroke="#10B981" stroke-width="3" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <polygon points="395,380 400,395 405,380" fill="#10B981"/>
+  </g>
+
+  <!-- 第三层：本地部署 -->
+  <g>
+    <rect x="80" y="400" width="640" height="45" rx="12" fill="#FFF5F5" stroke="#E24A4A" stroke-width="2"/>
+    <circle cx="140" cy="422" r="25" fill="#E24A4A" fill-opacity="0.2"/>
+    <text x="140" y="432" font-size="28" text-anchor="middle">🏠</text>
+    <text x="185" y="425" font-size="20" font-weight="bold" fill="#E24A4A">第三层：本地部署</text>
+    <text x="370" y="425" font-size="14" fill="#666666">纯本地设备，数据物理隔离</text>
+    <text x="680" y="425" font-size="20" text-anchor="end" fill="#E24A4A" font-weight="bold">成本高</text>
+  </g>
+
+  <!-- 右侧标注：可叠加 -->
+  <text x="750" y="220" font-size="18" fill="#888888" text-anchor="end" transform="rotate(-90,750,220)">可叠加</text>
+</svg>

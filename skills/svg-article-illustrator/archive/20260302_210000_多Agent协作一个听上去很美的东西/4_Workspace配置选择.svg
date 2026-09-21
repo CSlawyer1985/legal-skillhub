@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <marker id="arrow4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90E2"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="40" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">Workspace 配置选择</text>
+
+  <!-- 共享 Workspace -->
+  <g transform="translate(200, 200)">
+    <rect x="-110" y="-90" width="220" height="180" rx="12" fill="#FFF3E0" stroke="#FF9800" stroke-width="3"/>
+    <text x="0" y="-55" font-size="20" font-weight="bold" fill="#E65100" text-anchor="middle">共享 Workspace</text>
+    <text x="0" y="-15" font-size="40" text-anchor="middle">📂</text>
+    <text x="0" y="30" font-size="14" fill="#333" text-anchor="middle">所有 Agent 访问相同文件</text>
+    <text x="0" y="55" font-size="14" fill="#666" text-anchor="middle">重复加载相同上下文</text>
+    <text x="0" y="80" font-size="16" fill="#C62828" text-anchor="middle">❌ 不推荐</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="320" y1="200" x2="480" y2="200" stroke="#4A90E2" stroke-width="4" marker-end="url(#arrow4)">
+    <animate attributeName="stroke-dasharray" values="0,160;160,0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 独立 Workspace -->
+  <g transform="translate(600, 200)">
+    <rect x="-110" y="-90" width="220" height="180" rx="12" fill="#E8F5E9" stroke="#4CAF50" stroke-width="3"/>
+    <text x="0" y="-55" font-size="20" font-weight="bold" fill="#2E7D32" text-anchor="middle">独立 Workspace</text>
+    <text x="0" y="-15" font-size="40" text-anchor="middle">🔐</text>
+    <text x="0" y="30" font-size="14" fill="#333" text-anchor="middle">每个 Agent 独立空间</text>
+    <text x="0" y="55" font-size="14" fill="#666" text-anchor="middle">上下文隔离 + 技能聚焦</text>
+    <text x="0" y="80" font-size="16" fill="#2E7D32" text-anchor="middle">✓ 进阶玩法</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <rect x="150" y="380" width="500" height="45" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="400" y="410" font-size="16" fill="#1565C0" text-anchor="middle">共享 = 重复加载 · 独立 = 需要高阶维护</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FAFAFA"/>
+  <text x="400" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#2D3748">工具 ≠ 能力</text>
+  <g transform="translate(200, 225)">
+    <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="2s" repeatCount="indefinite" additive="sum"/>
+    <text font-size="100" text-anchor="middle" dominant-baseline="middle">🔧</text>
+  </g>
+  <g transform="translate(400, 225)">
+    <text font-size="72" text-anchor="middle" dominant-baseline="middle" fill="#E53E3E" font-weight="bold">≠</text>
+  </g>
+  <g transform="translate(600, 225)">
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="3s" repeatCount="indefinite"/>
+    <text font-size="100" text-anchor="middle" dominant-baseline="middle">🧠</text>
+  </g>
+  <text x="200" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="24" text-anchor="middle" fill="#718096">工具</text>
+  <text x="600" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="24" text-anchor="middle" fill="#718096">能力</text>
+</svg>

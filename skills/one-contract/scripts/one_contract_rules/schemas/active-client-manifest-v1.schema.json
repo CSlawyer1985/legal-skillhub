@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/active-client-manifest-v1.schema.json",
+  "title": "One-Contract Active Client Manifest",
+  "$comment": "All relative $ref values MUST resolve only through the packaged, allowlisted local schema registry; network retrieval is forbidden. For commit_state=committed this manifest is the durable atomic commit fact: replacing it atomically changes the active snapshot, and publish_transaction_id plus prepare_audit_event_id allow recovery to append a missing committed audit record. content_sha256 is SHA-256 over RFC 8785/JCS canonical JSON with only the top-level content_sha256 member omitted. The writer MUST fsync the new manifest and containing directory where supported, then use an atomic same-filesystem replace. Cross-file IDs and hashes MUST be verified before and after the replace. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "client_profile_id",
+    "commit_state",
+    "active_snapshot_id",
+    "active_snapshot_sha256",
+    "previous_snapshot_id",
+    "previous_snapshot_sha256",
+    "public_snapshot_id",
+    "public_asset_fingerprint",
+    "resolver_semantics_version",
+    "publish_transaction_id",
+    "prepare_audit_event_id",
+    "generation",
+    "committed_at",
+    "updated_at",
+    "updated_by",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "client_profile_id": {
+      "type": "string",
+      "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+    },
+    "commit_state": {
+      "type": "string",
+      "enum": [
+        "empty",
+        "committed"
+      ]
+    },
+    "active_snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "active_snapshot_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "previous_snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^cs_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "previous_snapshot_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "public_snapshot_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^public_sha256_[a-f0-9]{64}$"
+    },
+    "public_asset_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "resolver_semantics_version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "publish_transaction_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^ptx_[a-z0-9][a-z0-9_-]{7,95}$"
+    },
+    "prepare_audit_event_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^ev_[a-z0-9][a-z0-9_-]{7,95}$"
+    },
+    "generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "committed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "commit_state": {
+            "const": "empty"
+          }
+        },
+        "required": [
+          "commit_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "active_snapshot_id": {
+            "type": "null"
+          },
+          "active_snapshot_sha256": {
+            "type": "null"
+          },
+          "previous_snapshot_id": {
+            "type": "null"
+          },
+          "previous_snapshot_sha256": {
+            "type": "null"
+          },
+          "public_snapshot_id": {
+            "type": "null"
+          },
+          "public_asset_fingerprint": {
+            "type": "null"
+          },
+          "resolver_semantics_version": {
+            "type": "null"
+          },
+          "publish_transaction_id": {
+            "type": "null"
+          },
+          "prepare_audit_event_id": {
+            "type": "null"
+          },
+          "generation": {
+            "const": 0
+          },
+          "committed_at": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "active_snapshot_id": {
+            "type": "string"
+          },
+          "active_snapshot_sha256": {
+            "type": "string"
+          },
+          "public_snapshot_id": {
+            "type": "string"
+          },
+          "public_asset_fingerprint": {
+            "type": "string"
+          },
+          "resolver_semantics_version": {
+            "type": "string"
+          },
+          "publish_transaction_id": {
+            "type": "string"
+          },
+          "prepare_audit_event_id": {
+            "type": "string"
+          },
+          "generation": {
+            "minimum": 1
+          },
+          "committed_at": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "previous_snapshot_id": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "previous_snapshot_id"
+        ]
+      },
+      "then": {
+        "properties": {
+          "previous_snapshot_sha256": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "previous_snapshot_sha256": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

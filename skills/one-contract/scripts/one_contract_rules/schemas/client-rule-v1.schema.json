@@ -1,0 +1,655 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/client-rule-v1.schema.json",
+  "title": "One-Contract Client Rule",
+  "$comment": "content_sha256 hashes RFC 8785 canonical JSON with content_sha256 omitted. fact_key and target_key must resolve from local registries. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "client_rule_id",
+    "version",
+    "client_profile_id",
+    "title",
+    "rule_kind",
+    "normative_level",
+    "scope",
+    "condition",
+    "effect",
+    "approval_status",
+    "activation_status",
+    "source_refs",
+    "review",
+    "revision",
+    "created_at",
+    "updated_at",
+    "created_by",
+    "updated_by",
+    "content_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "client_rule_id": {
+      "type": "string",
+      "pattern": "^cr_[a-z0-9][a-z0-9_-]{7,79}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "client_profile_id": {
+      "type": "string",
+      "pattern": "^cp_[a-z0-9][a-z0-9_-]{7,63}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "rule_kind": {
+      "type": "string",
+      "enum": [
+        "requirement",
+        "preference",
+        "fallback",
+        "escalation",
+        "output_style"
+      ]
+    },
+    "normative_level": {
+      "type": "string",
+      "enum": [
+        "mandatory",
+        "preferred",
+        "advisory"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applies_to_all",
+        "domain_codes",
+        "type_ids",
+        "roles",
+        "scene_tags",
+        "contract_stages",
+        "clause_groups"
+      ],
+      "properties": {
+        "applies_to_all": {
+          "type": "boolean"
+        },
+        "domain_codes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^EC-[0-9]{2}$"
+          }
+        },
+        "type_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 120
+          }
+        },
+        "roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+          }
+        },
+        "scene_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
+          }
+        },
+        "contract_stages": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "drafting",
+              "first_review",
+              "negotiation",
+              "signing",
+              "performance",
+              "termination",
+              "settlement"
+            ]
+          }
+        },
+        "clause_groups": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "applies_to_all": {
+                "const": true
+              }
+            },
+            "required": [
+              "applies_to_all"
+            ]
+          },
+          "then": {
+            "properties": {
+              "domain_codes": {
+                "maxItems": 0
+              },
+              "type_ids": {
+                "maxItems": 0
+              },
+              "roles": {
+                "maxItems": 0
+              },
+              "scene_tags": {
+                "maxItems": 0
+              },
+              "contract_stages": {
+                "maxItems": 0
+              },
+              "clause_groups": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "anyOf": [
+              {
+                "properties": {
+                  "domain_codes": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "type_ids": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "roles": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "scene_tags": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "contract_stages": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "clause_groups": {
+                    "minItems": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "clauses",
+        "human_confirmation_required"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "all",
+            "any"
+          ]
+        },
+        "clauses": {
+          "type": "array",
+          "maxItems": 50,
+          "items": {
+            "$ref": "#/$defs/conditionClause"
+          }
+        },
+        "human_confirmation_required": {
+          "type": "boolean"
+        },
+        "natural_language_note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "target_key",
+        "value"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "require",
+            "prefer",
+            "forbid",
+            "escalate",
+            "set_output"
+          ]
+        },
+        "target_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,159}$"
+        },
+        "value": {},
+        "reason_template": {
+          "type": "string",
+          "maxLength": 1500
+        }
+      }
+    },
+    "priority_within_class": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 50
+    },
+    "depends_on": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 120
+      },
+      "default": []
+    },
+    "conflicts_with": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 120
+      },
+      "default": []
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 300
+      }
+    },
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "valid_from": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "valid_until": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "default": {}
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "candidate",
+        "lawyer_approved",
+        "regression_passed",
+        "active",
+        "deprecated"
+      ]
+    },
+    "activation_status": {
+      "type": "string",
+      "enum": [
+        "inactive",
+        "active"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lawyer_approval_evidence_id",
+        "lawyer_approved_by",
+        "lawyer_approved_at",
+        "legal_check_status",
+        "legal_checked_at",
+        "regression_evidence_ids"
+      ],
+      "properties": {
+        "lawyer_approval_evidence_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^ev_[a-z0-9][a-z0-9_-]{7,95}$"
+        },
+        "lawyer_approved_by": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 128
+        },
+        "lawyer_approved_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "legal_check_status": {
+          "type": "string",
+          "enum": [
+            "not_checked",
+            "checked",
+            "not_required"
+          ]
+        },
+        "legal_checked_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "regression_evidence_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 180
+          }
+        },
+        "review_note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 120
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "updated_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "approval_status": {
+            "const": "active"
+          }
+        },
+        "required": [
+          "approval_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "activation_status": {
+            "const": "active"
+          },
+          "review": {
+            "properties": {
+              "lawyer_approval_evidence_id": {
+                "type": "string"
+              },
+              "lawyer_approved_by": {
+                "type": "string"
+              },
+              "lawyer_approved_at": {
+                "type": "string"
+              },
+              "legal_check_status": {
+                "enum": [
+                  "checked",
+                  "not_required"
+                ]
+              },
+              "regression_evidence_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "activation_status": {
+            "const": "active"
+          }
+        },
+        "required": [
+          "activation_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "approval_status": {
+            "const": "active"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "conditionClause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_key",
+        "operator"
+      ],
+      "properties": {
+        "fact_key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]{1,119}$"
+        },
+        "operator": {
+          "type": "string",
+          "enum": [
+            "equals",
+            "not_equals",
+            "in",
+            "not_in",
+            "exists",
+            "contains",
+            "gte",
+            "lte"
+          ]
+        },
+        "value": {}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "const": "exists"
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "enum": [
+                  "in",
+                  "not_in"
+                ]
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "array",
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "enum": [
+                  "gte",
+                  "lte"
+                ]
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operator": {
+                "const": "contains"
+              }
+            },
+            "required": [
+              "operator"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

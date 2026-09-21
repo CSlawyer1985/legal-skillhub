@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <marker id="arrow1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90E2"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">多 Agent 群聊协作</text>
+
+  <!-- Agent 1 - 搜索 -->
+  <g transform="translate(150, 180)">
+    <circle cx="0" cy="0" r="60" fill="#E3F2FD">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="15" font-size="50" text-anchor="middle">🔍</text>
+    <text x="0" y="90" font-size="20" fill="#666" text-anchor="middle">搜索 Agent</text>
+  </g>
+
+  <!-- Agent 2 - 总结 -->
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="60" fill="#E8F5E9">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <text x="0" y="15" font-size="50" text-anchor="middle">📝</text>
+    <text x="0" y="90" font-size="20" fill="#666" text-anchor="middle">总结 Agent</text>
+  </g>
+
+  <!-- Agent 3 - 审核 -->
+  <g transform="translate(650, 180)">
+    <circle cx="0" cy="0" r="60" fill="#FFF3E0">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+    <text x="0" y="15" font-size="50" text-anchor="middle">✅</text>
+    <text x="0" y="90" font-size="20" fill="#666" text-anchor="middle">审核 Agent</text>
+  </g>
+
+  <!-- 消息流动箭头 -->
+  <path d="M 220 180 Q 310 120 340 180" stroke="#4A90E2" stroke-width="3" fill="none" marker-end="url(#arrow1)" stroke-dasharray="200" stroke-dashoffset="200">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 460 180 Q 550 120 580 180" stroke="#4A90E2" stroke-width="3" fill="none" marker-end="url(#arrow1)" stroke-dasharray="200" stroke-dashoffset="200">
+    <animate attributeName="stroke-dashoffset" from="200" to="0" dur="1.5s" repeatCount="indefinite" begin="0.8s"/>
+  </path>
+
+  <!-- 底部说明 -->
+  <rect x="200" y="320" width="400" height="60" rx="8" fill="#FFEBEE" stroke="#FFCDD2" stroke-width="2"/>
+  <text x="400" y="355" font-size="18" fill="#C62828" text-anchor="middle">看似协作 · 实际独立</text>
+</svg>

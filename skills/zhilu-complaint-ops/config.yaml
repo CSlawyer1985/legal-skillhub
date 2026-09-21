@@ -1,0 +1,147 @@
+# 智录·律师经验固化平台 — 通用框架配置模板
+#
+# 首次使用：对千问办公说"接入智录"，Agent 会引导你完成以下配置。
+# 你只需要告诉 Agent 你想记录什么、从哪里采集、存在哪里，其余自动完成。
+
+# 律师信息（用于口径库元数据）
+lawyer:
+  name: "<你的姓名>"
+  firm: "<律所/公司名称>"
+  dingtalk_user_id: "<钉钉userId>"
+
+# 场景配置（可配置多个场景）
+# 每个场景 = 一类重复性工作（如：市监投诉、客户咨询、合同审核、劳动仲裁等）
+scenarios:
+  # 示例场景1：市监投诉工单（全所一起用）
+  - name: "市监投诉"
+    description: "处理市监局转办的消费者投诉工单"
+    info_source:
+      type: "dingtalk_group"          # 信息源类型：dingtalk_group / wechat_group / email / manual
+      group_id: "<市监群openConversationId>"
+      group_name: "余杭市场局未来所沟通群"
+      keywords: ["投诉", "举报", "协查函"]  # 触发关键词
+    ledger:
+      type: "dingtalk_aitable"         # 台账类型：dingtalk_aitable / local_sqlite / excel
+      base_id: "<台账BaseID>"
+      table_id: "<台账表ID>"
+      field_map:                       # 由 setup_wizard 自动匹配填入
+        case_no: "<自动匹配>"
+        complainant: "<自动匹配>"
+        contact: "<自动匹配>"
+        subject: "<自动匹配>"
+        complaint_type: "<自动匹配>"
+        channel: "<自动匹配>"
+        content: "<自动匹配>"
+        amount: "<自动匹配>"
+        received_date: "<自动匹配>"
+        deadline: "<自动匹配>"
+        status: "<自动匹配>"
+        handler: "<自动匹配>"
+        follow_up: "<自动匹配>"
+        risk_level: "<自动匹配>"
+        total_score: "<自动匹配>"
+        legal_score: "<自动匹配>"
+        amount_score: "<自动匹配>"
+        spread_score: "<自动匹配>"
+        urgency_score: "<自动匹配>"
+        repeat_score: "<自动匹配>"
+        ai_suggestion: "<自动匹配>"
+        final_reply: "<自动匹配>"
+        review_status: "<自动匹配>"
+        case_type: "<自动匹配>"
+        raw_12315_no: "<自动匹配>"
+    risk_dimensions:                   # 风险评分维度（可自定义）
+      - name: "法律风险"
+        description: "法律条款适用性（消保法、合同法、劳动法）"
+      - name: "金额风险"
+        description: "诉求/争议金额大小（大额≥5000）"
+      - name: "舆情风险"
+        description: "舆情扩散可能性（媒体、社交平台、投诉渠道）"
+      - name: "时效风险"
+        description: "处理时限压力（截止日期、法定期限）"
+      - name: "重复风险"
+        description: "是否重复案件（历史案件关联、二次投诉）"
+    dedup_keys:                        # 判重规则（可自定义）
+      - "案件编号相同（如12315编号、函号）"
+      - "案件标题/事由相同"
+      - "联系人+佐证信息匹配（金额、类型、姓名）"
+      - "当事人姓名+金额+类型"
+      - "外部函号匹配（协查函、信访件）"
+      - "当事人姓名+内容相似度≥55%"
+    reply_constraints:                 # 答复约束
+      max_length: 100                  # 对外回复字数上限
+      tone: "neutral"                  # 语气：neutral / empathetic / formal
+      mandatory_disclaimer: "⚠️AI初稿偏消费者立场须核实"
+
+  # 示例场景2：客户法律咨询（一个人用）
+  - name: "法律咨询"
+    description: "业务群里的法律咨询，沉淀个人口径库"
+    info_source:
+      type: "dingtalk_group"
+      group_id: "<业务群openConversationId>"
+      group_name: "业务咨询群"
+      keywords: ["咨询", "怎么合规", "法律风险"]
+    ledger:
+      type: "local_sqlite"             # 个人用可选本地SQLite，无需建钉钉表
+      db_path: "~/.qwenworkcn/zhilu/legal_consult.db"
+      field_map:
+        question: "<自动匹配>"
+        legal_domain: "<自动匹配>"
+        ai_answer: "<自动匹配>"
+        final_answer: "<自动匹配>"
+        reuse_count: "<自动匹配>"
+    risk_dimensions:
+      - name: "法律领域"
+        description: "数据合规/劳动人事/合同/知识产权/其他"
+    dedup_keys:
+      - "问题内容相似度≥70%"
+      - "同一咨询人+同一领域"
+    reply_constraints:
+      max_length: 200
+      tone: "professional"
+      mandatory_disclaimer: ""
+
+  # 示例场景3：合同审核经验（再接一个）
+  - name: "合同审核"
+    description: "合同审查常见问题，沉淀审查要点口径"
+    info_source:
+      type: "manual"                   # 手动录入，不从群采集
+      group_id: ""
+      group_name: ""
+      keywords: []
+    ledger:
+      type: "local_sqlite"
+      db_path: "~/.qwenworkcn/zhilu/contract_review.db"
+      field_map:
+        contract_type: "<自动匹配>"
+        clause: "<自动匹配>"
+        risk_point: "<自动匹配>"
+        review_opinion: "<自动匹配>"
+        final_opinion: "<自动匹配>"
+        reuse_count: "<自动匹配>"
+    risk_dimensions:
+      - name: "风险等级"
+        description: "高/中/低"
+    dedup_keys:
+      - "合同类型+条款内容相似度≥80%"
+    reply_constraints:
+      max_length: 500
+      tone: "formal"
+      mandatory_disclaimer: ""
+
+# 复核闭环（所有场景通用）
+review_loop:
+  status_enum:
+    - 待起草
+    - 已起草待复核
+    - 已复核待入库
+    - 已入库
+  scripts:
+    batch_draft: scripts/batch_draft.py
+    review_apply: scripts/review_apply.py
+  gate: "draft_is_not_final; deposit_requires_human_review"
+
+# 通知配置
+notify:
+  receiver_id: "<承办人钉钉userId>"
+  send_to_group: false                 # 是否发到群里（默认false，只发本人）

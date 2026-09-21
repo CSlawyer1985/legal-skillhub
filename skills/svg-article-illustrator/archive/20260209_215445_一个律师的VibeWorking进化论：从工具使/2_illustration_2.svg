@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0FFF4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E6FFFA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgGrad2)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="400" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="bold" fill="#276749">AI Writing + Cursor</text>
+
+  <!-- 左侧：框架 -->
+  <g transform="translate(120, 150)">
+    <rect x="0" y="0" width="140" height="160" fill="#E6FFFA" stroke="#38B2AC" stroke-width="3" rx="10" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="70" y="50" text-anchor="middle" font-size="50">📋</text>
+    <text x="70" y="130" text-anchor="middle" font-size="20" font-weight="bold" fill="#2C7A7B">框架</text>
+    <animateTransform attributeName="transform" type="translate" values="120,150; 120,140; 120,150" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 箭头1 -->
+  <line x1="280" y1="230" x2="340" y2="230" stroke="#38B2AC" stroke-width="4" marker-end="url(#arrowA1)" stroke-dasharray="80" stroke-dashoffset="80">
+    <animate attributeName="stroke-dashoffset" from="80" to="0" dur="1s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 中间：填充 -->
+  <g transform="translate(360, 150)">
+    <rect x="0" y="0" width="140" height="160" fill="#E6FFFA" stroke="#38B2AC" stroke-width="3" rx="10" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite" begin="0.3s"/>
+    </rect>
+    <text x="70" y="50" text-anchor="middle" font-size="50">✏️</text>
+    <text x="70" y="130" text-anchor="middle" font-size="20" font-weight="bold" fill="#2C7A7B">填充</text>
+    <animateTransform attributeName="transform" type="translate" values="360,150; 360,140; 360,150" dur="3s" repeatCount="indefinite" begin="0.5s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 箭头2 -->
+  <line x1="520" y1="230" x2="580" y2="230" stroke="#38B2AC" stroke-width="4" marker-end="url(#arrowA2)" stroke-dasharray="80" stroke-dashoffset="80">
+    <animate attributeName="stroke-dashoffset" from="80" to="0" dur="1s" repeatCount="indefinite" begin="0.3s"/>
+  </line>
+
+  <!-- 右侧：优化 -->
+  <g transform="translate(600, 150)">
+    <rect x="0" y="0" width="140" height="160" fill="#E6FFFA" stroke="#38B2AC" stroke-width="3" rx="10" stroke-dasharray="8,4">
+      <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite" begin="0.6s"/>
+    </rect>
+    <text x="70" y="50" text-anchor="middle" font-size="50">✨</text>
+    <text x="70" y="130" text-anchor="middle" font-size="20" font-weight="bold" fill="#2C7A7B">优化</text>
+    <animateTransform attributeName="transform" type="translate" values="600,150; 600,140; 600,150" dur="3s" repeatCount="indefinite" begin="1s" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 底部核心概念 -->
+  <g transform="translate(400, 360)">
+    <rect x="-280" y="-35" width="560" height="70" fill="#F0FFF4" stroke="#276749" stroke-width="3" rx="10"/>
+    <text x="0" y="10" text-anchor="middle" font-size="24" font-weight="bold" fill="#276749">项目制工作方法论</text>
+  </g>
+
+  <!-- 定义箭头 -->
+  <defs>
+    <marker id="arrowA1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38B2AC"/>
+    </marker>
+    <marker id="arrowA2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#38B2AC"/>
+    </marker>
+  </defs>
+</svg>

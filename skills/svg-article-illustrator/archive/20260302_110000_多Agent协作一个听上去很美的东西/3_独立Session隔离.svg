@@ -1,0 +1,50 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="450" fill="#fef2f2"/>
+
+  <!-- Title -->
+  <g transform="translate(400, 50)">
+    <text x="0" y="0" text-anchor="middle" font-size="24" font-weight="bold" fill="#b91c1c">独立 Session 隔离</text>
+  </g>
+
+  <!-- Agent A -->
+  <g transform="translate(200, 200)">
+    <rect x="-100" y="-80" width="200" height="160" fill="#fee2e2" stroke="#dc2626" stroke-width="3" rx="12"/>
+    <text x="0" y="-50" text-anchor="middle" font-size="18" font-weight="bold" fill="#991b1b">🔴 Agent A</text>
+    <rect x="-80" y="-30" width="160" height="80" fill="#fff" stroke="#fca5a5" stroke-width="2" rx="8"/>
+    <text x="0" y="0" text-anchor="middle" font-size="14" fill="#7f1d1d">Session A</text>
+    <text x="0" y="25" text-anchor="middle" font-size="12" fill="#dc2626">📦 独立上下文</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="3s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- X mark -->
+  <g transform="translate(400, 200)">
+    <text x="0" y="0" text-anchor="middle" font-size="50" fill="#ef4444">✖</text>
+    <animateTransform attributeName="transform" type="scale" values="1; 1.2; 1" dur="1.5s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Agent B -->
+  <g transform="translate(600, 200)">
+    <rect x="-100" y="-80" width="200" height="160" fill="#dbeafe" stroke="#2563eb" stroke-width="3" rx="12"/>
+    <text x="0" y="-50" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e40af">🔵 Agent B</text>
+    <rect x="-80" y="-30" width="160" height="80" fill="#fff" stroke="#93c5fd" stroke-width="2" rx="8"/>
+    <text x="0" y="0" text-anchor="middle" font-size="14" fill="#1e3a8a">Session B</text>
+    <text x="0" y="25" text-anchor="middle" font-size="12" fill="#2563eb">📦 独立上下文</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="3s" begin="1s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Message arrow showing what's passed -->
+  <g transform="translate(400, 380)">
+    <rect x="-150" y="-40" width="300" height="80" fill="#fff7ed" stroke="#f97316" stroke-width="3" rx="10"/>
+    <text x="0" y="-10" text-anchor="middle" font-size="16" font-weight="bold" fill="#c2410c">sessions_send</text>
+    <text x="0" y="20" text-anchor="middle" font-size="14" fill="#ea580c">唯一传递：message 文本</text>
+    <rect x="-130" y="30" width="260" height="20" fill="none" stroke="#fdba74" stroke-width="2" stroke-dasharray="5,3" rx="4">
+      <animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

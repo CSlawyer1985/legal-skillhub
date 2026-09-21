@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <title>立于不败之地</title>
+  <desc>永远不输的游戏：无论AI发展好坏，批评者都能保持形象不受损害</desc>
+
+  <rect width="800" height="450" fill="#FFFFFF"/>
+
+  <!-- 标题 -->
+  <text x="400" y="55" font-size="32" font-weight="bold" text-anchor="middle" fill="#1A1A2E">永远不输的游戏</text>
+
+  <!-- 中央盾牌 -->
+  <g>
+    <circle cx="400" cy="220" r="70" fill="#FFF5F5" stroke="#E24A4A" stroke-width="3"/>
+    <text x="400" y="210" font-size="60" text-anchor="middle">🛡️</text>
+    <text x="400" y="250" font-size="14" text-anchor="middle" fill="#E24A4A" font-weight="bold">立于不败之地</text>
+  </g>
+
+  <!-- 左侧：AI失败情况 -->
+  <g>
+    <rect x="60" y="130" width="200" height="180" rx="12" fill="#E8F4F8" stroke="#4A90E2" stroke-width="2"/>
+    <text x="160" y="165" font-size="20" font-weight="bold" text-anchor="middle" fill="#4A90E2">AI发展失败</text>
+
+    <text x="160" y="200" font-size="50" text-anchor="middle">📉</text>
+
+    <text x="160" y="255" font-size="14" text-anchor="middle" fill="#444444">"你看，我早就提醒过大家"</text>
+    <text x="160" y="280" font-size="14" text-anchor="middle" fill="#666666">证明了自己的判断正确</text>
+
+    <text x="160" y="305" font-size="16" text-anchor="middle" fill="#10B981" font-weight="bold">✓ 免责</text>
+  </g>
+
+  <!-- 右侧：AI成功情况 -->
+  <g>
+    <rect x="540" y="130" width="200" height="180" rx="12" fill="#E8F5E8" stroke="#10B981" stroke-width="2"/>
+    <text x="640" y="165" font-size="20" font-weight="bold" text-anchor="middle" fill="#10B981">AI发展成功</text>
+
+    <text x="640" y="200" font-size="50" text-anchor="middle">📈</text>
+
+    <text x="640" y="255" font-size="14" text-anchor="middle" fill="#444444">"我一直站在道德高地上"</text>
+    <text x="640" y="280" font-size="14" text-anchor="middle" fill="#666666">证明自己负责任、有远见</text>
+
+    <text x="640" y="305" font-size="16" text-anchor="middle" fill="#10B981" font-weight="bold">✓ 邀功</text>
+  </g>
+
+  <!-- 底部：底部评论 -->
+  <rect x="150" y="340" width="500" height="70" rx="10" fill="#FFF8E8" stroke="#F5A623" stroke-width="2"/>
+  <text x="400" y="370" font-size="18" text-anchor="middle" fill="#D4881C" font-weight="bold">无论结果如何，都能保持职业权威和形象不受损害</text>
+  <text x="400" y="395" font-size="16" text-anchor="middle" fill="#666666">但这种策略也错失了真正的成长机会</text>
+
+  <!-- 连接到中心的虚线 -->
+  <line x1="270" y1="220" x2="320" y2="220" stroke="#E24A4A" stroke-width="2" stroke-dasharray="6,4">
+    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="480" y1="220" x2="530" y2="220" stroke="#10B981" stroke-width="2" stroke-dasharray="6,4">
+    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite"/>
+  </line>
+</svg>

@@ -1,0 +1,81 @@
+# 法律元力（yuanli.ailaw.cn）skillpack 静态目录（离线 / 无 API 时兜底）
+# 在线优先：profile.md ## yuanli → base_url + references/yuanli-api.md
+#   GET {BASE}/api/toolkits/catalog | ?search= | {id}/download
+# 来源：yuanli.ailaw.cn 工具包目录（摘录）；安装见 skill-installer
+
+schema_version: "0.1.0"
+catalog_id: yuanli-cn
+title: 法律元力（华宇元典 · yuanli.ailaw.cn）
+default_base_url: "https://yuanli.ailaw.cn"
+base_url_note: "中国法发行默认站点（法律元力）。profile 未填 base_url 时，skill 可先试此默认再回退本静态目录。"
+
+toolkits:
+  - id: legal-skillpack-legal-research-cn
+    name: 中国法法律研究
+    skill_count: 4
+    package_dir: legal-skillpack-legal-research-cn
+    author: 华宇元典
+    tags: [法律研究, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: prc-legal-research-deep-research
+
+  - id: legal-skillpack-commercial-legal
+    name: 商事合同法务
+    skill_count: 12
+    package_dir: legal-skillpack-commercial-legal
+    author: 华宇元典
+    tags: [商事合同, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: commercial-review
+
+  - id: legal-skillpack-corporate-legal
+    name: 公司法务
+    skill_count: 13
+    package_dir: legal-skillpack-corporate-legal
+    author: 华宇元典
+    tags: [公司法务, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: corporate-matter-workspace
+
+  - id: legal-skillpack-regulatory-legal
+    name: 监管合规法务
+    skill_count: 10
+    package_dir: legal-skillpack-regulatory-legal
+    author: 华宇元典
+    tags: [监管合规, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: regulatory-reg-feed-watcher
+
+  - id: legal-skillpack-litigation-legal
+    name: 诉讼业务管理
+    skill_count: 19
+    package_dir: legal-skillpack-litigation-legal
+    author: 华宇元典
+    tags: [诉讼业务, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: litigation-matter-intake
+
+  - id: legal-skillpack-ai-governance-legal
+    name: AI 治理合规
+    skill_count: 9
+    package_dir: legal-skillpack-ai-governance-legal
+    author: 华宇元典
+    tags: [AI治理, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: ai-governance-use-case-triage
+
+  - id: legal-skillpack-law-student
+    name: 法学学习与法考备考
+    skill_count: 13
+    package_dir: legal-skillpack-law-student
+    author: 华宇元典
+    tags: [法学学习, 法考, agents-for-legal-cn]
+    published_at: "2026-05-18"
+    install_type: portable_zip
+    entry_skill_hint: law-student-session

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="#e8f5e9"/>
+
+  <!-- 中心：训练场/成长 -->
+  <g transform="translate(400, 180)">
+    <circle cx="0" cy="0" r="90" fill="#ffffff" stroke="#4caf50" stroke-width="6"/>
+    <text x="0" y="35" font-size="80" text-anchor="middle">🏋️</text>
+    <animateTransform attributeName="transform" type="scale"
+      values="1; 1.08; 1" dur="2s" repeatCount="indefinite"
+      calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+  </g>
+
+  <!-- 技能标签 -->
+  <g transform="translate(180, 120)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#c8e6c9"/>
+    <text x="0" y="8" font-size="22" fill="#2e7d32" text-anchor="middle">任务拆解</text>
+  </g>
+
+  <g transform="translate(620, 120)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#c8e6c9"/>
+    <text x="0" y="8" font-size="22" fill="#2e7d32" text-anchor="middle">SOP设计</text>
+  </g>
+
+  <g transform="translate(180, 280)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#c8e6c9"/>
+    <text x="0" y="8" font-size="22" fill="#2e7d32" text-anchor="middle">上下文管理</text>
+  </g>
+
+  <g transform="translate(620, 280)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#c8e6c9"/>
+    <text x="0" y="8" font-size="22" fill="#2e7d32" text-anchor="middle">工具编排</text>
+  </g>
+
+  <!-- 底部文字 -->
+  <text x="400" y="410" font-size="36" font-weight="bold" fill="#333" text-anchor="middle">它在逼我学什么？</text>
+</svg>

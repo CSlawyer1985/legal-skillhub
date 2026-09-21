@@ -1,0 +1,10 @@
+# API Key 配置文件（不提交真实 Key）
+scripts/config.py
+
+# Python 缓存
+scripts/__pycache__/
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store

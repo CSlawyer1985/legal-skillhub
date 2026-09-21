@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <marker id="arrow8" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90E2"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="#f8f9fa"/>
+
+  <!-- 标题 -->
+  <text x="400" y="45" font-size="28" font-weight="bold" fill="#333" text-anchor="middle">多 Agent 协作 · 真相</text>
+
+  <!-- 左边：看起来像多线程 -->
+  <g transform="translate(200, 220)">
+    <rect x="-110" y="-80" width="220" height="160" rx="12" fill="#E8F5E9" stroke="#4CAF50" stroke-width="3"/>
+    <text x="0" y="-45" font-size="22" font-weight="bold" fill="#2E7D32" text-anchor="middle">看起来像</text>
+    <text x="0" y="-5" font-size="50" text-anchor="middle">⚡</text>
+    <text x="0" y="45" font-size="18" fill="#333" text-anchor="middle">多线程并行</text>
+  </g>
+
+  <!-- 箭头 -->
+  <line x1="320" y1="220" x2="480" y2="220" stroke="#E57373" stroke-width="4" marker-end="url(#arrow8)" stroke-dasharray="160" stroke-dashoffset="160">
+    <animate attributeName="stroke-dashoffset" from="160" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+
+  <!-- 右边：实际是进程通信 -->
+  <g transform="translate(600, 220)">
+    <rect x="-110" y="-80" width="220" height="160" rx="12" fill="#FFEBEE" stroke="#E57373" stroke-width="3"/>
+    <text x="0" y="-45" font-size="22" font-weight="bold" fill="#C62828" text-anchor="middle">实际是</text>
+    <text x="0" y="-5" font-size="50" text-anchor="middle">📨</text>
+    <text x="0" y="45" font-size="18" fill="#333" text-anchor="middle">进程间通信</text>
+  </g>
+
+  <!-- 底部结论 -->
+  <rect x="150" y="360" width="500" height="50" rx="8" fill="#FFCDD2"/>
+  <text x="400" y="390" font-size="18" fill="#C62828" text-anchor="middle">复杂度高出一个数量级</text>
+</svg>

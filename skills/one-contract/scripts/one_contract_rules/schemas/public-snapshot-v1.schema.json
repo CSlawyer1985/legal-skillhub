@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "one-contract/public-snapshot-v1.schema.json",
+  "title": "One-Contract Public Snapshot Descriptor",
+  "$comment": "public_asset_fingerprint follows architecture-contract.md. projection_hash is SHA-256 over the RFC 8785/JCS loaded projection; all sources resolve locally and no network retrieval is permitted. W1 校准：由开发交接包 config 草案迁入产品 package；本目录版本为唯一运行时真源（ADR-027）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_mode",
+    "public_snapshot_id",
+    "public_asset_fingerprint",
+    "resolver_semantics_version",
+    "source_release_version",
+    "loaded_at",
+    "files",
+    "projection_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "snapshot_mode": {
+      "const": "fingerprint_and_loaded_projection"
+    },
+    "public_snapshot_id": {
+      "type": "string",
+      "pattern": "^public_sha256_[a-f0-9]{64}$"
+    },
+    "public_asset_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "resolver_semantics_version": {
+      "type": "string",
+      "pattern": "^[0-9]+[.][0-9]+[.][0-9]+$"
+    },
+    "source_release_version": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "loaded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relative_path",
+          "source_kind",
+          "size_bytes",
+          "sha256"
+        ],
+        "properties": {
+          "relative_path": {
+            "type": "string",
+            "pattern": "^(references/(review-doctrine|redline-comment-policy|common-clause-doctrine)[.]md|assets/knowledge_v2/.+)$"
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "global_document",
+              "knowledge_asset"
+            ]
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "projection_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  }
+}

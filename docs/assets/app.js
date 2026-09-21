@@ -91,7 +91,7 @@
     if (!out) return;
     const lines = [
       "> initializing legal_skillhub ...",
-      "> mounting /skills .... [██████████] 2086/2086",
+      "> mounting /skills .... [██████████] 2303/2303",
       "> jurisdictions ... china·us·eu·fr·uk·intl",
       "> taxonomy ... 36 domains · 15 tasks",
       "> ready. scroll down ↓",

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>合同规则工作台</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="brand">
+    <p class="eyebrow">One-Contract 3.1 Preview · 本地离线工具</p>
+    <h1>合同规则工作台</h1>
+  </div>
+  <nav aria-label="主导航">
+    <button type="button" class="tab" data-view="map" aria-current="page">规则总览</button>
+    <button type="button" class="tab" data-view="preview">试运行</button>
+    <button type="button" class="tab" data-view="clients">客户规则</button>
+    <button type="button" class="tab" data-view="proposals">公共规则建议</button>
+  </nav>
+  <p class="session" id="session-state" role="status">本地服务已连接</p>
+</header>
+
+<p class="service-warning" id="service-status" role="status" hidden></p>
+
+<main id="main">
+  <section id="view-map" class="view" aria-labelledby="map-heading">
+    <div class="page-heading">
+      <div>
+        <p class="section-kicker">公共规则库</p>
+        <h2 id="map-heading">规则总览</h2>
+        <p>查看合同审查规则的三层结构、适用范围和相互关系。公共规则在此仅供查看。</p>
+      </div>
+      <span class="read-only-badge">只读</span>
+    </div>
+
+    <div class="map-layout">
+      <aside class="panel filter-panel">
+        <div class="panel-heading">
+          <span class="step-number">1</span>
+          <div><h3>查找规则</h3><p>先选层级，再按名称搜索。</p></div>
+        </div>
+        <label class="field">
+          <span>规则层级</span>
+          <select id="map-layer">
+            <option value="">全部层级</option>
+            <option value="global">第一层 · 通用审查要求</option>
+            <option value="domain" selected>第二层 · 业务大类原则</option>
+            <option value="type">第三层 · 具体合同规则</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>规则名称</span>
+          <input id="map-search" type="search" placeholder="例如：付款、违约、股权转让" autocomplete="off">
+        </label>
+        <button type="button" id="map-search-btn" class="primary wide">查找</button>
+        <ul id="map-tree" class="tree" aria-label="规则列表"></ul>
+      </aside>
+
+      <section class="panel relation-panel">
+        <div class="panel-heading">
+          <span class="step-number">2</span>
+          <div><h3>关联规则</h3><p>了解它从哪里来、与哪些规则相连。</p></div>
+        </div>
+        <p class="empty-state" id="map-graph-hint">请先从左侧选择一条规则。</p>
+        <ul id="map-edges" class="edges" aria-label="规则关系"></ul>
+      </section>
+
+      <section class="panel detail-panel">
+        <div class="panel-heading">
+          <span class="step-number">3</span>
+          <div><h3>规则说明</h3><p>核对状态、范围、依据和更新时间。</p></div>
+        </div>
+        <p class="warning" id="map-detail-error" hidden></p>
+        <dl id="map-detail" class="detail">
+          <dt>规则层级</dt><dd id="d-layer">—</dd>
+          <dt>审核状态</dt><dd id="d-approval">—</dd>
+          <dt>是否启用</dt><dd id="d-activation">—</dd>
+          <dt id="d-coverage-label" hidden>覆盖程度</dt><dd id="d-coverage" hidden>—</dd>
+          <dt>适用范围</dt><dd id="d-scope">—</dd>
+          <dt>规则依据</dt><dd id="d-sources">—</dd>
+          <dt>最后更新</dt><dd id="d-updated">—</dd>
+        </dl>
+        <details class="technical-details">
+          <summary>查看技术信息</summary>
+          <dl class="detail compact">
+            <dt>规则编号</dt><dd id="d-id">—</dd>
+            <dt>版本</dt><dd id="d-version">—</dd>
+            <dt>正文状态</dt><dd id="d-visibility">—</dd>
+          </dl>
+        </details>
+        <p class="candidate-note" id="d-candidate-note" hidden>
+          这是一项待审核内容，仅用于维护查看，目前不会参与合同审查。
+        </p>
+      </section>
+    </div>
+  </section>
+
+  <section id="view-preview" class="view" aria-labelledby="preview-heading" hidden>
+    <div class="page-heading">
+      <div>
+        <p class="section-kicker">应用前核对</p>
+        <h2 id="preview-heading">试运行</h2>
+        <p>选择合同情形，查看本次审查会采用哪些公共规则和客户规则。</p>
+      </div>
+    </div>
+
+    <form id="preview-form" class="panel friendly-form">
+      <div class="form-section-heading">
+        <h3>本次合同情况</h3>
+        <p>只需填写看得懂的业务信息，系统会自动使用对应内部编号。</p>
+      </div>
+      <div class="form-grid two-columns">
+        <label class="field field-span-2">
+          <span>合同类型</span>
+          <select id="p-type" required><option value="">正在读取可用合同类型……</option></select>
+        </label>
+        <label class="field">
+          <span>我方身份</span>
+          <select id="p-role">
+            <option value="buyer">买方／采购方</option>
+            <option value="supplier">卖方／供应方</option>
+            <option value="transferor">转让方</option>
+            <option value="transferee">受让方</option>
+            <option value="employer">用人单位</option>
+            <option value="employee">劳动者</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>合同所处阶段</span>
+          <select id="p-stage">
+            <option value="signing">签署前审查</option>
+            <option value="closing">履行或交割阶段</option>
+            <option value="termination">解除或终止阶段</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>重点业务情形</span>
+          <select id="p-scene">
+            <option value="">常规审查</option>
+            <option value="equipment_purchase" selected>设备采购</option>
+            <option value="material_purchase">原材料采购</option>
+            <option value="delivery_logistics">交付与物流</option>
+            <option value="acceptance">验收</option>
+            <option value="breach_remedy">违约救济</option>
+            <option value="confidentiality">保密</option>
+            <option value="noncompete">竞业限制</option>
+            <option value="mutual_termination">协商解除劳动关系</option>
+            <option value="handover">房屋或项目交接</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>是否使用客户专属规则</span>
+          <select id="p-client"><option value="">不使用，仅查看公共规则</option></select>
+        </label>
+        <label class="field field-span-2" id="presale-permit-field" hidden>
+          <span>预售许可证核验情况</span>
+          <select id="p-presale-permit">
+            <option value="">尚未提供核验材料</option>
+            <option value="confirmed_valid">已核验有效</option>
+            <option value="confirmed_absent">已确认未取得有效许可</option>
+            <option value="unverified">已有材料，但尚未完成核验</option>
+          </select>
+        </label>
+      </div>
+      <input id="p-domain" type="hidden" value="EC-02">
+      <p class="context-note">所属业务大类：<strong id="p-domain-name">买卖、采购与供应</strong></p>
+      <button type="submit" class="primary">查看本次适用规则</button>
+    </form>
+
+    <p id="preview-status" role="status" class="result-summary"></p>
+    <p id="preview-confirm" class="warning" hidden>
+      本次存在需要律师判断的事项。请先查看“需要关注”中的说明，不要直接据此定稿。
+    </p>
+    <div class="result-grid">
+      <section class="panel result-card positive"><h3>本次采用</h3><p>会进入本次合同审查的规则。</p><ul id="preview-effective" class="list"></ul></section>
+      <section class="panel result-card muted-card"><h3>本次不采用</h3><p>因状态或适用范围不符而未进入本次审查。</p><ul id="preview-excluded" class="list"></ul></section>
+      <section class="panel result-card attention"><h3>需要关注</h3><p>冲突、缺少材料和需要人工确认的事项。</p><ul id="preview-trace" class="list"></ul></section>
+    </div>
+  </section>
+
+  <section id="view-clients" class="view" aria-labelledby="clients-heading" hidden>
+    <div class="page-heading">
+      <div>
+        <p class="section-kicker">长期法律顾问</p>
+        <h2 id="clients-heading">客户规则</h2>
+        <p>按客户保存长期审查口径。草稿不会自动生效，必须经过律师确认和测试。</p>
+      </div>
+    </div>
+    <div class="client-layout">
+      <aside class="panel client-sidebar">
+        <div class="panel-heading"><span class="step-number">1</span><div><h3>选择客户</h3><p>新客户只需先填写名称。</p></div></div>
+        <form id="client-form" class="form-grid">
+          <label class="field"><span>客户名称</span><input id="c-name" placeholder="例如：示例科技有限公司" required></label>
+          <details class="advanced-settings">
+            <summary>高级设置</summary>
+            <label class="field"><span>客户档案编号（留空自动生成）</span><input id="c-id" placeholder="系统将自动生成"></label>
+          </details>
+          <button type="submit" class="secondary wide">新建客户档案</button>
+        </form>
+        <p id="client-status" role="status" class="inline-message"></p>
+        <ul id="client-list" class="list client-list"></ul>
+      </aside>
+
+      <div class="client-workspace">
+        <section class="panel">
+          <div class="panel-heading"><span class="step-number">2</span><div><h3>编写客户规则</h3><p id="drafts-empty">请先从左侧选择一个客户。</p></div></div>
+          <div class="draft-toolbar"><strong>该客户的规则</strong><button type="button" id="r-clear" class="quiet">新建一条规则</button></div>
+          <ul id="draft-list" class="list draft-list"></ul>
+          <form id="rule-form" class="form-grid rule-editor">
+            <div class="form-section-heading" id="rule-editor-heading"><h3>规则内容</h3><p>用业务语言写清要求；保存后仍只是草稿。</p></div>
+            <div class="form-grid two-columns">
+              <label class="field field-span-2"><span>这条规则叫什么</span><input id="r-title" placeholder="例如：设备采购应保留 10% 尾款" required></label>
+              <label class="field field-span-2"><span>适用于哪类合同</span><select id="r-type-friendly" required><option value="">正在读取可用合同类型……</option></select></label>
+              <label class="field"><span>我方在合同中的身份</span><select id="r-role-friendly"><option value="buyer">买方／采购方</option><option value="supplier">卖方／供应方</option><option value="transferor">转让方</option><option value="transferee">受让方</option><option value="employer">用人单位</option><option value="employee">劳动者</option></select></label>
+              <label class="field"><span>合同所处阶段</span><select id="r-stage-friendly"><option value="signing">签署前审查</option><option value="closing">履行或交割阶段</option><option value="termination">解除或终止阶段</option></select></label>
+              <label class="field"><span>规则用途</span><select id="r-kind"><option value="requirement">明确要求</option><option value="preference">优先做法</option><option value="fallback">备用处理</option><option value="escalation">交由律师判断</option><option value="output_style">文书表达偏好</option></select></label>
+              <label class="field"><span>执行力度</span><select id="r-normative"><option value="mandatory">必须遵守</option><option value="preferred">优先遵守</option><option value="advisory">参考建议</option></select></label>
+              <label class="field"><span>希望系统怎么处理</span><select id="r-action"><option value="require">列为审查要求</option><option value="prefer">优先采用</option><option value="forbid">明确禁止</option><option value="escalate">提示律师处理</option><option value="set_output">写入审查结果</option></select></label>
+              <label class="field"><span>规则作用于</span><select id="r-target"><option value="output.reservation_ratio">尾款保留比例</option><option value="output.draft_finalization">是否允许自动定稿</option></select></label>
+              <label class="field field-span-2"><span>具体数值或内容</span><input id="r-value" value="10" placeholder="例如：10；或者允许／不允许"><small id="r-value-help">比例直接填数字；“是否允许”类规则填写“允许”或“不允许”。</small></label>
+            </div>
+            <details class="advanced-settings" id="rule-advanced">
+              <summary>高级适用范围与技术信息</summary>
+              <p class="hint">通常无需修改。仅在需要限定特定业务情形、条款类别或查错时展开。</p>
+              <div class="form-grid two-columns">
+                <label class="field"><span>规则编号（留空自动生成）</span><input id="r-id" placeholder="系统将自动生成"></label>
+                <label class="field"><span>版本号</span><input id="r-version" value="1.0.0"></label>
+                <label class="field"><span>适用业务大类</span><input id="r-domains" value="EC-02"></label>
+                <label class="field"><span>适用合同类型</span><input id="r-types" value="type-equipment-material-procurement"></label>
+                <label class="field"><span>适用角色</span><input id="r-roles" value="buyer"></label>
+                <label class="field"><span>适用业务情形</span><input id="r-scenes" value="equipment_purchase"></label>
+                <label class="field"><span>适用合同阶段</span><input id="r-stages" value="signing"></label>
+                <label class="field"><span>条款类别</span><input id="r-groups" value="payment"></label>
+                <label class="field"><span>多个条件如何计算</span><select id="r-cond-mode"><option value="all">全部满足</option><option value="any">任一满足</option></select></label>
+                <label class="field"><span>规则依据编号</span><input id="r-sources" value="src-prc-civil-code-2020"></label>
+              </div>
+            </details>
+            <div class="form-actions"><button type="submit" class="primary">保存为草稿</button><span class="safe-note">保存不会让规则立即生效</span></div>
+          </form>
+          <p id="rule-status" role="status" class="inline-message"></p>
+        </section>
+
+        <section class="panel release-panel">
+          <div class="panel-heading"><span class="step-number">3</span><div><h3>审核并启用</h3><p id="lc-selected">请先从上方选择一条规则。</p></div></div>
+          <ol class="progress-steps" aria-label="规则启用步骤"><li id="step-draft">保存草稿</li><li id="step-submit">送交复核</li><li id="step-approve">律师确认</li><li id="step-regression">测试通过</li><li id="step-publish">正式启用</li></ol>
+          <label class="field evidence-field"><span>确认记录编号（留空自动生成）</span><input id="lc-evidence" placeholder="系统将自动生成"></label>
+          <label class="field field-check confirmation-check"><input type="checkbox" id="lc-confirm"><span>执行启用、恢复或删除前，我已核对本次操作</span></label>
+          <div class="button-row primary-flow"><button type="button" id="lc-submit" class="secondary">送交复核</button><button type="button" id="lc-approve" class="secondary">确认律师审核</button><button type="button" id="lc-regression" class="secondary">确认测试通过</button><button type="button" id="lc-publish" class="primary">启用规则</button></div>
+          <details class="advanced-settings">
+            <summary>恢复、停用与删除</summary>
+            <div class="button-row"><button type="button" id="lc-baseline" class="quiet">保存当前版本作为恢复点</button><button type="button" id="lc-rollback" class="quiet">恢复到上一版本</button><button type="button" id="lc-deprecate" class="quiet">停用这条规则</button><button type="button" id="lc-delete" class="danger-button">删除未启用草稿</button></div>
+          </details>
+          <p id="lc-status" role="status" class="inline-message"></p>
+        </section>
+
+        <div class="history-grid"><section class="panel"><h3>已启用版本</h3><ul id="snapshot-list" class="list"></ul></section><section class="panel"><h3>操作记录</h3><ul id="audit-list" class="list"></ul></section></div>
+        <details class="legal-note" id="operator-identity-note"><summary>关于本机审核记录的说明</summary><p>界面中的“已记录律师批准”仅表示本机操作者自述，未认证，不构成身份认证、电子签名或不可抵赖证明。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-proposals" class="view" aria-labelledby="proposals-heading" hidden>
+    <div class="page-heading"><div><p class="section-kicker">公共知识治理</p><h2 id="proposals-heading">公共规则建议</h2><p>在这里提出公共规则的修改建议。建议与正式规则隔离，不会直接参与合同审查。</p></div><span class="read-only-badge warm">建议不自动生效</span></div>
+    <div class="proposal-layout">
+      <section class="panel"><div class="panel-heading"><span class="step-number">1</span><div><h3>填写修改建议</h3><p>请用普通业务语言说明要改什么、为什么改。</p></div></div><form id="proposal-form" class="form-grid"><label class="field"><span>建议类型</span><select id="pp-op"><option value="supersede">修改现有规则</option><option value="create">新增规则</option><option value="deprecate">建议停用现有规则</option></select></label><label class="field"><span>建议标题</span><input id="pp-title" placeholder="一句话概括修改内容" required></label><label class="field"><span>修改理由</span><textarea id="pp-rationale" rows="4" placeholder="说明遇到的问题、建议口径和适用情形" required></textarea></label><details class="advanced-settings"><summary>关联规则与依据</summary><label class="field"><span>现有规则编号（新增规则时留空）</span><input id="pp-target" value="mod-goods-specification"></label><label class="field"><span>依据编号</span><input id="pp-sources" value="src-prc-civil-code-2020"></label></details><button type="submit" class="primary">保存修改建议</button></form><p id="proposal-status" role="status" class="inline-message"></p></section>
+      <section class="panel"><div class="panel-heading"><span class="step-number">2</span><div><h3>建议列表</h3><p>选择一项查看影响范围。</p></div></div><ul id="proposal-list" class="list"></ul></section>
+      <section class="panel"><div class="panel-heading"><span class="step-number">3</span><div><h3>影响说明</h3><p id="proposal-detail-hint">请先选择一项建议。</p></div></div><ul id="proposal-diff" class="list"></ul><ul id="proposal-audit" class="list"></ul></section>
+    </div>
+  </section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

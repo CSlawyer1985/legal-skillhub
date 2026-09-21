@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" style="width:100%;max-width:800px;height:auto;margin:20px 0;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);border-radius:12px;">
+  <defs>
+    <linearGradient id="oldRole" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#adb5bd"/>
+      <stop offset="100%" style="stop-color:#868e96"/>
+    </linearGradient>
+    <linearGradient id="newRole" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd43b"/>
+      <stop offset="100%" style="stop-color:#fab005"/>
+    </linearGradient>
+  </defs>
+  <!-- Old Role -->
+  <g transform="translate(200, 200)">
+    <circle cx="0" cy="0" r="70" fill="url(#oldRole)" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.5;0.8" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="-10" text-anchor="middle" font-size="40">📝</text>
+    <text x="0" y="25" text-anchor="middle" font-size="14" fill="#fff" font-weight="bold">执行者</text>
+    <text x="0" y="100" text-anchor="middle" font-size="13" fill="#868e96">重复性工作</text>
+    <text x="0" y="120" text-anchor="middle" font-size="13" fill="#868e96">事务性任务</text>
+  </g>
+  <!-- Arrow -->
+  <g transform="translate(400, 200)">
+    <path d="M -50 0 L 50 0" stroke="#339af0" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" from="0,100" to="100,0" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <polygon points="45,-10 65,0 45,10" fill="#339af0">
+      <animateTransform attributeName="transform" type="translate" values="-5,0;5,0;-5,0" dur="1s" repeatCount="indefinite"/>
+    </polygon>
+    <text x="0" y="-20" text-anchor="middle" font-size="12" fill="#339af0" font-weight="bold">→ 转型 →</text>
+  </g>
+  <!-- New Role -->
+  <g transform="translate(600, 200)">
+    <circle cx="0" cy="0" r="80" fill="url(#newRole)">
+      <animate attributeName="r" values="80;85;80" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="0" y="-15" text-anchor="middle" font-size="44">👑</text>
+    <text x="0" y="25" text-anchor="middle" font-size="15" fill="#fff" font-weight="bold">编排者</text>
+    <text x="0" y="100" text-anchor="middle" font-size="13" fill="#e67700">策略制定</text>
+    <text x="0" y="120" text-anchor="middle" font-size="13" fill="#e67700">AI 管理</text>
+    <text x="0" y="140" text-anchor="middle" font-size="13" fill="#e67700">Skill 创造</text>
+  </g>
+  <!-- Skills orbiting new role -->
+  <g>
+    <circle cx="520" cy="120" r="18" fill="#69db7c">
+      <animate attributeName="cy" values="120;115;120" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="520" y="125" text-anchor="middle" font-size="12">⚖️</text>
+  </g>
+  <g>
+    <circle cx="680" cy="120" r="18" fill="#74c0fc">
+      <animate attributeName="cy" values="120;115;120" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="680" y="125" text-anchor="middle" font-size="12">🤖</text>
+  </g>
+  <g>
+    <circle cx="680" cy="280" r="18" fill="#ff8787">
+      <animate attributeName="cy" values="280;275;280" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <text x="680" y="285" text-anchor="middle" font-size="12">💡</text>
+  </g>
+  <g>
+    <circle cx="520" cy="280" r="18" fill="#fab005">
+      <animate attributeName="cy" values="280;275;280" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="520" y="285" text-anchor="middle" font-size="12">🎯</text>
+  </g>
+  <!-- Bottom label -->
+  <rect x="250" y="360" width="300" height="40" rx="20" fill="#e7f5ff" stroke="#339af0" stroke-width="2"/>
+  <text x="400" y="386" text-anchor="middle" font-size="14" fill="#1971c2" font-weight="bold">✨ 法律大系统编排者</text>
+</svg>

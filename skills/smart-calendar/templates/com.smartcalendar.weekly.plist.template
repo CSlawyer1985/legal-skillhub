@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  smart-calendar 每周周报 loop —— launchd 模板
+  作用：每周五 17:00 先 sync，再生成周报 .md 到 weekly_report.output_dir。
+        生成成功弹 Glass 通知报路径；失败弹 Basso 通知 + 写 loop-state.json 的 last_error。
+
+  前置：必须先用 set-config 设好 weekly_report.output_dir，否则 gate 失败。
+
+  安装前替换两处 {{...}} 占位符（同 daily 模板）：
+    {{PYTHON3}} / {{SKILL_PATH}}
+
+  安装：
+    cp com.smartcalendar.weekly.plist.template ~/Library/LaunchAgents/com.smartcalendar.weekly.plist
+    # 编辑替换占位符后：
+    launchctl load -w ~/Library/LaunchAgents/com.smartcalendar.weekly.plist
+  停用：
+    launchctl unload -w ~/Library/LaunchAgents/com.smartcalendar.weekly.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.smartcalendar.weekly</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>{{PYTHON3}}</string>
+        <string>{{SKILL_PATH}}</string>
+        <string>loop-tick</string>
+        <string>--mode</string>
+        <string>weekly</string>
+    </array>
+
+    <!-- 每周五（Weekday=5）17:00 触发 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>5</integer>
+        <key>Hour</key>
+        <integer>17</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/smartcalendar-weekly.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/smartcalendar-weekly.err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
