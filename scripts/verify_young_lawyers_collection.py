@@ -291,7 +291,7 @@ EXISTING_SHOWCASE = (
     "mqc-chronicle-master",
     "mqc-trial-confrontation-master",
     "case-analysis-wang-request-rights",
-    "case-retrieval-report-chinese-mainland-court-case-plus",
+    "case-retrieval-report-fast",
     "ad-compliance-consumer-rights-review-plus",
 )
 

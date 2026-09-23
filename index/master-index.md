@@ -268,7 +268,7 @@
 | 260 | `case-retrieval` | 案例检索 Skill — 面向法律从业者及普通用户的裁判文书智能检索工具。当用户需要检索裁判案例、查找类案裁判规则、按案… | china | general | legal-research | zh-CN | undeclared |
 | 261 | `case-retrieval-analysis-master` | 案例检索与类案分析大师：帮助法律工作者掌握案例检索方法、制作类案检索报告 核心能力： 1. 类案识别与判断标准 2. 检… | china | general | legal-research | zh-CN | undeclared |
 | 262 | `case-retrieval-report` | 类案检索报告生成 Skill — 面向律师、法官助理及法务人员的类案检索全流程自动化工具。基于待决案件信息，通过调用得理… | china | general | legal-research | zh-CN | undeclared |
-| 263 | `case-retrieval-report-chinese-mainland-court-case-plus` | v3.8.0 — 检索提速优化（不影响检索质量）： ① 默认四省市检索改为单轮全国检索 + 本地按地域归类（原"分4次串… | china | litigation | doc-reading | zh-CN | undeclared |
+| 263 | `case-retrieval-report-fast` | 中国大陆地区法院类案快速检索与《案件检索报告》（DOCX）生成技能。以案件五项要点（案由/法律关系、争议焦点、关键事实、… | china | litigation | legal-research | zh-CN | undeclared |
 | 264 | `case-summary` | Produces an attorney-ready memo from a corpus of legal docum… | general | litigation | legal-analysis | en | apache-2.0 |
 | 265 | `case-summary-report` | Synthesizes multiple case summaries into one unified Case Su… | general | general | doc-reading | en | apache-2.0 |
 | 266 | `case-viability-report` | Produces internal case viability and conflict check memos fo… | general | general | legal-analysis | en | apache-2.0 |

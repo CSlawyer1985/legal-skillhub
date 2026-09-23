@@ -63,8 +63,8 @@
 - legal-analysis: 788
 - contract-work: 768
 - litigation: 220
-- doc-reading: 173
-- legal-research: 169
+- doc-reading: 172
+- legal-research: 170
 - compliance: 115
 - calculation: 18
 - legal-writing: 17
@@ -95,11 +95,11 @@
 
 ## 技能类型分布
 
-- instruction: 1573
+- instruction: 1572
 - code-package: 217
 - hybrid: 195
 - knowledge-pack: 191
-- tool-wrapper: 113
+- tool-wrapper: 114
 - prompt-template: 14
 
 ## 置信度（法域）

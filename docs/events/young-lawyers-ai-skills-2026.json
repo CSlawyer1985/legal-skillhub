@@ -194,7 +194,7 @@
         "mqc-chronicle-master",
         "mqc-trial-confrontation-master",
         "case-analysis-wang-request-rights",
-        "case-retrieval-report-chinese-mainland-court-case-plus",
+        "case-retrieval-report-fast",
         "ad-compliance-consumer-rights-review-plus"
       ]
     },
@@ -301,7 +301,7 @@
     "mqc-chronicle-master": "mqc-chronicle-master",
     "mqc-trial-confrontation-master": "mqc-trial-confrontation-master",
     "case-analysis-wang-request-rights": "case-analysis-wang-request-rights",
-    "case-retrieval-report-chinese-mainland-court-case-plus": "案例检索报告（中国大陆地区法院案例检索）Plus",
+    "case-retrieval-report-fast": "（快速版）案例检索报告Plus",
     "ad-compliance-consumer-rights-review-plus": "广告合规+消费者权益保护AI审查Plus",
     "ad-compliance-ai-review-plus": "广告合规（精简版AI审查）Plus",
     "add-slide-to-deck": "PPT 加页助手",
@@ -398,7 +398,7 @@
     "mqc-chronicle-master": "缪奇川",
     "mqc-trial-confrontation-master": "缪奇川",
     "case-analysis-wang-request-rights": "龚家勇",
-    "case-retrieval-report-chinese-mainland-court-case-plus": "浙江金道律师事务所龚家勇律师",
+    "case-retrieval-report-fast": "浙江金道律师事务所龚家勇律师",
     "ad-compliance-consumer-rights-review-plus": "浙江金道律师事务所 龚家勇律师、冯浩伟（实习生）",
     "ad-compliance-ai-review-plus": "浙江金道律师事务所龚家勇律师",
     "add-slide-to-deck": "陆凌燕",

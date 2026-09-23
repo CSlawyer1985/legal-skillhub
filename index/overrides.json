@@ -1288,50 +1288,6 @@
    "human_review_required": true
   }
  },
- "case-retrieval-report-chinese-mainland-court-case-plus": {
-  "classification": {
-   "jurisdictions": [
-    "china"
-   ],
-   "multi_jurisdictional": false
-  },
-  "confidence": {
-   "jurisdiction": "high"
-  },
-  "verification": {
-   "status": "metadata-reviewed"
-  },
-  "logic_summary": "基于华宇元典 MCP 的中国大陆案例检索报告工具：先以 AskUserQuestion 多选收集地域、时间段、关键词/争议焦点（及代理限定）四维参数，默认单轮全国语义检索+本地地域归类提速，渲染 widget 供用户决策勾选案例，权威案例并行预取完整详情，最终生成含检索情况、选定案例清单与逐案分析的《案例检索报告》，并可经托管 Node 脚本转 docx 存桌面。代理限定模式有实测局限警示（文书匿名化导致召回不稳），检索不到时如实报告不编造。",
-  "use_cases": {
-   "suitable": [
-    "按省市法院检索 2021 年后案例并生成检索报告",
-    "用户交互勾选案例的可视化检索流程",
-    "特定律师/律所代理案件的限定检索（含局限提示）"
-   ],
-   "unsuitable": [
-    "元典 MCP 未连接的环境"
-   ]
-  },
-  "capabilities": {
-   "inputs": [
-    "nl-question",
-    "litigation-doc"
-   ],
-   "outputs": [
-    "research-report",
-    "case-summary"
-   ],
-   "automation_level": "L3"
-  },
-  "dependencies": [
-   "需要 MCP server（华宇元典法律数据）",
-   "Node.js（DOCX 转换脚本）"
-  ],
-  "risk": {
-   "level": "medium",
-   "human_review_required": true
-  }
- },
  "chinese-compliance-checker": {
   "classification": {
    "jurisdictions": [
@@ -12207,6 +12163,52 @@
   "dependencies": [
    "python3 运行时",
    "需要 API key（得理法律开放平台）",
+   "需要联网检索"
+  ],
+  "risk": {
+   "level": "medium",
+   "human_review_required": true
+  }
+ },
+ "case-retrieval-report-fast": {
+  "classification": {
+   "jurisdictions": [
+    "china"
+   ],
+   "multi_jurisdictional": false
+  },
+  "confidence": {
+   "jurisdiction": "high"
+  },
+  "verification": {
+   "status": "metadata-reviewed"
+  },
+  "logic_summary": "基于华宇元典法律数据 MCP 的快速类案检索与 DOCX 报告工具：先做余额预检，按「案由/法律关系、争议焦点、关键事实、诉请与诉讼地位、请求权基础法条」五项要点经一次四问确认即开工；以语义向量检索为主召回、精确结构检索为条件兜底（检索类调用预算：召回 2 次＋详情 ≤10 次，报告阶段检索冻结）；本地脚本按请求权基础、法律关系、案件事实三要素加权评分（用户指定结果时计入结果相似度，满分 10 分，未指定 8 分），r1 判定须核对法条版本与时间效力，按得分率＞法院层级＞审判程序＞裁判日期排序并检测同院同日同标题重复入库；截取匹配最高的 5–10 例逐案调详情核验案号、摘录判词原文，由 build_docx.py 直出含页脚页码的《案件检索报告》DOCX（默认保存至桌面）。未指定结果时结果相反者亦入报并逐例标注方向；报告内以两处固定声明披露「未设不利先例定向检索路径」的局限。",
+  "use_cases": {
+   "suitable": [
+    "快速检索 5–10 个高匹配类案并直接产出 DOCX《案件检索报告》",
+    "时间紧、需正向先例支撑的诉讼准备",
+    "按请求权基础/法律关系/案件事实三要素筛选类案"
+   ],
+   "unsuitable": [
+    "需要四象限归位、反向案例定向检索、多轮补充召回或 14 分制精判的复杂检索（应使用完整版技能）",
+    "元典 MCP 未连接或账户余额为 0 的环境"
+   ]
+  },
+  "capabilities": {
+   "inputs": [
+    "nl-question",
+    "litigation-doc"
+   ],
+   "outputs": [
+    "research-report",
+    "case-summary"
+   ],
+   "automation_level": "L3"
+  },
+  "dependencies": [
+   "需要 MCP server（华宇元典法律数据）",
+   "Python3 + python-docx（DOCX 生成脚本）",
    "需要联网检索"
   ],
   "risk": {

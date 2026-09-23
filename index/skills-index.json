@@ -28551,16 +28551,15 @@
  },
  {
   "schema_version": "0.1",
-  "id": "case-retrieval-report-chinese-mainland-court-case-plus",
-  "folder": "case-retrieval-report-chinese-mainland-court-case-plus",
-  "name": "案例检索报告（中国大陆地区法院案例检索）Plus",
-  "summary": "v3.8.0 — 检索提速优化（不影响检索质量）： ① 默认四省市检索改为单轮全国检索 + 本地按地域归类（原\"分4次串行检索\"请求量降为 1/4，语义检索仍返回关联度最高的案例，质量不变）；用户明确要求分省精确过滤时仍走 xzqh_p 精确模式。 ② rewrite_flag 智能设置：用户已提供明确案由 + 核心争议焦点（结构化关键词）时，设 rewrite_flag: false 跳过查询改",
+  "id": "case-retrieval-report-fast",
+  "folder": "case-retrieval-report-fast",
+  "name": "(快速版)案例检索报告Plus",
+  "summary": "中国大陆地区法院类案快速检索与《案件检索报告》（DOCX）生成技能。以案件五项要点（案由/法律关系、争议焦点、关键事实、我方诉请与诉讼地位、请求权基础法条）为检索锚点，经一次四问确认即开工（其中**检索地域范围**与**裁判时间范围**为强制选择题，默认范围为「2021年1月1日以后裁判的浙江省范围内的法院案例」，用户点选默认后须回显该范围提示）；按**请求权基础、法律关系、案件事实三要素**判定",
   "classification": {
    "tasks": {
-    "primary": "doc-reading",
+    "primary": "legal-research",
     "secondary": [
-     "litigation",
-     "legal-research"
+     "litigation"
     ]
    },
    "areas_of_law": {
@@ -28576,8 +28575,7 @@
     "judiciary"
    ],
    "industries": [
-    "professional-services",
-    "ai"
+    "professional-services"
    ]
   },
   "capabilities": {
@@ -28591,15 +28589,15 @@
    ],
    "automation_level": "L3",
    "method_types": [
-    "rule-based"
+    "tool-calling"
    ]
   },
-  "skill_type": "instruction",
-  "complexity": "S",
-  "structure_score": 1,
-  "files_count": 1,
+  "skill_type": "tool-wrapper",
+  "complexity": "M",
+  "structure_score": 3,
+  "files_count": 4,
   "has": {
-   "scripts": false,
+   "scripts": true,
    "references": false,
    "assets": false,
    "license": false
@@ -28611,8 +28609,9 @@
    "dependencies": []
   },
   "data_security": {
-   "processing": "local",
+   "processing": "local-external-model",
    "permissions": [
+    "api-call",
     "file-read"
    ]
   },
@@ -28622,10 +28621,10 @@
   },
   "language": "zh-CN",
   "provenance": {
-   "author": "浙江金道律师事务所龚家勇律师（微信号13967182079）",
-   "version": "3.11.0",
+   "author": "Skill作者：浙江金道律师事务所 龚家勇律师（微信：13967182079）",
+   "version": "1.4.1",
    "collected_at": "2026-08-04",
-   "content_hash": "a9794511c247a914"
+   "content_hash": "30503b89a3b45bbc"
   },
   "license": {
    "spdx_id": "undeclared",
@@ -28637,7 +28636,10 @@
   "tags_src": [
    "法律检索",
    "案例检索",
+   "类案匹配",
+   "快速版",
    "华宇元典",
+   "DOCX",
    "litigation",
    "中国法"
   ],
@@ -28645,20 +28647,22 @@
    "freshness": true,
    "curated": false
   },
-  "logic_summary": "基于华宇元典 MCP 的中国大陆案例检索报告工具：先以 AskUserQuestion 多选收集地域、时间段、关键词/争议焦点（及代理限定）四维参数，默认单轮全国语义检索+本地地域归类提速，渲染 widget 供用户决策勾选案例，权威案例并行预取完整详情，最终生成含检索情况、选定案例清单与逐案分析的《案例检索报告》，并可经托管 Node 脚本转 docx 存桌面。代理限定模式有实测局限警示（文书匿名化导致召回不稳），检索不到时如实报告不编造。",
+  "logic_summary": "基于华宇元典法律数据 MCP 的快速类案检索与 DOCX 报告工具：先做余额预检，按「案由/法律关系、争议焦点、关键事实、诉请与诉讼地位、请求权基础法条」五项要点经一次四问确认即开工；以语义向量检索为主召回、精确结构检索为条件兜底（检索类调用预算：召回 2 次＋详情 ≤10 次，报告阶段检索冻结）；本地脚本按请求权基础、法律关系、案件事实三要素加权评分（用户指定结果时计入结果相似度，满分 10 分，未指定 8 分），r1 判定须核对法条版本与时间效力，按得分率＞法院层级＞审判程序＞裁判日期排序并检测同院同日同标题重复入库；截取匹配最高的 5–10 例逐案调详情核验案号、摘录判词原文，由 build_docx.py 直出含页脚页码的《案件检索报告》DOCX（默认保存至桌面）。未指定结果时结果相反者亦入报并逐例标注方向；报告内以两处固定声明披露「未设不利先例定向检索路径」的局限。",
   "use_cases": {
    "suitable": [
-    "按省市法院检索 2021 年后案例并生成检索报告",
-    "用户交互勾选案例的可视化检索流程",
-    "特定律师/律所代理案件的限定检索（含局限提示）"
+    "快速检索 5–10 个高匹配类案并直接产出 DOCX《案件检索报告》",
+    "时间紧、需正向先例支撑的诉讼准备",
+    "按请求权基础/法律关系/案件事实三要素筛选类案"
    ],
    "unsuitable": [
-    "元典 MCP 未连接的环境"
+    "需要四象限归位、反向案例定向检索、多轮补充召回或 14 分制精判的复杂检索（应使用完整版技能）",
+    "元典 MCP 未连接或账户余额为 0 的环境"
    ]
   },
   "dependencies": [
    "需要 MCP server（华宇元典法律数据）",
-   "Node.js（DOCX 转换脚本）"
+   "Python3 + python-docx（DOCX 生成脚本）",
+   "需要联网检索"
   ],
   "relations": {
    "alternatives": [],
